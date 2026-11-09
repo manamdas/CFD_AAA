@@ -1,0 +1,1606 @@
+*******************************************************************************
+
+Bug ID   : CSCwc17000         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : Cisco NXOS SSH X.509v3 Cert Auth w/Unsupported Remote Authorization Priv Escalation Issues
+PrimaryPV : 
+Version :7.0(3)I7(8) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : N                 
+Software :                    Hardware : Nexus 9000         
+Submitter: jkranzma           Submitted: 06/15/2022 13:39:25     Last Updtd : 07/31/2026 16:33:20  
+RNE-Type: NONE                New-on : 06/15/2022 13:39:25      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:ctripoli                                            
+Known-affected-releases:7.0(3)I7(8) 
+
+Known-fixed-releases:10.2(4) 10.3(1) 10.3(2) 9.3(10) 9.3(11) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 06/23/2022 06:25:39                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 2                                              
+Mean-time-to-resolved: 155                                            
+Mean-time-to-verified: 172    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 06/15/2022 08:18:02            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: Y                                                              
+PSIRT-status: disclosed                                               
+SIR: Low                                                              
+Hardening: Y                                                          
+PSIRT-attribute: SN Update:15                                         
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: None                                      
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 06/17/2022 22:57:01 
+Code-reviewer: vasagraw       
+Opened-on: 06/23/2022 06:25:39Opener: anok                  
+Engineer : anok               DE-manager  : anikunna        Est Time/Attribute : ed_ic_dc_rs cfd-manojohn n-mukamath nr1
+Est. completion date: 06/27/2022 00:00:00  
+Script-version:                         
+
+More-by : asmurali            More-on: 11/16/2022 21:56:38  
+
+Documents Changed: none       Resolved: 11/18/2022 09:46:50 Resolver: asmurali       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 12/05/2022 09:18:03      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX Amer.Proactive.USPS.Del.HTTS-USA
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Requirements
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Development
+Test-EDP-activity :               Code Analysis
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   3
+Tickets-count-direct :            3
+Trouble-tickets :              692538419;700668747;PSIRT-0425003660
+Trouble-tickets-direct :PSIRTPSIRT-0425003660 
+Trouble-tickets-direct :C3692538419 
+Trouble-tickets-direct :C3700668747 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoReleased-Defect Auto released - PSIRT Evaluation present in RNE of Bug
+Security-screening-timestamp :                 07/31/2026 23:33:20
+Document :    nexus
+
+Summary:
+On Nexus 7000/9000 while utilizing SSH x509v3 certificate on PIV card and authorizing to ISE, I'm able to remotely authenticate to any user I would like, rather than the user DN programmed on the certificate.  Note that as long as SSH x509v3 authentication works, it doesn't matter what version. I have seen this behavior in 7.x, 8.x, 9.x code.
+
+At this time, SSH x509v3 and TACACS Remote Authorization are not supported. Reference defect CSCwa73891 as the enhancement requesting this support.
+
+Typically, this authorization would be prohibited with a certificate-map and the command "crypto cert ssh-authorize <trustpoint> map <mapname>"; however, this feature does not appear to work.  As TACACS remote authentication is not supported at this time, I have not filed a defect.  Same issue does appear with LDAP for ssh-authorize, so will file a defect ther.
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         692538419       TREASURY IRS                             
+C3         700668747       TREASURY IRS                             
+PSIRT      PSIRT-042500366 TREASURY IRS                             
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-443981                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 anok          06/23/2022 06:25:39    CSCwc24122      CSC.tea         R            
+
+
+********************* Listing of Notes (23 of 23 ) ***********************
+
+---Start of Note Titled: Email-in (Created 04/08/2023 00:00:22 Added 04/08/2023 00:00:22 by jakhter)---
+From: "Javed Akhter -T (jakhter - ARICENT TECHNOLOGIES HOLDINGS LIMITED at Cisco)" <jakhter@cisco.com>
+Date: Saturday, April 8, 2023 at 2:49 AM 
+To: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>
+Cc: 
+Subject: CSCwc17000 | CSCwd31232 | Cisco NXOS SSH X.509v3 Cert Auth w/Unsupported Remote Authorization Priv Escalation Issues
+
+As per DE chat,
+ 
+
+You 06-04-2023 12:06 ? Hi Anoop
+
+sorry to disturb you
+
+Good day..!!
+
+You 06-04-2023 12:07 ?
+
+
+I need your help on
+https://cdetsng.cisco.com/summary/#/defect/CSCwd31232 | Cisco NXOS SSH X.509v3 Cert Auth w/Unsupported Remote Authorization Priv Escalation Issues
+https://cdetsng.cisco.com/summary/#/defect/CSCwc17000 | Cisco NXOS SSH X.509v3 Cert Auth w/Unsupported Remote Authorization Priv Escalation Issues
+
+You 06-04-2023 12:07 ?
+
+
+As per V-comments
+
+
+Created By:palshanm
+Created On:12/21/2022 01:20:45 
+Updated By:palshanmUpdated On:12/21/2022 01:20:45
+
+1. S/W Version : 9.3(10.53) 2. Platform : PI 3. Automation Suite: No 4. Steps to reproduce and Verify: 1. Test Logs attached 2. cert-dn check has implemented in the code irrespective of "enable Cert-DN-match" in ldap configs. Separate bug exists (CSCwd34477)
+ to implement config based cert-dn match check which is not yet committed to N9k IMR10 release.
+
+You 06-04-2023 12:09 ?
+
+
+Does this have an impact on
+9.3(6) ?
+
+You deleted your message. Thursday, 12:11
+
+You 06-04-2023 12:28 ? If LDAP not present in cu conf, they should be safe, correct?
+
+Anoop K 06-04-2023 13:35 ? if LDAP is not present in cu config,
+https://cdetsng.cisco.com/summary/#/defect/CSCwd31232 impact will not be there
+
+Anoop K 06-04-2023 13:36 ? if "aaa authorization ssh-certificate default group <tacacs_group>" configuration is not there, there will be no impact of
+CSCwc17000 
+
+
+You 06-04-2023 14:44 ? Gotcha, Thank You so much
+
+
+
+############################ MESSAGE IDS ############################
+# <MW4PR11MB58007B2F5598025BC0383703AB979@MW4PR11MB5800.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments.p4 (Created 12/05/2022 09:18:03 Added 12/05/2022 09:18:03 by palshanm)---
+1. S/W Version :  9.3(10.43)
+2. Platform : PI
+3. Automation Suite: yes
+4. Steps to reproduce and Verify: Attached
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F22-12%2FCFD_CSCwc17000_job.2022Dec05_22:43:19.097626.zip&atstype=ATS
+---End of Note Titled: V-comments.p4---
+
+
+---Start of Note Titled: R-comments.p2 (Created 11/18/2022 09:46:50 Added 11/18/2022 09:46:50 by asmurali)---
+Committed to niles and kerry
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: Unit-test.p3-irvine (Created 11/18/2022 01:03:33 Added 11/18/2022 01:03:33 by asmurali)---
+switch(config)# aaa authorization ssh-certificate default group rad1
+Command failed to apply
+switch(config)# aaa authorization ssh-certificate default group ldap1
+switch(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jul  6 11:41:14 2022
+!Time: Wed Jul  6 11:41:18 2022
+
+version 10.3(1) Bios:version 08.39 
+aaa authorization ssh-certificate default group ldap1
+---End of Note Titled: Unit-test.p3-irvine---
+
+
+---Start of Note Titled: Sanity-uls-irvine (Created 11/18/2022 01:01:29 Added 11/18/2022 01:01:29 by asmurali)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity603
+Testbed  name       : n9kv603-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/asmurali/353037/n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/asmurali/353037
+Report file         : /auto/nxos-sanity/logs/asmurali/353037/l2_uls-n9kv603.report
+logfile             : /auto/nxos-sanity/logs/asmurali/353037/l2_uls-n9kv603.log
+Test start time     : 2022_11_17_22_02_10
+Test End time       : 2022_11_18_00_54_34
+Test Duration       : 2:52:24.011089
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '353037', '-cdet', 'CSCwc17000', '-build', '/ws/asmurali-sjc/nxos.1irvinedoublecodenetbuild.bin', '-testsuite', '/auto/nxos-sanity/logs/asmurali/353037/n9kv_l2_uls.yml', '-testbed', 'n9kv603-testbed.yml', '-asic', 'n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'asmurali', '-logfile', '/auto/nxos-sanity/logs/asmurali/353037/l2_uls-n9kv603.log', '-reportfile', '/auto/nxos-sanity/logs/asmurali/353037/l2_uls-n9kv603.report', '-jobid', 'N9KV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:N9KV Passed:33/33  Failed:0/33  Aborted:0/33  Never-Run:0/33
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:04:04   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:09   
+testConfigMgmtPort                                                        pass      0:00:22   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:07   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:19   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:19   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:19   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:26   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:42   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:31   
+testL2SanityMacLearning                                                   pass      0:05:13   
+testL2SanityPortFlap                                                      pass      0:04:39   
+testL2SanityClearMac                                                      pass      0:03:12   
+testL2SanityMacAging                                                      pass      0:09:15   
+testL2SanityMacMove                                                       pass      0:03:08   
+testL2SanityPortModeChange                                                pass      0:03:51   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:05   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:16   
+testL2SanityAllowedVlanAdd                                                pass      0:03:43   
+testL2SanityAllowedVlanRemove                                             pass      0:03:07   
+testL2SanityUnconfig                                                      pass      0:00:36   
+testVpcConfig                                                             pass      0:05:55   
+testVpcPeerLink                                                           pass      0:00:51   
+testVpcPeerKeepAlive                                                      pass      0:00:28   
+testVpcPortChannels                                                       pass      0:01:32   
+testVpcStpStates                                                          pass      0:00:29   
+testVpcConsistencies                                                      pass      0:03:23   
+testVpcUnknownUnicastFlooding                                             pass      0:08:39   
+testVpcUnconfig                                                           pass      0:04:48   
+testGoldDiagnostic                                                        pass      0:00:07   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: Sanity-uls-irvine---
+
+
+---Start of Note Titled: Static-analysis-irvine (Created 11/18/2022 00:50:45 Added 11/18/2022 00:50:45 by asmurali)---
+t -Wno-error=implicit-function-declaration -DINS_EOR -rdynamic -fPIE -c -MD -MT ins/x86e/final/aaad/supe/aaa.o -MF '"ins/x86e/final/aaad/supe/aaa.d"'  -o ins/x86e/final/aaad/supe/aaa.o ../feature/security/aaa//aaa.c 
+static_nxos is using 0 cc_cmd and 1 gmake 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-asmurali.log  -branch nxos/irvine  -command-file-list /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/pctmp/safiles/command_file_list.asmurali.46523  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-asmurali.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+SESTOOLS-001-008I>/ws/wit2-sjck/users/asmurali/space_asmurali_nn/feature/security/aaa/aaa.c
+INFO - stream_name-> irvine-asmurali
+WARN - security tag -> https
+INFO - Created stream irvine-asmurali
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 2
+Total parent warnings: 2
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8447/query/defects.htm?stream=irvine-asmurali&cid=317998&cid=126445&cid=350474&cid=67305
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/asmurali/irvine-asmurali_20221118_085005/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+Stripping top_level_sa log 
+Please check /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/pctmp/top_level_sa.log.big new file /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/pctmp/top_level_sa.log
+SA PASSED2:
+  feature/security/aaa/aaa.c
+SESLOG = /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/ses_static_analysis.log
+dirname = /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build
+sa_passed_home = /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/pctmp/pass
+parent warnings can be seen at:
+	https://nxops-sa-5.cisco.com:8447/query/defects.htm?stream=irvine-asmurali&cid=350474&cid=67305 
+
+noise warnings can be seen at:
+	https://nxops-sa-5.cisco.com:8447/query/defects.htm?stream=irvine-asmurali&cid=317998&cid=126445 
+
+[static_dcos--main::debug_print]See /ws/wit2-sjck/users/asmurali/space_asmurali_nn/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/11182022/acme-precommit-asmurali-sjc-ads-1313-00-46-56-44916.log 
+ 
+  No SA issues were found
+Exiting sa for precommit.
+
+Disaling precommit check. No longer active scope
+---End of Note Titled: Static-analysis-irvine---
+
+
+---Start of Note Titled: M-comments.p2 (Created 11/16/2022 21:56:39 Added 11/16/2022 21:56:39 by asmurali)---
+needs double commit to irvine
+---End of Note Titled: M-comments.p2---
+
+
+---Start of Note Titled: V-comments.p3 (Created 08/28/2022 12:07:10 Added 08/28/2022 12:07:10 by palshanm)---
+1. S/W Version :  10.3(0)INA9(0.134)
+2. Platform : PI
+3. Automation Suite: Yes but manually verified
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments.p3---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 07/20/2022 10:11:59 Added 07/20/2022 10:11:59 by seshea)---
+--- Update 2022-07-20 17:11:57.215731 (seshea via 693798251)
+Unsuitable - CDETS Content
+single sr attached, corner case for unsupported configuration, investigated similar cases in topic and found it is through only this one SR which is part of CNS and does not have too many switch specific configs to work with
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: V-comments.p2 (Created 07/17/2022 22:34:38 Added 07/17/2022 22:34:38 by palshanm)---
+1. S/W Version :  10.3(0.171)
+2. Platform : PI
+3. Automation Suite: Yes
+4. Steps to reproduce and Verify: https://earms-trade.cisco.com/tradeui/logs/details?archive=/nobackup/palshanm/pyats/users/palshanm/archive/22-07/CFD_CSCwc17000_job.2022Jul16_23:52:05.367444.zip&atstype=ATS
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Automation-Log (Created 07/16/2022 11:28:24 Added 07/16/2022 11:28:24 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/nobackup/palshanm/pyats/users/palshanm/archive/22-07/CFD_CSCwc17000_job.2022Jul16_23:52:05.367444.zip&atstype=ATS
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: R-comments (Created 07/08/2022 22:11:19 Added 07/08/2022 22:11:19 by anok)---
+Committed to niles and kerry
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: M-comments (Created 07/06/2022 09:00:02 Added 07/06/2022 09:00:02 by anok)---
+Need to commit to niles
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: Unit-test.p2 (Created 07/06/2022 00:21:39 Added 07/06/2022 00:21:39 by anok)---
+Niles Unit Test 
+----------------
+
+switch(config)# aaa authorization ssh-certificate default group tac1
+Command failed to apply
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authorization ssh-certificate default group rad1
+Command failed to apply
+switch(config)# aaa authorization ssh-certificate default group ldap1
+switch(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jul  6 11:41:14 2022
+!Time: Wed Jul  6 11:41:18 2022
+
+version 10.3(1) Bios:version 08.39 
+aaa authorization ssh-certificate default group ldap1 
+
+
+switch(config)# aaa aut
+authentication   authorization    
+switch(config)# aaa authorization ssh-publickey default group tac1
+Command failed to apply
+switch(config)# aaa authorization ssh-publickey default group rad1
+Command failed to apply
+switch(config)# aaa authorization ssh-publickey default group ldap1
+switch(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jul  6 11:41:46 2022
+!Time: Wed Jul  6 11:41:48 2022
+
+version 10.3(1) Bios:version 08.39 
+aaa authorization ssh-publickey default group ldap1 
+aaa authorization ssh-certificate default group ldap1
+---End of Note Titled: Unit-test.p2---
+
+
+---Start of Note Titled: V-comments (Created 07/01/2022 02:43:37 Added 07/01/2022 02:43:37 by palshanm)---
+1. S/W Version :  9.3(9.73)
+2. Platform : PI
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 06/25/2022 04:45:44 Modified 07/06/2022 22:32:09 by cms)---
+{220706 anok D B} PRRQ modified
+{220706 anok D B} PRRQ modified
+{220706 anok D B} PRRQ modified
+{220706 anok D B} PRRQ modified
+{220706 anok D B} PRRQ modified
+{220706 anok D B} PRRQ modified
+{220629 palshanm S B} Authorization using ssh-certificate over tacacs is not supported. Asked Anil team to handle at configuration itself and waiting for thier update.
+{220620 anikunna S B} Able to repro locally. Working on a fix.
+{220620 preechan S R} SIR: High
+{220618 masaxena S B} KR4M/NR1F/IMR9
+{220617 anikunna S B} Waiting for submitter setup to verify config
+{220616 anikunna S B} Need to discuss with submitter. Seems to be as per design
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  l3_Uls_sanity (Created 06/22/2022 06:43:40 Modified 06/22/2022 06:44:11 by anok)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity127
+Testbed  name       : sanity127-testbed.yml
+TestSuite           : wr_l3_uls.yml
+Total Test cases Run: 40
+Passed test cases   : 38
+Failed test cases   : 2
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/anok/283498
+Report file         : /auto/nxos-sanity/logs/anok/283498/l3_uls-sanity127.report
+logfile             : /auto/nxos-sanity/logs/anok/283498/l3_uls-sanity127.log
+Test start time     : 2022_06_22_01_23_05
+Test End time       : 2022_06_22_06_33_47
+Test Duration       : 5:10:42.119918
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '283498', '-cdet', 'CSCwc17000', '-build', '/ws/anok-sjc/images/nxos.9.3.9.59.bin_tac', '-testsuite', 'wr_l3_uls.yml', '-testbed', 'sanity127-testbed.yml', '-asic', 'wr', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'anok', '-logfile', '/auto/nxos-sanity/logs/anok/283498/l3_uls-sanity127.log', '-reportfile', '/auto/nxos-sanity/logs/anok/283498/l3_uls-sanity127.report', '-jobid', 'WR'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBootTime                                                              fail      0:00:14   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:13   
+testInterfaceInconsistencies                                              pass      0:00:24   
+GleanL3toL3V4V6                                                           pass      0:05:17   
+GleanL3toL3V4V6L3LinkFlap                                                 pass      0:07:54   
+GleanL3toSVIV4V6                                                          pass      0:06:24   
+GleanL3toSVIV4V6L2LinkFlap                                                pass      0:07:38   
+GleanL3toSVIV4V6L2PCLinkFlap                                              pass      0:07:40   
+GleanL3toSVIV4V6SVIFlap                                                   pass      0:08:16   
+GleanL3toL3PCV4V6                                                         pass      0:05:45   
+GleanL3toL3PCV4V6FlapMember                                               pass      0:07:37   
+GleanL3toL3PCV4V6L3PCFlap                                                 pass      0:08:19   
+GleanL3toL3SIV4V6                                                         pass      0:05:04   
+GleanL3toL3SIV4V6FlapSI                                                   pass      0:07:36   
+GleanL3toL3SIV4V6PriIntFlap                                               pass      0:07:54   
+AllRoutesL3toL3V4V6_LPM                                                   pass      0:18:53   
+AllRoutesL3toL3V4V6_Hosts                                                 pass      0:03:48   
+AllRoutesL3toL3V4V6_static_IntfFlap                                       pass      0:08:32   
+AllRoutesL3toL3V4V6_ospf_IntfFlap                                         pass      0:08:32   
+AllRoutesL3toL3V4V6_eigrp_IntfFlap                                        pass      0:08:32   
+AllRoutesL3toL3V4V6_isis_IntfFlap                                         pass      0:08:34   
+AllRoutesL3toL3V4V6_bgp_IntfFlap                                          pass      0:08:34   
+AllRoutesL3toL3V4V6_rip_IntfFlap                                          pass      0:08:32   
+AllRoutesL3toL3V4V6_IntfFlapMember                                        pass      0:08:32   
+AllRoutesL3toL3V4V6_clearIPv6Nbr                                          pass      0:10:23   
+AllRoutesL3toL3V4V6_clearIPArp                                            pass      0:10:23   
+AllRoutesL3toL3V4V6_clearIpRoute                                          pass      0:10:23   
+AllRoutesL3toL3V4V6_clearIpV6Route                                        pass      0:10:23   
+AllRoutesL3toL3V4V6_vrfDeleteCreate                                       pass      0:18:56   
+testSyslogCheck                                                           fail      0:00:29   
+testCopyRunnStart                                                         pass      0:08:13   
+GreConfig                                                                 pass      0:00:38   
+GreStatic                                                                 pass      0:09:54   
+GreOspf                                                                   pass      0:10:14   
+GreBgp                                                                    pass      0:10:38   
+GreCleanup                                                                pass      0:00:34   
+testGoldDiagnostic                                                        pass      0:00:46   
+testCores                                                                 pass      0:00:04   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kernel                       6.0  01:32:08.00  01:32:14.00 
+bootscripts                 32.0  01:32:14.00  01:32:46.00 
+sysmgr_bootup                3.2  01:32:46.00  01:32:49.23 
+pfm_init                     3.0  01:32:49.00  01:32:52.00 
+lcm_init                     3.7  01:32:52.00  01:32:55.07 
+module_insert               26.3  01:32:55.07  01:33:21.47 
+sup_online                   0.1  01:33:21.47  01:33:21.63 
+lc_online                  194.2  01:33:26.90  01:36:41.11 
+pss_acfg                     0.6  01:36:41.11  01:36:41.78 
+----------------------------------------------------------
+full_boot                  273.7  01:32:08.00  01:36:41.78 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            10.35 |            6.0 | PASS   |
+| bootscripts   |            35.65 |           32.0 | PASS   |
+| sysmgr_bootup |            4.945 |            3.2 | PASS   |
+| pfm_init      |              4.6 |            3.0 | PASS   |
+| sup_online    |            0.115 |            0.1 | PASS   |
+| lcm_init      |             6.21 |            3.7 | PASS   |
+| module_insert |            28.52 |           26.3 | PASS   |
+| lc_online     |           105.34 |          194.2 | SKIP   |
+| pss_acfg      |            0.115 |            0.6 | SKIP   |
+| full_boot     |           201.94 |          273.7 | FAIL   |
++---------------+------------------+----------------+--------+
+
+Failed test case logs
+=====================
+
+Testcase: testBootTime 
+logs                                           
+	FAIL: On sanity127-tor1
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            10.35 |            6.0 | PASS   |
+| bootscripts   |            35.65 |           32.0 | PASS   |
+| sysmgr_bootup |            4.945 |            3.2 | PASS   |
+| pfm_init      |              4.6 |            3.0 | PASS   |
+| sup_online    |            0.115 |            0.1 | PASS   |
+| lcm_init      |             6.21 |            3.7 | PASS   |
+| module_insert |            28.52 |           26.3 | PASS   |
+| lc_online     |           105.34 |          194.2 | SKIP   |
+| pss_acfg      |            0.115 |            0.6 | SKIP   |
+| full_boot     |           201.94 |          273.7 | FAIL   |
++---------------+------------------+----------------+--------+
+
+Testcase: testSyslogCheck 
+logs                                           
+	FAIL: 
+
+===================================================================================================
+                                       Logs on sanity127-tor1 are as follows: 
+ ['\n2022 Jun 22 08:33:07  %FW_APP-2-FIRMWARE_IMAGE_LOAD_SUCCESS: Extracting SW Firmware']
+
+===================================================================================================
+---End of Note Titled: l3_Uls_sanity---
+
+
+---Start of Note Titled: Unit-test (Created 06/22/2022 06:41:51 Added 06/22/2022 06:41:51 by anok)---
+Unit Test to be done later after a dependent commit
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: A-comments (Created 06/17/2022 22:57:01 Added 06/17/2022 22:57:01 by anikunna)---
+Pls check and address
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 06/15/2022 13:39:25 Modified 02/22/2023 08:57:40 by psirt.gen)---
+<B>Symptom:</B>
+For certain products that are running Cisco NX-OS Software and are configured for SSH authentication with an X.509 version 3 (X.509v3) certificate, two remote authorization methods are unsupported and could allow for privilege escalation: TACACS+ and certain configurations of Lightweight Directory Access Protocol (LDAP).
+
+* TACACS+ does not properly validate the distinguished name (DN) of the X.509v3 certificate due to a logic error with authentication, authorization, and accounting (AAA).
+
+* LDAP does not properly validate the DN of the X.509v3 certificate if the enable cert-dn-match configuration command is not present. The enable cert-dn-match configuration command is required for username validation of the DN of the X.509v3 certificate.
+
+Both unsupported configurations could allow a user who is authenticating to the device to elevate their privilege level to Administrator because the DN programmed username on the X.509v3 certificate was not validated and therefore did not have to match the username being authenticated.
+
+Cisco has released software updates that address the TACACS+ and LDAP authorization issues, along with updates to the documentation for Cisco NX-OS Software. See Details for information about configuration changes that can address these security issues.
+
+This advisory is available at the following link:
+https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-x509v3-unsupportedconfig-ScRtAbUk
+
+<B>Conditions:</B>
+Please see the Informational Security Advisory https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-x509v3-unsupportedconfig-ScRtAbUk.
+
+<B>Workaround:</B>
+Please see the Informational Security Advisory https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-x509v3-unsupportedconfig-ScRtAbUk.
+
+<B>Further Problem Description:</B>
+None 
+
+<B>PSIRT Evaluation:</B>
+The Cisco PSIRT has assigned this bug the following CVSS version 3.1 score. The Base CVSS score as of the time of evaluation is 0.0:
+https://tools.cisco.com/security/center/cvssCalculator.x?vector=CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+ 
+No CVE ID has been assigned to this issue.
+ 
+Information about Fixed, Vulnerable, and Nonvulnerable releases--as well as information about fixed release availability--is not maintained by Cisco PSIRT. Please refer to the appropriate fields in this bug. If you require additional help to obtain this information, please open a support case with your support organization.
+
+Additional information on Cisco's security vulnerability policy can be found at the following URL:
+https://tools.cisco.com/security/center/resources/security_vulnerability_policy.html
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: SSH Debug (Created 06/15/2022 13:39:25 Added 06/15/2022 13:39:25 by jkranzma)---
+Nexus SSH Debug
+============
+
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth-request for user test123 service ssh-connection method none - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: attempt 0 failures 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: Normalising mapped IPv4 in IPv6 address - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: parse_server_config: config reprocess config len 1368 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: input_userauth_request: setting up authctxt for test123 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: PAM: initializing for "test123" - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: PAM: setting PAM_RHOST to "192.168.58.246" - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: PAM: setting PAM_TTY to "ssh" - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: send packet: type 53 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth_send_banner: sent - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: input_userauth_request: try method none - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: userauth_finish: failure partial=0 next methods="publickey,password,keyboard-interactive" - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: send packet: type 51 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is after call back0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_read_seqnr is called \n - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf  , len 1072 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf \363lX~\321\r\326d\367\326\33689\317\031\237|\334`o\267\210\017\033\325\230\2727(V\031\037w:\177F\tw>I\\M\337\215\354\361\306\330\304<\215u , len 1444 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: receive packet: type 50 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: inside out with the value 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is ssh_packet_read_seqnr 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: type is 50 2 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth-request for user test123 service ssh-connection method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: attempt 1 failures 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: input_userauth_request: try method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: userauth_pubkey: authenticated 0 pkalg x509v3-ssh-rsa - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: userauth_finish: failure partial=0 next methods="publickey,password,keyboard-interactive" - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: send packet: type 51 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is after call back0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_read_seqnr is called \n - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf  , len 1072 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf \3445\333y\313\326\300\225\306\235vU\360}'\272\210\230,\321\265 \311\224r\365!\2620bIy\207\222\304\241C\274\210\017\311{N<5\221A\032\265\233 \023\267\344\255\252\231\243l\366\244\221N\334\r\t}\264G%1\204`\202\273VrV\324A{\311\255\33 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: receive packet: type 50 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: inside out with the value 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is ssh_packet_read_seqnr 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: type is 50 2 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth-request for user test123 service ssh-connection method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: attempt 2 failures 1 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: input_userauth_request: try method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: xkey_from_blob(x509v3-sign-rsa, ..., 1456) - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: x509_to_key: X509_get_pubkey done! - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Input hash algo is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: digest algo 3 and sha2 type is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth_pubkey: test whether pkalg/pkblob are acceptable for RSA+cert SHA256:kG5FjjoalGo18aM6CSeyoY2HGRp1S+mfq6/3VQdpc6I - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: pki authorization passed for test123  - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: Retrieved groups network-admin vdc-admin for user test123  - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: user test123 authorized, groups: network-admin vdc-admin\n - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: send packet: type 60 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: userauth_pubkey: authenticated 0 pkalg x509v3-sign-rsa - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is after call back0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_read_seqnr is called \n - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: exiting write with 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:19 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:21 CNS-DC-LAB-9K-VXLAN-SP-1 %USER-7-SYSTEM_MSG: heartbeat begin - kim
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf  , len 1072 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Entered select  loop - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: ssh_packet_process_incoming with 0 :buf Lg\302\342;\237\207BG8\220\330x\367$v\245D\272\027\255\234^\262DM\346\026\302\212\353\364\214r(\224\b\243U\304d\270\307\370\214\320,\257\376\2322\030%\260\366:O\265fe\310Aa\232\224yO\341\223vG~\203\237m\215 \275m\204\372sg\260\257\3 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: receive packet: type 50 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: inside out with the value 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: r value is ssh_packet_read_seqnr 0 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: type is 50 2 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: userauth-request for user test123 service ssh-connection method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: attempt 3 failures 1 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: input_userauth_request: try method publickey - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: xkey_from_blob(x509v3-sign-rsa, ..., 1456) - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: x509_to_key: X509_get_pubkey done! - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Input hash algo is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: digest algo 3 and sha2 type is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: userauth_pubkey: have signature for RSA+cert SHA256:kG5FjjoalGo18aM6CSeyoY2HGRp1S+mfq6/3VQdpc6I - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: Input hash algo is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: digest algo 3 and sha2 type is 3 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: pki authorization passed for test123  - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: Retrieved groups network-admin vdc-admin for user test123  - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: remote user test123 authorized, groups: network-admin vdc-admin\n - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug1: sshkey_verify is with  siglen: 151 data  dlen 1575 0 with keytype 2 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509_verify: signature format = x509v3-sign-rsa - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509_verify: md=rsa-sha1, loc=0 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509cert_check: calling mds cert api for verifying the certificate\n - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509cert_check: calling function my_system\n - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: executing command:/isan/bin/verify_ssh_cert\n - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509store_verify_cert: return 1(trusted) - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug3: ssh_x509_verify: return 1 - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: debug2: userauth_pubkey: authenticated 1 pkalg x509v3-sign-rsa - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: Read PSS RETVAL is: 0x0 and DEFAULT_ROLE=TRUE - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: user:test123 account exist - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: user:test123 account is remote, update expiry date and role network-admin - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: Assigning Role: network-admin - dcos_sshd[15956]
+2022 Jun 15 20:22:26 CNS-DC-LAB-9K-VXLAN-SP-1 %DAEMON-7-SYSTEM_MSG: Assigning Role: vdc-admin - dcos_sshd[15956]
+---End of Note Titled: SSH Debug---
+
+
+---Start of Note Titled: SecureCRT-Debug (Created 06/15/2022 13:39:25 Added 06/15/2022 13:39:25 by jkranzma)---
+[PRINTER] : Printer initialization succeeded
+[LOCAL] : SSH2Core version 9.2.1.2768 
+[LOCAL] : Connecting to 192.168.7.71:22 ... 
+[LOCAL] : Changing state from STATE_NOT_CONNECTED to STATE_EXPECT_KEX_INIT 
+SecureCRT - Version 9.2.1 (x64 build 2768)
+[LOCAL] : Using protocol SSH2 
+[LOCAL] : RECV : Remote Identifier = 'SSH-2.0-OpenSSH_7.2 FIPS' 
+[LOCAL] : CAP  : Remote can re-key 
+[LOCAL] : CAP  : Remote sends language in password change requests 
+[LOCAL] : CAP  : Remote sends algorithm name in PK_OK packets 
+[LOCAL] : CAP  : Remote sends algorithm name in public key packets 
+[LOCAL] : CAP  : Remote sends algorithm name in signatures 
+[LOCAL] : CAP  : Remote sends error text in open failure packets 
+[LOCAL] : CAP  : Remote sends name in service accept packets 
+[LOCAL] : CAP  : Remote includes port number in x11 open packets 
+[LOCAL] : CAP  : Remote uses 160 bit keys for SHA1 MAC 
+[LOCAL] : CAP  : Remote supports new diffie-hellman group exchange messages 
+[LOCAL] : CAP  : Remote correctly handles unknown SFTP extensions 
+[LOCAL] : CAP  : Remote correctly encodes OID for gssapi 
+[LOCAL] : CAP  : Remote correctly uses connected addresses in forwarded-tcpip requests 
+[LOCAL] : CAP  : Remote can do SFTP version 4 
+[LOCAL] : CAP  : Remote uses SHA1 hash in RSA signatures for x.509v3 
+[LOCAL] : CAP  : Remote x.509v3 uses ASN.1 encoding for DSA signatures 
+[LOCAL] : CAP  : Remote correctly handles zlib@openssh.com 
+[LOCAL] : SSPI : Requesting full delegation 
+[LOCAL] : SSPI : [Kerberos] SPN : host@192.168.7.71 
+[LOCAL] : SSPI : [Kerberos] InitializeSecurityContext() failed. 
+[LOCAL] : SSPI : [Kerberos] The specified target is unknown or unreachable  
+[LOCAL] : SSPI : [Kerberos] Disabling gss mechanism 
+[LOCAL] : GSS  : Requesting full delegation 
+[LOCAL] : GSS  : [Kerberos] SPN : host@192.168.7.71 
+[LOCAL] : GSS  : [Kerberos] InitializeSecurityContext() failed. 
+[LOCAL] : GSS  : [Kerberos] Could not load library 'gssapi64.dll': The specified module could not be found.   
+[LOCAL] : GSS  : [Kerberos] Disabling gss mechanism 
+[LOCAL] : GSS  : [Kerberos] Disabling gss mechanism 
+[LOCAL] : The following key exchange method has been filtered from the key exchange method list because it is not supported: gss-group1-sha1-toWM5Slw5Ew8Mqkay+al2g==  
+[LOCAL] : SSPI : Requesting full delegation 
+[LOCAL] : SSPI : [Kerberos (Group Exchange)] SPN : host@192.168.7.71 
+[LOCAL] : SSPI : [Kerberos (Group Exchange)] InitializeSecurityContext() failed. 
+[LOCAL] : SSPI : [Kerberos (Group Exchange)] The specified target is unknown or unreachable  
+[LOCAL] : SSPI : [Kerberos (Group Exchange)] Disabling gss mechanism 
+[LOCAL] : GSS  : Requesting full delegation 
+[LOCAL] : GSS  : [Kerberos (Group Exchange)] SPN : host@192.168.7.71 
+[LOCAL] : GSS  : [Kerberos (Group Exchange)] InitializeSecurityContext() failed. 
+[LOCAL] : GSS  : [Kerberos (Group Exchange)] Could not load library 'gssapi64.dll': The specified module could not be found.   
+[LOCAL] : GSS  : [Kerberos (Group Exchange)] Disabling gss mechanism 
+[LOCAL] : GSS  : [Kerberos (Group Exchange)] Disabling gss mechanism 
+[LOCAL] : The following key exchange method has been filtered from the key exchange method list because it is not supported: gss-gex-sha1-toWM5Slw5Ew8Mqkay+al2g==  
+[LOCAL] : SEND : KEXINIT 
+[LOCAL] : RECV : Read kexinit 
+[LOCAL] : Available Remote Kex Methods = diffie-hellman-group14-sha1,ecdh-sha2-nistp256,ecdh-sha2-nistp384 
+[LOCAL] : Selected Kex Method = ecdh-sha2-nistp384 
+[LOCAL] : Available Remote Host Key Algos = ssh-rsa 
+[LOCAL] : Selected Host Key Algo = ssh-rsa 
+[LOCAL] : Available Remote Send Ciphers = aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com 
+[LOCAL] : Selected Send Cipher = aes256-gcm@openssh.com 
+[LOCAL] : Available Remote Recv Ciphers = aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com 
+[LOCAL] : Selected Recv Cipher = aes256-gcm@openssh.com 
+[LOCAL] : Available Remote Send Macs = hmac-sha1 
+[LOCAL] : Selected Send Mac = aes256-gcm@openssh.com 
+[LOCAL] : Available Remote Recv Macs = hmac-sha1 
+[LOCAL] : Selected Recv Mac = aes256-gcm@openssh.com 
+[LOCAL] : Available Remote Compressors = none,zlib@openssh.com 
+[LOCAL] : Selected Compressor = none 
+[LOCAL] : Available Remote Decompressors = none,zlib@openssh.com 
+[LOCAL] : Selected Decompressor = none 
+[LOCAL] : Changing state from STATE_EXPECT_KEX_INIT to STATE_KEY_EXCHANGE 
+[LOCAL] : SEND : SSH_MSG_KEX_ECDH_INIT 
+[LOCAL] : RECV : SSH_MSG_KEX_ECDH_REPLY 
+[LOCAL] : Changing state from STATE_KEY_EXCHANGE to STATE_READY_FOR_NEW_KEYS 
+[LOCAL] : RECV: Remote Hostkey (SHA-2 hash hex): b8:f6:50:64:a4:05:0b:00:88:75:d3:77:33:15:01:33:7e:68:66:2f:07:79:ad:54:b5:ac:67:8d:99:3f:e9:6b 
+[LOCAL] : RECV: Remote Hostkey (SHA-2 hash base64): uPZQZKQFCwCIddN3MxUBM35oZi8Hea1UtaxnjZk/6Ws 
+[LOCAL] : RECV: Remote Hostkey (SHA-1 hash): e1:18:75:fd:71:f2:d6:12:79:b1:97:4c:e7:0c:cd:5f:e1:ff:e9:5c 
+[LOCAL] : RECV: Remote Hostkey (MD5 hash): 51:69:bd:49:c9:0f:79:76:67:79:d7:20:15:2d:f0:73 
+[LOCAL] : SEND : NEWKEYS 
+[LOCAL] : Changing state from STATE_READY_FOR_NEW_KEYS to STATE_EXPECT_NEWKEYS 
+[LOCAL] : RECV : NEWKEYS 
+[LOCAL] : Changing state from STATE_EXPECT_NEWKEYS to STATE_CONNECTION 
+[LOCAL] : SEND: SERVICE_REQUEST[ssh-userauth] 
+[LOCAL] : RECV: SERVICE_ACCEPT[ssh-userauth] -- OK 
+[LOCAL] : SENT : USERAUTH_REQUEST [none] 
+[LOCAL] : Authenticating as user test123  
+[LOCAL] : RECV : SSH_MSG_USERAUTH_BANNER 
+[LOCAL] : RECV : USERAUTH_FAILURE, continuations [publickey,password,keyboard-interactive] 
+[LOCAL] : Validating certificate for publickey authentication. 
+[LOCAL] :   Subject: DC=com, DC=adfstest, CN=Users, CN=jkranzma 
+[LOCAL] :   Issuer: DC=com, DC=adfstest, CN=adfstest-CNS-LAB-TET-AD-CA-1 
+[LOCAL] :   Serial number: 1C 0000 006F 22B0 AB84 ED4A 7F7B 0000 0000 006F 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-ssh-rsa) - unsigned,fingerprint (SHA-2 base64 hash): kG5FjjoalGo18aM6CSeyoY2HGRp1S+mfq6/3VQdpc6I=] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-ssh-rsa) - unsigned,fingerprint (SHA-2 hash): 90:6E:45:8E:3A:1A:94:6A:35:F1:A3:3A:09:27:B2:A1:8D:87:19:1A:75:4B:E9:9F:AB:AF:F7:55:07:69:73:A2] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-ssh-rsa) - unsigned,fingerprint (SHA-1 hash): 59:7E:7D:FE:F2:9F:5B:CD:BC:7D:EE:12:8E:C5:CD:35:16:91:5B:A4] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-ssh-rsa) - unsigned,fingerprint (MD5 hash): ] 
+[LOCAL] : RECV : USERAUTH_FAILURE, continuations [publickey,password,keyboard-interactive] 
+[LOCAL] : Validating certificate for publickey authentication. 
+[LOCAL] :   Subject: DC=com, DC=adfstest, CN=Users, CN=jkranzma 
+[LOCAL] :   Issuer: DC=com, DC=adfstest, CN=adfstest-CNS-LAB-TET-AD-CA-1 
+[LOCAL] :   Serial number: 1C 0000 006F 22B0 AB84 ED4A 7F7B 0000 0000 006F 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-sign-rsa) - unsigned,fingerprint (SHA-2 base64 hash): kG5FjjoalGo18aM6CSeyoY2HGRp1S+mfq6/3VQdpc6I=] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-sign-rsa) - unsigned,fingerprint (SHA-2 hash): 90:6E:45:8E:3A:1A:94:6A:35:F1:A3:3A:09:27:B2:A1:8D:87:19:1A:75:4B:E9:9F:AB:AF:F7:55:07:69:73:A2] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-sign-rsa) - unsigned,fingerprint (SHA-1 hash): 59:7E:7D:FE:F2:9F:5B:CD:BC:7D:EE:12:8E:C5:CD:35:16:91:5B:A4] 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-sign-rsa) - unsigned,fingerprint (MD5 hash): ] 
+User Access Verification
+[LOCAL] : RECV : SSH_MSG_USERAUTH_PK_OK 
+[LOCAL] : SENT : USERAUTH_REQUEST [publickey (x509v3-sign-rsa) - signed,May 2000 Standard] 
+[LOCAL] : RECV : AUTH_SUCCESS 
+[LOCAL] : SEND[0]: SSH_MSG_CHANNEL_OPEN('session')
+[LOCAL] : SEND[0]: Pty Request (rows: 24, cols: 80)
+[LOCAL] : RECV[0]: pty request succeeded
+[LOCAL] : SEND[0]: shell request
+[LOCAL] : RECV[0]: shell request succeeded
+---End of Note Titled: SecureCRT-Debug---
+
+
+---Start of Note Titled: reproduction-steps (Created 06/15/2022 13:39:25 Added 06/15/2022 13:39:25 by jkranzma)---
+Steps to Reproduce
+============
+1. Open SecureCRT.
+2. Set Authentication to PublicKey. In properties, set "Use Certificate from your personal CAPI store" to certificate on PIV card. Do not check "Get username from certificate".
+3. For Username field under Port, enter username of the user you would like to authorize with.
+4. Click Connect.
+
+Basic Requirements
+============
+Nexus Switch
+- Requires signed cert
+CA Server (Microsoft AD)
+AAA Server (ISE)
+PIV Card (not necessarily required, but used here to present SSH x509v3 certificate)
+- Requires signed cert
+
+Configuration
+=========
+
+aaa authentication login default group ISE 
+aaa authentication login console local 
+aaa authorization ssh-certificate default group ISE 
+no aaa authentication login default fallback error local 
+aaa authentication login invalid-username-log 
+aaa authentication login error-enable 
+aaa authentication login ascii-authentication
+
+crypto key param rsa label PIVCERT modulus 2048 exportable
+crypto ca trustpoint windows 
+     enrollment terminal
+      rsakeypair PIVCERT  2048
+     revocation-check  none
+
+tacacs-server host 192.168.6.20 key 7 <key>
+aaa group server tacacs+ ISE 
+    server <ip>
+    use-vrf management
+
+Certificate Requirements
+===============
+
+Basic directions on how to configure certificates can be found here: https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/security/configuration/guide/b-cisco-nexus-9000-nx-os-security-configuration-guide-93x/b-cisco-nexus-9000-nx-os-security-configuration-guide-93x_chapter_011010.html
+
+For switch:
+
+1. Retrieve Root Certificate from CA
+2. Install Root Certificate on switch in trustpoint.
+3. Generate CSR on Switch
+4. Sign CSR on CA server
+5. Import signed certificate onto switch
+
+For user:
+
+Several ways to go about this, but easiest way is to go through MMC > Certificates and request a certificate against a valid template.
+
+Certificate Data
+==========
+
+Switch
+
+CNS-DC-LAB-9K-VXLAN-SP-1# show crypto ca certificates 
+Trustpoint: windows
+certificate:
+subject= /DC=com/DC=adfstest/CN=Users/CN=Administrator/emailAddress=administrator@adfstest.com
+issuer= /DC=com/DC=adfstest/CN=adfstest-CNS-LAB-TET-AD-CA-1
+serial=1C00000072C6982F6059179FC3000000000072
+notBefore=Jun 15 18:40:12 2022 GMT
+notAfter=Jun 15 18:40:12 2023 GMT
+SHA1 Fingerprint=1E:E7:36:B8:D1:FC:E9:A4:84:6D:8C:5B:EF:15:F6:07:A7:2F:B2:76
+purposes: sslserver sslclient 
+
+CA certificate 0:
+subject= /DC=com/DC=adfstest/CN=adfstest-CNS-LAB-TET-AD-CA-1
+issuer= /DC=com/DC=adfstest/CN=adfstest-CNS-LAB-TET-AD-CA-1
+serial=2C791AC899B3CAA14604219BBCCF163B
+notBefore=Jun 26 18:47:19 2020 GMT
+notAfter=Jun 26 18:57:18 2025 GMT
+SHA1 Fingerprint=AF:C8:F0:F1:47:E2:C8:23:AD:1E:62:2D:96:10:AC:8D:59:3D:7A:FF
+purposes: sslserver sslclient
+
+User
+
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            1c:00:00:00:6f:22:b0:ab:84:ed:4a:7f:7b:00:00:00:00:00:6f
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: DC=com, DC=adfstest, CN=adfstest-CNS-LAB-TET-AD-CA-1
+        Validity
+            Not Before: May 19 15:24:48 2022 GMT
+            Not After : May 19 15:24:48 2023 GMT
+        Subject: DC=com, DC=adfstest, CN=Users, CN=jkranzma
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (1024 bit)
+                Modulus:
+                    00:c6:1c:b5:89:26:c4:2a:e2:ad:34:a4:04:1d:b5:
+                    b2:ef:28:fa:f1:89:8d:dd:d1:76:18:16:79:4e:c2:
+                    e3:b0:3e:24:aa:92:ca:2d:d8:33:21:ad:1a:cf:b5:
+                    20:0d:68:ce:73:12:d8:ec:2d:3d:06:94:bc:dd:a2:
+                    ea:fa:16:f4:a3:d0:f8:61:ad:a7:c1:9b:52:e1:f3:
+                    2f:21:ae:89:b4:d4:3f:46:19:dc:35:a3:f2:1f:e3:
+                    59:cd:bf:87:25:61:2f:71:c8:ae:27:07:c4:5f:34:
+                    9a:5c:e2:72:ea:92:dd:cf:3e:da:00:b2:20:c9:0e:
+                    f1:90:e9:b9:6b:c6:fa:5a:c7
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            1.3.6.1.4.1.311.21.7: 
+                0-.%+.....7.........A...&...|..R....#...k..e...
+            X509v3 Extended Key Usage: 
+                1.3.6.1.4.1.44986.2.1.1, Microsoft Smartcardlogin, TLS Web Client Authentication, E-mail Protection
+            X509v3 Key Usage: critical
+                Digital Signature
+            1.3.6.1.4.1.311.21.10: 
+..+......:...0..050
++.....7...0
+..+.......0
+..+.......
+            X509v3 Subject Key Identifier: 
+                0F:D3:0E:99:B2:1C:34:02:D5:FF:92:BD:F9:77:AF:82:FB:F9:52:66
+            X509v3 Authority Key Identifier: 
+                keyid:1B:1C:BD:C1:7D:49:5C:06:32:5A:48:31:03:43:28:66:F4:42:3D:6A
+
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:ldap:///CN=adfstest-CNS-LAB-TET-AD-CA-1,CN=CNS-LAB-TET-AD,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=adfstest,DC=com?certificateRevocationList?base?objectClass=cRLDistributionPoint
+
+            Authority Information Access: 
+                CA Issuers - URI:ldap:///CN=adfstest-CNS-LAB-TET-AD-CA-1,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=adfstest,DC=com?cACertificate?base?objectClass=certificationAuthority
+
+            X509v3 Subject Alternative Name: 
+                othername:<unsupported>
+    Signature Algorithm: sha256WithRSAEncryption
+         28:b2:25:7d:7d:33:94:71:52:68:e7:e6:73:91:94:73:44:ae:
+         d4:94:9e:03:bb:9e:e4:ee:04:96:b8:33:fe:8a:23:03:11:ba:
+         dc:b8:6c:3b:8f:29:ab:16:21:3f:48:e6:1d:fa:9b:e8:c6:7d:
+         ec:81:76:72:19:c3:88:c1:13:5d:36:dd:62:ec:85:26:eb:f9:
+         6c:40:de:9a:af:fb:72:cc:ef:6d:e0:02:64:ba:c2:5f:28:5d:
+         ef:e4:0d:67:e5:79:a6:17:f9:0f:12:f4:75:e2:9e:c0:21:73:
+         a2:bb:39:a3:c0:c6:13:f8:bd:af:cc:19:56:82:6d:9c:02:de:
+         1e:3f:ff:46:01:10:d7:ee:49:db:84:4f:fb:02:89:cc:19:9e:
+         d4:5a:ff:13:ff:2c:e4:e7:dc:bf:1e:2a:8c:a0:67:e8:98:98:
+         57:e4:87:9d:b7:7a:fd:11:9b:99:d1:60:c9:58:50:32:42:ad:
+         a5:a5:de:1d:9c:12:12:42:e1:46:37:07:ec:e7:33:92:5b:27:
+         38:fd:9d:38:ae:b7:2d:01:36:27:af:83:94:7e:a2:05:a0:3d:
+         6e:ae:78:e8:5b:5e:f7:d9:1b:7a:0d:30:5e:3b:5f:64:ba:0e:
+         55:4e:a9:51:19:91:53:17:c3:72:d8:94:56:15:69:9c:a0:27:
+         48:9b:44:52
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (29 of 29)
+------------------------------------------------------------------------------------------------------------------
+Diffs-release-irvine.p2                           ascii text     1257           asmurali       11/18/2022 05:42:55      
+Diffs-commit-irvine.p2                            ascii text     1535           asmurali       11/18/2022 05:42:52      
+ccwarnings-irvine.p3                              ascii text     126            baas           11/18/2022 05:15:00      
+static-analysis-irvine.p3                         ascii text     7626           baas           11/18/2022 05:14:32      
+nxos-pi-common-security-code-review-5             ascii text     943            prrqengg       11/18/2022 01:11:11      
+ccwarnings-irvine.p2                              ascii text     126            baas           11/17/2022 16:36:15      
+static-analysis-irvine.p2                         ascii text     39629          baas           11/17/2022 16:35:48      
+CSCwc17000_KR4M_test_logs.txt                     ascii text     4853           palshanm       08/28/2022 12:07:25      
+N39K-QA-CFD-Script-Reviews-code-review-4          ascii text     941            prrqengg       07/16/2022 11:43:25      
+Diffs-commit-kerry                                ascii text     2004           anok           07/08/2022 12:57:39      
+Diffs-release-kerry                               ascii text     1231           anok           07/08/2022 12:57:36      
+ccwarnings-kerry                                  ascii text     126            baas           07/08/2022 07:22:04      
+static-analysis-kerry                             ascii text     7280           baas           07/08/2022 07:21:43      
+nxos-pi-common-security-code-review-3             ascii text     924            prrqengg       07/08/2022 00:38:46      
+Diffs-commit-niles                                ascii text     2004           anok           07/06/2022 18:42:33      
+Diffs-release-niles                               ascii text     1223           anok           07/06/2022 18:42:31      
+ccwarnings-niles                                  ascii text     126            baas           07/06/2022 18:13:02      
+static-analysis-niles                             ascii text     7819           baas           07/06/2022 18:12:31      
+l2_uls_sanity_report                              ascii text     4907           root           11/18/2022 00:54:53      
+l2_uls_sanity_baseline_compare                    ascii text     219            root           11/18/2022 00:54:54      
+nxos-pi-common-security-code-review-2             ascii text     925            prrqengg       07/06/2022 08:45:01      
+CSCwc17000_imr9_test_logs.txt                     ascii text     11800          palshanm       07/01/2022 02:43:59      
+Diffs-release-irvine                              ascii text     1245           anok           06/23/2022 01:59:40      
+Diffs-commit-irvine                               ascii text     1471           anok           06/23/2022 01:59:38      
+ccwarnings-irvine                                 ascii text     126            baas           06/23/2022 00:41:44      
+static-analysis-irvine                            ascii text     7493           baas           06/23/2022 00:41:16      
+pyats_tacacs.eml                                  ascii text     31937          anok           06/22/2022 21:46:00      
+nxos-pi-common-security-code-review               ascii text     922            prrqengg       06/22/2022 05:24:46      
+Release-note-diff                                 ascii text     16254          psirt.gen      02/22/2023 08:57:40      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/31/2026 cdetsbtk 	Security-screening-times	2026-05-07 19:44:59.000+0000 	2026-08-01 06:33:20.000+0000 	Mod
+07/31/2026 radotodo 	serviceRequests/C3/70066	                             	                             	Mod
+07/28/2026 satdr    	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-manojohn n-mu	Mod
+05/07/2026 cdetsbtk 	Security-screening-times	2025-05-09 00:32:12.000+0000 	2026-05-07 19:44:59.000+0000 	Mod
+05/07/2026 vborisla 	serviceRequests/C3/70066	                             	C3/700668747                 	New
+05/07/2026 vborisla 	Tickets-count           	2                            	3                            	Mod
+05/07/2026 vborisla 	TACSR-count             	1                            	2                            	Mod
+05/07/2026 vborisla 	Tickets-count-direct    	2                            	3                            	Mod
+05/07/2026 vborisla 	Trouble-tickets         	                             	700668747                    	New
+05/07/2026 vborisla 	Trouble-tickets-direct  	                             	C3700668747                  	New
+04/16/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/16/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+09/17/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/08/2025 cdetsbtk 	Security-screening-times	2025-04-26 23:22:28.000+0000 	2025-05-09 00:32:12.000+0000 	Mod
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 cdetsbtk 	Security-screening-times	2025-04-02 03:07:18.000+0000 	2025-04-26 23:22:28.000+0000 	Mod
+04/26/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/26/2025 pisces   	Known-fixed-releases    	7.3(12)N1(1),8.2(9)          	                             	Del
+04/01/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-443981       	New
+04/01/2025 cdetsbtk 	Security-screening-times	2024-01-20 13:28:15.000+0000 	2025-04-02 03:07:18.000+0000 	Mod
+04/01/2025 pisces   	VF-patched              	                             	NX-OS:10.2(4),NX-OS:10.3(1),N	New
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+04/01/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/01/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+04/01/2025 pisces   	Known-fixed-releases    	                             	7.3(12)N1(1),8.2(9)          	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 cdetsbtk 	Security-screening-times	2023-04-08 14:00:22.000+0000 	2024-01-20 13:28:15.000+0000 	Mod
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/08/2023 cdetsbtk 	Security-screening-times	2023-02-23 00:57:42.000+0000 	2023-04-08 14:00:22.000+0000 	Mod
+04/08/2023 jakhter  	Note Title              	                             	Email-in                     	New
+02/22/2023 psirt.gen	PSIRT-attribute         	SN Update:14                 	SN Update:15                 	Mod
+02/22/2023 psirt.gen	PSIRT-status            	under_investigation          	disclosed                    	Mod
+02/22/2023 cdetsbtk 	Not-customer-visible-rea	                             	AutoReleased-Defect Auto rele	Mod
+02/22/2023 cdetsbtk 	Security-screening-times	2023-02-23 00:49:37.000+0000 	2023-02-23 00:57:42.000+0000 	Mod
+02/22/2023 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/22/2023 psirt.gen	RNE-Type                	$$IGNORE-PSIRT               	NONE                         	Mod
+02/22/2023 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/22/2023 psirt.gen	FileSize                	16124                        	16254                        	Mod
+02/22/2023 psirt.gen	PSIRT-attribute         	SN Update:13                 	SN Update:14                 	Mod
+02/22/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+02/22/2023 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+02/22/2023 cdetsbtk 	Security-screening-times	2023-02-11 04:53:34.000+0000 	2023-02-23 00:49:37.000+0000 	Mod
+02/10/2023 cdetsbtk 	Security-screening-times	2023-02-11 04:50:33.000+0000 	2023-02-11 04:53:34.000+0000 	Mod
+02/10/2023 psirt.gen	Headline                	Cisco NX-OS SSH X.509v3 Certi	Cisco NXOS SSH X.509v3 Cert A	Mod
+02/10/2023 psirt.gen	PSIRT-attribute         	SN Update:12                 	SN Update:13                 	Mod
+02/10/2023 cdetsbtk 	Security-screening-times	2023-02-01 00:00:07.000+0000 	2023-02-11 04:50:33.000+0000 	Mod
+02/10/2023 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/10/2023 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/10/2023 psirt.gen	FileSize                	12364                        	16124                        	Mod
+02/10/2023 psirt.gen	PSIRT-attribute         	SN Update:11                 	SN Update:12                 	Mod
+02/10/2023 psirt.gen	Justification           	CISCO HIGHLY CONFIDENTIAL - C	                             	Mod
+02/10/2023 psirt.gen	Symptoms                	When configuring the Cisco NX	For certain products that are	Mod
+01/31/2023 cdetsbtk 	Security-screening-times	2023-01-31 23:54:07.000+0000 	2023-02-01 00:00:07.000+0000 	Mod
+01/31/2023 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+01/31/2023 psirt.gen	contents                	                             	Release-note-diff            	Mod
+01/31/2023 psirt.gen	FileSize                	9679                         	12364                        	Mod
+01/31/2023 psirt.gen	PSIRT-attribute         	SN Update:10                 	SN Update:11                 	Mod
+01/31/2023 psirt.gen	Symptoms                	                             	When configuring the Cisco NX	Mod
+01/31/2023 psirt.gen	Conditions              	                             	Please see the Informational 	Mod
+01/31/2023 psirt.gen	Workarounds             	                             	Please see the Informational 	Mod
+01/31/2023 psirt.gen	Further-Problem-Descript	                             	None 
+
+<B>PSIRT Evaluation:</	Mod
+01/31/2023 cdetsbtk 	Security-screening-times	2022-12-06 01:18:04.000+0000 	2023-01-31 23:54:07.000+0000 	Mod
+01/31/2023 psirt.gen	Headline                	SSH x509v3 Certificate w/TACA	Cisco NX-OS SSH X.509v3 Certi	Mod
+01/31/2023 psirt.gen	PSIRT-attribute         	SN Update:9                  	SN Update:10                 	Mod
+01/31/2023 psirt.gen	Known-fixed-releases    	                             	10.3(2),9.3(11)              	New
+01/18/2023 fas      	Integrated-releases     	                             	10.3(2)                      	New
+12/07/2022 palshanm 	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+12/05/2022 cdetsbtk 	Security-screening-times	2022-11-19 01:46:51.000+0000 	2022-12-06 01:18:04.000+0000 	Mod
+12/05/2022 palshanm 	Note Title              	                             	V-comments.p4                	New
+12/05/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+12/05/2022 palshanm 	Status                  	R                            	V                            	Mod
+12/05/2022 palshanm 	Verified-release        	                             	9.3(10.43)                   	New
+12/05/2022 palshanm 	Verified-confidence     	believed                     	tested                       	Mod
+12/05/2022 palshanm 	Verified-on             	2022-07-18 05:34:38.000+0000 	2022-12-05 17:18:03.000+0000 	Mod
+12/05/2022 palshanm 	statusStates            	                             	[status=R, startDate=Fri Nov 	New
+12/05/2022 palshanm 	statusStates            	[status=R, startDate=Fri Nov 	                             	Del
+12/05/2022 palshanm 	Age-status              	156                          	173                          	Mod
+12/05/2022 palshanm 	Mean-time-to-verified   	32                           	172                          	Mod
+11/20/2022 divvenka 	Integrated-releases     	                             	9.3(10.37),9.3(11)           	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 21:42:56.000+0000 	2022-11-19 01:46:51.000+0000 	Mod
+11/18/2022 asmurali 	Note Title              	                             	R-comments.p2                	New
+11/18/2022 asmurali 	Status-desc             	M-More                       	R-Resolved                   	Mod
+11/18/2022 asmurali 	Status                  	M                            	R                            	Mod
+11/18/2022 asmurali 	Resolver                	anok                         	asmurali                     	Mod
+11/18/2022 asmurali 	Resolved-on             	2022-07-09 05:11:19.000+0000 	2022-11-18 17:46:50.000+0000 	Mod
+11/18/2022 asmurali 	statusStates            	                             	[status=M, startDate=Thu Nov 	New
+11/18/2022 asmurali 	statusStates            	[status=M, startDate=Thu Nov 	                             	Del
+11/18/2022 asmurali 	Age-status              	155                          	156                          	Mod
+11/18/2022 asmurali 	Mean-time-to-resolved   	23                           	155                          	Mod
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 21:42:53.000+0000 	2022-11-18 21:42:56.000+0000 	Mod
+11/18/2022 asmurali 	File Name               	                             	Diffs-release-irvine.p2      	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 21:15:01.000+0000 	2022-11-18 21:42:53.000+0000 	Mod
+11/18/2022 asmurali 	File Name               	                             	Diffs-commit-irvine.p2       	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 21:14:33.000+0000 	2022-11-18 21:15:01.000+0000 	Mod
+11/18/2022 baas     	File Name               	                             	ccwarnings-irvine.p3         	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 17:11:12.000+0000 	2022-11-18 21:14:33.000+0000 	Mod
+11/18/2022 baas     	File Name               	                             	static-analysis-irvine.p3    	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 17:03:33.000+0000 	2022-11-18 17:11:12.000+0000 	Mod
+11/18/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+11/18/2022 prrqengg 	FileSize                	941                          	943                          	Mod
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 17:01:30.000+0000 	2022-11-18 17:03:33.000+0000 	Mod
+11/18/2022 asmurali 	Note Title              	                             	Unit-test.p3-irvine          	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 16:54:55.000+0000 	2022-11-18 17:01:30.000+0000 	Mod
+11/18/2022 asmurali 	Note Title              	                             	Sanity-uls-irvine            	New
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 16:54:54.000+0000 	2022-11-18 16:54:55.000+0000 	Mod
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 16:50:45.000+0000 	2022-11-18 16:54:54.000+0000 	Mod
+11/18/2022 root     	contents                	                             	l2_uls_sanity_baseline_compar	Mod
+11/18/2022 root     	contents                	                             	l2_uls_sanity_report         	Mod
+11/18/2022 root     	FileSize                	7691                         	4907                         	Mod
+11/18/2022 cdetsbtk 	Security-screening-times	2022-11-18 13:59:15.000+0000 	2022-11-18 16:50:45.000+0000 	Mod
+11/18/2022 asmurali 	Note Title              	                             	Static-analysis-irvine       	New
+11/17/2022 cdetsbtk 	Security-screening-times	2022-11-18 08:36:17.000+0000 	2022-11-18 13:59:15.000+0000 	Mod
+11/17/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/17/2022 cdetsbtk 	Security-screening-times	2022-11-18 08:35:49.000+0000 	2022-11-18 08:36:17.000+0000 	Mod
+11/17/2022 baas     	File Name               	                             	ccwarnings-irvine.p2         	New
+11/17/2022 cdetsbtk 	Security-screening-times	2022-11-17 13:56:39.000+0000 	2022-11-18 08:35:49.000+0000 	Mod
+11/17/2022 baas     	File Name               	                             	static-analysis-irvine.p2    	New
+11/16/2022 cdetsbtk 	Security-screening-times	2022-11-01 12:19:07.000+0000 	2022-11-17 13:56:39.000+0000 	Mod
+11/16/2022 asmurali 	Note Title              	                             	M-comments.p2                	New
+11/16/2022 asmurali 	Status-desc             	V-Verified                   	M-More                       	Mod
+11/16/2022 asmurali 	Status                  	V                            	M                            	Mod
+11/16/2022 asmurali 	More-by                 	anok                         	asmurali                     	Mod
+11/16/2022 asmurali 	More-on                 	2022-07-06 16:00:02.000+0000 	2022-11-17 05:56:38.000+0000 	Mod
+11/16/2022 asmurali 	statusStates            	                             	[status=V, startDate=Mon Jul 	New
+11/16/2022 asmurali 	statusStates            	[status=V, startDate=Mon Jul 	                             	Del
+11/16/2022 asmurali 	Age-status              	33                           	155                          	Mod
+11/02/2022 palshanm 	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+10/31/2022 cdetsbtk 	Security-screening-times	2022-10-21 21:06:13.000+0000 	2022-11-01 12:19:07.000+0000 	Mod
+10/31/2022 fas      	Known-fixed-releases    	                             	10.2(4)                      	New
+10/21/2022 cdetsbtk 	Security-screening-times	2022-08-29 02:07:26.000+0000 	2022-10-21 21:06:13.000+0000 	Mod
+10/21/2022 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+10/21/2022 psirt.gen	contents                	                             	Release-note-diff            	Mod
+10/21/2022 psirt.gen	FileSize                	5541                         	9679                         	Mod
+10/21/2022 psirt.gen	PSIRT-attribute         	SN Update:8                  	SN Update:9                  	Mod
+10/21/2022 psirt.gen	PSIRT-status            	no-disclosure-reqd           	under_investigation          	Mod
+10/21/2022 psirt.gen	Justification           	                             	CISCO HIGHLY CONFIDENTIAL - C	Mod
+10/21/2022 psirt.gen	Symptoms                	For the Cisco NX-OS Software 	                             	Mod
+10/21/2022 psirt.gen	Conditions              	This issue affects the follow	                             	Mod
+10/21/2022 psirt.gen	Workarounds             	The CLI command "aaa authoriz	                             	Mod
+10/21/2022 psirt.gen	Further-Problem-Descript	None
+
+<B>PSIRT Evaluation:</B	                             	Mod
+10/14/2022 psirt.gen	Hardening               	N                            	Y                            	Mod
+10/14/2022 psirt.gen	PSIRT-attribute         	SN Update:7                  	SN Update:8                  	Mod
+10/14/2022 psirt.gen	PSIRT-status            	under_investigation          	no-disclosure-reqd           	Mod
+10/03/2022 samuel2  	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+09/01/2022 psirt.gen	PSIRT-attribute         	SN Update:6                  	SN Update:7                  	Mod
+09/01/2022 psirt.gen	SIR                     	High                         	Low                          	Mod
+08/28/2022 cdetsbtk 	Security-screening-times	2022-08-29 02:07:11.000+0000 	2022-08-29 02:07:26.000+0000 	Mod
+08/28/2022 palshanm 	File Name               	                             	CSCwc17000_KR4M_test_logs.txt	New
+08/28/2022 cdetsbtk 	Security-screening-times	2022-08-29 02:06:10.000+0000 	2022-08-29 02:07:11.000+0000 	Mod
+08/28/2022 palshanm 	Note Title              	                             	V-comments.p3                	New
+08/28/2022 cdetsbtk 	Security-screening-times	2022-08-08 20:17:04.000+0000 	2022-08-29 02:06:10.000+0000 	Mod
+08/28/2022 palshanm 	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+08/28/2022 palshanm 	Verified-release        	                             	10.3(0)INA9(0.134)           	New
+08/28/2022 palshanm 	Known-fixed-releases    	                             	10.3(1)                      	New
+08/08/2022 cdetsbtk 	Security-screening-times	2022-08-08 20:10:05.000+0000 	2022-08-08 20:17:04.000+0000 	Mod
+08/08/2022 psirt.gen	Headline                	NXOS SSH x509v3 with TACACS R	SSH x509v3 Certificate w/TACA	Mod
+08/08/2022 psirt.gen	PSIRT-attribute         	SN Update:5                  	SN Update:6                  	Mod
+08/08/2022 cdetsbtk 	Security-screening-times	2022-07-21 20:23:22.000+0000 	2022-08-08 20:10:05.000+0000 	Mod
+08/08/2022 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+08/08/2022 psirt.gen	contents                	                             	Release-note-diff            	Mod
+08/08/2022 psirt.gen	FileSize                	1237                         	5541                         	Mod
+08/08/2022 psirt.gen	PSIRT-attribute         	SN Update:4                  	SN Update:5                  	Mod
+08/08/2022 psirt.gen	Justification           	CISCO HIGHLY CONFIDENTIAL - C	                             	Mod
+08/08/2022 psirt.gen	Symptoms                	SSH x509v3 user is able to au	For the Cisco NX-OS Software 	Mod
+08/08/2022 psirt.gen	Conditions              	SSH x509v3
+TACACS Remote Auth	This issue affects the follow	Mod
+08/08/2022 psirt.gen	Workarounds             	Remove command "aaa authoriza	The CLI command "aaa authoriz	Mod
+08/08/2022 psirt.gen	Further-Problem-Descript	                             	None
+
+<B>PSIRT Evaluation:</B	Mod
+07/30/2022 palshanm 	Attribute               	ed_ic_dc_rs cfd-mukamath n-mu	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/21/2022 cdetsbtk 	Security-screening-times	2022-07-21 00:12:09.000+0000 	2022-07-21 20:23:22.000+0000 	Mod
+07/20/2022 cdetsbtk 	Security-screening-times	2022-07-18 12:34:39.000+0000 	2022-07-21 00:12:09.000+0000 	Mod
+07/20/2022 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+07/17/2022 cdetsbtk 	Security-screening-times	2022-07-17 01:43:26.000+0000 	2022-07-18 12:34:39.000+0000 	Mod
+07/17/2022 palshanm 	Note Title              	                             	V-comments.p2                	New
+07/17/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/17/2022 palshanm 	Status                  	R                            	V                            	Mod
+07/17/2022 palshanm 	Verified-release        	                             	10.3(0.171)                  	New
+07/17/2022 palshanm 	Verified-on             	2022-07-01 09:43:37.000+0000 	2022-07-18 05:34:38.000+0000 	Mod
+07/17/2022 palshanm 	statusStates            	                             	[status=R, startDate=Sat Jul 	New
+07/17/2022 palshanm 	statusStates            	[status=R, startDate=Sat Jul 	                             	Del
+07/17/2022 palshanm 	Age-status              	24                           	33                           	Mod
+07/17/2022 palshanm 	Mean-time-to-verified   	15                           	32                           	Mod
+07/16/2022 cdetsbtk 	Security-screening-times	2022-07-17 01:28:25.000+0000 	2022-07-17 01:43:26.000+0000 	Mod
+07/16/2022 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+07/16/2022 cdetsbtk 	Security-screening-times	2022-07-15 18:14:49.000+0000 	2022-07-17 01:28:25.000+0000 	Mod
+07/16/2022 palshanm 	Note Title              	                             	Automation-Log               	New
+07/16/2022 palshanm 	Automated-test          	N                            	Y                            	Mod
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+07/15/2022 cdetsbtk 	Security-screening-times	2022-07-09 12:11:19.000+0000 	2022-07-15 18:14:49.000+0000 	Mod
+07/15/2022 divvenka 	Integrated-releases     	                             	10.3(0)INA9(0),10.3(0)INA9(0.	New
+07/15/2022 divvenka 	Known-fixed-releases    	                             	9.3(10)                      	New
+07/13/2022 shihchi  	Attribute               	ed_ic_dc_rs cfd-mukamath     	ed_ic_dc_rs cfd-mukamath n-mu	Mod
+07/10/2022 divvenka 	Integrated-releases     	                             	10.2(3.42),10.2(4)           	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-09 02:57:40.000+0000 	2022-07-09 12:11:19.000+0000 	Mod
+07/08/2022 anok     	Note Title              	                             	R-comments                   	New
+07/08/2022 anok     	Status-desc             	M-More                       	R-Resolved                   	Mod
+07/08/2022 anok     	Status                  	M                            	R                            	Mod
+07/08/2022 anok     	Resolved-on             	2022-06-23 13:25:39.000+0000 	2022-07-09 05:11:19.000+0000 	Mod
+07/08/2022 anok     	statusStates            	                             	[status=M, startDate=Wed Jul 	New
+07/08/2022 anok     	statusStates            	[status=M, startDate=Wed Jul 	                             	Del
+07/08/2022 anok     	Age-status              	21                           	24                           	Mod
+07/08/2022 anok     	Mean-time-to-resolved   	7                            	23                           	Mod
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-09 02:57:37.000+0000 	2022-07-09 02:57:40.000+0000 	Mod
+07/08/2022 anok     	File Name               	                             	Diffs-commit-kerry           	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 21:22:05.000+0000 	2022-07-09 02:57:37.000+0000 	Mod
+07/08/2022 anok     	File Name               	                             	Diffs-release-kerry          	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 21:21:44.000+0000 	2022-07-08 21:22:05.000+0000 	Mod
+07/08/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 14:38:47.000+0000 	2022-07-08 21:21:44.000+0000 	Mod
+07/08/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+07/08/2022 jkranzma 	Other-mail              	rtp-cns-dc                   	                             	Mod
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 14:23:27.000+0000 	2022-07-08 14:38:47.000+0000 	Mod
+07/08/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/08/2022 prrqengg 	FileSize                	922                          	924                          	Mod
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:32:11.000+0000 	2022-07-08 14:23:27.000+0000 	Mod
+07/08/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+07/06/2022 divvenka 	Integrated-releases     	                             	10.3(0.159),10.3(1)          	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:32:05.000+0000 	2022-07-07 12:32:11.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:31:42.000+0000 	2022-07-07 12:32:05.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:31:24.000+0000 	2022-07-07 12:31:42.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:29:09.000+0000 	2022-07-07 12:31:24.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:28:22.000+0000 	2022-07-07 12:29:09.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 08:42:34.000+0000 	2022-07-07 12:28:22.000+0000 	Mod
+07/06/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 08:42:32.000+0000 	2022-07-07 08:42:34.000+0000 	Mod
+07/06/2022 anok     	File Name               	                             	Diffs-commit-niles           	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 08:13:03.000+0000 	2022-07-07 08:42:32.000+0000 	Mod
+07/06/2022 anok     	File Name               	                             	Diffs-release-niles          	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-07 08:12:32.000+0000 	2022-07-07 08:13:03.000+0000 	Mod
+07/06/2022 baas     	File Name               	                             	ccwarnings-niles             	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 23:00:02.000+0000 	2022-07-07 08:12:32.000+0000 	Mod
+07/06/2022 baas     	File Name               	                             	static-analysis-niles        	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 22:45:02.000+0000 	2022-07-06 23:00:02.000+0000 	Mod
+07/06/2022 anok     	Note Title              	                             	M-comments                   	New
+07/06/2022 anok     	Status-desc             	V-Verified                   	M-More                       	Mod
+07/06/2022 anok     	Status                  	V                            	M                            	Mod
+07/06/2022 anok     	More-on                 	2022-06-23 13:25:39.000+0000 	2022-07-06 16:00:02.000+0000 	Mod
+07/06/2022 anok     	statusStates            	                             	[status=V, startDate=Fri Jul 	New
+07/06/2022 anok     	statusStates            	[status=V, startDate=Fri Jul 	                             	Del
+07/06/2022 anok     	Age-status              	16                           	21                           	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 21:14:36.000+0000 	2022-07-06 22:45:02.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 prrqengg 	FileSize                	923                          	925                          	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 16:16:47.000+0000 	2022-07-06 21:14:36.000+0000 	Mod
+07/06/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+07/06/2022 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 16:14:47.000+0000 	2022-07-06 16:16:47.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 prrqengg 	FileSize                	922                          	923                          	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 16:10:07.000+0000 	2022-07-06 16:14:47.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 16:04:07.000+0000 	2022-07-06 16:10:07.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 prrqengg 	FileSize                	925                          	922                          	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 15:14:07.000+0000 	2022-07-06 16:04:07.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 14:59:27.000+0000 	2022-07-06 15:14:07.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 14:31:26.000+0000 	2022-07-06 14:59:27.000+0000 	Mod
+07/06/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-06 14:21:39.000+0000 	2022-07-06 14:31:26.000+0000 	Mod
+07/06/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-07-01 16:44:00.000+0000 	2022-07-06 14:21:39.000+0000 	Mod
+07/06/2022 anok     	Note Title              	                             	Unit-test.p2                 	New
+07/01/2022 cdetsbtk 	Security-screening-times	2022-07-01 16:43:38.000+0000 	2022-07-01 16:44:00.000+0000 	Mod
+07/01/2022 palshanm 	File Name               	                             	CSCwc17000_imr9_test_logs.txt	New
+07/01/2022 cdetsbtk 	Security-screening-times	2022-06-29 16:07:04.000+0000 	2022-07-01 16:43:38.000+0000 	Mod
+07/01/2022 palshanm 	Note Title              	                             	V-comments                   	New
+07/01/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/01/2022 palshanm 	Status                  	R                            	V                            	Mod
+07/01/2022 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+07/01/2022 palshanm 	Verified-release        	                             	9.3(9.73)                    	New
+07/01/2022 palshanm 	Verified-confidence     	                             	believed                     	Mod
+07/01/2022 palshanm 	Verified-on             	                             	2022-07-01 09:43:37.000+0000 	Mod
+07/01/2022 palshanm 	statusStates            	                             	[status=R, startDate=Thu Jun 	New
+07/01/2022 palshanm 	statusStates            	[status=R, startDate=Thu Jun 	                             	Del
+07/01/2022 palshanm 	Age-status              	8                            	16                           	Mod
+07/01/2022 palshanm 	Mean-time-to-verified   	                             	15                           	Mod
+06/29/2022 cdetsbtk 	Security-screening-times	2022-06-26 00:23:38.000+0000 	2022-06-29 16:07:04.000+0000 	Mod
+06/29/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/27/2022 mgiardin 	Attribute               	ed_ic_dc_rs cfd-mukamath ic-b	ed_ic_dc_rs cfd-mukamath     	Mod
+06/27/2022 noliver  	Attribute               	ed_ic_dc_rs cfd-mukamath     	ed_ic_dc_rs cfd-mukamath ic-b	Mod
+06/26/2022 jdasgupt 	Attribute               	ed_ic_dc_rs                  	ed_ic_dc_rs cfd-mukamath     	Mod
+06/25/2022 cdetsbtk 	Security-screening-times	2022-06-25 23:10:32.000+0000 	2022-06-26 00:23:38.000+0000 	Mod
+06/25/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/25/2022 cdetsbtk 	Security-screening-times	2022-06-25 22:58:51.000+0000 	2022-06-25 23:10:32.000+0000 	Mod
+06/25/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/25/2022 cdetsbtk 	Security-screening-times	2022-06-25 21:33:29.000+0000 	2022-06-25 22:58:51.000+0000 	Mod
+06/25/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/25/2022 cdetsbtk 	Security-screening-times	2022-06-25 18:45:44.000+0000 	2022-06-25 21:33:29.000+0000 	Mod
+06/25/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/25/2022 cdetsbtk 	Security-screening-times	2022-06-23 20:25:40.000+0000 	2022-06-25 18:45:44.000+0000 	Mod
+06/25/2022 cms      	Note Title              	                             	Scrubnote                    	New
+06/23/2022 divvenka 	Integrated-releases     	                             	9.3(10),9.3(9.68)            	New
+06/23/2022 cdetsbtk 	Security-screening-times	2022-06-23 15:59:41.000+0000 	2022-06-23 20:25:40.000+0000 	Mod
+06/23/2022 anok     	Related-bugs            	                             	Teacat/CSCwc24122            	New
+06/23/2022 anok     	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+06/23/2022 anok     	Status                  	A                            	R                            	Mod
+06/23/2022 anok     	Teabugid                	                             	CSCwc24122                   	Mod
+06/23/2022 anok     	Dev-escape-resolver-opin	                             	N                            	Mod
+06/23/2022 anok     	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+06/23/2022 anok     	More-by                 	                             	anok                         	Mod
+06/23/2022 anok     	Opener                  	                             	anok                         	Mod
+06/23/2022 anok     	Resolver                	                             	anok                         	Mod
+06/23/2022 anok     	Breakage                	                             	No                           	Mod
+06/23/2022 anok     	Regression              	                             	N                            	Mod
+06/23/2022 anok     	By-previous-commit-value	                             	No                           	Mod
+06/23/2022 anok     	Bug-origin              	                             	Requirements                 	Mod
+06/23/2022 anok     	Released-code           	                             	N                            	Mod
+06/23/2022 anok     	Origin                  	                             	requirements                 	Mod
+06/23/2022 anok     	Test-EDP-phase          	                             	Development                  	Mod
+06/23/2022 anok     	Test-EDP-activity       	                             	Code Analysis                	Mod
+06/23/2022 anok     	TPS_issue               	                             	N                            	Mod
+06/23/2022 anok     	TPS_flag                	                             	N                            	Mod
+06/23/2022 anok     	Behavior-changed        	                             	N                            	Mod
+06/23/2022 anok     	Original-resolved-on    	                             	2022-06-23 13:25:39.000+0000 	Mod
+06/23/2022 anok     	Documents-changed       	                             	none                         	Mod
+06/23/2022 anok     	More-on                 	                             	2022-06-23 13:25:39.000+0000 	Mod
+06/23/2022 anok     	Opened-on               	                             	2022-06-23 13:25:39.000+0000 	Mod
+06/23/2022 anok     	Resolved-on             	                             	2022-06-23 13:25:39.000+0000 	Mod
+06/23/2022 anok     	Submitted-on            	2022-06-15 20:39:25.903+0000 	2022-06-15 20:39:25.000+0000 	Mod
+06/23/2022 anok     	New-on                  	2022-06-15 20:39:25.903+0000 	2022-06-15 20:39:25.000+0000 	Mod
+06/23/2022 anok     	statusStates            	                             	[status=A, startDate=Sat Jun 	New
+06/23/2022 anok     	statusStates            	[status=A, startDate=Sat Jun 	                             	Del
+06/23/2022 anok     	Age-status              	3                            	8                            	Mod
+06/23/2022 anok     	Mean-time-to-resolved   	                             	7                            	Mod
+06/23/2022 cdetsbtk 	Security-screening-times	2022-06-23 15:59:39.000+0000 	2022-06-23 15:59:41.000+0000 	Mod
+06/23/2022 anok     	File Name               	                             	Diffs-release-irvine         	New
+06/23/2022 anok     	Multi-commit-flag       	                             	Y                            	Mod
+06/23/2022 cdetsbtk 	Security-screening-times	2022-06-23 14:41:45.000+0000 	2022-06-23 15:59:39.000+0000 	Mod
+06/23/2022 anok     	File Name               	                             	Diffs-commit-irvine          	New
+06/23/2022 cdetsbtk 	Security-screening-times	2022-06-23 14:41:17.000+0000 	2022-06-23 14:41:45.000+0000 	Mod
+06/23/2022 baas     	File Name               	                             	ccwarnings-irvine            	New
+06/23/2022 cdetsbtk 	Security-screening-times	2022-06-23 11:46:02.000+0000 	2022-06-23 14:41:17.000+0000 	Mod
+06/23/2022 baas     	File Name               	                             	static-analysis-irvine       	New
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-22 20:44:12.000+0000 	2022-06-23 11:46:02.000+0000 	Mod
+06/22/2022 anok     	File Name               	                             	pyats_tacacs.eml             	New
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-22 20:43:41.000+0000 	2022-06-22 20:44:12.000+0000 	Mod
+06/22/2022 anok     	Note Title              	l3_Uls                       	l3_Uls_sanity                	Mod
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-22 20:41:52.000+0000 	2022-06-22 20:43:41.000+0000 	Mod
+06/22/2022 anok     	Note Title              	                             	l3_Uls                       	New
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-22 17:49:13.000+0000 	2022-06-22 20:41:52.000+0000 	Mod
+06/22/2022 anok     	Note Title              	                             	Unit-test                    	New
+06/22/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+06/22/2022 prrqengg 	FileSize                	920                          	922                          	Mod
+06/22/2022 prrqengg 	Code-reviewer           	                             	vasagraw,sarchand            	New
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-22 14:34:08.000+0000 	2022-06-22 17:49:13.000+0000 	Mod
+06/22/2022 anikunna 	Engineer                	sarchand                     	anok                         	Mod
+06/22/2022 cdetsbtk 	Security-screening-times	2022-06-18 12:57:02.000+0000 	2022-06-22 14:34:08.000+0000 	Mod
+06/22/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+06/20/2022 cms      	Est-fix-date            	                             	2022-06-27 07:00:00.000+0000 	Mod
+06/17/2022 cdetsbtk 	Security-screening-times	2022-06-16 07:47:02.000+0000 	2022-06-18 12:57:02.000+0000 	Mod
+06/17/2022 anikunna 	Note Title              	                             	A-comments                   	New
+06/17/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+06/17/2022 anikunna 	Status                  	N                            	A                            	Mod
+06/17/2022 anikunna 	Engineer                	                             	sarchand                     	Mod
+06/17/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+06/17/2022 anikunna 	Assigned Date           	                             	2022-06-18 05:57:01.000+0000 	Mod
+06/17/2022 anikunna 	statusStates            	                             	[status=N, startDate=Wed Jun 	New
+06/17/2022 anikunna 	statusStates            	[status=N, startDate=Wed Jun 	                             	Del
+06/17/2022 anikunna 	Age-status              	0                            	3                            	Mod
+06/17/2022 anikunna 	Mean-time-to-assigned   	                             	2                            	Mod
+06/16/2022 psirt.gen	PSIRT-attribute         	SN Update:3                  	SN Update:4                  	Mod
+06/16/2022 psirt.gen	SIR                     	Medium                       	High                         	Mod
+06/15/2022 psirt.gen	PSIRT-attribute         	SN Update:2                  	SN Update:3                  	Mod
+06/15/2022 psirt.gen	SIR                     	                             	Medium                       	Mod
+06/15/2022 cdetsbtk 	Security-screening-times	2022-06-16 03:58:32.000+0000 	2022-06-16 07:47:02.000+0000 	Mod
+06/15/2022 psirt.gen	serviceRequests/PSIRT/PS	                             	PSIRT/PSIRT-0425003660       	New
+06/15/2022 psirt.gen	PSIRT-attribute         	SN Update:1                  	SN Update:2                  	Mod
+06/15/2022 psirt.gen	PSIRT-status            	                             	under_investigation          	Mod
+06/15/2022 psirt.gen	Tickets-count           	1                            	2                            	Mod
+06/15/2022 psirt.gen	Tickets-count-direct    	1                            	2                            	Mod
+06/15/2022 psirt.gen	Trouble-tickets         	                             	PSIRT-0425003660             	New
+06/15/2022 psirt.gen	Trouble-tickets-direct  	                             	PSIRTPSIRT-0425003660        	New
+06/15/2022 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+06/15/2022 cdetsbtk 	Security-screening-times	2022-06-16 03:39:58.000+0000 	2022-06-16 03:58:32.000+0000 	Mod
+06/15/2022 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+06/15/2022 psirt.gen	File Name               	                             	Release-note-diff            	New
+06/15/2022 psirt.gen	PSIRT-attribute         	                             	SN Update:1                  	Mod
+06/15/2022 psirt.gen	Justification           	Any user that has a valid cer	CISCO HIGHLY CONFIDENTIAL - C	Mod
+06/15/2022 cdetsbtk 	Security-screening-times	2022-06-16 03:39:26.000+0000 	2022-06-16 03:39:58.000+0000 	Mod
+06/15/2022 jkranzma 	serviceRequests/C3/69253	                             	C3/692538419                 	New
+06/15/2022 jkranzma 	Urgency-desc            	NA                           	P3                           	Mod
+06/15/2022 jkranzma 	Urgency                 	                             	6                            	Mod
+06/15/2022 jkranzma 	Tickets-count           	0                            	1                            	Mod
+06/15/2022 jkranzma 	TACSR-count             	                             	1                            	Mod
+06/15/2022 jkranzma 	Tickets-count-direct    	                             	1                            	Mod
+06/15/2022 jkranzma 	Trouble-tickets         	                             	692538419                    	New
+06/15/2022 jkranzma 	Trouble-tickets-direct  	                             	C3692538419                  	New
+06/15/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+06/15/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+06/15/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+06/15/2022 cdetsbtk 	Security-screening-times	                             	2022-06-16 03:39:26.000+0000 	Mod
+06/15/2022 jkranzma 	Note Title              	                             	SSH Debug                    	New
+06/15/2022 jkranzma 	Note Title              	                             	Release-note                 	New
+06/15/2022 jkranzma 	Note Title              	                             	SecureCRT-Debug              	New
+06/15/2022 jkranzma 	Note Title              	                             	reproduction-steps           	New
+06/15/2022 jkranzma 	Impact                  	                             	Integrity / Security         	New
+06/15/2022 jkranzma 	Version                 	                             	7.0(3)I7(8)                  	New
+06/15/2022 jkranzma 	Known-affected-releases 	                             	7.0(3)I7(8)                  	New
+06/15/2022 jkranzma 	Defect Created          	                             	                             	New

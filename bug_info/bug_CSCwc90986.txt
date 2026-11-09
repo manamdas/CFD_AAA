@@ -1,0 +1,1497 @@
+*******************************************************************************
+
+Bug ID   : CSCwc90986         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : Unable to config "ip tacacs source-interface" when "feature password encryption aes" is configured
+PrimaryPV : 
+Version :10.3(1) 9.3(10) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: mmaziark           Submitted: 09/05/2022 05:51:59     Last Updtd : 09/04/2026 01:59:53  
+RNE-Type: NONE                New-on : 09/05/2022 22:31:09      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:katrybul                                            
+Known-affected-releases:10.3(1) 9.3(10) 
+
+Known-fixed-releases:10.2(4) 10.3(2) 9.3(11) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.3(1) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IM7(2) 8.3(1) 8.3(2) 8.4(1) 8.4(10) 8.4(11) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 09/15/2022 23:55:31                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 63                                             
+Mean-time-to-verified: 70     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 09/05/2022 12:41:12            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Configuring Maintainability Interoperability Ease-of-Use 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 09/06/2022 02:24:02 
+Code-reviewer: greddyda       
+Opened-on: 09/13/2022 20:47:25Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis ed_ic_dc_rs cfd-manojohn nr2f-mu
+Est. completion date: 09/14/2022 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 11/07/2022 02:50:00  
+
+Documents Changed: none       Resolved: 11/07/2022 08:38:16 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: ranjsaho            Verified Confidence: tested                       
+Verified Date: 11/14/2022 23:57:56      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  GC_EMEA_DC_DCRS_PL
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              694050340
+Trouble-tickets-direct :C3694050340 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/05/2022 15:17:13
+Document :    nexus
+
+Summary:
+When "feature password encryption aes" is configured on the device, "ip tacacs source-interface" command couldn't be configured.
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         694050340       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-218806                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (22 of 22 ) ***********************
+
+---Start of Note Titled: Email-in.p2 (Created 12/11/2023 18:17:46 Added 12/11/2023 18:17:46 by lakotla)---
+From: "Lakshmi Kotla -X (lakotla - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <lakotla@cisco.com>
+Date: Tuesday, November 28, 2023 at 12:41 PM 
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>
+Subject: [790272]RE: CSCwc90986:Unable to config "ip tacacs source-interface" when "feature password encryption aes" is configured::CSC.datacenter
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+I am currently evaluating CSCwc90986 for a software recommendation
+of 10.4(x) for my customer N/A:
+
+ http://wwwin-metrics.cisco.com/protected-cgi-bin/ddtsdisp.cgi?id=CSCwc90986
+
+ Having read the Bug enclosures I'm still unsure as to whether this bug will
+
+ affect my customer or not, so hopefully you can clarify this for me.
+ 
+Could you please confirm whether this issue impacts N9k, N3K running 10.4(x) Releases?
+
+ Thank you for your help,
+Lakshmi Kotla
+
+
+############################ MESSAGE IDS ############################
+# <DS0PR11MB6446E3474A223CB05274FA4EB0BCA@DS0PR11MB6446.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled: Email-in (Created 12/11/2023 17:53:40 Added 12/11/2023 17:53:40 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Tuesday, November 28, 2023 at 1:58 PM 
+To: "Lakshmi Kotla -X (lakotla - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <lakotla@cisco.com>
+Cc: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>
+Subject: Re: [790272]RE: CSCwc90986:Unable to config "ip tacacs source-interface" when "feature password encryption aes" is configured::CSC.datacenter
+
+Hi Lakshmi,
+ 
+The fix is present in 10.4.1 itself. So, none of the 10.4.x is likely to be impacted by the bug.
+ 
+Regards,
+ 
+Vasu
+ 
+From:
+Lakshmi Kotla -X (lakotla - TATA CONSULTANCY SERVICES LIMITED at Cisco) <lakotla@cisco.com>
+Date: Tuesday, 28 November 2023 at 6:11?PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>, maildediscussion(mailer list) <maildediscussion@cisco.com>, bug-attach(mailer list) <bug-attach@cisco.com>
+Subject: [790272]RE: CSCwc90986:Unable to config "ip tacacs source-interface" when "feature password encryption aes" is configured::CSC.datacenter
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+I am currently evaluating CSCwc90986 for a software recommendation
+of 10.4(x) for my customer N/A:
+ http://wwwin-metrics.cisco.com/protected-cgi-bin/ddtsdisp.cgi?id=CSCwc90986
+ Having read the Bug enclosures I'm still unsure as to whether this bug will
+
+ affect my customer or not, so hopefully you can clarify this for me.
+ 
+Could you please confirm whether this issue impacts N9k, N3K running 10.4(x) Releases?
+ Thank you for your help,
+Lakshmi Kotla
+
+
+############################ MESSAGE IDS ############################
+# <DS0PR11MB6446E3474A223CB05274FA4EB0BCA@DS0PR11MB6446.namprd11.prod.outlook.com>
+# <SJ0PR11MB5069D363FBEDDB6A03FEFFBEC6BCA@SJ0PR11MB5069.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments.p2 (Created 11/14/2022 23:57:56 Added 11/14/2022 23:57:56 by ranjsaho)---
+1. S/W Version : 9.3(10.28)
+
+2. Platform : N9K-C93360YC-FX2
+
+3. Automation Suite: yes
+
+4. Steps to reproduce and Verify: 
+
+passlog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/ws/pathkuma-bgl/PYATS_64/users/ranjsaho/archive/22-11/cfd_tacacs_job.2022Nov15_12:36:51.564448.zip&atstype=ATS
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Verified-IMR10 (Created 11/14/2022 23:38:23 Added 11/14/2022 23:38:23 by ranjsaho)---
+Version-9.3(10.28)
+
+Passlog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/ws/pathkuma-bgl/PYATS_64/users/ranjsaho/archive/22-11/cfd_tacacs_job.2022Nov15_12:19:52.408265.zip&atstype=ATS
+---End of Note Titled: Verified-IMR10---
+
+
+---Start of Note Titled: R-comments.p2 (Created 11/07/2022 08:38:16 Added 11/07/2022 08:38:16 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: unit-test_IRVINE (Created 11/07/2022 01:00:26 Added 11/07/2022 01:00:26 by vasagraw)---
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.47
+ NXOS: version 9.3(11) [build 9.3(10.24)]
+  System version: 9.3(10)
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc image
+  NXOS image file is: bootflash:///nxos.9.3.10.24.bin
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config | grep feature | grep aes
+feature password encryption aes
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs
+                                     ^
+% Invalid command at '^' marker.
+switch(config)# 
+switch(config)# 
+switch(config)# feature tacacs+ 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:36:58 2022
+!Time: Mon Nov  7 08:37:00 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+switch(config)# 
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:37:10 2022
+!Time: Mon Nov  7 08:37:12 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server timeout 4
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:37:19 2022
+!Time: Mon Nov  7 08:37:22 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+
+switch(config)# 
+switch(config)# tacacs-server deadtime 7
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:37:29 2022
+!Time: Mon Nov  7 08:37:31 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+tacacs-server deadtime 7
+
+switch(config)# 
+switch(config)# 
+switch(config)# no tacacs-server timeout 4
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:37:37 2022
+!Time: Mon Nov  7 08:37:39 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server deadtime 7
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# no tacacs-server deadtime 7
+switch(config)# 
+switch(config)# 
+switch(config)# no ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:37:52 2022
+!Time: Mon Nov  7 08:37:54 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+switch(config)# 
+
+
+
+switch(config)# no feature password encryption aes 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config | grep feature | grep aes
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:39:30 2022
+!Time: Mon Nov  7 08:39:44 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:39:51 2022
+!Time: Mon Nov  7 08:39:57 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+switch(config)# 
+switch(config)# tacacs-server deadtime 7
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:39:59 2022
+!Time: Mon Nov  7 08:40:00 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server deadtime 7
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server timeout 4
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:40:27 2022
+!Time: Mon Nov  7 08:40:29 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+tacacs-server deadtime 7
+
+switch(config)# 
+switch(config)# 
+switch(config)# no tacacs-server deadtime 7
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:40:38 2022
+!Time: Mon Nov  7 08:40:45 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+
+switch(config)# 
+switch(config)# 
+switch(config)# no tacacs-server timeout 4
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:40:47 2022
+!Time: Mon Nov  7 08:40:48 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+switch(config)# 
+switch(config)# no ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Nov  7 08:41:01 2022
+!Time: Mon Nov  7 08:41:03 2022
+
+version 9.3(11) Bios:version 05.47 
+feature tacacs+
+
+switch(config)#
+---End of Note Titled: unit-test_IRVINE---
+
+
+---Start of Note Titled: Verified-NR2F (Created 10/31/2022 03:34:14 Added 10/31/2022 03:34:14 by ranjsaho)---
+Image-10.3(1)IMG9(0.215)
+
+Passlog- https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/megade/archive/22-10/cfd_tacacs_job.2022Oct31_15:49:30.977517.zip&atstype=ATS
+---End of Note Titled: Verified-NR2F---
+
+
+---Start of Note Titled: V-comments (Created 09/27/2022 03:56:47 Added 09/27/2022 03:56:47 by ranjsaho)---
+1. S/W Version : 10.2(3.126)
+
+2. Platform : N9K-C93240YC-FX2
+
+3. Automation Suite: yes
+
+4. Steps to reproduce and Verify: 
+
+passlog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/ranjsaho/archive/22-09/cfd_tacacs_job.2022Sep27_11:01:07.108224.zip&atstype=ATS
+
+Faillog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/ranjsaho/archive/22-09/cfd_tacacs_job.2022Sep27_12:55:40.388423.zip&atstype=ATS
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: Automation log (Created 09/27/2022 03:42:29 Added 09/27/2022 03:42:29 by ranjsaho)---
+passlog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/ranjsaho/archive/22-09/cfd_tacacs_job.2022Sep27_11:01:07.108224.zip&atstype=ATS
+
+Faillog-https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/ranjsaho/archive/22-09/cfd_tacacs_job.2022Sep27_12:55:40.388423.zip&atstype=ATS
+---End of Note Titled: Automation log---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 09/16/2022 01:18:55 Added 09/16/2022 01:18:55 by njetti)---
+https://gnosis.cisco.com/signature/bug/632411bc5aee44c1b159ebb1/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 09/16/2022 01:17:26 Added 09/16/2022 01:17:26 by njetti)---
+https://gnosis.cisco.com/signature/bug/632411bc5aee44c1b159ebb1/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: R-comments (Created 09/15/2022 23:55:31 Added 09/15/2022 23:55:31 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: DetectionLogic (Created 09/15/2022 06:23:39 Added 09/15/2022 06:23:39 by fermorei)---
+0. Issue affects Nexus 9000 running NX-OS 9.3(10) or previous 9.3(x), 10.1(2) or previous 10.1(x), 10.2(3) or previous 10.2(X), 10.3(1)
+
+1. Check under "show running-config" if "feature tacacs+" and "feature password encryption aes" are configured, and is missing command "ip tacacs source-interface <interface>":
+show running-config
+<snip>
+feature tacacs+
+<snip>
+feature password encryption aes
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Missing command "ip tacacs source-interface <interface>"
+
+
+2. Check under "show accounting log" if command "ip tacacs source-interface <interface>" was (SUCCESS):
+show accounting log
+<snip>
+Thu Sep 15 14:57:10 2022:type=update:id=10.227.64.56@pts/0:user=admin:cmd=configure terminal ; ip tacacs source-interface mgmt0 (SUCCESS)  <<<<<<<
+
+
+3. BORG Alert
+If all conditions above are met, set the BORG Alert to warning.
+Use attachment 'CSCwc90986-positive.zip' in SR 687294611:
+https://cxfiles-v1-ui.cxapps.cisco.com/files/download?appId=CSOne&forceText=-1&id=687294611&fileName=CSCwc90986-positive.zip
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: unit-test-kerry (Created 09/13/2022 11:42:22 Added 09/13/2022 11:42:22 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config | grep feature | grep aes
+switch(config)# 
+switch(config)# 
+switch(config)#  
+switch(config)# feature tacacs+ 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:32:40 2022
+!Time: Tue Sep 13 18:32:43 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:32:53 2022
+!Time: Tue Sep 13 18:32:56 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server deadtime 7
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:33:04 2022
+!Time: Tue Sep 13 18:33:07 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server deadtime 7
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server t
+test      timeout   
+switch(config)# tacacs-server timeout 4
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:33:17 2022
+!Time: Tue Sep 13 18:33:19 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+tacacs-server deadtime 7
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# no tacacs-server deadtime 7
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:33:27 2022
+!Time: Tue Sep 13 18:33:30 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+
+
+switch(config)# 
+switch(config)# no tacacs-server timeout 4
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:33:38 2022
+!Time: Tue Sep 13 18:33:49 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# no ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:33:59 2022
+!Time: Tue Sep 13 18:34:01 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# no featu
+feature       feature-set   
+switch(config)# no feature tacacs+ 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+                                     ^
+% Invalid command at '^' marker.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# key config-key ascii 
+New Master Key: 
+Retype Master Key: 
+switch(config)# 
+switch(config)# 
+switch(config)# feature password encryption aes 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config | grep feature | grep aes
+feature password encryption aes
+switch(config)# 
+switch(config)# 
+switch(config)# feature tacacs+ 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:38:46 2022
+!Time: Tue Sep 13 18:38:49 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:39:01 2022
+!Time: Tue Sep 13 18:39:02 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# tacacs-server timeout 4
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:39:09 2022
+!Time: Tue Sep 13 18:39:10 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+
+
+switch(config)# 
+switch(config)# tacacs-server deadtime 7
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:39:23 2022
+!Time: Tue Sep 13 18:39:24 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server timeout 4
+tacacs-server deadtime 7
+
+
+switch(config)# 
+switch(config)# no tacacs-server timeout 4
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:39:39 2022
+!Time: Tue Sep 13 18:39:42 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server deadtime 7
+
+
+switch(config)# 
+switch(config)# no tacacs-server deadtime 7
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:39:51 2022
+!Time: Tue Sep 13 18:39:53 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# no ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Sep 13 18:40:00 2022
+!Time: Tue Sep 13 18:40:02 2022
+
+version 10.2(4) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.47
+  NXOS: version 10.2(4) [build 10.2(3.106)] [Maintenance Release]
+  System version: 10.3(2)
+switch(config)#
+---End of Note Titled: unit-test-kerry---
+
+
+---Start of Note Titled: static-analysis-runinfo-n9k (Created 09/13/2022 01:54:01 Added 09/13/2022 01:54:01 by vasagraw)---
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+
+Total active warnings: 0
+Total noise warnings: 0
+Total parent warnings: 0
+
+Files not analyzed:
+	
+
+Files analyzed:
+	
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (0):
+
+Warnings marked parent (0):
+---End of Note Titled: static-analysis-runinfo-n9k---
+
+
+---Start of Note Titled: Unit-test (Created 09/12/2022 02:57:23 Added 09/12/2022 02:57:23 by vasagraw)---
+switch(config)# 
+switch(config)# key config-key ascii 
+New Master Key: 
+Retype Master Key: 
+switch(config)# 
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# feature password encryption aes
+switch(config)# 
+
+switch(config)#   
+switch(config)# feature tacacs+ 
+
+
+
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep 12 09:47:33 2022
+!Time: Mon Sep 12 09:47:40 2022
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep 12 09:47:46 2022
+!Time: Mon Sep 12 09:47:49 2022
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.47
+  NXOS: version 10.3(2) [build 10.3(0)INA9(0.140)] [Feature Release]
+  System version: 10.3(2)
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# no feature password encryption aes
+switch(config)# 
+switch(config)# no key config-key ascii 
+Warning deletion of master-key will stop further type-6 encryption.
+Do you want to proceed (y/n)[n]: [n] y
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# no feature tacacs+ 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# feature tacacs+ 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep 12 09:54:29 2022
+!Time: Mon Sep 12 09:54:32 2022
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+
+switch(config)# 
+switch(config)# ip tacacs source-interface mgmt0
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep 12 09:54:41 2022
+!Time: Mon Sep 12 09:54:43 2022
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+
+
+switch(config)# 
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: A-comments.p2 (Created 09/06/2022 02:24:02 Added 09/06/2022 02:24:02 by anikunna)---
+Pls check and address
+---End of Note Titled: A-comments.p2---
+
+
+---Start of Note Titled:  Scrubnote (Created 09/05/2022 22:07:19 Modified 09/20/2022 12:27:03 by cms)---
+{220920 palshanm S B} Ranjita will look into it as part of CFD automation
+{220913 anikunna S B} Ready to commit. Need to initiate Git commit as nr2f_dev is locked
+{220912 shsreena S G} RCA Complete. ETA updated
+{220912 anikunna S B} Issue root caused. Working on a fix.
+{220908 bnanjund S B} need to dme this in nr2f. working on it
+{220906 greddyda S B} tacacs_global_config is receiving the correct values but not updating.
+{220906 greddyda S B} Issue is not with just source-interface, it will be applicable to entire tacacs global config.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 09/05/2022 22:00:27 Added 09/05/2022 22:00:27 by anikunna)---
+Pls check & address
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 09/05/2022 05:51:59 Modified 11/14/2022 23:57:56 by ranjsaho)---
+<B>Symptom:</B>
+When "feature password encryption aes" is configured on the device, "ip tacacs source-interface" command couldn't be configured.
+Command is accepted but not reflected in configuration:
+
+Mon Sep  5 12:37:51 2022:type=update:id=@pts/0:user=admin:cmd=configure terminal ; ip tacacs source-interface mgmt0 (SUCCESS)
+
+Switch(config)# sh tacacs-server 
+timeout value:5
+deadtime value:0
+source interface:any available       << source interface not changed
+
+Switch(config)# sh run tacacs
+
+feature tacacs+
+                          <<< command missing in config
+
+<B>Conditions:</B>
+Trying to configure "ip tacacs source-interface" when there is "feature password encryption aes" configured.
+
+<B>Workaround:</B>
+Removing "feature password encryption aes"
+Removing "feature tacacs+"
+Configuring "feature tacacs+" and "ip tacacs source-interface"
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: SS-Review (Created 09/05/2022 05:51:59 Added 09/05/2022 05:51:59 by mmaziark)---
+$$NOOIB
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled: reproduction-steps (Created 09/05/2022 05:51:59 Added 09/05/2022 05:51:59 by mmaziark)---
+Issue currently reproduced in https://cx-labs.cisco.com/workspaces/21394
+
+0) Issue reproduced in N9K-C93180YC-EX and N9K-C9364C-GX and N9K-C93240YC-FX2 (so it looks like it is affecting all N9K switches) on 9.3.10 and 10.3.1 (on customer setup it is 7.0.3.i7(6) & 7.0.3.i7(8))
+
+Steps to reproduce the issue:
+
+1) Firstly check the correct behavior, so configure only following
+
+513E.A.23-N9K-C93180YC-2(config)# feature tacacs+ 
+513E.A.23-N9K-C93180YC-2(config)# ip tacacs source-interface mgmt0
+
+513E.A.23-N9K-C93180YC-2(config)# sh run tacacs
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep  5 12:49:20 2022
+!Time: Mon Sep  5 12:49:23 2022
+
+version 10.3(1) Bios:version 07.69 
+feature tacacs+
+ 
+ip tacacs source-interface mgmt0                 << command is in config
+
+513E.A.23-N9K-C93180YC-2(config)# sh tacacs-server 
+timeout value:5
+deadtime value:0
+source interface:mgmt0                            << source interface has changed to mgmt0
+
+2) Remove tacacs config:
+
+513E.A.23-N9K-C93180YC-2(config)# no feature tacacs+ 
+
+3) Configure Master-key
+
+513E.A.23-N9K-C93180YC-2(config)# key config-key ascii 
+New Master Key: 
+Retype Master Key: 
+
+4) Enable "feature password encryption aes"
+
+513E.A.23-N9K-C93180YC-2(config)# feature password encryption aes
+
+5) Configure tacacs
+
+513E.A.23-N9K-C93180YC-2(config)# feature tacacs+ 
+513E.A.23-N9K-C93180YC-2(config)# ip tacacs source-interface mgmt 0
+
+6) Check that the command was accepted but is not reflected in configuration:
+
+513E.A.23-N9K-C93180YC-2(config)# sh accounting log | i "ip tacacs source-interface mgmt0"
+Mon Sep  5 12:52:39 2022:type=update:id=10.61.195.51@pts/0:user=admin:cmd=configure terminal ; ip tacacs source-interface mgmt0 (SUCCESS)
+
+513E.A.23-N9K-C93180YC-2(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Sep  5 12:52:39 2022
+!Time: Mon Sep  5 12:52:43 2022
+
+version 10.3(1) Bios:version 07.69 
+feature tacacs+
+                          << command is missing
+
+513E.A.23-N9K-C93180YC-2(config)# sh tacacs-server 
+timeout value:5
+deadtime value:0
+source interface:any available               << source interface is not changed
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (24 of 24)
+------------------------------------------------------------------------------------------------------------------
+Diffs-release-irvine                              ascii text     1236           vasagraw       11/07/2022 07:41:21      
+Diffs-commit-irvine                               ascii text     1673           vasagraw       11/07/2022 07:41:19      
+ccwarnings-irvine                                 ascii text     142            baas           11/07/2022 06:43:29      
+static-analysis-irvine                            ascii text     7299           baas           11/07/2022 06:43:01      
+l2_uls_sanity_baseline_compare                    ascii text     219            root           11/07/2022 05:07:50      
+l2_uls_sanity_report                              ascii text     4895           root           11/07/2022 05:07:49      
+nxos-pi-common-security-code-review-3             ascii text     935            prrqengg       11/07/2022 01:04:32      
+gnosis_neg_CSCwc90986_Negative.txt                ascii text     5723           njetti         09/16/2022 01:18:57      
+gnosis_pos_CSCwc90986_Positive.txt                ascii text     7086           njetti         09/16/2022 01:17:27      
+Diffs-commit-main                                 ascii text     1169           vasagraw       09/15/2022 23:07:40      
+Diffs-commit-kerry                                ascii text     1668           vasagraw       09/13/2022 20:08:38      
+Diffs-release-kerry                               ascii text     1235           vasagraw       09/13/2022 20:08:35      
+ccwarnings-kerry                                  ascii text     142            baas           09/13/2022 19:34:42      
+static-analysis-kerry                             ascii text     6885           baas           09/13/2022 19:34:11      
+checkin_l2_uls_sanity_report                      ascii text     5662           root           09/13/2022 13:54:36      
+nxos-pi-common-security-code-review-2             ascii text     935            prrqengg       09/13/2022 10:29:51      
+ccwarnings-main                                   ascii text     190            baas           09/13/2022 07:24:29      
+static-analysis-main                              ascii text     8820           baas           09/13/2022 07:24:15      
+code-review-nx-dev                                ascii text     440            vasagraw       09/13/2022 02:45:25      
+ccwarnings-nr2f_dev                               ascii text     142            baas           09/12/2022 17:17:51      
+static-analysis-nr2f_dev                          ascii text     8058           baas           09/12/2022 17:17:15      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       09/12/2022 03:04:31      
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           09/13/2022 13:54:36      
+ULS_sanity                                        ascii text     5669           vasagraw       09/13/2022 04:22:27      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+09/04/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/04/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/30/2026 satdr    	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-manojo	Mod
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/16/2026 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+01/19/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/30/2025 pisces   	VF-patched              	                             	NX-OS:10.2(5),NX-OS:10.2(6),N	New
+09/30/2025 pisces   	VF-unpatched            	                             	NX-OS:10.2(3v),NX-OS:8.4(10),	New
+09/30/2025 pisces   	Potentially-affected-rel	                             	10.2(3v),8.4(10),8.4(11),8.4(	New
+09/04/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/04/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/22/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+06/05/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+05/20/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+05/08/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/23/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+04/08/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+04/01/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+03/27/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+03/27/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/27/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+02/27/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/27/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/12/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+01/30/2025 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+12/10/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/19/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/19/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/19/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/10/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/10/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/09/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/09/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/09/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/03/2024 buildins 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/02/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-218806       	New
+09/02/2024 pisces   	VF-patched              	                             	NX-OS:10.2(4)                	New
+09/02/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+09/02/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/02/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/02/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/29/2024 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+12/11/2023 lakotla  	Note Title              	                             	Email-in.p2                  	New
+12/11/2023 vasagraw 	Note Title              	                             	Email-in                     	New
+11/13/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/18/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/18/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+05/09/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+05/03/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+03/24/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+03/14/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+02/17/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+02/16/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+02/16/2023 candid   	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+01/31/2023 divvenka 	Known-fixed-releases    	                             	9.3(11)                      	New
+01/22/2023 divvenka 	Known-fixed-releases    	                             	10.3(2)                      	New
+01/18/2023 fas      	Integrated-releases     	                             	10.3(2)                      	New
+12/05/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0)              	New
+12/05/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0.25)           	New
+12/05/2022 divvenka 	Apply-to                	                             	10.2(2)TST29(0.25)           	New
+11/24/2022 ranjsaho 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/24/2022 ranjsaho 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/15/2022 palshanm 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/14/2022 ranjsaho 	Note Title              	                             	V-comments.p2                	New
+11/14/2022 ranjsaho 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+11/14/2022 ranjsaho 	Status                  	R                            	V                            	Mod
+11/14/2022 ranjsaho 	Verified-release        	                             	9.3(10.28)                   	New
+11/14/2022 ranjsaho 	Verified-on             	2022-09-27 10:56:47.000+0000 	2022-11-15 07:57:56.000+0000 	Mod
+11/14/2022 ranjsaho 	statusStates            	                             	[status=R, startDate=Mon Nov 	New
+11/14/2022 ranjsaho 	statusStates            	[status=R, startDate=Mon Nov 	                             	Del
+11/14/2022 ranjsaho 	Age-status              	63                           	71                           	Mod
+11/14/2022 ranjsaho 	Mean-time-to-verified   	21                           	70                           	Mod
+11/14/2022 ranjsaho 	Note Title              	                             	Verified-IMR10               	New
+11/10/2022 mukamath 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+11/08/2022 divvenka 	Integrated-releases     	                             	9.3(10.27),9.3(11)           	New
+11/07/2022 vasagraw 	Note Title              	                             	R-comments.p2                	New
+11/07/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+11/07/2022 vasagraw 	Status                  	M                            	R                            	Mod
+11/07/2022 vasagraw 	Resolved-on             	2022-09-16 06:55:31.000+0000 	2022-11-07 16:38:16.000+0000 	Mod
+11/07/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Mon Nov 	New
+11/07/2022 vasagraw 	statusStates            	[status=M, startDate=Mon Nov 	                             	Del
+11/07/2022 vasagraw 	Mean-time-to-resolved   	10                           	63                           	Mod
+11/07/2022 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+11/07/2022 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+11/07/2022 baas     	File Name               	                             	ccwarnings-irvine            	New
+11/07/2022 baas     	File Name               	                             	static-analysis-irvine       	New
+11/07/2022 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+11/07/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+11/07/2022 vasagraw 	Status-desc             	V-Verified                   	M-More                       	Mod
+11/07/2022 vasagraw 	Status                  	V                            	M                            	Mod
+11/07/2022 vasagraw 	More-on                 	2022-09-14 03:47:25.000+0000 	2022-11-07 10:50:00.000+0000 	Mod
+11/07/2022 vasagraw 	statusStates            	                             	[status=V, startDate=Tue Sep 	New
+11/07/2022 vasagraw 	statusStates            	[status=V, startDate=Tue Sep 	                             	Del
+11/07/2022 vasagraw 	Age-status              	22                           	63                           	Mod
+11/07/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/07/2022 vasagraw 	Note Title              	                             	unit-test_IRVINE             	New
+11/05/2022 mukamath 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/31/2022 fas      	Known-fixed-releases    	                             	10.2(4)                      	New
+10/31/2022 ranjsaho 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+10/31/2022 ranjsaho 	Note Title              	                             	Verified-NR2F                	New
+10/05/2022 mmaziark 	serviceRequests/C3/69405	                             	                             	Mod
+10/05/2022 mmaziark 	Urgency-desc            	CL4                          	CL3                          	Mod
+10/05/2022 mmaziark 	Urgency                 	8                            	6                            	Mod
+09/27/2022 ranjsaho 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/27/2022 ranjsaho 	Note Title              	                             	V-comments                   	New
+09/27/2022 ranjsaho 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+09/27/2022 ranjsaho 	Status                  	R                            	V                            	Mod
+09/27/2022 ranjsaho 	Verified By Employee    	                             	ranjsaho                     	Mod
+09/27/2022 ranjsaho 	Verified-release        	                             	10.2(3.126)                  	New
+09/27/2022 ranjsaho 	Verified-confidence     	                             	tested                       	Mod
+09/27/2022 ranjsaho 	Verified-on             	                             	2022-09-27 10:56:47.000+0000 	Mod
+09/27/2022 ranjsaho 	statusStates            	                             	[status=R, startDate=Fri Sep 	New
+09/27/2022 ranjsaho 	statusStates            	[status=R, startDate=Fri Sep 	                             	Del
+09/27/2022 ranjsaho 	Age-status              	11                           	22                           	Mod
+09/27/2022 ranjsaho 	Mean-time-to-verified   	                             	21                           	Mod
+09/27/2022 ranjsaho 	Note Title              	                             	Automation log               	New
+09/27/2022 ranjsaho 	Automated-test          	N                            	Y                            	Mod
+09/24/2022 swrai    	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/22/2022 pdharmam 	Attribute               	gnosis ed_ic_dc_rs cfd-mukama	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/22/2022 divvenka 	Apply-to                	                             	10.3(1)IMG9(0.143)           	New
+09/20/2022 divvenka 	Integrated-releases     	10.3(1)IMG9(0.144)           	                             	Del
+09/20/2022 divvenka 	Integrated-releases     	                             	10.3(1)IMG9(0.143)           	New
+09/20/2022 divvenka 	Integrated-releases     	                             	10.3(1)IMG9(0.144)           	New
+09/20/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/18/2022 jdasgupt 	Attribute               	gnosis ed_ic_dc_rs           	gnosis ed_ic_dc_rs cfd-mukama	Mod
+09/16/2022 njetti   	File Name               	                             	gnosis_neg_CSCwc90986_Negativ	New
+09/16/2022 njetti   	Note Title              	                             	KnowledgeSignature.p2        	New
+09/16/2022 njetti   	File Name               	                             	gnosis_pos_CSCwc90986_Positiv	New
+09/16/2022 njetti   	Note Title              	                             	KnowledgeSignature           	New
+09/15/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+09/15/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+09/15/2022 vasagraw 	Status                  	M                            	R                            	Mod
+09/15/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+09/15/2022 vasagraw 	Original-resolved-on    	                             	2022-09-16 06:55:31.000+0000 	Mod
+09/15/2022 vasagraw 	Resolved-on             	                             	2022-09-16 06:55:31.000+0000 	Mod
+09/15/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Wed Sep 	New
+09/15/2022 vasagraw 	statusStates            	[status=M, startDate=Wed Sep 	                             	Del
+09/15/2022 vasagraw 	Age-status              	9                            	11                           	Mod
+09/15/2022 vasagraw 	Mean-time-to-resolved   	                             	10                           	Mod
+09/15/2022 vasagraw 	File Name               	                             	Diffs-commit-main            	New
+09/15/2022 njetti   	Attribute               	ed_ic_dc_rs                  	gnosis ed_ic_dc_rs           	Mod
+09/15/2022 fermorei 	Note Title              	                             	DetectionLogic               	New
+09/13/2022 divvenka 	Integrated-releases     	                             	10.2(3.110),10.2(4)          	New
+09/13/2022 vasagraw 	Status-desc             	A-Assigned                   	M-More                       	Mod
+09/13/2022 vasagraw 	Status                  	A                            	M                            	Mod
+09/13/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+09/13/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+09/13/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+09/13/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+09/13/2022 vasagraw 	Breakage                	                             	No                           	Mod
+09/13/2022 vasagraw 	Regression              	                             	N                            	Mod
+09/13/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+09/13/2022 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+09/13/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+09/13/2022 vasagraw 	Origin                  	                             	base code                    	Mod
+09/13/2022 vasagraw 	Test-escape             	N                            	Y                            	Mod
+09/13/2022 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+09/13/2022 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+09/13/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+09/13/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+09/13/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+09/13/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+09/13/2022 vasagraw 	More-on                 	                             	2022-09-14 03:47:25.000+0000 	Mod
+09/13/2022 vasagraw 	Opened-on               	                             	2022-09-14 03:47:25.000+0000 	Mod
+09/13/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Sep 	New
+09/13/2022 vasagraw 	statusStates            	[status=A, startDate=Tue Sep 	                             	Del
+09/13/2022 vasagraw 	Age-status              	1                            	9                            	Mod
+09/13/2022 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+09/13/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+09/13/2022 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+09/13/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+09/13/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+09/13/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+09/13/2022 root     	contents                	                             	checkin_l2_uls_sanity_baselin	Mod
+09/13/2022 vasagraw 	Note Title              	                             	unit-test-kerry              	New
+09/13/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+09/13/2022 baas     	File Name               	                             	ccwarnings-main              	New
+09/13/2022 baas     	File Name               	                             	static-analysis-main         	New
+09/13/2022 vasagraw 	contents                	                             	ULS_Sanity                   	Mod
+09/13/2022 vasagraw 	File Name               	ULS_Sanity                   	ULS_sanity                   	Mod
+09/13/2022 vasagraw 	ActivityFileName        	ULS_Sanity                   	ULS_sanity                   	Mod
+09/13/2022 vasagraw 	contents                	                             	checkin_l2_uls_sanity_report 	Mod
+09/13/2022 vasagraw 	File Name               	checkin_l2_uls_sanity_report 	ULS_Sanity                   	Mod
+09/13/2022 vasagraw 	ActivityFileName        	checkin_l2_uls_sanity_report 	ULS_Sanity                   	Mod
+09/13/2022 vasagraw 	File Name               	                             	code-review-nx-dev           	New
+09/13/2022 vasagraw 	Code-reviewer           	                             	greddyda                     	New
+09/13/2022 vasagraw 	Note Title              	                             	static-analysis-runinfo-n9k  	New
+09/12/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/12/2022 cms      	Est-fix-date            	2022-09-13 07:00:00.000+0000 	2022-09-14 07:00:00.000+0000 	Mod
+09/12/2022 baas     	File Name               	                             	ccwarnings-nr2f_dev          	New
+09/12/2022 baas     	File Name               	                             	static-analysis-nr2f_dev     	New
+09/12/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+09/12/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+09/12/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/12/2022 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+09/12/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+09/11/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/09/2022 anikunna 	Engineer                	greddyda                     	vasagraw                     	Mod
+09/08/2022 cms      	Est-fix-date            	2022-09-16 07:00:00.000+0000 	2022-09-13 07:00:00.000+0000 	Mod
+09/08/2022 cms      	Est-fix-date            	2022-09-21 07:00:00.000+0000 	2022-09-16 07:00:00.000+0000 	Mod
+09/08/2022 cms      	Est-fix-date            	2022-09-30 07:00:00.000+0000 	2022-09-21 07:00:00.000+0000 	Mod
+09/08/2022 cms      	Est-fix-date            	                             	2022-09-30 07:00:00.000+0000 	Mod
+09/08/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/06/2022 anikunna 	Note Title              	                             	A-comments.p2                	New
+09/06/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/06/2022 anikunna 	Status                  	N                            	A                            	Mod
+09/06/2022 anikunna 	Engineer                	                             	greddyda                     	Mod
+09/06/2022 anikunna 	Assigned Date           	2022-09-06 05:00:27.000+0000 	2022-09-06 09:24:02.000+0000 	Mod
+09/06/2022 anikunna 	statusStates            	                             	[status=N, startDate=Tue Sep 	New
+09/06/2022 anikunna 	statusStates            	[status=N, startDate=Tue Sep 	                             	Del
+09/05/2022 anikunna 	Status-desc             	A-Assigned                   	N-New                        	Mod
+09/05/2022 anikunna 	Status                  	A                            	N                            	Mod
+09/05/2022 anikunna 	Engineer                	pradepan                     	                             	Mod
+09/05/2022 anikunna 	New-on                  	2022-09-05 12:51:59.660+0000 	2022-09-06 05:31:09.000+0000 	Mod
+09/05/2022 anikunna 	statusStates            	                             	[status=A, startDate=Tue Sep 	New
+09/05/2022 anikunna 	statusStates            	[status=A, startDate=Tue Sep 	                             	Del
+09/05/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/05/2022 cms      	Note Title              	                             	Scrubnote                    	New
+09/05/2022 anikunna 	Note Title              	                             	A-comments                   	New
+09/05/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/05/2022 anikunna 	Status                  	N                            	A                            	Mod
+09/05/2022 anikunna 	Engineer                	                             	pradepan                     	Mod
+09/05/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+09/05/2022 anikunna 	Assigned Date           	                             	2022-09-06 05:00:27.000+0000 	Mod
+09/05/2022 anikunna 	statusStates            	                             	[status=N, startDate=Mon Sep 	New
+09/05/2022 anikunna 	statusStates            	[status=N, startDate=Mon Sep 	                             	Del
+09/05/2022 anikunna 	Age-status              	0                            	1                            	Mod
+09/05/2022 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+09/05/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/05/2022 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+09/05/2022 cdetsbtk 	Security-screening-times	                             	2022-09-05 22:17:13.000+0000 	Mod
+09/05/2022 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+09/05/2022 mmaziark 	serviceRequests/C3/69405	                             	C3/694050340                 	New
+09/05/2022 mmaziark 	Urgency-desc            	NA                           	CL4                          	Mod
+09/05/2022 mmaziark 	Urgency                 	                             	8                            	Mod
+09/05/2022 mmaziark 	Tickets-count           	0                            	1                            	Mod
+09/05/2022 mmaziark 	TACSR-count             	                             	1                            	Mod
+09/05/2022 mmaziark 	Tickets-count-direct    	                             	1                            	Mod
+09/05/2022 mmaziark 	Trouble-tickets         	                             	694050340                    	New
+09/05/2022 mmaziark 	Trouble-tickets-direct  	                             	C3694050340                  	New
+09/05/2022 mmaziark 	Note Title              	                             	reproduction-steps           	New
+09/05/2022 mmaziark 	Note Title              	                             	Release-note                 	New
+09/05/2022 mmaziark 	Note Title              	                             	SS-Review                    	New
+09/05/2022 mmaziark 	Impact                  	                             	Ease-of-Configuring,Maintaina	New
+09/05/2022 mmaziark 	Version                 	                             	10.3(1),9.3(10)              	New
+09/05/2022 mmaziark 	Known-affected-releases 	                             	10.3(1),9.3(10)              	New
+09/05/2022 mmaziark 	Defect Created          	                             	                             	New

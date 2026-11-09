@@ -1,0 +1,794 @@
+*******************************************************************************
+
+Bug ID   : CSCwc75464         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : MTS leak with incompatible single-connect config
+PrimaryPV : 
+Version :10.2(3.80) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: vasagraw           Submitted: 08/17/2022 22:57:00     Last Updtd : 08/23/2026 20:48:57  
+RNE-Type: NONE                New-on : 08/17/2022 22:57:00      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:anikunna                                            
+Known-affected-releases:
+
+Known-fixed-releases:10.2(4) 10.3(2) 10.4(1) 10.4(2) 
+
+
+
+Potentially-affected-releases:5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 08/19/2022 10:16:23                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 54                                             
+Mean-time-to-verified: 59     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 05/06/2026 15:41:42            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: code level info                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Performance 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : medium        Assigned: 08/17/2022 22:57:14 
+Code-reviewer: greddyda       
+Opened-on: 08/19/2022 10:16:23Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn                           
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 10/10/2022 22:23:23  
+
+Documents Changed: none       Resolved: 10/10/2022 23:01:59 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: vasagraw            Verified Confidence: believed                     
+Verified Date: 10/16/2022 21:46:51      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Development
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Unit Test
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Customer
+Test-EDP-activity :               Customer-Use
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              BEMS01966832;700499618
+Trouble-tickets-direct :BEMSBEMS01966832 
+Trouble-tickets-direct :C3700499618 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/15/2026 02:27:18
+Document :    nexus
+
+Summary:
+MTS leak with incompatible single-connect config:  SINLE-CONNECT at switch - MULTI-CONNECT at server
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Aug 10 05:49:47 2022
+!Time: Wed Aug 10 05:55:41 2022
+
+version 10.2(4) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa accounting default group tac1 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Aug 10 05:49:47 2022
+!Time: Wed Aug 10 05:49:53 2022
+
+version 10.2(4) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 10.77.143.115 key 7 "fewhg" single-connection     <<<<< server has MULTI-CONNECT
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+
+switch(config)# 
+switch(config)# test aaa group tac1 bob Cisc0123
+user has been authenticated
+switch(config)#
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     112     0       4       0       0       tacacsd/Tacacs Daemon          <<<<<<<< MTS LEAK
+sup     284     0       5       0       0       netstack/TCPUDP process client MTS queue
+switch(config)#
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS01966832    SALESFORCE.COM, INC                      
+C3         700499618       SALESFORCE.COM, INC                      
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1091400               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (8 of 8 ) ***********************
+
+---Start of Note Titled: V-comments.p2 (Created 10/16/2022 21:46:51 Added 10/16/2022 21:46:51 by vasagraw)---
+Dev raised bug already tested.
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: R-comments.p2 (Created 10/10/2022 23:01:59 Added 10/10/2022 23:01:59 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: unit-test-niles (Created 10/10/2022 04:21:00 Added 10/10/2022 04:21:00 by vasagraw)---
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       3       0       0       netstack/TCPUDP process client M
+TS queue
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       3       0       0       netstack/TCPUDP process client M
+TS queue
+switch(config)# 
+switch(config)# 
+switch(config)# 2022 Oct 10 11:08:45 switch %$ VDC-1 %$ %USER-1-SYSTEM_MSG: Thirdparty RPM Installation failed for ['cnmi-0.0.1.18', 'nae-6.2.0.381']. Check thirdparty_install.log for failure reasons. - root
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       3       0       0       netstack/TCPUDP process client M
+TS queue
+switch(config)# 
+
+
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.47
+  NXOS: version 10.3(1)IM9(0) [build 10.3(1)IMG9(0.176)] [Feature Release]
+  System version: 10.3(1)IM9(0)
+switch(config)#
+---End of Note Titled: unit-test-niles---
+
+
+---Start of Note Titled: V-comments (Created 09/20/2022 21:07:19 Added 09/20/2022 21:07:19 by vasagraw)---
+Dev raised bug already tested.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 08/19/2022 10:16:23 Added 08/19/2022 10:16:23 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Release-note (Created 08/18/2022 22:13:20 Modified 05/14/2026 14:37:38 by alvmunoz)---
+Opening for documentation.
+
+<B>Symptom:</B>
+MTS leak with incompatible single-connect config
+
+`show system internal mts buffers summary`
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno    recv_q    pers_q    npers_q    log_q    app/sap_description
+sup    112    0    780    0    0    tacacsd/Tacacs Daemon
+sup    284    0    2    0    0    netstack/TCPUDP process client MTS queue 
+
+<B>Conditions:</B>
+A single connect auth that is serviced when it is technically not supported (yet). We can see the leak, in at least some case(s) here, occur with an auth failure.
+
+<B>Workaround:</B>
+None
+
+<B>Further Problem Description:</B>
+n/a
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: Unit-test (Created 08/18/2022 02:48:59 Added 08/18/2022 02:48:59 by vasagraw)---
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Aug 10 06:27:24 2022
+!Time: Wed Aug 10 06:27:31 2022
+
+version 10.2(4) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 10.77.143.115 key 7 "fewhg" single-connection 
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+
+
+switch(config)# 
+
+switch(config)# test aaa group tac1 bob Cisc0123
+user has been authenticated
+switch(config)# 
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Aug 10 06:28:17 2022
+!Time: Wed Aug 10 06:28:22 2022
+
+version 10.2(4) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa accounting default group tac1 
+
+switch(config)# 
+
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       5       0       0       netstack/TCPUDP process client MTS queue
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1
+switch(config)# show accounting log | last 10
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=configure terminal ; aaa accounting default group tac1 (SUCCESS)
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=configure terminal ; aaa accounting default group tac1 (SUCCESS)
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=modified the configuration for accounting default default
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=configure terminal ; no aaa accounting default group tac1 (SUCCESS)
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=modified the configuration for accounting default default
+Wed Aug 10 06:29:42 2022:type=update:id=console0:user=admin:cmd=configure terminal ; aaa accounting default group tac1 (SUCCESS)
+Wed Aug 10 06:29:54 2022:type=update:id=process:user=NTP:cmd=New time: Wed Aug 10 06:29:54 2022
+Wed Aug 10 06:30:02 2022:type=update:id=console0:user=admin:cmd=configure terminal ; aaa accounting default group tac1 (SUCCESS)
+Wed Aug 10 06:30:02 2022:type=update:id=console0:user=admin:cmd=modified the configuration for accounting default default
+Wed Aug 10 06:30:02 2022:type=update:id=console0:user=admin:cmd=configure terminal ; no aaa accounting default group tac1 (SUCCESS)
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       5       0       0       netstack/TCPUDP process client MTS queue
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       5       0       0       netstack/TCPUDP process client MTS queue
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1 ; aaa accounting default group tac1 ; no aaa accounting default group tac1 ; aaa accounting default group tac1
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal mts buffers summary 
+* recv_q: not received yet (slow receiver)
+* pers_q/npers_q/log_q: received not dropped (leak)
+node    sapno   recv_q  pers_q  npers_q log_q   app/sap_description
+sup     284     0       5       0       0       netstack/TCPUDP process client MTS queue
+switch(config)# 
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 08/18/2022 02:28:15 Modified 10/10/2022 04:09:08 by cms)---
+{221010 anikunna S B} In commit stage for NR2F
+{220818 vasagraw D B} PRRQ modified
+---End of Note Titled: Scrubnote---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (14 of 14)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     769            alvmunoz       05/14/2026 14:37:38      
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           10/11/2022 02:56:51      
+Diffs-commit-main                                 ascii text     1631           vasagraw       10/10/2022 22:25:22      
+l2_uls_sanity_report                              ascii text     4910           root           10/10/2022 12:22:21      
+l2_uls_sanity_baseline_compare                    ascii text     219            root           10/10/2022 12:22:21      
+ccwarnings-main                                   ascii text     183            baas           10/10/2022 11:01:45      
+static-analysis-main                              ascii text     8490           baas           10/10/2022 11:01:31      
+code-review-nx-dev                                ascii text     426            vasagraw       10/10/2022 05:39:03      
+checkin_l2_uls_sanity_report                      ascii text     5669           root           10/11/2022 02:56:52      
+Diffs-commit-kerry                                ascii text     1817           vasagraw       08/18/2022 20:23:51      
+Diffs-release-kerry                               ascii text     1179           vasagraw       08/18/2022 20:23:48      
+ccwarnings-kerry                                  ascii text     135            baas           08/18/2022 19:27:19      
+static-analysis-kerry                             ascii text     7156           baas           08/18/2022 19:26:45      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       08/18/2022 02:27:54      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/23/2026 satdr    	Attribute               	                             	cfd-manojohn                 	Mod
+07/15/2026 pisces   	VF-patched              	                             	NX-OS:6.0(2)A8(1),NX-OS:6.0(2	New
+07/15/2026 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV5(1.2),NX-OS:5.	New
+07/15/2026 pisces   	Potentially-affected-rel	                             	5.2(1)SV5(1.2),5.2(1)SV5(1.3)	New
+05/25/2026 alvmunoz 	serviceRequests/C3/70049	                             	                             	Mod
+05/25/2026 alvmunoz 	Urgency-desc            	P3                           	CL3                          	Mod
+05/22/2026 alvmunoz 	serviceRequests/C3/70049	                             	                             	Mod
+05/22/2026 alvmunoz 	Urgency-desc            	P2                           	P3                           	Mod
+05/22/2026 alvmunoz 	Urgency                 	4                            	6                            	Mod
+05/14/2026 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+05/14/2026 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+05/14/2026 cdetsbtk 	Security-screening-times	2026-05-14 04:26:34.000+0000 	2026-05-15 09:27:18.000+0000 	Mod
+05/14/2026 alvmunoz 	Note                    	Release-note                 	Release-note                 	Mod
+05/14/2026 alvmunoz 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+05/14/2026 alvmunoz 	File Name               	                             	Release-note-diff            	New
+05/14/2026 alvmunoz 	Product-owner           	gsheehan                     	                             	Mod
+05/14/2026 alvmunoz 	Code-reviewer           	ananshar                     	                             	Del
+05/14/2026 alvmunoz 	Test-EDP-phase          	                             	Customer                     	Mod
+05/14/2026 alvmunoz 	Test-EDP-activity       	                             	Customer-Use                 	Mod
+05/14/2026 alvmunoz 	RNE-visibility-override 	                             	N                            	Mod
+05/14/2026 alvmunoz 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+05/14/2026 alvmunoz 	Justification           	                             	Opening for documentation.   	Mod
+05/14/2026 alvmunoz 	Symptoms                	                             	MTS leak with incompatible si	Mod
+05/14/2026 alvmunoz 	Conditions              	                             	A single connect auth that is	Mod
+05/14/2026 alvmunoz 	Workarounds             	                             	None                         	Mod
+05/14/2026 alvmunoz 	Further-Problem-Descript	                             	n/a                          	Mod
+05/13/2026 cdetsbtk 	Security-screening-times	2026-05-07 05:41:43.000+0000 	2026-05-14 04:26:34.000+0000 	Mod
+05/13/2026 alvmunoz 	serviceRequests/C3/70049	                             	                             	Mod
+05/13/2026 alvmunoz 	Urgency-desc            	NA                           	P2                           	Mod
+05/13/2026 alvmunoz 	Urgency                 	9                            	4                            	Mod
+05/06/2026 cdetsbtk 	Security-screening-times	2026-04-21 05:05:27.000+0000 	2026-05-07 05:41:43.000+0000 	Mod
+05/06/2026 alvmunoz 	serviceRequests/C3/70049	                             	C3/700499618                 	New
+05/06/2026 alvmunoz 	Found                   	development                  	customer-use                 	Mod
+05/06/2026 alvmunoz 	Found-during            	Development                  	Customer                     	Mod
+05/06/2026 alvmunoz 	Activity-when-found     	Unit Test                    	Customer-Use                 	Mod
+05/06/2026 alvmunoz 	Care-Update             	                             	Y                            	Mod
+05/06/2026 alvmunoz 	IFD-CFD-Conv-date       	                             	2026-05-06 22:41:42.000+0000 	Mod
+05/06/2026 alvmunoz 	Tickets-count           	1                            	2                            	Mod
+05/06/2026 alvmunoz 	TACSR-count             	                             	1                            	Mod
+05/06/2026 alvmunoz 	Tickets-count-direct    	1                            	2                            	Mod
+05/06/2026 alvmunoz 	Trouble-tickets         	                             	700499618                    	New
+05/06/2026 alvmunoz 	Trouble-tickets-direct  	                             	C3700499618                  	New
+05/06/2026 alvmunoz 	Trouble-ticket-CFD      	                             	Y                            	Mod
+04/20/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1091400      	New
+04/20/2026 cdetsbtk 	Security-screening-times	2024-03-19 06:47:48.000+0000 	2026-04-21 05:05:27.000+0000 	Mod
+04/20/2026 clsulliv 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS01966832            	New
+04/20/2026 clsulliv 	Urgency                 	                             	9                            	Mod
+04/20/2026 clsulliv 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/20/2026 clsulliv 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/20/2026 clsulliv 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/20/2026 clsulliv 	Tickets-count           	0                            	1                            	Mod
+04/20/2026 clsulliv 	Tickets-count-direct    	                             	1                            	Mod
+04/20/2026 clsulliv 	Trouble-tickets         	                             	BEMS01966832                 	New
+04/20/2026 clsulliv 	Trouble-tickets-direct  	                             	BEMSBEMS01966832             	New
+03/18/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/18/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/18/2024 cdetsbtk 	Security-screening-times	2023-08-29 08:49:16.000+0000 	2024-03-19 06:47:48.000+0000 	Mod
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0),10.4(2)       	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/18/2024 divvenka 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+03/18/2024 divvenka 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+03/18/2024 divvenka 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+08/28/2023 cdetsbtk 	Security-screening-times	2023-03-03 11:56:24.000+0000 	2023-08-29 08:49:16.000+0000 	Mod
+08/28/2023 divvenka 	Integrated-releases     	                             	10.4(1)                      	New
+08/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+08/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+08/28/2023 divvenka 	Known-fixed-releases    	                             	10.4(1)                      	New
+05/11/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0)               	New
+05/11/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0.4)             	New
+05/11/2023 divvenka 	Apply-to                	                             	10.4(0)IMG9(0.4)             	New
+05/11/2023 divvenka 	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+03/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOV9(0)               	New
+03/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOV9(0.118)           	New
+03/07/2023 divvenka 	Apply-to                	                             	10.3(2)IOV9(0.118)           	New
+03/02/2023 divvenka 	Integrated-releases     	                             	10.3(1)IMF9(0)               	New
+03/02/2023 divvenka 	Integrated-releases     	                             	10.3(1)IMF9(0.62)            	New
+03/02/2023 cdetsbtk 	Security-screening-times	2022-11-01 12:32:06.000+0000 	2023-03-03 11:56:24.000+0000 	Mod
+03/02/2023 divvenka 	Apply-to                	                             	10.3(1)IMF9(0.62)            	New
+03/02/2023 divvenka 	Known-fixed-releases    	                             	10.3(2)                      	New
+01/18/2023 fas      	Integrated-releases     	                             	10.3(2)                      	New
+12/05/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0)              	New
+12/05/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0.25)           	New
+12/05/2022 divvenka 	Apply-to                	                             	10.2(2)TST29(0.25)           	New
+11/28/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST32(0)              	New
+11/28/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST32(0.16)           	New
+11/28/2022 divvenka 	Apply-to                	                             	10.2(2)TST32(0.16)           	New
+10/31/2022 cdetsbtk 	Security-screening-times	2022-10-17 11:46:52.000+0000 	2022-11-01 12:32:06.000+0000 	Mod
+10/31/2022 fas      	Known-fixed-releases    	                             	10.2(4)                      	New
+10/18/2022 divvenka 	Integrated-releases     	                             	16.0(2)TST1(0)               	New
+10/18/2022 divvenka 	Integrated-releases     	                             	16.0(2)TST1(0.9)             	New
+10/18/2022 divvenka 	Apply-to                	                             	16.0(2)TST1(0.9)             	New
+10/16/2022 cdetsbtk 	Security-screening-times	2022-10-11 16:56:53.000+0000 	2022-10-17 11:46:52.000+0000 	Mod
+10/16/2022 vasagraw 	Note Title              	                             	V-comments.p2                	New
+10/16/2022 vasagraw 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+10/16/2022 vasagraw 	Status                  	R                            	V                            	Mod
+10/16/2022 vasagraw 	Verified-release        	                             	10.3(1)IMG9(0.188)           	New
+10/16/2022 vasagraw 	Verified-on             	2022-09-21 04:07:19.000+0000 	2022-10-17 04:46:51.000+0000 	Mod
+10/16/2022 vasagraw 	statusStates            	                             	[status=R, startDate=Tue Oct 	New
+10/16/2022 vasagraw 	statusStates            	[status=R, startDate=Tue Oct 	                             	Del
+10/16/2022 vasagraw 	Age-status              	54                           	60                           	Mod
+10/16/2022 vasagraw 	Mean-time-to-verified   	33                           	59                           	Mod
+10/11/2022 divvenka 	Integrated-releases     	                             	10.3(1)IMG9(0)               	New
+10/11/2022 divvenka 	Integrated-releases     	                             	10.3(1)IMG9(0.188)           	New
+10/11/2022 divvenka 	Apply-to                	                             	10.3(1)IMG9(0.188)           	New
+10/11/2022 cdetsbtk 	Security-screening-times	2022-10-11 13:02:00.000+0000 	2022-10-11 16:56:53.000+0000 	Mod
+10/11/2022 root     	contents                	                             	checkin_l2_uls_sanity_report 	Mod
+10/11/2022 root     	FileSize                	5551                         	5669                         	Mod
+10/11/2022 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-11 12:25:23.000+0000 	2022-10-11 13:02:00.000+0000 	Mod
+10/10/2022 vasagraw 	Note Title              	                             	R-comments.p2                	New
+10/10/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+10/10/2022 vasagraw 	Status                  	M                            	R                            	Mod
+10/10/2022 vasagraw 	Resolved-on             	2022-08-19 17:16:23.000+0000 	2022-10-11 06:01:59.000+0000 	Mod
+10/10/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Tue Oct 	New
+10/10/2022 vasagraw 	statusStates            	[status=M, startDate=Tue Oct 	                             	Del
+10/10/2022 vasagraw 	Mean-time-to-resolved   	1                            	54                           	Mod
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-11 12:23:24.000+0000 	2022-10-11 12:25:23.000+0000 	Mod
+10/10/2022 vasagraw 	File Name               	                             	Diffs-commit-main            	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-11 02:22:22.000+0000 	2022-10-11 12:23:24.000+0000 	Mod
+10/10/2022 vasagraw 	Status-desc             	V-Verified                   	M-More                       	Mod
+10/10/2022 vasagraw 	Status                  	V                            	M                            	Mod
+10/10/2022 vasagraw 	More-on                 	2022-08-19 17:16:23.000+0000 	2022-10-11 05:23:23.000+0000 	Mod
+10/10/2022 vasagraw 	statusStates            	                             	[status=V, startDate=Wed Sep 	New
+10/10/2022 vasagraw 	statusStates            	[status=V, startDate=Wed Sep 	                             	Del
+10/10/2022 vasagraw 	Age-status              	34                           	54                           	Mod
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-11 01:01:46.000+0000 	2022-10-11 02:22:22.000+0000 	Mod
+10/10/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+10/10/2022 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-11 01:01:32.000+0000 	2022-10-11 01:01:46.000+0000 	Mod
+10/10/2022 baas     	File Name               	                             	ccwarnings-main              	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-10 19:39:04.000+0000 	2022-10-11 01:01:32.000+0000 	Mod
+10/10/2022 baas     	File Name               	                             	static-analysis-main         	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-10 18:36:55.000+0000 	2022-10-10 19:39:04.000+0000 	Mod
+10/10/2022 vasagraw 	contents                	                             	code-review-nx-dev           	Mod
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-10 18:32:23.000+0000 	2022-10-10 18:36:55.000+0000 	Mod
+10/10/2022 vasagraw 	contents                	                             	code-review-nx-dev           	Mod
+10/10/2022 vasagraw 	Code-reviewer           	                             	ananshar                     	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-10 18:21:01.000+0000 	2022-10-10 18:32:23.000+0000 	Mod
+10/10/2022 vasagraw 	File Name               	                             	code-review-nx-dev           	New
+10/10/2022 vasagraw 	Code-reviewer           	                             	greddyda                     	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-10-10 18:09:10.000+0000 	2022-10-10 18:21:01.000+0000 	Mod
+10/10/2022 vasagraw 	Note Title              	                             	unit-test-niles              	New
+10/10/2022 cdetsbtk 	Security-screening-times	2022-09-21 11:07:19.000+0000 	2022-10-10 18:09:10.000+0000 	Mod
+10/10/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/20/2022 cdetsbtk 	Security-screening-times	2022-08-21 04:47:43.000+0000 	2022-09-21 11:07:19.000+0000 	Mod
+09/20/2022 vasagraw 	Note Title              	                             	V-comments                   	New
+09/20/2022 vasagraw 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+09/20/2022 vasagraw 	Status                  	R                            	V                            	Mod
+09/20/2022 vasagraw 	Verified By Employee    	                             	vasagraw                     	Mod
+09/20/2022 vasagraw 	Verified-release        	                             	10.2(3.103)                  	New
+09/20/2022 vasagraw 	Verified-confidence     	                             	believed                     	Mod
+09/20/2022 vasagraw 	Verified-on             	                             	2022-09-21 04:07:19.000+0000 	Mod
+09/20/2022 vasagraw 	statusStates            	                             	[status=R, startDate=Fri Aug 	New
+09/20/2022 vasagraw 	statusStates            	[status=R, startDate=Fri Aug 	                             	Del
+09/20/2022 vasagraw 	Age-status              	1                            	34                           	Mod
+09/20/2022 vasagraw 	Mean-time-to-verified   	                             	33                           	Mod
+08/20/2022 cdetsbtk 	Security-screening-times	2022-08-20 00:16:24.000+0000 	2022-08-21 04:47:43.000+0000 	Mod
+08/20/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+08/19/2022 cdetsbtk 	Security-screening-times	2022-08-19 12:13:21.000+0000 	2022-08-20 00:16:24.000+0000 	Mod
+08/19/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+08/19/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+08/19/2022 vasagraw 	Status                  	A                            	R                            	Mod
+08/19/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+08/19/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+08/19/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+08/19/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+08/19/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+08/19/2022 vasagraw 	Breakage                	                             	No                           	Mod
+08/19/2022 vasagraw 	Regression              	                             	N                            	Mod
+08/19/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+08/19/2022 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+08/19/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+08/19/2022 vasagraw 	Origin                  	                             	base code                    	Mod
+08/19/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+08/19/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+08/19/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+08/19/2022 vasagraw 	Original-resolved-on    	                             	2022-08-19 17:16:23.000+0000 	Mod
+08/19/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+08/19/2022 vasagraw 	More-on                 	                             	2022-08-19 17:16:23.000+0000 	Mod
+08/19/2022 vasagraw 	Opened-on               	                             	2022-08-19 17:16:23.000+0000 	Mod
+08/19/2022 vasagraw 	Resolved-on             	                             	2022-08-19 17:16:23.000+0000 	Mod
+08/19/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Thu Aug 	New
+08/19/2022 vasagraw 	statusStates            	[status=A, startDate=Thu Aug 	                             	Del
+08/19/2022 vasagraw 	Age-status              	0                            	1                            	Mod
+08/19/2022 vasagraw 	Mean-time-to-resolved   	                             	1                            	Mod
+08/18/2022 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-19 10:23:53.000+0000 	2022-08-19 12:13:21.000+0000 	Mod
+08/18/2022 divvenka 	Note Title              	                             	Release-note                 	New
+08/18/2022 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+08/18/2022 divvenka 	Integrated-releases     	                             	10.2(3.81),10.2(4)           	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-19 10:23:50.000+0000 	2022-08-19 10:23:53.000+0000 	Mod
+08/18/2022 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+08/18/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-19 09:27:20.000+0000 	2022-08-19 10:23:50.000+0000 	Mod
+08/18/2022 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-19 09:26:46.000+0000 	2022-08-19 09:27:20.000+0000 	Mod
+08/18/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-18 16:48:59.000+0000 	2022-08-19 09:26:46.000+0000 	Mod
+08/18/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-18 16:28:17.000+0000 	2022-08-18 16:48:59.000+0000 	Mod
+08/18/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-18 16:27:54.000+0000 	2022-08-18 16:28:17.000+0000 	Mod
+08/18/2022 cms      	Note Title              	                             	Scrubnote                    	New
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-18 16:26:33.000+0000 	2022-08-18 16:27:54.000+0000 	Mod
+08/18/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+08/18/2022 cdetsbtk 	Security-screening-times	2022-08-18 13:00:03.000+0000 	2022-08-18 16:26:33.000+0000 	Mod
+08/18/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/17/2022 cdetsbtk 	Security-screening-times	2022-08-18 12:59:01.000+0000 	2022-08-18 13:00:03.000+0000 	Mod
+08/17/2022 vasagraw 	Summary                 	MTS leak with incompatible si	MTS leak with incompatible si	Mod
+08/17/2022 cdetsbtk 	Security-screening-times	2022-08-18 12:58:13.000+0000 	2022-08-18 12:59:01.000+0000 	Mod
+08/17/2022 vasagraw 	Summary                 	MTS leak with incompatible si	MTS leak with incompatible si	Mod
+08/17/2022 cdetsbtk 	Security-screening-times	2022-08-18 12:57:15.000+0000 	2022-08-18 12:58:13.000+0000 	Mod
+08/17/2022 vasagraw 	Summary                 	MTS leak with incompatible si	MTS leak with incompatible si	Mod
+08/17/2022 cdetsbtk 	Security-screening-times	2022-08-18 12:57:01.000+0000 	2022-08-18 12:57:15.000+0000 	Mod
+08/17/2022 vasagraw 	Status-desc             	N-New                        	A-Assigned                   	Mod
+08/17/2022 vasagraw 	Status                  	N                            	A                            	Mod
+08/17/2022 vasagraw 	Engineer                	                             	vasagraw                     	Mod
+08/17/2022 vasagraw 	Assigner                	                             	vasagraw                     	Mod
+08/17/2022 vasagraw 	Assigned Date           	                             	2022-08-18 05:57:14.000+0000 	Mod
+08/17/2022 vasagraw 	statusStates            	                             	[status=N, startDate=Thu Aug 	New
+08/17/2022 vasagraw 	statusStates            	[status=N, startDate=Thu Aug 	                             	Del
+08/17/2022 vasagraw 	Mean-time-to-assigned   	                             	0                            	Mod
+08/17/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+08/17/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+08/17/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+08/17/2022 cdetsbtk 	Security-screening-times	                             	2022-08-18 12:57:01.000+0000 	Mod
+08/17/2022 vasagraw 	Impact                  	                             	Performance                  	New
+08/17/2022 vasagraw 	Version                 	                             	10.2(3.80)                   	New
+08/17/2022 vasagraw 	Defect Created          	                             	                             	New

@@ -1,0 +1,355 @@
+*******************************************************************************
+
+Bug ID   : CSCvm14311         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: ldap               Severity: 6 (enhancement)
+Headline : N9k: Enhancement to add LDAPS support.
+PrimaryPV : 
+Version :7.0(3)I7(3) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : N                 
+Software :                    Hardware : Nexus 9000         
+Submitter: danieldu           Submitted: 08/23/2018 12:31:04     Last Updtd : 05/26/2021 10:38:03  
+RNE-Type: NONE                New-on : 08/23/2018 12:31:05      
+Root-cause-analysis:                                                  
+Interest : aeguiart
+Doc-manager: akudur                                         
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:                                                    
+Known-affected-releases:7.0(3)I7(3) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            
+MDF-series:
+
+MDF-concepts:
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 09/14/2020 03:51:35                             
+Multi-commit-flag:                                                    
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 752                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape:                                                          
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 08/23/2018 19:31:04            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:not-a-bug 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : low           Assigned: 08/23/2018 21:50:52 
+Code-reviewer:                
+Opened-on: 09/14/2020 03:51:35Opener: anok                  
+Engineer : anok               DE-manager  : girshank        Est Time/Attribute : gnosis dsig_no_notapplicable ed_ic_dc_r
+Est. completion date:                      
+Script-version:                         
+
+More-by : anok                More-on: 09/14/2020 03:51:35  
+
+Documents Changed: none       Resolved: 09/14/2020 03:51:35 Resolver: anok           
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Global TAC-AMER-DCSW 2-RTP
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     
+Failure-type :                   
+By-previous-commit-value :       
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  
+Test-EDP-activity :               
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   3
+Tickets-count-direct :            3
+Trouble-tickets :              684426272;688707785;689689207
+Trouble-tickets-direct :C3684426272 
+Trouble-tickets-direct :C3688707785 
+Trouble-tickets-direct :C3689689207 
+
+Is-customer-visible :                 Y
+DE-Priority: low (4)     
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 08/24/2018 02:56:12
+Document :    nexus
+
+Summary:
+Currently the Nexus 9000 only supports LDAP + StartTLS (default port 389). This enhancement request is to add support for LDAPS (port 636).
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         684426272       QUALTRICS                                
+C3         688707785       EPLUS TECHNOLOGY INC                     
+C3         689689207       MILLENNIUM INFORMATION SERVICE           
+
+
+******************* Related Foreign Bugs (0 of 0)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (4 of 4 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 05/26/2021 10:38:03 Added 05/26/2021 10:38:03 by aeguiart)---
+https://gnosis.cisco.com/signature/bug/60ae876d94cee2fa7a0d7b38/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 05/26/2021 10:37:56 Added 05/26/2021 10:37:56 by aeguiart)---
+This bug is an enhancement and will not be digitized.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: R-comments (Created 09/14/2020 03:51:35 Added 09/14/2020 03:51:35 by anok)---
+The LDAPs code was ported from N7k to N9k as part of the bug CSCvj28815
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Release-note (Created 08/23/2018 12:31:05 Modified 09/14/2020 03:51:35 by anok)---
+<B>Symptom:</B>
+Currently the Nexus 9000 only supports LDAP + StartTLS (default port 389). This enhancement request is to add support for LDAPS (port 636).
+
+<B>Conditions:</B>
+Nexus 9000 interop with an LDAP server that supports LDAPS but not StartTLS.
+
+<B>Workaround:</B>
+None.
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+<none>
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+05/26/2021 aeguiart 	Note Title              	                             	KnowledgeSignature           	New
+05/26/2021 aeguiart 	Attribute               	ed_ic_dc_rs                  	gnosis dsig_no_notapplicable 	Mod
+05/26/2021 aeguiart 	Note Title              	                             	DetectionUnsuitable          	New
+05/26/2021 aeguiart 	Other-mail              	                             	aeguiart                     	Mod
+04/28/2021 aeguiart 	Attribute               	                             	ed_ic_dc_rs                  	Mod
+09/14/2020 anok     	Note Title              	                             	R-comments                   	New
+09/14/2020 anok     	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+09/14/2020 anok     	Status                  	A                            	R                            	Mod
+09/14/2020 anok     	More-by                 	                             	anok                         	Mod
+09/14/2020 anok     	Opener                  	                             	anok                         	Mod
+09/14/2020 anok     	Resolver                	                             	anok                         	Mod
+09/14/2020 anok     	Behavior-changed        	                             	N                            	Mod
+09/14/2020 anok     	Original-resolved-on    	                             	2020-09-14 10:51:35.000+0000 	Mod
+09/14/2020 anok     	Documents-changed       	                             	none                         	Mod
+09/14/2020 anok     	More-on                 	                             	2020-09-14 10:51:35.000+0000 	Mod
+09/14/2020 anok     	Opened-on               	                             	2020-09-14 10:51:35.000+0000 	Mod
+09/14/2020 anok     	Resolved-on             	                             	2020-09-14 10:51:35.000+0000 	Mod
+09/14/2020 anok     	statusStates            	                             	[status=A, startDate=Fri Aug 	New
+09/14/2020 anok     	statusStates            	[status=A, startDate=Fri Aug 	                             	Del
+09/14/2020 anok     	Age-status              	0                            	753                          	Mod
+09/14/2020 anok     	Mean-time-to-resolved   	                             	752                          	Mod
+09/02/2020 bhargapa 	serviceRequests/C3/68968	                             	                             	Mod
+09/02/2020 bhargapa 	Urgency-desc            	P3                           	CL3                          	Mod
+08/24/2020 bhargapa 	serviceRequests/C3/68968	                             	C3/689689207                 	New
+08/24/2020 bhargapa 	Urgency-desc            	CL3                          	P3                           	Mod
+08/24/2020 bhargapa 	Original-version        	                             	7.0(3)I7(3)                  	Mod
+08/24/2020 bhargapa 	Tickets-count           	2                            	3                            	Mod
+08/24/2020 bhargapa 	TACSR-count             	2                            	3                            	Mod
+08/24/2020 bhargapa 	Tickets-count-direct    	2                            	3                            	Mod
+08/24/2020 bhargapa 	Trouble-tickets         	                             	689689207                    	New
+08/24/2020 bhargapa 	Trouble-tickets-direct  	                             	C3689689207                  	New
+04/17/2020 mattobr  	serviceRequests/C3/68870	                             	                             	Mod
+04/17/2020 mattobr  	Urgency-desc            	P3                           	CL3                          	Mod
+03/24/2020 mattobr  	serviceRequests/C3/68870	                             	C3/688707785                 	New
+03/24/2020 mattobr  	Urgency-desc            	CL3                          	P3                           	Mod
+03/24/2020 mattobr  	Tickets-count           	1                            	2                            	Mod
+03/24/2020 mattobr  	TACSR-count             	1                            	2                            	Mod
+03/24/2020 mattobr  	Tickets-count-direct    	1                            	2                            	Mod
+03/24/2020 mattobr  	Trouble-tickets         	                             	688707785                    	New
+03/24/2020 mattobr  	Trouble-tickets-direct  	                             	C3688707785                  	New
+09/15/2019 cdetssup.	IFD-CFD-Conv-date       	11/08/2019 19:31:04          	08/23/2018 19:31:04          	Mod
+08/12/2019 cdetssup.	IFD-CFD-Conv-date       	                             	11/08/2019 19:31:04          	Mod
+09/12/2018 danieldu 	serviceRequests/C3/68442	                             	                             	Mod
+09/12/2018 danieldu 	Urgency-desc            	P3                           	CL3                          	Mod
+08/24/2018 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+08/24/2018 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+08/24/2018 cdetsbtk 	Security-screening-times	                             	08/24/2018 02:56:12          	Mod
+08/23/2018 girshank 	Assigned Date           	                             	08/23/2018 21:50:52          	Mod
+08/23/2018 girshank 	Assigner                	                             	girshank                     	Mod
+08/23/2018 girshank 	Engineer                	                             	anok                         	Mod
+08/23/2018 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+08/23/2018 girshank 	Original-activity-when-f	                             	Customer-Use                 	Mod
+08/23/2018 girshank 	Status                  	N                            	A                            	Mod
+08/23/2018 girshank 	Age-status              	0                            	1                            	Mod
+08/23/2018 danieldu 	serviceRequests/C3/68442	                             	C3/684426272                 	New
+08/23/2018 danieldu 	TACSR-count             	                             	1                            	Mod
+08/23/2018 danieldu 	Tickets-count           	0                            	1                            	Mod
+08/23/2018 danieldu 	Tickets-count-direct    	                             	1                            	Mod
+08/23/2018 danieldu 	Trouble-tickets         	                             	684426272                    	New
+08/23/2018 danieldu 	Trouble-tickets-direct  	                             	C3684426272                  	New
+08/23/2018 danieldu 	Urgency-desc            	NA                           	P3                           	Mod
+08/23/2018 danieldu 	Defect Created          	                             	                             	New
+08/23/2018 danieldu 	Known-affected-releases 	                             	7.0(3)I7(3)                  	New
+08/23/2018 danieldu 	Note Title              	                             	Release-note                 	New
+08/23/2018 danieldu 	Version                 	                             	7.0(3)I7(3)                  	New

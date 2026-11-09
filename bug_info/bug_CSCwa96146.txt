@@ -1,0 +1,2168 @@
+*******************************************************************************
+
+Bug ID   : CSCwa96146         Project  : CSC.datacenter     Status  : M              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 6 (enhancement)
+Headline : NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+PrimaryPV : 
+Version :10.1(1) 9.2(3) 9.3(4) 9.3(6) 9.3(8) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: alegray            Submitted: 02/15/2022 08:24:01     Last Updtd : 05/25/2025 21:34:08  
+RNE-Type: NONE                New-on : 02/15/2022 08:24:01      
+Root-cause-analysis:                                                  
+Interest : avakin dkowalcz
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:johibbs                                             
+Known-affected-releases:9.2(3) 10.1(1) 9.3(6) 9.3(4) 9.3(8) 
+
+Known-fixed-releases:10.2(4) 10.3(1) 9.3(13) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            Y
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/24/2022 23:41:12                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 143                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 02/15/2022 04:17:25            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:not-a-bug 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 02/15/2022 09:57:42 
+Code-reviewer:                
+Opened-on: 05/24/2022 23:41:12Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis ed_ic_dc_rs nr1f kr4m k-mukamath
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 08/05/2022 22:35:21  
+
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCApps-US
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  
+Test-EDP-activity :               
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   17
+Tickets-count-direct :            12
+Trouble-tickets :              BEMS01434329;692780168;693353732;693515053;693548906;694071599;695175164;695315893;695324392;696007800;697176019;698825467
+Trouble-tickets-direct :C3693515053 
+Trouble-tickets-direct :C3695175164 
+Trouble-tickets-direct :BEMSBEMS01434329 
+Trouble-tickets-direct :C3693353732 
+Trouble-tickets-direct :C3693548906 
+Trouble-tickets-direct :C3695315893 
+Trouble-tickets-direct :C3696007800 
+Trouble-tickets-direct :C3694071599 
+Trouble-tickets-direct :C3695324392 
+Trouble-tickets-direct :C3692780168 
+Trouble-tickets-direct :C3697176019 
+Trouble-tickets-direct :C3698825467 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 02/16/2022 05:18:34
+Document :    nexus
+
+Summary:
+This is a follow up on defect/enhancment request CSCvq91933. 
+
+In NX-OS Version 10.1(1) and presumably all others, the TACACS+ "single-connect" flag is not set, even with "single-connection" CLI enabled.
+
+If NX-OS will not set the single-connection flag in TACACS header, the CLI should not be available in code. 
+
+Here is the draft and RFC which we are not compliant with: https://tools.ietf.org/id/draft-ietf-opsawg-tacacs-08.html
+RFC: https://datatracker.ietf.org/doc/html/rfc8907#section-4.3
+
+******************* Related Service Requests (12 of 12)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS01434329    DC2 SERVICES LLC                         
+C3         692780168       DC2 SERVICES LLC                         
+C3         693353732       DC2 SERVICES LLC                         
+C3         693515053       DC2 SERVICES LLC                         
+C3         693548906       DC2 SERVICES LLC                         
+C3         694071599       DC2 SERVICES LLC                         
+C3         695175164       DC2 SERVICES LLC                         
+C3         695315893       DC2 SERVICES LLC                         
+C3         695324392       DC2 SERVICES LLC                         
+C3         696007800       DC2 SERVICES LLC                         
+C3         697176019       DC2 SERVICES LLC                         
+C3         698825467       DC2 SERVICES LLC                         
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-377762                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              dkowalcz      08/15/2019 02:48:47    CSCvq91933      CSC.datacenter  D            
+
+
+********************* Listing of Notes (24 of 24 ) ***********************
+
+---Start of Note Titled: V-comments (Created 11/29/2023 09:49:39 Added 11/29/2023 09:49:39 by palshanm)---
+1. S/W Version : 9.3(12.30)
+2. Platform : PI Fix
+3. Automation Suite: No
+4. Steps to reproduce and Verify:
+
+palshanm@bgl-ads-825:CSCwa96146_IMR13#ls -l /auto/sprsg-ats/ats5.3.0/ats_easy/palshanm/tacacs/CSCwa96146_IMR13
+total 92
+-rw-r--r--. 1 palshanm eng 5287 Nov 29 23:09 tac_mc_v4.pcap
+-rw-r--r--. 1 palshanm eng 6171 Nov 29 23:11 tac_mc_v4.txt
+-rw-r--r--. 1 palshanm eng 5910 Nov 29 23:14 tac_mc_v6.pcap
+-rw-r--r--. 1 palshanm eng 6362 Nov 29 23:17 tac_mc_v6.txt
+-rw-r--r--. 1 palshanm eng 3761 Nov 29 22:44 tac_sc_draft.pcap
+-rw-r--r--. 1 palshanm eng 5991 Nov 29 22:49 tac_sc_draft.txt
+-rw-r--r--. 1 palshanm eng 2594 Nov 29 23:03 tac_sc_draft_v6.pcap
+-rw-r--r--. 1 palshanm eng 8382 Nov 29 23:05 tac_sc_draft_v6.txt
+-rw-r--r--. 1 palshanm eng 2322 Nov 29 22:52 tac_sc_legacy.pcap
+-rw-r--r--. 1 palshanm eng 8575 Nov 29 22:55 tac_sc_legacy.txt
+-rw-r--r--. 1 palshanm eng 2594 Nov 29 22:59 tac_sc_legacy_v6.pcap
+-rw-r--r--. 1 palshanm eng 8745 Nov 29 23:02 tac_sc_legacy_v6.txt
+palshanm@bgl-ads-825:CSCwa96146_IMR13#pwd
+/auto/sprsg-ats/ats5.3.0/ats_easy/palshanm/tacacs/CSCwa96146_IMR13
+palshanm@bgl-ads-825:CSCwa96146_IMR13#
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: static-analysis.p4 (Created 11/23/2023 06:50:52 Added 11/23/2023 06:50:52 by vasagraw)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa96146).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26 
+# Generated at
+#     Thu Nov 23 14:50:51 2023 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/build/pctmp/sa_attachments/Static-Analysis.acb91e1db312c84f0c6525286f551dde
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/build/pctmp/sa_attachments/Static-Analysis.acb91e1db312c84f0c6525286f551dde':
+@@Start processing of /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/include/dcos/osc_map.h
+**Active warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/include/dcos/osc_map.h
+**Noise warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/include/dcos/osc_map.h
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/include/dcos/osc_map.h:230:effectively_constant:DEADCODE:Execution cannot reach the expression "_sz >= len" inside this statement: "(_sz != 4294967295U && _sz ...". [coverity]
+**Parent warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/include/dcos/osc_map.h
+
+@@Start processing of /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c
+**Active warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c
+**Noise warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c
+**Parent warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:614:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "rem_addr_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1254:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1258:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1262:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "rem_addr_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1467:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "strncpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1604:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1445:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1430:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1430:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1449:none:FORWARD_NULL:Passing null pointer "user_data" to "memcpy", which dereferences it. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:796:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1233:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1589:fixed_size_dest:STRING_OVERFLOW:You might overrun the 256-character fixed-size string "&servicebuf[strlen((char *)"service=")]" by copying "service_name[service_id]" without checking the length. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1077:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1013:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1077:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:936:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:978:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:978:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1575:none:OVERRUN:Overrunning buffer pointed to by "user_msg" of 1 bytes by passing it to a function which accesses it at byte offset 250 using argument "copy_len" (which evaluates to 251). [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1181:none:UNINIT:Using uninitialized value "av_count". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1444:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:935:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1008:none:UNINIT:Using uninitialized value "user_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:492:allocation:TAINTED_SCALAR:Passing tainted expression "12U + len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:531:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:492:allocation:TAINTED_SCALAR:Passing tainted expression "12U + len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:531:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:468:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:468:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:480:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:480:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1609:effectively_constant:DEADCODE:Execution cannot reach this statement: "free(argbuf);". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1402:none:UNINIT:Using uninitialized value "user_data_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:767:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:812:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:816:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:820:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:767:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:806:loop_bound:TAINTED_SCALAR:Using tainted variable "av_count" as a loop boundary. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1045:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "user_len". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:745:none:UNINIT:Using uninitialized value "av_count". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "user_len". [coverity]
+
+@@Start processing of /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c
+**Active warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c
+**Noise warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:277:library_function:CHECKED_RETURN:Calling "getpeername(sock_fd, (struct sockaddr *)&addr, &len)" without checking return value. This library function may fail and return an error code. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:585:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IP, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:590:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IPV6, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+**Parent warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:473:none:UNINIT:Using uninitialized value "inet_addr_info_1.__inet_addr.addr_type". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:478:none:UNINIT:Using uninitialized value "inet_addr_info_1.__inet_addr.a.ipv4_addr.s_addr". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:488:none:UNINIT:Using uninitialized element of array "inet_addr_info_1.__inet_addr.a.ipv6_addr.__in6_u.__u6_addr8" when calling "memcpy". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_vasagraw_irvine_REL_9_3_12_26/feature/security/tacacs/tplus_io.c:683:use_after_close:USE_AFTER_FREE:Passing closed handle "sockfd" as an argument to "connect". [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 4
+Total parent warnings: 52
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://sjc-bm-cov7.cisco.com:8443/query/defects.htm?stream=irvine-vasagraw&cid=412363&cid=462799&cid=462798&cid=841242&cid=462797&cid=841241&cid=28213&cid=462796&cid=462795&cid=462794&cid=462793&cid=356280&cid=841237&cid=982560&cid=462792&cid=462790&cid=462789&cid=462791&cid=841240&cid=74683&cid=462788&cid=841239&cid=462785&cid=462787&cid=462786&cid=462784&cid=34403&cid=841238&cid=30172&cid=19556
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/vasagraw/irvine-vasagraw_20231123_133210/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p4---
+
+
+---Start of Note Titled: ULS_irvine (Created 11/23/2023 05:13:33 Added 11/23/2023 05:13:33 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity10
+Testbed  name       : n9kv10-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/616536/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/616536
+Report file         : /auto/nxos-sanity/logs/vasagraw/616536/uls-n9kv10.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/616536/uls-n9kv10.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time     : 2023_11_22_17_45_10
+Test End time       : 2023_11_22_19_23_04
+Test Duration       : 1:37:54.386732
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '616536', '-cdet', 'CSCwa96146', '-build', '/ws/vasagraw-sjc/nxos.9.3.12.26.bin', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/616536/eor_n9kv_uls.yml', '-testbed', 'n9kv10-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/616536/uls-n9kv10.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/616536/uls-n9kv10.report', '-jobid', 'EOR_N9KV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28  Failed:0/28  Aborted:0/28  Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:31   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:15   
+testStaticRoute                                                           pass      0:00:27   
+testLacpShutNoshut                                                        pass      0:04:37   
+testToggleSwitchport                                                      pass      0:01:46   
+testL2BridgingAccess                                                      pass      0:01:30   
+testHierarchicalRouting                                                   pass      0:04:24   
+testIpv6Interface                                                         pass      0:00:50   
+testOspfv3                                                                pass      0:03:40   
+testBgpv4                                                                 pass      0:04:01   
+testBgpv6                                                                 pass      0:03:36   
+testEigrpv4                                                               pass      0:02:07   
+testRip                                                                   pass      0:01:41   
+testCdp                                                                   pass      0:01:15   
+testLLDP                                                                  pass      0:00:45   
+testSvi                                                                   pass      0:03:29   
+testSviVrf                                                                pass      0:03:26   
+testVrfRouteLeak                                                          pass      0:04:23   
+testL2SanityMacLearning                                                   pass      0:06:09   
+testL2SanityUnconfig                                                      pass      0:00:46   
+testSpanningTreeAccess                                                    pass      0:02:27   
+testSpanningTreeTrunk                                                     pass      0:01:44   
+testL3DhcpRelayv4                                                         pass      0:03:26   
+testL3DhcpRelayv6                                                         pass      0:02:34   
+testCopyRunnStart                                                         pass      0:08:26   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: ULS_irvine---
+
+
+---Start of Note Titled: unit-test_irvine (Created 11/23/2023 05:12:44 Added 11/23/2023 05:12:44 by vasagraw)---
+N9K_GX(config)# 
+N9K_GX(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Nov 23 19:33:55 2023
+!Time: Thu Nov 23 19:34:00 2023
+
+version 9.3(13) Bios:version 05.50 
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" single-connection 
+aaa group server tacacs+ tac1 
+    server 10.76.80.245 
+    use-vrf management
+    source-interface mgmt0
+
+
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+
+
+
+
+N9K_GX(config)# 
+N9K_GX(config)# ethanalyzer local interface mgmt display-filter "ip.addr == 10.76.80.245" limit-captured-frames 0
+Capturing on mgmt0
+2023-11-23 19:55:21.222872 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=962713 TSER=0
+2023-11-23 19:55:21.225443 10.76.80.245 -> 10.126.67.84 TCP tacacs > 59104 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=4002565755 TSER=962713 WS=7
+2023-11-23 19:55:21.225731 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=962713 TSER=4002565755
+2023-11-23 19:55:21.225974 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-23 19:55:21.227255 10.76.80.245 -> 10.126.67.84 TCP tacacs > 59104 [ACK] Seq=1 Ack=38 Win=29056 Len=0 TSV=4002565758 TSER=962713
+2023-11-23 19:55:21.277130 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-23 19:55:21.381567 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=38 Ack=19 Win=16768 Len=0 TSV=962715 TSER=4002565808
+2023-11-23 19:55:27.231762 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-23 19:55:27.232913 10.76.80.245 -> 10.126.67.84 TCP tacacs > 59104 [ACK] Seq=19 Ack=75 Win=29056 Len=0 TSV=4002571763 TSER=962772
+2023-11-23 19:55:27.242429 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-23 19:55:27.348235 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=75 Ack=37 Win=16768 Len=0 TSV=962773 TSER=4002571773
+2023-11-23 19:55:41.526143 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-23 19:55:41.552378 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-23 19:55:41.658241 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=112 Ack=55 Win=16768 Len=0 TSV=962912 TSER=4002586083
+2023-11-23 19:56:00.422186 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-23 19:56:00.430848 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-23 19:56:00.534844 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=149 Ack=73 Win=16768 Len=0 TSV=963096 TSER=4002604961
+2023-11-23 19:56:10.730349 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-23 19:56:10.741277 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-23 19:56:10.844878 10.126.67.84 -> 10.76.80.245 TCP 59104 > tacacs [ACK] Seq=186 Ack=91 Win=16768 Len=0 TSV=963196 TSER=4002615272
+
+N9K_GX(config)# 
+N9K_GX(config)# 
+
+
+*************************************
+
+
+
+N9K_GX# sh run tacacs+
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Nov 24 15:58:42 2023
+!Time: Fri Nov 24 15:59:03 2023
+
+version 9.3(13) Bios:version 05.50
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" single-connection
+tacacs-server host 10.77.143.115 key 7 "dxgi"
+aaa group server tacacs+ tac1
+    server 10.76.80.245
+    use-vrf management
+    source-interface mgmt0
+aaa group server tacacs+ tac2
+    server 10.77.143.115
+    use-vrf management
+
+
+N9K_GX#
+N9K_GX# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Nov 24 15:58:42 2023
+!Time: Fri Nov 24 15:59:05 2023
+
+version 9.3(13) Bios:version 05.50
+aaa authentication login default group tac1
+aaa authorization config-commands default group tac1
+aaa authorization commands default group tac1
+aaa accounting default group tac1
+
+
+N9K_GX#
+N9K_GX#
+
+
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# test aaa group tac1 testuser Cisc0123
+user has been authenticated
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+
+
+
+
+
+N9K_GX(config)#  ethanalyzer local interface mgmt display-filter "ip.addr == 10.76.80.245" limit-captured-frames 0
+Capturing on mgmt0
+2023-11-24 15:57:51.524426 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-11-24 15:57:51.535417 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authentication
+2023-11-24 15:57:51.562337 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-11-24 15:57:51.568725 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authorization
+2023-11-24 15:57:51.672290 10.126.67.84 -> 10.76.80.245 TCP 59433 > tacacs [ACK] Seq=142 Ack=92 Win=16768 Len=0 TSV=568409 TSER=4074715879
+2023-11-24 15:57:51.934320 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-11-24 15:57:51.937446 10.76.80.245 -> 10.126.67.84 TACACS+ R: Accounting
+2023-11-24 15:57:52.042211 10.126.67.84 -> 10.76.80.245 TCP 59433 > tacacs [ACK] Seq=263 Ack=109 Win=16768 Len=0 TSV=568413 TSER=4074716247
+2023-11-24 15:58:02.161873 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-11-24 15:58:02.174067 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authorization
+2023-11-24 15:58:02.278852 10.126.67.84 -> 10.76.80.245 TCP 59433 > tacacs [ACK] Seq=362 Ack=127 Win=16768 Len=0 TSV=568512 TSER=4074726484
+2023-11-24 15:58:39.326471 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-11-24 15:58:39.336154 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authorization
+2023-11-24 15:58:39.442122 10.126.67.84 -> 10.76.80.245 TCP 59433 > tacacs [ACK] Seq=462 Ack=145 Win=16768 Len=0 TSV=568874 TSER=4074763646
+2023-11-24 15:58:42.185991 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-11-24 15:58:42.195421 10.76.80.245 -> 10.126.67.84 TACACS+ R: Authorization
+2023-11-24 15:58:42.215326 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-11-24 15:58:42.218821 10.76.80.245 -> 10.126.67.84 TACACS+ R: Accounting
+2023-11-24 15:58:42.303167 10.126.67.84 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-11-24 15:58:42.306919 10.76.80.245 -> 10.126.67.84 TACACS+ R: Accounting
+2023-11-24 15:58:42.412128 10.126.67.84 -> 10.76.80.245 TCP 59433 > tacacs [ACK] Seq=922 Ack=197 Win=16768 Len=0 TSV=568903 TSER=4074766617
+
+N9K_GX(config)# 
+N9K_GX(config)#
+---End of Note Titled: unit-test_irvine---
+
+
+---Start of Note Titled: static-analysis.p3 (Created 08/07/2023 04:09:52 Added 08/07/2023 04:09:52 by asmurali)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa96146).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-1313
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/asmurali/smu9312_singleconne 
+# Generated at
+#     Mon Aug  7 11:09:48 2023 UTC by asmurali
+# Enclosure contains contents of the following files:
+#     /nobackup/asmurali/smu9312_singleconne/build/pctmp/sa_attachments/Static-Analysis.f7a83d23d745cf98bbd782088758a7a8
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/asmurali/smu9312_singleconne/build/pctmp/sa_attachments/Static-Analysis.f7a83d23d745cf98bbd782088758a7a8':
+@@Start processing of /nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c
+**Active warnings for /nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c
+**Noise warnings for /nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c
+**Parent warnings for /nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:614:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "rem_addr_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1254:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1258:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1262:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "rem_addr_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1467:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "strncpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1604:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1445:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1430:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1430:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1449:none:FORWARD_NULL:Passing null pointer "user_data" to "memcpy", which dereferences it. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:796:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1233:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1589:fixed_size_dest:STRING_OVERFLOW:You might overrun the 256-character fixed-size string "&servicebuf[strlen((char *)"service=")]" by copying "service_name[service_id]" without checking the length. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1077:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1013:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1077:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:936:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:978:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:978:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1575:none:OVERRUN:Overrunning buffer pointed to by "user_msg" of 1 bytes by passing it to a function which accesses it at byte offset 250 using argument "copy_len" (which evaluates to 251). [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1181:none:UNINIT:Using uninitialized value "av_count". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1444:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:935:none:UNINIT:Using uninitialized value "port_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1008:none:UNINIT:Using uninitialized value "user_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:492:allocation:TAINTED_SCALAR:Passing tainted expression "12U + len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:531:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:492:allocation:TAINTED_SCALAR:Passing tainted expression "12U + len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:531:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:468:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:468:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:480:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:480:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1609:effectively_constant:DEADCODE:Execution cannot reach this statement: "free(argbuf);". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1402:none:UNINIT:Using uninitialized value "user_data_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:767:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:812:critical_argument:TAINTED_SCALAR:Passing tainted expression "user_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:816:critical_argument:TAINTED_SCALAR:Passing tainted expression "port_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:820:critical_argument:TAINTED_SCALAR:Passing tainted expression "rem_addr_len" to "memcpy", which uses it as an offset. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:767:allocation:TAINTED_SCALAR:Passing tainted expression "12U + req_len" to "malloc", which uses it as an allocation size. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:806:loop_bound:TAINTED_SCALAR:Using tainted variable "av_count" as a loop boundary. [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1045:none:FORWARD_NULL:Dereferencing null pointer "aaa_req". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:764:none:UNINIT:Using uninitialized value "user_len". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:745:none:UNINIT:Using uninitialized value "av_count". [coverity]
+/nobackup/asmurali/smu9312_singleconne/feature/security/tacacs/tplus_pkt.c:1201:none:UNINIT:Using uninitialized value "user_len". [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 48
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8443/query/defects.htm?stream=irvine-asmurali&cid=462799&cid=462798&cid=841242&cid=462797&cid=841241&cid=28213&cid=462796&cid=462795&cid=462794&cid=462793&cid=356280&cid=841237&cid=982560&cid=462792&cid=462790&cid=462789&cid=462791&cid=841240&cid=74683&cid=462788&cid=841239&cid=462785&cid=462787&cid=462786&cid=462784
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/asmurali/irvine-asmurali_20230807_105812/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p3---
+
+
+---Start of Note Titled: Unit-test-SMU_9_3_12 (Created 08/07/2023 02:18:25 Added 08/07/2023 02:18:25 by asmurali)---
+ashwini-n9k(config)# show install  active 
+Boot Image:
+	NXOS Image: bootflash:///nxos.9.3.12.bin
+
+Active Packages:
+	nxos.CSCwa96146-n9k_ALL-1.0.0-9.3.12.lib32_n9000
+	cfg_cmp-0.3.1.0-1.x86_64
+	cnmi-0.3.1.2-1.x86_64
+	dcgrpc-1.0.6-1.x86_64
+	nae-6.2.0.390-1.x86_64
+	nxos-connector-1.0.11.839-1.x86_64
+
+Active Base Packages:
+	bfd-2.0.0.0-9.3.12.lib32_n9000
+	bgp-2.0.0.0-9.3.12.lib32_n9000
+	container-tracker-2.0.0.0
+
+
+
+TC1
+
+SINGLE CONNECT CONFIG ON SWITCH - RFC COMPLIANT SINGLE CONNECT ON SERVER - AUTHENTICATION, ACCOUNTING, AUTHORIZATION
+
+ashwini-n9k# ethanalyzer local interface mgmt display-filter "tcp.port==49" limit-captured-frames 0
+Capturing on mgmt0
+2023-08-07 14:36:49.896479 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-08-07 14:36:49.905907 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authentication
+2023-08-07 14:36:49.934478 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:36:49.944875 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:36:50.051486 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=136 Ack=75 Win=16768 Len=0 TSV=4212259 TSER=2167356503
+2023-08-07 14:36:51.060837 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:36:51.065666 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:36:51.171344 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=251 Ack=92 Win=16768 Len=0 TSV=4212270 TSER=2167357624
+2023-08-07 14:37:00.759129 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:37:00.770008 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:37:00.790543 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:00.807645 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:00.901869 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:00.906059 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:01.011305 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=696 Ack=144 Win=16768 Len=0 TSV=4212365 TSER=2167367464
+2023-08-07 14:37:03.741236 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:37:03.750458 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:37:03.777603 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:03.781732 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:03.888009 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=973 Ack=179 Win=16768 Len=0 TSV=4212393 TSER=2167370340
+2023-08-07 14:37:03.924434 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:03.928369 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:04.034690 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1159 Ack=196 Win=16768 Len=0 TSV=4212395 TSER=2167370487
+2023-08-07 14:37:04.922872 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:37:04.935239 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:37:04.960894 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:04.964898 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:05.071320 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1422 Ack=231 Win=16768 Len=0 TSV=4212405 TSER=2167371523
+2023-08-07 14:37:05.211575 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:37:05.215135 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:37:05.321441 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1605 Ack=248 Win=16768 Len=0 TSV=4212407 TSER=2167371774
+
+sjc-ads-1313:132> ssh -l asmurali 10.126.67.47
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+ashwini-n9k# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+ashwini-n9k(config)# int e1/1
+ashwini-n9k(config-if)# no shutdown 
+ashwini-n9k(config-if)# shutdown 
+ashwini-n9k(config-if)# 
+
+
+
+
+TC2
+TC2 SINGLE CONNECT CONFIG ON SWITCH - LEGACY MODE SINGLE CONNECT ON SERVER - AUTHENTICATION, ACCOUNTING, AUTHORIZATIONashwini-n9k# ethanalyzer local interface mgmt display-filter "tcp.port==49" limit-captured-frames 0
+Capturing on mgmt0
+2023-08-07 14:35:19.619581 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-08-07 14:35:19.630155 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authentication
+2023-08-07 14:35:19.659701 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:35:19.669584 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:35:19.774842 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=136 Ack=75 Win=16768 Len=0 TSV=4211382 TSER=2167266228
+2023-08-07 14:35:20.810876 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:20.819111 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:20.924694 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=251 Ack=92 Win=16768 Len=0 TSV=4211393 TSER=2167267377
+2023-08-07 14:35:27.588894 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:35:27.611062 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:35:27.634868 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:27.638593 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:27.744618 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=524 Ack=127 Win=16768 Len=0 TSV=4211460 TSER=2167274197
+2023-08-07 14:35:27.747231 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:27.751326 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:27.858162 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=696 Ack=144 Win=16768 Len=0 TSV=4211461 TSER=2167274309
+2023-08-07 14:35:30.081579 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:35:30.091061 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:35:30.136354 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:30.140069 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:30.140331 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:30.142875 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:30.248008 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1159 Ack=196 Win=16768 Len=0 TSV=4211484 TSER=2167276701
+2023-08-07 14:35:31.681803 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:35:31.692652 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:35:31.720491 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:31.726380 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:31.831385 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1422 Ack=231 Win=16768 Len=0 TSV=4211499 TSER=2167278284
+2023-08-07 14:35:31.969086 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:35:31.973154 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:35:32.078013 10.126.67.47 -> 10.76.80.245 TCP 59715 > tacacs [ACK] Seq=1605 Ack=248 Win=16768 Len=0 TSV=4211502 TSER=2167278531
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sjc-ads-1313:132> ssh -l asmurali 10.126.67.47
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+ashwini-n9k# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+ashwini-n9k(config)# int e1/1
+ashwini-n9k(config-if)# no shutdown 
+ashwini-n9k(config-if)# shutdown 
+ashwini-n9k(config-if)# 
+
+
+TC3
+
+
+ashwini-n9k(config)# ethanalyzer local interface mgmt display-filter "tcp.port==49" limit-captured-frames 0
+Capturing on mgmt0
+2023-08-07 14:41:42.662153 10.126.67.47 -> 10.76.80.245 TCP 60515 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=4215100 TSER=0
+2023-08-07 14:41:42.664736 10.76.80.245 -> 10.126.67.47 TCP tacacs > 60515 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=2167649222 TSER=4215100 WS=7
+2023-08-07 14:41:42.665025 10.126.67.47 -> 10.76.80.245 TCP 60515 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=4215100 TSER=2167649222
+2023-08-07 14:41:42.665373 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authentication
+2023-08-07 14:41:42.667621 10.76.80.245 -> 10.126.67.47 TCP tacacs > 60515 [ACK] Seq=1 Ack=49 Win=29056 Len=0 TSV=2167649225 TSER=4215100
+2023-08-07 14:41:42.675968 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authentication
+2023-08-07 14:41:42.676668 10.126.67.47 -> 10.76.80.245 TCP 60515 > tacacs [FIN, ACK] Seq=49 Ack=19 Win=16768 Len=0 TSV=4215100 TSER=2167649233
+2023-08-07 14:41:42.679024 10.76.80.245 -> 10.126.67.47 TCP tacacs > 60515 [FIN, ACK] Seq=19 Ack=50 Win=29056 Len=0 TSV=2167649237 TSER=4215100
+2023-08-07 14:41:42.679282 10.126.67.47 -> 10.76.80.245 TCP 60515 > tacacs [ACK] Seq=50 Ack=20 Win=16768 Len=0 TSV=4215100 TSER=2167649237
+2023-08-07 14:41:42.705052 10.126.67.47 -> 10.76.80.245 TCP 58064 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=4215101 TSER=0
+2023-08-07 14:41:42.707459 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58064 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=2167649265 TSER=4215101 WS=7
+2023-08-07 14:41:42.707785 10.126.67.47 -> 10.76.80.245 TCP 58064 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=4215101 TSER=2167649265
+2023-08-07 14:41:42.708093 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:41:42.710302 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58064 [ACK] Seq=1 Ack=88 Win=29056 Len=0 TSV=2167649268 TSER=4215101
+2023-08-07 14:41:42.718361 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:41:42.718924 10.126.67.47 -> 10.76.80.245 TCP 58064 > tacacs [FIN, ACK] Seq=88 Ack=57 Win=16768 Len=0 TSV=4215101 TSER=2167649276
+2023-08-07 14:41:42.721835 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58064 [FIN, ACK] Seq=57 Ack=89 Win=29056 Len=0 TSV=2167649279 TSER=4215101
+2023-08-07 14:41:42.722078 10.126.67.47 -> 10.76.80.245 TCP 58064 > tacacs [ACK] Seq=89 Ack=58 Win=16768 Len=0 TSV=4215101 TSER=2167649279
+2023-08-07 14:41:43.836805 10.126.67.47 -> 10.76.80.245 TCP 58141 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=4215111 TSER=0
+2023-08-07 14:41:43.837989 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58141 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=2167650397 TSER=4215111 WS=7
+2023-08-07 14:41:43.838271 10.126.67.47 -> 10.76.80.245 TCP 58141 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=4215111 TSER=2167650397
+2023-08-07 14:41:43.838561 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:41:43.839907 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58141 [ACK] Seq=1 Ack=116 Win=29056 Len=0 TSV=2167650398 TSER=4215111
+2023-08-07 14:41:43.842294 10.76.80.245 -> 10.126.67.47 TACACS+ R: Accounting
+2023-08-07 14:41:43.842792 10.126.67.47 -> 10.76.80.245 TCP 58141 > tacacs [FIN, ACK] Seq=116 Ack=18 Win=16768 Len=0 TSV=4215111 TSER=2167650401
+2023-08-07 14:41:43.843742 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58141 [FIN, ACK] Seq=18 Ack=117 Win=29056 Len=0 TSV=2167650403 TSER=4215111
+2023-08-07 14:41:43.843924 10.126.67.47 -> 10.76.80.245 TCP 58141 > tacacs [ACK] Seq=117 Ack=19 Win=16768 Len=0 TSV=4215111 TSER=2167650403
+2023-08-07 14:41:54.052944 10.126.67.47 -> 10.76.80.245 TCP 58174 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=4215210 TSER=0
+2023-08-07 14:41:54.054113 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58174 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=2167660613 TSER=4215210 WS=7
+2023-08-07 14:41:54.054496 10.126.67.47 -> 10.76.80.245 TCP 58174 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=4215210 TSER=2167660613
+2023-08-07 14:41:54.054767 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Authorization
+2023-08-07 14:41:54.055640 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58174 [ACK] Seq=1 Ack=101 Win=29056 Len=0 TSV=2167660615 TSER=4215210
+2023-08-07 14:41:54.071939 10.76.80.245 -> 10.126.67.47 TACACS+ R: Authorization
+2023-08-07 14:41:54.072545 10.126.67.47 -> 10.76.80.245 TCP 58174 > tacacs [FIN, ACK] Seq=101 Ack=19 Win=16768 Len=0 TSV=4215210 TSER=2167660631
+2023-08-07 14:41:54.073505 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58174 [FIN, ACK] Seq=19 Ack=102 Win=29056 Len=0 TSV=2167660632 TSER=4215210
+2023-08-07 14:41:54.073723 10.126.67.47 -> 10.76.80.245 TCP 58174 > tacacs [ACK] Seq=102 Ack=20 Win=16768 Len=0 TSV=4215210 TSER=2167660632
+2023-08-07 14:41:54.092010 10.126.67.47 -> 10.76.80.245 TCP 58185 > tacacs [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=0 TSV=4215211 TSER=0
+2023-08-07 14:41:54.093093 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58185 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1360 TSV=2167660652 TSER=4215211 WS=7
+2023-08-07 14:41:54.093350 10.126.67.47 -> 10.76.80.245 TCP 58185 > tacacs [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSV=4215211 TSER=2167660652
+2023-08-07 14:41:54.093607 10.126.67.47 -> 10.76.80.245 TACACS+ Q: Accounting
+2023-08-07 14:41:54.094523 10.76.80.245 -> 10.126.67.47 TCP tacacs > 58185 [ACK] Seq=1 Ack=174 Win=30080 Len=0 TSV=2167660653 TSER=4215211
+
+
+
+
+ashwini-n9k# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+ashwini-n9k(config)# int e1/1
+ashwini-n9k(config-if)# no shutdown 
+ashwini-n9k(config-if)# shutdown 
+ashwini-n9k(config-if)# 
+
+
+TC3
+---End of Note Titled: Unit-test-SMU_9_3_12---
+
+
+---Start of Note Titled: ULS_KMR4 (Created 08/08/2022 21:21:26 Added 08/08/2022 21:21:26 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity08.localdomain
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/303364/smart_uls.yml
+Total Test cases Run: 79
+Passed test cases   : 79
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/303364
+Report file         : /auto/nxos-sanity/logs/vasagraw/303364/smart_uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/303364/smart_uls-n9kv08.log
+Test start time     : 2022_08_08_08_19_34
+Test End time       : 2022_08_08_13_58_24
+Test Duration       : 5:38:49.830889
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '303364', '-build', 'tftp://172.31.144.97/sanity-image/vasagraw-303364-nxos64-cs.10.2.3.65.M.bin_PVT', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/303364/smart_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-asic', 'eor_n9kv', '-logfile', '/auto/nxos-sanity/logs/vasagraw/303364/smart_uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/303364/smart_uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:01:33   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:57   
+testInterfaceInconsistencies                                              pass      0:00:30   
+configVxLANFnL40G                                                         pass      0:15:26   
+testVxLANPeerLearnAccessFnL40G                                            pass      0:03:16   
+testVxLANBCAccessFnL40G                                                   pass      0:02:14   
+testVxLANL2MCAccessFnL40G                                                 pass      0:02:08   
+testVxLANUUCAccessFnL40G                                                  pass      0:02:24   
+testVxLANUCAccessFnL40G                                                   pass      0:02:53   
+testVxLANUCIPv6AccessFnL40G                                               pass      0:02:50   
+testVxLANPeerLearnTrunkFnL40G                                             pass      0:03:09   
+testVxLANBCTrunkFnL40G                                                    pass      0:02:07   
+testVxLANL2MCTrunkFnL40G                                                  pass      0:02:16   
+testVxLANUUCTrunkFnL40G                                                   pass      0:02:21   
+testVxLANUCTrunkFnL40G                                                    pass      0:02:46   
+testVxLANL3IPv4AccessNRAVtepFnL40G                                        pass      0:03:17   
+testVxLANL3IPv4AccessNRAFnL40G                                            pass      0:03:25   
+testVxLANL3IPv6AccessNRAVtepFnL40G                                        pass      0:03:23   
+testVxLANL3IPv6AccessNRAFnL40G                                            pass      0:03:25   
+testVxLANL3IPv4TrunkNRAVtepFnL40G                                         pass      0:03:23   
+testVxLANL3IPv4TrunkNRAFnL40G                                             pass      0:03:18   
+testVxLANL3IPv6TrunkNRAVtepFnL40G                                         pass      0:03:25   
+testVxLANL3IPv6TrunkNRAFnL40G                                             pass      0:03:27   
+testVxLANL3IPv4TrunkARNVtepFnL40G                                         pass      0:03:25   
+testVxLANL3IPv4TrunkARNFnL40G                                             pass      0:03:24   
+testVxLANL3IPv6TrunkARNVtepFnL40G                                         pass      0:03:17   
+testVxLANL3IPv6TrunkARNFnL40G                                             pass      0:03:24   
+testVxLANL3IPv4TrunkNRNFnL40G                                             pass      0:03:27   
+testVxLANL3IPv6TrunkNRNFnL40G                                             pass      0:03:26   
+unconfigVxLANFnL40G                                                       pass      0:20:10   
+configVxLANsIR40G                                                         pass      0:10:15   
+testVxLANPeerLearnAccesssIR40G                                            pass      0:03:09   
+testVxLANBCAccesssIR40G                                                   pass      0:02:22   
+testVxLANL2MCAccesssIR40G                                                 pass      0:02:09   
+testVxLANUUCAccesssIR40G                                                  pass      0:02:21   
+testVxLANUCAccesssIR40G                                                   pass      0:02:49   
+testVxLANUCIPv6AccesssIR40G                                               pass      0:02:49   
+testVxLANPeerLearnTrunksIR40G                                             pass      0:03:10   
+testVxLANBCTrunksIR40G                                                    pass      0:02:16   
+testVxLANL2MCTrunksIR40G                                                  pass      0:02:16   
+testVxLANUUCTrunksIR40G                                                   pass      0:02:11   
+testVxLANUCTrunksIR40G                                                    pass      0:02:55   
+testVxLANUCIPv6TrunksIR40G                                                pass      0:02:59   
+testVxLANL3IPv4AccessNRAVtepsIR40G                                        pass      0:03:23   
+testVxLANL3IPv4AccessNRAsIR40G                                            pass      0:03:16   
+testVxLANL3IPv6AccessNRAVtepsIR40G                                        pass      0:03:23   
+testVxLANL3IPv6AccessNRAsIR40G                                            pass      0:03:25   
+testVxLANL3IPv4TrunkNRAVtepsIR40G                                         pass      0:03:23   
+testVxLANL3IPv4TrunkNRAsIR40G                                             pass      0:03:21   
+testVxLANL3IPv6TrunkNRAVtepsIR40G                                         pass      0:03:15   
+testVxLANL3IPv6TrunkNRAsIR40G                                             pass      0:03:28   
+testVxLANL3IPv4TrunkARNVtepsIR40G                                         pass      0:03:25   
+testVxLANL3IPv4TrunkARNsIR40G                                             pass      0:03:29   
+testVxLANL3IPv6TrunkARNVtepsIR40G                                         pass      0:03:19   
+testVxLANL3IPv6TrunkARNsIR40G                                             pass      0:03:20   
+testVxLANL3IPv4TrunkNRNsIR40G                                             pass      0:03:33   
+testVxLANL3IPv6TrunkNRNsIR40G                                             pass      0:03:20   
+unconfigVxLANsIR40G                                                       pass      0:21:34   
+configVxLANEvpn40GHost                                                    pass      0:19:50   
+testVxLANPeerLearnAccessEvpn40GHost                                       pass      0:02:48   
+testVxLANBCAccessEvpn40GHost                                              pass      0:02:17   
+testVxLANL2MCAccessEvpn40GHost                                            pass      0:02:16   
+testVxLANUUCAccessEvpn40GHost                                             pass      0:02:11   
+testVxLANUCAccessEvpn40GHost                                              pass      0:03:02   
+testVxLANUCIPv6AccessEvpn40GHost                                          pass      0:02:52   
+testVxLANPeerLearnTrunkEvpn40GHost                                        pass      0:02:41   
+testVxLANBCTrunkEvpn40GHost                                               pass      0:02:00   
+testVxLANL2MCTrunkEvpn40GHost                                             pass      0:02:05   
+testVxLANUUCTrunkEvpn40GHost                                              pass      0:02:16   
+testVxLANUCTrunkEvpn40GHost                                               pass      0:02:50   
+testVxLANUCIPv6TrunkEvpn40GHost                                           pass      0:02:53   
+testVxLANL3IPv4L3VnidOrphanEvpn40GHost                                    pass      0:03:22   
+testVxLANL3IPv6L3VnidOrphanEvpn40GHost                                    pass      0:03:19   
+testVxLANL3IPv4L3VnidEvpn40GHost                                          pass      0:03:25   
+testVxLANL3IPv6L3VnidEvpn40GHost                                          pass      0:03:22   
+unconfigVxLANEvpn40GHost                                                  pass      0:22:55   
+testGoldDiagnostic                                                        pass      0:00:04   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: ULS_KMR4---
+
+
+---Start of Note Titled: R-comments.p2 (Created 07/08/2022 22:56:18 Added 07/08/2022 22:56:18 by vasagraw)---
+With fix incorporated, the switch's single-connect config would be supporting RFC-COMPLIANT single-connect as well. User has to ensure that the switch and server side configs are in-sync with respect to single-connect config.
+
+SUPPORTED:
+1) Switch with MULTI-CONNECT mode  <==> Server with MULTI-CONNECT mode
+2) Switch with SINGLE-CONNECT mode  <==> Server with CISCO-LEGACY SINGLE-CONNECT mode
+3) Switch with SINGLE-CONNECT mode  <==> Server with RFC-COMPLIANT SINGLE-CONNECT mode
+
+
+UNSUPPORTED (undefined behaviour):
+1) Switch with SINGLE-CONNECT mode  <==> Server with MULTI-CONNECT mode
+2) Switch with MULTI-CONNECT mode  <==> Server with CISCO-LEGACY SINGLE-CONNECT mode
+3) Switch with MULTI-CONNECT mode  <==> Server with RFC-COMPLIANT SINGLE-CONNECT mode
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: l2_uls_sanity_baseline_compare (Created 07/08/2022 06:12:14 Added 07/08/2022 06:12:14 by vasagraw)---
+<a href='https://nxossanity.cisco.com/job-history/290764' target='_blank'> JOB-DETAILs </a> <br /> 
+compared results as below 
+===========================
+{'final_res': 'PASS', 'base_rate': 'NA', 'pass_rate': '100.00%'}
+---End of Note Titled: l2_uls_sanity_baseline_compare---
+
+
+---Start of Note Titled: l2_uls_sanity_compare (Created 07/08/2022 06:11:07 Added 07/08/2022 06:11:07 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity602
+Testbed  name       : n9kv602-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : <a href="http://172.31.150.212/auto/nxos-sanity/logs/vasagraw/290764">/auto/nxos-sanity/logs/vasagraw/290764</a>
+Report file         : /auto/nxos-sanity/logs/vasagraw/290764/l2_uls-n9kv602.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/290764/l2_uls-n9kv602.log
+Test start time     : 2022_07_08_03_04_11
+Test End time       : 2022_07_08_06_01_54
+Test Duration       : 2:57:42.837817
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '290764', '-cdet', 'CSCwb82585', '-build', '/auto/dcbg-nx-pi/vasagraw/nxos64-cs.10.3.0.135.F.bin', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv602-testbed.yml', '-asic', 'n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/290764/l2_uls-n9kv602.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/290764/l2_uls-n9kv602.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:04   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:12   
+testConfigMgmtPort                                                        pass      0:00:29   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:49   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:04   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:25   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:24   
+testStaticMac                                                             pass      0:01:50   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:29   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:44   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:35   
+testL2SanityMacLearning                                                   pass      0:05:16   
+testL2SanityPortFlap                                                      pass      0:04:42   
+testL2SanityClearMac                                                      pass      0:03:15   
+testL2SanityMacAging                                                      pass      0:09:19   
+testL2SanityMacMove                                                       pass      0:03:10   
+testL2SanityPortModeChange                                                pass      0:03:55   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:07   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:21   
+testL2SanityAllowedVlanAdd                                                pass      0:03:46   
+testL2SanityAllowedVlanRemove                                             pass      0:03:10   
+testL2SanityUnconfig                                                      pass      0:00:38   
+testVpcConfig                                                             pass      0:05:57   
+testVpcPeerLink                                                           pass      0:00:54   
+testVpcPeerKeepAlive                                                      pass      0:00:30   
+testVpcPortChannels                                                       pass      0:01:34   
+testVpcStpStates                                                          pass      0:00:32   
+testVpcConsistencies                                                      pass      0:03:26   
+testVpcUnknownUnicastFlooding                                             pass      0:08:42   
+testVpcUnconfig                                                           pass      0:04:57   
+testGoldDiagnostic                                                        pass      0:00:06   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: l2_uls_sanity_compare---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 06/30/2022 03:26:09 Added 06/30/2022 03:26:09 by perragun)---
+https://gnosis.cisco.com/signature/bug/62bd253d0789aa930a4def70/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 06/29/2022 11:43:06 Added 06/29/2022 11:43:06 by seshea)---
+--- Update 2022-06-29 18:43:05.604645 (seshea via 693637143)
+0. nexus 3000 or 9000 switch
+
+check `show module` or `show version`
+
+
+
+1. nxos code before 10.2.1 release - any code prior to this is broken
+
+check `show module` or `show version`
+
+
+
+2. check show run for presence of tacacs-server cli with 'single-connection' option present
+
+
+`show running-config`
+
+tacacs-server test username test password 7 wawy 
+tacacs-server host 10.201.169.85 key 7 "fewhg!123" single-connection    <<< this match
+aaa group server tacacs+ TACACS 
+    server 10.201.169.85 
+    use-vrf management
+    source-interface mgmt0
+	
+	
+Detection Logic - 0 & 1 & 2
+
+
+borg alert : warning
+
+
+positive match file:
+
+file 'CSCwa96146-positive.txt' attached to IC SR 693637143
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 06/13/2022 01:17:47 Added 06/13/2022 01:17:47 by akyamada)---
+--- Update 2022-06-13 08:17:47.297918 (akyamada via 693637143)
+Unsuitable - Cannot Digitize
+This DDTS is extension request for Single-Connect Flag. 
+So can not dizitize.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  R-comments (Created 05/24/2022 23:41:12 Modified 06/16/2022 22:55:24 by vasagraw)---
+With fix incorporated, the switch's single-connect config would be supporting RFC-COMPLIANT single-connect as well. User has to ensure that the switch and server side configs are in-sync with respect to single-connect config.
+
+SUPPORTED:
+1) Switch with MULTI-CONNECT mode  <==> Server with MULTI-CONNECT mode
+2) Switch with SINGLE-CONNECT mode  <==> Server with CISCO-LEGACY SINGLE-CONNECT mode
+3) Switch with SINGLE-CONNECT mode  <==> Server with RFC-COMPLIANT SINGLE-CONNECT mode
+
+
+UNSUPPORTED (undefined behaviour):
+1) Switch with SINGLE-CONNECT mode  <==> Server with MULTI-CONNECT mode
+2) Switch with MULTI-CONNECT mode  <==> Server with CISCO-LEGACY SINGLE-CONNECT mode
+3) Switch with MULTI-CONNECT mode  <==> Server with RFC-COMPLIANT SINGLE-CONNECT mode
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis.p2 (Created 05/24/2022 11:17:46 Added 05/24/2022 11:17:46 by vasagraw)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa96146).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/vasagraw/kerry_SMU_10_2_1_17 
+# Generated at
+#     Tue May 24 18:17:38 2022 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     /nobackup/vasagraw/kerry_SMU_10_2_1_17/build/pctmp/sa_attachments/Static-Analysis.f7a83d23d745cf98bbd782088758a7a8
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/vasagraw/kerry_SMU_10_2_1_17/build/pctmp/sa_attachments/Static-Analysis.f7a83d23d745cf98bbd782088758a7a8':
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h:230:effectively_constant:DEADCODE:Execution cannot reach the expression "_sz >= len" inside this statement: "(_sz != 1844674407370955161...". [coverity]
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3032:none:SAFEC:Use safeC library.  Migrate from "strncpy(avstr, arg_def->name, argsize)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3034:none:SAFEC:Use safeC library.  Migrate from "strcat(avstr, "=")"to strcat_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3035:none:SAFEC:Use safeC library.  Migrate from "strcat(avstr, argvalstr)"to strcat_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3176:none:UNINIT:Using uninitialized value "*av.value" when calling "av_list_add_av". [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3315:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[0].name, "roles", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3333:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[1].name, "cmd", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3339:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[2].name, "cmd-arg", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1787:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1788:none:SAFEC:Use safeC library.  Migrate from "strncpy(context.vrf_name, tplus_sm->curr_server->vrf_name, 32UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1459:none:SAFEC:Use safeC library.  Migrate from "strncpy((char *)userstr, (char *)user, user_len)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1461:none:SAFEC:Use safeC library.  Migrate from "strncpy((char *)usermsg, (char *)user_msg, user_msg_len)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1501:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)taskidbuf, "task_id=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1564:none:SAFEC:Use safeC library.  Migrate from "strcpy(errmsgbuf, "cmd=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1578:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)servicebuf, "service=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1581:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)&servicebuf[strlen((char *)"service=")], service_name[service_id])"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1601:effectively_constant:DEADCODE:Execution cannot reach this statement: "free(argbuf);". [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2199:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "network-admin", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2201:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "vdc-admin", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2204:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "vdc-operator", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2296:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1939:none:SAFEC:Use safeC library.  Migrate from "strcpy(value, *vsa_string + 1)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:143:none:SAFEC:Use safeC library.  Migrate from "strcpy(portstr, "0")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:220:none:SAFEC:Use safeC library.  Migrate from "strcpy(portstr, "0")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2528:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:277:library_function:CHECKED_RETURN:Calling "getpeername(sock_fd, (struct sockaddr *)&addr, &len)" without checking return value. This library function may fail and return an error code. [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:585:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IP, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:590:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IPV6, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:601:none:SAFEC:Use safeC library.  Migrate from "strcpy(ifsrc.sockifname, "loopback1")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 4
+Total parent warnings: 25
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8446/query/defects.htm?stream=kerry-vasagraw&cid=412363&cid=735805&cid=831617&cid=704818&cid=773238&cid=762982&cid=74683&cid=782405&cid=693272&cid=704671&cid=818375&cid=743686&cid=705613&cid=34403&cid=30172
+Analysis archive: /auto/sa-html1/cov8/archive/kerry/vasagraw/kerry-vasagraw_20220524_180042/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p2---
+
+
+---Start of Note Titled: static-analysis (Created 05/24/2022 11:04:32 Added 05/24/2022 11:04:32 by vasagraw)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa96146).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/vasagraw/kerry_SMU_10_2_1_17 
+# Generated at
+#     Tue May 24 18:04:31 2022 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# 'build/ses_static_analysis.log':
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h:230:effectively_constant:DEADCODE:Execution cannot reach the expression "_sz >= len" inside this statement: "(_sz != 1844674407370955161...". [coverity]
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/include/dcos/osc_map.h
+
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3032:none:SAFEC:Use safeC library.  Migrate from "strncpy(avstr, arg_def->name, argsize)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3034:none:SAFEC:Use safeC library.  Migrate from "strcat(avstr, "=")"to strcat_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3035:none:SAFEC:Use safeC library.  Migrate from "strcat(avstr, argvalstr)"to strcat_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3176:none:UNINIT:Using uninitialized value "*av.value" when calling "av_list_add_av". [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3315:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[0].name, "roles", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3333:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[1].name, "cmd", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:3339:none:SAFEC:Use safeC library.  Migrate from "strncpy(tplus_arg_descr_table[2].name, "cmd-arg", 255UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1787:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1788:none:SAFEC:Use safeC library.  Migrate from "strncpy(context.vrf_name, tplus_sm->curr_server->vrf_name, 32UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1459:none:SAFEC:Use safeC library.  Migrate from "strncpy((char *)userstr, (char *)user, user_len)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1461:none:SAFEC:Use safeC library.  Migrate from "strncpy((char *)usermsg, (char *)user_msg, user_msg_len)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1501:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)taskidbuf, "task_id=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1564:none:SAFEC:Use safeC library.  Migrate from "strcpy(errmsgbuf, "cmd=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1578:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)servicebuf, "service=")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1581:none:SAFEC:Use safeC library.  Migrate from "strcpy((char *)&servicebuf[strlen((char *)"service=")], service_name[service_id])"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1601:effectively_constant:DEADCODE:Execution cannot reach this statement: "free(argbuf);". [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2199:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "network-admin", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2201:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "vdc-admin", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2204:none:SAFEC:Use safeC library.  Migrate from "strncpy(priv_roles, "vdc-operator", 1024UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2296:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:1939:none:SAFEC:Use safeC library.  Migrate from "strcpy(value, *vsa_string + 1)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:143:none:SAFEC:Use safeC library.  Migrate from "strcpy(portstr, "0")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:220:none:SAFEC:Use safeC library.  Migrate from "strcpy(portstr, "0")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_pkt.c:2528:none:SAFEC:Use safeC library.  Migrate from "strcpy(context.hostname, tplus_sm->curr_server->hostname)"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+@@Start processing of /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+**Active warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+**Noise warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:277:library_function:CHECKED_RETURN:Calling "getpeername(sock_fd, (struct sockaddr *)&addr, &len)" without checking return value. This library function may fail and return an error code. [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:585:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IP, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:590:library_function:CHECKED_RETURN:Calling "setsockopt(sockfd, IPPROTO_IPV6, 61, &ctx, 4U)" without checking return value. This library function may fail and return an error code. [coverity]
+**Parent warnings for /nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c
+/nobackup/vasagraw/kerry_SMU_10_2_1_17/feature/security/tacacs/tplus_io.c:601:none:SAFEC:Use safeC library.  Migrate from "strcpy(ifsrc.sockifname, "loopback1")"to strcpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 4
+Total parent warnings: 25
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8446/query/defects.htm?stream=kerry-vasagraw&cid=412363&cid=735805&cid=831617&cid=704818&cid=773238&cid=762982&cid=74683&cid=782405&cid=693272&cid=704671&cid=818375&cid=743686&cid=705613&cid=34403&cid=30172
+Analysis archive: /auto/sa-html1/cov8/archive/kerry/vasagraw/kerry-vasagraw_20220524_180042/sa_summary.tar.gz
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled:  Email-in (Created 05/09/2022 05:00:14 Modified 05/09/2022 14:00:14 by mabarber)---
+From: "Matt Barber (mabarber)" <mabarber@cisco.com>
+Date: Monday, May 9, 2022 at 1:52 PM 
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Shankar Varanasy (shvarana)" <shvarana@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>
+Subject: Re: CSCwa96146:NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+
+Vasu,
+ 
+Thanks for the explanation. If we configure single-connect on the switch, I see that we send multiple packets on the same connection regardless of the TCP flag status as you know.
+ In my opinion we ignore that part of the RFC that you highlighted because we have the behaviour of single-connect, without setting the flag.
+
+In fact if we?re to agree with the RFC then our behaviour when single-connect is configured isn?t correct ? we should in any case wait to send that second packet until a single-connect
+ status has been established, using that bit.
+ 
+I read the RFC in that way, rather than say we can?t set the flag because we break the standard ? we break the standard anyway because we behave like single connect without establishing
+ if the far end can accept it, because we don?t implement the flag.
+ 
+In this case I?d rather we do something we know the behaviour for, as in I have configured single-connect and I send multiple packets, and I set the flag, even if the far end then
+ fails because of that behaviour, at least it fails during config and test (and likely a log or wireshark shows conflicting single-connect flags) rather than we implement a feature that doesn?t work with interop because we lack the flag, and use that behaviour
+ anyway.
+ 
+What if we were to enable the flag along with that single-connect CLI, and not implement the RFC segment you highlighted below? In my opinion our failure to adhere would be just
+ the same, but interop would be increased for many customers because the far end would expect our packet flow in the correct way. Though obviously implementing it to the standard would be the preferred outcome!
+ 
+Cheers,
+Matt
+ 
+ 
+
+From:
+Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Date: Monday, 9 May 2022 at 14:15
+To: Matt Barber (mabarber) <mabarber@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Shankar Varanasy (shvarana) <shvarana@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>
+Subject: Re: CSCwa96146:NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+
+Hi Matt,
+ 
+The implementation is not as simple as it looks at the outset.. not just matter of setting a flag in outgoing TACACS packets. Apart from other things, the highlighted
+ part below from the RFC makes the implementation a bit complex. TACACS client (on switch) would be needing to do a handshake with the server each time a single-connect based connection is established. In turn, TACACS client (on switch) would require to enqueue
+ incoming requests until the single-connect handshake with the server is through. Use cases around wear-and-tear of an existing single-connect connection and the re-establishment of such connection would only add fuel to the fire. Need proper UT cycles as well
+ to avoid any regressions to the existing functionality.     
+ 
+https://datatracker.ietf.org/doc/html/rfc8907
+The client sets this flag to indicate that it supports multiplexing
+   TACACS+ sessions over a single TCP connection. 
+The client MUST NOT
+   send a second packet on a connection until single-connect status has
+   been established.
+ 
+We provided a detailed explanation on it to the Escalation team as well in the past. It cannot be taken up as a bug fix.   
+
+ 
+The implementation complexity must be the sole reason as to why it was not incorporated at the time when single-connect feature got introduced. Rather a workaround had
+ to be devised from the ISE side owing to the design complexity.
+ 
+I would let Shankar check on whether/when the feature should be prioritized. 
+
+ 
+Regards,
+ 
+Vasu
+ 
+
+From:
+Matt Barber (mabarber) <mabarber@cisco.com>
+Date: Monday, 9 May 2022 at 6:21 PM
+To: Anil Kunnath (anikunna) <anikunna@cisco.com>, Shankar Varanasy (shvarana) <shvarana@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>
+Subject: Re: CSCwa96146:NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+
+Hi Anil,
+ 
+Thanks for the response ? I think we?ve implemented something in IOS/NX-OS (the single-connect config) which is implemented there just fine, as in we use the same source port, we
+ continually send requests using that port etc? but we?ve then not fully implemented this in the stack (the flag being set/un-set).
+ 
+Because this affects interop and it?s hard to justify (in my limited opinion/view perhaps) why we?d implement a feature but not all the way through as it?s specified in the RFC,
+ I hope you don?t mind if I disagree about this being an enhancement. In my opinion we should either remove the ?single-connect? feature from IOS/NX-OS or keep it but fully implement it as defined in RFC along with the flag in the packet..?
+ 
+I think we (as Cisco) have worked around this by providing a toggle in ISE where ISE treats the connections as single-connect? and this does mean that if they are full Cisco shop
+ then we won?t see a problem, but this doesn?t help interop customers where other vendors like Clearpass are used.
+
+ 
+Shankar,
+ 
+G-Research are requesting this because they don?t want to move away from Clearpass, and Clearpass have pointed us to this flag being the cause of their system running out of resources
+ because it?s keeping each connection open. Do you think this can be re-considered? What is the rough engineering effort here?
+ 
+Cheers,
+Matt
+
+ 
+
+From:
+Anil Kunnath (anikunna) <anikunna@cisco.com>
+Date: Monday, 9 May 2022 at 12:29
+To: Matt Barber (mabarber) <mabarber@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>, Shankar Varanasy (shvarana) <shvarana@cisco.com>
+Subject: Re: CSCwa96146:NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+
+Hi Matt,
+ 
+Our earlier response for this request has been as follows.
+
+ 
+?
+It has been reviewed internally, and the implementation is not straight forward. Hence, it is being considered as an enhancement.
+
+Since it is a feature enhancement, you would need to work with Product Marketing if it becomes a must-have for your customer.
+?
+ 
+Copying Shankar from Marketing in case you want to take it up with Product Marketing for inclusion.
+ 
+Regards,
+Anil
+ 
+.:|:.:|:. 
+CISCO
+ 
+
+From: "Matt Barber (mabarber)" <mabarber@cisco.com>
+Date: Monday, 9 May 2022 at 4:21 PM
+To: "Anil Kunnath (anikunna)" <anikunna@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>
+Subject: CSCwa96146:NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled
+
+
+ 
+
+
+Hey Anil,
+ 
+We?re hitting interop problems with Clearpass due to this, is there any scope to have this flag supported in NXOS?
+ 
+Cheers
+Matt
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB5440C52C1889A6589B111B59C8C69@DM4PR11MB5440.namprd11.prod.outlook.com>
+# <F3A1C708-61F8-483D-AAF6-DF0789143D1D@cisco.com>
+# <DM4PR11MB5440A256EB0BFF26E35A8195C8C69@DM4PR11MB5440.namprd11.prod.outlook.com>
+# <SJ0PR11MB50692CFD266B86F2F70CE7DDC6C69@SJ0PR11MB5069.namprd11.prod.outlook.com>
+# <DM4PR11MB544045706E3CEB2A8E91DE6CC8C69@DM4PR11MB5440.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  Scrubnote (Created 03/23/2022 11:05:26 Modified 11/23/2023 19:50:07 by cms)---
+{231124 pbhavesh S G} Irvine commit is done; will start build to integreate this fix. 
+{231123 pbhavesh S G} this is Sev-6 for which irvine SMU is given; will take in commit only if it comes by tomorrow.
+{231113 anandksi S B} If this gets committed in IMR12 - please make sure it's committed in all active releases.
+{231102 rohitraw S B} Will be worked on at least after 2 weeks.
+{231027 pbhavesh S B} Irvine SMU is given need to take in irvine; adding imr12-mf
+{220927 clsulliv S B} kr4m-rn
+{220524 anikunna S B} Defect is used for delivering a SMU to GResearch
+{220224 anikunna S B} Discussing with submitter - this should be an enhancement
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: Eng-notes-enhancement (Created 02/25/2022 20:00:20 Added 02/25/2022 20:00:20 by anikunna)---
+Moving to enhancement as per the mail thread----
+
+
+On 25 Feb 2022, at 09:01, Adam Gargulak (agargula) <agargula@cisco.com> wrote:
+ 
+Andrey, 
+ 
+I just sent email 2 days ago with exact plan what to do - see below.
+ 
+Next step is that Mikhail need to sync with Shankar to see when that enhancement can be done.
+ 
+ 
+----
+ 
+Andrey, 
+ 
+Situation is following:
+ 
+- Currently NXOS do not support full RFC - it only support ?legacy? mode mean it cannot set bit in header and expect server to be able manually set single session
+- New DDTS need to be open to document this limitation
+- DDTS that you open then will be enhancement and it will be necessary to discuss with Shankar where can be accommodated.
+ 
+Regards,
+ 
+---
+ 
+Adam
+---End of Note Titled: Eng-notes-enhancement---
+
+
+---Start of Note Titled: email-with-dev (Created 02/15/2022 10:09:52 Added 02/15/2022 10:09:52 by vasagraw)---
+From: Alex Gray (alegray) <alegray@cisco.com>
+Date: Wednesday, 2 February 2022 at 7:28 PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Andrey Vakin -X (avakin - Geliosoft LLC at Cisco) <avakin@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>, cs-tacacs(mailer list) <cs-tacacs@cisco.com>
+Cc: fts-sberbank(mailer list) <fts-sberbank@cisco.com>, nxos-aaa-dev(mailer list) <nxos-aaa-dev@cisco.com>
+Subject: Re: 692780168 TACACS+ single-connection on n9k (CSCvq91933)
+Hello Team:
+
+When I reviewed this it seems to be that using Cisco gear is how it is "supported". It is true we do not set the flag, but the workaround I think was in the ISE / other Cisco gear to enable a "legacy" mode where the flag was not checked and connection was allowed. 
+ 
+I think it was probably checked over well at the time and for whatever reason this was the way they decided to move forward and close the bug. 
+ 
+But yes, if you want them to try again to fix this then you would have to get in touch with the developers / dev manager for the enhancement request and see if you can apply some pressure there. 
+ 
+How do we want to proceed here? 
+ 
+Best, 
+Alex Gray
+Technical Consulting Engineer
+Cisco TAC, HTTS Data Center Routing and Switching
+ 
+Phone: +1 919-574-0414
+Email: alegray@cisco.com 
+Office Hours: Mon  Fri, 8am  4:00pm EST (GMT -5)
+ 
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case 
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html 
+---------------------------------------------------------------
+Direct Manager: John Hibbs
+Email: johibbs@cisco.com
+Phone: +1 919-574-1676
+
+Do you manage a Nexus 7000 switch?  NX-OS 6.2(x) has reached its End of Software Maintenance date! Click here to find out what this means for you.
+ 
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Wednesday, February 2, 2022 at 1:16 AM
+To: "Andrey Vakin -X (avakin - Geliosoft LLC at Cisco)" <avakin@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>, "cs-tacacs(mailer list)" <cs-tacacs@cisco.com>
+Cc: "Alex Gray (alegray)" <alegray@cisco.com>, "fts-sberbank(mailer list)" <fts-sberbank@cisco.com>, "nxos-aaa-dev(mailer list)" <nxos-aaa-dev@cisco.com>
+Subject: Re: SR: 692780168 TACACS+ single-connection on n9k (CSCvq91933)
+ 
+I Andrey,
+ 
+Yes agreed, it might not be a supported behaviour. So, feel free to re-open the bug.
+ 
+However, please note that it is a feature work (sev-6 bug) and hence you need to work with the product marketing to have it targeted in one of the future releases.
+ 
+Regards,
+ 
+Vasu
+---End of Note Titled: email-with-dev---
+
+
+---Start of Note Titled: A-comments (Created 02/15/2022 09:57:42 Added 02/15/2022 09:57:42 by anikunna)---
+Pls check & update
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: reproduction-steps (Created 02/15/2022 08:30:25 Added 02/15/2022 08:30:25 by alegray)---
+#############
+# TAC Repro #
+#############
+
++++ Access Details:
+===================
+
+ssh -  10.122.140.79 
+
+Please do not change configs or wreck device, this is part of our static lab :) 
+
+
++++ Tested Software:
+====================
+9.3(6), 10.1(1)
+
++++ Steps to Reproduce:
+=======================
+
+test aaa server tacacs+ 10.201.169.85 testman Test!123  ---> initiates TACACS+ tcp handshakes 
+
+ethanalyzer local interface mgmt display-filter ip.addr==10.201.169.85 limit-c 0 det ----> will show you a detailed pcap which proves single-connect is not set even with CLI enabled.
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled: Eng-notes (Created 02/15/2022 08:30:00 Added 02/15/2022 08:30:00 by alegray)---
+++ NX-OS 10.(1) is still not setting single-connect bit (as expected based on bug filings and provided workaround / bug resolution). 
+
+++ LAB Configs: 
+
+dkcphcs02# sh run aaa
+aaa authentication login default group TACACS 
+no login on-failure log 
+ 
+dkcphcs02# sh run tacacs+ 
+
+tacacs-server test username test password 7 wawy 
+tacacs-server host 10.201.169.85 key 7 "fewhg!123" single-connection -----> single connect CLI enabled 
+aaa group server tacacs+ TACACS 
+    server 10.201.169.85 
+    use-vrf management
+    source-interface mgmt0
+
+
+
+++ RESULTING PCAP: 
+
+```
+Frame 39 (103 bytes on wire, 103 bytes captured)
+    Arrival Time: Feb 15, 2022 15:22:03.147285000
+    [Time delta from previous captured frame: 0.000293000 seconds]
+    [Time delta from previous displayed frame: 0.000293000 seconds]
+    [Time since reference or first frame: 5.237736000 seconds]
+    Frame Number: 39
+    Frame Length: 103 bytes
+    Capture Length: 103 bytes
+    [Frame is marked: False]
+    [Protocols in frame: eth:ip:tcp:tacplus]
+Ethernet II, Src: f8:0f:6f:23:37:dc (f8:0f:6f:23:37:dc), Dst: 08:d0:9f:e3:6d:c3 (08:d0:9f:e3:6d:c3)
+    Destination: 08:d0:9f:e3:6d:c3 (08:d0:9f:e3:6d:c3)
+        Address: 08:d0:9f:e3:6d:c3 (08:d0:9f:e3:6d:c3)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+    Source: f8:0f:6f:23:37:dc (f8:0f:6f:23:37:dc)
+        Address: f8:0f:6f:23:37:dc (f8:0f:6f:23:37:dc)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+    Type: IP (0x0800)
+Internet Protocol, Src: 10.122.140.79 (10.122.140.79), Dst: 10.201.169.85 (10.201.169.85)
+    Version: 4
+    Header length: 20 bytes
+    Differentiated Services Field: 0x00 (DSCP 0x00: Default; ECN: 0x00)
+        0000 00.. = Differentiated Services Codepoint: Default (0x00)
+        .... ..0. = ECN-Capable Transport (ECT): 0
+        .... ...0 = ECN-CE: 0
+    Total Length: 89
+    Identification: 0xf816 (63510)
+    Flags: 0x00
+        0.. = Reserved bit: Not Set
+        .0. = Don't fragment: Not Set
+        ..0 = More fragments: Not Set
+    Fragment offset: 0
+    Time to live: 64
+    Protocol: TCP (0x06)
+    Header checksum: 0x37a1 [correct]
+        [Good: True]
+        [Bad : False]
+    Source: 10.122.140.79 (10.122.140.79)
+    Destination: 10.201.169.85 (10.201.169.85)
+Transmission Control Protocol, Src Port: 58691 (58691), Dst Port: tacacs (49), Seq: 1, Ack: 1, Len: 37
+    Source port: 58691 (58691)
+    Destination port: tacacs (49)
+    [Stream index: 1]
+    Sequence number: 1    (relative sequence number)
+    [Next sequence number: 38    (relative sequence number)]
+    Acknowledgement number: 1    (relative ack number)
+    Header length: 32 bytes
+    Flags: 0x18 (PSH, ACK)
+        0... .... = Congestion Window Reduced (CWR): Not set
+        .0.. .... = ECN-Echo: Not set
+        ..0. .... = Urgent: Not set
+        ...1 .... = Acknowledgement: Set
+        .... 1... = Push: Set
+        .... .0.. = Reset: Not set
+        .... ..0. = Syn: Not set
+        .... ...0 = Fin: Not set
+    Window size: 16768
+    Checksum: 0xeef2 [validation disabled]
+        [Good Checksum: False]
+        [Bad Checksum: False]
+    Options: (12 bytes)
+        NOP
+        NOP
+        Timestamps: TSval 52909124, TSecr 55120670
+    [SEQ/ACK analysis]
+        [Number of bytes in flight: 37]
+TACACS+
+    Major version: TACACS+
+    Minor version: 1
+    Type: Authentication (1)
+    Sequence number: 1
+    Flags: 0x00 (Encrypted payload, Multiple Connections)
+        .... ...0 = Unencrypted: Not set
+        .... .0.. = Single Connection: Not set. ???> single-connect flag IS NOT set
+    Session ID: 1767950145
+    Packet length: 25
+    Encrypted Request
+```
+
+
+
+++ As we can see, the single-connect flag IS NOT set, and therefore we either need to remove this CLI option from NX-OS and update the bug to be more clear, or set the flag. 
+
+++ If we look at the solution, it seems that Cisco elected to put a workaround in code on the ISE / ACS side of this equation. The "workaround" that is "already supported" per CSCvq91933 is that ISE server will not check header for single connect bit, and will instead treat the connection as single-connection mode. This is working around the fact that the NX devices do NOT set the flag in the header. The checkbox on ISE side disables the header check. Therefore, you can say that single-connect mode is NOT supported on third party devices, who do not have this option. 
+
+If that is the case, why do we have the CLI in the code? These are the things we need to clarify to prevent any more cases like this from happening.
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled:  Release-note (Created 02/15/2022 08:24:01 Modified 08/05/2022 22:35:21 by vasagraw)---
+<B>Symptom:</B>
+Customer is trying to implement TACACS+ "single-connect" mode, and it is not working correctly.
+
+<B>Conditions:</B>
+Customer has TACACS+ enabled and "single-connection" flag enabled for a server, such as the following:
+
+tacacs-server test username test password 7 wawy 
+tacacs-server host 10.201.169.85 key 7 "fewhg!123" single-connection -----> single connect CLI enabled 
+aaa group server tacacs+ TACACS 
+    server 10.201.169.85 
+    use-vrf management
+    source-interface mgmt0
+
+<B>Workaround:</B>
+Use Cisco TACACS+ servers (ISE) which have a check box for "enable single connect mode" and "Legacy devices". This will make the server function in single connect mode, and will not check for the flag in TACACS+ headers. 
+
+Disable Single-Connection mode.
+
+Remove CLI from NX-OS
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (27 of 27)
+------------------------------------------------------------------------------------------------------------------
+Diffs-release-irvine                              ascii text     1201           vasagraw       11/23/2023 06:50:53      
+Diffs-commit-irvine                               ascii text     12110          vasagraw       11/23/2023 06:50:50      
+nxos-pi-common-security-code-review-5             ascii text     937            prrqengg       11/22/2023 09:42:18      
+Diffs-release-smu_rel_9_3_12                      ascii text     1517           asmurali       08/07/2023 04:10:04      
+Diffs-commit-smu_rel_9_3_12                       ascii text     13761          asmurali       08/07/2023 04:10:01      
+nxos-pi-common-security-code-review-4             ascii text     943            prrqengg       08/07/2023 02:24:37      
+Diffs-commit-kerry                                ascii text     11690          vasagraw       08/07/2022 19:17:53      
+Diffs-release-kerry                               ascii text     1208           vasagraw       08/07/2022 19:17:51      
+ccwarnings-kerry.p2                               ascii text     208            baas           08/07/2022 13:07:21      
+static-analysis-kerry.p2                          ascii text     9764           baas           08/07/2022 13:06:45      
+ccwarnings-kerry                                  ascii text     208            baas           08/06/2022 07:06:33      
+static-analysis-kerry                             ascii text     9758           baas           08/06/2022 07:05:55      
+unit-test-kerry                                   binary         36151          vasagraw       08/05/2022 05:41:32      
+nxos-pi-common-security-code-review-3             ascii text     937            prrqengg       08/05/2022 05:00:49      
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           07/11/2022 10:50:13      
+checkin_l2_uls_sanity_report                      ascii text     3624           root           07/11/2022 10:50:13      
+Diffs-commit-niles                                ascii text     11680          vasagraw       07/08/2022 18:45:07      
+Diffs-release-niles                               ascii text     1208           vasagraw       07/08/2022 18:45:05      
+ccwarnings-niles                                  ascii text     208            baas           07/08/2022 06:44:39      
+static-analysis-niles                             ascii text     9571           baas           07/08/2022 06:44:05      
+nxos-pi-common-security-code-review-2             ascii text     937            prrqengg       07/06/2022 03:46:06      
+unit-test_Niles.rtf                               ascii text     30654          vasagraw       07/06/2022 03:40:56      
+gnosis_neg_CSCwa96146-negitiive.txt               ascii text     3247           perragun       06/30/2022 03:26:10      
+Diffs-release-smu_rel_10_2_1                      ascii text     1542           vasagraw       05/24/2022 11:17:41      
+Diffs-commit-smu_rel_10_2_1                       ascii text     12458          vasagraw       05/24/2022 11:17:39      
+unit-test                                         binary         56893          vasagraw       05/23/2022 23:22:03      
+nxos-pi-common-security-code-review               ascii text     935            prrqengg       05/23/2022 22:29:26      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+05/25/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/25/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/10/2025 nmaiorel 	serviceRequests/C3/69882	                             	                             	Mod
+04/10/2025 nmaiorel 	Urgency-desc            	NA                           	CL3                          	Mod
+04/10/2025 nmaiorel 	Urgency                 	9                            	6                            	Mod
+04/10/2025 nmaiorel 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/08/2025 nmaiorel 	serviceRequests/C3/69882	                             	C3/698825467                 	New
+04/08/2025 nmaiorel 	Urgency-desc            	CL3                          	NA                           	Mod
+04/08/2025 nmaiorel 	Urgency                 	6                            	9                            	Mod
+04/08/2025 nmaiorel 	Tickets-count           	16                           	17                           	Mod
+04/08/2025 nmaiorel 	TACSR-count             	10                           	11                           	Mod
+04/08/2025 nmaiorel 	Tickets-count-direct    	11                           	12                           	Mod
+04/08/2025 nmaiorel 	Trouble-tickets         	                             	698825467                    	New
+04/08/2025 nmaiorel 	Trouble-tickets-direct  	                             	C3698825467                  	New
+03/20/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/20/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/14/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-377762       	New
+11/01/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/01/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/28/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/28/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/23/2024 faromali 	serviceRequests/C3/69717	                             	                             	Mod
+05/23/2024 faromali 	Urgency-desc            	NA                           	CL3                          	Mod
+05/23/2024 faromali 	Urgency                 	9                            	6                            	Mod
+05/01/2024 faromali 	serviceRequests/C3/69717	                             	C3/697176019                 	New
+05/01/2024 faromali 	Urgency-desc            	CL3                          	NA                           	Mod
+05/01/2024 faromali 	Urgency                 	6                            	9                            	Mod
+05/01/2024 faromali 	Tickets-count           	15                           	16                           	Mod
+05/01/2024 faromali 	TACSR-count             	9                            	10                           	Mod
+05/01/2024 faromali 	Tickets-count-direct    	10                           	11                           	Mod
+05/01/2024 faromali 	Trouble-tickets         	                             	697176019                    	New
+05/01/2024 faromali 	Trouble-tickets-direct  	                             	C3697176019                  	New
+02/09/2024 fas      	Integrated-releases     	9.3(13.1),9.3(14)            	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+11/29/2023 palshanm 	Note Title              	                             	V-comments                   	New
+11/29/2023 palshanm 	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+11/29/2023 palshanm 	Verified-release        	                             	9.3(12.30)                   	New
+11/24/2023 rdhanase 	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+11/24/2023 divvenka 	Integrated-releases     	                             	9.3(13)                      	New
+11/24/2023 divvenka 	Integrated-releases     	                             	9.3(12.28)                   	New
+11/23/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/23/2023 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+11/23/2023 vasagraw 	Note Title              	                             	static-analysis.p4           	New
+11/23/2023 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+11/23/2023 vasagraw 	Note Title              	                             	ULS_irvine                   	New
+11/23/2023 vasagraw 	Note Title              	                             	unit-test_irvine             	New
+11/23/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/22/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/13/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/01/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/26/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/26/2023 pbhavesh 	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+10/05/2023 jmertes  	serviceRequests/C3/69517	                             	                             	Mod
+10/05/2023 jmertes  	Urgency-desc            	P3                           	CL3                          	Mod
+10/05/2023 jmertes  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/05/2023 jmertes  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+10/05/2023 jmertes  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+10/05/2023 jmertes  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/25/2023 suzshami 	serviceRequests/C3/69600	                             	                             	Mod
+08/21/2023 suzshami 	serviceRequests/C3/69600	                             	C3/696007800                 	New
+08/21/2023 suzshami 	Tickets-count           	14                           	15                           	Mod
+08/21/2023 suzshami 	TACSR-count             	8                            	9                            	Mod
+08/21/2023 suzshami 	Tickets-count-direct    	9                            	10                           	Mod
+08/21/2023 suzshami 	Trouble-tickets         	                             	696007800                    	New
+08/21/2023 suzshami 	Trouble-tickets-direct  	                             	C3696007800                  	New
+08/07/2023 asmurali 	File Name               	                             	Diffs-release-smu_rel_9_3_12 	New
+08/07/2023 asmurali 	File Name               	                             	Diffs-commit-smu_rel_9_3_12  	New
+08/07/2023 asmurali 	Note Title              	                             	static-analysis.p3           	New
+08/07/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/07/2023 prrqengg 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/07/2023 prrqengg 	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+08/07/2023 prrqengg 	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+08/07/2023 prrqengg 	Report-product-used     	n9k-standalone-sw            	                             	Mod
+08/07/2023 asmurali 	Note Title              	                             	Unit-test-SMU_9_3_12         	New
+08/07/2023 asmurali 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/07/2023 asmurali 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/07/2023 asmurali 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/07/2023 asmurali 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/04/2023 alhens   	serviceRequests/C3/69532	                             	C3/695324392                 	New
+07/04/2023 alhens   	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/04/2023 alhens   	Software-type-ids       	354,2378,2771,2774,1498      	                             	Del
+07/04/2023 alhens   	Tickets-count           	13                           	14                           	Mod
+07/04/2023 alhens   	TACSR-count             	7                            	8                            	Mod
+07/04/2023 alhens   	Tickets-count-direct    	8                            	9                            	Mod
+07/04/2023 alhens   	Trouble-tickets         	                             	695324392                    	New
+07/04/2023 alhens   	Trouble-tickets-direct  	                             	C3695324392                  	New
+05/03/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498      	New
+04/13/2023 wmyrtil  	serviceRequests/C3/69531	                             	                             	Mod
+04/03/2023 wmyrtil  	serviceRequests/C3/69531	                             	C3/695315893                 	New
+04/03/2023 wmyrtil  	Tickets-count           	12                           	13                           	Mod
+04/03/2023 wmyrtil  	TACSR-count             	6                            	7                            	Mod
+04/03/2023 wmyrtil  	Tickets-count-direct    	7                            	8                            	Mod
+04/03/2023 wmyrtil  	Trouble-tickets         	                             	695315893                    	New
+04/03/2023 wmyrtil  	Trouble-tickets-direct  	                             	C3695315893                  	New
+03/24/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+03/23/2023 fayrehma 	serviceRequests/C3/69517	                             	                             	Mod
+03/23/2023 fayrehma 	Urgency-desc            	NA                           	P3                           	Mod
+03/23/2023 fayrehma 	Urgency                 	9                            	6                            	Mod
+03/20/2023 jmertes  	serviceRequests/C3/69517	                             	C3/695175164                 	New
+03/20/2023 jmertes  	Urgency-desc            	CL3                          	NA                           	Mod
+03/20/2023 jmertes  	Urgency                 	6                            	9                            	Mod
+03/20/2023 jmertes  	Tickets-count           	11                           	12                           	Mod
+03/20/2023 jmertes  	TACSR-count             	5                            	6                            	Mod
+03/20/2023 jmertes  	Tickets-count-direct    	6                            	7                            	Mod
+03/20/2023 jmertes  	Trouble-tickets         	                             	695175164                    	New
+03/20/2023 jmertes  	Trouble-tickets-direct  	                             	C3695175164                  	New
+03/14/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+02/17/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+02/17/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+02/16/2023 candid   	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+10/31/2022 fas      	Known-fixed-releases    	                             	10.2(4)                      	New
+10/05/2022 pidicula 	serviceRequests/C3/69407	                             	                             	Mod
+10/05/2022 pidicula 	Urgency-desc            	CL4                          	CL3                          	Mod
+10/05/2022 pidicula 	Urgency                 	8                            	6                            	Mod
+10/05/2022 pidicula 	serviceRequests/C3/69407	                             	C3/694071599                 	New
+10/05/2022 pidicula 	Urgency-desc            	CL3                          	CL4                          	Mod
+10/05/2022 pidicula 	Urgency                 	6                            	8                            	Mod
+10/05/2022 pidicula 	Tickets-count           	10                           	11                           	Mod
+10/05/2022 pidicula 	TACSR-count             	4                            	5                            	Mod
+10/05/2022 pidicula 	Tickets-count-direct    	5                            	6                            	Mod
+10/05/2022 pidicula 	Trouble-tickets         	                             	694071599                    	New
+10/05/2022 pidicula 	Trouble-tickets-direct  	                             	C3694071599                  	New
+09/29/2022 aobeidal 	Tickets-count           	9                            	10                           	Mod
+09/29/2022 aobeidal 	Trouble-tickets         	                             	694031363                    	New
+09/29/2022 aobeidal 	Trouble-tickets-indirect	                             	C3/694031363                 	New
+09/27/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/27/2022 palshanm 	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+09/27/2022 palshanm 	Verified-release        	                             	10.2(3.126)                  	New
+09/25/2022 vinurao  	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+09/24/2022 swrai    	Attribute               	gnosis ed_ic_dc_rs nr1f kr4m 	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+09/24/2022 swrai    	Software-types          	NX-OS System Software,NX-OS S	                             	Del
+09/24/2022 swrai    	MDF-edited              	N                            	Y                            	Mod
+09/12/2022 fas      	Known-fixed-releases    	                             	10.3(1)                      	New
+08/08/2022 vasagraw 	Note Title              	                             	ULS_KMR4                     	New
+08/07/2022 divvenka 	Integrated-releases     	                             	10.2(3.69),10.2(4)           	New
+08/07/2022 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+08/07/2022 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+08/07/2022 baas     	File Name               	                             	ccwarnings-kerry.p2          	New
+08/07/2022 baas     	File Name               	                             	static-analysis-kerry.p2     	New
+08/06/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+08/06/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+08/05/2022 vasagraw 	Status-desc             	R-Resolved                   	M-More                       	Mod
+08/05/2022 vasagraw 	Status                  	R                            	M                            	Mod
+08/05/2022 vasagraw 	More-on                 	2022-07-08 07:16:44.000+0000 	2022-08-06 05:35:21.000+0000 	Mod
+08/05/2022 vasagraw 	statusStates            	                             	[status=R, startDate=Sat Jul 	New
+08/05/2022 vasagraw 	statusStates            	[status=R, startDate=Sat Jul 	                             	Del
+08/05/2022 vasagraw 	Age-status              	144                          	172                          	Mod
+08/05/2022 vasagraw 	File Name               	                             	unit-test-kerry              	New
+08/05/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/03/2022 clsulliv 	Attribute               	gnosis ed_ic_dc_rs nr1f      	gnosis ed_ic_dc_rs nr1f kr4m 	Mod
+07/13/2022 mukamath 	Attribute               	gnosis ed_ic_dc_rs           	gnosis ed_ic_dc_rs nr1f      	Mod
+07/13/2022 waftab   	serviceRequests/C3/69335	                             	C3/693353732                 	New
+07/13/2022 waftab   	Tickets-count           	8                            	9                            	Mod
+07/13/2022 waftab   	TACSR-count             	3                            	4                            	Mod
+07/13/2022 waftab   	Tickets-count-direct    	4                            	5                            	Mod
+07/13/2022 waftab   	Trouble-tickets         	                             	693353732                    	New
+07/13/2022 waftab   	Trouble-tickets-direct  	                             	C3693353732                  	New
+07/11/2022 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+07/11/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+07/08/2022 vasagraw 	Note Title              	                             	R-comments.p2                	New
+07/08/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+07/08/2022 vasagraw 	Status                  	M                            	R                            	Mod
+07/08/2022 vasagraw 	Resolved-on             	2022-05-25 06:41:12.000+0000 	2022-07-09 05:56:18.000+0000 	Mod
+07/08/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Fri Jul 	New
+07/08/2022 vasagraw 	statusStates            	[status=M, startDate=Fri Jul 	                             	Del
+07/08/2022 vasagraw 	Age-status              	143                          	144                          	Mod
+07/08/2022 vasagraw 	Mean-time-to-resolved   	98                           	143                          	Mod
+07/08/2022 divvenka 	Integrated-releases     	                             	10.3(0.163),10.3(1)          	New
+07/08/2022 vasagraw 	File Name               	                             	Diffs-commit-niles           	New
+07/08/2022 vasagraw 	File Name               	                             	Diffs-release-niles          	New
+07/08/2022 baas     	File Name               	                             	ccwarnings-niles             	New
+07/08/2022 baas     	File Name               	                             	static-analysis-niles        	New
+07/08/2022 vasagraw 	Note Title              	                             	l2_uls_sanity_baseline_compar	New
+07/08/2022 vasagraw 	Note Title              	                             	l2_uls_sanity_compare        	New
+07/08/2022 vasagraw 	Status-desc             	R-Resolved                   	M-More                       	Mod
+07/08/2022 vasagraw 	Status                  	R                            	M                            	Mod
+07/08/2022 vasagraw 	More-on                 	2022-05-25 06:41:12.000+0000 	2022-07-08 07:16:44.000+0000 	Mod
+07/08/2022 vasagraw 	statusStates            	                             	[status=R, startDate=Wed May 	New
+07/08/2022 vasagraw 	statusStates            	[status=R, startDate=Wed May 	                             	Del
+07/08/2022 vasagraw 	Age-status              	99                           	143                          	Mod
+07/06/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+07/06/2022 vasagraw 	File Name               	                             	unit-test_Niles.rtf          	New
+06/30/2022 perragun 	File Name               	                             	gnosis_neg_CSCwa96146-negitii	New
+06/30/2022 perragun 	Note Title              	                             	KnowledgeSignature           	New
+06/29/2022 perragun 	Attribute               	ed_ic_dc_rs                  	gnosis ed_ic_dc_rs           	Mod
+06/29/2022 seshea   	Note Title              	                             	DetectionLogic               	New
+06/25/2022 mabarber 	serviceRequests/C3/69354	                             	C3/693548906                 	New
+06/25/2022 mabarber 	Urgency-desc            	CL2                          	CL3                          	Mod
+06/25/2022 mabarber 	Urgency                 	4                            	6                            	Mod
+06/25/2022 mabarber 	Tickets-count           	7                            	8                            	Mod
+06/25/2022 mabarber 	TACSR-count             	2                            	3                            	Mod
+06/25/2022 mabarber 	Tickets-count-direct    	3                            	4                            	Mod
+06/25/2022 mabarber 	Trouble-tickets         	                             	693548906                    	New
+06/25/2022 mabarber 	Trouble-tickets-direct  	                             	C3693548906                  	New
+06/25/2022 jorandre 	serviceRequests/C3/69351	                             	                             	Mod
+06/25/2022 jorandre 	Urgency-desc            	CL4                          	CL2                          	Mod
+06/25/2022 jorandre 	Urgency                 	8                            	4                            	Mod
+06/21/2022 clsulliv 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS01434329            	New
+06/21/2022 clsulliv 	Tickets-count           	6                            	7                            	Mod
+06/21/2022 clsulliv 	Tickets-count-direct    	2                            	3                            	Mod
+06/21/2022 clsulliv 	Trouble-tickets         	                             	BEMS01434329                 	New
+06/21/2022 clsulliv 	Trouble-tickets-direct  	                             	BEMSBEMS01434329             	New
+06/16/2022 vasagraw 	Note                    	R-comments                   	R-comments                   	Mod
+06/13/2022 akyamada 	Note Title              	                             	DetectionUnsuitable          	New
+05/25/2022 jorandre 	serviceRequests/C3/69351	                             	C3/693515053                 	New
+05/25/2022 jorandre 	Activity-when-found     	                             	Customer-Use                 	Mod
+05/25/2022 jorandre 	Tickets-count           	5                            	6                            	Mod
+05/25/2022 jorandre 	TACSR-count             	1                            	2                            	Mod
+05/25/2022 jorandre 	Tickets-count-direct    	1                            	2                            	Mod
+05/25/2022 jorandre 	Trouble-tickets         	                             	693515053                    	New
+05/25/2022 jorandre 	Trouble-tickets-direct  	                             	C3693515053                  	New
+05/24/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+05/24/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+05/24/2022 vasagraw 	Status                  	A                            	R                            	Mod
+05/24/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+05/24/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/24/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+05/24/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+05/24/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+05/24/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+05/24/2022 vasagraw 	Original-resolved-on    	                             	2022-05-25 06:41:12.000+0000 	Mod
+05/24/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+05/24/2022 vasagraw 	More-on                 	                             	2022-05-25 06:41:12.000+0000 	Mod
+05/24/2022 vasagraw 	Opened-on               	                             	2022-05-25 06:41:12.000+0000 	Mod
+05/24/2022 vasagraw 	Resolved-on             	                             	2022-05-25 06:41:12.000+0000 	Mod
+05/24/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Feb 	New
+05/24/2022 vasagraw 	statusStates            	[status=A, startDate=Tue Feb 	                             	Del
+05/24/2022 vasagraw 	Age-status              	0                            	99                           	Mod
+05/24/2022 vasagraw 	Mean-time-to-resolved   	                             	98                           	Mod
+05/24/2022 divvenka 	Integrated-releases     	                             	10.2(1)SMU(18)               	New
+05/24/2022 vasagraw 	Note Title              	                             	static-analysis.p2           	New
+05/24/2022 vasagraw 	File Name               	                             	Diffs-release-smu_rel_10_2_1 	New
+05/24/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+05/24/2022 vasagraw 	File Name               	                             	Diffs-commit-smu_rel_10_2_1  	New
+05/24/2022 vasagraw 	Note Title              	                             	static-analysis              	New
+05/24/2022 vasagraw 	Feature                 	fix                          	feature                      	Mod
+05/24/2022 vasagraw 	Severity-desc           	moderate                     	enhancement                  	Mod
+05/24/2022 vasagraw 	Severity                	3                            	6                            	Mod
+05/24/2022 vasagraw 	Impact                  	                             	not-a-bug                    	New
+05/24/2022 vasagraw 	Impact                  	Interoperability             	                             	Del
+05/24/2022 vasagraw 	Activity-when-found     	Customer-Preproduction       	                             	Mod
+05/24/2022 vasagraw 	Breakage                	No                           	                             	Mod
+05/24/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/23/2022 vasagraw 	File Name               	                             	unit-test                    	New
+05/23/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/23/2022 vasagraw 	Feature                 	feature                      	fix                          	Mod
+05/23/2022 vasagraw 	Severity-desc           	enhancement                  	moderate                     	Mod
+05/23/2022 vasagraw 	Severity                	6                            	3                            	Mod
+05/23/2022 vasagraw 	Impact                  	                             	Interoperability             	New
+05/23/2022 vasagraw 	Impact                  	not-a-bug                    	                             	Del
+05/23/2022 vasagraw 	Activity-when-found     	                             	Customer-Preproduction       	Mod
+05/23/2022 vasagraw 	Breakage                	                             	No                           	Mod
+05/23/2022 vasagraw 	Known-affected-releases 	9.3(9)SMU(8)                 	                             	Del
+05/09/2022 mabarber 	Note                    	Email-in                     	Email-in                     	Mod
+05/09/2022 vasagraw 	Note                    	Email-in                     	Email-in                     	Mod
+05/09/2022 mabarber 	Note                    	Email-in                     	Email-in                     	Mod
+05/09/2022 anikunna 	Note                    	Email-in                     	Email-in                     	Mod
+05/09/2022 mabarber 	Note Title              	                             	Email-in                     	New
+05/09/2022 mabarber 	Other-mail              	 avakin dkowalcz             	avakin dkowalcz              	Mod
+04/20/2022 vasagraw 	Related-bugs            	                             	Duplicate/CSCvq91933         	New
+04/20/2022 vasagraw 	Other-mail              	,avakin                      	 avakin dkowalcz             	Mod
+04/20/2022 vasagraw 	Version                 	                             	9.2(3)                       	New
+04/20/2022 vasagraw 	Known-affected-releases 	                             	9.2(3)                       	New
+04/20/2022 vasagraw 	Tickets-count           	1                            	5                            	Mod
+04/20/2022 vasagraw 	Trouble-tickets         	                             	691188815,693329778,692026145	New
+04/20/2022 vasagraw 	Trouble-tickets-indirect	                             	C3/691188815,C3/693329778,C3/	New
+03/23/2022 cms      	Note Title              	                             	Scrubnote                    	New
+03/09/2022 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+02/25/2022 anikunna 	Note Title              	                             	Eng-notes-enhancement        	New
+02/25/2022 anikunna 	Feature                 	fix                          	feature                      	Mod
+02/25/2022 anikunna 	Severity-desc           	moderate                     	enhancement                  	Mod
+02/25/2022 anikunna 	Severity                	3                            	6                            	Mod
+02/25/2022 anikunna 	Impact                  	                             	not-a-bug                    	New
+02/25/2022 anikunna 	Impact                  	Ease-of-Configuring          	                             	Del
+02/25/2022 anikunna 	Activity-when-found     	Customer-Use                 	                             	Mod
+02/24/2022 alegray  	Feature                 	feature                      	fix                          	Mod
+02/24/2022 alegray  	Severity-desc           	enhancement                  	moderate                     	Mod
+02/24/2022 alegray  	Severity                	6                            	3                            	Mod
+02/24/2022 alegray  	Impact                  	                             	Ease-of-Configuring          	New
+02/24/2022 alegray  	Impact                  	not-a-bug                    	                             	Del
+02/24/2022 alegray  	Activity-when-found     	                             	Customer-Use                 	Mod
+02/16/2022 avakin   	Other-mail              	                             	,avakin                      	Mod
+02/15/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+02/15/2022 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+02/15/2022 cdetsbtk 	Security-screening-times	                             	2022-02-16 13:18:34.000+0000 	Mod
+02/15/2022 vasagraw 	Note Title              	                             	email-with-dev               	New
+02/15/2022 vasagraw 	Feature                 	fix                          	feature                      	Mod
+02/15/2022 vasagraw 	Severity-desc           	moderate                     	enhancement                  	Mod
+02/15/2022 vasagraw 	Severity                	3                            	6                            	Mod
+02/15/2022 vasagraw 	Impact                  	                             	not-a-bug                    	New
+02/15/2022 vasagraw 	Impact                  	Features/Functionality       	                             	Del
+02/15/2022 vasagraw 	Activity-when-found     	Customer-Use                 	                             	Mod
+02/15/2022 vasagraw 	Breakage                	No                           	                             	Mod
+02/15/2022 anikunna 	Note Title              	                             	A-comments                   	New
+02/15/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+02/15/2022 anikunna 	Status                  	N                            	A                            	Mod
+02/15/2022 anikunna 	Engineer                	                             	vasagraw                     	Mod
+02/15/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+02/15/2022 anikunna 	Assigned Date           	                             	2022-02-15 17:57:42.000+0000 	Mod
+02/15/2022 anikunna 	statusStates            	                             	[status=N, startDate=Tue Feb 	New
+02/15/2022 anikunna 	statusStates            	[status=N, startDate=Tue Feb 	                             	Del
+02/15/2022 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+02/15/2022 alegray  	serviceRequests/C3/69278	                             	C3/692780168                 	New
+02/15/2022 alegray  	Urgency-desc            	NA                           	CL4                          	Mod
+02/15/2022 alegray  	Urgency                 	                             	8                            	Mod
+02/15/2022 alegray  	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+02/15/2022 alegray  	Data-classification-reas	$NONE                        	Default value of Data-classif	Mod
+02/15/2022 alegray  	Tickets-count           	0                            	1                            	Mod
+02/15/2022 alegray  	TACSR-count             	                             	1                            	Mod
+02/15/2022 alegray  	Tickets-count-direct    	                             	1                            	Mod
+02/15/2022 alegray  	Trouble-tickets         	                             	692780168                    	New
+02/15/2022 alegray  	Trouble-tickets-direct  	                             	C3692780168                  	New
+02/15/2022 alegray  	Note Title              	                             	reproduction-steps           	New
+02/15/2022 alegray  	Note Title              	                             	Eng-notes                    	New
+02/15/2022 alegray  	Note Title              	                             	Release-note                 	New
+02/15/2022 alegray  	Version                 	                             	10.1(1),9.3(4),9.3(6),9.3(8) 	New
+02/15/2022 alegray  	Known-affected-releases 	                             	10.1(1),9.3(4),9.3(6),9.3(8),	New
+02/15/2022 alegray  	Defect Created          	                             	                             	New

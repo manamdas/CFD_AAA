@@ -1,0 +1,1143 @@
+*******************************************************************************
+
+Bug ID   : CSCww55822         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : TACACS packets sourced from incorrect IP when destination is reachable via VXLAN route
+PrimaryPV : 
+Version :10.5(5) 10.6(4) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: emfierro           Submitted: 09/10/2026 12:47:03     Last Updtd : 11/04/2026 02:46:18  
+RNE-Type: NONE                New-on : 09/10/2026 12:47:03      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:yok                                                 
+Known-affected-releases:10.5(5) 10.6(4) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.2(9) 10.3(1) 10.3(10) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(9) 10.3(99w) 10.3(99x) 10.4(7) 10.4(8) 10.5(5) 10.5(6) 10.6(1) 10.6(1s) 10.6(2) 10.6(2n) 10.6(2s) 10.6(3) 10.6(3s) 10.6(4) 10.7(0g) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(11) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(10) 8.4(11) 8.4(14) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(16) 9.3(17) 9.3(18) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 10/14/2026 21:26:37                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 27                                             
+Mean-time-to-resolved: 34                                             
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 09/10/2026 12:47:03            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security Accessibility Interoperability Scalability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : mhospoda           Priority : medium        Assigned: 10/08/2026 08:51:54 
+Code-reviewer: sarchand       
+Opened-on: 10/14/2026 21:26:37Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn pr7m manojhn-amsethi      
+Est. completion date: 10/16/2026 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 10/14/2026 21:26:37  
+
+Documents Changed: none       Resolved: 10/14/2026 21:26:37 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-SP-CELL-JPMC-MEX
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       
+Child-type :           
+Regression :                     
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              BEMS02034980;701012376
+Trouble-tickets-direct :BEMSBEMS02034980 
+Trouble-tickets-direct :C3701012376 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/11/2026 12:25:23
+Document :    nexus
+
+Summary:
+When TACACS+ is configured on a Nexus 9000 with a source-interface other than mgmt0 (for example, a loopback or SVI) in a non-management VRF, and the TACACS+ server IP is reachable through a VXLAN-learned route, the switch does not use the configured source-interface. Instead, it sources the TACACS+ packets from the lowest IP address available in that VRF, causing authentication failures when the AAA server only accepts requests from the configured source IP.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS02034980    MICROSOFT COROPORATION                   
+C3         701012376       MICROSOFT COROPORATION                   
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1310435               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (8 of 8 ) ***********************
+
+---Start of Note Titled: unit-test_smu_rel_10_6_4 (Created 10/15/2026 10:00:19 Added 10/15/2026 10:00:19 by qddts)---
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.6.4.M.bin
+
+----------------------------------------------------
+nxos64-cs.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000 Inactive Committed 
+----------------------------------------------------
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# install  add bootflash:nxos64-cs.CSCww55822-1.0.0-10.6.4.lib32_64_n9000.rpm
+[####################] 100%
+Install operation 3 completed successfully at Thu Oct 15 15:11:24 2026
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.6.4.M.bin
+
+----------------------------------------------------
+nxos64-cs.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000 Inactive Committed 
+nxos64-cs.CSCww55822-1.0.0-10.6.4.lib32_64_n9000 Inactive Committed 
+----------------------------------------------------
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show system internal sysmgr service name tacacs 
+Service &quot;Tacacs Daemon&quot; (&quot;tacacs&quot;, 9):
+        UUID = 0xB6, PID = 25912, SAP = 112
+        State: SRV_STATE_HANDSHAKED (entered at time Thu Oct 15 09:58:39 2026).
+        Restart count: 1
+        Time of last restart: Thu Oct 15 09:58:39 2026.
+        The service never crashed since the last reboot.
+        Tag = N/A
+        Plugin ID: 1
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# install activate nxos64-cs.CSCww55822-1.0.0-10.6.4.lib32_64_n9000 
+[####################] 100%
+Install operation 4 completed successfully at Thu Oct 15 15:14:31 2026
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.6.4.M.bin
+
+----------------------------------------------------
+nxos64-cs.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000 Inactive Committed 
+nxos64-cs.CSCww55822-1.0.0-10.6.4.lib32_64_n9000 Active 
+----------------------------------------------------
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show system internal sysmgr service name tacacs 
+Service &quot;Tacacs Daemon&quot; (&quot;tacacs&quot;, 9):
+        UUID = 0xB6, PID = 30766, SAP = 112
+        State: SRV_STATE_HANDSHAKED (entered at time Thu Oct 15 15:14:25 2026).
+        Restart count: 2
+        Time of last restart: Thu Oct 15 15:14:25 2026.
+        Previous PID: 25912
+        Reason of last termination: SYSMGR_DEATH_REASON_PATCHING
+        Tag = N/A
+        Plugin ID: 1
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Oct 15 09:59:41 2026
+!Time: Thu Oct 15 15:15:04 2026
+
+version 10.6(4) Bios:version 05.54 
+feature tacacs+
+
+tacacs-server key 7 &quot;fewhg&quot;
+tacacs-server test username testuser password 7 Fewh0123 idle-time 1 
+tacacs-server host 255.1.1.1 
+tacacs-server host 255.1.1.1 test idle-time 1 
+aaa group server tacacs+ tac2 
+    server 255.1.1.1 
+    use-vrf SP-MGMT
+    source-interface loopback999
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Oct 15 09:59:41 2026
+!Time: Thu Oct 15 15:15:07 2026
+
+version 10.6(4) Bios:version 05.54 
+aaa authentication login console local 
+
+alshanm-FXP-DND(config)# 
+alshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config | grep -a 3 -b 3 &quot;vrf member SP-MGMT&quot;
+
+interface Ethernet1/1
+  vrf member SP-MGMT
+  ip address 255.1.1.2/24
+  ipv6 address 255::2/64
+  no shutdown
+--
+interface loopback555
+
+interface loopback999
+  vrf member SP-MGMT
+  ip address 192.168.1.1/32
+  ipv6 address 192:168:1::1/64
+icam monitor scale
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# ethanalyzer local interface inband display-filter tcp.port==49 limit-captured-frames 0            <<<<<<<<<<<<<<<<< ALL IMPLICIT MONITOR AND <<test aaa server tacacs+ 255.1.1.1 vrf SP-MGMT palani Cisc0123>> PACKETS ARE USING CORRECT SOURCE-IP
+Capturing on &#39;ps-inb&#39;
+2     1 2026-10-15 15:15:52.319132640  192.168.1.1 &rarr; 255.1.1.1    TCP 74 59751 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=191195 TSecr=0
+4     2 2026-10-15 15:15:52.319390678    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 59751 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=2340118739 TSecr=191195 WS=128
+5     3 2026-10-15 15:15:52.319862661  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59751 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=191195 TSecr=2340118739
+6     4 2026-10-15 15:15:52.320164488  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 101 Q: Authentication
+8     5 2026-10-15 15:15:52.320247126    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59751 [ACK] Seq=1 Ack=36 Win=29056 Len=0 TSval=2340118740 TSecr=191195
+9     6 2026-10-15 15:15:52.336545243    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+10     7 2026-10-15 15:15:52.336594608    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59751 [FIN, ACK] Seq=19 Ack=36 Win=29056 Len=0 TSval=2340118756 TSecr=191195
+    8 2026-10-15 15:15:52.336901646  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59751 &rarr; 49 [ACK] Seq=36 Ack=20 Win=17358 Len=0 TSval=191196 TSecr=2340118756
+    9 2026-10-15 15:15:52.337340736  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59751 &rarr; 49 [FIN, ACK] Seq=36 Ack=20 Win=17376 Len=0 TSval=191196 TSecr=2340118756
+   10 2026-10-15 15:15:52.337427859    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59751 [ACK] Seq=20 Ack=37 Win=29056 Len=0 TSval=2340118757 TSecr=191196
+12    14 2026-10-15 15:16:00.362131186  192.168.1.1 &rarr; 255.1.1.1    TCP 74 59951 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=191276 TSecr=0
+13    15 2026-10-15 15:16:00.362399886    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 59951 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=2340126782 TSecr=191276 WS=128
+14    16 2026-10-15 15:16:00.362760942  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59951 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=191276 TSecr=2340126782
+15    17 2026-10-15 15:16:00.363003097  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 101 Q: Authentication
+16    18 2026-10-15 15:16:00.363105718    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59951 [ACK] Seq=1 Ack=36 Win=29056 Len=0 TSval=2340126782 TSecr=191276
+17    19 2026-10-15 15:16:00.385199527    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+18    20 2026-10-15 15:16:00.385264158    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59951 [FIN, ACK] Seq=19 Ack=36 Win=29056 Len=0 TSval=2340126805 TSecr=191276
+20    21 2026-10-15 15:16:00.385970093  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59951 &rarr; 49 [ACK] Seq=36 Ack=20 Win=17358 Len=0 TSval=191276 TSecr=2340126805
+   22 2026-10-15 15:16:00.386508906  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59951 &rarr; 49 [FIN, ACK] Seq=36 Ack=20 Win=17376 Len=0 TSval=191276 TSecr=2340126805
+   23 2026-10-15 15:16:00.386614460    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59951 [ACK] Seq=20 Ack=37 Win=29056 Len=0 TSval=2340126806 TSecr=191276
+20 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# test aaa server tacacs+ 255.1.1.1 vrf SP-MGMT palani Cisc0123
+user has been authenticated
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# test aaa group tac2 palani Cisc0123
+user has been authenticated
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# aaa authentication login default group tac2
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Oct 15 16:45:06 2026
+!Time: Thu Oct 15 16:45:09 2026
+
+version 10.6(4) Bios:version 05.54 
+aaa authentication login default group tac2 
+aaa authentication login console local 
+
+Palshanm-FXP-DND(config)# 
+
+
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+A PARALLEL SSH LOGIN USING TACACS USER:
+
+<<~>> bgl-ads-1741 $ ssh -l palani 10.127.120.33
+The authenticity of host &#39;10.127.120.33 (10.127.120.33)&#39; can&#39;t be established.
+RSA key fingerprint is SHA256:shgePbydGa9EhaSap/SQDroP71YJURpG0dnspRbXrJo.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;10.127.120.33&#39; (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided &quot;as is,&quot; and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | &#39;__|| &#39;_ ` _ \    | |  | &#39;_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                           
+    |  ___/| &#39;__|/ _ \/ __| / _ \| &#39;_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+Palshanm-FXP-DND# 
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+---End of Note Titled: unit-test_smu_rel_10_6_4---
+
+
+---Start of Note Titled: R-comments (Created 10/14/2026 21:26:37 Added 10/14/2026 21:26:37 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: ULS (Created 10/11/2026 19:44:37 Added 10/11/2026 19:44:37 by qddts)---
+#################################################################
+####################### CDT Job Report ##########################
+#################################################################
+
+
+NXOS ASIC Testbed   : hv sanity88
+Sanity UI view      : <a href=https://nxtaas.cisco.com/job-history/1758551>1758551</a>
+Total Test cases    : 23
+Passed test cases   : 22
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log Path            : /auto/nxos-sanity/logs/vasagraw/1758551
+Code Diff           : /ws/sjap/astro/diffs/sanos-nx_main/689972ce-c554-11f1-8ffe-005056a4c2b5/diff.txt
+CDET ID             : <a href=https://cdetsng.cisco.com/summary/#/defect/CSCww55822>CSCww55822</a>
+CDT Max Coverage    : 0
+Pass Rate           : NA
+
+TestCases Report Summary
+------------------------
+TestSuite                       TestCase                        Result    Baseline Reference
+---------                       --------                        ------    -------------------
+erspan_term_uls                 testErspanTerminationDstSessionDeleteRecreatepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcErspanSourcePortFlappass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcErspanDestPortFlappass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationDestPortChangepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationWithEcmpandDestPortChangepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationwithTerminationIPChangepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationHeaderType3pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationPortTypeChangepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationJumbo      pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanUDFacl                fail      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationConfigReplacepass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationConfigRollbackpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanIPV4acl               pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanIPV6acl               pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationV4V6bothsrcdstpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchContinuousReloadpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadFMpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchSupSwitchoverpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadLCpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanTerminationMulSrcDstProcessRestartpass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanSourceAccess          pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testErspanUDFterm_def           pass      pass in nx_main_449 erspan_term_uls 1749202
+erspan_term_uls                 testCores                       pass      pass in nx_main_449 erspan_term_uls 1749202
+---End of Note Titled: ULS---
+
+
+---Start of Note Titled: Unit-test (Created 10/11/2026 05:09:04 Added 10/11/2026 05:09:04 by qddts)---
+CASE 1: SSH AUTHENTICATION WITH TACACS USER
+
+STEP 1: (necessary config)
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  9 14:46:58 2026
+!Time: Fri Oct  9 14:47:02 2026
+
+version 10.7(1) Bios:version 05.54 
+feature tacacs+
+
+tacacs-server key 7 &quot;fewhg&quot;
+ip tacacs source-interface loopback999
+tacacs-server test username testuser password 7 Fewh0123 idle-time 1 
+tacacs-server host 255.1.1.1 
+tacacs-server host 255.1.1.1 test idle-time 1 
+aaa group server tacacs+ tacacs 
+    server 255.1.1.1 
+    use-vrf SP-MGMT
+    source-interface loopback999
+aaa group server tacacs+ tac1 
+    server 255.1.1.1 
+    use-vrf SP-MGMT
+    source-interface loopback999
+aaa group server tacacs+ tac1_not_reachable 
+    server 255.1.1.1 
+    use-vrf management
+    source-interface mgmt0
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct  9 14:47:23 2026
+!Time: Fri Oct  9 14:47:29 2026
+
+version 10.7(1) Bios:version 05.54 
+aaa authentication login default local group tac1_not_reachable tac1   <<<<<  UNREACHABLE TACACS-GROUP FIRST THEN THE REACHABLE ONE 
+aaa authentication login console local 
+
+Palshanm-FXP-DND(config)# 
+
+
+STEP 2: (TACACS USER LOGIN FROM AN ADS MACHINE WHILE COLLECT PCAPs and DEBUGS IN PARALLEL)
+<<~>> bgl-ads-1741 $ 
+<<~>> bgl-ads-1741 $ ssh -l palani 10.127.120.33
+The authenticity of host &#39;10.127.120.33 (10.127.120.33)&#39; can&#39;t be established.
+RSA key fingerprint is SHA256:2jeMv7nz6SBm6Ig0uwlcoMCIjDLsfAfhhikIDgQXNYk.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;10.127.120.33&#39; (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+&hellip;&hellip;&hellip;&hellip;
+Palshanm-FXP-DND# 
+
+
+STEP 2: (TACACS USER LOGIN WAS DONE FROM ADS MACHINE WHILE WR COLLECT PCAPs and DEBUGS BELOW IN PARALLEL)
+Palshanm-FXP-DND(config)# debug logfile tac1
+Palshanm-FXP-DND(config)# debug tacacs+ all
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# ethanalyzer local interface inband display-filter tcp.port==49 limit-captured-frames 0
+Capturing on &#39;ps-inb&#39;
+1     7 2026-10-09 14:54:59.363407562  192.168.1.1 &rarr; 255.1.1.1    TCP 74 58133 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=790746 TSecr=0
+3     8 2026-10-09 14:54:59.363665377    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 58133 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1820473095 TSecr=790746 WS=128
+4     9 2026-10-09 14:54:59.364171096  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58133 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=790746 TSecr=1820473095
+5    10 2026-10-09 14:54:59.364389554  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 114 Q: Authentication
+6    11 2026-10-09 14:54:59.364457770    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58133 [ACK] Seq=1 Ack=49 Win=29056 Len=0 TSval=1820473096 TSecr=790746
+7    12 2026-10-09 14:54:59.379974032    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+8    13 2026-10-09 14:54:59.380021039    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58133 [FIN, ACK] Seq=19 Ack=49 Win=29056 Len=0 TSval=1820473112 TSecr=790746
+10    14 2026-10-09 14:54:59.380245234  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58133 &rarr; 49 [ACK] Seq=49 Ack=20 Win=17358 Len=0 TSval=790746 TSecr=1820473112
+11    15 2026-10-09 14:54:59.380644530  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58133 &rarr; 49 [FIN, ACK] Seq=49 Ack=20 Win=17376 Len=0 TSval=790746 TSecr=1820473112
+12    16 2026-10-09 14:54:59.380707398    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58133 [ACK] Seq=20 Ack=50 Win=29056 Len=0 TSval=1820473112 TSecr=790746
+13    17 2026-10-09 14:54:59.381758932  192.168.1.1 &rarr; 255.1.1.1    TCP 74 58200 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=790746 TSecr=0
+15    18 2026-10-09 14:54:59.381901407    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 58200 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1820473114 TSecr=790746 WS=128
+16    19 2026-10-09 14:54:59.382200722  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58200 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=790746 TSecr=1820473114
+17    20 2026-10-09 14:54:59.382422531  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 153 Q: Authorization
+18    21 2026-10-09 14:54:59.382498865    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58200 [ACK] Seq=1 Ack=88 Win=29056 Len=0 TSval=1820473114 TSecr=790746
+19    22 2026-10-09 14:54:59.396435995    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 122 R: Authorization
+20    23 2026-10-09 14:54:59.396498213    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58200 [FIN, ACK] Seq=57 Ack=88 Win=29056 Len=0 TSval=1820473128 TSecr=790746
+   24 2026-10-09 14:54:59.396714841  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58200 &rarr; 49 [ACK] Seq=88 Ack=58 Win=17320 Len=0 TSval=790747 TSecr=1820473128
+   25 2026-10-09 14:54:59.397051257  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58200 &rarr; 49 [FIN, ACK] Seq=88 Ack=58 Win=17376 Len=0 TSval=790747 TSecr=1820473128
+   26 2026-10-09 14:54:59.397113533    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58200 [ACK] Seq=58 Ack=89 Win=29056 Len=0 TSval=1820473129 TSecr=790747
+20 ^C
+Palshanm-FXP-DND(config)# 
+
+
+STEP 4: Ensure correct source-IP is being used as per PCAPs (and TACACS response is coming) - also, for SSH login TACACS should be doing request/response for authentication packet followed by the authorization packet (to pull user roles) - also, ensure debugs are as per the code as well.
+
+**********************************************************************
+
+CASE 2: TEST PACKETS
+
+STEP 1: (necessary config)
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  9 14:46:58 2026
+!Time: Fri Oct  9 14:47:02 2026
+
+version 10.7(1) Bios:version 05.54 
+feature tacacs+
+
+tacacs-server key 7 &quot;fewhg&quot;
+ip tacacs source-interface loopback999
+tacacs-server test username testuser password 7 Fewh0123 idle-time 1 
+tacacs-server host 255.1.1.1 
+tacacs-server host 255.1.1.1 test idle-time 1 
+aaa group server tacacs+ tacacs 
+    server 255.1.1.1 
+    use-vrf SP-MGMT
+    source-interface loopback999
+aaa group server tacacs+ tac1 
+    server 255.1.1.1 
+    use-vrf SP-MGMT
+    source-interface loopback999
+aaa group server tacacs+ tac1_not_reachable 
+    server 255.1.1.1 
+    use-vrf management
+    source-interface mgmt0
+
+Palshanm-FXP-DND(config)# 
+
+
+STEP 2: Executing TEST command from one session (while collecting PCAPs and DEBUGS in parallel)
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# test aaa server tacacs+ 255.1.1.1 vrf SP-MGMT palani Cisc0123
+user has been authenticated
+Palshanm-FXP-DND# 
+
+
+STEP 3: Collecting PCAPs and DEBUGS from a parallel session
+Palshanm-FXP-DND(config)# debug logfile tac1
+Palshanm-FXP-DND(config)# debug tacacs+ all
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# ethanalyzer local interface inband display-filter tcp.port==49 limit-captured-frames 0
+Capturing on &#39;ps-inb&#39;
+2    10 2026-10-09 15:23:05.628213006  192.168.1.1 &rarr; 255.1.1.1    TCP 74 58811 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=807599 TSecr=0
+4    11 2026-10-09 15:23:05.628563558    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 58811 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1822159338 TSecr=807599 WS=128
+6    12 2026-10-09 15:23:05.628945183  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58811 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=807599 TSecr=1822159338
+8    13 2026-10-09 15:23:05.629310779  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 101 Q: Authentication
+10    14 2026-10-09 15:23:05.629404607    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58811 [ACK] Seq=1 Ack=36 Win=29056 Len=0 TSval=1822159339 TSecr=807599
+   15 2026-10-09 15:23:05.651693883    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+   16 2026-10-09 15:23:05.651757759    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58811 [FIN, ACK] Seq=19 Ack=36 Win=29056 Len=0 TSval=1822159361 TSecr=807599
+   17 2026-10-09 15:23:05.651964923  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58811 &rarr; 49 [ACK] Seq=36 Ack=20 Win=17358 Len=0 TSval=807600 TSecr=1822159361
+   18 2026-10-09 15:23:05.652659522  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58811 &rarr; 49 [FIN, ACK] Seq=36 Ack=20 Win=17376 Len=0 TSval=807600 TSecr=1822159361
+   19 2026-10-09 15:23:05.652763751    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58811 [ACK] Seq=20 Ack=37 Win=29056 Len=0 TSval=1822159362 TSecr=807600
+12    20 2026-10-09 15:23:06.656239459  192.168.1.1 &rarr; 255.1.1.1    TCP 74 58856 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=807610 TSecr=0
+15    21 2026-10-09 15:23:06.656597470    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 58856 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1822160366 TSecr=807610 WS=128
+17    22 2026-10-09 15:23:06.656934082  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58856 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=807610 TSecr=1822160366
+20    23 2026-10-09 15:23:06.658762271  192.168.1.1 &rarr; 255.1.1.1    TCP 74 59065 &rarr; 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=807610 TSecr=0
+22    24 2026-10-09 15:23:06.658957206    255.1.1.1 &rarr; 192.168.1.1  TCP 74 49 &rarr; 59065 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1822160368 TSecr=807610 WS=128
+25    25 2026-10-09 15:23:06.659226622  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59065 &rarr; 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=807610 TSecr=1822160368
+27    26 2026-10-09 15:23:06.662196565  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 102 Q: Authentication
+29    27 2026-10-09 15:23:06.662337350    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58856 [ACK] Seq=1 Ack=37 Win=29056 Len=0 TSval=1822160372 TSecr=807610
+30    28 2026-10-09 15:23:06.662340359  192.168.1.1 &rarr; 255.1.1.1    TACACS+ 102 Q: Authentication
+   29 2026-10-09 15:23:06.662425729    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59065 [ACK] Seq=1 Ack=37 Win=29056 Len=0 TSval=1822160372 TSecr=807610
+   30 2026-10-09 15:23:06.689230855    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+   31 2026-10-09 15:23:06.689274374    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59065 [FIN, ACK] Seq=19 Ack=37 Win=29056 Len=0 TSval=1822160399 TSecr=807610
+   32 2026-10-09 15:23:06.689507364  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59065 &rarr; 49 [ACK] Seq=37 Ack=20 Win=17358 Len=0 TSval=807610 TSecr=1822160399
+   33 2026-10-09 15:23:06.690201185  192.168.1.1 &rarr; 255.1.1.1    TCP 66 59065 &rarr; 49 [FIN, ACK] Seq=37 Ack=20 Win=17376 Len=0 TSval=807610 TSecr=1822160399
+   34 2026-10-09 15:23:06.690281492    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 59065 [ACK] Seq=20 Ack=38 Win=29056 Len=0 TSval=1822160400 TSecr=807610
+   35 2026-10-09 15:23:06.692838830    255.1.1.1 &rarr; 192.168.1.1  TACACS+ 84 R: Authentication
+   36 2026-10-09 15:23:06.692860577    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58856 [FIN, ACK] Seq=19 Ack=37 Win=29056 Len=0 TSval=1822160402 TSecr=807610
+   37 2026-10-09 15:23:06.693082230  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58856 &rarr; 49 [ACK] Seq=37 Ack=20 Win=17358 Len=0 TSval=807610 TSecr=1822160402
+   38 2026-10-09 15:23:06.693776342  192.168.1.1 &rarr; 255.1.1.1    TCP 66 58856 &rarr; 49 [FIN, ACK] Seq=37 Ack=20 Win=17376 Len=0 TSval=807610 TSecr=1822160402
+   39 2026-10-09 15:23:06.693884763    255.1.1.1 &rarr; 192.168.1.1  TCP 66 49 &rarr; 58856 [ACK] Seq=20 Ack=38 Win=29056 Len=0 TSval=1822160403 TSecr=807610
+^C
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+
+STEP 4: Ensure correct source-IP is being used as per PCAPs (and TACACS response is coming) - also, ensure debugs are as per the code as well.
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: U-comments (Created 09/11/2026 12:09:28 Added 09/11/2026 12:09:28 by emfierro)---
+Reasoning:
+
+<describe why and how this is moved to U state>
+
+<example:
+
+Candidate D bug, but don't know the probable fix
+Not enough logs collected, and no real pointer to root cause
+Need more info from crash decode
+Need better tools (pls specify).>
+
+Info-requested:
+
+<If such an issues is seen again, what logs would be needed to help identify the root cause>
+
+Serviceability asks:
+
+<any serviceability bugs that were logged to avoid hitting such U bugs in the future.
+
+Include any asks/Wishlist for tools or enhancements that can help with this>.
+
+Version where problem was seen?
+
+Versions tested?
+
+<list version where the problem was seen, and the versions where the problem was not reproducible>
+---End of Note Titled: U-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 09/10/2026 21:59:05 Modified 10/29/2026 02:51:07 by cms)---
+{261029 rohitraw S G} Already committed to PR7M.
+{261016 bidg S B} PR7M PR - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/105864
+{261014 samekama S B} Pending sanity
+{261011 samekama S B} Pending review.
+{261011 samekama S B} https://gh-nx.scm.engit.cisco.com/nx/nx/pull/105211
+{261009 samekama S B} https://gh-nx.scm.engit.cisco.com/nx/nx/pull/104919
+{260910 samekama S B} Came in today 9/11, RCA in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 09/10/2026 12:47:03 Modified 10/14/2026 21:26:37 by vasagraw)---
+<B>Symptom:</B>
+TACACS+ authentication and authorization fail on a Nexus 9000. Packets sent to the TACACS+/ISE server carry an unexpected source IP instead of the IP of the configured source-interface. Because the AAA server only accepts requests from the expected source IP, the TCP session to port 49 never completes ? SYNs are retransmitted and no SYN,ACK is received. User logins fall back to local authentication or time out.
+
+<B>Conditions:</B>
+Platform: Cisco Nexus 9000 Series switch
+Affected releases: Seen on NX-OS 10.5(5) and 10.6(4)
+Not reproducible on: NX-OS 10.3(3x)
+
+feature tacacs+ enabled, with a source-interface other than mgmt0 configured 
+TACACS+ server reachable through a non-management VRF 
+TACACS+ server IP learned through a VXLAN route 
+At least one other interface in the same VRF has an IP address numerically lower than the configured source-interface IP
+
+An upgrade or reload is not required to trigger the condition; the defect is hit as soon as the server IP is resolved through the VXLAN route.
+
+<B>Workaround:</B>
+Configure the TACACS+ server to also accept requests from the IP that the switch is incorrectly selecting (lowest IP in the VRF), and add that IP as a permitted network device.
+
+Reach the TACACS+ server through a route that is not VXLAN-learned in that VRF if the design allows it.
+
+Use the management VRF and mgmt0 as the TACACS+ source-interface, if the topology permits.
+
+Remain on / revert to NX-OS 10.3(3x) where the behavior is correct.
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: reproduction-steps (Created 09/10/2026 12:47:03 Added 09/10/2026 12:47:03 by emfierro)---
+++ The original config includes an encrypted TACACS+ key and a test-user password, not necessary to trigger the issue.
+
+++Issue was found during an upgrade from nxos64-cs.10.3.3x.F.bin to nxos64-cs.10.5.5.M.bin. The upgrade itself is not required to trigger the defect ? an upgrade or reload is not part of the trigger condition. The bug is hit whenever the TACACS+ (ISE) server IP is reachable through a VXLAN-learned route in a non-management VRF.
+
+++ If the destination IP of the ISE is not learned by VXLAN, the issue is not seen.
+
+Topology / trigger condition
+
+
+Nexus 9000 leaf (Leaf-1) with TACACS+ source-interface loopback999 (172.18.0.50) in VRF SP-MGMT.
+TACACS+ / ISE server: 172.16.100.10, learned via a VXLAN overlay route.
+Multiple interfaces with lower IPs exist in the same VRF (for example, Vlan1199 = 100.72.64.1).
+
+++ TACACS Config:
+
+ show running-config tacacs+
+
+feature tacacs+
+
+tacacs-server key 7 "Gnaxotmybq123!"
+ip tacacs source-interface loopback999
+tacacs-server test username testuser1 password 7 wawyhanxorbi1 idle-time 3
+ 
+tacacs-server deadtime 5
+tacacs-server host 172.16.100.10 
+aaa group server tacacs+ tacacs 
+    server 172.16.100.10 
+    use-vrf SP-MGMT
+    source-interface loopback999
+aaa group server tacacs+ ise_mnt 
+    server 172.16.100.10 
+    use-vrf SP-MGMT
+    source-interface loopback999
+
+++ Server IP is learned via a VXLAN route in the non-management VRF:
+
+Leaf-1# show ip route 172.16.100.10 vrf SP-MGMT 
+IP Route Table for VRF "SP-MGMT"
+'*' denotes best ucast next-hop
+'**' denotes best mcast next-hop
+'[x/y]' denotes [preference/metric]
+'%<string>' in via output denotes VRF <string>
+
+172.16.100.0/24, ubest/mbest: 1/0
+    *via 172.16.1.99%default, [20/0], 00:07:50, bgp-64942, external, tag 65201, segid: 12199 tunnelid: 0xac100163 encap: VXLAN
+ 
+
+++  Multiple IPs exist in the VRF, including one lower than the source-interface IP:
+
+Leaf-1# show ip interface brief vrf SP-MGMT 
+
+IP Interface Status for VRF "SP-MGMT"(6)
+Interface            IP Address      Interface Status
+Vlan999              172.16.100.9    protocol-down/link-down/admin-up   
+Vlan1199             100.72.64.1     protocol-up/link-up/admin-up       
+Vlan1899             100.72.66.17    protocol-up/link-up/admin-up       
+Vlan1999             100.72.67.254   protocol-up/link-up/admin-up       
+Vlan2199             forward-enabled protocol-up/link-up/admin-up       
+Lo7                  172.16.3.226    protocol-up/link-up/admin-up       
+Lo99                 100.72.66.65    protocol-up/link-up/admin-up       
+Lo999                172.18.0.50     protocol-up/link-up/admin-up
+
+
+
+++  NXOS: version 10.3(3x) - WORKING 
+
+TACACS Communication is sourced by the correct Lo999(172.18.0.50) address to the ISE IP (172.16.100.10) learned throught VXLAN:
+
+Leaf-1# ethanalyzer local interface inband display-filter tcp.port==49 limit-captured-frames 0
+Capturing on 'ps-inb'
+  164 2026-09-10 19:11:47.995886998  172.18.0.50 ? 172.16.100.10 TCP 124 58879 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=9379 TSecr=0
+  165 2026-09-10 19:11:47.996218647 172.16.100.10 ? 172.18.0.50  TCP 124 49 ? 58879 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1845790532 TSecr=9379 WS=128
+  166 2026-09-10 19:11:47.996698252  172.18.0.50 ? 172.16.100.10 TCP 116 58879 ? 49 [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSval=9379 TSecr=1845790532
+  167 2026-09-10 19:11:48.015868452  172.18.0.50 ? 172.16.100.10 TCP 124 59086 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=9380 TSecr=0
+  168 2026-09-10 19:11:48.016051996 172.16.100.10 ? 172.18.0.50  TCP 124 49 ? 59086 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=1845790552 TSecr=9380 WS=128
+  169 2026-09-10 19:11:48.016346202  172.18.0.50 ? 172.16.100.10 TACACS+ 144 Q: Authentication
+  170 2026-09-10 19:11:48.016485761 172.16.100.10 ? 172.18.0.50  TCP 116 49 ? 58879 [ACK] Seq=1 Ack=29 Win=29056 Len=0 TSval=1845790553 TSecr=9380
+  171 2026-09-10 19:11:48.016680507  172.18.0.50 ? 172.16.100.10 TCP 116 59086 ? 49 [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSval=9380 TSecr=1845790552
+  172 2026-09-10 19:11:48.016988731  172.18.0.50 ? 172.16.100.10 TACACS+ 144 Q: Authentication
+
+
+
+
+ ++ NXOS: version 10.5(5)  (also reproduced on 10.6(4)) - NOT WORKING
+
+TACACS Communication is sourced by the incorrect IP, it will always take the lowest IP available in that VRF instead of the configured Lo999. The server does not respond and the SYN is retransmitted until the session fails:
+
+
+Leaf-1#  ethanalyzer local interface inband display-filter tcp.port==49 limit-captured-frames 0
+Capturing on 'ps-inb'
+1  8926 2026-09-10 19:40:27.814185444  100.72.64.1 ? 172.16.100.10 TCP 124 59952 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4402 TSecr=0
+2  8927 2026-09-10 19:40:27.815475580  100.72.64.1 ? 172.16.100.10 TCP 124 60182 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4402 TSecr=0
+3  8938 2026-09-10 19:40:28.088010220  100.72.64.1 ? 172.16.100.10 TCP 124 60308 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4404 TSecr=0
+5  9042 2026-09-10 19:40:30.814376139  100.72.64.1 ? 172.16.100.10 TCP 124 [TCP Retransmission] 59952 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4432 TSecr=0
+5  9043 2026-09-10 19:40:30.815449560  100.72.64.1 ? 172.16.100.10 TCP 124 [TCP Retransmission] 60182 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4432 TSecr=0
+6  9053 2026-09-10 19:40:31.088271500  100.72.64.1 ? 172.16.100.10 TCP 124 [TCP Retransmission] 60308 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=4434 TSecr=0
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (37 of 37)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-quezon_rel                           ascii text     4048           vasagraw       10/29/2026 02:45:11      
+code-review-quezon_rel.p5                         ascii text     1479           vasagraw       10/29/2026 02:23:35      
+code-review-quezon_rel.p4                         ascii text     1479           vasagraw       10/29/2026 02:11:57      
+code-review-quezon_rel.p3                         ascii text     1479           vasagraw       10/29/2026 02:10:22      
+ccwarnings-quezon_rel                             ascii text     183            baas           10/26/2026 05:57:46      
+static-analysis-quezon_rel                        ascii text     1178           baas           10/26/2026 05:57:07      
+code-review-quezon_rel.p2                         ascii text     1479           vasagraw       10/26/2026 03:38:58      
+PR-Description-106567                             ascii text     951            vasagraw       10/29/2026 02:23:36      
+code-review-quezon_rel                            ascii text     1479           vasagraw       10/26/2026 03:09:20      
+Diffs-commit-smu_rel_10_5_5.p2                    ascii text     4516           nxbld          10/23/2026 06:04:05      
+Diffs-commit-smu_rel_10_5_5                       ascii text     985            nxbld          10/23/2026 06:04:02      
+Diffs-commit-pamplona_rel                         ascii text     4037           vasagraw       10/19/2026 23:17:25      
+code-review-pamplona_rel.p2                       ascii text     1487           vasagraw       10/19/2026 23:16:13      
+PR-Description-105864                             ascii text     960            vasagraw       10/19/2026 23:16:14      
+code-review-pamplona_rel                          ascii text     1487           vasagraw       10/19/2026 23:06:13      
+ccwarnings-pamplona_rel.p3                        ascii text     183            baas           10/19/2026 01:48:09      
+static-analysis-pamplona_rel.p3                   ascii text     1178           baas           10/19/2026 01:47:32      
+ccwarnings-pamplona_rel.p2                        ascii text     183            baas           10/17/2026 09:43:32      
+static-analysis-pamplona_rel.p2                   ascii text     1178           baas           10/17/2026 09:42:53      
+ccwarnings-pamplona_rel                           ascii text     183            baas           10/17/2026 04:12:37      
+static-analysis-pamplona_rel                      ascii text     1178           baas           10/17/2026 04:11:59      
+Diffs-commit-smu_rel_10_6_4.p2                    ascii text     4601           nxbld          10/16/2026 00:58:01      
+Diffs-commit-smu_rel_10_6_4                       ascii text     987            nxbld          10/16/2026 00:57:58      
+Diffs-commit-nx_main                              ascii text     12143          vasagraw       10/14/2026 11:33:01      
+code-review-nx_main.p4                            ascii text     1574           vasagraw       10/13/2026 23:04:31      
+code-review-nx_main.p3                            ascii text     1574           vasagraw       10/13/2026 23:03:55      
+ccwarnings-nx_main.p3                             ascii text     183            baas           10/13/2026 11:27:46      
+static-analysis-nx_main.p5                        ascii text     871            baas           10/13/2026 11:27:05      
+code-review-nx_main.p2                            ascii text     1573           vasagraw       10/11/2026 23:08:33      
+PR-Description-105211                             ascii text     1125           vasagraw       10/13/2026 23:04:32      
+code-review-nx_main                               ascii text     1573           vasagraw       10/11/2026 22:57:36      
+ccwarnings-nx_main.p2                             ascii text     183            baas           10/11/2026 03:04:31      
+static-analysis-nx_main.p4                        ascii text     871            baas           10/11/2026 03:03:53      
+ccwarnings-nx_main                                ascii text     183            baas           10/08/2026 00:33:36      
+static-analysis-nx_main.p3                        ascii text     1494           baas           10/08/2026 00:32:58      
+static-analysis-nx_main.p2                        ascii text     1494           baas           10/08/2026 00:28:40      
+static-analysis-nx_main                           ascii text     1494           baas           10/08/2026 00:23:35      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/04/2026 spaule   	Attribute               	cfd-manojohn pr7m            	cfd-manojohn pr7m manojhn-ams	Mod
+11/03/2026 emfierro 	serviceRequests/C3/70101	                             	                             	Mod
+11/03/2026 emfierro 	Urgency-desc            	NA                           	CL3                          	Mod
+11/03/2026 emfierro 	Urgency                 	9                            	6                            	Mod
+11/03/2026 emfierro 	SR-associated           	                             	2026-10-21T16:11:39+0000,2026	New
+10/29/2026 nxbld    	Integrated-releases     	                             	10.6(5)                      	New
+10/29/2026 nxbld    	Integrated-releases     	                             	10.6(4.40)                   	New
+10/29/2026 nxbld    	Apply-to                	                             	10.6(4.40)                   	New
+10/29/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/29/2026 kasrini2 	Attribute               	cfd-manojohn                 	cfd-manojohn pr7m            	Mod
+10/29/2026 vasagraw 	File Name               	                             	Diffs-commit-quezon_rel      	New
+10/29/2026 vasagraw 	contents                	                             	PR-Description-106567        	Mod
+10/29/2026 vasagraw 	File Name               	                             	code-review-quezon_rel.p5    	New
+10/29/2026 vasagraw 	contents                	                             	PR-Description-106567        	Mod
+10/29/2026 vasagraw 	File Name               	                             	code-review-quezon_rel.p4    	New
+10/29/2026 vasagraw 	contents                	                             	PR-Description-106567        	Mod
+10/29/2026 vasagraw 	File Name               	                             	code-review-quezon_rel.p3    	New
+10/26/2026 emfierro 	serviceRequests/C3/70101	                             	C3/701012376                 	New
+10/26/2026 emfierro 	Tickets-count           	1                            	2                            	Mod
+10/26/2026 emfierro 	TACSR-count             	                             	1                            	Mod
+10/26/2026 emfierro 	Tickets-count-direct    	1                            	2                            	Mod
+10/26/2026 emfierro 	Trouble-tickets         	                             	701012376                    	New
+10/26/2026 emfierro 	Trouble-tickets-direct  	                             	C3701012376                  	New
+10/26/2026 baas     	File Name               	                             	ccwarnings-quezon_rel        	New
+10/26/2026 baas     	File Name               	                             	static-analysis-quezon_rel   	New
+10/26/2026 vasagraw 	contents                	                             	PR-Description-106567        	Mod
+10/26/2026 vasagraw 	File Name               	                             	code-review-quezon_rel.p2    	New
+10/26/2026 vasagraw 	File Name               	                             	PR-Description-106567        	New
+10/26/2026 vasagraw 	File Name               	                             	code-review-quezon_rel       	New
+10/23/2026 nxbld    	Integrated-releases     	                             	10.5(5)SMU(19)               	New
+10/23/2026 nxbld    	Apply-to                	                             	10.5(5)SMU(19)               	New
+10/23/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_5_5.p	New
+10/23/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_5_5  	New
+10/21/2026 nxbld    	Integrated-releases     	                             	10.5(7)                      	New
+10/21/2026 nxbld    	Integrated-releases     	                             	10.5(6.19)                   	New
+10/21/2026 nxbld    	Apply-to                	                             	10.5(6.19)                   	New
+10/21/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/21/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/21/2026 crissoto 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS02034980            	New
+10/21/2026 crissoto 	Urgency                 	                             	9                            	Mod
+10/21/2026 crissoto 	Tickets-count           	0                            	1                            	Mod
+10/21/2026 crissoto 	Tickets-count-direct    	                             	1                            	Mod
+10/21/2026 crissoto 	Trouble-tickets         	                             	BEMS02034980                 	New
+10/21/2026 crissoto 	Trouble-tickets-direct  	                             	BEMSBEMS02034980             	New
+10/20/2026 pisces   	VF-unpatched            	NX-OS:10.4(1),NX-OS:10.4(2),N	                             	Del
+10/20/2026 pisces   	Potentially-affected-rel	10.4(1),10.4(2),10.4(3),10.4(	                             	Del
+10/19/2026 vasagraw 	File Name               	                             	Diffs-commit-pamplona_rel    	New
+10/19/2026 vasagraw 	contents                	                             	PR-Description-105864        	Mod
+10/19/2026 vasagraw 	File Name               	                             	code-review-pamplona_rel.p2  	New
+10/19/2026 vasagraw 	File Name               	                             	PR-Description-105864        	New
+10/19/2026 vasagraw 	File Name               	                             	code-review-pamplona_rel     	New
+10/19/2026 baas     	File Name               	                             	ccwarnings-pamplona_rel.p3   	New
+10/19/2026 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+10/17/2026 baas     	File Name               	                             	ccwarnings-pamplona_rel.p2   	New
+10/17/2026 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+10/17/2026 baas     	File Name               	                             	ccwarnings-pamplona_rel      	New
+10/17/2026 baas     	File Name               	                             	static-analysis-pamplona_rel 	New
+10/16/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/16/2026 nxbld    	Integrated-releases     	                             	10.6(4)SMU(10)               	New
+10/16/2026 nxbld    	Apply-to                	                             	10.6(4)SMU(10)               	New
+10/16/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_6_4.p	New
+10/16/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_6_4  	New
+10/16/2026 nxbld    	Multi-commit-flag       	                             	Y                            	Mod
+10/15/2026 manojohn 	Attribute               	                             	cfd-manojohn                 	Mod
+10/15/2026 qddts    	Note Title              	                             	unit-test_smu_rel_10_6_4     	New
+10/15/2026 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+10/15/2026 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+10/14/2026 nxbld    	Integrated-releases     	                             	10.7(1)IMG9(0)               	New
+10/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IMG9(0.470)           	New
+10/14/2026 nxbld    	Apply-to                	                             	10.7(0)IMG9(0.470)           	New
+10/14/2026 vasagraw 	Note Title              	                             	R-comments                   	New
+10/14/2026 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+10/14/2026 vasagraw 	Status                  	A                            	R                            	Mod
+10/14/2026 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+10/14/2026 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+10/14/2026 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+10/14/2026 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+10/14/2026 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+10/14/2026 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+10/14/2026 vasagraw 	Released-code           	                             	Y                            	Mod
+10/14/2026 vasagraw 	Origin                  	                             	base code                    	Mod
+10/14/2026 vasagraw 	Test-escape             	N                            	Y                            	Mod
+10/14/2026 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+10/14/2026 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+10/14/2026 vasagraw 	TPS_issue               	                             	N                            	Mod
+10/14/2026 vasagraw 	TPS_flag                	                             	N                            	Mod
+10/14/2026 vasagraw 	Behavior-changed        	                             	N                            	Mod
+10/14/2026 vasagraw 	Original-resolved-on    	                             	2026-10-15 04:26:37.000+0000 	Mod
+10/14/2026 vasagraw 	Documents-changed       	                             	none                         	Mod
+10/14/2026 vasagraw 	More-on                 	                             	2026-10-15 04:26:37.000+0000 	Mod
+10/14/2026 vasagraw 	Opened-on               	                             	2026-10-15 04:26:37.000+0000 	Mod
+10/14/2026 vasagraw 	Resolved-on             	                             	2026-10-15 04:26:37.000+0000 	Mod
+10/14/2026 vasagraw 	statusStates            	                             	[status=A, startDate=Thu Oct 	New
+10/14/2026 vasagraw 	statusStates            	[status=A, startDate=Thu Oct 	                             	Del
+10/14/2026 vasagraw 	Age-status              	28                           	35                           	Mod
+10/14/2026 vasagraw 	Mean-time-to-resolved   	                             	34                           	Mod
+10/14/2026 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+10/14/2026 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/14/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/13/2026 vasagraw 	contents                	                             	PR-Description-105211        	Mod
+10/13/2026 vasagraw 	File Name               	                             	code-review-nx_main.p4       	New
+10/13/2026 vasagraw 	contents                	                             	PR-Description-105211        	Mod
+10/13/2026 vasagraw 	File Name               	                             	code-review-nx_main.p3       	New
+10/13/2026 baas     	File Name               	                             	ccwarnings-nx_main.p3        	New
+10/13/2026 baas     	File Name               	                             	static-analysis-nx_main.p5   	New
+10/12/2026 cms      	Est-fix-date            	2026-10-12 07:00:00.000+0000 	2026-10-16 07:00:00.000+0000 	Mod
+10/11/2026 vasagraw 	contents                	                             	PR-Description-105211        	Mod
+10/11/2026 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+10/11/2026 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+10/11/2026 vasagraw 	File Name               	                             	PR-Description-105211        	New
+10/11/2026 vasagraw 	File Name               	                             	code-review-nx_main          	New
+10/11/2026 qddts    	Note Title              	                             	ULS                          	New
+10/11/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/11/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/11/2026 qddts    	Note Title              	                             	Unit-test                    	New
+10/11/2026 baas     	File Name               	                             	ccwarnings-nx_main.p2        	New
+10/11/2026 baas     	File Name               	                             	static-analysis-nx_main.p4   	New
+10/09/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/09/2026 cms      	Est-fix-date            	                             	2026-10-12 07:00:00.000+0000 	Mod
+10/08/2026 mhospoda 	Status-desc             	U-Unreproducible             	A-Assigned                   	Mod
+10/08/2026 mhospoda 	Status                  	U                            	A                            	Mod
+10/08/2026 mhospoda 	Assigner                	samekama                     	mhospoda                     	Mod
+10/08/2026 mhospoda 	Assigned Date           	2026-09-11 04:58:55.000+0000 	2026-10-08 15:51:54.000+0000 	Mod
+10/08/2026 mhospoda 	statusStates            	                             	[status=U, startDate=Fri Sep 	New
+10/08/2026 mhospoda 	statusStates            	[status=U, startDate=Fri Sep 	                             	Del
+10/08/2026 mhospoda 	Age-status              	1                            	28                           	Mod
+10/08/2026 mhospoda 	Mean-time-to-assigned   	0                            	27                           	Mod
+10/08/2026 baas     	File Name               	                             	ccwarnings-nx_main           	New
+10/08/2026 baas     	File Name               	                             	static-analysis-nx_main.p3   	New
+10/08/2026 baas     	File Name               	                             	static-analysis-nx_main.p2   	New
+10/08/2026 baas     	File Name               	                             	static-analysis-nx_main      	New
+09/11/2026 emfierro 	Note Title              	                             	U-comments                   	New
+09/11/2026 emfierro 	Status-desc             	A-Assigned                   	U-Unreproducible             	Mod
+09/11/2026 emfierro 	Status                  	A                            	U                            	Mod
+09/11/2026 emfierro 	Unreproducible          	                             	2026-09-11 19:09:28.000+0000 	Mod
+09/11/2026 emfierro 	statusStates            	                             	[status=A, startDate=Fri Sep 	New
+09/11/2026 emfierro 	statusStates            	[status=A, startDate=Fri Sep 	                             	Del
+09/11/2026 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/11/2026 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+09/11/2026 cdetsbtk 	Security-screening-times	                             	2026-09-11 19:25:23.000+0000 	Mod
+09/10/2026 cms      	Note Title              	                             	Scrubnote                    	New
+09/10/2026 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/10/2026 samekama 	Status                  	N                            	A                            	Mod
+09/10/2026 samekama 	Engineer                	                             	vasagraw                     	Mod
+09/10/2026 samekama 	Assigner                	                             	samekama                     	Mod
+09/10/2026 samekama 	Assigned Date           	                             	2026-09-11 04:58:55.000+0000 	Mod
+09/10/2026 samekama 	statusStates            	                             	[status=N, startDate=Thu Sep 	New
+09/10/2026 samekama 	statusStates            	[status=N, startDate=Thu Sep 	                             	Del
+09/10/2026 samekama 	Age-status              	0                            	1                            	Mod
+09/10/2026 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+09/10/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1310435      	New
+09/10/2026 emfierro 	Note Title              	                             	reproduction-steps           	New
+09/10/2026 emfierro 	Note Title              	                             	Release-note                 	New
+09/10/2026 emfierro 	Headline                	                             	TACACS packets sourced from i	Mod
+09/10/2026 emfierro 	Summary                 	                             	When TACACS+ is configured on	Mod
+09/10/2026 emfierro 	Project                 	                             	CSC.datacenter               	Mod
+09/10/2026 emfierro 	Product                 	                             	n9k-standalone-sw            	Mod
+09/10/2026 emfierro 	Component               	                             	aaa                          	Mod
+09/10/2026 emfierro 	Status-desc             	                             	N-New                        	Mod
+09/10/2026 emfierro 	Status                  	                             	N                            	Mod
+09/10/2026 emfierro 	Found                   	                             	customer-use                 	Mod
+09/10/2026 emfierro 	Hardening               	                             	N                            	Mod
+09/10/2026 emfierro 	Original-found          	                             	customer-use                 	Mod
+09/10/2026 emfierro 	Hardware                	                             	Nexus 9000                   	New
+09/10/2026 emfierro 	Feature                 	                             	fix                          	Mod
+09/10/2026 emfierro 	Urgency-desc            	                             	NA                           	Mod
+09/10/2026 emfierro 	Severity-desc           	                             	moderate                     	Mod
+09/10/2026 emfierro 	Severity                	                             	3                            	Mod
+09/10/2026 emfierro 	DE Priority Desc        	                             	medium                       	Mod
+09/10/2026 emfierro 	DE-priority             	                             	3                            	Mod
+09/10/2026 emfierro 	Impact                  	                             	Integrity / Security,Accessib	New
+09/10/2026 emfierro 	Is-reproducible         	                             	Cisco Lab Reproduced         	Mod
+09/10/2026 emfierro 	Submitter               	                             	emfierro                     	Mod
+09/10/2026 emfierro 	Submitter-manager       	                             	yok                          	Mod
+09/10/2026 emfierro 	DE-manager              	                             	anikunna                     	Mod
+09/10/2026 emfierro 	DTPT-manager            	                             	manojohn                     	Mod
+09/10/2026 emfierro 	Version                 	                             	10.5(5),10.6(4)              	New
+09/10/2026 emfierro 	Original-version        	                             	10.6(4)                      	Mod
+09/10/2026 emfierro 	Found-during            	                             	Customer                     	Mod
+09/10/2026 emfierro 	Activity-when-found     	                             	Customer-Use                 	Mod
+09/10/2026 emfierro 	Automated-test          	                             	N                            	Mod
+09/10/2026 emfierro 	Test-escape             	                             	N                            	Mod
+09/10/2026 emfierro 	PSIRT                   	                             	N                            	Mod
+09/10/2026 emfierro 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+09/10/2026 emfierro 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+09/10/2026 emfierro 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+09/10/2026 emfierro 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+09/10/2026 emfierro 	Software-type-ids       	                             	282253564,286280105,286321149	New
+09/10/2026 emfierro 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/10/2026 emfierro 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+09/10/2026 emfierro 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+09/10/2026 emfierro 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+09/10/2026 emfierro 	MDF-edited              	                             	N                            	Mod
+09/10/2026 emfierro 	Attribute2              	                             	n/a                          	Mod
+09/10/2026 emfierro 	Care-Update             	                             	Y                            	Mod
+09/10/2026 emfierro 	Doc-manager             	                             	anikunna                     	Mod
+09/10/2026 emfierro 	Document                	                             	nexus                        	Mod
+09/10/2026 emfierro 	Documentation-resolution	                             	Undefined                    	Mod
+09/10/2026 emfierro 	Original-activity-when-f	                             	Customer-Use                 	Mod
+09/10/2026 emfierro 	Original-found-during   	                             	Customer                     	Mod
+09/10/2026 emfierro 	Submitter-org-bug       	                             	CX-GC-AMER-SP-CELL-JPMC-MEX  	Mod
+09/10/2026 emfierro 	Component-scenarios     	                             	N                            	Mod
+09/10/2026 emfierro 	Submitted-on            	                             	2026-09-10 19:47:03.627+0000 	Mod
+09/10/2026 emfierro 	IFD-CFD-Conv-date       	                             	2026-09-10 19:47:03.627+0000 	Mod
+09/10/2026 emfierro 	New-on                  	                             	2026-09-10 19:47:03.627+0000 	Mod
+09/10/2026 emfierro 	statusStates            	                             	[status=S, startDate=Thu Sep 	New
+09/10/2026 emfierro 	Transition-day          	0                            	2461294                      	Mod
+09/10/2026 emfierro 	Release-note-status     	                             	have                         	Mod
+09/10/2026 emfierro 	Reported By             	                             	emfierro                     	Mod
+09/10/2026 emfierro 	Known-affected-releases 	                             	10.5(5),10.6(4)              	New
+09/10/2026 emfierro 	RNE-Type                	                             	NONE                         	Mod
+09/10/2026 emfierro 	Symptoms                	                             	TACACS+ authentication and au	Mod
+09/10/2026 emfierro 	Conditions              	                             	Platform: Cisco Nexus 9000 Se	Mod
+09/10/2026 emfierro 	Workarounds             	                             	Configure the TACACS+ server 	Mod
+09/10/2026 emfierro 	Tickets-count           	                             	0                            	Mod
+09/10/2026 emfierro 	Class                   	                             	CSC.datacenter               	Mod
+09/10/2026 emfierro 	Reti-bug                	                             	Y                            	Mod
+09/10/2026 emfierro 	Defect Created          	                             	                             	New

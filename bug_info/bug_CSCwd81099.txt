@@ -1,0 +1,1784 @@
+*******************************************************************************
+
+Bug ID   : CSCwd81099         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : CLI CR failing with default radius server configs
+PrimaryPV : 
+Version :10.3(1)INR9(0.31) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: prachakr           Submitted: 12/06/2022 22:14:53     Last Updtd : 09/19/2026 18:08:05  
+RNE-Type: NONE                New-on : 12/06/2022 22:14:53      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:mukamath                                            
+Known-affected-releases:
+
+Known-fixed-releases:10.2(6) 10.3(3) 10.4(1) 10.4(2) 9.3(12) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(4) 10.2(5) 10.3(1) 10.3(2) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 12/14/2022 19:20:41                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 3                                              
+Mean-time-to-resolved: 203                                            
+Mean-time-to-verified: 92     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 12/07/2022 06:12:57            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Confidential                               
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name: Automated-5179943-prachakr                                 
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Configuring 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 12/10/2022 00:50:34 
+Code-reviewer: pradepan       
+Opened-on: 12/14/2022 19:20:41Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : nr3f imr10-tbp cfd-manojohn imr10-tbp-o
+Est. completion date: 12/14/2022 00:00:00  
+Script-version:                         
+
+More-by : masaxena            More-on: 06/12/2023 20:44:09  
+
+Documents Changed: none       Resolved: 06/28/2023 11:17:41 Resolver: asmurali       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: prachakr            Verified Confidence: tested                       
+Verified Date: 03/08/2023 23:49:30      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Preproduction
+Original-activity-when-found :   Customer-Preproduction
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   0
+Tickets-count-direct :            
+Trouble-tickets :              
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/03/2023 16:58:28
+Document :    nexus
+
+Summary:
+CLI CR failing with default radius server configs
+
+CR failing with below configs in running config :
+aaa group server radius radius
+    use-vrf management
+    source-interface mgmt0
+
+radius config in User File :
+radius-server timeout 3
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+aaa group server radius substrate-radius
+    server 172.24.0.68
+
+Issue 2 :
+?Default radius Config showing in run config after remove of non-default sub commands?
+ 
+ 
+Steps :
+ 
+Southlake-3(config)# aaa group server radius radius 
+Southlake-3(config-radius)# source-interface mgmt 0
+Southlake-3(config-radius)# use-vrf management 
+ 
+ 
+ 
+Southlake-3# sh running-config radius 
+ 
+!Command: show running-config radius
+!Running configuration last done at: Tue Dec  6 11:46:50 2022
+!Time: Tue Dec  6 11:46:52 2022
+ 
+version 10.2(4) Bios:version 05.47 
+aaa group server radius radius 
+    use-vrf management
+    source-interface mgmt0
+ 
+ 
+Southlake-3# 
+ 
+ 
+Southlake-3# configure terminal 
+Enter configuration commands, one per line. End with CNTL/Z.
+Southlake-3(config)# aaa group server radius radius 
+Southlake-3(config-radius)# no     use-vrf management
+Southlake-3(config-radius)# no     source-interface mgmt0
+Southlake-3(config-radius)# end
+Southlake-3# sh running-config radius 
+ 
+!Command: show running-config radius
+!Running configuration last done at: Tue Dec  6 11:47:32 2022
+!Time: Tue Dec  6 11:47:35 2022
+ 
+version 10.2(4) Bios:version 05.47 
+aaa group server radius radius --------? should have removed from run config as it?s a default config
+ 
+ 
+Southlake-3#
+
+******************* Related Service Requests (0 of 0)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-379005                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (15 of 15 ) ***********************
+
+---Start of Note Titled: R-comments.p3 (Created 06/28/2023 11:17:41 Added 06/28/2023 11:17:41 by asmurali)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+done and fixed in kerry
+---End of Note Titled: R-comments.p3---
+
+
+---Start of Note Titled: Sanity_kerry (Created 06/27/2023 20:47:16 Added 06/27/2023 20:47:16 by asmurali)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity73
+Testbed  name       : sanity73-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases   : 63
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/asmurali/499211
+Report file         : /auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls-sanity73.report
+logfile             : /auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls-sanity73.log
+Test start time     : 2023_06_27_10_24_34
+Test End time       : 2023_06_27_15_37_26
+Test Duration       : 5:12:52.104326
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '499211', '-cdet', 'CSCwd81099', '-build', '/ws/asmurali-sjc/nxos64-cs.10.2.5.68.Mnewradclicommit.bin', '-testsuite', '/auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls.yml', '-testbed', 'sanity73-testbed.yml', '-asic', 'tah', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'asmurali', '-logfile', '/auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls-sanity73.log', '-reportfile', '/auto/nxos-sanity/logs/asmurali/499211/base_sanity_uls-sanity73.report', '-jobid', 'TAH'] 
+Job Info           : "Basic_Sanity" Report: Job-id:TAH Passed:63/63  Failed:0/63  Aborted:0/63  Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:21   
+testBootTime                                                              pass      0:00:21   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:24   
+testL3DhcpRelayv4                                                         pass      0:03:22   
+testL3DhcpRelayv6                                                         pass      0:02:33   
+testSviDhcpRelayv4                                                        pass      0:03:46   
+testSviDhcpRelayv6                                                        pass      0:03:00   
+testPTPMulticast                                                          pass      0:09:42   
+testPTPChangeL3ToL2AccessNonDefaultVlan                                   pass      0:19:02   
+testPTPMulticastSVIAccess                                                 pass      0:09:56   
+testStaticRoute                                                           pass      0:00:41   
+testLacpShutNoshut                                                        pass      0:04:45   
+testSubPortChannelShutNoshut                                              pass      0:02:54   
+testL2BridgingTrunk                                                       pass      0:01:50   
+testBgpv4                                                                 pass      0:04:02   
+testCdp                                                                   pass      0:01:40   
+testLLDP                                                                  pass      0:00:59   
+testSviVrf                                                                pass      0:03:22   
+testIpv6Interface                                                         pass      0:00:55   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:19   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:54   
+testL2SanityMacLearning                                                   pass      0:11:38   
+testL2SanityPortModeChange                                                pass      0:10:29   
+testL2SanityUnconfig                                                      pass      0:00:52   
+testDynamicL2MulticastPC                                                  pass      0:05:05   
+testPimv4                                                                 pass      0:08:43   
+GleanL3toL3V4V6                                                           pass      0:05:01   
+testCopp                                                                  pass      0:17:01   
+testRaclIPv4                                                              pass      0:05:36   
+testSpan                                                                  pass      0:02:47   
+configVxLANVPCEvpn40G                                                     pass      0:18:10   
+testVxLANPeerLearnAccessVPCEvpn40G                                        pass      0:01:17   
+testVxLANBCAccessVPCEvpn40G                                               pass      0:00:30   
+testVxLANL2MCAccessVPCEvpn40G                                             pass      0:00:30   
+testVxLANUUCAccessVPCEvpn40G                                              pass      0:00:30   
+testVxLANUCAccessVPCEvpn40G                                               pass      0:01:14   
+testVxLANUCIPv6AccessVPCEvpn40G                                           pass      0:00:45   
+testVxLANUCNonIPAccessVPCEvpn40G                                          pass      0:00:45   
+testVxLANPeerLearnTrunkVPCEvpn40G                                         pass      0:01:17   
+testVxLANBCTrunkVPCEvpn40G                                                pass      0:00:30   
+testVxLANL2MCTrunkVPCEvpn40G                                              pass      0:00:30   
+testVxLANUUCTrunkVPCEvpn40G                                               pass      0:00:30   
+testVxLANUCTrunkVPCEvpn40G                                                pass      0:01:14   
+testVxLANUCIPv6TrunkVPCEvpn40G                                            pass      0:00:44   
+testVxLANUCNonIPTrunkVPCEvpn40G                                           pass      0:00:45   
+testNestedVxLANBCTrunkVPCEvpnL240G_1                                      pass      0:00:30   
+testNestedVxLANMCTrunkVPCEvpnL240G_1                                      pass      0:00:30   
+testNestedVxLANUCBCVPCEvpnL240G_1                                         pass      0:00:30   
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G                                     pass      0:01:37   
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G                                     pass      0:01:37   
+testVxLANL3IPv4L3VnidVPCEvpn40G                                           pass      0:01:37   
+testVxLANL3IPv6L3VnidVPCEvpn40G                                           pass      0:01:37   
+testNestedVxLANVPCEvpnL3IPv440G_1                                         pass      0:01:37   
+testNestedVxLANVPCEvpnL3IPv640G_1                                         pass      0:01:37   
+testVxLANSnoopMCTrunkVPCsEvpn40G                                          pass      0:03:51   
+testVxLANChangeNveVniTrunkVPCEvpn40G                                      pass      0:13:56   
+testVxLANFlapNveVPCEvpn40G                                                pass      0:17:10   
+testVxLANPeerLinkFlapStimuliVPCEvpn40G                                    pass      0:07:53   
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G                             pass      0:17:13   
+unconfigVxLANVPCEvpn40G                                                   pass      0:11:39   
+testGoldDiagnostic                                                        pass      0:00:36   
+testCores                                                                 pass      0:00:04   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+bootscripts                 39.0  10:34:17.00  10:34:56.00 
+sysmgr_bootup                4.2  10:34:56.00  10:35:00.25 
+pfm_init                     5.0  10:35:00.00  10:35:05.00 
+lcm_init                     6.5  10:35:05.00  10:35:11.58 
+module_insert               35.1  10:35:11.58  10:35:46.74 
+sup_online                   0.1  10:35:46.75  10:35:46.89 
+lc_online                   56.1  10:35:47.68  10:36:43.86 
+pss_acfg                     0.1  10:36:43.86  10:36:44.05 
+kernel                       4.0  17:34:07.50  17:34:11.50 
+----------------------------------------------------------
+full_boot                  157.5  10:34:07.00  10:36:44.05 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            14.95 |            4.0 | PASS   |
+| bootscripts   |             46.0 |           39.0 | PASS   |
+| sysmgr_bootup |            4.715 |            4.2 | PASS   |
+| pfm_init      |             5.75 |            5.0 | PASS   |
+| sup_online    |            0.115 |            0.1 | PASS   |
+| lcm_init      |             5.52 |            6.5 | SKIP   |
+| module_insert |           35.535 |           35.1 | PASS   |
+| lc_online     |            89.01 |           56.1 | PASS   |
+| pss_acfg      |            0.115 |            0.1 | PASS   |
+| full_boot     |           208.38 |          157.5 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: Sanity_kerry---
+
+
+---Start of Note Titled:  Unit-test-kerry.p2 (Created 06/27/2023 10:25:25 Modified 06/27/2023 10:25:52 by asmurali)---
+switch(config-radius)# aaa group server radius radius
+switch(config-radius)# no  deadtime 4
+switch(config-radius)# no use-vrf management
+switch(config-radius)# no source-interface mgmt0
+switch(config-radius)# show run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Jun 27 21:08:35 2023
+!Time: Tue Jun 27 21:08:39 2023
+
+version 10.2(6) Bios:version 05.47 
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+ 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius substrate-radius 
+    server 172.24.0.68 
+aaa group server radius rad1 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius radius_2 
+    server 1.1.1.1 
+aaa group server radius rad_new 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config-radius)# 
+
+switch# show run | in boot
+boot nxos bootflash:/nxos64-cs.10.2.5.68.Mnewradclicommit.bin 
+switch# confi gt
+              ^
+% Invalid command at '^' marker.
+switch# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# show run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Jun 27 21:10:28 2023
+!Time: Tue Jun 27 22:42:01 2023
+
+version 10.2(6) Bios:version 05.47 
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+ 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius substrate-radius 
+    server 172.24.0.68 
+aaa group server radius rad1 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius radius_2 
+aaa group server radius rad_new 
+    server 1.1.1.1 
+
+
+!Command: show running-config
+!Running configuration last done at: Tue Jun 27 22:42:43 2023
+!Time: Tue Jun 27 22:42:53 2023
+
+version 10.2(6) Bios:version 05.47
+switchname switch
+vdc switch id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+
+username admin password 5 $5$MFODEF$6jQ5Maf.HY8.4jHsp/PIa.qBLA6q.d03WcOcrW.DMuA  
+ role network-admin
+ip domain-lookup
+radius-server timeout 3
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+aaa group server radius substrate-radius
+    server 172.24.0.68
+"aadiff" 178 lines, 3512 characters written
+bash-4.4$ exit
+exit
+switch(config)# configure replace bootflash:aadiff
+
+Version match between user file and running configuration.
+Pre-check for User config PASSED
+ADVISORY: Config Replace operation started...
+Modifying running configuration from another VSH terminal in parallel
+is not recommended, as this may lead to Config Replace failure.
+
+Collecting Running-Config
+Generating Rollback patch for switch profile
+Rollback Patch is Empty
+Collecting Running-Config
+Generating Rollback Patch
+Executing Rollback Patch 
+During CR operation,will retain L3 configuration
+when vrf member change on interface
+2023 Jun 27 22:43:58 switch %$ VDC-1 %$ %SECURITYD-2-FEATURE_ENABLE_DISABLE: User  has disabled the feature bash-shell
+Generating Running-config for verification
+Generating Rollback Patch
+
+Configure replace completed successfully. Please run 'show config-replace log exec' to see if there is any configuration that requires reload to take effect.
+
+switch(config)# 
+
+3
+
+Time: Tue Jun 27 22:45:22 2023
+
+version 10.2(6) Bios:version 05.47 
+radius-server timeout 3
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+ 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius substrate-radius 
+    server 172.24.0.68 
+aaa group server radius rad1 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius rad_new 
+
+
+switch(config-radius)# no aaa group server radius rad_new 
+switch(config)# show run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Jun 27 22:45:29 2023
+!Time: Tue Jun 27 22:45:32 2023
+
+version 10.2(6) Bios:version 05.47 
+radius-server timeout 3
+radius-server retransmit 2
+radius-server deadtime 3
+radius-server host 172.24.0.68 key 7 "lSFhIT3LA7m^6S9" authentication accounting
+ 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius substrate-radius 
+    server 172.24.0.68 
+aaa group server radius rad1 
+    server 1.1.1.1 
+
+
+!Command: show running-config
+!Running configuration last done at: Tue Jun 27 22:45:29 2023
+!Time: Tue Jun 27 22:45:45 2023
+
+version 10.2(6) Bios:version 05.47
+switchname switch
+vdc switch id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+
+username admin password 5 $5$MFODEF$6jQ5Maf.HY8.4jHsp/PIa.qBLA6q.d03WcOcrW.DMuA  
+ role network-admin
+ip domain-lookup
+aaa group server radius rad_new
+server 1.1.1.1
+deadtime 4
+use-vrf management
+source-interface mgmt0
+
+"kdiff" 174 lines, 3288 characters written
+bash-4.4$ exit
+exit
+switch(config)# configure replace bootflash:kdiff
+
+Version match between user file and running configuration.
+Pre-check for User config PASSED
+ADVISORY: Config Replace operation started...
+Modifying running configuration from another VSH terminal in parallel
+is not recommended, as this may lead to Config Replace failure.
+
+Collecting Running-Config
+Generating Rollback patch for switch profile
+Rollback Patch is Empty
+Collecting Running-Config
+Generating Rollback Patch
+Executing Rollback Patch 
+During CR operation,will retain L3 configuration
+when vrf member change on interface
+2023 Jun 27 22:47:46 switch %$ VDC-1 %$ %SECURITYD-2-FEATURE_ENABLE_DISABLE: User  has disabled the feature bash-shell
+Generating Running-config for verification
+Generating Rollback Patch
+
+Configure replace completed successfully. Please run 'show config-replace log exec' to see if there is any configuration that requires reload to take effect.
+
+switch(config)#
+---End of Note Titled: Unit-test-kerry.p2---
+
+
+---Start of Note Titled: M-comments.p2 (Created 06/12/2023 20:44:09 Added 06/12/2023 20:44:09 by masaxena)---
+Kerry
+---End of Note Titled: M-comments.p2---
+
+
+---Start of Note Titled: R-comments.p2 (Created 03/29/2023 05:04:40 Added 03/29/2023 05:04:40 by pradepan)---
+1. RCA: Root cause of the problem. Config replace was failing with default radius server configs. Deleting the default radius group 'radius' shouldn't have been not allowed but it was happening and causing this issue.
+
+2. Proposed Fix and testing consideration: 
+Deleting the default radius group 'radius' is not allowed. To achieve the same, now setting its children configuration to their default values. It would take the 'radius' group off the running-config. The child config 'server' is neither allowed to be deleted nor added to the 'radius' group - child config 'server' is not displayed in running-config under the group 'radius' - hence child config 'server' need not to be deleted/defaulted from 'radius' group. 
+
+3. Platform and Applicable releases: N9k, nr3f, IMR11
+4. Digitization?: Yes.
+5. Debuggability:Please refer to UT doc for details.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: M-comments (Created 03/27/2023 07:38:29 Added 03/27/2023 07:38:29 by pradepan)---
+Need to double commit this fix to IMR11 as well.
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled:  static-analysis-IMR11 (Created 03/27/2023 07:31:20 Modified 03/27/2023 07:36:00 by pradepan)---
+<</nobackup/pradepan/imr_9_3_11_8_ws>> sjc-ads-7596 $ precommit -sa
+-bash: precommit: command not found
+<</nobackup/pradepan/imr_9_3_11_8_ws>> sjc-ads-7596 $ acme precommit -sa
+NOTE: Merge conflict check is off for speed, commit will do the check ...
+Proceeding to get changeset information ...
+
+Component: feature/security/radius
+  Comp version:  irvine/25
+  Target branch: irvine
+  Change ID:     <not set>
+    Please enter one or more change or defect id's on the next line
+      ("q"=quit): CSCwd81099
+    
+    ERROR: Commit access denied, restriction file(s) detected:
+    ERROR:   RestrictedToBugs-irvine
+    ERROR: You are not allowed to use the change id "CSCwd81099" to commit.
+    ERROR: Contact your component owners or local release team for access.
+    Problems validating the given defect/change id(s)
+    Proceed to use the currently unvalidated change id(s)? (yes/no) [n] yes
+    Using change id(s) as requested ... proceeding to comment entry
+
+    Your comment should have at least 1 characters and not more than 2048
+    characters, and every comment line should be less than 72 characters.
+    Press <Return> to start your editor.
+    Invoking editor ...
+      vi /tmp/precom.60901
+Error detected while processing /users/pradepan/.vimrc:
+line   37:
+E538: No mouse support: mouse=a
+Press ENTER or type command to continue
+    =============== New log text ===============
+CSCwd81099 CLI CR failing with default radius server configs
+    =============== end log text ===============
+    Formatted log differs from original text. Use it? (yes/no/quit) [y] 
+
+Component: feature/vsh/ascii-cfg
+  Comp version:  irvine/44
+  Target branch: irvine
+  Change ID:     <not set>
+    Please enter one or more change or defect id's on the next line
+      ("q"=quit): CSCwd81099
+    
+    ERROR: Commit access denied, restriction file(s) detected:
+    ERROR:   RestrictedToBugs-irvine
+    ERROR: You are not allowed to use the change id "CSCwd81099" to commit.
+    ERROR: Contact your component owners or local release team for access.
+    Problems validating the given defect/change id(s)
+    Proceed to use the currently unvalidated change id(s)? (yes/no) [n] yes
+    Using change id(s) as requested ... proceeding to comment entry
+
+    Your comment should have at least 1 characters and not more than 2048
+    characters, and every comment line should be less than 72 characters.
+    Press <Return> to start your editor.
+    Invoking editor ...
+      vi /tmp/precom.60901
+Error detected while processing /users/pradepan/.vimrc:
+line   37:
+E538: No mouse support: mouse=a
+Press ENTER or type command to continue
+    =============== New log text ===============
+CSCwd81099 CLI CR failing with default radius server configs
+    =============== end log text ===============
+    Formatted log differs from original text. Use it? (yes/no/quit) [y] 
+
+Proceeding to check any commit restrictions ...
+This is not a nested workspace 
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/03272023/acme-precommit-pradepan-sjc-ads-7596-07-28-57-61976.log 
+ 
+[ Mar-27-2023 7:29:6 ][acme_pre_commit_prews--(eval)]In sa_check.pl 
+[acme_pre_commit_prews--main::SAcheck]Performing static analysis checks ...
+
+[acme_pre_commit_prews--main::SAcheck]SA report(s) was not found for these files:
+
+ins/x86e/final/libacfg_repl/sup/acfg_replace_cb.lo
+ins/x86e/final/radiusd/sup/radius_mts.o
+
+[acme_pre_commit_prews--main::SAcheck]Running cmd:
+    static_dcos -f /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/safiles/pradepan.1679927348 -branch irvine
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws ===
+[static_dcos]This is the start of static_dcos
+Stripping top_level_sa log 
+Please check /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/top_level_sa.log.big new file /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/top_level_sa.log
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+Migrated branch ..irvine..using -coverity7 
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/safiles/pradepan.1679927348 -branch irvine -cov7  -use_cc_cmd 
+
+ MAP ENTRYES in CUSTOM JSON :3958TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 2 files . It may take 1 minutes:0 seconds .. please wait ..
+Working ins/x86e/final/libacfg_repl/sup/acfg_replace_cb.lo 
+Altered cc_cmd : x86_64-wrs8-linux-g++ -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/vsh/ascii-cfg/libacfg_repl -I../feature/vsh/ascii-cfg/libacfg_repl -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -fno-omit-frame-pointer -g -MP -pipe --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -fpermissive -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -rdynamic -pthread -Wno-error=unused-but-set-variable -std=gnu++0x -Wno-error=conversion-null -Wno-error=switch -idirafter/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux/usr/include/c++/5.2.0/i686-wrs-linux -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-narrowing -Wno-error=unused-local-typedefs -Wno-error=unused-variable -fno-exceptions -fcheck-new -fno-builtin -O1 -rdynamic -fPIC -DPIC -U_IO_MTSAFE_IO -c -MD -MT ins/x86e/final/libacfg_repl/sup/acfg_replace_cb.lo -MF ins/x86e/final/libacfg_repl/sup/acfg_replace_cb.ld -o ins/x86e/final/libacfg_repl/sup/acfg_replace_cb.lo ../feature/vsh/ascii-cfg/libacfg_repl/acfg_replace_cb.cc 
+Working ins/x86e/final/radiusd/sup/radius_mts.o 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/radius -I../feature/security/radius -I../feature/security/tacacs -I../feature/security/aaa/lib -I../infra/system_manager/include -I../feature/security -I../feature/security/dnscache -I../feature/security/dnscache -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../third-party/bin/x86s/openssl/ciscossl-fom-6.2/include -Iins/x86e/final/libctscli/sup -I../include/isan/objstoredefs -I../feature/security/radius -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -DRADIUS_PROTO_LIB -O1 -rdynamic -DDC_OS -DCONDITIONAL_SERVICE -O0 -w -DINS_EOR -rdynamic -c -MD -MT ins/x86e/final/radiusd/sup/radius_mts.o -MF ins/x86e/final/radiusd/sup/radius_mts.o.d -o ins/x86e/final/radiusd/sup/radius_mts.o ../feature/security/radius/radius_mts.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-pradepan.log  -branch nxos/irvine  -command-file-list /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/safiles/command_file_list.pradepan.63551  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-pradepan.log
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+SESTOOLS-001-008I>/ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/feature/vsh/ascii-cfg/libacfg_repl/acfg_replace_cb.cc (no ASTs) (failure)
+SESTOOLS-001-008I>/ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/feature/security/radius/radius_mts.c
+WARN - Coverity reported (no ASTs) on some source file(s) listed below. Please check http://wikicentral.cisco.com/display/CSTATIC/Coverity+7.5+FAQ
+INFO - stream_name-> irvine-pradepan
+WARN - security tag -> https
+INFO - Created stream irvine-pradepan
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 1
+Total parent warnings: 8
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8443/query/defects.htm?stream=irvine-pradepan&cid=357431&cid=63874&cid=26647&cid=25033
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/pradepan/irvine-pradepan_20230327_143012/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+Stripping top_level_sa log 
+Please check /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/top_level_sa.log.big new file /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/top_level_sa.log
+SA PASSED2:
+  feature/vsh/ascii-cfg/libacfg_repl/acfg_replace_cb.cc
+  feature/security/radius/radius_mts.c
+SESLOG = /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/ses_static_analysis.log
+dirname = /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build
+sa_passed_home = /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/pctmp/pass
+parent warnings can be seen at:
+	https://nxops-sa-5.cisco.com:8443/query/defects.htm?stream=irvine-pradepan&cid=357431&cid=26647&cid=26647&cid=26647&cid=26647&cid=26647&cid=26647&cid=25033 
+
+noise warnings can be seen at:
+	https://nxops-sa-5.cisco.com:8443/query/defects.htm?stream=irvine-pradepan&cid=63874 
+
+[static_dcos--main::debug_print]See /ws/wit2-sjck/users/pradepan/space_pradepan_imr_9_3_11_8_ws/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/03272023/acme-precommit-pradepan-sjc-ads-7596-07-28-57-61976.log 
+ 
+  No SA issues were found
+Exiting sa for precommit.
+
+Disaling precommit check. No longer active scope
+
+Proceeding to validate changeset information ...
+
+Current commit readiness of your proposed changeset:
+
+Component: feature/security/radius
+  Component Level Commit Issues:
+    * Commit access is denied:
+        
+      Restriction file(s) detected:
+        RestrictedToBugs-irvine
+      You are not allowed to use the change id "CSCwd81099" to commit.
+      Contact your component owners or local release team for access.
+  Changeset Commit Summary:
+    * Commit is not possible because you have unresolved issues
+      -> No changes will be committable due to the above component level  <-
+      -> issues.  Addtional UNCOMMITTABLE element level issues, if any,   <-
+      -> must also be resolved.                                           <-
+      cli/radius_tree.cmd: committable
+      export/isan/radius_conf_intf.h: committable
+      radius_mts.c: committable
+
+Component: feature/vsh/ascii-cfg
+  Component Level Commit Issues:
+    * Commit access is denied:
+        
+      Restriction file(s) detected:
+        RestrictedToBugs-irvine
+      You are not allowed to use the change id "CSCwd81099" to commit.
+      Contact your component owners or local release team for access.
+  Changeset Commit Summary:
+    * Commit is not possible because you have unresolved issues
+      -> No changes will be committable due to the above component level  <-
+      -> issues.  Addtional UNCOMMITTABLE element level issues, if any,   <-
+      -> must also be resolved.                                           <-
+      libacfg_repl/acfg_replace_cb.cc: committable
+Policy check: cid/bugid commit enclosure validation: passed
+Policy check: cid/bugid commit severity validation: passed
+<</nobackup/pradepan/imr_9_3_11_8_ws>> sjc-ads-7596 $
+---End of Note Titled: static-analysis-IMR11---
+
+
+---Start of Note Titled: V-comments (Created 03/08/2023 23:49:30 Added 03/08/2023 23:49:30 by prachakr)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.3(2)IMG9(0.118)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+
+10.3(2)IMG9(0.118)
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2Fdcbg-nx-pi%2FNEW_PYATS%2Fusers%2Fprachakr%2Farchive%2F23-03%2Fcr_job.2023Mar09_13:01:13.407351.zip&atstype=ATS
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: IMR10-TBP-Eval (Created 01/04/2023 05:23:26 Added 01/04/2023 05:23:26 by vasagraw)---
+The customer was using default AAA/RADIUS group named 'radius' for authentication; and with that there was a specific Config-Replace use-case, which did not work. No issue with authentication as such with group 'radius', but a Config-Replace issue. The use of group 'radius' for authentication itself is not a common practise.
+
+A customer (OCI) specific Config-Replace use case, which is not commonly used. The fix involves changes around running-config generation as well, not advisable so late in IMR10. A day-1 behaviour impacting other branches as well. Would port in IMR11 -
+---End of Note Titled: IMR10-TBP-Eval---
+
+
+---Start of Note Titled:  Scrubnote (Created 12/18/2022 10:18:25 Modified 06/28/2023 09:20:15 by cms)---
+{230622 anikunna S B} Revised ETA: 6/28
+{230613 anikunna S B} KR6M ETA: 6/21
+{230424 masaxena S R} - Target KR6M
+{230328 pradepan D B} PRRQ modified
+{230110 tdenotte S B} TBP-OK
+{230109 palshanm S B} Assigned to Pranjal for automation
+{230105 pbhavesh S B} IMR10-TBP-eval enclosure is added and need escalation team to review and approve TBP
+{221214 samuel2 S B} IMR10 : Thomas to check with Viral 
+{221213 anikunna S B} Commit process initiated
+{221212 anikunna S B} Fix under test
+{221210 anikunna S B} Working on the fixes
+{221208 anikunna S B} Day-1 behaviour - Needs fix for 2 issues. Involved changes.
+{221207 masaxena S R} Please add relevant attribute for kr5m
+{221207 anikunna S B} Discussing with submitter on the behaviour
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: R-comments (Created 12/14/2022 19:20:41 Added 12/14/2022 19:20:41 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Eng-note (Created 12/13/2022 21:38:15 Added 12/13/2022 21:38:15 by vasagraw)---
+The fix is needed for OCI primarily. It is a day-1 behaviour and an OCI specific use case. Due to being the last minute change, IMR commit will be done post IMR10 -
+---End of Note Titled: Eng-note---
+
+
+---Start of Note Titled: Unit-test (Created 12/12/2022 07:21:28 Added 12/12/2022 07:21:28 by vasagraw)---
+switch(config-radius)# 
+switch(config-radius)# show running-config radius all
+
+!Command: show running-config radius all
+!Running configuration last done at: Thu Feb  3 22:24:22 2022
+!Time: Thu Feb  3 22:25:19 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server test username test password 7 wawy idle-time 0 
+radius-server timeout 5
+radius-server retransmit 1
+radius-server deadtime 0
+no radius-server secure
+radius-server host 1.1.1.1 key 7 "dxg123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.1 tls idle-timeout 600 
+radius-server host 1.1.1.1 test username test password 7 wawy idle-time 0 
+aaa group server radius radius 
+    server 1.1.1.1 
+    deadtime 2
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius rad1 
+    server 1.1.1.1 
+    deadtime 0
+    use-vrf management
+    no source-interface
+
+no ip radius source-interface
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config)# aaa group server radius radius 
+switch(config-radius)# server 1.1.1.1
+Not allowed to add or delete the server to this group
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# no server 1.1.1.1
+specified RADIUS server not found, please configure it using radius-server host ... and then retry
+switch(config-radius)# 
+
+
+
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:24:22 2022
+!Time: Thu Feb  3 22:27:20 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    deadtime 2
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius rad1 
+    server 1.1.1.1 
+    use-vrf management
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config)# 
+switch(config)# aaa group server radius radius 
+switch(config-radius)# 
+switch(config-radius)# no deadtime 2
+switch(config-radius)# no use-vrf management 
+switch(config-radius)# no source-interface mgmt0
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# conf
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:28:41 2022
+!Time: Thu Feb  3 22:28:47 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# aaa group server radius radius
+switch(config-radius)# deadtime 4
+switch(config-radius)# 
+switch(config-radius)# conf
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:28:57 2022
+!Time: Thu Feb  3 22:29:01 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    deadtime 4
+aaa group server radius rad1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config radius all
+
+!Command: show running-config radius all
+!Running configuration last done at: Thu Feb  3 22:28:57 2022
+!Time: Thu Feb  3 22:29:10 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server test username test password 7 wawy idle-time 0 
+radius-server timeout 5
+radius-server retransmit 1
+radius-server deadtime 0
+no radius-server secure
+radius-server host 1.1.1.1 key 7 "dxg123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.1 tls idle-timeout 600 
+radius-server host 1.1.1.1 test username test password 7 wawy idle-time 0 
+aaa group server radius radius 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf default
+    no source-interface
+aaa group server radius rad1 
+    deadtime 0
+    use-vrf default
+    no source-interface
+
+no ip radius source-interface
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# aaa group server radius radius 
+switch(config-radius)# 
+switch(config-radius)# no deadtime 4
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:30:06 2022
+!Time: Thu Feb  3 22:30:10 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# use-vrf management 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:30:20 2022
+!Time: Thu Feb  3 22:30:23 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    use-vrf management
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# use-vrf default 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:30:29 2022
+!Time: Thu Feb  3 22:30:30 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# source-interface mgmt0
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:30:36 2022
+!Time: Thu Feb  3 22:30:37 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    source-interface mgmt0
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# no source-interface 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:30:46 2022
+!Time: Thu Feb  3 22:30:47 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# use-vrf management 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:32:35 2022
+!Time: Thu Feb  3 22:32:36 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    use-vrf management
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# no use-vrf management 
+switch(config-radius)# 
+switch(config-radius)# 
+switch(config-radius)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Feb  3 22:32:42 2022
+!Time: Thu Feb  3 22:32:43 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+
+
+switch(config-radius)# 
+
+
+
+
+************************************
+
+
+
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Feb  4 03:49:19 2022
+!Time: Fri Feb  4 03:49:23 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius radius 
+    deadtime 3
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius rad1 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+aaa group server radius radius_2 
+    server 1.1.1.1 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show diff running-config cr-temp
+*** running-config
+--- User-config
+***************
+*** 18,38 ****
+  username admin password 5 $5$KADPNK$Vtm5BA3tZoCrBfI0omMZrOqaIPkRXpSNCU9.3tyDaJ6  role network-admin
+  username user1 password 5 !  role priv-1
+  username user1 passphrase  lifetime 99999 warntime 14 gracetime 3
+  ip domain-lookup
+  radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+! aaa group server radius radius 
+!     deadtime 3
+!     use-vrf management
+!     source-interface mgmt0
+! aaa group server radius rad1 
+      server 1.1.1.1 
+      deadtime 4
+      use-vrf management
+      source-interface mgmt0
+- aaa group server radius radius_2 
+-     server 1.1.1.1 
+  copp profile strict
+  snmp-server user admin network-admin auth md5 53254189E6BFAB1AC6C70E2D5EA8525F00B1 priv aes-128 00753DF3410943FC361EAABBC463CDD1832B localizedV2key
+  snmp-server user user1 priv-1 
+  rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+  rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+--- 18,32 ----
+  username admin password 5 $5$KADPNK$Vtm5BA3tZoCrBfI0omMZrOqaIPkRXpSNCU9.3tyDaJ6  role network-admin
+  username user1 password 5 !  role priv-1
+  username user1 passphrase  lifetime 99999 warntime 14 gracetime 3
+  ip domain-lookup
+  radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+! aaa group server radius rad_new 
+      server 1.1.1.1 
+      deadtime 4
+      use-vrf management
+      source-interface mgmt0
+  copp profile strict
+  snmp-server user admin network-admin auth md5 53254189E6BFAB1AC6C70E2D5EA8525F00B1 priv aes-128 00753DF3410943FC361EAABBC463CDD1832B localizedV2key
+  snmp-server user user1 priv-1 
+  rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+  rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+switch(config)#  
+switch(config)# 
+switch(config)# configure replace cr-temp show-patch 
+
+Version match between user file and running configuration.
+Pre-check for User config PASSED
+Collecting Running-Config
+Converting to checkpoint file
+Generating Rollback Patch
+
+!!                                                                  
+
+aaa group server radius rad_new
+
+  server 1.1.1.1
+
+  deadtime 4
+
+  use-vrf management
+
+  source-interface mgmt0
+
+no aaa group server radius radius_2
+
+no aaa group server radius rad1
+
+aaa group server radius radius 
+
+ deadtime 0 
+
+ use-vrf default 
+
+ no source-interface 
+
+switch(config)# 
+switch(config)# 
+switch(config)# configure replace cr-temp veri
+verify-and-commit   verify-only         
+switch(config)# configure replace cr-temp verbose 
+
+Version match between user file and running configuration.
+Pre-check for User config PASSED
+ADVISORY: Config Replace operation started...
+Modifying running configuration from another VSH terminal in parallel
+is not recommended, as this may lead to Config Replace failure.
+
+Collecting Running-Config
+Generating Rollback patch for switch profile
+Rollback Patch is Empty
+Collecting Running-Config
+Generating Rollback Patch
+Executing Rollback Patch 
+During CR operation,will retain L3 configuration
+when vrf member change on interface
+========================================================
+
+`config t `
+
+`aaa group server radius rad_new`
+
+`server 1.1.1.1`
+
+`deadtime 4`
+
+`use-vrf management`
+
+`source-interface mgmt0`
+
+`no aaa group server radius radius_2`
+
+`no aaa group server radius rad1`
+
+`aaa group server radius radius `
+
+`deadtime 0 `
+
+`use-vrf default `
+
+`no source-interface `
+
+`exit`
+
+========================================================
+Generating Running-config for verification
+Generating Rollback Patch
+
+Configure replace completed successfully. Please run 'show config-replace log exec' to see if there is any configuration that requires reload to take effect.
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Feb  4 03:50:19 2022
+!Time: Fri Feb  4 03:50:31 2022
+
+version 10.3(1)IM9(0) Bios:version 05.47 
+radius-server host 1.1.1.1 key 7 "dxg123" authentication accounting 
+aaa group server radius rad_new 
+    server 1.1.1.1 
+    deadtime 4
+    use-vrf management
+    source-interface mgmt0
+
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Release-note (Created 12/11/2022 14:11:32 Modified 06/28/2023 11:17:41 by asmurali)---
+Customer specific use case
+
+<B>Symptom:</B>
+1) CLI Config-Replace fails with default 'radius' server group
+2) Default 'radius' entry is shown in running-config even after defaulting/removing its children config
+
+<B>Conditions:</B>
+Config-Replace with the default AAA group named 'radius'
+
+<B>Workaround:</B>
+Use non-default AAA group
+
+<B>Further Problem Description:</B>
+There is a default AAA group named 'radius' which by default adds all the radius servers (radius-server host XXX>) in it.
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: A-comments (Created 12/10/2022 00:50:34 Added 12/10/2022 00:50:34 by anikunna)---
+Pls address
+---End of Note Titled: A-comments---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (26 of 26)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-kerry                                ascii text     8133           asmurali       06/28/2023 11:16:14      
+Diffs-release-kerry                               ascii text     1550           asmurali       06/28/2023 11:16:12      
+ccwarnings-kerry                                  ascii text     298            baas           06/28/2023 10:47:52      
+static-analysis-kerry                             ascii text     9516           baas           06/28/2023 10:47:25      
+nxos-pi-common-security-code-review-3             ascii text     944            prrqengg       06/28/2023 01:39:32      
+Release-note-diff                                 ascii text     667            vasagraw       05/03/2023 04:46:20      
+Diffs-release-irvine                              ascii text     1569           pradepan       03/29/2023 04:52:20      
+Diffs-commit-irvine                               ascii text     8395           pradepan       03/29/2023 04:52:18      
+ccwarnings-irvine                                 ascii text     298            baas           03/29/2023 04:24:11      
+static-analysis-irvine                            ascii text     11204          baas           03/29/2023 04:23:59      
+nxos-pi-common-security-code-review-2             ascii text     940            prrqengg       03/28/2023 02:43:51      
+unit-test-IMR11-CR-rad                            ascii text     39559          pradepan       03/27/2023 07:26:29      
+N39K-QA-CFD-Script-Reviews-code-review            ascii text     943            prrqengg       01/30/2023 05:47:20      
+base_sanity_uls_sanity_report                     ascii text     9576           root           06/27/2023 15:37:38      
+base_sanity_uls_sanity_baseline_compare           ascii text     219            root           06/27/2023 15:37:38      
+Diffs-commit-nr3f_dev                             ascii text     4950           vasagraw       12/14/2022 13:32:41      
+ccwarnings-nr3f_dev.p2                            ascii text     310            baas           12/14/2022 02:47:36      
+static-analysis-nr3f_dev.p2                       ascii text     9676           baas           12/14/2022 02:47:22      
+code-review-nr3f_dev                              ascii text     512            vasagraw       12/14/2022 02:30:37      
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           12/12/2022 14:45:41      
+checkin_l2_uls_sanity_report                      ascii text     5077           root           12/12/2022 14:45:41      
+l2_uls_sanity_baseline_compare                    ascii text     219            root           12/12/2022 12:55:06      
+l2_uls_sanity_report                              ascii text     4905           root           12/12/2022 12:55:06      
+ccwarnings-nr3f_dev                               ascii text     310            baas           12/12/2022 10:06:53      
+static-analysis-nr3f_dev                          ascii text     9627           baas           12/12/2022 10:06:38      
+Email Communication.txt                           binary         20206          prachakr       12/06/2022 22:15:14      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+09/19/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/19/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/30/2026 satdr    	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-manojohn i	Mod
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/19/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+01/19/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+08/05/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+04/01/2025 pisces   	VF-unpatched            	NX-OS:4.2(1)SV1(4),NX-OS:4.2(	                             	Del
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/01/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/01/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+04/01/2025 pisces   	Potentially-affected-rel	4.2(1)SV1(4),4.2(1)SV1(4a),4.	                             	Del
+02/14/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-379005       	New
+11/10/2024 pisces   	VF-patched              	                             	NX-OS:10.3(3)                	New
+11/10/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+11/10/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/10/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+11/10/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(2)                      	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+02/08/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/08/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+09/14/2023 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/14/2023 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/05/2023 divvenka 	Known-fixed-releases    	                             	10.2(6)                      	New
+08/28/2023 divvenka 	Integrated-releases     	                             	10.4(1)                      	New
+08/28/2023 divvenka 	Known-fixed-releases    	                             	10.4(1)                      	New
+08/18/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/18/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/06/2023 prachakr 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+07/06/2023 prachakr 	Verified-release        	                             	10.2(5.75)                   	New
+07/06/2023 prachakr 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/06/2023 prachakr 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/06/2023 prachakr 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/06/2023 prachakr 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/04/2023 divvenka 	Known-fixed-releases    	                             	9.3(12)                      	New
+06/28/2023 divvenka 	Integrated-releases     	                             	10.2(5.72),10.2(6)           	New
+06/28/2023 asmurali 	Note Title              	                             	R-comments.p3                	New
+06/28/2023 asmurali 	Status-desc             	M-More                       	R-Resolved                   	Mod
+06/28/2023 asmurali 	Status                  	M                            	R                            	Mod
+06/28/2023 asmurali 	Resolver                	pradepan                     	asmurali                     	Mod
+06/28/2023 asmurali 	Resolved-on             	2023-03-29 12:04:40.000+0000 	2023-06-28 18:17:41.000+0000 	Mod
+06/28/2023 asmurali 	statusStates            	                             	[status=M, startDate=Tue Jun 	New
+06/28/2023 asmurali 	statusStates            	[status=M, startDate=Tue Jun 	                             	Del
+06/28/2023 asmurali 	Age-status              	188                          	203                          	Mod
+06/28/2023 asmurali 	Mean-time-to-resolved   	112                          	203                          	Mod
+06/28/2023 asmurali 	File Name               	                             	Diffs-commit-kerry           	New
+06/28/2023 asmurali 	File Name               	                             	Diffs-release-kerry          	New
+06/28/2023 baas     	File Name               	                             	ccwarnings-kerry             	New
+06/28/2023 baas     	File Name               	                             	static-analysis-kerry        	New
+06/28/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/28/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+06/28/2023 prrqengg 	FileSize                	942                          	944                          	Mod
+06/27/2023 asmurali 	Note Title              	                             	Sanity_kerry                 	New
+06/27/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+06/27/2023 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+06/27/2023 root     	FileSize                	8994                         	9576                         	Mod
+06/27/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/27/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+06/27/2023 prrqengg 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/27/2023 prrqengg 	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+06/27/2023 prrqengg 	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+06/27/2023 prrqengg 	Report-product-used     	n9k-standalone-sw            	                             	Mod
+06/27/2023 asmurali 	Note Title              	Unit-test.p2                 	Unit-test-kerry.p2           	Mod
+06/27/2023 asmurali 	Note Title              	                             	Unit-test.p2                 	New
+06/27/2023 asmurali 	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/27/2023 asmurali 	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+06/16/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0)               	New
+06/16/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0.2)             	New
+06/16/2023 divvenka 	Apply-to                	                             	10.4(1)IMG9(0.2)             	New
+06/13/2023 jdasgupt 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+06/12/2023 masaxena 	Note Title              	                             	M-comments.p2                	New
+06/12/2023 masaxena 	Status-desc             	R-Resolved                   	M-More                       	Mod
+06/12/2023 masaxena 	Status                  	R                            	M                            	Mod
+06/12/2023 masaxena 	More-by                 	pradepan                     	masaxena                     	Mod
+06/12/2023 masaxena 	More-on                 	2023-03-27 14:38:29.000+0000 	2023-06-13 03:44:09.000+0000 	Mod
+06/12/2023 masaxena 	statusStates            	                             	[status=R, startDate=Wed Mar 	New
+06/12/2023 masaxena 	statusStates            	[status=R, startDate=Wed Mar 	                             	Del
+06/12/2023 masaxena 	Age-status              	112                          	188                          	Mod
+06/09/2023 mukamath 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+05/31/2023 divvenka 	Integrated-releases     	                             	10.2(2)TST32(0.84)           	New
+05/31/2023 divvenka 	Apply-to                	                             	10.2(2)TST32(0.84)           	New
+05/18/2023 anikunna 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+05/12/2023 prachakr 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+05/12/2023 prachakr 	Verified-release        	                             	9.3(11.26)                   	New
+05/12/2023 prachakr 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/10/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0)               	New
+05/10/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0.4)             	New
+05/10/2023 divvenka 	Apply-to                	                             	10.4(0)IMG9(0.4)             	New
+05/10/2023 fas      	Integrated-releases     	                             	10.3(3)                      	New
+05/10/2023 fas      	Known-fixed-releases    	                             	10.3(3)                      	New
+05/03/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+05/03/2023 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+05/03/2023 cdetsbtk 	Security-screening-times	2023-04-29 13:25:40.000+0000 	2023-05-03 23:58:28.000+0000 	Mod
+05/03/2023 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+05/03/2023 vasagraw 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+05/03/2023 vasagraw 	contents                	                             	Release-note-diff            	Mod
+05/03/2023 vasagraw 	FileSize                	544                          	667                          	Mod
+05/03/2023 vasagraw 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+04/28/2023 cdetsbtk 	Security-screening-times	2023-04-25 03:55:10.000+0000 	2023-04-29 13:25:40.000+0000 	Mod
+04/28/2023 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+04/28/2023 vasagraw 	File Name               	                             	Release-note-diff            	New
+04/28/2023 vasagraw 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/28/2023 vasagraw 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/28/2023 vasagraw 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/28/2023 vasagraw 	Justification           	                             	Customer specific use case   	Mod
+04/28/2023 vasagraw 	Symptoms                	                             	1) CLI Config-Replace fails w	Mod
+04/28/2023 vasagraw 	Conditions              	                             	Config-Replace with the defau	Mod
+04/28/2023 vasagraw 	Workarounds             	                             	Use non-default AAA group    	Mod
+04/28/2023 vasagraw 	Further-Problem-Descript	                             	There is a default AAA group 	Mod
+04/26/2023 divvenka 	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+04/24/2023 cdetsbtk 	Security-screening-times	2023-03-30 02:26:40.000+0000 	2023-04-25 03:55:10.000+0000 	Mod
+04/24/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/29/2023 divvenka 	Integrated-releases     	                             	9.3(11.10),9.3(12)           	New
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-29 19:04:40.000+0000 	2023-03-30 02:26:40.000+0000 	Mod
+03/29/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-29 18:52:21.000+0000 	2023-03-29 19:04:40.000+0000 	Mod
+03/29/2023 pradepan 	Note Title              	                             	R-comments.p2                	New
+03/29/2023 pradepan 	Status-desc             	M-More                       	R-Resolved                   	Mod
+03/29/2023 pradepan 	Status                  	M                            	R                            	Mod
+03/29/2023 pradepan 	Resolver                	vasagraw                     	pradepan                     	Mod
+03/29/2023 pradepan 	Resolved-on             	2022-12-15 03:20:41.000+0000 	2023-03-29 12:04:40.000+0000 	Mod
+03/29/2023 pradepan 	statusStates            	                             	[status=M, startDate=Mon Mar 	New
+03/29/2023 pradepan 	statusStates            	[status=M, startDate=Mon Mar 	                             	Del
+03/29/2023 pradepan 	Age-status              	110                          	112                          	Mod
+03/29/2023 pradepan 	Mean-time-to-resolved   	7                            	112                          	Mod
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-29 18:52:19.000+0000 	2023-03-29 18:52:21.000+0000 	Mod
+03/29/2023 pradepan 	File Name               	                             	Diffs-release-irvine         	New
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-29 18:24:13.000+0000 	2023-03-29 18:52:19.000+0000 	Mod
+03/29/2023 pradepan 	File Name               	                             	Diffs-commit-irvine          	New
+03/29/2023 pradepan 	Multi-commit-flag       	                             	Y                            	Mod
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-29 18:24:00.000+0000 	2023-03-29 18:24:13.000+0000 	Mod
+03/29/2023 baas     	File Name               	                             	ccwarnings-irvine            	New
+03/29/2023 cdetsbtk 	Security-screening-times	2023-03-28 16:43:52.000+0000 	2023-03-29 18:24:00.000+0000 	Mod
+03/29/2023 baas     	File Name               	                             	static-analysis-irvine       	New
+03/28/2023 cdetsbtk 	Security-screening-times	2023-03-28 12:31:52.000+0000 	2023-03-28 16:43:52.000+0000 	Mod
+03/28/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+03/28/2023 prrqengg 	FileSize                	938                          	940                          	Mod
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-28 11:55:21.000+0000 	2023-03-28 12:31:52.000+0000 	Mod
+03/27/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+03/27/2023 prrqengg 	FileSize                	940                          	938                          	Mod
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-27 21:40:32.000+0000 	2023-03-28 11:55:21.000+0000 	Mod
+03/27/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+03/27/2023 prrqengg 	FileSize                	938                          	940                          	Mod
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-27 21:38:30.000+0000 	2023-03-27 21:40:32.000+0000 	Mod
+03/27/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-27 21:36:01.000+0000 	2023-03-27 21:38:30.000+0000 	Mod
+03/27/2023 pradepan 	Note Title              	                             	M-comments                   	New
+03/27/2023 pradepan 	Status-desc             	V-Verified                   	M-More                       	Mod
+03/27/2023 pradepan 	Status                  	V                            	M                            	Mod
+03/27/2023 pradepan 	More-by                 	vasagraw                     	pradepan                     	Mod
+03/27/2023 pradepan 	More-on                 	2022-12-15 03:20:41.000+0000 	2023-03-27 14:38:29.000+0000 	Mod
+03/27/2023 pradepan 	statusStates            	                             	[status=V, startDate=Thu Mar 	New
+03/27/2023 pradepan 	statusStates            	[status=V, startDate=Thu Mar 	                             	Del
+03/27/2023 pradepan 	Age-status              	92                           	110                          	Mod
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-27 21:31:21.000+0000 	2023-03-27 21:36:01.000+0000 	Mod
+03/27/2023 pradepan 	Note                    	static-analysis-IMR11        	static-analysis-IMR11        	Mod
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-27 21:26:29.000+0000 	2023-03-27 21:31:21.000+0000 	Mod
+03/27/2023 pradepan 	Note Title              	                             	static-analysis-IMR11        	New
+03/27/2023 cdetsbtk 	Security-screening-times	2023-03-09 15:49:31.000+0000 	2023-03-27 21:26:29.000+0000 	Mod
+03/27/2023 pradepan 	File Name               	                             	unit-test-IMR11-CR-rad       	New
+03/08/2023 prachakr 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+03/08/2023 cdetsbtk 	Security-screening-times	2023-01-30 21:47:20.000+0000 	2023-03-09 15:49:31.000+0000 	Mod
+03/08/2023 prachakr 	Note Title              	                             	V-comments                   	New
+03/08/2023 prachakr 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+03/08/2023 prachakr 	Status                  	R                            	V                            	Mod
+03/08/2023 prachakr 	Verified By Employee    	                             	prachakr                     	Mod
+03/08/2023 prachakr 	Verified-release        	                             	10.3(2)IMG9(0.118)           	New
+03/08/2023 prachakr 	Verified-confidence     	                             	tested                       	Mod
+03/08/2023 prachakr 	Verified-on             	                             	2023-03-09 07:49:30.000+0000 	Mod
+03/08/2023 prachakr 	statusStates            	                             	[status=R, startDate=Thu Dec 	New
+03/08/2023 prachakr 	statusStates            	[status=R, startDate=Thu Dec 	                             	Del
+03/08/2023 prachakr 	Age-status              	8                            	92                           	Mod
+03/08/2023 prachakr 	Mean-time-to-verified   	                             	92                           	Mod
+03/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOV9(0)               	New
+03/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOV9(0.118)           	New
+03/07/2023 divvenka 	Apply-to                	                             	10.3(2)IOV9(0.118)           	New
+03/02/2023 divvenka 	Integrated-releases     	                             	10.3(1)IMF9(0.62)            	New
+03/02/2023 divvenka 	Apply-to                	                             	10.3(1)IMF9(0.62)            	New
+02/23/2023 divvenka 	Integrated-releases     	                             	10.2(2)TST32(0)              	New
+02/23/2023 divvenka 	Integrated-releases     	                             	10.2(2)TST32(0.39)           	New
+02/23/2023 divvenka 	Apply-to                	                             	10.2(2)TST32(0.39)           	New
+02/06/2023 divvenka 	Integrated-releases     	                             	16.0(2)TST1(0)               	New
+02/06/2023 divvenka 	Integrated-releases     	                             	16.0(2)TST1(0.83)            	New
+02/06/2023 divvenka 	Apply-to                	                             	16.0(2)TST1(0.83)            	New
+02/06/2023 divvenka 	Integrated-releases     	                             	10.3(1)IMF9(0)               	New
+02/06/2023 divvenka 	Integrated-releases     	                             	10.3(1)IMF9(0.47)            	New
+02/06/2023 divvenka 	Apply-to                	                             	10.3(1)IMF9(0.47)            	New
+01/30/2023 prachakr 	Attribute               	nr3f imr10-tbp cfd-mukamath i	nr3f imr10-tbp cfd-mukamath i	Mod
+01/30/2023 prachakr 	Automated-test          	N                            	Y                            	Mod
+01/30/2023 prachakr 	Test-name               	                             	Automated-5179943-prachakr   	Mod
+01/30/2023 cdetsbtk 	Security-screening-times	2023-01-10 16:50:12.000+0000 	2023-01-30 21:47:20.000+0000 	Mod
+01/30/2023 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+01/24/2023 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0)              	New
+01/24/2023 divvenka 	Integrated-releases     	                             	10.2(2)TST29(0.49)           	New
+01/24/2023 divvenka 	Apply-to                	                             	10.2(2)TST29(0.49)           	New
+01/19/2023 divvenka 	Integrated-releases     	                             	10.3(2)IMG9(0.27)            	New
+01/19/2023 divvenka 	Apply-to                	                             	10.3(2)IMG9(0.27)            	New
+01/13/2023 divvenka 	Integrated-releases     	                             	10.3(2)IMG9(0)               	New
+01/13/2023 divvenka 	Integrated-releases     	                             	10.3(2)IMG9(0.24)            	New
+01/13/2023 divvenka 	Apply-to                	                             	10.3(2)IMG9(0.24)            	New
+01/10/2023 tdenotte 	Attribute               	nr3f imr10-tbp cfd-mukamath  	nr3f imr10-tbp cfd-mukamath i	Mod
+01/10/2023 cdetsbtk 	Security-screening-times	2023-01-09 17:24:08.000+0000 	2023-01-10 16:50:12.000+0000 	Mod
+01/10/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/09/2023 cdetsbtk 	Security-screening-times	2023-01-05 16:18:12.000+0000 	2023-01-09 17:24:08.000+0000 	Mod
+01/09/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/08/2023 jdasgupt 	Attribute               	nr3f imr10-tbp               	nr3f imr10-tbp cfd-mukamath  	Mod
+01/05/2023 cdetsbtk 	Security-screening-times	2023-01-04 21:23:27.000+0000 	2023-01-05 16:18:12.000+0000 	Mod
+01/05/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/04/2023 cdetsbtk 	Security-screening-times	2022-12-19 16:48:34.000+0000 	2023-01-04 21:23:27.000+0000 	Mod
+01/04/2023 vasagraw 	Note Title              	                             	IMR10-TBP-Eval               	New
+12/20/2022 divvenka 	Integrated-releases     	                             	10.3(1)TST37(0)              	New
+12/20/2022 divvenka 	Integrated-releases     	                             	10.2(2)TST37(0.8)            	New
+12/20/2022 divvenka 	Apply-to                	                             	10.2(2)TST37(0.8)            	New
+12/19/2022 cdetsbtk 	Security-screening-times	2022-12-19 12:29:06.000+0000 	2022-12-19 16:48:34.000+0000 	Mod
+12/19/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-19 10:51:52.000+0000 	2022-12-19 12:29:06.000+0000 	Mod
+12/18/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-19 09:23:46.000+0000 	2022-12-19 10:51:52.000+0000 	Mod
+12/18/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-19 05:04:05.000+0000 	2022-12-19 09:23:46.000+0000 	Mod
+12/18/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-19 03:44:27.000+0000 	2022-12-19 05:04:05.000+0000 	Mod
+12/18/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-19 02:18:26.000+0000 	2022-12-19 03:44:27.000+0000 	Mod
+12/18/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/18/2022 cdetsbtk 	Security-screening-times	2022-12-15 11:20:42.000+0000 	2022-12-19 02:18:26.000+0000 	Mod
+12/18/2022 cms      	Note Title              	                             	Scrubnote                    	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-15 08:22:40.000+0000 	2022-12-15 11:20:42.000+0000 	Mod
+12/14/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+12/14/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+12/14/2022 vasagraw 	Status                  	A                            	R                            	Mod
+12/14/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+12/14/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+12/14/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+12/14/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+12/14/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+12/14/2022 vasagraw 	Breakage                	                             	No                           	Mod
+12/14/2022 vasagraw 	Regression              	                             	N                            	Mod
+12/14/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+12/14/2022 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+12/14/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+12/14/2022 vasagraw 	Origin                  	                             	base code                    	Mod
+12/14/2022 vasagraw 	Test-escape             	N                            	Y                            	Mod
+12/14/2022 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+12/14/2022 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+12/14/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+12/14/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+12/14/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+12/14/2022 vasagraw 	Original-resolved-on    	                             	2022-12-15 03:20:41.000+0000 	Mod
+12/14/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+12/14/2022 vasagraw 	More-on                 	                             	2022-12-15 03:20:41.000+0000 	Mod
+12/14/2022 vasagraw 	Opened-on               	                             	2022-12-15 03:20:41.000+0000 	Mod
+12/14/2022 vasagraw 	Resolved-on             	                             	2022-12-15 03:20:41.000+0000 	Mod
+12/14/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Sat Dec 	New
+12/14/2022 vasagraw 	statusStates            	[status=A, startDate=Sat Dec 	                             	Del
+12/14/2022 vasagraw 	Age-status              	3                            	8                            	Mod
+12/14/2022 vasagraw 	Mean-time-to-resolved   	                             	7                            	Mod
+12/14/2022 divvenka 	Integrated-releases     	                             	10.3(1)INC9(0)               	New
+12/14/2022 divvenka 	Integrated-releases     	                             	10.3(1)INC9(0.49)            	New
+12/14/2022 divvenka 	Apply-to                	                             	10.3(1)INC9(0.49)            	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-15 05:32:43.000+0000 	2022-12-15 08:22:40.000+0000 	Mod
+12/14/2022 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+12/14/2022 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-14 18:47:37.000+0000 	2022-12-15 05:32:43.000+0000 	Mod
+12/14/2022 vasagraw 	File Name               	                             	Diffs-commit-nr3f_dev        	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-14 18:47:23.000+0000 	2022-12-14 18:47:37.000+0000 	Mod
+12/14/2022 baas     	File Name               	                             	ccwarnings-nr3f_dev.p2       	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-14 18:30:39.000+0000 	2022-12-14 18:47:23.000+0000 	Mod
+12/14/2022 baas     	File Name               	                             	static-analysis-nr3f_dev.p2  	New
+12/14/2022 cdetsbtk 	Security-screening-times	2022-12-14 13:38:15.000+0000 	2022-12-14 18:30:39.000+0000 	Mod
+12/14/2022 vasagraw 	contents                	                             	code-review-nr3f_dev         	Mod
+12/14/2022 vasagraw 	FileSize                	470                          	512                          	Mod
+12/14/2022 vasagraw 	Code-reviewer           	                             	pradepan                     	New
+12/13/2022 cdetsbtk 	Security-screening-times	2022-12-13 13:57:12.000+0000 	2022-12-14 13:38:15.000+0000 	Mod
+12/13/2022 vasagraw 	Note Title              	                             	Eng-note                     	New
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-13 13:45:02.000+0000 	2022-12-13 13:57:12.000+0000 	Mod
+12/12/2022 vasagraw 	contents                	                             	code-review-nr3f_dev         	Mod
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-13 06:45:42.000+0000 	2022-12-13 13:45:02.000+0000 	Mod
+12/12/2022 vasagraw 	File Name               	                             	code-review-nr3f_dev         	New
+12/12/2022 vasagraw 	Code-reviewer           	                             	rampatel                     	New
+12/12/2022 cms      	Est-fix-date            	2022-12-16 08:00:00.000+0000 	2022-12-14 08:00:00.000+0000 	Mod
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-13 04:55:07.000+0000 	2022-12-13 06:45:42.000+0000 	Mod
+12/12/2022 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+12/12/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-13 02:06:54.000+0000 	2022-12-13 04:55:07.000+0000 	Mod
+12/12/2022 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+12/12/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-13 02:06:40.000+0000 	2022-12-13 02:06:54.000+0000 	Mod
+12/12/2022 baas     	File Name               	                             	ccwarnings-nr3f_dev          	New
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-12 23:21:29.000+0000 	2022-12-13 02:06:40.000+0000 	Mod
+12/12/2022 baas     	File Name               	                             	static-analysis-nr3f_dev     	New
+12/12/2022 samuel2  	Attribute               	nr3f                         	nr3f imr10-tbp               	Mod
+12/12/2022 cdetsbtk 	Security-screening-times	2022-12-12 06:11:32.000+0000 	2022-12-12 23:21:29.000+0000 	Mod
+12/12/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+12/11/2022 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+12/11/2022 cdetsbtk 	Security-screening-times	2022-12-10 16:50:34.000+0000 	2022-12-12 06:11:32.000+0000 	Mod
+12/11/2022 divvenka 	Note Title              	                             	Release-note                 	New
+12/11/2022 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+12/10/2022 cdetsbtk 	Security-screening-times	2022-12-07 14:15:15.000+0000 	2022-12-10 16:50:34.000+0000 	Mod
+12/10/2022 anikunna 	Note Title              	                             	A-comments                   	New
+12/10/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+12/10/2022 anikunna 	Status                  	N                            	A                            	Mod
+12/10/2022 anikunna 	Engineer                	                             	vasagraw                     	Mod
+12/10/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+12/10/2022 anikunna 	Assigned Date           	                             	2022-12-10 08:50:34.000+0000 	Mod
+12/10/2022 anikunna 	statusStates            	                             	[status=N, startDate=Wed Dec 	New
+12/10/2022 anikunna 	statusStates            	[status=N, startDate=Wed Dec 	                             	Del
+12/10/2022 anikunna 	Age-status              	0                            	3                            	Mod
+12/10/2022 anikunna 	Mean-time-to-assigned   	                             	3                            	Mod
+12/08/2022 cms      	Est-fix-date            	                             	2022-12-16 08:00:00.000+0000 	Mod
+12/06/2022 cdetsbtk 	Security-screening-times	2022-12-07 14:14:54.000+0000 	2022-12-07 14:15:15.000+0000 	Mod
+12/06/2022 prachakr 	File Name               	                             	Email Communication.txt      	New
+12/06/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+12/06/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+12/06/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+12/06/2022 cdetsbtk 	Security-screening-times	                             	2022-12-07 14:14:54.000+0000 	Mod
+12/06/2022 prachakr 	Impact                  	                             	Ease-of-Configuring          	New
+12/06/2022 prachakr 	Version                 	                             	10.3(1)INR9(0.31)            	New
+12/06/2022 prachakr 	Defect Created          	                             	                             	New

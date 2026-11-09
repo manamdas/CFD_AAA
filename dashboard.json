@@ -1,0 +1,900 @@
+{
+  "total_bugs": 52,
+  "bugs": [
+    {
+      "bugid": "CSCvm14311",
+      "integrated_releases": []
+    },
+    {
+      "bugid": "CSCvp34494",
+      "integrated_releases": [
+        "9.3(0.158)",
+        "7.0(3)I7(6.10)",
+        "7.0(3)I7(7)",
+        "9.2(3.30)",
+        "9.2(4)",
+        "9.3(1)",
+        "9.3(2)IIU9(0.50)",
+        "9.3(2)IIU9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCvp62539",
+      "integrated_releases": [
+        "9.3(0.316)",
+        "9.3(1)",
+        "9.3(1)ILF9(0.14)",
+        "9.3(1)ILF9(0)"
+      ],
+      "testcase": {
+        "bugid": "CSCvp62539",
+        "testcase_id": "TC_CSCvp62539_QUIET_MODE_PERMITTED_LOCAL_LOGIN",
+        "title": "Permit local Telnet login from the quiet-mode ACL source",
+        "status": "proposed",
+        "source": {
+          "dumpcr_file": "bug_info/bug_CSCvp62539.txt",
+          "bug_summary": "A correct local login to the switch management IP fails from an ACL-permitted host after login quiet-mode is triggered.",
+          "reproduction_transport": "Telnet",
+          "block_parameters": {
+            "block_for_seconds": 100,
+            "failed_attempts": 3,
+            "within_seconds": 60
+          }
+        },
+        "suite": {
+          "job": "src/services/nxpi/security/AAA/aaa_suite/aaa_suite_job.py",
+          "related_trigger_uid": "TriggerSystemLoginBlockQuietModeAccessClass",
+          "related_pyats_class": "SystemLoginBlockQuietModeTest",
+          "integration_note": "The suite already checks quiet-mode ACL behavior over SSH. This testcase captures the bug's specific Telnet-to-management-IP repro and requires the trigger to support that transport and permitted-source sequence."
+        },
+        "objective": "After three failed local authentication attempts trigger quiet-mode, confirm that the same source permitted by the quiet-mode ACL can still authenticate with the correct local password to the DUT management IP.",
+        "preconditions": [
+          "Use an isolated AAA test DUT with Telnet enabled for the test, and restore its configuration after the case.",
+          "The testbed provides a client with a stable source IP that can reach the DUT management IP.",
+          "The client source is included in the quiet-mode ACL; keep the ACL rule scoped to the DUT management address.",
+          "Create or use a dedicated local test user. Obtain its password from the suite secret mechanism, not from this JSON file."
+        ],
+        "configuration_template": [
+          "ip access-list <QUIET_ACL>",
+          "  10 permit ip <PERMITTED_SOURCE_IP> <SOURCE_WILDCARD> <DUT_MGMT_IP> <DUT_MGMT_WILDCARD>",
+          "username <TEST_USER> password <SECRET> role <TEST_ROLE>",
+          "system login block-for 100 attempts 3 within 60",
+          "system login quiet-mode access-class <QUIET_ACL>"
+        ],
+        "steps": [
+          {
+            "step": 1,
+            "action": "Save the DUT's existing AAA, login-block, ACL, and test-user state so cleanup can restore it.",
+            "expected": "The test can remove only the configuration it added and restore prior settings."
+          },
+          {
+            "step": 2,
+            "action": "Apply the scoped ACL, dedicated local test user, block-for threshold (100 seconds, 3 failures within 60 seconds), and quiet-mode access-class.",
+            "expected": "The DUT accepts the configuration and show running-config contains the intended settings."
+          },
+          {
+            "step": 3,
+            "action": "From the ACL-permitted client, make three Telnet login attempts to the DUT management IP using the test username and an incorrect password, completing each prompt exchange within 60 seconds.",
+            "expected": "All three attempts are rejected and the DUT enters quiet-mode."
+          },
+          {
+            "step": 4,
+            "action": "Verify quiet-mode with show system login; record the mode and failure count or show system login failures output.",
+            "expected": "Quiet-mode is active and the failed-attempt threshold was reached."
+          },
+          {
+            "step": 5,
+            "action": "From that same ACL-permitted client, Telnet to the DUT management IP and enter the correct local test-user password.",
+            "expected": "Authentication succeeds and the user reaches the expected NX-OS prompt while quiet-mode remains active. A 'Login incorrect' response is a failure for CSCvp62539."
+          },
+          {
+            "step": 6,
+            "action": "Remove test configuration and restore the saved DUT state, including login-block settings, ACL entries, and test user.",
+            "expected": "The DUT is returned to its pre-test state even if an earlier step failed."
+          }
+        ],
+        "pass_criteria": [
+          "The three invalid attempts trigger quiet-mode.",
+          "The correct local credentials from the ACL-permitted source authenticate to the DUT management IP during quiet-mode.",
+          "Cleanup completes and restores the pre-test configuration."
+        ],
+        "safety": "Run only on an isolated test DUT. The scenario intentionally generates failed logins and changes login-block/ACL configuration."
+      }
+    },
+    {
+      "bugid": "CSCvq73077",
+      "integrated_releases": [
+        "7.0(3)I7(6.92)",
+        "7.0(3)I7(7)",
+        "9.3(1.19)",
+        "9.3(2)"
+      ]
+    },
+    {
+      "bugid": "CSCvq91933",
+      "integrated_releases": []
+    },
+    {
+      "bugid": "CSCvq95571",
+      "integrated_releases": [
+        "9.3(1.33)",
+        "9.3(2)",
+        "7.0(3)I7(7.22)",
+        "7.0(3)I7(8)",
+        "9.4(1)IJB9(0.200)",
+        "9.4(1)IJB9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCvs56078",
+      "integrated_releases": [
+        "9.3(2)IIL9(0.254)",
+        "9.3(2)IIL9(0)",
+        "9.3(2)IIK9(0.31)",
+        "9.3(2)IIK9(0)",
+        "9.3(5)"
+      ]
+    },
+    {
+      "bugid": "CSCvt43029",
+      "integrated_releases": [
+        "9.3(4)IIL9(0.826)",
+        "9.3(4)IIL9(0)",
+        "9.3(5)",
+        "9.3(4.50)",
+        "9.3(10.1),9.3(11)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCvt64662",
+      "integrated_releases": [
+        "7.0(3)I7(8.10)",
+        "7.0(3)I7(9)"
+      ]
+    },
+    {
+      "bugid": "CSCvt77885",
+      "integrated_releases": [
+        "9.3(3.113)",
+        "9.3(4)"
+      ]
+    },
+    {
+      "bugid": "CSCvu19790",
+      "integrated_releases": [
+        "9.3(4.18)",
+        "9.3(5)",
+        "9.3(10.1),9.3(11)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCvv68826",
+      "integrated_releases": [
+        "9.3(5.77)",
+        "9.3(6)",
+        "9.3(10.1),9.3(11)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCvz15142",
+      "integrated_releases": [
+        "10.2(1.3),10.2(2)",
+        "10.2(1.9)",
+        "10.2(2)IKF9(0.111)"
+      ]
+    },
+    {
+      "bugid": "CSCvz47575",
+      "integrated_releases": [
+        "10.4(3.39)",
+        "10.4(4)",
+        "10.5(1)IMG9(0.110)",
+        "10.5(1)IMG9(0)",
+        "10.5(3)IPE9(0.90)",
+        "10.5(3)IPE9(0)",
+        "10.5(2)"
+      ]
+    },
+    {
+      "bugid": "CSCvz55570",
+      "integrated_releases": [
+        "9.3(8.23),9.3(9)",
+        "10.2(1.149)",
+        "10.2(3.1),10.2(4)",
+        "10.2(4)",
+        "10.2(3.1)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCvz86703",
+      "integrated_releases": [
+        "9.3(8.25),9.3(9)",
+        "10.2(1.149)",
+        "8.4(5.14)S0",
+        "10.2(3.1),10.2(4)",
+        "8.4(6)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwa16832",
+      "integrated_releases": [
+        "9.3(8.57),9.3(9)",
+        "10.2(1.222),10.2(2)",
+        "10.2(1.221)",
+        "10.2(3.1),10.2(4)",
+        "10.2(4)",
+        "10.2(3.1)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwa58935",
+      "integrated_releases": [
+        "9.3(8.104),9.3(9)",
+        "10.2(2.53),10.2(3)",
+        "10.2(3.1),10.2(4)",
+        "10.2(4)",
+        "10.2(3.1)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwa96146",
+      "integrated_releases": [
+        "10.2(1)SMU(18)",
+        "10.3(0.163),10.3(1)",
+        "10.2(3.69),10.2(4)",
+        "9.3(12.28)",
+        "9.3(13)"
+      ]
+    },
+    {
+      "bugid": "CSCwb69703",
+      "integrated_releases": [
+        "10.2(3)INB9(0),10.2(3)INB9(0.",
+        "10.2(4.85),10.2(5)"
+      ]
+    },
+    {
+      "bugid": "CSCwb82585",
+      "integrated_releases": [
+        "9.3(9.44)",
+        "9.3(10)",
+        "10.3(0.162),10.3(1)",
+        "10.3(0)INA9(0),10.3(0)INA9(0.",
+        "10.2(3.83),10.2(4)",
+        "10.3(2)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwb89738",
+      "integrated_releases": [
+        "10.3(0.81),10.3(1)",
+        "10.3(0)INA9(0),10.3(0)INA9(0.",
+        "10.3(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwc17000",
+      "integrated_releases": [
+        "9.3(10),9.3(9.68)",
+        "10.3(0.159),10.3(1)",
+        "10.2(3.42),10.2(4)",
+        "10.3(0)INA9(0),10.3(0)INA9(0.",
+        "9.3(10.37),9.3(11)",
+        "10.3(2)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwc75464",
+      "integrated_releases": [
+        "10.2(3.81),10.2(4)",
+        "10.3(1)IMG9(0.188)",
+        "10.3(1)IMG9(0)",
+        "16.0(2)TST1(0.9)",
+        "16.0(2)TST1(0)",
+        "10.2(2)TST32(0.16)",
+        "10.2(2)TST32(0)",
+        "10.2(2)TST29(0.25)",
+        "10.2(2)TST29(0)",
+        "10.3(2)",
+        "10.3(1)IMF9(0.62)",
+        "10.3(1)IMF9(0)",
+        "10.3(2)IOV9(0.118)",
+        "10.3(2)IOV9(0)",
+        "10.4(0)IMG9(0.4)",
+        "10.4(0)IMG9(0)",
+        "10.4(1)",
+        "10.4(1)IMG9(0),10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwc90986",
+      "integrated_releases": [
+        "10.2(3.110),10.2(4)",
+        "10.3(1)IMG9(0.143)",
+        "9.3(10.27),9.3(11)",
+        "10.2(2)TST29(0.25)",
+        "10.2(2)TST29(0)",
+        "10.3(2)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwd79584",
+      "integrated_releases": [
+        "10.5(3)IPE9(0.110)",
+        "10.5(3)IPE9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCwd81099",
+      "integrated_releases": [
+        "10.3(1)INC9(0.49)",
+        "10.3(1)INC9(0)",
+        "10.2(2)TST37(0.8)",
+        "10.3(1)TST37(0)",
+        "10.3(2)IMG9(0.24)",
+        "10.3(2)IMG9(0)",
+        "10.3(2)IMG9(0.27)",
+        "10.2(2)TST29(0.49)",
+        "10.2(2)TST29(0)",
+        "10.3(1)IMF9(0.47)",
+        "10.3(1)IMF9(0)",
+        "16.0(2)TST1(0.83)",
+        "16.0(2)TST1(0)",
+        "10.2(2)TST32(0.39)",
+        "10.2(2)TST32(0)",
+        "10.3(1)IMF9(0.62)",
+        "10.3(2)IOV9(0.118)",
+        "10.3(2)IOV9(0)",
+        "9.3(11.10),9.3(12)",
+        "10.3(3)",
+        "10.4(0)IMG9(0.4)",
+        "10.4(0)IMG9(0)",
+        "10.2(2)TST32(0.84)",
+        "10.4(1)IMG9(0.2)",
+        "10.4(1)IMG9(0)",
+        "10.2(5.72),10.2(6)",
+        "9.3(12.1),9.3(13)",
+        "10.4(1)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)",
+        "10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwe72648",
+      "integrated_releases": [
+        "10.3(2)IMG9(0.156)",
+        "10.3(2)IMG9(0)",
+        "9.3(11.15),9.3(12)",
+        "10.2(5.17),10.2(6)",
+        "10.3(2)IOV9(0.189)",
+        "10.3(2)IOV9(0)",
+        "10.2(2)TST32(0.68)",
+        "10.2(2)TST32(0)",
+        "10.3(3)",
+        "9.3(11)SMU(16)",
+        "10.2(3v)IKQ9(0.39)",
+        "9.3(8)SMU(112)",
+        "10.2(5)SMU(13)",
+        "9.3(11)SMU(23)",
+        "9.3(12.1),9.3(13)",
+        "9.3(13)",
+        "9.3(13.1),9.3(14)"
+      ]
+    },
+    {
+      "bugid": "CSCwf10110",
+      "integrated_releases": [
+        "9.3(11.19),9.3(12)",
+        "10.2(5.52),10.2(6)",
+        "10.4(0)IMG9(0.333)",
+        "10.4(0)IMG9(0)",
+        "10.4(1)IMG9(0.51)",
+        "10.4(1)IMG9(0)",
+        "10.4(1)",
+        "10.3(4.66)",
+        "10.3(5)",
+        "10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwf54392",
+      "integrated_releases": [
+        "16.0(3)ICN9(0.2)",
+        "16.0(3)",
+        "10.4(0)IMG9(0.298)",
+        "10.4(1)IMG9(0.13)",
+        "10.4(1)IMG9(0)",
+        "10.4(0)IOP9(0.15)",
+        "10.4(0)IOP9(0)",
+        "16.1(1)ICN9(0.5)",
+        "16.1(1)",
+        "10.2(5.86),10.2(6)",
+        "10.3(3.37)",
+        "10.3(4)",
+        "10.3(2)IOM9(0.16)",
+        "10.3(2)IOM9(0)",
+        "10.4(0)IOM9(0.28)",
+        "10.4(0)IOM9(0)",
+        "10.3(4a)",
+        "10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwh16634",
+      "integrated_releases": [
+        "10.4(1)IMG9(0.67)",
+        "10.4(1)IMG9(0)",
+        "10.3(3.69)",
+        "10.3(4)",
+        "10.3(4a)",
+        "10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwh68013",
+      "integrated_releases": [
+        "10.3(3.106)",
+        "10.3(4)",
+        "10.4(1)IMG9(0.189)",
+        "10.4(1)IMG9(0)",
+        "10.4(2)IOD9(0.41)",
+        "10.4(2)IOD9(0)",
+        "10.4(1)ITL9(0.29)",
+        "10.4(1)ITL9(0)",
+        "10.4(1)IUM9(0.138)",
+        "10.4(1)IUM9(0)",
+        "10.2(6.23),10.2(7)",
+        "10.4(1)IOZ9(0.52)",
+        "10.4(1)IOZ9(0)",
+        "10.3(4a)",
+        "10.4(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwi01617",
+      "integrated_releases": [
+        "10.4(2)IOD9(0.78)",
+        "10.4(2)IOD9(0)",
+        "10.4(1)IUM9(0.150)",
+        "10.4(1)IUM9(0)",
+        "10.4(1)IOZ9(0.52)",
+        "10.4(1)IOZ9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCwi08391",
+      "integrated_releases": [
+        "10.4(2)IOD9(0.97)",
+        "10.4(2)IOD9(0)",
+        "10.4(2)IMG9(0.2)",
+        "10.4(2)IMG9(0)",
+        "10.4(1)IUM9(0.204)",
+        "10.4(1)IUM9(0)",
+        "10.4(1)IOZ9(0.69)",
+        "10.4(1)IOZ9(0)",
+        "10.4(3)"
+      ]
+    },
+    {
+      "bugid": "CSCwi21420",
+      "integrated_releases": [
+        "10.4(2)IOD9(0.108)",
+        "10.4(2)IOD9(0)",
+        "10.4(2)IMG9(0.5)",
+        "10.4(2)IMG9(0)",
+        "10.2(6.28)",
+        "10.2(7)",
+        "10.2(6.27)",
+        "10.3(4.51),10.3(5)",
+        "10.4(3)"
+      ]
+    },
+    {
+      "bugid": "CSCwj45146",
+      "integrated_releases": [
+        "10.5(0)IPR9(0.66)",
+        "10.5(0)IPR9(0)",
+        "10.3(4.95)",
+        "10.3(5)",
+        "10.5(0)IMG9(0.2)",
+        "10.5(0)IMG9(0)",
+        "10.4(2)IOD9(0.162)",
+        "10.4(2)IOD9(0)",
+        "10.4(2)IEH9(0.25)",
+        "10.4(2)IEH9(0)",
+        "10.4(3.16)",
+        "10.4(4)",
+        "10.5(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwj65063",
+      "integrated_releases": [
+        "10.3(4.98),10.3(5)",
+        "10.3(4.99)",
+        "10.5(0)IMG9(0.19)",
+        "10.5(0)IMG9(0)",
+        "10.5(0)IPF9(0.33)",
+        "10.5(0)IPF9(0)",
+        "10.4(2)IEH9(0.42)",
+        "10.4(2)IEH9(0)",
+        "10.5(0)IPF9(0.44)",
+        "10.4(3.16)",
+        "10.4(4)",
+        "10.5(0)IMG9(0.96)",
+        "10.5(1)IMG9(0.1)",
+        "10.5(1)IMG9(0)",
+        "10.4(1)IUM9(0.342)",
+        "10.4(1)IUM9(0)",
+        "10.4(0)IFM9(0.26)",
+        "10.4(0)IFM9(0)",
+        "10.5(0)ICL9(0.222)",
+        "10.5(0)ICL9(0)",
+        "10.5(2)",
+        "10.5(1)",
+        "10.2(8.15),10.2(9)",
+        "9.3(14.19),9.3(15)"
+      ]
+    },
+    {
+      "bugid": "CSCwj68462",
+      "integrated_releases": [
+        "10.5(0)IPR9(0.101)",
+        "10.5(0)IPR9(0)",
+        "10.5(0)IMG9(0.6)",
+        "10.5(0)IMG9(0)",
+        "10.4(2)IEH9(0.25)",
+        "10.4(2)IEH9(0)",
+        "10.5(0)IPF9(0.5)",
+        "10.4(3.27)",
+        "10.4(4)",
+        "10.4(1)IUM9(0.342)",
+        "10.4(1)IUM9(0)",
+        "10.5(3)IPE9(0.56)",
+        "10.5(3)IPE9(0)",
+        "10.5(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwk70839",
+      "integrated_releases": [
+        "10.2(8.18),10.2(9)",
+        "10.2(8.20)",
+        "9.3(14.24),9.3(15)",
+        "10.6(1)IQD9(0.52)",
+        "10.6(1)IQD9(0)",
+        "10.6(1)IQZ9(0.26)",
+        "10.6(1)IQZ9(0)",
+        "10.6(3)ICD9(0.60)",
+        "10.6(3)ICD9(0)",
+        "10.5(2)IPD9(0.58)",
+        "10.5(2)IPD9(0)",
+        "10.5(2)IRH9(0.52)",
+        "10.5(2)IRH9(0)",
+        "10.5(2)INP9(0.61)",
+        "10.5(2)INP9(0)",
+        "10.6(0)IPQ9(0.10)",
+        "10.6(0)IPQ9(0)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.5(2)IMS9(0.146)",
+        "10.5(2)IMS9(0)",
+        "10.5(4.28)",
+        "10.5(5)"
+      ]
+    },
+    {
+      "bugid": "CSCwm40879",
+      "integrated_releases": [
+        "9.3(13.52)",
+        "9.3(14)",
+        "10.4(3.43)",
+        "10.4(4)",
+        "10.5(1)IMG9(0.118)",
+        "10.5(1)IMG9(0)",
+        "10.5(3)IPE9(0.90)",
+        "10.5(3)IPE9(0)",
+        "10.5(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwn60569",
+      "integrated_releases": [
+        "10.5(2)IMG9(0.93)",
+        "10.5(2)IMG9(0)",
+        "10.4(4.44)",
+        "10.4(5)",
+        "10.5(3)IQA9(0.9)",
+        "10.5(3)IQA9(0)",
+        "10.5(3)"
+      ]
+    },
+    {
+      "bugid": "CSCwo61245",
+      "integrated_releases": [
+        "10.6(0)IMG9(0.32)",
+        "10.6(0)IMG9(0)",
+        "10.3(7.6)",
+        "10.3(8)",
+        "10.4(5.10)",
+        "10.4(6)",
+        "10.6(1)IQD9(0.16)",
+        "10.6(1)IQD9(0)",
+        "10.5(2)IRH9(0.17)",
+        "10.5(2)IRH9(0)",
+        "10.5(3.45)",
+        "10.5(4)",
+        "9.3(15.5),9.3(16)",
+        "9.3(15)SMU(7)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.6(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwo66923",
+      "integrated_releases": [
+        "10.5(3)IQA9(0.71)",
+        "10.5(3)IQA9(0)",
+        "10.6(0)IMG9(0.5)",
+        "10.6(0)IMG9(0)",
+        "10.5(2)IRH9(0.9)",
+        "10.5(2)IRH9(0)",
+        "10.4(5.8)",
+        "10.4(6)",
+        "10.6(0)IMG9(0.93)",
+        "10.6(1)IQD9(0.22)",
+        "10.6(1)IQD9(0)",
+        "10.4(5.12)",
+        "10.6(1)IQD9(0.33)",
+        "10.6(1)IQZ9(0.17)",
+        "10.6(1)IQZ9(0)",
+        "10.5(2)IRH9(0.35)",
+        "10.6(3)ICD9(0.60)",
+        "10.6(3)ICD9(0)",
+        "10.5(2)IRH9(0.52)",
+        "10.5(2)INP9(0.61)",
+        "10.5(2)INP9(0)",
+        "10.6(0)IPQ9(0.10)",
+        "10.6(0)IPQ9(0)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.5(2)IMS9(0.146)",
+        "10.5(2)IMS9(0)",
+        "10.6(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwo71832",
+      "integrated_releases": [
+        "10.6(0)IMG9(0.13)",
+        "10.6(0)IMG9(0)",
+        "10.3(7.4)",
+        "10.3(8)",
+        "10.6(1)IQD9(0.6)",
+        "10.6(1)IQD9(0)",
+        "10.4(5.10)",
+        "10.4(6)",
+        "10.5(2)IRH9(0.17)",
+        "10.5(2)IRH9(0)",
+        "10.5(3.54)",
+        "10.5(4)",
+        "9.3(15.5),9.3(16)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.6(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwo90314",
+      "integrated_releases": [
+        "10.6(0)IMG9(0.95)",
+        "10.6(0)IMG9(0)",
+        "10.4(5.14)",
+        "10.4(6)",
+        "10.5(3.37)",
+        "10.6(1)IQD9(0.33)",
+        "10.6(1)IQD9(0)",
+        "10.6(1)IQZ9(0.17)",
+        "10.6(1)IQZ9(0)",
+        "10.5(2)IRH9(0.35)",
+        "10.5(2)IRH9(0)",
+        "10.5(2)INP9(0.61)",
+        "10.5(2)INP9(0)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.5(3.151)",
+        "10.5(2)IMS9(0.146)",
+        "10.5(2)IMS9(0)",
+        "10.6(1)IMG9(0.139)",
+        "10.6(1)IMG9(0)",
+        "10.6(1)IMG9(0.153)",
+        "10.6(2)IDV9(0.89)",
+        "10.6(2)IDV9(0)",
+        "10.6(2)IQB9(0.59)",
+        "10.6(2)IQB9(0)",
+        "10.6(2)IDV9(0.100)",
+        "10.4(6.8)",
+        "10.4(7)",
+        "10.6(2)IQB9(0.62)",
+        "10.6(3)ICD9(0.154)",
+        "10.6(3)ICD9(0)",
+        "10.5(2)IMS9(0.166)",
+        "10.6(2)IUN9(0.5)",
+        "10.6(2)IUN9(0)",
+        "10.5(4.5)",
+        "10.5(5)",
+        "10.5(2)IMS9(0.182)",
+        "10.6(1)",
+        "10.6(2)",
+        "10.5(2)INP9(0.164)",
+        "10.5(2)INN9(0.4)",
+        "10.5(2)INN9(0)",
+        "10.7(0)IDV9(0.119)",
+        "10.7(0)IDV9(0)",
+        "10.5(2)ICX9(0.47)",
+        "10.7(0)IDL9(0.3)",
+        "10.7(0)IDL9(0)",
+        "10.7(0)IDM9(0.4)",
+        "10.7(0)IDM9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCwo94447",
+      "integrated_releases": [
+        "10.4(4)SMU(50)",
+        "10.4(4)SMU(54)",
+        "10.6(0)IMG9(0.82)",
+        "10.6(0)IMG9(0)",
+        "10.4(5.12)",
+        "10.4(6)",
+        "10.6(1)IQD9(0.33)",
+        "10.6(1)IQD9(0)",
+        "10.6(1)IQZ9(0.17)",
+        "10.6(1)IQZ9(0)",
+        "10.5(3.66)",
+        "10.5(4)",
+        "10.5(2)IRH9(0.35)",
+        "10.5(2)IRH9(0)",
+        "10.5(2)ICX9(0.21)",
+        "10.5(2)ICX9(0)",
+        "10.6(1)"
+      ]
+    },
+    {
+      "bugid": "CSCwr61446",
+      "integrated_releases": [
+        "10.4(7),10.6(2)"
+      ]
+    },
+    {
+      "bugid": "CSCwr68860",
+      "integrated_releases": [
+        "10.5(3.156)",
+        "10.5(4)",
+        "10.6(1)IMG9(0.141)",
+        "10.6(1)IMG9(0)",
+        "10.6(2)IDV9(0.89)",
+        "10.6(2)IDV9(0)",
+        "10.4(6.4)",
+        "10.4(7)",
+        "10.6(2)IQB9(0.59)",
+        "10.6(2)IQB9(0)",
+        "10.6(3)ICD9(0.154)",
+        "10.6(3)ICD9(0)",
+        "10.5(2)IMS9(0.166)",
+        "10.5(2)IMS9(0)",
+        "10.6(2)IUN9(0.5)",
+        "10.6(2)IUN9(0)",
+        "10.5(2)IMS9(0.182)",
+        "10.6(2)",
+        "10.5(2)INP9(0.164)",
+        "10.5(2)INP9(0)",
+        "10.5(2)INN9(0.4)",
+        "10.5(2)INN9(0)",
+        "10.7(0)IDV9(0.119)",
+        "10.7(0)IDV9(0)",
+        "10.5(2)ICX9(0.47)",
+        "10.5(2)ICX9(0)",
+        "10.7(0)IDL9(0.3)",
+        "10.7(0)IDL9(0)",
+        "10.7(0)IDM9(0.4)",
+        "10.7(0)IDM9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCws69383",
+      "integrated_releases": [
+        "10.6(2)IMG9(0.104)",
+        "10.6(2)IMG9(0)",
+        "10.5(4.22)",
+        "10.5(5)",
+        "10.5(2)IMS9(0.214)",
+        "10.5(2)IMS9(0)",
+        "10.7(0)IDV9(0.73)",
+        "10.7(0)IDV9(0)",
+        "10.6(2)IUN9(0.60)",
+        "10.6(2)IUN9(0)",
+        "10.5(2)ICX9(0.47)",
+        "10.5(2)ICX9(0)",
+        "10.7(0)IDL9(0.3)",
+        "10.7(0)IDL9(0)",
+        "10.7(0)IDM9(0.4)",
+        "10.7(0)IDM9(0)",
+        "10.6(2)IMM9(0.44)",
+        "10.6(2)IMM9(0)",
+        "10.4(7.4)",
+        "10.4(8)"
+      ]
+    },
+    {
+      "bugid": "CSCwv57610",
+      "integrated_releases": [
+        "10.6(3.56)",
+        "10.6(4)",
+        "10.7(0)IMG9(0.293)",
+        "10.7(1)IMG9(0)",
+        "10.5(6)SMU(2)",
+        "10.6(3s)ISQ9(1.6)",
+        "10.6(3s)ISQ9(1)",
+        "10.6(3)IOX9(0.21)",
+        "10.6(3)IOX9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCwv83800",
+      "integrated_releases": [
+        "10.6(3)IOX9(0.7)",
+        "10.6(3)IOX9(0)",
+        "10.6(3l)IQC9(0.2)",
+        "10.6(3l)IQC9(0)",
+        "10.7(0)IMG9(0.470)",
+        "10.7(1)IMG9(0)"
+      ]
+    },
+    {
+      "bugid": "CSCww55822",
+      "integrated_releases": [
+        "10.7(0)IMG9(0.470)",
+        "10.7(1)IMG9(0)",
+        "10.6(4)SMU(10)",
+        "10.5(6.19)",
+        "10.5(7)",
+        "10.5(5)SMU(19)",
+        "10.6(4.40)",
+        "10.6(5)"
+      ]
+    }
+  ]
+}

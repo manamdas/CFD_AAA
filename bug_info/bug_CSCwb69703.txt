@@ -1,0 +1,866 @@
+*******************************************************************************
+
+Bug ID   : CSCwb69703         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : Radius: User roles are not assigned properly when radius-accept receives with multiple Cisco VSA
+PrimaryPV : 
+Version :10.2(3)INB9(0.135) 10.2(3.65) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: palshanm           Submitted: 04/25/2022 22:28:09     Last Updtd : 07/30/2026 09:29:24  
+RNE-Type: $$PREFCS            New-on : 04/25/2022 22:28:09      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:mukamath                                            
+Known-affected-releases:
+
+Known-fixed-releases:10.2(5) 
+
+
+
+Potentially-affected-releases:10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(4) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/29/2022 09:30:11                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 1                                              
+Mean-time-to-resolved: 288                                            
+Mean-time-to-verified: 293    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 06/16/2023 08:55:21            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : medium        Assigned: 04/26/2022 22:28:17 
+Code-reviewer:                
+Opened-on: 04/29/2022 09:30:11Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : nr1f kr5m kr5m-qa kr5m-rg cfd-manojohn 
+Est. completion date: 05/04/2022 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 02/07/2023 21:33:26  
+
+Documents Changed: none       Resolved: 02/08/2023 00:52:10 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 02/13/2023 05:13:57      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Design
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Solution Test
+Test-EDP-activity :               Scale testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              695585650;695939990
+Trouble-tickets-direct :C3695585650 
+Trouble-tickets-direct :C3695939990 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$PREFCS flag is in the RNE
+Security-screening-timestamp :                 12/11/2023 06:26:20
+Document :    nexus
+
+Summary:
+Refer attached file for detailed test steps and logs.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         695585650       null                                     
+C3         695939990       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-971458                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (13 of 13 ) ***********************
+
+---Start of Note Titled: Automation-Log (Created 06/25/2023 11:21:01 Added 06/25/2023 11:21:01 by palshanm)---
+Fail log - https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/ranjsaho/archive/23-06/cfd_radius_job.2023Jun23_16:27:49.380917.zip&atstype=ATS
+
+pass log- https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/CR_PYATS_NEW/users/ranjsaho/archive/23-06/cfd_radius_job.2023Jun23_16:47:45.328210.zip&atstype=ATS
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 06/19/2023 11:09:16 Added 06/19/2023 11:09:16 by seshea)---
+--- Update 2023-06-19 18:09:15.451107 seshea via 695712135)
+Unsuitable - CDETS Content
+payload of radius packet, not able to match
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: V-comments.p2 (Created 02/13/2023 05:13:57 Added 02/13/2023 05:13:57 by palshanm)---
+1. S/W Version : 10.2(4.86)
+2. Platform : PI
+3. Automation Suite: yes, refer report attached
+4. Steps to reproduce and Verify: Attached
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F23-02%2Fkr5m_issu_tor_job_2.2023Feb12_23:25:06.481685.zip&atstype=ATS
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F23-02%2Fkr5m_issu_tor_job_2.2023Feb13_01:44:24.572456.zip&atstype=ATS
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F23-02%2Fkr5m_issu_tor_job_2.2023Feb13_03:59:33.952677.zip&atstype=ATS
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F23-02%2Fkr5m_issu_tor_job_2.2023Feb13_06:13:06.995068.zip&atstype=ATS
+
+Regression Test Logs:
+CSCwa58935-2
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/hpadigi/archive/23-02/CFD_CSCwa58935_job.2023Feb13_09:24:45.992004.zip&atstype=ATS
+CSCvn36637-2
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/hpadigi/archive/23-02/CFD_CSCvn36637_job.2023Feb13_08:54:19.288913.zip&atstype=ATS
+CSCwa16832-3
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/hpadigi/archive/23-02/CFD_CSCwa16832_job.2023Feb13_08:30:39.182443.zip&atstype=ATS
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: R-comments.p2 (Created 02/08/2023 00:52:10 Added 02/08/2023 00:52:10 by vasagraw)---
+Committed fix.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: unit-test-kerry (Created 02/07/2023 21:23:01 Added 02/07/2023 21:23:01 by vasagraw)---
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Feb  8 10:13:07 2023
+!Time: Wed Feb  8 10:29:17 2023
+
+version 10.2(5) Bios:version 05.47 
+radius-server host 10.78.63.122 key 7 "fewhg" authentication accounting 
+radius-server host 10.78.63.121 key 7 "fewhg" authentication accounting 
+aaa group server radius rad1 
+    server 10.78.63.122 
+    use-vrf management
+aaa group server radius rad2 
+    server 10.78.63.121 
+    use-vrf management
+
+
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Feb  8 10:13:07 2023
+!Time: Wed Feb  8 10:29:21 2023
+
+version 10.2(5) Bios:version 05.47 
+aaa authentication login default group rad2 
+aaa authentication login console local 
+
+
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+tah-reg-tb1-eor2(config)# 
+
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# test aaa group rad2 tac_user_1_name Nbv_12345
+user has been authenticated
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)#      
+tah-reg-tb1-eor2(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# show int mgmt0 br
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           up     10.127.57.92                            1000    1500    
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<    NOW SSH login with credentials tac_user_1_name/Nbv_12345
+
+
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# 
+tah-reg-tb1-eor2(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:tac_user_1_name
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+tah-reg-tb1-eor2(config)#
+---End of Note Titled: unit-test-kerry---
+
+
+---Start of Note Titled: V-comments (Created 07/03/2022 22:19:51 Added 07/03/2022 22:19:51 by palshanm)---
+1. S/W Version : 10.3(0.135)
+2. Platform : PI Fix
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 04/29/2022 09:30:12 Added 04/29/2022 09:30:12 by vasagraw)---
+Committed fix.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis-n_dev (Created 04/29/2022 04:48:39 Added 04/29/2022 04:48:39 by vasagraw)---
+# Enclosure (static-analysis-n_dev) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwb69703).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS 
+# Generated at
+#     Fri Apr 29 11:48:32 2022 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     static-analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# 'static-analysis.log':
+@@Start processing of /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c
+**Active warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c
+**Noise warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c
+**Parent warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c:1916:fixed_size_dest:STRING_OVERFLOW:You might overrun the 128-character fixed-size string "auth_state->radius_state.password" by copying "passwd" without checking the length. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c:2479:none:FORWARD_NULL:Dereferencing null pointer "request". [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radauth_req.c:1846:fixed_size_dest:STRING_OVERFLOW:You might overrun the 128-character fixed-size string "auth_state->radius_state.password" by copying "passwd" without checking the length. [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 3
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8446/query/defects.htm?stream=n_dev-vasagraw&cid=70159&cid=839550&cid=60217
+Analysis archive: /auto/sa-html1/cov8/archive/n_dev/vasagraw/n_dev-vasagraw_20220429_113937/sa_summary.tar.gz
+---End of Note Titled: static-analysis-n_dev---
+
+
+---Start of Note Titled: l2_uls_sanity_baseline_compare (Created 04/29/2022 04:24:24 Added 04/29/2022 04:24:24 by vasagraw)---
+<a href='https://nxossanity.cisco.com/job-history/265306' target='_blank'> JOB-DETAILs </a> <br /> 
+compared results as below 
+===========================
+{'final_res': 'PASS', 'base_rate': 'NA', 'pass_rate': '100.00%'}
+---End of Note Titled: l2_uls_sanity_baseline_compare---
+
+
+---Start of Note Titled: l2_uls_sanity_report (Created 04/29/2022 04:23:34 Added 04/29/2022 04:23:34 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity602
+Testbed  name       : n9kv602-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : <a href="http://172.31.150.212/auto/nxos-sanity/logs/vasagraw/265306">/auto/nxos-sanity/logs/vasagraw/265306</a>
+Report file         : /auto/nxos-sanity/logs/vasagraw/265306/l2_uls-n9kv602.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/265306/l2_uls-n9kv602.log
+Test start time     : 2022_04_29_00_47_35
+Test End time       : 2022_04_29_03_38_44
+Test Duration       : 2:51:09.050787
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '265306', '-cdet', 'CSCwb63970', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.2.3.INB9.0.145.F.bin_PVT', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv602-testbed.yml', '-asic', 'n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/265306/l2_uls-n9kv602.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/265306/l2_uls-n9kv602.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:04   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:12   
+testConfigMgmtPort                                                        pass      0:00:29   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:46   
+testStpLacpPcTrunkWithTraffic                                             pass      0:16:58   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:41   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:38   
+testStaticMac                                                             pass      0:01:49   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:33   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:53   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:35   
+testL2SanityMacLearning                                                   pass      0:05:30   
+testL2SanityPortFlap                                                      pass      0:04:42   
+testL2SanityClearMac                                                      pass      0:03:15   
+testL2SanityMacAging                                                      pass      0:09:18   
+testL2SanityMacMove                                                       pass      0:03:10   
+testL2SanityPortModeChange                                                pass      0:03:54   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:08   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:19   
+testL2SanityAllowedVlanAdd                                                pass      0:03:46   
+testL2SanityAllowedVlanRemove                                             pass      0:03:10   
+testL2SanityUnconfig                                                      pass      0:00:41   
+testVpcConfig                                                             pass      0:06:46   
+testVpcPeerLink                                                           pass      0:00:54   
+testVpcPeerKeepAlive                                                      pass      0:00:30   
+testVpcPortChannels                                                       pass      0:01:34   
+testVpcStpStates                                                          pass      0:00:32   
+testVpcConsistencies                                                      pass      0:03:26   
+testVpcUnknownUnicastFlooding                                             pass      0:08:42   
+testVpcUnconfig                                                           pass      0:04:48   
+testGoldDiagnostic                                                        pass      0:00:06   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: l2_uls_sanity_report---
+
+
+---Start of Note Titled: Unit-test (Created 04/28/2022 23:46:34 Added 04/28/2022 23:46:34 by vasagraw)---
+Cisco VSA parsing regression pass logs:
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/palshanm/archive/22-04/job.2022Apr28_20:01:51.026879.zip&atstype=ATS
+
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Apr 27 05:33:24 2022
+!Time: Wed Apr 27 05:39:16 2022
+
+version 10.3(1) Bios:version 05.46 
+aaa authentication login default group rad1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Apr 27 05:33:24 2022
+!Time: Wed Apr 27 05:39:19 2022
+
+version 10.3(1) Bios:version 05.46 
+radius-server host 10.78.63.121 key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server 10.78.63.121 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# debug logfile rad
+switch(config)# 
+switch(config)# debug radius all
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# no debug all
+switch(config)#
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.4# 
+bash-4.4# 
+
+
+
+**************
+
+SSH login to switch with remote credentials user1/Cisc0123 at this stage       <<<<<<<<<<<<<<<<
+
+**************
+
+
+
+
+bash-4.4# 
+bash-4.4# ip netns exec management tcpdump -i eth1 port 1812 -vvv
+tcpdump: listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+05:42:30.521344 IP (tos 0x0, ttl 64, id 56297, offset 0, flags [none], proto UDP (17), length 91)
+    switch.58695 > 10.78.63.121.radius: [udp sum ok] RADIUS, length: 63
+        Access-Request (1), id: 0x09, Authenticator: 41543b805357a64828da38b69d3a5f83
+          User-Name Attribute (1), length: 7, Value: user1
+            0x0000:  7573 6572 31
+          User-Password Attribute (2), length: 18, Value: 
+            0x0000:  0b81 0526 36fe 49a7 6bff 8d33 7ed1 f77e
+          NAS-Port-Type Attribute (61), length: 6, Value: Virtual
+            0x0000:  0000 0005
+          NAS-Port Attribute (5), length: 6, Value: 0
+            0x0000:  0000 0000
+          NAS-IP-Address Attribute (4), length: 6, Value: switch
+            0x0000:  0a7e 4354
+05:42:30.567682 IP (tos 0x0, ttl 53, id 45636, offset 0, flags [DF], proto UDP (17), length 359)
+    10.78.63.121.radius > switch.58695: [udp sum ok] RADIUS, length: 331
+        Access-Accept (2), id: 0x09, Authenticator: f0582771dcbc899d9cd3165ee7ab1cb0
+          User-Name Attribute (1), length: 7, Value: user1
+            0x0000:  7573 6572 31
+          Class Attribute (25), length: 83, Value: CACS:0a4e3f79l8tfWhogBIL3ZoLnpmpEQhuib7xcBgCnTEOaeLqNYu8:ise-bgl17/435143938/1546
+            0x0000:  4341 4353 3a30 6134 6533 6637 396c 3874
+            0x0010:  6657 686f 6742 494c 335a 6f4c 6e70 6d70
+            0x0020:  4551 6875 6962 3778 6342 6743 6e54 454f
+            0x0030:  6165 4c71 4e59 7538 3a69 7365 2d62 676c
+            0x0040:  3137 2f34 3335 3134 3339 3338 2f31 3534
+            0x0050:  36
+          Vendor-Specific Attribute (26), length: 50, Value: Vendor: Cisco (9)
+            Vendor Attribute: 1, Length: 42, Value: AuthenticationIdentityStore=Internal Users
+            0x0000:  0000 0009 012c 4175 7468 656e 7469 6361
+            0x0010:  7469 6f6e 4964 656e 7469 7479 5374 6f72
+            0x0020:  653d 496e 7465 726e 616c 2055 7365 7273
+          Vendor-Specific Attribute (26), length: 64, Value: Vendor: Cisco (9)
+            Vendor Attribute: 1, Length: 56, Value: FQSubjectName=9273fe30-8c01-11e6-996c-525400b48521#user1
+            0x0000:  0000 0009 013a 4651 5375 626a 6563 744e
+            0x0010:  616d 653d 3932 3733 6665 3330 2d38 6330
+            0x0020:  312d 3131 6536 2d39 3936 632d 3532 3534
+            0x0030:  3030 6234 3835 3231 2375 7365 7231
+          Vendor-Specific Attribute (26), length: 64, Value: Vendor: Cisco (9)
+            Vendor Attribute: 1, Length: 56, Value: UniqueSubjectID=94b3604f5b49b88ccfafe2f3a86c80d1979b5c43
+            0x0000:  0000 0009 013a 556e 6971 7565 5375 626a
+            0x0010:  6563 7449 443d 3934 6233 3630 3466 3562
+            0x0020:  3439 6238 3863 6366 6166 6532 6633 6138
+            0x0030:  3663 3830 6431 3937 3962 3563 3433
+          Vendor-Specific Attribute (26), length: 43, Value: Vendor: Cisco (9)
+            Vendor Attribute: 1, Length: 35, Value: shell:roles="network-admin priv-14"
+            0x0000:  0000 0009 0125 7368 656c 6c3a 726f 6c65
+            0x0010:  733d 226e 6574 776f 726b 2d61 646d 696e
+            0x0020:  2070 7269 762d 3134 22
+^C
+2 packets captured
+105 packets received by filter
+0 packets dropped by kernel
+bash-4.4#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/27/2022 02:03:07 Modified 12/10/2023 22:26:19 by cms)---
+{231211 pbhavesh S B} no need to release-note for IMR12
+{230818 pbhavesh S G} PI area fix; customer running 10.2; not planning to take a fix in IMR
+{230620 sahmedr S B} Ranjita Automating 
+{230619 preechan S B} IFD-->CFD on 6/16
+{220428 anikunna S B} Requesting DT for regression suite run for Cisco VSA AV pairs
+{220427 anikunna S B} Root caused, working on a fix
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 04/25/2022 22:28:09 Modified 04/25/2022 22:32:19 by palshanm)---
+$$PREFCS
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (17 of 17)
+------------------------------------------------------------------------------------------------------------------
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           02/08/2023 13:44:37      
+checkin_l2_uls_sanity_report                      ascii text     5657           root           02/08/2023 13:44:37      
+Diffs-commit-kerry                                ascii text     1802           vasagraw       02/08/2023 00:23:08      
+Diffs-release-kerry                               ascii text     1238           vasagraw       02/08/2023 00:23:05      
+nxos-pi-common-security-code-review-2             ascii text     935            prrqengg       02/07/2023 23:09:51      
+ccwarnings-kerry                                  ascii text     137            baas           02/07/2023 22:37:23      
+static-analysis-kerry                             ascii text     38030          baas           02/07/2023 22:37:09      
+uls_sanity_report                                 ascii text     4405           root           02/07/2023 21:36:26      
+uls_sanity_baseline_compare                       ascii text     219            root           02/07/2023 21:36:26      
+Diffs-commit-n_dev                                ascii text     1541           vasagraw       04/29/2022 08:08:00      
+Diffs-release-n_dev                               ascii text     1237           vasagraw       04/29/2022 08:07:58      
+ccwarnings-n_dev.p2                               ascii text     135            baas           04/29/2022 05:41:19      
+static-analysis-n_dev.p3                          ascii text     6978           baas           04/29/2022 05:41:06      
+ccwarnings-n_dev                                  ascii text     135            baas           04/29/2022 05:36:42      
+static-analysis-n_dev.p2                          ascii text     6978           baas           04/29/2022 05:36:28      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       04/29/2022 01:44:07      
+radius_multiple_cisco_vsa_test_logs.txt           ascii text     6919           palshanm       04/25/2022 22:28:30      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/30/2026 satdr    	Attribute               	nr1f kr5m kr5m-qa kr5m-rg cfd	nr1f kr5m kr5m-qa kr5m-rg cfd	Mod
+01/19/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-971458       	New
+01/19/2026 pisces   	VF-patched              	                             	NX-OS:10.3(1),NX-OS:10.3(2)  	New
+01/19/2026 pisces   	VF-unpatched            	                             	NX-OS:10.2(1),NX-OS:10.2(1q),	New
+01/19/2026 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+01/19/2026 pisces   	Potentially-affected-rel	                             	10.2(1),10.2(1q),10.2(2),10.2	New
+12/10/2023 cdetsbtk 	Security-screening-times	2023-08-24 20:07:37.000+0000 	2023-12-11 14:26:20.000+0000 	Mod
+12/10/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/10/2023 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/10/2023 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/24/2023 cdetsbtk 	Security-screening-times	2023-08-18 13:49:06.000+0000 	2023-08-24 20:07:37.000+0000 	Mod
+08/24/2023 abdaibra 	serviceRequests/C3/69593	                             	C3/695939990                 	New
+08/24/2023 abdaibra 	Urgency-desc            	CL3                          	NA                           	Mod
+08/24/2023 abdaibra 	Urgency                 	6                            	9                            	Mod
+08/24/2023 abdaibra 	Tickets-count           	1                            	2                            	Mod
+08/24/2023 abdaibra 	TACSR-count             	1                            	2                            	Mod
+08/24/2023 abdaibra 	Tickets-count-direct    	1                            	2                            	Mod
+08/24/2023 abdaibra 	Trouble-tickets         	                             	695939990                    	New
+08/24/2023 abdaibra 	Trouble-tickets-direct  	                             	C3695939990                  	New
+08/17/2023 cdetsbtk 	Security-screening-times	2023-06-28 16:04:25.000+0000 	2023-08-18 13:49:06.000+0000 	Mod
+08/17/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/28/2023 cdetsbtk 	Security-screening-times	2023-06-28 14:49:36.000+0000 	2023-06-28 16:04:25.000+0000 	Mod
+06/28/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/28/2023 cdetsbtk 	Security-screening-times	2023-06-26 01:21:02.000+0000 	2023-06-28 14:49:36.000+0000 	Mod
+06/28/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/28/2023 cms      	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/28/2023 cms      	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+06/25/2023 cdetsbtk 	Security-screening-times	2023-06-20 01:09:16.000+0000 	2023-06-26 01:21:02.000+0000 	Mod
+06/25/2023 palshanm 	Note Title              	                             	Automation-Log               	New
+06/25/2023 palshanm 	Automated-test          	N                            	Y                            	Mod
+06/21/2023 sesalas  	serviceRequests/C3/69558	                             	                             	Mod
+06/21/2023 sesalas  	Urgency-desc            	NA                           	CL3                          	Mod
+06/21/2023 sesalas  	Urgency                 	9                            	6                            	Mod
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-17 03:55:22.000+0000 	2023-06-20 01:09:16.000+0000 	Mod
+06/19/2023 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+06/18/2023 jdasgupt 	Attribute               	nr1f kr5m kr5m-qa kr5m-rg    	nr1f kr5m kr5m-qa kr5m-rg cfd	Mod
+06/18/2023 jdasgupt 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/18/2023 jdasgupt 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+06/18/2023 jdasgupt 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+06/18/2023 jdasgupt 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+06/16/2023 cdetsbtk 	Security-screening-times	2023-02-13 21:13:57.000+0000 	2023-06-17 03:55:22.000+0000 	Mod
+06/16/2023 sesalas  	serviceRequests/C3/69558	                             	C3/695585650                 	New
+06/16/2023 sesalas  	Found                   	func-test                    	customer-use                 	Mod
+06/16/2023 sesalas  	Urgency                 	                             	9                            	Mod
+06/16/2023 sesalas  	Found-during            	Feature Test                 	Customer                     	Mod
+06/16/2023 sesalas  	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+06/16/2023 sesalas  	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+06/16/2023 sesalas  	Data-classification-reas	Internal bug                 	Default value of Data-classif	Mod
+06/16/2023 sesalas  	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+06/16/2023 sesalas  	Care-Update             	                             	Y                            	Mod
+06/16/2023 sesalas  	IFD-CFD-Conv-date       	                             	2023-06-16 15:55:21.000+0000 	Mod
+06/16/2023 sesalas  	Known-fixed-releases    	                             	10.2(5)                      	New
+06/16/2023 sesalas  	Tickets-count           	0                            	1                            	Mod
+06/16/2023 sesalas  	TACSR-count             	                             	1                            	Mod
+06/16/2023 sesalas  	Tickets-count-direct    	                             	1                            	Mod
+06/16/2023 sesalas  	Trouble-tickets         	                             	695585650                    	New
+06/16/2023 sesalas  	Trouble-tickets-direct  	                             	C3695585650                  	New
+06/16/2023 sesalas  	Trouble-ticket-CFD      	                             	Y                            	Mod
+02/13/2023 cdetsbtk 	Security-screening-times	2023-02-09 05:44:38.000+0000 	2023-02-13 21:13:57.000+0000 	Mod
+02/13/2023 palshanm 	Note Title              	                             	V-comments.p2                	New
+02/13/2023 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+02/13/2023 palshanm 	Status                  	R                            	V                            	Mod
+02/13/2023 palshanm 	Verified-release        	                             	10.2(4.86)                   	New
+02/13/2023 palshanm 	Verified-on             	2022-07-04 05:19:51.000+0000 	2023-02-13 13:13:57.000+0000 	Mod
+02/13/2023 palshanm 	statusStates            	                             	[status=R, startDate=Wed Feb 	New
+02/13/2023 palshanm 	statusStates            	[status=R, startDate=Wed Feb 	                             	Del
+02/13/2023 palshanm 	Age-status              	288                          	293                          	Mod
+02/13/2023 palshanm 	Mean-time-to-verified   	68                           	293                          	Mod
+02/09/2023 divvenka 	Integrated-releases     	                             	10.2(4.85),10.2(5)           	New
+02/08/2023 cdetsbtk 	Security-screening-times	2023-02-08 16:52:10.000+0000 	2023-02-09 05:44:38.000+0000 	Mod
+02/08/2023 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+02/08/2023 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+02/08/2023 cdetsbtk 	Security-screening-times	2023-02-08 16:23:09.000+0000 	2023-02-08 16:52:10.000+0000 	Mod
+02/08/2023 vasagraw 	Note Title              	                             	R-comments.p2                	New
+02/08/2023 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+02/08/2023 vasagraw 	Status                  	M                            	R                            	Mod
+02/08/2023 vasagraw 	Resolved-on             	2022-04-29 16:30:11.000+0000 	2023-02-08 08:52:10.000+0000 	Mod
+02/08/2023 vasagraw 	statusStates            	                             	[status=M, startDate=Wed Feb 	New
+02/08/2023 vasagraw 	statusStates            	[status=M, startDate=Wed Feb 	                             	Del
+02/08/2023 vasagraw 	Mean-time-to-resolved   	3                            	288                          	Mod
+02/08/2023 cdetsbtk 	Security-screening-times	2023-02-08 16:23:06.000+0000 	2023-02-08 16:23:09.000+0000 	Mod
+02/08/2023 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+02/08/2023 cdetsbtk 	Security-screening-times	2023-02-08 15:09:52.000+0000 	2023-02-08 16:23:06.000+0000 	Mod
+02/08/2023 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+02/07/2023 cdetsbtk 	Security-screening-times	2023-02-08 14:37:24.000+0000 	2023-02-08 15:09:52.000+0000 	Mod
+02/07/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+02/07/2023 cdetsbtk 	Security-screening-times	2023-02-08 14:37:11.000+0000 	2023-02-08 14:37:24.000+0000 	Mod
+02/07/2023 baas     	File Name               	                             	ccwarnings-kerry             	New
+02/07/2023 cdetsbtk 	Security-screening-times	2023-02-08 13:36:27.000+0000 	2023-02-08 14:37:11.000+0000 	Mod
+02/07/2023 baas     	File Name               	                             	static-analysis-kerry        	New
+02/07/2023 cdetsbtk 	Security-screening-times	2023-02-08 13:33:26.000+0000 	2023-02-08 13:36:27.000+0000 	Mod
+02/07/2023 root     	File Name               	                             	uls_sanity_report            	New
+02/07/2023 root     	File Name               	                             	uls_sanity_baseline_compare  	New
+02/07/2023 cdetsbtk 	Security-screening-times	2023-02-08 13:23:01.000+0000 	2023-02-08 13:33:26.000+0000 	Mod
+02/07/2023 vasagraw 	Status-desc             	V-Verified                   	M-More                       	Mod
+02/07/2023 vasagraw 	Status                  	V                            	M                            	Mod
+02/07/2023 vasagraw 	More-on                 	2022-04-29 16:30:11.000+0000 	2023-02-08 05:33:26.000+0000 	Mod
+02/07/2023 vasagraw 	statusStates            	                             	[status=V, startDate=Mon Jul 	New
+02/07/2023 vasagraw 	statusStates            	[status=V, startDate=Mon Jul 	                             	Del
+02/07/2023 vasagraw 	Age-status              	69                           	288                          	Mod
+02/07/2023 cdetsbtk 	Security-screening-times	2022-07-04 12:19:51.000+0000 	2023-02-08 13:23:01.000+0000 	Mod
+02/07/2023 vasagraw 	Note Title              	                             	unit-test-kerry              	New
+02/07/2023 vinurao  	Attribute               	nr1f                         	nr1f kr5m kr5m-qa kr5m-rg    	Mod
+02/07/2023 vinurao  	Version                 	                             	10.2(3.65)                   	New
+07/03/2022 cdetsbtk 	Security-screening-times	2022-04-29 23:33:11.000+0000 	2022-07-04 12:19:51.000+0000 	Mod
+07/03/2022 palshanm 	Note Title              	                             	V-comments                   	New
+07/03/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/03/2022 palshanm 	Status                  	R                            	V                            	Mod
+07/03/2022 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+07/03/2022 palshanm 	Verified-release        	                             	10.3(0.135)                  	New
+07/03/2022 palshanm 	Verified-confidence     	                             	tested                       	Mod
+07/03/2022 palshanm 	Known-affected-releases 	10.2(3)INB9(0.135)           	                             	Del
+07/03/2022 palshanm 	Known-fixed-releases    	10.2(3)INB9(0.161),10.2(3)INB	                             	Del
+07/03/2022 palshanm 	Verified-on             	                             	2022-07-04 05:19:51.000+0000 	Mod
+07/03/2022 palshanm 	statusStates            	                             	[status=R, startDate=Fri Apr 	New
+07/03/2022 palshanm 	statusStates            	[status=R, startDate=Fri Apr 	                             	Del
+07/03/2022 palshanm 	Age-status              	3                            	69                           	Mod
+07/03/2022 palshanm 	Mean-time-to-verified   	                             	68                           	Mod
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 23:30:13.000+0000 	2022-04-29 23:33:11.000+0000 	Mod
+04/29/2022 divvenka 	Integrated-releases     	                             	10.2(3)INB9(0),10.2(3)INB9(0.	New
+04/29/2022 divvenka 	Known-fixed-releases    	                             	10.2(3)INB9(0.161),10.2(3)INB	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 22:08:01.000+0000 	2022-04-29 23:30:13.000+0000 	Mod
+04/29/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+04/29/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/29/2022 vasagraw 	Status                  	A                            	R                            	Mod
+04/29/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/29/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/29/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+04/29/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+04/29/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+04/29/2022 vasagraw 	Breakage                	                             	No                           	Mod
+04/29/2022 vasagraw 	Regression              	                             	N                            	Mod
+04/29/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+04/29/2022 vasagraw 	Bug-origin              	                             	Design                       	Mod
+04/29/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+04/29/2022 vasagraw 	Origin                  	                             	design                       	Mod
+04/29/2022 vasagraw 	Test-EDP-phase          	                             	Solution Test                	Mod
+04/29/2022 vasagraw 	Test-EDP-activity       	                             	Scale testing                	Mod
+04/29/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+04/29/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+04/29/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+04/29/2022 vasagraw 	Original-resolved-on    	                             	2022-04-29 16:30:11.000+0000 	Mod
+04/29/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+04/29/2022 vasagraw 	More-on                 	                             	2022-04-29 16:30:11.000+0000 	Mod
+04/29/2022 vasagraw 	Opened-on               	                             	2022-04-29 16:30:11.000+0000 	Mod
+04/29/2022 vasagraw 	Resolved-on             	                             	2022-04-29 16:30:11.000+0000 	Mod
+04/29/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Apr 	New
+04/29/2022 vasagraw 	statusStates            	[status=A, startDate=Wed Apr 	                             	Del
+04/29/2022 vasagraw 	Age-status              	1                            	3                            	Mod
+04/29/2022 vasagraw 	Mean-time-to-resolved   	                             	3                            	Mod
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 22:07:59.000+0000 	2022-04-29 22:08:01.000+0000 	Mod
+04/29/2022 vasagraw 	File Name               	                             	Diffs-commit-n_dev           	New
+04/29/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 19:41:20.000+0000 	2022-04-29 22:07:59.000+0000 	Mod
+04/29/2022 vasagraw 	File Name               	                             	Diffs-release-n_dev          	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 19:41:07.000+0000 	2022-04-29 19:41:20.000+0000 	Mod
+04/29/2022 baas     	File Name               	                             	ccwarnings-n_dev.p2          	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 19:36:43.000+0000 	2022-04-29 19:41:07.000+0000 	Mod
+04/29/2022 baas     	File Name               	                             	static-analysis-n_dev.p3     	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 19:36:29.000+0000 	2022-04-29 19:36:43.000+0000 	Mod
+04/29/2022 baas     	File Name               	                             	ccwarnings-n_dev             	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 18:48:41.000+0000 	2022-04-29 19:36:29.000+0000 	Mod
+04/29/2022 baas     	File Name               	                             	static-analysis-n_dev.p2     	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 18:24:25.000+0000 	2022-04-29 18:48:41.000+0000 	Mod
+04/29/2022 vasagraw 	Note Title              	                             	static-analysis-n_dev        	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 18:23:35.000+0000 	2022-04-29 18:24:25.000+0000 	Mod
+04/29/2022 vasagraw 	Note Title              	                             	l2_uls_sanity_baseline_compar	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 15:44:08.000+0000 	2022-04-29 18:23:35.000+0000 	Mod
+04/29/2022 vasagraw 	Note Title              	                             	l2_uls_sanity_report         	New
+04/29/2022 cdetsbtk 	Security-screening-times	2022-04-29 13:46:35.000+0000 	2022-04-29 15:44:08.000+0000 	Mod
+04/29/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/28/2022 cdetsbtk 	Security-screening-times	2022-04-28 12:38:23.000+0000 	2022-04-29 13:46:35.000+0000 	Mod
+04/28/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+04/27/2022 cdetsbtk 	Security-screening-times	2022-04-27 16:03:09.000+0000 	2022-04-28 12:38:23.000+0000 	Mod
+04/27/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/27/2022 cms      	Est-fix-date            	2022-04-29 07:00:00.000+0000 	2022-05-04 07:00:00.000+0000 	Mod
+04/27/2022 cms      	Est-fix-date            	                             	2022-04-29 07:00:00.000+0000 	Mod
+04/27/2022 cdetsbtk 	Security-screening-times	2022-04-27 12:28:18.000+0000 	2022-04-27 16:03:09.000+0000 	Mod
+04/27/2022 cms      	Note Title              	                             	Scrubnote                    	New
+04/26/2022 cdetsbtk 	Security-screening-times	2022-04-26 12:32:19.000+0000 	2022-04-27 12:28:18.000+0000 	Mod
+04/26/2022 vasagraw 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/26/2022 vasagraw 	Status                  	N                            	A                            	Mod
+04/26/2022 vasagraw 	Engineer                	                             	vasagraw                     	Mod
+04/26/2022 vasagraw 	Assigner                	                             	vasagraw                     	Mod
+04/26/2022 vasagraw 	Assigned Date           	                             	2022-04-27 05:28:17.000+0000 	Mod
+04/26/2022 vasagraw 	statusStates            	                             	[status=N, startDate=Tue Apr 	New
+04/26/2022 vasagraw 	statusStates            	[status=N, startDate=Tue Apr 	                             	Del
+04/26/2022 vasagraw 	Age-status              	0                            	1                            	Mod
+04/26/2022 vasagraw 	Mean-time-to-assigned   	                             	1                            	Mod
+04/25/2022 cdetsbtk 	Security-screening-times	2022-04-26 12:28:31.000+0000 	2022-04-26 12:32:19.000+0000 	Mod
+04/25/2022 palshanm 	Headline                	Radius: User roles are not as	Radius: User roles are not as	Mod
+04/25/2022 cdetsbtk 	Security-screening-times	2022-04-26 12:28:09.000+0000 	2022-04-26 12:28:31.000+0000 	Mod
+04/25/2022 palshanm 	File Name               	                             	radius_multiple_cisco_vsa_tes	New
+04/25/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/25/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+04/25/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/25/2022 cdetsbtk 	Security-screening-times	                             	2022-04-26 12:28:09.000+0000 	Mod
+04/25/2022 palshanm 	Note Title              	                             	Release-note                 	New
+04/25/2022 palshanm 	Impact                  	                             	Features/Functionality       	New
+04/25/2022 palshanm 	Version                 	                             	10.2(3)INB9(0.135)           	New
+04/25/2022 palshanm 	Known-affected-releases 	                             	10.2(3)INB9(0.135)           	New
+04/25/2022 palshanm 	Defect Created          	                             	                             	New

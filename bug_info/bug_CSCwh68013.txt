@@ -1,0 +1,1107 @@
+*******************************************************************************
+
+Bug ID   : CSCwh68013         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : User role are not showing correctly after NX upgrade
+PrimaryPV : 
+Version :10.2(5) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: abdaibra           Submitted: 09/25/2023 23:57:52     Last Updtd : 07/30/2026 09:44:44  
+RNE-Type: NONE                New-on : 09/25/2023 23:57:52      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:nandjeli                                            
+Known-affected-releases:10.2(5) 
+
+Known-fixed-releases:10.2(7) 10.3(4a) 10.4(2) 
+
+
+
+Potentially-affected-releases:10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3w) 10.3(99w) 10.3(99x) 10.4(1) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 09/27/2023 10:38:01                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 76                                             
+Mean-time-to-verified: 107    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 09/25/2023 23:40:55            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality Accessibility 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : medium        Assigned: 09/26/2023 00:00:10 
+Code-reviewer: sarchand       
+Opened-on: 09/27/2023 10:38:01Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn nr4m-mukamath nr4m-verifie
+Est. completion date: 09/29/2023 00:00:00  
+Script-version:                         
+
+More-by : asmurali            More-on: 12/10/2023 19:46:50  
+
+Documents Changed: none       Resolved: 12/11/2023 00:54:18 Resolver: asmurali       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 01/11/2024 20:26:40      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Global TAC CSE services Estarta
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              695939990;697889157
+Trouble-tickets-direct :C3695939990 
+Trouble-tickets-direct :C3697889157 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/26/2023 14:55:35
+Document :    nexus
+
+Summary:
+In earlier release of NX switches, when we send multiple VSA from the radius server, and one of the attributes is invalid, the NX will skip this attributes and check the next one inline so the role will be assigned correctly. In release 10.2.5, the behavior changed, after checking the invalid VSA, it will not move to the next VSA and assign an incorrect role to the user. 
+
+
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         695939990       null                                     
+C3         697889157       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-185036                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (13 of 13 ) ***********************
+
+---Start of Note Titled: Automation-Log (Created 04/28/2024 03:15:56 Added 04/28/2024 03:15:56 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2Fdcbg-nx-pi%2FNEW_PYATS%2Fusers%2Fpalshanm%2Farchive%2F24-04%2FCFD_CSCwh68013_job.2024Apr28_15:41:50.608663.zip&atstype=ATS
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments.p2 (Created 01/11/2024 20:26:40 Added 01/11/2024 20:26:40 by palshanm)---
+1. S/W Version : kr7m-verified
+2. Platform : PI
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Email-in (Created 12/11/2023 20:52:44 Added 12/11/2023 20:52:44 by bdevegow)---
+From: "Bhanupriya Devegowda -X (bdevegow - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <bdevegow@cisco.com>
+Date: Thursday, December 7, 2023 at 10:58 AM 
+To: "agilis-new-ic-team-nxos(mailer list)" <agilis-new-ic-team-nxos@cisco.com>
+Cc: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>
+Subject: RE: CSCwh68013
+
+As per DE Chat:
+ 
+You 12/7/2023 12:25 PM ? 
+Hi ABDALLAH
+Sorry to bother you
+I need your help regarding this bug CSCwh68013
+User role are not showing correctly after NX upgrade
+Can i assume that 10.4.x is not impacted?
+ABDALLAH IBRAHIM IBRAHIM 12/7/2023 2:44 PM ? Hello Bhaupriya
+
+you are welcome 
+I tested the behavior on version 10.3.4 and the issue fixed there
+
+to be honest 
+I didn't check 0.4 
+10.4
+You 12/7/2023 3:08 PM ? Okay is there any functionality/traffic impact, if not can i consider as minor issue?
+ABDALLAH IBRAHIM IBRAHIM 12/7/2023 3:09 PM ? in my case, the user was not able to login
+
+You 12/7/2023 4:24 PM ? So it will not impact major right?
+ABDALLAH IBRAHIM IBRAHIM 12/7/2023 4:26 PM ? in my case, it was not
+
+You 12/7/2023 4:27 PM ? Okay thank you so much
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB6358F3DC46ED658DF4133BB4CF8BA@DM4PR11MB6358.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: R-comments.p2 (Created 12/11/2023 00:54:19 Added 12/11/2023 00:54:19 by asmurali)---
+1. RCA: If cisco-VSA is having an invalid ?shell? string, the next cisco-VSA is not picked up for processing.
+
+2. Proposed Fix and testing consideration: A fix has been devised to let the fallback to the next cisco-VSA from the server. It is a complete fix. All cases around cisco-VSA should be tested.
+
+3. Platform and Applicable releases: It is a platform independent fix. Yes, back porting is required.
+
+4. Digitization?: Yes
+
+2023 Sep 27 08:40:30.643350 radiusd: rad_parse_vsa: VSA format error: format error: roles/priv-lvl not found, bail out   <<<<<<<<<<
+
+5.Debuggability: <debug radius all>
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: Sanity_uls_kerry (Created 12/08/2023 04:41:23 Added 12/08/2023 04:41:23 by asmurali)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity08
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/asmurali/630064/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/asmurali/630064
+Report file         : /auto/nxos-sanity/logs/asmurali/630064/uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/asmurali/630064/uls-n9kv08.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time     : 2023_12_06_09_55_22
+Test End time       : 2023_12_06_11_38_43
+Test Duration       : 1:43:21.270995
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '630064', '-cdet', 'CSCwh68013', '-build', '/ws/asmurali-sjc/nxos64-cs.10.2.6.20.Mdoublecommit.bin', '-testsuite', '/auto/nxos-sanity/logs/asmurali/630064/eor_n9kv_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'asmurali', '-logfile', '/auto/nxos-sanity/logs/asmurali/630064/uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/asmurali/630064/uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28  Failed:0/28  Aborted:0/28  Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:33   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:21   
+testStaticRoute                                                           pass      0:00:32   
+testLacpShutNoshut                                                        pass      0:04:42   
+testToggleSwitchport                                                      pass      0:01:50   
+testL2BridgingAccess                                                      pass      0:01:33   
+testHierarchicalRouting                                                   pass      0:04:31   
+testIpv6Interface                                                         pass      0:00:58   
+testOspfv3                                                                pass      0:03:48   
+testBgpv4                                                                 pass      0:03:43   
+testBgpv6                                                                 pass      0:03:17   
+testEigrpv4                                                               pass      0:02:13   
+testRip                                                                   pass      0:01:47   
+testCdp                                                                   pass      0:01:18   
+testLLDP                                                                  pass      0:00:48   
+testSvi                                                                   pass      0:03:32   
+testSviVrf                                                                pass      0:03:30   
+testVrfRouteLeak                                                          pass      0:04:27   
+testL2SanityMacLearning                                                   pass      0:05:52   
+testL2SanityUnconfig                                                      pass      0:00:29   
+testSpanningTreeAccess                                                    pass      0:01:59   
+testSpanningTreeTrunk                                                     pass      0:02:01   
+testL3DhcpRelayv4                                                         pass      0:03:30   
+testL3DhcpRelayv6                                                         pass      0:02:39   
+testCopyRunnStart                                                         pass      0:08:49   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: Sanity_uls_kerry---
+
+
+---Start of Note Titled: Unit-test.kerry (Created 12/08/2023 04:22:07 Added 12/08/2023 04:22:07 by asmurali)---
+UT:
+
+switch# confSystem is still initializing
+Configuration mode is blocked until system is ready
+switch# config t
+Configuration locked. Ascii config in progress.
+switch# 2023 Dec  8 17:40:32 switch %$ VDC-1 %$ %USER-2-SYSTEM_MSG: Thirdparty RPMs installation succeeded - /thirdparty_install.py
+radius-server key 7
+         ^
+% Invalid command at '^' marker.
+switch# radius-server key 7 "fewhg"
+         ^
+% Invalid command at '^' marker.
+switch# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# radius-server key 7 "fewhg"
+switch(config)# radius-server host 10.77.143.40 key 7 "fewhg" authentication accounting 
+switch(config)# aaa group server radius rad2 
+switch(config-radius)# server 10.77.143.40
+switch(config-radius)# use-vrf management
+switch(config-radius)# aaa authentication login default group rad2 
+switch(config)# aaa authentication login console local 
+switch(config)# show user-account palshanm
+user:palshanm does not exist
+switch(config)# debug logfile ashwinirad
+switch(config)# debug radius  all
+switch(config)# logging  level  7
+                                ^
+% Invalid command at '^' marker.
+switch(config)# logging  level radius  7
+switch(config)# debug radius  config
+config            config-lowlevel   
+switch(config)# debug radius  config-lowlevel 
+switch(config)# debug rad 
+aaa-request             aaa-request-lowlevel    all                     config                  config-lowlevel         mts                     server-monitor          server-monitor-errors   
+switch(config)# debug rad 
+aaa-request             aaa-request-lowlevel    all                     config                  config-lowlevel         mts                     server-monitor          server-monitor-errors   
+switch(config)# debug rad config
+switch(config)# debug radius  aaa
+aaa-request            aaa-request-lowlevel   
+switch(config)# debug radius  aaa-request
+switch(config)# show run int mgmt0
+
+!Command: show running-config interface mgmt0
+!Running configuration last done at: Fri Dec  8 17:46:03 2023
+!Time: Fri Dec  8 17:46:47 2023
+
+version 10.2(7) Bios:version 05.50 
+
+interface mgmt0
+  vrf member management
+  ip address 10.126.67.47/25
+
+
+
+sjc-ads-1313:129> ssh palshanm@10.126.67.47
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+
+
+
+switch(config)# show user-account  palshanm
+user:palshanm
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# show debug logfile | grep ignore-case vsa
+                                   ^
+% Incomplete command at '^' marker.
+switch(config)# show debug logfile ashwinirad | grep ignore-case vsa
+2023 Dec  8 17:47:03.017519 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017524 radius: got VSA attribute:shell:role="admin,aaa,network-admin,vdc-admin"
+2023 Dec  8 17:47:03.017538 radius: rad_parse_vsa: shell_str:shell:role="admin,aaa,network-admin,vdc-admin"
+2023 Dec  8 17:47:03.017554 radius: rad_parse_vsa: VSA format error: format error: roles/priv-lvl not found, bail out
+2023 Dec  8 17:47:03.017562 radius: pap_reply: rad_parse_vsa failed
+2023 Dec  8 17:47:03.017569 radius: Will be calling rad_parse_vsa with new length 154
+2023 Dec  8 17:47:03.017584 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017589 radius: got VSA attribute:shel:priv-lvl=15
+2023 Dec  8 17:47:03.017595 radius: No useful data in VSA
+2023 Dec  8 17:47:03.017600 radius: pap_reply: rad_parse_vsa failed
+2023 Dec  8 17:47:03.017605 radius: Will be calling rad_parse_vsa with new length 178
+2023 Dec  8 17:47:03.017621 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017626 radius: got VSA attribute:NCS:virtual-domain0=ROOT-DOMAIN
+2023 Dec  8 17:47:03.017631 radius: No useful data in VSA
+2023 Dec  8 17:47:03.017636 radius: pap_reply: rad_parse_vsa failed
+2023 Dec  8 17:47:03.017641 radius: Will be calling rad_parse_vsa with new length 217
+2023 Dec  8 17:47:03.017657 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017662 radius: got VSA attribute:shel:domain=all/admin/read-all
+2023 Dec  8 17:47:03.017667 radius: No useful data in VSA
+2023 Dec  8 17:47:03.017672 radius: pap_reply: rad_parse_vsa failed
+2023 Dec  8 17:47:03.017678 radius: Will be calling rad_parse_vsa with new length 255
+2023 Dec  8 17:47:03.017693 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017698 radius: got VSA attribute:NCS:role0=Super Users
+2023 Dec  8 17:47:03.017703 radius: No useful data in VSA
+2023 Dec  8 17:47:03.017708 radius: pap_reply: rad_parse_vsa failed
+2023 Dec  8 17:47:03.017714 radius: Will be calling rad_parse_vsa with new length 284
+2023 Dec  8 17:47:03.017729 radius: Cisco AV PAIR VSA
+2023 Dec  8 17:47:03.017733 radius: got VSA attribute:shell:roles="admin aaa network-admin vdc-admin"
+2023 Dec  8 17:47:03.017739 radius: rad_parse_vsa: shell_str:shell:roles="admin aaa network-admin vdc-admin"
+2023 Dec  8 17:47:03.017756 radius: vsa_string: shell:roles="admin aaa network-admin vdc-admin" 
+2023 Dec  8 17:47:03.017783 radius: vsa_string:"admin aaa network-admin vdc-admin" 
+2023 Dec  8 17:47:03.017797 radius: protocol:shell vsa_string: .. value:admin aaa network-admin vdc-admin 
+2023 Dec  8 17:47:03.017829 radius: rad_parse_vsa: No snmpv3: attribute received
+switch(config)#
+---End of Note Titled: Unit-test.kerry---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 10/20/2023 10:30:23 Added 10/20/2023 10:30:23 by seshea)---
+--- Update 2023-10-20 17:30:22.722958 seshea via 696313885)
+Unsuitable - Insufficient Data from Device
+user config comes from aaa server not config, if wrong value is provided in key value pair from server, we have no reference if the user is right or wrong, so marking as unsuitable as a bit too generic and insufficient info
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: unit-test_or2f (Created 10/19/2023 03:30:23 Added 10/19/2023 03:30:23 by vasagraw)---
+*******************
+Following are the Cisco-VSA strings present on ISE:
+
+shell:role=SUPER-ADMIN-ROLE
+shell:priv-lvl=15
+NCS:virtual-domain0=ROOT-DOMAIN
+shell:domain=all/admin/read-all
+NCS:role0=Super Users
+shell:roles="admin,aaa,network-admin,vdc-admin"
+*****************
+
+
+N9K_GX(config)# 
+N9K_GX(config)# show running-config radius 
+2023 Oct 20 15:39:24 N9K_GX %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed creating DTLS connection for server 10.48.78.165
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Oct 20 15:37:56 2023
+!Time: Fri Oct 20 15:39:24 2023
+
+version 10.4(2) Bios:version 05.47 
+radius-server host 10.48.78.165 key 7 "fewhg" authentication accounting 
+
+aaa group server radius rad2 
+    server 10.48.78.165 
+    use-vrf management
+
+
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct 20 15:41:06 2023
+!Time: Fri Oct 20 15:41:08 2023
+
+version 10.4(2) Bios:version 05.47 
+aaa authentication login default group rad2 
+aaa authentication login console local 
+
+
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# show user-account abd
+user:abd does not exist
+N9K_GX(config)# 
+
+
+
+
+*********************
+
+
+
+(~)$> ssh -l abd 10.126.67.84 <<<<<<<<<< SSH with RADIUS user abd
+User Access Verification
+Password: 
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K_GX# 
+N9K_GX# 
+
+
+
+
+********************
+
+
+
+N9K_GX(config)# 
+N9K_GX(config)# show user-account abd
+user:abd
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+N9K_GX(config)# 
+N9K_GX(config)# 
+N9K_GX(config)# show debug logfile rad2 | grep ignore-case vsa
+2023 Oct 20 15:42:03.954854 radiusd: Cisco AV PAIR VSA
+2023 Oct 20 15:42:03.954860 radiusd: got VSA attribute:shell:role=SUPER-ADMIN-ROLE
+2023 Oct 20 15:42:03.954867 radiusd: rad_parse_vsa: shell_str:shell:role=SUPER-ADMIN-ROLE
+
+2023 Oct 20 15:42:03.954874 radiusd: rad_parse_vsa: VSA format error: format error: roles/priv-lvl not found, bail out       <<<<<<<<<<
+
+2023 Oct 20 15:42:03.954880 radiusd: pap_reply: rad_parse_vsa failed
+2023 Oct 20 15:42:03.954886 radiusd: Will be calling rad_parse_vsa with new length 128
+2023 Oct 20 15:42:03.954905 radiusd: Cisco AV PAIR VSA
+2023 Oct 20 15:42:03.954910 radiusd: got VSA attribute:shell:priv-lvl=15
+2023 Oct 20 15:42:03.954916 radiusd: rad_parse_vsa: shell_str:shell:priv-lvl=15
+2023 Oct 20 15:42:03.954924 radiusd: vsa_string: shell:priv-lvl=15 
+2023 Oct 20 15:42:03.954943 radiusd: vsa_string:15 
+2023 Oct 20 15:42:03.954950 radiusd: protocol:shell vsa_string: .. value:15 
+2023 Oct 20 15:42:03.954957 radiusd: VSA string has no roles. Fetching role via feature_priv_str: 15 
+2023 Oct 20 15:42:03.955017 radiusd: rad_parse_vsa: No snmpv3: attribute received
+N9K_GX(config)#
+---End of Note Titled: unit-test_or2f---
+
+
+---Start of Note Titled: V-comments (Created 10/04/2023 10:52:27 Added 10/04/2023 10:52:27 by palshanm)---
+1. S/W Version : 10.3(3.111)
+2. Platform : PI
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 09/27/2023 10:38:01 Added 09/27/2023 10:38:01 by vasagraw)---
+1. RCA: If cisco-VSA is having an invalid ?shell? string, the next cisco-VSA is not picked up for processing.
+
+2. Proposed Fix and testing consideration: A fix has been devised to let the fallback to the next cisco-VSA from the server. It is a complete fix. All cases around cisco-VSA should be tested.
+
+3. Platform and Applicable releases: It is a platform independent fix. Yes, back porting is required.
+
+4. Digitization?: Yes
+
+2023 Sep 27 08:40:30.643350 radiusd: rad_parse_vsa: VSA format error: format error: roles/priv-lvl not found, bail out   <<<<<<<<<<
+
+5.Debuggability: <debug radius all>
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Unit-test (Created 09/27/2023 02:38:03 Added 09/27/2023 02:38:03 by vasagraw)---
+*******************
+Following are the Cisco-VSA strings present on ISE:
+
+shell:role=SUPER-ADMIN-ROLE
+shell:priv-lvl=15
+NCS:virtual-domain0=ROOT-DOMAIN
+shell:domain=all/admin/read-all
+NCS:role0=Super Users
+shell:roles="admin,aaa,network-admin,vdc-admin"
+*****************
+
+
+ORIBOS(config)# 
+ORIBOS(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+ORIBOS(config)# 
+ORIBOS(config)# 
+ORIBOS(config)# debug logfile rad2
+ORIBOS(config)# debug radius all
+
+
+********************************
+(~)$> 
+(~)$> ssh -l abd 10.48.73.122          <<<<<<<<<<<<< SSH for remote/radius login to take effect
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+The credentials for this device can be found either in the pod documentation
+or will have been communicated in your lab case.   
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+ORIBOS# 
+ORIBOS# 
+********************************
+
+
+ORIBOS(config)# 
+ORIBOS(config)# show debug logfile rad2 | grep rad_parse_vsa
+2023 Sep 27 08:40:30.643342 radiusd: rad_parse_vsa: shell_str:shell:role=SUPER-ADMIN-ROLE
+2023 Sep 27 08:40:30.643350 radiusd: rad_parse_vsa: VSA format error: format error: roles/priv-lvl not found, bail out   <<<<<<<<<<
+2023 Sep 27 08:40:30.643360 radiusd: pap_reply: rad_parse_vsa failed
+2023 Sep 27 08:40:30.643367 radiusd: Will be calling rad_parse_vsa with new length 129
+2023 Sep 27 08:40:30.643579 radiusd: rad_parse_vsa: shell_str:shell:priv-lvl=15
+2023 Sep 27 08:40:30.643681 radiusd: rad_parse_vsa: No snmpv3: attribute received
+ORIBOS(config)# 
+ORIBOS(config)# 
+ORIBOS(config)# 
+ORIBOS(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:abd
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+ORIBOS(config)# 
+ORIBOS(config)# 
+ORIBOS(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Sep 27 07:24:16 2023
+!Time: Wed Sep 27 10:05:38 2023
+
+version 10.3(4) Bios:version 01.08 
+radius-server key 7 "Tsi12qr"
+radius-server host 10.48.78.165 key 7 "Tsi12qr" authentication accounting 
+
+ip radius source-interface mgmt0
+
+
+ORIBOS(config)# 
+ORIBOS(config)# 
+ORIBOS(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Sep 27 07:24:16 2023
+!Time: Wed Sep 27 10:05:42 2023
+
+version 10.3(4) Bios:version 01.08 
+aaa authentication login default group radius 
+aaa authentication login console local 
+aaa accounting default group radius 
+
+
+ORIBOS(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 09/26/2023 03:23:04 Modified 06/12/2024 15:55:18 by cms)---
+{240416 palshanm S B} Assigned to me for CFD automation
+{231211 pbhavesh S B} need to release-note for IMR12
+{231107 srkatti S B} ETA to commit for KR7M -- 11/20
+{231031 anikunna S B} Needs to be double committed to Kerry KR7M
+{230926 anikunna S B} Discussed with submitter and working on a fix
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 09/25/2023 23:57:52 Modified 01/11/2024 20:26:40 by palshanm)---
+<B>Symptom:</B>
+After the upgrade to release 10.2.5, the role assigned to the user is incorrect ( will be assigned as network operator instead of network admin) however, attributes shared by the Radius server contains admin role VSA.
+
+<B>Conditions:</B>
+upgrade to 10.2.5
+
+The below attributes were sent from the Radius server, since the first attribute is not valid one[role] not system/custom attribute, the new code of NX (10.2(5)) will not proceed with checking the next attributes and assign a network operator role to the admin user.
+
+Cisco-av-pair=shell:role=SUPER-ADMIN-ROLE
+Cisco-av-pair= shell:priv-lvl=15                                                                   
+Cisco-av-pair=NCS:virtual-domain0=ROOT-DOMAIN
+Cisco-av-pair=shell:domain=all/admin/read-all
+Cisco-av-pair=NCS:role0=Super Users
+Cisco-av-pair=shell:roles="admin,aaa,network-admin,vdc-admin"
+
+<B>Workaround:</B>
+use correct VSA syntax to be sent.
+
+<B>Further Problem Description:</B>
+The issue will be fixed on the coming releases
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (15 of 15)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-kerry                                ascii text     1574           asmurali       12/11/2023 00:53:02      
+Diffs-release-kerry                               ascii text     1189           asmurali       12/11/2023 00:53:00      
+nxos-pi-common-security-code-review               ascii text     941            prrqengg       12/10/2023 19:41:41      
+Diffs-commit-nx_main                              ascii text     2339           vasagraw       10/19/2023 15:18:17      
+ccwarnings-nx_main                                ascii text     185            baas           10/19/2023 07:07:01      
+static-analysis-nx_main                           ascii text     8935           baas           10/19/2023 07:06:26      
+code-review-nx_main.p2                            ascii text     1264           vasagraw       10/19/2023 06:38:38      
+code-review-nx_main                               ascii text     1264           vasagraw       10/19/2023 05:37:50      
+uls_sanity_baseline_compare                       ascii text     219            root           09/29/2023 07:37:05      
+uls_sanity_report                                 ascii text     4405           root           09/29/2023 07:37:05      
+Diffs-commit-niles_rel                            ascii text     2341           vasagraw       09/27/2023 10:20:15      
+ccwarnings-niles_rel                              ascii text     185            baas           09/27/2023 06:07:22      
+static-analysis-niles_rel                         ascii text     8955           baas           09/27/2023 06:07:09      
+code-review-niles_rel.p2                          ascii text     1258           vasagraw       09/27/2023 03:40:54      
+code-review-niles_rel                             ascii text     1258           vasagraw       09/27/2023 03:08:43      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/30/2026 satdr    	Attribute               	cfd-mukamath nr4m-mukamath nr	cfd-manojohn nr4m-mukamath nr	Mod
+06/08/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/01/2025 samekama 	Attribute               	cfd-mukamath nr4m-mukamath nr	cfd-mukamath nr4m-mukamath nr	Mod
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+05/08/2025 cdetsadm 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+05/08/2025 cdetsadm 	Known-fixed-releases    	10.3(4)                      	                             	Del
+09/07/2024 pisces   	VF-patched              	                             	NX-OS:10.3(4),NX-OS:10.3(4a),	New
+09/07/2024 pisces   	VF-unpatched            	                             	NX-OS:10.2(1),NX-OS:10.2(1q),	New
+09/07/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+09/07/2024 pisces   	Potentially-affected-rel	                             	10.2(1),10.2(1q),10.2(2),10.2	New
+09/07/2024 pisces   	Known-fixed-releases    	                             	10.3(4)                      	New
+09/06/2024 trusinya 	serviceRequests/C3/69788	                             	                             	Mod
+09/06/2024 trusinya 	Urgency-desc            	NA                           	CL3                          	Mod
+09/06/2024 trusinya 	Urgency                 	9                            	6                            	Mod
+09/06/2024 trusinya 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/06/2024 trusinya 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/06/2024 krisstoy 	serviceRequests/C3/69788	                             	C3/697889157                 	New
+09/06/2024 krisstoy 	Urgency-desc            	CL3                          	NA                           	Mod
+09/06/2024 krisstoy 	Urgency                 	6                            	9                            	Mod
+09/06/2024 krisstoy 	Tickets-count           	1                            	2                            	Mod
+09/06/2024 krisstoy 	TACSR-count             	1                            	2                            	Mod
+09/06/2024 krisstoy 	Tickets-count-direct    	1                            	2                            	Mod
+09/06/2024 krisstoy 	Trouble-tickets         	                             	697889157                    	New
+09/06/2024 krisstoy 	Trouble-tickets-direct  	                             	C3697889157                  	New
+06/12/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-185036       	New
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/12/2024 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/28/2024 palshanm 	Note Title              	                             	Automation-Log               	New
+04/28/2024 palshanm 	Automated-test          	N                            	Y                            	Mod
+04/28/2024 palshanm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/28/2024 palshanm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/26/2024 sachinj  	Attribute               	nr4m-mukamath nr4m-verified o	cfd-mukamath nr4m-mukamath nr	Mod
+03/26/2024 sachinj  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/26/2024 sachinj  	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(2)                      	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+02/29/2024 fas      	Integrated-releases     	                             	10.3(4a)                     	New
+02/29/2024 fas      	Known-fixed-releases    	                             	10.2(7),10.3(4a)             	New
+01/11/2024 palshanm 	Note Title              	                             	V-comments.p2                	New
+01/11/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+01/11/2024 palshanm 	Status                  	R                            	V                            	Mod
+01/11/2024 palshanm 	Attribute               	nr4m-mukamath nr4m-verified o	nr4m-mukamath nr4m-verified o	Mod
+01/11/2024 palshanm 	Verified-release        	                             	10.2(6.32)                   	New
+01/11/2024 palshanm 	Verified-on             	2023-10-04 17:52:27.000+0000 	2024-01-12 04:26:40.000+0000 	Mod
+01/11/2024 palshanm 	statusStates            	                             	[status=R, startDate=Mon Dec 	New
+01/11/2024 palshanm 	statusStates            	[status=R, startDate=Mon Dec 	                             	Del
+01/11/2024 palshanm 	Age-status              	76                           	108                          	Mod
+01/11/2024 palshanm 	Mean-time-to-verified   	8                            	107                          	Mod
+12/22/2023 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0)               	New
+12/22/2023 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0.52)            	New
+12/22/2023 divvenka 	Apply-to                	                             	10.4(1)IOZ9(0.52)            	New
+12/19/2023 vkoganti 	Attribute               	nr4m-mukamath nr4m-verified o	nr4m-mukamath nr4m-verified o	Mod
+12/13/2023 ambanerj 	Attribute               	nr4m-mukamath nr4m-verified o	nr4m-mukamath nr4m-verified o	Mod
+12/11/2023 bdevegow 	Note Title              	                             	Email-in                     	New
+12/11/2023 divvenka 	Integrated-releases     	                             	10.2(6.23),10.2(7)           	New
+12/11/2023 asmurali 	Note Title              	                             	R-comments.p2                	New
+12/11/2023 asmurali 	Status-desc             	M-More                       	R-Resolved                   	Mod
+12/11/2023 asmurali 	Status                  	M                            	R                            	Mod
+12/11/2023 asmurali 	Resolver                	vasagraw                     	asmurali                     	Mod
+12/11/2023 asmurali 	Resolved-on             	2023-09-27 17:38:01.000+0000 	2023-12-11 08:54:18.000+0000 	Mod
+12/11/2023 asmurali 	statusStates            	                             	[status=M, startDate=Mon Dec 	New
+12/11/2023 asmurali 	statusStates            	[status=M, startDate=Mon Dec 	                             	Del
+12/11/2023 asmurali 	Mean-time-to-resolved   	1                            	76                           	Mod
+12/11/2023 asmurali 	File Name               	                             	Diffs-commit-kerry           	New
+12/11/2023 asmurali 	File Name               	                             	Diffs-release-kerry          	New
+12/10/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/10/2023 asmurali 	Status-desc             	V-Verified                   	M-More                       	Mod
+12/10/2023 asmurali 	Status                  	V                            	M                            	Mod
+12/10/2023 asmurali 	More-by                 	vasagraw                     	asmurali                     	Mod
+12/10/2023 asmurali 	More-on                 	2023-09-27 17:38:01.000+0000 	2023-12-11 03:46:50.000+0000 	Mod
+12/10/2023 asmurali 	statusStates            	                             	[status=V, startDate=Wed Oct 	New
+12/10/2023 asmurali 	statusStates            	[status=V, startDate=Wed Oct 	                             	Del
+12/10/2023 asmurali 	Age-status              	8                            	76                           	Mod
+12/10/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+12/10/2023 prrqengg 	FileSize                	939                          	941                          	Mod
+12/08/2023 asmurali 	Note Title              	                             	Sanity_uls_kerry             	New
+12/08/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+12/08/2023 asmurali 	Note Title              	                             	Unit-test.kerry              	New
+12/01/2023 abdaibra 	serviceRequests/C3/69593	                             	                             	Mod
+12/01/2023 abdaibra 	Urgency-desc            	NA                           	CL3                          	Mod
+12/01/2023 abdaibra 	Urgency                 	9                            	6                            	Mod
+11/30/2023 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0)               	New
+11/30/2023 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0.138)           	New
+11/30/2023 divvenka 	Apply-to                	                             	10.4(1)IUM9(0.138)           	New
+11/08/2023 palshanm 	Attribute               	nr4m-mukamath nr4m-verified o	nr4m-mukamath nr4m-verified o	Mod
+11/08/2023 palshanm 	Verified-release        	                             	10.4(1)IMG9(0.220)           	New
+11/07/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/06/2023 divvenka 	Integrated-releases     	                             	10.4(1)ITL9(0)               	New
+11/06/2023 divvenka 	Integrated-releases     	                             	10.4(1)ITL9(0.29)            	New
+11/06/2023 divvenka 	Apply-to                	                             	10.4(1)ITL9(0.29)            	New
+11/06/2023 mukamath 	Attribute               	nr4m-mukamath nr4m-verified o	nr4m-mukamath nr4m-verified o	Mod
+11/06/2023 mukamath 	Attribute               	nr4m-mukamath nr4m-verified  	nr4m-mukamath nr4m-verified o	Mod
+10/31/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/26/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0)               	New
+10/26/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0.41)            	New
+10/26/2023 divvenka 	Apply-to                	                             	10.4(2)IOD9(0.41)            	New
+10/20/2023 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+10/19/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0)               	New
+10/19/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0.189)           	New
+10/19/2023 divvenka 	Apply-to                	                             	10.4(1)IMG9(0.189)           	New
+10/19/2023 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+10/19/2023 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+10/19/2023 baas     	File Name               	                             	ccwarnings-nx_main           	New
+10/19/2023 baas     	File Name               	                             	static-analysis-nx_main      	New
+10/19/2023 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+10/19/2023 vasagraw 	File Name               	                             	code-review-nx_main          	New
+10/19/2023 vasagraw 	Note Title              	                             	unit-test_or2f               	New
+10/04/2023 palshanm 	Attribute               	nr4m-mukamath                	nr4m-mukamath nr4m-verified  	Mod
+10/04/2023 palshanm 	Note Title              	                             	V-comments                   	New
+10/04/2023 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+10/04/2023 palshanm 	Status                  	R                            	V                            	Mod
+10/04/2023 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+10/04/2023 palshanm 	Verified-release        	                             	10.3(3.111)                  	New
+10/04/2023 palshanm 	Verified-confidence     	                             	tested                       	Mod
+10/04/2023 palshanm 	Verified-on             	                             	2023-10-04 17:52:27.000+0000 	Mod
+10/04/2023 palshanm 	statusStates            	                             	[status=R, startDate=Wed Sep 	New
+10/04/2023 palshanm 	statusStates            	[status=R, startDate=Wed Sep 	                             	Del
+10/04/2023 palshanm 	Age-status              	1                            	8                            	Mod
+10/04/2023 palshanm 	Mean-time-to-verified   	                             	8                            	Mod
+10/02/2023 dkhoo    	Attribute               	nr4m-no-rg nr4m-mukamath     	nr4m-mukamath                	Mod
+10/01/2023 abdaibra 	serviceRequests/C3/69593	                             	C3/695939990                 	New
+10/01/2023 abdaibra 	Urgency                 	                             	9                            	Mod
+10/01/2023 abdaibra 	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+10/01/2023 abdaibra 	Data-classification-reas	                             	Default value of Data-classif	Mod
+10/01/2023 abdaibra 	Tickets-count           	0                            	1                            	Mod
+10/01/2023 abdaibra 	TACSR-count             	                             	1                            	Mod
+10/01/2023 abdaibra 	Tickets-count-direct    	                             	1                            	Mod
+10/01/2023 abdaibra 	Trouble-tickets         	                             	695939990                    	New
+10/01/2023 abdaibra 	Trouble-tickets-direct  	                             	C3695939990                  	New
+09/29/2023 kopidiki 	Attribute               	nr4m-no-rg                   	nr4m-no-rg nr4m-mukamath     	Mod
+09/29/2023 root     	File Name               	                             	uls_sanity_baseline_compare  	New
+09/29/2023 root     	File Name               	                             	uls_sanity_report            	New
+09/27/2023 divvenka 	Integrated-releases     	                             	10.3(4)                      	New
+09/27/2023 divvenka 	Integrated-releases     	                             	10.3(3.106)                  	New
+09/27/2023 divvenka 	Apply-to                	                             	10.3(3.106)                  	New
+09/27/2023 vasagraw 	Note Title              	                             	R-comments                   	New
+09/27/2023 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+09/27/2023 vasagraw 	Status                  	A                            	R                            	Mod
+09/27/2023 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+09/27/2023 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+09/27/2023 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+09/27/2023 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+09/27/2023 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+09/27/2023 vasagraw 	Breakage                	                             	No                           	Mod
+09/27/2023 vasagraw 	Regression              	                             	N                            	Mod
+09/27/2023 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+09/27/2023 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+09/27/2023 vasagraw 	Released-code           	                             	Y                            	Mod
+09/27/2023 vasagraw 	Origin                  	                             	base code                    	Mod
+09/27/2023 vasagraw 	Test-escape             	N                            	Y                            	Mod
+09/27/2023 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+09/27/2023 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+09/27/2023 vasagraw 	TPS_issue               	                             	N                            	Mod
+09/27/2023 vasagraw 	TPS_flag                	                             	N                            	Mod
+09/27/2023 vasagraw 	Behavior-changed        	                             	N                            	Mod
+09/27/2023 vasagraw 	Original-resolved-on    	                             	2023-09-27 17:38:01.000+0000 	Mod
+09/27/2023 vasagraw 	Documents-changed       	                             	none                         	Mod
+09/27/2023 vasagraw 	More-on                 	                             	2023-09-27 17:38:01.000+0000 	Mod
+09/27/2023 vasagraw 	Opened-on               	                             	2023-09-27 17:38:01.000+0000 	Mod
+09/27/2023 vasagraw 	Resolved-on             	                             	2023-09-27 17:38:01.000+0000 	Mod
+09/27/2023 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Sep 	New
+09/27/2023 vasagraw 	statusStates            	[status=A, startDate=Tue Sep 	                             	Del
+09/27/2023 vasagraw 	Age-status              	0                            	1                            	Mod
+09/27/2023 vasagraw 	Mean-time-to-resolved   	                             	1                            	Mod
+09/27/2023 vasagraw 	File Name               	                             	Diffs-commit-niles_rel       	New
+09/27/2023 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+09/27/2023 baas     	File Name               	                             	static-analysis-niles_rel    	New
+09/27/2023 vasagraw 	File Name               	                             	code-review-niles_rel.p2     	New
+09/27/2023 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+09/27/2023 vasagraw 	File Name               	                             	code-review-niles_rel        	New
+09/27/2023 vasagraw 	Note Title              	                             	Unit-test                    	New
+09/26/2023 dkhoo    	Attribute               	                             	nr4m-no-rg                   	Mod
+09/26/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/26/2023 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+09/26/2023 cdetsbtk 	Security-screening-times	                             	2023-09-26 21:55:35.000+0000 	Mod
+09/26/2023 cms      	Note Title              	                             	Scrubnote                    	New
+09/26/2023 cms      	Est-fix-date            	                             	2023-09-29 07:00:00.000+0000 	Mod
+09/26/2023 vasagraw 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/26/2023 vasagraw 	Status                  	N                            	A                            	Mod
+09/26/2023 vasagraw 	Engineer                	                             	vasagraw                     	Mod
+09/26/2023 vasagraw 	Assigner                	                             	vasagraw                     	Mod
+09/26/2023 vasagraw 	Assigned Date           	                             	2023-09-26 07:00:10.000+0000 	Mod
+09/26/2023 vasagraw 	statusStates            	                             	[status=N, startDate=Tue Sep 	New
+09/26/2023 vasagraw 	statusStates            	[status=N, startDate=Tue Sep 	                             	Del
+09/26/2023 vasagraw 	Mean-time-to-assigned   	                             	0                            	Mod
+09/25/2023 abdaibra 	Note Title              	                             	Release-note                 	New
+09/25/2023 abdaibra 	Headline                	                             	User role are not showing cor	Mod
+09/25/2023 abdaibra 	Summary                 	                             	In earlier release of NX swit	Mod
+09/25/2023 abdaibra 	Project                 	                             	CSC.datacenter               	Mod
+09/25/2023 abdaibra 	Product                 	                             	n9k-standalone-sw            	Mod
+09/25/2023 abdaibra 	Component               	                             	radius                       	Mod
+09/25/2023 abdaibra 	Status-desc             	                             	N-New                        	Mod
+09/25/2023 abdaibra 	Status                  	                             	N                            	Mod
+09/25/2023 abdaibra 	Found                   	                             	customer-use                 	Mod
+09/25/2023 abdaibra 	Hardening               	                             	N                            	Mod
+09/25/2023 abdaibra 	Product-owner           	                             	gsheehan                     	Mod
+09/25/2023 abdaibra 	Original-found          	                             	customer-use                 	Mod
+09/25/2023 abdaibra 	Hardware                	                             	Nexus 9000                   	Mod
+09/25/2023 abdaibra 	Feature                 	                             	fix                          	Mod
+09/25/2023 abdaibra 	Urgency-desc            	                             	NA                           	Mod
+09/25/2023 abdaibra 	Severity-desc           	                             	moderate                     	Mod
+09/25/2023 abdaibra 	Severity                	                             	3                            	Mod
+09/25/2023 abdaibra 	DE Priority Desc        	                             	medium                       	Mod
+09/25/2023 abdaibra 	DE-priority             	                             	3                            	Mod
+09/25/2023 abdaibra 	Impact                  	                             	Features/Functionality,Access	New
+09/25/2023 abdaibra 	Submitter               	                             	abdaibra                     	Mod
+09/25/2023 abdaibra 	Submitter-manager       	                             	nandjeli                     	Mod
+09/25/2023 abdaibra 	DE-manager              	                             	anikunna                     	Mod
+09/25/2023 abdaibra 	DTPT-manager            	                             	mukamath                     	Mod
+09/25/2023 abdaibra 	Version                 	                             	10.2(5)                      	New
+09/25/2023 abdaibra 	Original-version        	                             	10.2(5)                      	Mod
+09/25/2023 abdaibra 	Found-during            	                             	Customer                     	Mod
+09/25/2023 abdaibra 	Activity-when-found     	                             	Customer-Use                 	Mod
+09/25/2023 abdaibra 	Automated-test          	                             	N                            	Mod
+09/25/2023 abdaibra 	Test-escape             	                             	N                            	Mod
+09/25/2023 abdaibra 	PSIRT                   	                             	N                            	Mod
+09/25/2023 abdaibra 	Data-classification     	                             	Cisco Public                 	Mod
+09/25/2023 abdaibra 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+09/25/2023 abdaibra 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+09/25/2023 abdaibra 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+09/25/2023 abdaibra 	Software-type-ids       	                             	282253564,286280105,286321149	New
+09/25/2023 abdaibra 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/25/2023 abdaibra 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+09/25/2023 abdaibra 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+09/25/2023 abdaibra 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+09/25/2023 abdaibra 	MDF-edited              	                             	N                            	Mod
+09/25/2023 abdaibra 	Attribute2              	                             	n/a                          	Mod
+09/25/2023 abdaibra 	Care-Update             	                             	Y                            	Mod
+09/25/2023 abdaibra 	Doc-manager             	                             	anikunna                     	Mod
+09/25/2023 abdaibra 	Document                	                             	nexus                        	Mod
+09/25/2023 abdaibra 	Documentation-resolution	                             	Undefined                    	Mod
+09/25/2023 abdaibra 	Original-activity-when-f	                             	Customer-Use                 	Mod
+09/25/2023 abdaibra 	Original-found-during   	                             	Customer                     	Mod
+09/25/2023 abdaibra 	Submitter-org-bug       	                             	Global TAC CSE services Estar	Mod
+09/25/2023 abdaibra 	Component-scenarios     	                             	N                            	Mod
+09/25/2023 abdaibra 	Submitted-on            	                             	2023-09-26 06:57:52.320+0000 	Mod
+09/25/2023 abdaibra 	IFD-CFD-Conv-date       	                             	2023-09-26 06:40:55.000+0000 	Mod
+09/25/2023 abdaibra 	New-on                  	                             	2023-09-26 06:57:52.320+0000 	Mod
+09/25/2023 abdaibra 	statusStates            	                             	[status=S, startDate=Tue Sep 	New
+09/25/2023 abdaibra 	Transition-day          	0                            	2460214                      	Mod
+09/25/2023 abdaibra 	Release-note-status     	                             	have                         	Mod
+09/25/2023 abdaibra 	Reported By             	                             	abdaibra                     	Mod
+09/25/2023 abdaibra 	Known-affected-releases 	                             	10.2(5)                      	New
+09/25/2023 abdaibra 	RNE-Type                	                             	NONE                         	Mod
+09/25/2023 abdaibra 	Symptoms                	                             	After the upgrade to release 	Mod
+09/25/2023 abdaibra 	Conditions              	                             	upgrade to 10.2.5
+
+The below 	Mod
+09/25/2023 abdaibra 	Workarounds             	                             	use correct VSA syntax to be 	Mod
+09/25/2023 abdaibra 	Further-Problem-Descript	                             	The issue will be fixed on th	Mod
+09/25/2023 abdaibra 	Tickets-count           	                             	0                            	Mod
+09/25/2023 abdaibra 	Class                   	                             	CSC.datacenter               	Mod
+09/25/2023 abdaibra 	Reti-bug                	                             	Y                            	Mod
+09/25/2023 abdaibra 	Defect Created          	                             	                             	New

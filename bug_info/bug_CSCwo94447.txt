@@ -1,0 +1,2363 @@
+*******************************************************************************
+
+Bug ID   : CSCwo94447         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : Type 6 primary key fails to get programmed post multi-hop-upgrade + aaa config changes to 10.4.x
+PrimaryPV : 
+Version :10.4(4) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: rimichae           Submitted: 04/28/2025 08:34:59     Last Updtd : 09/02/2026 07:35:18  
+RNE-Type: NONE                New-on : 04/28/2025 08:34:59      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:jredclif                                            
+Known-affected-releases:10.4(4) 
+
+Known-fixed-releases:10.4(6) 10.5(4) 10.6(1) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.2(9) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 10.5(1) 10.5(2) 10.5(3) 10.5(3e) 10.5(3o) 10.5(3p) 10.5(3s) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(16) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/06/2025 19:25:43                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 8                                              
+Mean-time-to-verified: 56     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/28/2025 08:34:59            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Outage 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 04/28/2025 21:25:14 
+Code-reviewer: hgumaste       
+Opened-on: 05/06/2025 19:25:43Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn pr4m mukamath-palshanm qr1
+Est. completion date: 06/12/2025 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 05/06/2025 19:25:43  
+
+Documents Changed: none       Resolved: 05/06/2025 19:25:43 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 06/23/2025 12:41:07      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  DCN-Customer Success-US
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  System Test
+Test-EDP-activity :               Customer EFT/Beta
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   11
+Tickets-count-direct :            11
+Trouble-tickets :              BEMS01859751;BEMS01935335;698851631;698992190;699169394;699289803;699508854;699856979;699953387;700018505;700022402
+Trouble-tickets-direct :C3699169394 
+Trouble-tickets-direct :C3699953387 
+Trouble-tickets-direct :C3698992190 
+Trouble-tickets-direct :C3699856979 
+Trouble-tickets-direct :C3698851631 
+Trouble-tickets-direct :C3700018505 
+Trouble-tickets-direct :C3699289803 
+Trouble-tickets-direct :BEMSBEMS01859751 
+Trouble-tickets-direct :C3699508854 
+Trouble-tickets-direct :C3700022402 
+Trouble-tickets-direct :BEMSBEMS01935335 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 11/18/2025 05:41:55
+Document :    nexus
+
+Summary:
+When coming from I7.x release to 9.3.x release to 10.4.x release if the following conditions are met then you might encounter primary key deletion from the keystore causing any protocols relying on the Type 6 passwords to fail.
+
+******************* Related Service Requests (11 of 11)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS01859751    CITIGROUP PTY LIMITED                    
+BEMS       BEMS01935335    FIRST CITIZENS BANK & TRUST CO           
+C3         698851631       FIRST CITIZENS BANK & TRUST CO           
+C3         698992190       FIRST CITIZENS BANK & TRUST CO           
+C3         699169394       FIRST CITIZENS BANK & TRUST CO           
+C3         699289803       HUNTINGTON NATIONAL BANK                 
+C3         699508854       HUNTINGTON NATIONAL BANK                 
+C3         699856979       HUNTINGTON NATIONAL BANK                 
+C3         699953387       HUNTINGTON NATIONAL BANK                 
+C3         700018505       HUNTINGTON NATIONAL BANK                 
+C3         700022402       HUNTINGTON NATIONAL BANK                 
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-480666                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (19 of 19 ) ***********************
+
+---Start of Note Titled: PR5M-V-comments (Created 02/26/2026 23:46:35 Added 02/26/2026 23:46:35 by palshanm)---
+https://ngdevx.cisco.com/services/taas/results/94056296-9954-473f-812f-62ff9d3e086c
+---End of Note Titled: PR5M-V-comments---
+
+
+---Start of Note Titled: QR3F-V-comments (Created 02/26/2026 23:45:56 Added 02/26/2026 23:45:56 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/nobackup/palshanm/.pyats/archive/26-02/AAA_CFD_job.2026Feb26_03:16:18.635566.zip&atstype=ATS
+---End of Note Titled: QR3F-V-comments---
+
+
+---Start of Note Titled:  Email-in.p2 (Created 11/17/2025 08:46:47 Modified 11/17/2025 08:53:00 by synchub.gen)---
+Created By: wmigdadi
+Enclosure Title: Email-in.p2
+
+Enclosure Content:
+From: "WAFA HATIM MIGDADI -X (wmigdadi)" 
+Date: Monday, November 10, 2025 at 7:35 PM 
+To: "Anil Kunnath (anikunna)" , "Vasu Agrawal (vasagraw)" 
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" 
+Subject: SR: 700022402 CSCwo94447: Type 6 primary key fails to get programmed post multi-hop-upgrade + aaa config changes to 10.4.x
+
+Hello team,
+
+Hope you are doing well 
+
+I would like to check if the switch is hitting this bug.
+
+Please check switch log:
+PD-DC1-DCCR-2# show run tacacs+
+
+tacacs-server key 6 "JDYkfROhDkj03/XEigSwtjNhhySWVu1JRTC74FAx6fTTpA/HJHFbIntDj1aXvLmeEfVwM86MKAwbAA=="
+tacacs-server host 10.0.108.155
+tacacs-server host 10.208.12.155
+aaa group server tacacs+ Server_Group
+    server 10.0.108.155
+    server 10.208.12.155
+    use-vrf management
+    source-interface mgmt0
+PD-DC1-DCCR-2# show system reset-reason
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 467473 usecs after Sun Nov  9 01:33:06 2025
+    Reason: Reset due to upgrade
+    Service:
+    Version: 10.2(6)
+2) At 167694 usecs after Wed Oct 25 10:36:44 2023
+    Reason: Reset due to upgrade
+    Service:
+    Version: 9.3(3)
+3) At 971017 usecs after Wed Oct 25 10:16:30 2023
+    Reason: Reset Requested by CLI command reload
+    Service:
+    Version: 9.3(3)
+4) At 617915 usecs after Sat May 13 01:35:47 2023
+    Reason: Reset Requested by CLI command reload
+    Service:
+    Version: 9.3(3)
+PD-DC1-DCCR-1# show mod
+Mod Ports                  Module-Type                            Model
+  Status
+--- ----- ------------------------------------------------ ---------------------
+ --------
+1    36   28x100/40G + 8x400G QSFP-DD Ethernet Module      N9K-C93600CD-GX
+ ok
+27   0    Virtual Supervisor Module                        N9K-C93600CD-GX
+ active *
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    10.4(5)                  3.0    NA
+27   10.4(5)                  3.0    VSUP
+
+
+Mod  MAC-Address(es)                         Serial-Num
+---  --------------------------------------  ----------
+1    90-eb-50-44-13-90 to 90-eb-50-44-14-5f  FDO27133H4H
+27   90-eb-50-44-13-90 to 90-eb-50-44-14-5f  FDO27133H4H
+
+Mod  Online Diag Status
+---  ------------------
+1    Pass
+27   Pass
+
+PD-DC1-DCCR-1# show system internal log sysmgr infra-convert | includ failed
+ Error/warning: base pss move to next key failed. Erro
+r code[no such pss key]; num_keys[144], num_updated_keys[2] pss_base_change_coun
+t[2] pss_base_change_count_write[2] pss_append_count[2] pss_append_count_fail[0]
+ pss_append_count_append_base[0] pss_append_count_append_base_fail[0]
+ warning: on append PSS: move to next key failed.pss_a
+ppend_count_append_base[2] pss_append_count_append_base_fail[0] Error code[one o
+r more of the write/read operations failed]
+ infraconvert_read_from_snapshot: /var/sysmgr/tmp/conv
+ert_dir/vdc_mgr_sdb.snp pss2_file2kernel failed. err No such file or directory
+ AAA: Pss store failed, retval = 0x40480005 aaa_radius_type6_server_conv did not succeed
+
+
+This issue occurs on two devices with the same upgrade path and platform. the suggested workaround doesn't fix this issue.
+
+Looking forward to hearing from you
+
+Have a good day!
+
+
+
+Wafa Migdadi
+
+Technical Consulting Engineer
+Cisco TAC ? Collaboration
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+Email:wmigdadi@cisco.com
+Phone:+31207217471
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+
+
+
+Cisco Confidential
+
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled:  Email-in.p1 (Created 11/17/2025 06:31:55 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: wmigdadi
+Enclosure Title: Email-in.p1
+
+Enclosure Content:
+From: "WAFA HATIM MIGDADI -X (wmigdadi)" 
+Date: Monday, November 17, 2025 at 1:30 PM 
+To: "Anil Kunnath (anikunna)" 
+Cc: "Vasu Agrawal (vasagraw)" , "bug-attach(mailer list)" , "'email-in@cisco.com'" 
+Subject: SR: 700022402 CSCwo94447: Type 6 primary key fails to get programmed post multi-hop-upgrade + aaa config changes to 10.4.x
+
+Hello Anil,
+
+Any update
+
+
+Wafa Migdadi
+
+ 
+
+Technical Consulting Engineer
+
+Cisco TAC ? Collaboration
+
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+
+Email:wmigdadi@cisco.com
+
+Phone:+31207217471
+
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in.p1---
+
+
+---Start of Note Titled: Automation-Log (Created 10/19/2025 11:01:05 Added 10/19/2025 11:01:05 by palshanm)---
+Fail Log - https://ngdevx.cisco.com/services/taas/results/c066f2fe-e7e2-4309-bfe0-3fb6303d242d
+Pass Log - https://ngdevx.cisco.com/services/taas/results/67cd2013-c0a9-4507-9de5-67426433dff5
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments.p3 (Created 08/22/2025 11:08:08 Added 08/22/2025 11:08:08 by palshanm)---
+1. S/W Version : 10.5(3.101
+2. Platform : FX2
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Test Logs attached
+---End of Note Titled: V-comments.p3---
+
+
+---Start of Note Titled:  ULS_pamplona_rel (Created 07/05/2025 04:06:17 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: qddts
+Enclosure Title: ULS_pamplona_rel
+
+Enclosure Content:
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity82.cisco.com
+Testbed  name       : sanity82-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls.yml
+Total Test cases Run: 32
+Passed test cases   : 32
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/1156039
+Report file         : /auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls-sanity82.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls-sanity82.log
+Test start time     : 2025_07_04_23_36_32
+Test End time       : 2025_07_05_03_15_32
+Test Duration       : 3:38:59.620872
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '1156039', '-cdet', 'CSCwo94447', '-build', '/ws/vasagraw-sjc/nxos64-cs', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls.yml', '-testbed', 'sanity82-testbed.yml', '-asic', 'hw', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls-sanity82.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/1156039/base_sanity_uls-sanity82.report', '-jobid', 'HW'] 
+Job Info           : "Basic_Sanity" Report: Job-id:HW Passed:32/32  Failed:0/32  Aborted:0/32  Never-Run:0/32
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:33   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:37   
+testL3DhcpRelayv4                                                         pass      0:03:25   
+testL3DhcpRelayv6                                                         pass      0:02:34   
+testSviDhcpRelayv4                                                        pass      0:03:46   
+testSviDhcpRelayv6                                                        pass      0:02:55   
+testPTPMulticast                                                          pass      0:07:26   
+testPTPChangeL3ToL2AccessNonDefaultVlan                                   pass      0:15:30   
+testPTPMulticastSVIAccess                                                 pass      0:07:42   
+testStaticRoute                                                           pass      0:00:45   
+testLacpShutNoshut                                                        pass      0:04:30   
+testSubPortChannelShutNoshut                                              pass      0:02:54   
+testL2BridgingTrunk                                                       pass      0:01:53   
+testBgpv4                                                                 pass      0:03:51   
+testCdp                                                                   pass      0:01:42   
+testLLDP                                                                  pass      0:01:03   
+testSviVrf                                                                pass      0:03:52   
+testIpv6Interface                                                         pass      0:00:59   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:14   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:49   
+testL2SanityMacLearning                                                   pass      0:11:30   
+testL2SanityPortModeChange                                                pass      0:10:18   
+testL2SanityUnconfig                                                      pass      0:00:38   
+testDynamicL2MulticastPC                                                  pass      0:05:06   
+testPimv4                                                                 pass      0:08:50   
+GleanL3toL3V4V6                                                           pass      0:04:45   
+testCopp                                                                  pass      0:18:01   
+testRaclIPv4                                                              pass      0:05:48   
+testSpan                                                                  pass      0:02:27   
+testGoldDiagnostic                                                        pass      0:00:17   
+testCores                                                                 pass      0:00:07
+---End of Note Titled: ULS_pamplona_rel---
+
+
+---Start of Note Titled: V-comments.p2 (Created 07/04/2025 03:14:32 Added 07/04/2025 03:14:32 by palshanm)---
+Fix verified using 10.4(5.14) and test logs attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: V-comments (Created 06/23/2025 12:41:07 Added 06/23/2025 12:41:07 by palshanm)---
+1. S/W Version : 10.6(0)IMG9(0.114)
+2. Platform : FX2
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Test Logs attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  Unit-test-olympia (Created 06/03/2025 22:21:51 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: qddts
+Enclosure Title: Unit-test-olympia
+
+Enclosure Content:
+or6m UT
+
+switch# show ver | inc image
+  NXOS image file is: bootflash:///nxos.7.0.3.I7.10.bin
+switch# terminal width 200
+switch#  show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jun  2 05:45:27 2025
+
+version 7.0(3)I7(10) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+
+
+switch# show encryption service stat
+Encryption service enabled
+Master Encryption Key not configured
+Type-6 encryption is  not being used
+
+
+
+switch# install all nxos nxos.9.3.12.bin non-disruptive non-interruptive      <<< upgrade to 9.3
+
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos.9.3.12.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.9.3.12.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.9.3.12.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive          none  linecard hardware does not support non-disruptive upgrade
+
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                              7.0(3)I7(10)               9.3(12)           yes
+     1        bios     v05.53(01/22/2025):v05.43(11/22/2020)    v05.47(04/28/2022)            no
+
+
+Switch will be reloaded for disruptive upgrade.
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+switch# 
+
+ethernet switching mode Mon Jun  2 05:53:27 UTC 2025
+Jun  2 05:53:32 %FW_APP-2-FIRMWARE_IMAGE_LOAD_SUCCESS No Firmware needed for Non SR card.
+
+
+User Access Verification
+switch login: admin
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+MDP database restore in progress.
+switch# terminal width 200
+switch# show ver | inc image
+  NXOS image file is: bootflash:///nxos.9.3.12.bin
+switch# show logging logfile | i i restore
+2025 Jun  2 05:53:36 switch  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii-cfg[447]
+2025 Jun  2 05:53:36 switch  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Restore DME database - ascii-cfg[447]
+switch# show system reset-reason
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 411868 usecs after Mon Jun  2 05:51:34 2025
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 7.0(3)I7(10)
+2) At 581588 usecs after Mon Jun  2 05:41:10 2025
+    Reason: Reset Requested by CLI command reload
+    Service: 
+    Version: 7.0(3)I7(10)
+3) At 247679 usecs after Mon Jun  2 05:35:40 2025
+    Reason: Reset Requested by CLI command reload
+    Service: 
+    Version: 10.4(6)
+4) At 743251 usecs after Fri May 30 11:42:13 2025
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 9.3(12)
+switch# show running-config tacacs+
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jun  2 05:56:04 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+
+
+switch# show encryption service stat
+Encryption service enabled
+Master Encryption Key not configured
+Type-6 encryption is  not being used
+switch#  key config-key ascii
+New Master Key: 
+Retype Master Key: 
+Master key do not match or not entered. Please retry.
+New Master Key: 
+Retype Master Key: 
+switch# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch# encryption re-encrypt obfuscated 
+switch# show running-config tacacs+
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jun  2 05:57:01 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+
+
+switch#  tacacs-server host 2.2.4.2 key cisco12
+           ^
+% Invalid command at '^' marker.
+switch# conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# tacacs-server host 2.2.4.2 key cisco12
+switch(config)# show running-config tacacs+
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jun  2 05:57:26 2025
+!Time: Mon Jun  2 05:58:15 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+tacacs-server host 2.2.4.2 key 7 "fewhg12" 
+
+
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# tacacs-server host 3.3.3.3 key cisco33
+switch(config)# show running-config tacacs+
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jun  2 05:58:52 2025
+!Time: Mon Jun  2 05:59:16 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+tacacs-server host 2.2.4.2 key 6 "JDYkudht81XlL0az2jvds1dekyREkC24wG0C+Bd0qgSEbxiHJBc69xtTBnwMMXQCXo9BIJSk7lWZAA==" 
+tacacs-server host 3.3.3.3 key 7 "fewhg33" 
+
+
+switch(config)# install all nxos  nxos64-cs.1_olym.bin
+Installer will perform compatibility check first. Please wait. 
+Installer is forced disruptive
+^C
+Really abort ISSU? y/n [n]y
+
+Sending request to abort, please wait.
+Installer has been aborted.
+Some of the linecards may not have been upgraded.
+ 
+Verifying image bootflash:/nxos64-cs.1_olym.bin for boot variable "nxos".
+switch(config)#      ]   0%
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# install all nxos  nxos64-cs.1_olym.bin non-disruptive non-interruptive       <<< upgrade to 10.4
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.1_olym.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos64-cs.1_olym.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos64-cs.1_olym.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Incompatible image for ISSU
+
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                                   9.3(12)               10.4(6)           yes
+     1        bios     v05.53(01/22/2025):v05.43(11/22/2020)    v05.53(01/22/2025)            no
+
+
+Switch will be reloaded for disruptive upgrade.
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds
+
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+MDP database restore in progress.
+switch# 
+switch# 
+switch# 
+switch# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch# terminal width 500
+switch#  show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jun  2 06:10:56 2025
+!Time: Mon Jun  2 06:12:04 2025
+
+version 10.4(6) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+tacacs-server host 2.2.4.2 key 6 "JDYkudht81XlL0az2jvds1dekyREkC24wG0C+Bd0qgSEbxiHJBc69xtTBnwMMXQCXo9BIJSk7lWZAA==" 
+tacacs-server host 3.3.3.3 key 7 "fewhg33" 
+
+
+switch# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch# encryption re-encrypt obfuscated
+switch#  show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch#  show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jun  2 06:10:56 2025
+!Time: Mon Jun  2 06:12:45 2025
+
+version 10.4(6) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkyRqOhXpnAQ501R3p51z0SiQkPA8PctGhx7liZTsIF4w4JKpZ9kYA8VK+zXqvgRqXs0CIGRf+AA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkvVWB5V2BikWBaVltmv5XtiQ0U9b9tBlALuPs5lkPdekwJPXHZrFlVu+X0uVZtUzOEEsXin2OAA==" 
+tacacs-server host 2.2.4.2 key 6 "JDYkudht81XlL0az2jvds1dekyREkC24wG0C+Bd0qgSEbxiHJBc69xtTBnwMMXQCXo9BIJSk7lWZAA==" 
+tacacs-server host 3.3.3.3 key 6 "JDYkya0qDitGHdov90kUTQeAZyQj2ohQ1eDejQAiz6HtMOqfJOQV6SGCoJxdYPrYPtxxzSP9Ae7+AA==" 
+
+
+switch# sh logging logfile | i i restore
+2025 Jun  2 06:09:40 switch  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii_cfg_server[26253]
+2025 Jun  2 06:09:41 switch  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Restore DME database - ascii_cfg_server[26253]
+---End of Note Titled: Unit-test-olympia---
+
+
+---Start of Note Titled:  Email-in (Created 05/29/2025 23:45:06 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: mandlaks
+Enclosure Title: Email-in
+
+Enclosure Content:
+From: "Mandavilli Lakshmi Naga Sai Lahari -X (mandlaks - TATA CONSULTANCY SERVICES LIMITED at Cisco)" 
+Date: Friday, May 30, 2025 at 6:41 AM 
+To: "agilis-new-ic-team-nxos(mailer list)" 
+Cc: "ca-defect-feedback(mailer list)" , "bug-attach(mailer list)" , "maildediscussion(mailer list)" 
+Subject: CSCwo94447
+
+As per DE:
+You 5/30/2025 10:22 AM ? 
+
+Hi Anil
+Sorry for bothering you
+RE: CSCwo94447
+Type 6 primary key fails to get programmed post multi-hop-upgrade + aaa config changes to 10.4.x
+Is this issue related to TACACS feature?
+Anil Kunnath 5/30/2025 11:29 AM ? Hi Mandavalli, It depends for which protocol it is used. Are you from QA ?
+You 5/30/2025 11:57 AM ? Sorry, actually I am from the Bug scrubbing team.
+
+Anil Kunnath 5/30/2025 12:01 PM ? you can look at the config and check which feature is using type-6 - Tacacs or Radius
+You 5/30/2025 12:10 PM ? ok thank you
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  static-analysis (Created 05/26/2025 08:15:05 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: qddts
+Enclosure Title: static-analysis
+
+Enclosure Content:
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+
+Total active warnings: 0
+Total noise warnings: 3
+Total parent warnings: 0
+
+Files not analyzed:
+
+
+Files analyzed:
+standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (3):
+standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c: https://sjc-devx-savm03.cisco.com:8444/query/defects.htm?stream=nx_main-vasagraw-42836&cid=983170
+[WARNING]: /standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c:612:none:SAFEC:Use safeC library.  Migrate from "strncpy(new_proto_server.dtls_client_tp, old_proto_server.dtls_client_tp, 65UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error
+standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c: https://sjc-devx-savm03.cisco.com:8444/query/defects.htm?stream=nx_main-vasagraw-42836&cid=983171
+[WARNING]: /standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c:516:none:SAFEC:Use safeC library.  Migrate from "strncpy(old_global_conf.ascii_key, new_global_conf.ascii_key, 132UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error
+standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c: https://sjc-devx-savm03.cisco.com:8444/query/defects.htm?stream=nx_main-vasagraw-42836&cid=983172
+[WARNING]: /standalone/infra/convert_libs/comps/libinfraconvert/libinfraconvert_aaa.c:713:none:SAFEC:Use safeC library.  Migrate from "strncpy(old_proto_server.dtls_client_tp, new_proto_server.dtls_client_tp, 65UL)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error
+
+Warnings marked parent (0):
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled:  code-review-nx_main (Created 05/26/2025 01:28:18 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: qddts
+Enclosure Title: code-review-nx_main
+
+Enclosure Content:
+PR: 58998
+
+https://gh-nx.scm.engit.cisco.com/nx/nx/pull/58998
+
+PR branch: CSCwo94447.smu_rel_10_4_4.SMU_10_4_4_48
+
+PR title: CSCwo94447 Type 6 Master-Key fails to get programmed post multi-hop-u?
+
+PR Status:Approved
+LoC: 145
+===================================================================
+
+Pull Request Description
+===================================================================
+Problem Summary:
+ISSU from 7.3.7 => 9.3.11 => 10.4.4
+Master-Key is not restored when upgraded to 10.4.4 is done in the above mentioned workflow.
+
+Root Cause Analysis:
+The pss_strore() API fails in INFRACONVERT code during the upgrade. The reason being that the PSS data size exceeds its maximum limit during INFRACONVERT conversion.
+As a result, ASCII-restore of the config takes place as opposed to BINARY-restore. Since Master-Key is not an entry in running-config display, it cannot be restored by ASCII-restore.
+
+Summary of Code Fix:
+The PSS inherits its smaller PSS limits from 7.3.7 - In 10.4.4 INFRACONVERT, we have used pss_convert_layout() (on the inherited PSS) to bring the PSS limits at par with 10.4.4's -
+
+How Has This Been Tested?
+Have done SMU based testing for the problem ISSU workflow. More cases to be covered by QA.
+
+Other Comments:
+_Following are the supported xFLow options with their defaults. Please update the value(s) for the option(s) to be passed to xFlow.
+
+XFLOW_GH_OPT:smart_uls_asic:""
+
+XFLOW_GH_OPT:ci_tag:""
+
+XFLOW_GH_OPT:sanity_config:""
+
+XFLOW_GH_OPT:fullbuild:false
+
+XFLOW_GH_OPT:build_only:false
+
+
+Please check https://gh-nx.scm.engit.cisco.com/nx/nx/wiki/About-pull-requests#xflow-options for details
+===================================================================
+---End of Note Titled: code-review-nx_main---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 05/14/2025 12:39:04 Added 05/14/2025 12:39:04 by seshea)---
+--- Update 2025-05-14 19:39:04.159304 seshea (via 699067951)
+Unsuitable - CDETS Content
+bug requires a very specific set of steps to hit, including upgrades, aaa config, in 7.x to 9.x to 10.x and in specific order
+
+only smu patch was made
+
+odds of hitting this issue again to another customer seem very low
+
+going for unsuitable
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: R-comments (Created 05/06/2025 19:25:44 Added 05/06/2025 19:25:44 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Unit-test (Created 05/03/2025 21:38:39 Modified 11/17/2025 06:44:45 by synchub.gen)---
+Created By: qddts
+Enclosure Title: Unit-test
+
+Enclosure Content:
+*******************************
+IN 7_3_I7_10 IMAGE (FRESH BOOT):
+
+switch(config)# 
+switch(config)# no feature tacacs+ 
+switch(config)# 
+switch(config)# feature tacacs+
+switch(config)# tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  2 04:34:13 2025
+!Time: Fri May  2 04:34:17 2025
+
+version 7.0(3)I7(10) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+
+switch(config)# 
+switch(config)# 
+switch(config)# install all nxos nxos.9.3.12.bin_CCO non-disruptive non-interruptive 
+Installer will perform compatibility check first. Please wait. 
+??..
+??..
+2025 May  2 04:40:02 switch %$ VDC-1 %$  %USER-2-SYSTEM_MSG: <<%USBHSD-2-MOUNT>> logflash: online  - usbhsd
+2025 May  2 04:40:03 switch %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii-cfg[15074]               <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2025 May  2 04:40:03 switch %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Restore DME database - ascii-cfg[15074]                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+2025 May  2 04:40:06 switch %$ VDC-1 %$ netstack: Registration with cli server complete
+??..
+??..
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+MDP database restore in progress.         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+switch# 
+switch# 
+switch# conf
+MDP database restore in progress.
+Some commands are blocked until the job is complete.
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# terminal width 200
+switch(config)# 
+switch(config)# 2025 May  2 04:41:28 switch %$ VDC-1 %$ %ASCII-CFG-2-CONFIG_REPLAY_STATUS: Ascii Replay Started.
+2025 May  2 04:41:53 switch %$ VDC-1 %$ %ASCII-CFG-2-CONFIG_REPLAY_STATUS: Ascii Replay Done.
+2025 May  2 04:41:53 switch %$ VDC-1 %$ %ASCII-CFG-2-CONF_CONTROL: System ready
+2025 May  2 04:42:30 switch %$ VDC-1 %$ %USER-2-SYSTEM_MSG: Thirdparty RPMs installation succeeded - thirdparty_install.py
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Fri May  2 04:53:16 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server host 1.1.1.1 key cisco
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server host 2.2.2.2 key cisco1
+switch(config)# 
+switch(config)# 
+switch(config)# key config-key ascii
+New Master Key: 
+Master-key length should be in between 16 to 64 chars(inclusive).
+New Master Key: 
+Retype Master Key: 
+switch(config)# 
+switch(config)# 
+switch(config)# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  2 04:53:46 2025
+!Time: Fri May  2 04:54:15 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 2.2.2.2 key 7 "fewhg1" 
+
+
+switch(config)# 
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  2 04:53:46 2025
+!Time: Fri May  2 04:54:18 2025
+
+version 9.3(12) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkeck19mvh0+pIBJ8pMNUcIyS4TSFUe78shyzu+MHZhPmSJLwYeka+ulUYXOFJ82Lgr7tNTEQpAA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkNFeZJsaqBcdTdMP82KsCTSQoUzVk3j1JQx2mcoRmHtrlJLgu4MLJeG09ZsFjaOcdPM3XYSllAA==" 
+
+switch(config)# 
+switch(config)# 
+switch(config)# copy scp://vasagraw@10.28.13.126/nobackup/vasagraw/smu_rel_10_4_4_SMU_10_4_4_48/standalone/build/CSCwo94447/64/RPMS/nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm bootflash: vrf management use-kstack 
+.............
+switch(config)# copy scp://vasagraw@10.28.13.126/nobackup/vasagraw/smu_rel_10_4_4_SMU_10_4_4_48/standalone/build/config.files/rpm-sign/pub-keys/nxos-local-sign-pub-key.gpg bootflash: vrf management use-kstack 
+Inbound-ReKey for 10.28.13.126:22
+.............
+switch(config)# 
+switch(config)# 
+switch(config)# install add bootflash:nxos-local-sign-pub-key.gpg gpg-key 
+[####################] 100%
+Install operation 1255 completed successfully at Fri May  2 04:53:04 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.3# 
+bash-4.3# 
+bash-4.3# ls /etc/pki/rpm-gpg/
+arm-Nexus9k-rel.gpg  nxos-local-sign-pub-key.gpg  nxos-local-sign-pub-key.gpg_POC
+bash-4.3# 
+bash-4.3# 
+bash-4.3#  ls /bootflash/.rpmstore/patching/patchrepo/
+meta  repodata  repodata.old.2210.20241121114843.670971
+bash-4.3# 
+bash-4.3# 
+bash-4.3# ls /bootflash/.rpmstore/config/etc/pki/rpm-gpg/
+arm-Nexus9k-rel.gpg  nxos-local-sign-pub-key.gpg  nxos-local-sign-pub-key.gpg_POC
+bash-4.3# 
+bash-4.3# 
+bash-4.3# 
+bash-4.3# ls /etc/pki/rpm-gpg/arm-Nexus9k-rel.gpg /bootflash/.rpmstore/config/etc/pki/rpm-gpg/
+/etc/pki/rpm-gpg/arm-Nexus9k-rel.gpg
+
+/bootflash/.rpmstore/config/etc/pki/rpm-gpg/:
+arm-Nexus9k-rel.gpg  nxos-local-sign-pub-key.gpg  nxos-local-sign-pub-key.gpg_POC
+bash-4.3# 
+bash-4.3# 
+bash-4.3# cp /etc/pki/rpm-gpg/arm-Nexus9k-rel.gpg /bootflash/.rpmstore/config/etc/pki/rpm-gpg/
+bash-4.3# 
+bash-4.3# 
+bash-4.3#  ls -l !$
+ ls -l /bootflash/.rpmstore/config/etc/pki/rpm-gpg/
+total 12
+-rw-rw-r-- 1 root root  926 May  2 04:56 arm-Nexus9k-rel.gpg
+-rw-rw-rw- 1 root root 1804 May  2 04:53 nxos-local-sign-pub-key.gpg
+-rw-r--r-- 1 root root 1804 May  2 04:51 nxos-local-sign-pub-key.gpg_POC
+bash-4.3# 
+bash-4.3# 
+bash-4.3# exit
+exit
+switch(config)# 
+switch(config)# 
+switch(config)# install verify nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm
+==> warning: tag 273 type(0x6) != implicit type(0x0)
+RSA signed
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch(config)# 
+switch(config)# 
+switch(config)# install all nxos nxos64-cs.10.4.4.M.bin_CCO package nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm non-disruptive non-interruptive        <<<<<<<<<<<<<<<<<
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.4.4.M.bin_CCO for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying package bootflash:/nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm.
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos64-cs.10.4.4.M.bin_CCO.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos64-cs.10.4.4.M.bin_CCO.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  Incompatible image for ISSU
+
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                                   9.3(12)               10.4(4)           yes
+     1        bios     v05.53(01/22/2025):v05.28(01/18/2018)    v05.51(11/29/2023)            no
+
+
+Additional info for this installation:
+--------------------------------------
+
+ Following patch will be applied on box reload : bootflash:/nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm 
+
+Switch will be reloaded for disruptive upgrade.
+
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+switch(config)# 
+????.
+????.
+ethernet switching mode Fri May  2 05:10:18 UTC 2025
+prepare span CLI
+2025 May  2 05:10:31 switch %$ VDC-1 %$  %USER-2-SYSTEM_MSG: <<%USBHSD-2-MOUNT>> logflash: online  - usbhsd
+2025 May  2 05:10:34 switch %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii_cfg_server[9127]                   <<<<<<<<<<<<<<<<<<<<<
+2025 May  2 05:10:34 switch %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Restore DME database - ascii_cfg_server[9127]      <<<<<<<<<<<<<<<<<<<<<<
+????.
+????.
+User Access Verification
+switch login: admin
+Password: 
+????.
+????
+MDP database restore in progress.
+switch# 
+switch# 
+switch# conf
+MDP database restore in progress.
+Some commands are blocked until the job is complete.
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# terminal width 200
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal log sysmgr infra-convert  > bootflash:infra_convert_9_3_11_to_10_4_4_FIXED_RPM_2may
+switch(config)# 
+switch(config)# 
+switch(config)# show encryption service stat
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  2 05:12:02 2025
+!Time: Sun May  4 04:26:29 2025
+
+version 10.4(4) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkeck19mvh0+pIBJ8pMNUcIyS4TSFUe78shyzu+MHZhPmSJLwYeka+ulUYXOFJ82Lgr7tNTEQpAA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkNFeZJsaqBcdTdMP82KsCTSQoUzVk3j1JQx2mcoRmHtrlJLgu4MLJeG09ZsFjaOcdPM3XYSllAA==" 
+
+switch(config)# 
+switch(config)# 
+switch(config)# tacacs-server host 3.3.3.3 key cisco444
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sun May  4 04:26:41 2025
+!Time: Sun May  4 04:26:43 2025
+
+version 10.4(4) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkeck19mvh0+pIBJ8pMNUcIyS4TSFUe78shyzu+MHZhPmSJLwYeka+ulUYXOFJ82Lgr7tNTEQpAA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkNFeZJsaqBcdTdMP82KsCTSQoUzVk3j1JQx2mcoRmHtrlJLgu4MLJeG09ZsFjaOcdPM3XYSllAA==" 
+tacacs-server host 3.3.3.3 key 7 "fewhg444" 
+
+switch(config)# 
+switch(config)# 
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sun May  4 04:26:41 2025
+!Time: Sun May  4 04:26:58 2025
+
+version 10.4(4) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 6 "JDYk1NCnwxJxvxKUCq+TQ1BVkCQPCqXvq+LupCdH9foagtjbJL1T+LwofTnbgdfpRPzaxW0q+HzMAA=="
+tacacs-server host 1.1.1.1 key 6 "JDYkeck19mvh0+pIBJ8pMNUcIyS4TSFUe78shyzu+MHZhPmSJLwYeka+ulUYXOFJ82Lgr7tNTEQpAA==" 
+tacacs-server host 2.2.2.2 key 6 "JDYkNFeZJsaqBcdTdMP82KsCTSQoUzVk3j1JQx2mcoRmHtrlJLgu4MLJeG09ZsFjaOcdPM3XYSllAA==" 
+tacacs-server host 3.3.3.3 key 6 "JDYkv/sV7xNmQWdvaDzeqdeRASRLxpeC79b66pzSIJSRBs6jJNzQqVavVow9NTb641Z7xVFDBolwAA==" 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show system reset-reason 
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 587122 usecs after Fri May  2 05:07:42 2025
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 9.3(12)
+2) At 984908 usecs after Fri May  2 04:37:53 2025
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 7.0(3)I7(10)
+3) At 188523 usecs after Fri May  2 04:28:55 2025
+    Reason: Reset Requested by CLI command reload
+    Service: 
+    Version: 10.4(4)
+4) At 664312 usecs after Tue Apr 29 12:15:49 2025
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 9.3(12)
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.53
+  NXOS: version 10.4(4) [Maintenance Release]
+  Host NXOS: version 10.4(4)
+  System version: 9.3(12)
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc image
+  NXOS image file is: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+switch(config)# 
+switch(config)#
+
+
+
+
+*********************************
+10.4.4 IMAGE (FRESH BOOT): HOT/RESTART SMU ACTIVATION AND DEACTIVATION
+
+switch(config)# 
+switch(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+----------------------------------------------------
+
+----------------------------------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+Active Packages:
+        nxos-connector-1.0.11.20250128040956751-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.4.lib32_64_n9000
+        bfd-2.0.0.0-10.4.4.lib32_64_n9000
+        bgp-2.0.0.0-10.4.4.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.4.lib32_64_n9000
+        dme-2.0.0.0-10.4.4.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.4.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.4.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.4.lib32_64_n9000
+        fex-2.0.0.0-10.4.4.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.4.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.4.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.4.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.4.lib32_64_n9000
+        icam-2.0.0.0-10.4.4.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.4.lib32_64_n9000
+        isis-2.0.0.0-10.4.4.lib32_64_n9000
+        lacp-2.0.0.0-10.4.4.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        lldp-2.0.0.0-10.4.4.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        mcast-2.0.0.0-10.4.4.lib32_64_n9000
+        mpls-2.0.0.0-10.4.4.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.4.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.4.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.4.lib32_64_n9000
+        nia-2.3.7.1-10.4.4.lib32_64_n9000
+        ntp-2.0.0.0-10.4.4.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.4.lib32_64_n9000
+        rip-2.0.0.0-10.4.4.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.4.lib32_64_n9000
+        services-2.0.0.0-10.4.4.lib32_64_n9000
+        snmp-2.0.0.0-10.4.4.lib32_64_n9000
+        sr-2.0.0.0-10.4.4.lib32_64_n9000
+        svi-2.0.0.0-10.4.4.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.4.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.4.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.4.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.4.lib32_64_n9000
+        vtp-2.0.0.0-10.4.4.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.4.lib32_64_n9000
+switch(config)#      
+switch(config)# 
+switch(config)# dir | inc .rpm
+       4096    May 05 17:50:07 2025  .rpmstore/
+       4096    Jun 21 06:54:28 2024  .rpmstore27/
+    8854330    May 05 17:23:34 2025  nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm
+    8854422    May 02 04:48:22 2025  nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm_2may
+    8854376    Apr 29 06:46:23 2025  nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm_POC
+switch(config)# 
+switch(config)# 
+switch(config)# install add nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000.rpm
+[####################] 100%
+Install operation 1269 completed successfully at Tue May  6 02:45:43 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+----------------------------------------------------
+nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000 Inactive Committed 
+----------------------------------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+Active Packages:
+        nxos-connector-1.0.11.20250128040956751-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.4.lib32_64_n9000
+        bfd-2.0.0.0-10.4.4.lib32_64_n9000
+        bgp-2.0.0.0-10.4.4.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.4.lib32_64_n9000
+        dme-2.0.0.0-10.4.4.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.4.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.4.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.4.lib32_64_n9000
+        fex-2.0.0.0-10.4.4.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.4.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.4.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.4.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.4.lib32_64_n9000
+        icam-2.0.0.0-10.4.4.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.4.lib32_64_n9000
+        isis-2.0.0.0-10.4.4.lib32_64_n9000
+        lacp-2.0.0.0-10.4.4.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        lldp-2.0.0.0-10.4.4.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        mcast-2.0.0.0-10.4.4.lib32_64_n9000
+        mpls-2.0.0.0-10.4.4.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.4.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.4.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.4.lib32_64_n9000
+        nia-2.3.7.1-10.4.4.lib32_64_n9000
+        ntp-2.0.0.0-10.4.4.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.4.lib32_64_n9000
+        rip-2.0.0.0-10.4.4.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.4.lib32_64_n9000
+        services-2.0.0.0-10.4.4.lib32_64_n9000
+        snmp-2.0.0.0-10.4.4.lib32_64_n9000
+        sr-2.0.0.0-10.4.4.lib32_64_n9000
+        svi-2.0.0.0-10.4.4.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.4.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.4.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.4.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.4.lib32_64_n9000
+        vtp-2.0.0.0-10.4.4.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.4.lib32_64_n9000
+switch(config)#    
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# install activate nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000
+[####################] 100%
+Install operation 1270 completed successfully at Tue May  6 02:47:11 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+----------------------------------------------------
+nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000 Active 
+----------------------------------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+Active Packages:
+        nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000 active
+        nxos-connector-1.0.11.20250128040956751-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.4.lib32_64_n9000
+        bfd-2.0.0.0-10.4.4.lib32_64_n9000
+        bgp-2.0.0.0-10.4.4.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.4.lib32_64_n9000
+        dme-2.0.0.0-10.4.4.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.4.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.4.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.4.lib32_64_n9000
+        fex-2.0.0.0-10.4.4.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.4.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.4.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.4.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.4.lib32_64_n9000
+        icam-2.0.0.0-10.4.4.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.4.lib32_64_n9000
+        isis-2.0.0.0-10.4.4.lib32_64_n9000
+        lacp-2.0.0.0-10.4.4.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        lldp-2.0.0.0-10.4.4.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        mcast-2.0.0.0-10.4.4.lib32_64_n9000
+        mpls-2.0.0.0-10.4.4.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.4.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.4.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.4.lib32_64_n9000
+        nia-2.3.7.1-10.4.4.lib32_64_n9000
+        ntp-2.0.0.0-10.4.4.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.4.lib32_64_n9000
+        rip-2.0.0.0-10.4.4.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.4.lib32_64_n9000
+        services-2.0.0.0-10.4.4.lib32_64_n9000
+        snmp-2.0.0.0-10.4.4.lib32_64_n9000
+        sr-2.0.0.0-10.4.4.lib32_64_n9000
+        svi-2.0.0.0-10.4.4.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.4.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.4.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.4.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.4.lib32_64_n9000
+        vtp-2.0.0.0-10.4.4.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.4.lib32_64_n9000
+switch(config)#     
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# install commit nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000
+[####################] 100%
+Install operation 1271 completed successfully at Tue May  6 02:48:03 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+----------------------------------------------------
+nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000 Active Committed 
+----------------------------------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+Active Packages:
+        nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000 active
+        nxos-connector-1.0.11.20250128040956751-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.4.lib32_64_n9000
+        bfd-2.0.0.0-10.4.4.lib32_64_n9000
+        bgp-2.0.0.0-10.4.4.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.4.lib32_64_n9000
+        dme-2.0.0.0-10.4.4.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.4.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.4.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.4.lib32_64_n9000
+        fex-2.0.0.0-10.4.4.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.4.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.4.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.4.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.4.lib32_64_n9000
+        icam-2.0.0.0-10.4.4.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.4.lib32_64_n9000
+        isis-2.0.0.0-10.4.4.lib32_64_n9000
+        lacp-2.0.0.0-10.4.4.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        lldp-2.0.0.0-10.4.4.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        mcast-2.0.0.0-10.4.4.lib32_64_n9000
+        mpls-2.0.0.0-10.4.4.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.4.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.4.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.4.lib32_64_n9000
+        nia-2.3.7.1-10.4.4.lib32_64_n9000
+        ntp-2.0.0.0-10.4.4.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.4.lib32_64_n9000
+        rip-2.0.0.0-10.4.4.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.4.lib32_64_n9000
+        services-2.0.0.0-10.4.4.lib32_64_n9000
+        snmp-2.0.0.0-10.4.4.lib32_64_n9000
+        sr-2.0.0.0-10.4.4.lib32_64_n9000
+        svi-2.0.0.0-10.4.4.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.4.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.4.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.4.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.4.lib32_64_n9000
+        vtp-2.0.0.0-10.4.4.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.4.lib32_64_n9000
+switch(config)#          
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show clock 
+02:49:31.189 UTC Tue May 06 2025
+Warning: No NTP peer/server configured. Time may be out of sync.
+Time source is NTP
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | last 30
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/30 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/31 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/32 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/33 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/34 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/35 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/36 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/37 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/38 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/39 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/40 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/41 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/42 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/43 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/44 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/45 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/46 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/47 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/48 is down (Administratively down)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/49 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/50 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/51 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/52 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/53 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %ETHPORT-5-IF_DOWN_NONE: Interface Ethernet1/54 is down (Transceiver Absent)
+2025 May  6 02:35:07 switch %MODULE-5-MOD_OK: Module 1 is online (Serial number: FDO22213BWP)
+2025 May  6 02:35:07 switch %PLATFORM-5-MOD_STATUS: LC sub Module 1 current-status is MOD_STATUS_ONLINE/OK
+2025 May  6 02:35:07 switch %ASCII-CFG-2-CONFIG_REPLAY_STATUS: Ascii Replay Started.
+2025 May  6 02:35:08 switch %SECURITYD-2-FEATURE_ENABLE_DISABLE: User  has enabled the feature bash-shell
+2025 May  6 02:35:12 switch %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by  on vsh.bin.13411
+switch(config)#          
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# install deactivate nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000
+[####################] 100%
+Install operation 1272 completed successfully at Tue May  6 02:59:58 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# install commit nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000
+[####################] 100%
+Install operation 1273 completed successfully at Tue May  6 03:00:22 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# install remove nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000
+Proceed with removing nxos64-cs.CSCwo94447-1.0.0-10.4.4.lib32_64_n9000? (y/n)?  [n] y
+[####################] 100%
+Install operation 1274 completed successfully at Tue May  6 03:00:47 2025
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+----------------------------------------------------
+
+----------------------------------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.4.M.bin_CCO
+
+Active Packages:
+        nxos-connector-1.0.11.20250128040956751-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.4.lib32_64_n9000
+        bfd-2.0.0.0-10.4.4.lib32_64_n9000
+        bgp-2.0.0.0-10.4.4.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.4.lib32_64_n9000
+        dme-2.0.0.0-10.4.4.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.4.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.4.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.4.lib32_64_n9000
+        fex-2.0.0.0-10.4.4.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.4.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.4.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.4.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.4.lib32_64_n9000
+        icam-2.0.0.0-10.4.4.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.4.lib32_64_n9000
+        isis-2.0.0.0-10.4.4.lib32_64_n9000
+        lacp-2.0.0.0-10.4.4.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        lldp-2.0.0.0-10.4.4.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.4.lib32_64_n9000
+        mcast-2.0.0.0-10.4.4.lib32_64_n9000
+        mpls-2.0.0.0-10.4.4.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.4.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.4.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.4.lib32_64_n9000
+        nia-2.3.7.1-10.4.4.lib32_64_n9000
+        ntp-2.0.0.0-10.4.4.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.4.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.4.lib32_64_n9000
+        rip-2.0.0.0-10.4.4.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.4.lib32_64_n9000
+        services-2.0.0.0-10.4.4.lib32_64_n9000
+        snmp-2.0.0.0-10.4.4.lib32_64_n9000
+        sr-2.0.0.0-10.4.4.lib32_64_n9000
+        svi-2.0.0.0-10.4.4.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.4.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.4.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.4.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.4.lib32_64_n9000
+        vtp-2.0.0.0-10.4.4.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.4.lib32_64_n9000
+switch(config)#             
+*********************************
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/28/2025 23:00:08 Modified 08/12/2025 05:14:06 by cms)---
+{250812 tdenotte S B} RNE review esc input: needs documenting (CFD with RNE)
+{250703 samekama S B} Pr4M - stuck due to sanity issues. Re-triggering PR.
+{250603 palshanm S B} Palani will automate this using OR6M - ETA 7/15
+{250602 samekama S B} OR6M - PR raised. UT done. Sanity in progress.
+{250530 samekama S B} Qr1f - PR raised.
+{250529 samekama S B} Qr1f - Double commit UT being done.
+{250521 srisund S B} Mid June it will be committed to OR6M 
+{250521 samekama S B} Will start on double commit to Qr1f on 5/26 
+{250515 samekama S B} Will start on double commit to Qr1f on 5/19
+{250512 samekama S B} Still awaiting QA feedback on SMU branch.
+{250509 samekama S B} Waiting for QA feedback before we take it into Qr1f
+{250506 samekama S B} On track for SMU commit date 5/8.
+{250502 samekama S B} ETA for SMU is 5/8
+{250429 samekama S B} Working on a fix. SMU is planned.
+{250429 samekama S B} RCA in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 04/28/2025 21:25:15 Added 04/28/2025 21:25:15 by samekama)---
+Plz check.
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 04/28/2025 08:34:59 Modified 11/17/2025 06:44:45 by synchub.gen)---
+<B>Symptom:</B>
+multi-step upgrades from I7.x to 9.3.x to 10.4.x resulting in ASCII replay causing primary key programming failure
+
+<B>Conditions:</B>
+All of these steps has to happen for the primary key issue to happen
+
+1. TACACS feature enabled in I7.x 
+2. upgrade to 9.3.11, Now configure the following:
+a. Configure aaa configs
+b. configure TACACS host configs 
+c. Enable type 6 configuration
+d. Enable Encryption
+3. Now upgrade to 10.4.x release and this will result in ASCII replay due to Infra conversion failures
+
+Use via show system internal log sysmgr infra-convert
+ AAA: Pss store failed, retval = 0x40480005 aaa_radius_type6_server_conv did not succeed
+ infraconvert_startup_all: convert function # 41 for uuid = 0xb6 returned error 0x40480005 ---> FAILED
+
+show encryption service status shows encryption key not configured
+
+<B>Workaround:</B>
+key config-key ascii <> to reconfigure the primary key
+or
+encryption re-encrypt obfuscated
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (37 of 37)
+------------------------------------------------------------------------------------------------------------------
+CSCwo94447_PR4M_Test_Logs.txt                     binary         140892         palshanm       08/22/2025 11:08:35      
+Diffs-commit-pamplona_rel                         ascii text     11233          meghnara       07/06/2025 21:59:08      
+code-review-pamplona_rel.p2                       ascii text     1577           meghnara       07/05/2025 08:02:14      
+PR-Description-63108                              ascii text     1043           meghnara       07/05/2025 08:02:15      
+code-review-pamplona_rel                          ascii text     1577           meghnara       07/05/2025 07:44:49      
+ccwarnings-pamplona_rel.p3                        ascii text     287            baas           07/04/2025 11:34:28      
+static-analysis-pamplona_rel.p3                   ascii text     130705         baas           07/04/2025 11:33:52      
+CSCwo94447_OR6M_Test_Logs.txt                     ascii text     86941          palshanm       07/04/2025 03:15:00      
+ccwarnings-pamplona_rel.p2                        ascii text     287            baas           07/03/2025 02:35:36      
+static-analysis-pamplona_rel.p2                   ascii text     130696         baas           07/03/2025 02:35:01      
+ccwarnings-pamplona_rel                           ascii text     287            baas           06/23/2025 14:38:04      
+static-analysis-pamplona_rel                      ascii text     130642         baas           06/23/2025 14:37:26      
+CSCwo94447_QR1F_Test_Logs.txt                     ascii text     159911         palshanm       06/23/2025 12:41:38      
+Diffs-commit-olympia_rel                          ascii text     11506          meghnara       06/04/2025 02:36:20      
+code-review-olympia_rel.p3                        ascii text     1841           meghnara       06/03/2025 23:29:47      
+code-review-olympia_rel.p2                        ascii text     1841           meghnara       06/03/2025 22:51:37      
+PR-Description-61047                              ascii text     1345           meghnara       06/03/2025 23:29:48      
+code-review-olympia_rel                           ascii text     1841           meghnara       06/03/2025 22:42:15      
+ccwarnings-olympia_rel.p5                         ascii text     287            baas           06/03/2025 02:46:34      
+static-analysis-olympia_rel.p5                    ascii text     178006         baas           06/03/2025 02:45:57      
+ccwarnings-olympia_rel.p4                         ascii text     287            baas           06/03/2025 02:14:24      
+static-analysis-olympia_rel.p4                    ascii text     178259         baas           06/03/2025 02:13:48      
+Diffs-commit-nx_main                              ascii text     11257          vasagraw       06/02/2025 03:48:20      
+ccwarnings-olympia_rel.p3                         ascii text     287            baas           06/02/2025 01:10:53      
+static-analysis-olympia_rel.p3                    ascii text     178215         baas           06/02/2025 01:10:17      
+ccwarnings-olympia_rel.p2                         ascii text     287            baas           05/29/2025 05:49:54      
+static-analysis-olympia_rel.p2                    ascii text     178273         baas           05/29/2025 05:49:17      
+ccwarnings-olympia_rel                            ascii text     287            baas           05/29/2025 05:42:36      
+static-analysis-olympia_rel                       ascii text     178217         baas           05/29/2025 05:41:59      
+ccwarnings-nx_main                                ascii text     287            baas           05/26/2025 12:10:59      
+static-analysis-nx_main                           ascii text     129499         baas           05/26/2025 12:10:23      
+unit-test_TMO_ES.rtf                              ascii text     107197         vasagraw       05/26/2025 08:04:13      
+Diffs-commit-smu_rel_10_4_4.p4                    ascii text     1930           nxbld          05/21/2025 10:42:01      
+Diffs-commit-smu_rel_10_4_4.p3                    ascii text     11361          nxbld          05/06/2025 09:54:25      
+Diffs-commit-smu_rel_10_4_4.p2                    ascii text     1893           nxbld          05/06/2025 09:54:23      
+Diffs-commit-smu_rel_10_4_4                       binary         952            nxbld          05/06/2025 09:54:20      
+Release-note-diff                                 ascii text     1053           synchub.gen    11/17/2025 06:44:45      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+09/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/28/2026 satdr    	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-manojohn pr4m mukamath-pa	Mod
+07/13/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/13/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/09/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/09/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/30/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/23/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/23/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/23/2026 fas      	Known-affected-releases 	10.6(1)                      	                             	Del
+04/23/2026 fas      	Known-affected-releases-	                             	10.6(1)                      	New
+04/07/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/07/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/18/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/26/2026 palshanm 	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+02/26/2026 palshanm 	Note Title              	                             	PR5M-V-comments              	New
+02/26/2026 palshanm 	Note Title              	                             	QR3F-V-comments              	New
+01/09/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/09/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/09/2026 fas      	Known-affected-releases 	                             	10.6(1)                      	New
+01/09/2026 fas      	Known-affected-releases-	                             	10.6(1)                      	New
+12/20/2025 sajxavie 	Integrated-releases     	                             	10.6(1)                      	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/20/2025 sajxavie 	Known-fixed-releases    	                             	10.6(1)                      	New
+12/15/2025 shgedam  	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+12/15/2025 shgedam  	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+12/10/2025 digenov  	serviceRequests/C3/70002	                             	                             	Mod
+12/10/2025 digenov  	Urgency-desc            	P3                           	CL3                          	Mod
+12/04/2025 chrconlo 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS01935335            	New
+12/04/2025 chrconlo 	Tickets-count           	10                           	11                           	Mod
+12/04/2025 chrconlo 	Tickets-count-direct    	10                           	11                           	Mod
+12/04/2025 chrconlo 	Trouble-tickets         	                             	BEMS01935335                 	New
+12/04/2025 chrconlo 	Trouble-tickets-direct  	                             	BEMSBEMS01935335             	New
+12/03/2025 pisces   	VF-patched              	                             	NX-OS:10.5(4)                	New
+12/03/2025 pisces   	VF-unpatched            	                             	NX-OS:10.5(3p)               	New
+12/03/2025 pisces   	Potentially-affected-rel	                             	10.5(3p)                     	New
+11/27/2025 mubelwal 	serviceRequests/C3/70001	                             	                             	Mod
+11/27/2025 mubelwal 	SR-associated           	                             	2025-11-09T10:03:31+0000,2025	New
+11/26/2025 mubelwal 	serviceRequests/C3/70001	                             	C3/700018505                 	New
+11/26/2025 mubelwal 	Tickets-count           	9                            	10                           	Mod
+11/26/2025 mubelwal 	TACSR-count             	8                            	9                            	Mod
+11/26/2025 mubelwal 	Tickets-count-direct    	9                            	10                           	Mod
+11/26/2025 mubelwal 	Trouble-tickets         	                             	700018505                    	New
+11/26/2025 mubelwal 	Trouble-tickets-direct  	                             	C3700018505                  	New
+11/17/2025 cdetsbtk 	Security-screening-times	2025-04-29 15:15:42.000+0000 	2025-11-18 13:41:55.000+0000 	Mod
+11/17/2025 synchub.g	Note                    	Email-in.p2                  	Email-in.p2                  	Mod
+11/17/2025 wmigdadi 	Note Title              	                             	Email-in.p2                  	New
+11/17/2025 synchub.g	Note Type               	Unit-test                    	Other                        	Mod
+11/17/2025 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+11/17/2025 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+11/17/2025 synchub.g	Note                    	Email-in.p1                  	Email-in.p1                  	Mod
+11/17/2025 synchub.g	Note                    	Release-note                 	Release-note                 	Mod
+11/17/2025 synchub.g	Note Type               	Static-analysis              	Other                        	Mod
+11/17/2025 synchub.g	Note                    	static-analysis              	static-analysis              	Mod
+11/17/2025 synchub.g	Note                    	code-review-nx_main          	code-review-nx_main          	Mod
+11/17/2025 synchub.g	Note                    	Unit-test-olympia            	Unit-test-olympia            	Mod
+11/17/2025 synchub.g	Note                    	ULS_pamplona_rel             	ULS_pamplona_rel             	Mod
+11/17/2025 synchub.g	contents                	                             	Release-note-diff            	Mod
+11/17/2025 synchub.g	FileSize                	461                          	1053                         	Mod
+11/17/2025 synchub.g	Conditions              	All of these steps has to hap	All of these steps has to hap	Mod
+11/17/2025 wmigdadi 	Note Title              	                             	Email-in.p1                  	New
+11/10/2025 rfurr    	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+11/10/2025 jelopezm 	serviceRequests/C3/70002	                             	                             	Mod
+11/10/2025 jelopezm 	Urgency-desc            	NA                           	P3                           	Mod
+11/10/2025 jelopezm 	Urgency                 	9                            	6                            	Mod
+11/09/2025 zabubake 	serviceRequests/C3/70002	                             	C3/700022402                 	New
+11/09/2025 zabubake 	Urgency-desc            	CL3                          	NA                           	Mod
+11/09/2025 zabubake 	Urgency                 	6                            	9                            	Mod
+11/09/2025 zabubake 	Tickets-count           	8                            	9                            	Mod
+11/09/2025 zabubake 	TACSR-count             	7                            	8                            	Mod
+11/09/2025 zabubake 	Tickets-count-direct    	8                            	9                            	Mod
+11/09/2025 zabubake 	Trouble-tickets         	                             	700022402                    	New
+11/09/2025 zabubake 	Trouble-tickets-direct  	                             	C3700022402                  	New
+11/04/2025 nramosne 	serviceRequests/C3/69995	                             	                             	Mod
+11/04/2025 nramosne 	Urgency-desc            	NA                           	CL3                          	Mod
+11/04/2025 nramosne 	Urgency                 	9                            	6                            	Mod
+11/04/2025 nramosne 	SR-associated           	                             	2025-11-04T16:41:53+0000     	New
+11/04/2025 nramosne 	serviceRequests/C3/69995	                             	C3/699953387                 	New
+11/04/2025 nramosne 	Urgency-desc            	CL3                          	NA                           	Mod
+11/04/2025 nramosne 	Urgency                 	6                            	9                            	Mod
+11/04/2025 nramosne 	Tickets-count           	7                            	8                            	Mod
+11/04/2025 nramosne 	TACSR-count             	6                            	7                            	Mod
+11/04/2025 nramosne 	Tickets-count-direct    	7                            	8                            	Mod
+11/04/2025 nramosne 	Trouble-tickets         	                             	699953387                    	New
+11/04/2025 nramosne 	Trouble-tickets-direct  	                             	C3699953387                  	New
+10/28/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/28/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/28/2025 pisces   	Known-fixed-releases    	                             	10.5(4)                      	New
+10/19/2025 palshanm 	Note Title              	                             	Automation-Log               	New
+10/19/2025 palshanm 	Automated-test          	N                            	Y                            	Mod
+10/18/2025 mbarahon 	serviceRequests/C3/69985	                             	                             	Mod
+10/18/2025 mbarahon 	Urgency-desc            	NA                           	CL3                          	Mod
+10/18/2025 mbarahon 	Urgency                 	9                            	6                            	Mod
+10/18/2025 mbarahon 	SR-associated           	                             	2025-08-07T12:29:00+0000,2025	New
+10/06/2025 mbarahon 	serviceRequests/C3/69985	                             	C3/699856979                 	New
+10/06/2025 mbarahon 	Urgency-desc            	CL2                          	NA                           	Mod
+10/06/2025 mbarahon 	Urgency                 	4                            	9                            	Mod
+10/06/2025 mbarahon 	Tickets-count           	6                            	7                            	Mod
+10/06/2025 mbarahon 	TACSR-count             	5                            	6                            	Mod
+10/06/2025 mbarahon 	Tickets-count-direct    	6                            	7                            	Mod
+10/06/2025 mbarahon 	Trouble-tickets         	                             	699856979                    	New
+10/06/2025 mbarahon 	Trouble-tickets-direct  	                             	C3699856979                  	New
+10/02/2025 pisces   	VF-patched              	                             	NX-OS:10.4(6),NX-OS:10.6(1),N	New
+10/02/2025 pisces   	VF-unpatched            	                             	NX-OS:10.3(8),NX-OS:10.5(3e),	New
+10/02/2025 pisces   	Potentially-affected-rel	                             	10.3(8),10.5(3e),10.5(3o),9.3	New
+09/23/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0)               	New
+09/23/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0.21)            	New
+09/23/2025 nxbld    	Apply-to                	                             	10.5(2)ICX9(0.21)            	New
+09/03/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/03/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/03/2025 pisces   	Known-fixed-releases    	                             	10.4(6)                      	New
+08/22/2025 palshanm 	File Name               	                             	CSCwo94447_PR4M_Test_Logs.txt	New
+08/22/2025 palshanm 	Note Title              	                             	V-comments.p3                	New
+08/21/2025 palshanm 	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+08/21/2025 palshanm 	Verified-release        	                             	10.5(3.101)                  	New
+08/12/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/07/2025 prpalan2 	serviceRequests/C3/69950	                             	                             	Mod
+08/07/2025 prpalan2 	Urgency-desc            	NA                           	CL2                          	Mod
+08/07/2025 prpalan2 	Urgency                 	9                            	4                            	Mod
+08/07/2025 prpalan2 	serviceRequests/C3/69950	                             	C3/699508854                 	New
+08/07/2025 prpalan2 	Urgency-desc            	CL3                          	NA                           	Mod
+08/07/2025 prpalan2 	Urgency                 	6                            	9                            	Mod
+08/07/2025 prpalan2 	Tickets-count           	5                            	6                            	Mod
+08/07/2025 prpalan2 	TACSR-count             	4                            	5                            	Mod
+08/07/2025 prpalan2 	Tickets-count-direct    	5                            	6                            	Mod
+08/07/2025 prpalan2 	Trouble-tickets         	                             	699508854                    	New
+08/07/2025 prpalan2 	Trouble-tickets-direct  	                             	C3699508854                  	New
+07/15/2025 mfontalv 	serviceRequests/C3/69928	                             	                             	Mod
+07/15/2025 mfontalv 	Urgency-desc            	P3                           	CL3                          	Mod
+07/11/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0)               	New
+07/11/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0.35)            	New
+07/11/2025 nxbld    	Apply-to                	                             	10.5(2)IRH9(0.35)            	New
+07/08/2025 raunasin 	serviceRequests/C3/69916	                             	                             	Mod
+07/06/2025 nxbld    	Integrated-releases     	                             	10.5(4)                      	New
+07/06/2025 nxbld    	Integrated-releases     	                             	10.5(3.66)                   	New
+07/06/2025 nxbld    	Apply-to                	                             	10.5(3.66)                   	New
+07/06/2025 meghnara 	File Name               	                             	Diffs-commit-pamplona_rel    	New
+07/05/2025 meghnara 	contents                	                             	PR-Description-63108         	Mod
+07/05/2025 meghnara 	File Name               	                             	code-review-pamplona_rel.p2  	New
+07/05/2025 meghnara 	Code-reviewer           	                             	hgumaste                     	New
+07/05/2025 meghnara 	File Name               	                             	PR-Description-63108         	New
+07/05/2025 meghnara 	File Name               	                             	code-review-pamplona_rel     	New
+07/05/2025 qddts    	Note Title              	                             	ULS_pamplona_rel             	New
+07/04/2025 raunasin 	serviceRequests/C3/69916	                             	                             	Mod
+07/04/2025 raunasin 	SR-associated           	                             	2025-06-27T17:54:58+0000,2025	New
+07/04/2025 raunasin 	serviceRequests/C3/69916	                             	C3/699169394                 	New
+07/04/2025 raunasin 	Tickets-count           	4                            	5                            	Mod
+07/04/2025 raunasin 	TACSR-count             	3                            	4                            	Mod
+07/04/2025 raunasin 	Tickets-count-direct    	4                            	5                            	Mod
+07/04/2025 raunasin 	Trouble-tickets         	                             	699169394                    	New
+07/04/2025 raunasin 	Trouble-tickets-direct  	                             	C3699169394                  	New
+07/04/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p3   	New
+07/04/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+07/04/2025 palshanm 	File Name               	                             	CSCwo94447_OR6M_Test_Logs.txt	New
+07/04/2025 palshanm 	Note Title              	                             	V-comments.p2                	New
+07/04/2025 palshanm 	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+07/04/2025 palshanm 	Verified-release        	                             	10.4(5.14)                   	New
+07/03/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p2   	New
+07/03/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+07/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/01/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3t)               	New
+07/01/2025 pisces   	VF-unpatched            	                             	NX-OS:10.5(3s)               	New
+07/01/2025 pisces   	Potentially-affected-rel	                             	10.5(3s)                     	New
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0)               	New
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0.17)            	New
+06/30/2025 nxbld    	Apply-to                	                             	10.6(1)IQZ9(0.17)            	New
+06/27/2025 leoates  	serviceRequests/C3/69928	                             	C3/699289803                 	New
+06/27/2025 leoates  	Urgency-desc            	CL2                          	P3                           	Mod
+06/27/2025 leoates  	Urgency                 	4                            	6                            	Mod
+06/27/2025 leoates  	Tickets-count           	3                            	4                            	Mod
+06/27/2025 leoates  	TACSR-count             	2                            	3                            	Mod
+06/27/2025 leoates  	Tickets-count-direct    	3                            	4                            	Mod
+06/27/2025 leoates  	Trouble-tickets         	                             	699289803                    	New
+06/27/2025 leoates  	Trouble-tickets-direct  	                             	C3699289803                  	New
+06/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0)               	New
+06/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0.33)            	New
+06/25/2025 nxbld    	Apply-to                	                             	10.6(1)IQD9(0.33)            	New
+06/25/2025 moshari4 	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+06/23/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel      	New
+06/23/2025 baas     	File Name               	                             	static-analysis-pamplona_rel 	New
+06/23/2025 palshanm 	File Name               	                             	CSCwo94447_QR1F_Test_Logs.txt	New
+06/23/2025 palshanm 	Attribute               	cfd-mukamath pr4m mukamath-pa	cfd-mukamath pr4m mukamath-pa	Mod
+06/23/2025 palshanm 	Note Title              	                             	V-comments                   	New
+06/23/2025 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/23/2025 palshanm 	Status                  	R                            	V                            	Mod
+06/23/2025 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+06/23/2025 palshanm 	Verified-release        	                             	10.6(0)IMG9(0.114)           	New
+06/23/2025 palshanm 	Verified-confidence     	                             	tested                       	Mod
+06/23/2025 palshanm 	Verified-on             	                             	2025-06-23 19:41:07.000+0000 	Mod
+06/23/2025 palshanm 	statusStates            	                             	[status=R, startDate=Wed May 	New
+06/23/2025 palshanm 	statusStates            	[status=R, startDate=Wed May 	                             	Del
+06/23/2025 palshanm 	Age-status              	9                            	56                           	Mod
+06/23/2025 palshanm 	Mean-time-to-verified   	                             	56                           	Mod
+06/12/2025 nxbld    	Integrated-releases     	                             	10.4(6)                      	New
+06/12/2025 nxbld    	Integrated-releases     	                             	10.4(5.12)                   	New
+06/12/2025 nxbld    	Apply-to                	                             	10.4(5.12)                   	New
+06/05/2025 vdani    	Attribute               	cfd-mukamath pr4m            	cfd-mukamath pr4m mukamath-pa	Mod
+06/04/2025 samekama 	Attribute               	cfd-mukamath                 	cfd-mukamath pr4m            	Mod
+06/04/2025 meghnara 	File Name               	                             	Diffs-commit-olympia_rel     	New
+06/03/2025 meghnara 	contents                	                             	PR-Description-61047         	Mod
+06/03/2025 meghnara 	File Name               	                             	code-review-olympia_rel.p3   	New
+06/03/2025 meghnara 	contents                	                             	PR-Description-61047         	Mod
+06/03/2025 meghnara 	File Name               	                             	code-review-olympia_rel.p2   	New
+06/03/2025 meghnara 	File Name               	                             	PR-Description-61047         	New
+06/03/2025 meghnara 	File Name               	                             	code-review-olympia_rel      	New
+06/03/2025 qddts    	Note Title              	                             	Unit-test-olympia            	New
+06/03/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p5    	New
+06/03/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+06/03/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p4    	New
+06/03/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+06/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/02/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0)               	New
+06/02/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0.82)            	New
+06/02/2025 nxbld    	Apply-to                	                             	10.6(0)IMG9(0.82)            	New
+06/02/2025 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+06/02/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p3    	New
+06/02/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+06/01/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/29/2025 mandlaks 	Note Title              	                             	Email-in                     	New
+05/29/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/29/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p2    	New
+05/29/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+05/29/2025 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+05/29/2025 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+05/28/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/26/2025 baas     	File Name               	                             	ccwarnings-nx_main           	New
+05/26/2025 baas     	File Name               	                             	static-analysis-nx_main      	New
+05/26/2025 qddts    	Note Title              	                             	static-analysis              	New
+05/26/2025 vasagraw 	File Name               	                             	unit-test_TMO_ES.rtf         	New
+05/26/2025 qddts    	Note Title              	                             	code-review-nx_main          	New
+05/21/2025 nxbld    	Integrated-releases     	                             	10.4(4)SMU(54)               	New
+05/21/2025 nxbld    	Apply-to                	                             	10.4(4)SMU(54)               	New
+05/21/2025 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_4.p	New
+05/21/2025 cms      	Est-fix-date            	2025-06-15 07:00:00.000+0000 	2025-06-12 07:00:00.000+0000 	Mod
+05/21/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/21/2025 cms      	Est-fix-date            	2025-05-08 07:00:00.000+0000 	2025-06-15 07:00:00.000+0000 	Mod
+05/20/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/19/2025 bpaez    	serviceRequests/C3/69899	                             	                             	Mod
+05/19/2025 bpaez    	Urgency-desc            	NA                           	CL2                          	Mod
+05/19/2025 bpaez    	Urgency                 	9                            	4                            	Mod
+05/15/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/14/2025 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+05/12/2025 sachinj  	Attribute               	                             	cfd-mukamath                 	Mod
+05/11/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/09/2025 mpnair   	serviceRequests/C3/69885	                             	                             	Mod
+05/09/2025 mpnair   	SR-associated           	                             	2025-05-06T22:15:23+0000,2025	New
+05/08/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/07/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+05/07/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+05/06/2025 vasagraw 	Note Title              	                             	R-comments                   	New
+05/06/2025 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+05/06/2025 vasagraw 	Status                  	A                            	R                            	Mod
+05/06/2025 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+05/06/2025 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/06/2025 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+05/06/2025 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+05/06/2025 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+05/06/2025 vasagraw 	Breakage                	                             	No                           	Mod
+05/06/2025 vasagraw 	Regression              	                             	N                            	Mod
+05/06/2025 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+05/06/2025 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+05/06/2025 vasagraw 	Released-code           	                             	Y                            	Mod
+05/06/2025 vasagraw 	Origin                  	                             	base code                    	Mod
+05/06/2025 vasagraw 	Test-escape             	N                            	Y                            	Mod
+05/06/2025 vasagraw 	Test-EDP-phase          	                             	System Test                  	Mod
+05/06/2025 vasagraw 	Test-EDP-activity       	                             	Customer EFT/Beta            	Mod
+05/06/2025 vasagraw 	TPS_issue               	                             	N                            	Mod
+05/06/2025 vasagraw 	TPS_flag                	                             	N                            	Mod
+05/06/2025 vasagraw 	Behavior-changed        	                             	N                            	Mod
+05/06/2025 vasagraw 	Original-resolved-on    	                             	2025-05-07 02:25:43.000+0000 	Mod
+05/06/2025 vasagraw 	Documents-changed       	                             	none                         	Mod
+05/06/2025 vasagraw 	More-on                 	                             	2025-05-07 02:25:43.000+0000 	Mod
+05/06/2025 vasagraw 	Opened-on               	                             	2025-05-07 02:25:43.000+0000 	Mod
+05/06/2025 vasagraw 	Resolved-on             	                             	2025-05-07 02:25:43.000+0000 	Mod
+05/06/2025 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Apr 	New
+05/06/2025 vasagraw 	statusStates            	[status=A, startDate=Tue Apr 	                             	Del
+05/06/2025 vasagraw 	Age-status              	1                            	9                            	Mod
+05/06/2025 vasagraw 	Mean-time-to-resolved   	                             	8                            	Mod
+05/06/2025 bpaez    	serviceRequests/C3/69899	                             	C3/698992190                 	New
+05/06/2025 bpaez    	Tickets-count           	2                            	3                            	Mod
+05/06/2025 bpaez    	TACSR-count             	1                            	2                            	Mod
+05/06/2025 bpaez    	Tickets-count-direct    	2                            	3                            	Mod
+05/06/2025 bpaez    	Trouble-tickets         	                             	698992190                    	New
+05/06/2025 bpaez    	Trouble-tickets-direct  	                             	C3698992190                  	New
+05/06/2025 rimichae 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS01859751            	New
+05/06/2025 rimichae 	Tickets-count           	1                            	2                            	Mod
+05/06/2025 rimichae 	Tickets-count-direct    	1                            	2                            	Mod
+05/06/2025 rimichae 	Trouble-tickets         	                             	BEMS01859751                 	New
+05/06/2025 rimichae 	Trouble-tickets-direct  	                             	BEMSBEMS01859751             	New
+05/06/2025 nxbld    	Integrated-releases     	                             	10.4(4)SMU(50)               	New
+05/06/2025 nxbld    	Apply-to                	                             	10.4(4)SMU(50)               	New
+05/06/2025 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_4.p	New
+05/06/2025 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_4.p	New
+05/06/2025 nxbld    	Multi-commit-flag       	                             	Y                            	Mod
+05/06/2025 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_4  	New
+05/06/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/05/2025 vasagraw 	Note                    	Unit-test                    	Unit-test                    	Mod
+05/05/2025 vasagraw 	Note                    	Unit-test                    	Unit-test                    	Mod
+05/03/2025 qddts    	Note Title              	                             	Unit-test                    	New
+05/01/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/01/2025 cms      	Est-fix-date            	2025-05-07 07:00:00.000+0000 	2025-05-08 07:00:00.000+0000 	Mod
+05/01/2025 mpnair   	serviceRequests/C3/69885	                             	C3/698851631                 	New
+05/01/2025 mpnair   	Urgency                 	                             	9                            	Mod
+05/01/2025 mpnair   	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+05/01/2025 mpnair   	Data-classification-reas	                             	Default value of Data-classif	Mod
+05/01/2025 mpnair   	Tickets-count           	0                            	1                            	Mod
+05/01/2025 mpnair   	TACSR-count             	                             	1                            	Mod
+05/01/2025 mpnair   	Tickets-count-direct    	                             	1                            	Mod
+05/01/2025 mpnair   	Trouble-tickets         	                             	698851631                    	New
+05/01/2025 mpnair   	Trouble-tickets-direct  	                             	C3698851631                  	New
+04/29/2025 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/29/2025 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+04/29/2025 cdetsbtk 	Security-screening-times	                             	2025-04-29 15:15:42.000+0000 	Mod
+04/28/2025 cms      	Est-fix-date            	                             	2025-05-07 07:00:00.000+0000 	Mod
+04/28/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/28/2025 cms      	Note Title              	                             	Scrubnote                    	New
+04/28/2025 samekama 	Note Title              	                             	A-comments                   	New
+04/28/2025 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/28/2025 samekama 	Status                  	N                            	A                            	Mod
+04/28/2025 samekama 	Engineer                	                             	vasagraw                     	Mod
+04/28/2025 samekama 	Assigner                	                             	samekama                     	Mod
+04/28/2025 samekama 	Assigned Date           	                             	2025-04-29 04:25:14.000+0000 	Mod
+04/28/2025 samekama 	statusStates            	                             	[status=N, startDate=Mon Apr 	New
+04/28/2025 samekama 	statusStates            	[status=N, startDate=Mon Apr 	                             	Del
+04/28/2025 samekama 	Age-status              	0                            	1                            	Mod
+04/28/2025 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+04/28/2025 rimichae 	Note                    	Release-note                 	Release-note                 	Mod
+04/28/2025 rimichae 	File Name               	                             	Release-note-diff            	New
+04/28/2025 rimichae 	Headline                	Type 6 primary key gets delet	Type 6 primary key fails to g	Mod
+04/28/2025 rimichae 	Symptoms                	multi-step upgrades from I7.x	multi-step upgrades from I7.x	Mod
+04/28/2025 rimichae 	Conditions              	1. TACACS feature enabled in 	All of these steps has to hap	Mod
+04/28/2025 rimichae 	Headline                	Type 6 primary key gets delet	Type 6 primary key gets delet	Mod
+04/28/2025 rimichae 	Headline                	Key 6 primary key gets delete	Type 6 primary key gets delet	Mod
+04/28/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-480666       	New
+04/28/2025 rimichae 	Note Title              	                             	Release-note                 	New
+04/28/2025 rimichae 	Headline                	                             	Key 6 primary key gets delete	Mod
+04/28/2025 rimichae 	Summary                 	                             	When coming from I7.x release	Mod
+04/28/2025 rimichae 	Project                 	                             	CSC.datacenter               	Mod
+04/28/2025 rimichae 	Product                 	                             	n9k-standalone-sw            	Mod
+04/28/2025 rimichae 	Component               	                             	aaa                          	Mod
+04/28/2025 rimichae 	Status-desc             	                             	N-New                        	Mod
+04/28/2025 rimichae 	Status                  	                             	N                            	Mod
+04/28/2025 rimichae 	Found                   	                             	customer-use                 	Mod
+04/28/2025 rimichae 	Hardening               	                             	N                            	Mod
+04/28/2025 rimichae 	Original-found          	                             	customer-use                 	Mod
+04/28/2025 rimichae 	Hardware                	                             	Nexus 9000                   	New
+04/28/2025 rimichae 	Feature                 	                             	fix                          	Mod
+04/28/2025 rimichae 	Urgency-desc            	                             	NA                           	Mod
+04/28/2025 rimichae 	Severity-desc           	                             	moderate                     	Mod
+04/28/2025 rimichae 	Severity                	                             	3                            	Mod
+04/28/2025 rimichae 	DE Priority Desc        	                             	medium                       	Mod
+04/28/2025 rimichae 	DE-priority             	                             	3                            	Mod
+04/28/2025 rimichae 	Impact                  	                             	Outage                       	New
+04/28/2025 rimichae 	Submitter               	                             	rimichae                     	Mod
+04/28/2025 rimichae 	Submitter-manager       	                             	jredclif                     	Mod
+04/28/2025 rimichae 	DE-manager              	                             	anikunna                     	Mod
+04/28/2025 rimichae 	DTPT-manager            	                             	mukamath                     	Mod
+04/28/2025 rimichae 	Version                 	                             	10.4(4)                      	New
+04/28/2025 rimichae 	Original-version        	                             	10.4(4)                      	Mod
+04/28/2025 rimichae 	Found-during            	                             	Customer                     	Mod
+04/28/2025 rimichae 	Activity-when-found     	                             	Customer-Use                 	Mod
+04/28/2025 rimichae 	Automated-test          	                             	N                            	Mod
+04/28/2025 rimichae 	Test-escape             	                             	N                            	Mod
+04/28/2025 rimichae 	PSIRT                   	                             	N                            	Mod
+04/28/2025 rimichae 	Data-classification     	                             	Cisco Confidential           	Mod
+04/28/2025 rimichae 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/28/2025 rimichae 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/28/2025 rimichae 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/28/2025 rimichae 	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/28/2025 rimichae 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/28/2025 rimichae 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/28/2025 rimichae 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/28/2025 rimichae 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/28/2025 rimichae 	MDF-edited              	                             	N                            	Mod
+04/28/2025 rimichae 	Attribute2              	                             	n/a                          	Mod
+04/28/2025 rimichae 	Care-Update             	                             	Y                            	Mod
+04/28/2025 rimichae 	Doc-manager             	                             	anikunna                     	Mod
+04/28/2025 rimichae 	Document                	                             	nexus                        	Mod
+04/28/2025 rimichae 	Documentation-resolution	                             	Undefined                    	Mod
+04/28/2025 rimichae 	Original-activity-when-f	                             	Customer-Use                 	Mod
+04/28/2025 rimichae 	Original-found-during   	                             	Customer                     	Mod
+04/28/2025 rimichae 	Submitter-org-bug       	                             	DCN-Customer Success-US      	Mod
+04/28/2025 rimichae 	Component-scenarios     	                             	N                            	Mod
+04/28/2025 rimichae 	Submitted-on            	                             	2025-04-28 15:34:59.891+0000 	Mod
+04/28/2025 rimichae 	IFD-CFD-Conv-date       	                             	2025-04-28 15:34:59.891+0000 	Mod
+04/28/2025 rimichae 	New-on                  	                             	2025-04-28 15:34:59.891+0000 	Mod
+04/28/2025 rimichae 	statusStates            	                             	[status=S, startDate=Mon Apr 	New
+04/28/2025 rimichae 	Transition-day          	0                            	2460794                      	Mod
+04/28/2025 rimichae 	Release-note-status     	                             	have                         	Mod
+04/28/2025 rimichae 	Reported By             	                             	rimichae                     	Mod
+04/28/2025 rimichae 	Known-affected-releases 	                             	10.4(4)                      	New
+04/28/2025 rimichae 	RNE-Type                	                             	NONE                         	Mod
+04/28/2025 rimichae 	Symptoms                	                             	multi-step upgrades from I7.x	Mod
+04/28/2025 rimichae 	Conditions              	                             	1. TACACS feature enabled in 	Mod
+04/28/2025 rimichae 	Workarounds             	                             	key config-key ascii <> to re	Mod
+04/28/2025 rimichae 	Tickets-count           	                             	0                            	Mod
+04/28/2025 rimichae 	Class                   	                             	CSC.datacenter               	Mod
+04/28/2025 rimichae 	Reti-bug                	                             	Y                            	Mod
+04/28/2025 rimichae 	Defect Created          	                             	                             	New

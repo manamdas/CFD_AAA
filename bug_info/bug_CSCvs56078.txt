@@ -1,0 +1,975 @@
+*******************************************************************************
+
+Bug ID   : CSCvs56078         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 4 (minor)      
+Headline : logging server received the TACACS+ accounting messages with invalid output
+PrimaryPV : 
+Version :7.0(3)I7(6) 9.3(3) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: qifawu             Submitted: 12/26/2019 01:42:27     Last Updtd : 01/04/2024 10:08:33  
+RNE-Type: NONE                New-on : 12/26/2019 01:42:28      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:wzhigang                                            
+Known-affected-releases:7.0(3)I7(6) 9.3(3) 
+
+Known-fixed-releases:9.3(5) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 01/19/2020 21:57:19                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 10                                             
+Mean-time-to-resolved: 24                                             
+Mean-time-to-verified: 169    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 12/26/2019 09:38:27            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Use 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 01/05/2020 22:46:07 
+Code-reviewer: vasagraw       
+Opened-on: 01/19/2020 21:57:19Opener: pradepan              
+Engineer : pradepan           DE-manager  : girshank        Est Time/Attribute : iplusb-sprabhud gnosis cfd-mukamath pi-
+Est. completion date: 01/17/2020 00:00:00  
+Script-version:                         
+
+More-by : pradepan            More-on: 01/19/2020 21:57:19  
+
+Documents Changed: none       Resolved: 01/19/2020 21:57:19 Resolver: pradepan       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 06/12/2020 09:07:46      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Beijing-APAC-HTTS
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  System Test
+Test-EDP-activity :               Usability Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   3
+Tickets-count-direct :            3
+Trouble-tickets :              688125278;690534822;696675862
+Trouble-tickets-direct :C3688125278 
+Trouble-tickets-direct :C3690534822 
+Trouble-tickets-direct :C3696675862 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/11/2020 04:30:30
+Document :    nexus
+
+Summary:
+The issue was first found on N3K with 9.2.3.
+
+The following format of the TACACS+ accounting messages were seen on the customer logging server:
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  start: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  update: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  stop: %s: %s: %s
+
+Tested in lab using N9K with 9.3.3/I7.6 and also found the issue. 
+
+I48a is working fine:
+Syslog message: LOCAL7.INFO: : 2019 Dec 26 15:31:27 TPE: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.140.0.221@pts/0: ciscotest: configure terminal ; interface Ethernet1/1 ; no shutdown (REDIRECT)
+
+Syslog message: LOCAL7.INFO: : 2019 Dec 26 15:31:30 TPE: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: stop: 10.140.0.221@pts/0: ciscotest: shell terminated gracefully
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         688125278       LOGICALIS SINGAPORE PTE LTD TA           
+C3         690534822       BRITISH SKY BROADCASTING GROUP           
+C3         696675862       BRITISH SKY BROADCASTING GROUP           
+
+
+******************* Related Foreign Bugs (0 of 0)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (12 of 12 ) ***********************
+
+---Start of Note Titled: Automation Log (Created 04/29/2022 05:40:40 Added 04/29/2022 05:40:40 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2FNexus-n39K%2FN39K_Regression%2Fpyats3_jan22%2Fusers%2Fpalshanm%2Farchive%2F22-04%2FCFD_CSCvs56078_job.2022Apr29_18:06:36.840267.zip&atstype=ATS
+---End of Note Titled: Automation Log---
+
+
+---Start of Note Titled: V-comments (Created 06/12/2020 09:07:46 Added 06/12/2020 09:07:46 by palshanm)---
+Bug fix is verified in iplus-b release using 9.3(4.161)
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 02/13/2020 23:19:55 Modified 02/15/2020 06:18:19 by cms)---
+{200119 samekama S B} Commit done. Moved to R.
+{200119 samekama S B} In BAT commit.
+{200116 pradepan S B} PRRQ Raised.
+{200115 samekama S B} RCA done. Implementation in progress.
+{200113 samekama S B} RCA in progress.
+{200107 srkatti S B} In backlog.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  KnowledgeSignature (Created 01/22/2020 00:47:19 Modified 07/16/2020 22:26:05 by ktrinath)---
+https://gnosis.cisco.com/#!/signature/bug/5e27d7c9836b003c218dae2c/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled:  DetectionLogic (Created 01/21/2020 02:40:28 Modified 07/10/2020 13:42:01 by nvasilye)---
+Detection logic:
+
+(Pre-)Condition 0. SW:{code}7.0(3)I7(4-8), 9.2(x), 9.3(1-4){code}
+(Pre-)Condition 1. HW: All N3k/N9k
+Condition 2. Check if the system log (`show logging log` or `show logging nvram`) has any of the following messages:{code}%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  start: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  update: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  stop: %s: %s: %s{code}
+
+Logic: (Pre-)Condition 0 && (Pre-)Condition 1 && Condition 2
+Confidence: 100
+
+Validation files:
+Positive: https://cae-largefile-prod.cisco.com/web-ui?appId=CSOne&srId=687294611&fileName=CSCvs56078_pos
+Negative: https://cae-largefile-prod.cisco.com/web-ui?appId=CSOne&srId=687294611&fileName=CSCvs56078_neg
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: R-comments (Created 01/19/2020 21:57:20 Added 01/19/2020 21:57:20 by pradepan)---
+The problem occurred because the handling of syslog_print was not proper. Handled it now and there won't be any such issue. 
+
+Thanks for your patience.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis-iplus_b.p3 (Created 01/18/2020 15:40:46 Added 01/18/2020 15:40:46 by baas)---
+# Enclosure (static-analysis-iplus_b) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvs56078).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-537
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build 
+# Generated at
+#     Sat Jan 18 23:40:40 2020 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_1c0aed0d.38094.baas.1579390748
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_1c0aed0d.38094.baas.1579390748':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01182020/For_SA_Debugging-baas-15-39-23 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/38303-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/38303-diff-file.txt 
+Found C file : feature/security/tacacs/tplus_pkt.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+ MAP ENTRYES in CUSTOM JSON :987TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/tacacsd/sup/tplus_pkt.o 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/tacacs -I../feature/security/tacacs -I../feature/security/dnscache -I../feature/security/aaa/util -I../feature/security/aaa/lib -I../infra/system_manager/include -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../include/isan/objstoredefs -I../feature/security/tacacs -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_header.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -DTACACS_PROTO_LIB -O1 -rdynamic -DINS_EOR -Wno-error=unused-but-set-variable -rdynamic -fPIE -c -MMD -MT ins/x86e/final/tacacsd/sup/tplus_pkt.o -MF ins/x86e/final/tacacsd/sup/tplus_pkt.d -o ins/x86e/final/tacacsd/sup/tplus_pkt.o ../feature/security/tacacs/tplus_pkt.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build/command_file_list.baas.38521  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - stream_name-> irvine-nchan
+WARN - security tag -> https
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/feature/security/tacacs/tplus_pkt.c
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 21
+Total parent warnings: 24
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=irvine-nchan&cid=462799&cid=462798&cid=15422&cid=21734&cid=462797&cid=14641&cid=34047&cid=27973&cid=28213&cid=462796&cid=462795&cid=462794&cid=462793&cid=356280&cid=21163&cid=22416&cid=462792&cid=462790&cid=33549&cid=462789&cid=15351&cid=15690&cid=462791&cid=74683&cid=462788&cid=317381&cid=462785&cid=37467&cid=462787&cid=21742&cid=462786&cid=462784
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/nchan/irvine-nchan_20200118_234022/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA PASSED2:
+  feature/security/tacacs/tplus_pkt.c
+SESLOG = /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build/ses_static_analysis.log
+dirname = /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build
+sa_passed_home = /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build/pctmp/pass
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01182020/For_SA_Debugging-baas-15-39-23 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20200118_11281579375685/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+---End of Note Titled: static-analysis-iplus_b.p3---
+
+
+---Start of Note Titled: static-analysis-iplus_b.p2 (Created 01/18/2020 10:35:42 Added 01/18/2020 10:35:42 by baas)---
+# Enclosure (static-analysis-iplus_b) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvs56078).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-9324
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/build 
+# Generated at
+#     Sat Jan 18 18:35:36 2020 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_1e0a58d4.48624.baas.1579372429
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_1e0a58d4.48624.baas.1579372429':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01182020/For_SA_Debugging-baas-10-34-05 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/48684-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/48684-diff-file.txt 
+Found C file : feature/security/tacacs/tplus_pkt.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+ MAP ENTRYES in CUSTOM JSON :987TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/tacacsd/sup/tplus_pkt.o 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/tacacs -I../feature/security/tacacs -I../feature/security/dnscache -I../feature/security/aaa/util -I../feature/security/aaa/lib -I../infra/system_manager/include -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../include/isan/objstoredefs -I../feature/security/tacacs -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_header.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -DTACACS_PROTO_LIB -O1 -rdynamic -DINS_EOR -Wno-error=unused-but-set-variable -rdynamic -fPIE -c -MMD -MT ins/x86e/final/tacacsd/sup/tplus_pkt.o -MF ins/x86e/final/tacacsd/sup/tplus_pkt.d -o ins/x86e/final/tacacsd/sup/tplus_pkt.o ../feature/security/tacacs/tplus_pkt.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/build/command_file_list.baas.49428  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - stream_name-> irvine-baas
+WARN - security tag -> https
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/feature/security/tacacs/tplus_pkt.c
+INFO - Committing defects
+
+Total active warnings: 4
+Total noise  warnings: 16
+Total parent warnings: 25
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=irvine-baas&cid=462799&cid=462798&cid=15422&cid=21734&cid=462797&cid=14641&cid=34047&cid=27973&cid=28213&cid=462796&cid=462795&cid=462794&cid=462793&cid=356280&cid=21163&cid=22416&cid=462792&cid=462790&cid=33549&cid=462789&cid=15351&cid=15690&cid=462791&cid=74683&cid=462788&cid=317381&cid=462785&cid=37467&cid=462787&cid=21742&cid=462786&cid=462784
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/baas/irvine-baas_20200118_183515/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA FAILED:
+  feature/security/tacacs/tplus_pkt.c
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01182020/For_SA_Debugging-baas-10-34-05 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20200118_05531579355606/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 1
+
+
+**********        ERROR       **********
+[static_dcos--main::fatal_err]Active-warnings-found-Please-see 
+https://wiki.cisco.com/display/NRE/Static+Analysis+using+Coverity+7.5#StaticAnalysisusingCoverity7.5-WaystofixSAwarnings
+
+
+
+
+
+
+**********        ERROR       **********
+---End of Note Titled: static-analysis-iplus_b.p2---
+
+
+---Start of Note Titled: static-analysis-iplus_b (Created 01/17/2020 11:23:51 Added 01/17/2020 11:23:51 by baas)---
+# Enclosure (static-analysis-iplus_b) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvs56078).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-1710
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/build 
+# Generated at
+#     Fri Jan 17 19:23:44 2020 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_46ab973c.43091.baas.1579288908
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_46ab973c.43091.baas.1579288908':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01172020/For_SA_Debugging-baas-11-21-59 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/43150-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/43150-diff-file.txt 
+Found C file : feature/security/tacacs/tplus_pkt.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+ MAP ENTRYES in CUSTOM JSON :987TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/tacacsd/sup/tplus_pkt.o 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/tacacs -I../feature/security/tacacs -I../feature/security/dnscache -I../feature/security/aaa/util -I../feature/security/aaa/lib -I../infra/system_manager/include -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../include/isan/objstoredefs -I../feature/security/tacacs -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_header.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -DTACACS_PROTO_LIB -O1 -rdynamic -DINS_EOR -Wno-error=unused-but-set-variable -rdynamic -fPIE -c -MMD -MT ins/x86e/final/tacacsd/sup/tplus_pkt.o -MF ins/x86e/final/tacacsd/sup/tplus_pkt.d -o ins/x86e/final/tacacsd/sup/tplus_pkt.o ../feature/security/tacacs/tplus_pkt.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/build/command_file_list.baas.43479  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - stream_name-> irvine-baas
+WARN - security tag -> https
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/feature/security/tacacs/tplus_pkt.c
+INFO - Committing defects
+
+Total active warnings: 16
+Total noise  warnings: 1
+Total parent warnings: 28
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=irvine-baas&cid=462799&cid=462798&cid=15422&cid=21734&cid=462797&cid=14641&cid=34047&cid=27973&cid=28213&cid=462796&cid=462795&cid=462794&cid=462793&cid=356280&cid=21163&cid=22416&cid=462792&cid=462790&cid=33549&cid=462789&cid=15351&cid=15690&cid=462791&cid=74683&cid=462788&cid=317381&cid=462785&cid=37467&cid=462787&cid=21742&cid=462786&cid=462784
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/baas/irvine-baas_20200117_192318/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA FAILED:
+  feature/security/tacacs/tplus_pkt.c
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/01172020/For_SA_Debugging-baas-11-21-59 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20200117_05481579268892/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 1
+
+
+**********        ERROR       **********
+[static_dcos--main::fatal_err]Active-warnings-found-Please-see 
+https://wiki.cisco.com/display/NRE/Static+Analysis+using+Coverity+7.5#StaticAnalysisusingCoverity7.5-WaystofixSAwarnings
+
+
+
+
+
+
+**********        ERROR       **********
+---End of Note Titled: static-analysis-iplus_b---
+
+
+---Start of Note Titled: unit-test (Created 01/16/2020 01:55:39 Added 01/16/2020 01:55:39 by pradepan)---
+Unit Test Enclosure: Added [16-01-2020] by [pradepan]
+
+butter-scotch(config)# ethanalyzer local interface mgmt display-filter "ip.addr==10.140.0.221" limit-captured-frames 0
+Capturing on mgmt0
+2020-01-16 09:53:12.746038 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:12 UTC: last message repeated 1 time
+2020-01-16 09:53:12.746113 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:12 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: start: 10.30.221.132@pts/1: admin: 
+2020-01-16 09:53:12.746181 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:12 UTC: %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2020-01-16 09:53:12.946606 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:12.946624 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:12.946681 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:12.946684 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:12.946832 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:12.946840 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:14.748104 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:14 UTC: last message repeated 1 time
+2020-01-16 09:53:14.748188 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:14 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.30.221.132@pts/1: admin: configure (SUCCESS)
+2020-01-16 09:53:14.934013 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:14.934022 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:15.017544 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:15.017550 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:15.749389 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:15 UTC: %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2020-01-16 09:53:15.980395 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:15.980404 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.751542 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:17 UTC: last message repeated 1 time
+2020-01-16 09:53:17.751654 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:17 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.30.221.132@pts/1: admin: configure terminal ; interface 
+Ethernet1/1 (REDIRECT)
+2020-01-16 09:53:17.756660 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:17 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.30.221.132@pts/1: admin: configure terminal ; interface 
+Ethernet1/1 (SUCCESS)
+2020-01-16 09:53:17.756795 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:17 UTC: %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2020-01-16 09:53:17.962893 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.962911 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.962953 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.962955 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.963574 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.963578 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.963623 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:17.963625 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:21.759233 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:21 UTC: last message repeated 2 times
+2020-01-16 09:53:21.759295 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:21 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.30.221.132@pts/1: admin: configure terminal ; interface 
+Ethernet1/1 ; shutdown (REDIRECT)
+2020-01-16 09:53:21.931166 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:21.931176 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:21.931775 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:21.931782 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.760365 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:22 UTC: %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2020-01-16 09:53:22.760444 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan 16 09:53:22 UTC: %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/1 is down (Administratively down)
+2020-01-16 09:53:22.760497 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan 16 09:53:22 UTC: last message repeated 1 time
+2020-01-16 09:53:22.760721 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan 16 09:53:22 UTC: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: 10.30.221.132@pts/1: admin: configure terminal ; interface 
+Ethernet1/1 ; shutdown (SUCCESS)
+2020-01-16 09:53:22.765673 10.105.222.154 -> 10.140.0.221 Syslog LOCAL7.ERR: : 2020 Jan 16 09:53:22 UTC: %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2020-01-16 09:53:22.975660 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.975670 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.975782 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.975786 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.976421 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+2020-01-16 09:53:22.976426 10.140.0.221 -> 10.105.222.154 ICMP Destination unreachable (Port unreachable)
+--More--
+---End of Note Titled: unit-test---
+
+
+---Start of Note Titled:  reproduction-steps (Created 12/26/2019 01:48:49 Modified 11/23/2020 07:14:33 by cdetsadm)---
+Can easily reproduce with following setup:
+1/ Active TACACS+ server (Lab one is ACS) with the authentication and accounting control
+2/ logging server (not the must)
+3/ N9K with 9.3.3 and the relevant configurations:
+
+========================================
+logging server 10.140.0.221 6 use-vrf management
+
+logging level tacacs 6
+tacacs-server host 10.124.59.41 key 7 "fewhg" 
+aaa group server tacacs+ G-ACS 
+    server 10.124.59.41 
+    deadtime 1
+    use-vrf management
+
+logging level aaa 5
+aaa authentication login default group G-ACS local 
+aaa authentication login console local 
+aaa authorization config-commands default group G-ACS local 
+aaa authorization commands default group G-ACS local 
+aaa accounting default group G-ACS
+========================================
+
+.pcap files are uploaded.
+
+LAB access info:
+10.75.61.5
+ciscotest / ciscotest
+
+
+1/ Open two switch sessions. On one session, enter ethanalyzer (10.140.0.221 is the ip address of the logging server):
+ethanalyzer local interface mgmt display-filter "ip.addr==10.140.0.221" limit-captured-frames 0
+Capturing on mgmt0
+
+2/ On the other session, do something (like shut/no shut interface)
+
+3/ Will see the output logs in the first session:
+2020-01-08 17:36:46.530908   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan  8 17:36:46 TPE: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: %s: %s: %s       <<<<<<<<<<<<<<<<<<<<
+2020-01-08 17:36:47.542329   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan  8 17:36:47 TPE: %ETHPORT-5-IF_DOWN_CFG_CHANGE: Interface Ethernet1/1 is down(Config change)
+2020-01-08 17:36:47.542461   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan  8 17:36:47 TPE: %ETHPORT-5-IF_DOWN_ADMIN_DOWN: Interface Ethernet1/1 is down (Administratively down)
+2020-01-08 17:36:47.547600   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan  8 17:36:47 TPE: last message repeated 1 time
+2020-01-08 17:36:47.547736   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan  8 17:36:47 TPE: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: %s: %s: %s  <<<<<<<<<<<<<<<
+2020-01-08 17:36:48.176194   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan  8 17:36:48 TPE: last message repeated 1 time
+2020-01-08 17:36:48.176296   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.NOTICE: : 2020 Jan  8 17:36:48 TPE: %ETHPORT-5-IF_ADMIN_UP: Interface Ethernet1/1 is admin up .
+2020-01-08 17:36:49.182048   10.75.61.5 -> 10.140.0.221 Syslog LOCAL7.INFO: : 2020 Jan  8 17:36:49 TPE: %TACACS-6-TACACS_ACCOUNTING_MESSAGE: update: %s: %s: %s <<<<<<<<<<<<<<<
+
+<...>
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 12/26/2019 01:42:29 Modified 09/10/2020 03:42:22 by midibart)---
+<B>Symptom:</B>
+The logging server will receive the TACACS+ accounting messages with invalid outputs when the user performs actions on switch:
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  start: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  update: %s: %s: %s
+%TACACS-6-TACACS_ACCOUNTING_MESSAGE: TPE:  stop: %s: %s: %s
+
+<B>Conditions:</B>
+logging server is configured:
+logging level tacacs 6
+logging server X.X.X.X 6
+
+N3K/N9K has TACACS+ configurations and the AAA server is active for authentication and accounting.
+
+Affected software releases: 7.0(3)I7(4-8), 9.2(x), 9.3(1-4)
+
+<B>Workaround:</B>
+None
+
+<B>Further Problem Description:</B>
+The problem occurred because the handling of syslog_print was not proper.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (22 of 22)
+------------------------------------------------------------------------------------------------------------------
+CSCvs56078_iplus_b_test_logs_9.3.4.146            ascii text     11048          palshanm       06/12/2020 09:08:20      
+CSCvs56078_pkts_capture.JPG                       binary         449269         palshanm       06/12/2020 09:08:03      
+gnosis_neg_CSCvs56078_neg                         ascii text     3100           ktrinath       01/22/2020 00:47:28      
+gnosis_pos_CSCvs56078_pos                         ascii text     5541           ktrinath       07/16/2020 22:26:11      
+wr_uls.100                                        ascii text     9849           divvenka       01/21/2020 07:00:11      
+wr_vxlan_sanity_uls.98.08                         ascii text     21276          divvenka       01/20/2020 07:18:08      
+n9kv_eor_l2_uls.100.p2                            ascii text     11812          divvenka       01/20/2020 01:18:10      
+TOR__uls.100                                      ascii text     16145          divvenka       01/20/2020 00:30:32      
+n9kv_eor_l3_uls.100                               ascii text     16302          divvenka       01/20/2020 00:30:15      
+n9kv_eor_l2_uls.100                               ascii text     11812          divvenka       01/19/2020 23:42:11      
+n9kv_eor_uls.100.p2                               ascii text     9696           divvenka       01/19/2020 23:12:11      
+n9kv_eor_uls.100                                  ascii text     9696           divvenka       01/19/2020 23:00:11      
+EOR__eor_tah_l2_sanity.1.56                       binary         52225          divvenka       01/19/2020 22:42:11      
+Diffs-commit-iplus_b                              ascii text     3525           pradepan       01/19/2020 21:49:19      
+Diffs-release-iplus_b                             ascii text     2677           pradepan       01/19/2020 21:49:11      
+ccwarnings-iplus_b.p2                             ascii text     342            baas           01/18/2020 15:41:25      
+ccwarnings-iplus_b                                ascii text     205            baas           01/17/2020 11:24:35      
+nxos-pi-common-security-code-review               ascii text     918            prrqengg       01/17/2020 05:08:06      
+Release-note-diff                                 ascii text     1195           midibart       09/10/2020 03:42:22      
+I76test.pcap                                      binary         2797           qifawu         12/26/2019 01:44:48      
+933test.pcap                                      binary         2797           qifawu         12/26/2019 01:44:18      
+I48atest.pcapng                                   binary         4108           qifawu         12/26/2019 01:43:44      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+01/04/2024 chhawort 	serviceRequests/C3/69667	                             	                             	Mod
+01/04/2024 chhawort 	serviceRequests/C3/69667	                             	C3/696675862                 	New
+01/04/2024 chhawort 	Tickets-count           	2                            	3                            	Mod
+01/04/2024 chhawort 	TACSR-count             	2                            	3                            	Mod
+01/04/2024 chhawort 	Tickets-count-direct    	2                            	3                            	Mod
+01/04/2024 chhawort 	Trouble-tickets         	                             	696675862                    	New
+01/04/2024 chhawort 	Trouble-tickets-direct  	                             	C3696675862                  	New
+11/13/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+11/13/2023 candid   	Software-type-ids       	                             	282253564,286280105,286321149	New
+11/13/2023 candid   	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+05/09/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+05/03/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+03/24/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+03/14/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+02/17/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+02/16/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+02/16/2023 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+12/12/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+11/17/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+11/08/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+07/25/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+06/30/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+06/30/2022 candid   	Known-fixed-releases    	9.3(2)IIK9(0),9.3(2)IIK9(0.31	                             	Del
+04/29/2022 palshanm 	Note Title              	                             	Automation Log               	New
+04/29/2022 palshanm 	Automated-test          	N                            	Y                            	Mod
+04/21/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-mu	iplusb-sprabhud gnosis cfd-mu	Mod
+04/07/2022 palshanm 	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-mu	Mod
+04/07/2022 palshanm 	Test-escape             	                             	Y                            	Mod
+04/05/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-hk	Mod
+02/06/2022 candid   	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-hk	Mod
+12/08/2021 cdetsadm 	Known-affected-releases 	                             	7.0(3)I7(6),9.3(3)           	New
+12/08/2021 cdetsadm 	Known-fixed-releases    	                             	9.3(2)IIK9(0),9.3(2)IIK9(0.31	New
+12/08/2021 candid   	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-hk	Mod
+12/08/2021 candid   	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-hk	Mod
+12/08/2021 candid   	MDF-series              	                             	Cisco Nexus 9000 Series Switc	New
+12/08/2021 candid   	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+12/08/2021 candid   	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+12/08/2021 candid   	MDF-edited              	                             	N                            	Mod
+04/28/2021 aeguiart 	Attribute               	iplusb-sprabhud gnosis cfd-hk	iplusb-sprabhud gnosis cfd-hk	Mod
+12/21/2020 fgoncalv 	serviceRequests/C3/69053	                             	C3/690534822                 	New
+12/21/2020 fgoncalv 	Urgency-desc            	CL3                          	P3                           	Mod
+12/21/2020 fgoncalv 	Tickets-count           	1                            	2                            	Mod
+12/21/2020 fgoncalv 	TACSR-count             	1                            	2                            	Mod
+12/21/2020 fgoncalv 	Tickets-count-direct    	1                            	2                            	Mod
+12/21/2020 fgoncalv 	Trouble-tickets         	                             	690534822                    	New
+12/21/2020 fgoncalv 	Trouble-tickets-direct  	                             	C3690534822                  	New
+12/10/2020 jdasgupt 	Attribute               	iplusb-sprabhud gnosis       	iplusb-sprabhud gnosis cfd-hk	Mod
+11/23/2020 cdetsadm 	Note Title              	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Note Type               	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Is-reproducible         	                             	Cisco Lab Reproducible       	Mod
+09/11/2020 cdetsbtk 	Security-screening-times	2020-01-21 11:34:58.000+0000 	2020-09-11 11:30:30.000+0000 	Mod
+09/10/2020 midibart 	Note                    	Release-note                 	Release-note                 	Mod
+09/10/2020 midibart 	contents                	                             	Release-note-diff            	Mod
+09/10/2020 midibart 	FileSize                	855                          	1195                         	Mod
+09/10/2020 midibart 	Further-Problem-Descript	The problem occurred because 	The problem occurred because 	Mod
+09/10/2020 midibart 	Note                    	Release-note                 	Release-note                 	Mod
+09/10/2020 midibart 	contents                	                             	Release-note-diff            	Mod
+09/10/2020 midibart 	FileSize                	636                          	855                          	Mod
+09/10/2020 midibart 	MimeType                	                             	text/plain                   	Mod
+09/10/2020 midibart 	Conditions              	logging server is configured:	logging server is configured:	Mod
+07/16/2020 ktrinath 	contents                	                             	gnosis_pos_CSCvs56078_pos    	Mod
+07/16/2020 ktrinath 	FileSize                	19759                        	5541                         	Mod
+07/16/2020 ktrinath 	MimeType                	                             	text/plain                   	Mod
+07/15/2020 cdetsadm 	Integrated-releases     	                             	9.3(5)                       	New
+07/10/2020 nvasilye 	Note                    	DetectionLogic               	DetectionLogic               	Mod
+07/10/2020 nvasilye 	Original-version        	                             	7.0(3)I7(6)                  	Mod
+06/12/2020 palshanm 	File Name               	                             	CSCvs56078_iplus_b_test_logs_	New
+06/12/2020 palshanm 	File Name               	                             	CSCvs56078_pkts_capture.JPG  	New
+06/12/2020 palshanm 	Note Title              	                             	V-comments                   	New
+06/12/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/12/2020 palshanm 	Status                  	R                            	V                            	Mod
+06/12/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+06/12/2020 palshanm 	Verified-release        	                             	9.3(4.161)                   	New
+06/12/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+06/12/2020 palshanm 	Verified-on             	                             	2020-06-12 16:07:46.000+0000 	Mod
+06/12/2020 palshanm 	statusStates            	                             	[status=R, startDate=Mon Jan 	New
+06/12/2020 palshanm 	statusStates            	[status=R, startDate=Mon Jan 	                             	Del
+06/12/2020 palshanm 	Age-status              	0                            	169                          	Mod
+06/12/2020 palshanm 	Mean-time-to-verified   	                             	169                          	Mod
+05/10/2020 dsaraf   	Attribute               	gnosis iplusb-others         	iplusb-sprabhud gnosis       	Mod
+05/08/2020 dsaraf   	Attribute               	gnosis                       	gnosis iplusb-others         	Mod
+03/06/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIK9(0)                	New
+03/06/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIK9(0.31)             	New
+02/15/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/15/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/14/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/14/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/14/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/13/2020 cms      	Note Title              	                             	Scrubnote                    	New
+02/13/2020 cms      	RNE-Approval-Flg        	N                            	                             	New
+01/22/2020 ktrinath 	File Name               	                             	gnosis_neg_CSCvs56078_neg    	New
+01/22/2020 ktrinath 	File Name               	                             	gnosis_pos_CSCvs56078_pos    	New
+01/22/2020 ktrinath 	Note Title              	                             	KnowledgeSignature           	New
+01/22/2020 ktrinath 	RNE-Approval-Flg        	N                            	                             	New
+01/21/2020 ktrinath 	Attribute               	                             	gnosis                       	Mod
+01/21/2020 divvenka 	File Name               	                             	wr_uls.100                   	New
+01/21/2020 mwilczak 	Note Title              	                             	DetectionLogic               	New
+01/21/2020 mwilczak 	RNE-Approval-Flg        	N                            	                             	New
+01/21/2020 cdetsbtk 	Security-screening-times	12/27/2019 01:05:50          	01/21/2020 03:34:58          	Mod
+01/20/2020 divvenka 	File Name               	                             	wr_vxlan_sanity_uls.98.08    	New
+01/20/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIL9(0)                	New
+01/20/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIL9(0.254)            	New
+01/20/2020 divvenka 	File Name               	                             	n9kv_eor_l2_uls.100.p2       	New
+01/20/2020 divvenka 	File Name               	                             	TOR__uls.100                 	New
+01/20/2020 divvenka 	File Name               	                             	n9kv_eor_l3_uls.100          	New
+01/19/2020 divvenka 	File Name               	                             	n9kv_eor_l2_uls.100          	New
+01/19/2020 divvenka 	File Name               	                             	n9kv_eor_uls.100.p2          	New
+01/19/2020 divvenka 	File Name               	                             	n9kv_eor_uls.100             	New
+01/19/2020 divvenka 	File Name               	                             	EOR__eor_tah_l2_sanity.1.56  	New
+01/19/2020 pradepan 	contents                	                             	Release-note-diff            	Mod
+01/19/2020 pradepan 	Behavior-changed        	                             	N                            	Mod
+01/19/2020 pradepan 	Bug-origin              	                             	Code / Implementation        	Mod
+01/19/2020 pradepan 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+01/19/2020 pradepan 	Documents-changed       	                             	none                         	Mod
+01/19/2020 pradepan 	Mean-time-to-resolved   	                             	24                           	Mod
+01/19/2020 pradepan 	Note Title              	                             	R-comments                   	New
+01/19/2020 pradepan 	Note                    	Release-note                 	Release-note                 	Mod
+01/19/2020 pradepan 	Opened-on               	                             	01/19/2020 21:57:19          	Mod
+01/19/2020 pradepan 	Opener                  	                             	pradepan                     	Mod
+01/19/2020 pradepan 	Origin                  	                             	base code                    	Mod
+01/19/2020 pradepan 	Original-resolved-on    	                             	01/19/2020 21:57:19          	Mod
+01/19/2020 pradepan 	RNE-Approval-Flg        	N                            	                             	New
+01/19/2020 pradepan 	Further-Problem-Descript	                             	The problem occurred because 	Mod
+01/19/2020 pradepan 	Released-code           	                             	Y                            	Mod
+01/19/2020 pradepan 	Resolved-on             	                             	01/19/2020 21:57:19          	Mod
+01/19/2020 pradepan 	Status                  	A                            	R                            	Mod
+01/19/2020 pradepan 	Age-status              	0                            	25                           	Mod
+01/19/2020 pradepan 	statusStates            	                             	[status=A, startDate=Mon Jan 	New
+01/19/2020 pradepan 	statusStates            	[status=A, startDate=Mon Jan 	                             	Del
+01/19/2020 pradepan 	Test-EDP-activity       	                             	Usability Testing            	Mod
+01/19/2020 pradepan 	Test-EDP-phase          	                             	System Test                  	Mod
+01/19/2020 pradepan 	TPS_issue               	                             	N                            	Mod
+01/19/2020 pradepan 	File Name               	                             	Diffs-commit-iplus_b         	New
+01/19/2020 pradepan 	Multi-commit-flag       	                             	Y                            	Mod
+01/19/2020 pradepan 	File Name               	                             	Diffs-release-iplus_b        	New
+01/18/2020 baas     	File Name               	                             	ccwarnings-iplus_b.p2        	New
+01/18/2020 baas     	Note Title              	                             	static-analysis-iplus_b.p3   	New
+01/18/2020 baas     	RNE-Approval-Flg        	N                            	                             	New
+01/18/2020 baas     	Note Title              	                             	static-analysis-iplus_b.p2   	New
+01/18/2020 baas     	RNE-Approval-Flg        	N                            	                             	New
+01/17/2020 baas     	File Name               	                             	ccwarnings-iplus_b           	New
+01/17/2020 baas     	Note Title              	                             	static-analysis-iplus_b      	New
+01/17/2020 baas     	RNE-Approval-Flg        	N                            	                             	New
+01/17/2020 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/17/2020 prrqengg 	Code-reviewer           	                             	vasagraw                     	New
+01/16/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/16/2020 pradepan 	Note Title              	                             	unit-test                    	New
+01/16/2020 pradepan 	RNE-Approval-Flg        	N                            	                             	New
+01/15/2020 cms      	Est-fix-date            	01/15/2020 00:00:00          	01/17/2020 00:00:00          	Mod
+01/13/2020 qifawu   	serviceRequests/C3/68812	                             	                             	Mod
+01/13/2020 qifawu   	Urgency-desc            	P3                           	CL3                          	Mod
+01/12/2020 cms      	Est-fix-date            	                             	01/15/2020 00:00:00          	Mod
+01/08/2020 qifawu   	Note                    	tac-repro                    	tac-repro                    	Mod
+01/05/2020 girshank 	Assigned Date           	                             	01/05/2020 22:46:07          	Mod
+01/05/2020 girshank 	Assigner                	                             	girshank                     	Mod
+01/05/2020 girshank 	Engineer                	                             	pradepan                     	Mod
+01/05/2020 girshank 	Mean-time-to-assigned   	                             	10                           	Mod
+01/05/2020 girshank 	Status                  	N                            	A                            	Mod
+01/05/2020 girshank 	Age-status              	0                            	11                           	Mod
+01/05/2020 girshank 	statusStates            	                             	[status=N, startDate=Thu Dec 	New
+01/05/2020 girshank 	statusStates            	[status=N, startDate=Thu Dec 	                             	Del
+12/26/2019 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+12/26/2019 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+12/26/2019 cdetsbtk 	Security-screening-times	                             	12/27/2019 01:05:50          	Mod
+12/26/2019 qifawu   	File Name               	                             	Release-note-diff            	New
+12/26/2019 qifawu   	Summary                 	The issue was first found on 	The issue was first found on 	Mod
+12/26/2019 qifawu   	Note                    	Release-note                 	Release-note                 	Mod
+12/26/2019 qifawu   	Conditions              	logging server is configured:	logging server is configured:	Mod
+12/26/2019 qifawu   	serviceRequests/C3/68812	                             	C3/688125278                 	New
+12/26/2019 qifawu   	TACSR-count             	                             	1                            	Mod
+12/26/2019 qifawu   	Tickets-count           	0                            	1                            	Mod
+12/26/2019 qifawu   	Tickets-count-direct    	                             	1                            	Mod
+12/26/2019 qifawu   	Trouble-tickets         	                             	688125278                    	New
+12/26/2019 qifawu   	Trouble-tickets-direct  	                             	C3688125278                  	New
+12/26/2019 qifawu   	Urgency-desc            	NA                           	P3                           	Mod
+12/26/2019 qifawu   	Note                    	tac-repro                    	tac-repro                    	Mod
+12/26/2019 qifawu   	Note Title              	                             	tac-repro                    	New
+12/26/2019 qifawu   	RNE-Approval-Flg        	N                            	                             	New
+12/26/2019 qifawu   	File Name               	                             	I76test.pcap                 	New
+12/26/2019 qifawu   	File Name               	                             	933test.pcap                 	New
+12/26/2019 qifawu   	File Name               	                             	I48atest.pcapng              	New
+12/26/2019 qifawu   	Defect Created          	                             	                             	New
+12/26/2019 qifawu   	Note Title              	                             	Release-note                 	New
+12/26/2019 qifawu   	Version                 	                             	7.0(3)I7(6),9.3(3)           	New

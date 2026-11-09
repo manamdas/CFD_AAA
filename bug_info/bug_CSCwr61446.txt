@@ -1,0 +1,3465 @@
+*******************************************************************************
+
+Bug ID   : CSCwr61446         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : TACACS Not Receiving AV-Pair With Non-Mgmt0 Source
+PrimaryPV : 
+Version :10.4(6) 10.5(3.147) 10.6(1) 10.6(1)IMG9(0.139) 10.6(1s) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : Y                 
+Software :                    Hardware : Nexus 9000         
+Submitter: bridahlq           Submitted: 10/08/2025 09:42:52     Last Updtd : 11/03/2026 03:15:51  
+RNE-Type: NONE                New-on : 10/08/2025 09:42:52      
+Root-cause-analysis:                                                  
+Interest : mmaziark
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:thfergus                                            
+Known-affected-releases:10.4(6) 10.6(1) 
+
+Known-fixed-releases:10.4(7) 10.5(4) 10.6(2) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.2(9) 10.3(1) 10.3(10) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(9) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 10.4(6) 10.5(1) 10.5(2) 10.5(3) 10.5(3e) 10.5(3o) 10.5(3p) 10.5(3s) 10.5(3t) 10.5(4) 10.6(1) 10.6(1s) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(11) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(10) 8.4(11) 8.4(14) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(16) 9.3(17) 9.3(18) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 10/12/2025 21:40:06                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 4                                              
+Mean-time-to-verified: 31     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 10/17/2025 03:46:02            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality Ease-of-Configuring 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 10/08/2025 10:18:05 
+Code-reviewer:                
+Opened-on: 10/12/2025 21:40:06Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis SVS-CITI-S520946-oib SVS-CITI-S5
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 10/12/2025 21:40:06  
+
+Documents Changed: none       Resolved: 10/12/2025 21:40:06 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 11/09/2025 01:09:52      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Solution Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  CX GC.Cloud.SVS.AMER.NOPS.9-USA
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           Y
+Breakage :                       Yes, unknown source
+Child-type :           
+Regression :                     Y
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       Unknown
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Regression Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			Y
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   59
+Tickets-count-direct :            56
+Trouble-tickets :              699650750;699825218;699846034;699874407;699941526;699997647;700042048;700049274;700061282;700089415;700102804;700108618;700144683;700189940;700223995;700299337;700328467;700336221;700338886;700394777;700398265;700404971;700409043;700430549;700432044;700439753;700440734;700478869;700508663;700520118;700534608;700534940;700548633;700551945;700559418;700576697;700579020;700607280;700662408;700685511;700723491;700725400;700731887;700740509;700781152;700841517;700953035;700972550;700982169;701041114;701049255;701112700;701329166;701519015;701560184;701594556
+Trouble-tickets-direct :C3700061282 
+Trouble-tickets-direct :C3700478869 
+Trouble-tickets-direct :C3700108618 
+Trouble-tickets-direct :C3700607280 
+Trouble-tickets-direct :C3700042048 
+Trouble-tickets-direct :C3700336221 
+Trouble-tickets-direct :C3700089415 
+Trouble-tickets-direct :C3700338886 
+Trouble-tickets-direct :C3700982169 
+Trouble-tickets-direct :C3699846034 
+Trouble-tickets-direct :C3700576697 
+Trouble-tickets-direct :C3700740509 
+Trouble-tickets-direct :C3701049255 
+Trouble-tickets-direct :C3700551945 
+Trouble-tickets-direct :C3700189940 
+Trouble-tickets-direct :C3700662408 
+Trouble-tickets-direct :C3700409043 
+Trouble-tickets-direct :C3700723491 
+Trouble-tickets-direct :C3700534608 
+Trouble-tickets-direct :C3700731887 
+Trouble-tickets-direct :C3699825218 
+Trouble-tickets-direct :C3700394777 
+Trouble-tickets-direct :C3701041114 
+Trouble-tickets-direct :C3700725400 
+Trouble-tickets-direct :C3700440734 
+Trouble-tickets-direct :C3700223995 
+Trouble-tickets-direct :C3700398265 
+Trouble-tickets-direct :C3700439753 
+Trouble-tickets-direct :C3700432044 
+Trouble-tickets-direct :C3700953035 
+Trouble-tickets-direct :C3700548633 
+Trouble-tickets-direct :C3700430549 
+Trouble-tickets-direct :C3700404971 
+Trouble-tickets-direct :C3700299337 
+Trouble-tickets-direct :C3699941526 
+Trouble-tickets-direct :C3700559418 
+Trouble-tickets-direct :C3700685511 
+Trouble-tickets-direct :C3701560184 
+Trouble-tickets-direct :C3699874407 
+Trouble-tickets-direct :C3700520118 
+Trouble-tickets-direct :C3701519015 
+Trouble-tickets-direct :C3700328467 
+Trouble-tickets-direct :C3701329166 
+Trouble-tickets-direct :C3700841517 
+Trouble-tickets-direct :C3700102804 
+Trouble-tickets-direct :C3700579020 
+Trouble-tickets-direct :C3700508663 
+Trouble-tickets-direct :C3700144683 
+Trouble-tickets-direct :C3700534940 
+Trouble-tickets-direct :C3701112700 
+Trouble-tickets-direct :C3700781152 
+Trouble-tickets-direct :C3700049274 
+Trouble-tickets-direct :C3700972550 
+Trouble-tickets-direct :C3699997647 
+Trouble-tickets-direct :C3699650750 
+Trouble-tickets-direct :C3701594556 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 03/12/2026 06:20:34
+Document :    nexus
+
+Summary:
+When TACACS is configured to send on a loopback/SVI/etc. interface it will not receive an AV pair from ISE but using the same ISE servers and configurations but sourced from the management VRF using mgmt0 interface it works fine.
+
+******************* Related Service Requests (56 of 56)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         699650750       null                                     
+C3         699825218       null                                     
+C3         699846034       null                                     
+C3         699874407       null                                     
+C3         699941526       null                                     
+C3         699997647       null                                     
+C3         700042048       null                                     
+C3         700049274       null                                     
+C3         700061282       null                                     
+C3         700089415       null                                     
+C3         700102804       null                                     
+C3         700108618       null                                     
+C3         700144683       null                                     
+C3         700189940       null                                     
+C3         700223995       null                                     
+C3         700299337       null                                     
+C3         700328467       null                                     
+C3         700336221       null                                     
+C3         700338886       null                                     
+C3         700394777       null                                     
+C3         700398265       null                                     
+C3         700404971       null                                     
+C3         700409043       null                                     
+C3         700430549       null                                     
+C3         700432044       null                                     
+C3         700439753       null                                     
+C3         700440734       null                                     
+C3         700478869       null                                     
+C3         700508663       null                                     
+C3         700520118       null                                     
+C3         700534608       null                                     
+C3         700534940       null                                     
+C3         700548633       null                                     
+C3         700551945       null                                     
+C3         700559418       null                                     
+C3         700576697       null                                     
+C3         700579020       null                                     
+C3         700607280       null                                     
+C3         700662408       null                                     
+C3         700685511       null                                     
+C3         700723491       null                                     
+C3         700725400       null                                     
+C3         700731887       null                                     
+C3         700740509       null                                     
+C3         700781152       null                                     
+C3         700841517       null                                     
+C3         700953035       null                                     
+C3         700972550       null                                     
+C3         700982169       null                                     
+C3         701041114       null                                     
+C3         701049255       null                                     
+C3         701112700       null                                     
+C3         701329166       null                                     
+C3         701519015       null                                     
+C3         701560184       null                                     
+C3         701594556       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-825582                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (2 of 2)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              mmaziark      10/24/2025 05:03:24    CSCwr79925      CSC.datacenter  D            
+Teacat                 hehussai      10/17/2025 03:46:02    CSCwr72921      CSC.tea         R            
+
+
+********************* Listing of Notes (30 of 30 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature.p3 (Created 08/17/2026 05:55:30 Added 08/17/2026 05:55:30 by rp)---
+https://gnosis.cisco.com/signature/bug/69005923d4c6c78ae9d3cc59/finish?summary
+---End of Note Titled: KnowledgeSignature.p3---
+
+
+---Start of Note Titled: Code-review (Created 07/31/2026 03:17:32 Added 07/31/2026 03:17:32 by divshah)---
+PR: 74720
+
+PR link: https://gh-nx.scm.engit.cisco.com/nx/nx/pull/74720
+
+PR branch: CSCwr61446.smu_rel_10_4_6.tacacs_fix
+
+PR title: SCwr61446 SMU CHANGES - comprehensive fix for CSCwo90314 and CSCwr61446
+
+
+
+diff --git a/standalone/build/patches/CSCwr61446.sh b/standalone/build/patches/CSCwr61446.sh
+new file mode 100755
+index 0000000000000..c6869c45bd038
+--- /dev/null
++++ b/standalone/build/patches/CSCwr61446.sh
+@@ -0,0 +1,17 @@
++#!/bin/bash
++
++#This script is auto-generated for productuion SMU.
++#Make changes to this script if needed and commit to SMU branch along with other changes.
++
++set +x
++BUG=CSCwr61446
++WS=$(find_ws_root.pl -p .)
++if [ "${WS}" = "NOTFOUND" ]
++then
++    echo "Not in ACME workspace..Aborting.."
++    exit 1
++fi
++cd ${WS}/build
++echo "Creating N9K_ALL patch"
++#/auto/pi_modularity/patch_tools/patch_smu_build/patch_bld_tool.py 
++/auto/pi_modularity/patch_tools/patch_smu_build/patch_bld_tool.py  --restarttype restart --cdet $BUG --workspace_location $WS --dest_files_to_package /isan/bin/tacacsd --versions 10.4.7,10.4.7u,10.4.7uu --production
+diff --git a/standalone/feature/security/tacacs/tplus.h b/standalone/feature/security/tacacs/tplus.h
+index f56717a26c77b..d2c6e25be5966 100644
+--- a/standalone/feature/security/tacacs/tplus.h
++++ b/standalone/feature/security/tacacs/tplus.h
+@@ -319,11 +319,9 @@ typedef struct tplus_context_ {
+     uint32 session_id;
+     char hostname[MAX_PROTO_SERVER_ADDR_SIZE+1];
+     char vrf_name[L3VM_MAX_NAME_STR_LEN];
+-#if 0
+ #ifdef SRC_INTF
+ 	if_index_t if_index;
+ #endif
+-#endif
+ } PACKED tplus_context_t;
+ #ifdef SRC_INTF
+ typedef struct    new_context_id_
+diff --git a/standalone/feature/security/tacacs/tplus_pkt.c b/standalone/feature/security/tacacs/tplus_pkt.c
+index 5bd4d50bc5deb..f58bf6299451b 100644
+--- a/standalone/feature/security/tacacs/tplus_pkt.c
++++ b/standalone/feature/security/tacacs/tplus_pkt.c
+@@ -1811,9 +1811,12 @@ tplus_decode_authen_response
+     context.session_id = tplus_header->session_id; /* already network order */
+     strcpy(context.hostname, tplus_sm->curr_server->hostname);
+ 
+-    tac_buginf_wrap(DBG_TACACS_REQ, "tplus_decode_authen_response: vrf:%s if_index:%u",
+-        tplus_sm->curr_server->vrf_name, tplus_sm->curr_server->if_index);
++    tac_buginf_wrap(DBG_TACACS_REQ, "tplus_decode_authen_response: vrf:%s",
++        tplus_sm->curr_server->vrf_name);
+ 
++#ifdef SRC_INTF
++    tac_buginf_wrap(DBG_TACACS_REQ, "tplus_decode_authen_response: if_index:%u",
++        tplus_sm->curr_server->if_index);
+     if (tplus_sm->curr_server->if_index != 0) {
+         l3vm_if_context_info_t vrf;
+         memset (&vrf, 0, sizeof(l3vm_if_context_info_t));
+@@ -1821,9 +1824,11 @@ tplus_decode_authen_response
+             snprintf(context.vrf_name, L3VM_MAX_NAME_LEN, "%s", vrf.context_name);
+             tac_buginf_wrap(DBG_TACACS_REQ, "tplus_decode_authen_response: context vrf_name:%s based on ifindex", context.vrf_name);
+         }
++        context.if_index = tplus_sm->curr_server->if_index;
+     }
++#endif
+ 
+-    if ( (strlen(context.vrf_name) == 0) && (strlen(tplus_sm->curr_server->vrf_name) != 0) ) {
++    if ((strlen(context.vrf_name) == 0) && (strlen(tplus_sm->curr_server->vrf_name) != 0)) {
+         snprintf(context.vrf_name, L3VM_MAX_NAME_LEN, "%s", tplus_sm->curr_server->vrf_name);
+         tac_buginf_wrap(DBG_TACACS_REQ, "tplus_decode_authen_response: context vrf_name:%s", context.vrf_name);
+     }
+diff --git a/standalone/feature/security/tacacs/tplus_req.c b/standalone/feature/security/tacacs/tplus_req.c
+index 82c71c4be24cf..be31f473a4b03 100644
+--- a/standalone/feature/security/tacacs/tplus_req.c
++++ b/standalone/feature/security/tacacs/tplus_req.c
+@@ -1255,7 +1255,9 @@ init_tplus_req_state_machine
+     uint32 group_name_len;
+     char hostname[TPLUS_NAME_BUFF_SIZE];
+     char groupnamestr[TPLUS_NAME_BUFF_SIZE];
+-   
++#ifdef SRC_INTF
++	tac_req_src_ifindex = 0;
++#endif
+     hostname[0]='\0';
+     if (tplus_sm==NULL) {
+         tac_buginf_wrap(DBG_TACACS_REQ, "init_tplus_req_state_machine: "
+@@ -1288,7 +1290,7 @@ init_tplus_req_state_machine
+         snprintf(tac_req_vrf_name,L3VM_MAX_NAME_STR_LEN,"%s", tplus_ctx->vrf_name);
+ #ifdef SRC_INTF
+ //	strncpy(tac_req_src_ip, tplus_ctx->src_ip,128);//change it to to suitable value
+-//	tac_req_src_ifindex= tplus_ctx->if_index;
++	tac_req_src_ifindex = tplus_ctx->if_index;
+ #endif
+ #ifdef SRC_INTF
+ 	tac_buginf_wrap(DBG_TACACS_REQ_TRACE, "init_tplus_req_state_machine: "
+@@ -1377,19 +1379,21 @@ init_tplus_req_state_machine
+ 		return FALSE;
+ 	}
+ 	
+-	tplus_sm->curr_server->if_index = 0;
++#ifdef SRC_INTF
++	tplus_sm->curr_server->if_index = tac_req_src_ifindex;
+ 
+-	tac_buginf_wrap(DBG_TACACS_REQ,"%s(%d): after get_tplus_server info global if_index : %s",__func__,__LINE__,
++	tac_buginf_wrap(DBG_TACACS_REQ,"%s(%d): Source if_index : %s",__func__,__LINE__,
+                                 tacacs_ifindex2str(tplus_sm->curr_server->if_index));
++#endif
+         if (tac_req_vrf_name[0] != '\0') {
+             tac_buginf_wrap(DBG_TACACS_REQ,"%s(%d): VRF is present in the context: %s",__func__,__LINE__, tac_req_vrf_name);
+             snprintf(tplus_sm->curr_server->vrf_name,L3VM_MAX_NAME_STR_LEN,"%s", tac_req_vrf_name);
+         }
+ 
+-        if ((tplus_ctx == NULL) || (strlen(tac_req_vrf_name) == 0)) {
+-            tac_buginf_wrap(DBG_TACACS_REQ,"%s(%d): Either tplus_ctx is NULL or tac_req_vrf_name:%s is empty",
+-                        __func__,__LINE__, tac_req_vrf_name);
+ #ifdef SRC_INTF
++        if ((tplus_ctx == NULL) || ((strlen(tac_req_vrf_name) == 0) && (tplus_sm->curr_server->if_index == 0))) {
++            tac_buginf_wrap(DBG_TACACS_REQ,"%s(%d): Either tplus_ctx is NULL or tac_req_vrf_name:%s and tac_req_src_ifindex:%d are empty",
++                        __func__,__LINE__, tac_req_vrf_name, tac_req_src_ifindex);
+       //      strncpy(tplus_sm->curr_server->if_index, tac_req_src_ip,
+         //            sizeof(tac_req_src_ip));
+ 	//tac_buginf_wrap(DBG_TACACS_REQ,"%s: Info: Not checking for any src-interface stuff since"
+@@ -1477,8 +1481,8 @@ init_tplus_req_state_machine
+ 			}
+ 			tplus_sm->curr_server->if_index = tac_req_src_ifindex;
+ 		    }
+-#endif
+         }
++#endif
+     }
+ 
+     tplus_sm->sock_sm_node = NULL;
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: static-analysis-runinfo-n9k (Created 07/31/2026 03:11:51 Added 07/31/2026 03:11:51 by divshah)---
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+GIT LABEL: NA
+
+Total active warnings: 0
+Total noise warnings: 0
+Total parent warnings: 0
+
+Files not analyzed due to Compilation failure:
+	
+
+Files not analyzed due to missing Compilation Command:
+	
+
+Files analyzed:
+	
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (0):
+
+Warnings marked parent (0):
+
+
+
+For details on the SA CLI output, see the run_sa FAQ: https://ciscoteams.atlassian.net/wiki/spaces/CSTATIC/pages/550535500/run_sa+FAQ
+---End of Note Titled: static-analysis-runinfo-n9k---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 05/31/2026 23:19:06 Added 05/31/2026 23:19:06 by kavipsar)---
+https://gnosis.cisco.com/signature/bug/69005923d4c6c78ae9d3cc59/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: QR3F-V-comments (Created 02/26/2026 23:49:09 Added 02/26/2026 23:49:09 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/nobackup/palshanm/.pyats/archive/26-02/AAA_CFD_job.2026Feb26_03:16:18.635566.zip&atstype=ATS
+---End of Note Titled: QR3F-V-comments---
+
+
+---Start of Note Titled: Pr5M-V-comments (Created 02/26/2026 23:48:34 Added 02/26/2026 23:48:34 by palshanm)---
+https://ngdevx.cisco.com/services/taas/results/94056296-9954-473f-812f-62ff9d3e086c
+---End of Note Titled: Pr5M-V-comments---
+
+
+---Start of Note Titled:  Email-in.p10 (Created 01/14/2026 09:45:13 Modified 01/28/2026 12:45:10 by clsulliv)---
+From: "Clayton Sullivan (clsulliv)" <clsulliv@cisco.com>
+Date: Wednesday, January 28, 2026 at 8:27 PM 
+To: "Roberto Jose Osorio O Classen -X (rosorioo)" <rosorioo@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+SMU can be downloaded from here:
+
+https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+--
+Clayton
+
+From: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Date: Wednesday, January 21, 2026 at 6:15?AM
+To: Clayton Sullivan (clsulliv) <clsulliv@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+Please let me know if there is any update on this.
+
+
+
+
+Regards,
+
+
+
+[cid:adecc373-1faa-4563-8833-fd9231875ce6]
+
+    Roberto Osorio
+
+    Data Center Consulting Engineer
+
+    Customer Experience
+
+    rosorioo@cisco.com<mailto:jhjordan@cisco.com>
+
+    O: +1 214 261 2654
+
+    M: +57 300 239 3844
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Sent: Wednesday, January 14, 2026 12:37 PM
+To: Clayton Sullivan (clsulliv) <clsulliv@cisco.com>; Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I wish you all a Happy New Year.
+
+Following up on this, I would like to know if there is an update on when this will be released to the public.
+
+
+
+
+Regards,
+
+
+
+[cid:e96e46a2-3c2e-4af5-8c49-cdb165fca505]
+
+    Roberto Osorio
+
+    Data Center Consulting Engineer
+
+    Customer Experience
+
+    rosorioo@cisco.com<mailto:jhjordan@cisco.com>
+
+    O: +1 214 261 2654
+
+    M: +57 300 239 3844
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Sent: Tuesday, December 16, 2025 10:55 AM
+To: Clayton Sullivan (clsulliv) <clsulliv@cisco.com>; Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+Hi Clayton,
+
+Thanks for the update.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com<mailto:rosorioo@cisco.com>
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Clayton Sullivan (clsulliv) <clsulliv@cisco.com>
+Sent: Monday, December 15, 2025 11:32 AM
+To: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>; Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+At this time, the original customer reported a failure with this which we are working to understand.
+
+So, it is not shared generally or available for other cu.
+
+--
+Clayton
+
+From: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Date: Monday, December 15, 2025 at 7:42?AM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>, Clayton Sullivan (clsulliv) <clsulliv@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+Following up on this, we would like to know if we can suggest this SMU for other customers or if this is specific to a single customer.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com<mailto:rosorioo@cisco.com>
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Sent: Friday, December 12, 2025 3:19 PM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>; Clayton Sullivan (clsulliv) <clsulliv@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I would like to know if there is any update regarding the previous email.
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com<mailto:rosorioo@cisco.com>
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+
+________________________________
+From: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) <jhjordan@cisco.com>
+Sent: Thursday, December 11, 2025 5:01 PM
+To: Clayton Sullivan (clsulliv) <clsulliv@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>; Roberto Jose Osorio O Classen -X (rosorioo) <rosorioo@cisco.com>
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]<https://www.cisco.com>
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com<mailto:jhjordan@cisco.com>
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile<https://www.cisco.com/c/en/us/about/help/login-account-help.html#~profile> - Privacy<http://www.cisco.com/web/siteassets/legal/privacy.html>
+
+Please click here<http://www.cisco.com/c/en/us/about/legal/terms-sale-software-license-agreement/company-registration-information.html> for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB5422B015BD532713CAFB47E3DEA1A@DM4PR11MB5422.namprd11.prod.outlook.com>
+# <CH3PR11MB7252A94F4C630D2921344508DAAEA@CH3PR11MB7252.namprd11.prod.outlook.com>
+# <CH3PR11MB72527846F14EE6F8B8E92D96DAADA@CH3PR11MB7252.namprd11.prod.outlook.com>
+# <LV3PR11MB872600999E74E870E8C60095D6ADA@LV3PR11MB8726.namprd11.prod.outlook.com>
+# <DS0PR11MB726401A00EFF94CA018A3389DAAAA@DS0PR11MB7264.namprd11.prod.outlook.com>
+# <CH3PR11MB72523B946B15717D9CC7FCBCDA8FA@CH3PR11MB7252.namprd11.prod.outlook.com>
+# <CH3PR11MB72528BE8C62DD9E9634FFC8FDA96A@CH3PR11MB7252.namprd11.prod.outlook.com>
+# <LV3PR11MB872673EAD50CA92BDD883B75D691A@LV3PR11MB8726.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p10---
+
+
+---Start of Note Titled:  Email-in.p9 (Created 12/16/2025 08:00:08 Modified 12/16/2025 08:01:29 by synchub.gen)---
+Created By: rosorioo
+Enclosure Title: Email-in.p9
+
+Enclosure Content:
+From: "Roberto Jose Osorio O Classen -X (rosorioo)" 
+Date: Tuesday, December 16, 2025 at 3:55 PM 
+To: "Clayton Sullivan (clsulliv)" , "Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco)" 
+Cc: "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hi Clayton,
+
+Thanks for the update.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Clayton Sullivan (clsulliv) 
+Sent: Monday, December 15, 2025 11:32 AM
+To: Roberto Jose Osorio O Classen -X (rosorioo) ; Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+At this time, the original customer reported a failure with this which we are working to understand.
+
+So, it is not shared generally or available for other cu.
+
+--
+Clayton
+
+From: Roberto Jose Osorio O Classen -X (rosorioo) 
+Date: Monday, December 15, 2025 at 7:42?AM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) , Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) , ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+Following up on this, we would like to know if we can suggest this SMU for other customers or if this is specific to a single customer.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) 
+Sent: Friday, December 12, 2025 3:19 PM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) ; Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I would like to know if there is any update regarding the previous email.
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+
+________________________________
+From: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) 
+Sent: Thursday, December 11, 2025 5:01 PM
+To: Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) ; Roberto Jose Osorio O Classen -X (rosorioo) 
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile - Privacy
+
+Please click here for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+# 
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p9---
+
+
+---Start of Note Titled:  Email-in.p8 (Created 12/15/2025 08:45:10 Modified 12/15/2025 08:50:57 by synchub.gen)---
+Created By: clsulliv
+Enclosure Title: Email-in.p8
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)" 
+Date: Monday, December 15, 2025 at 4:32 PM 
+To: "Roberto Jose Osorio O Classen -X (rosorioo)" , "Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco)" 
+Cc: "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: Re: SMU Patch for CSCwr61446
+
+At this time, the original customer reported a failure with this which we are working to understand.
+
+So, it is not shared generally or available for other cu.
+
+--
+Clayton
+
+From: Roberto Jose Osorio O Classen -X (rosorioo) 
+Date: Monday, December 15, 2025 at 7:42?AM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) , Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) , ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+Following up on this, we would like to know if we can suggest this SMU for other customers or if this is specific to a single customer.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) 
+Sent: Friday, December 12, 2025 3:19 PM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) ; Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I would like to know if there is any update regarding the previous email.
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+
+________________________________
+From: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) 
+Sent: Thursday, December 11, 2025 5:01 PM
+To: Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) ; Roberto Jose Osorio O Classen -X (rosorioo) 
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile - Privacy
+
+Please click here for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p8---
+
+
+---Start of Note Titled:  Email-in.p7 (Created 12/15/2025 07:45:11 Modified 12/15/2025 07:47:46 by synchub.gen)---
+Created By: rosorioo
+Enclosure Title: Email-in.p7
+
+Enclosure Content:
+From: "Roberto Jose Osorio O Classen -X (rosorioo)" 
+Date: Monday, December 15, 2025 at 3:42 PM 
+To: "Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco)" , "Clayton Sullivan (clsulliv)" 
+Cc: "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+Following up on this, we would like to know if we can suggest this SMU for other customers or if this is specific to a single customer.
+
+
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+________________________________
+From: Roberto Jose Osorio O Classen -X (rosorioo) 
+Sent: Friday, December 12, 2025 3:19 PM
+To: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) ; Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I would like to know if there is any update regarding the previous email.
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+
+________________________________
+From: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) 
+Sent: Thursday, December 11, 2025 5:01 PM
+To: Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) ; Roberto Jose Osorio O Classen -X (rosorioo) 
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile - Privacy
+
+Please click here for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p7---
+
+
+---Start of Note Titled:  Email-in.p6 (Created 12/12/2025 12:45:11 Modified 12/12/2025 12:56:37 by synchub.gen)---
+Created By: rosorioo
+Enclosure Title: Email-in.p6
+
+Enclosure Content:
+From: "Roberto Jose Osorio O Classen -X (rosorioo)" 
+Date: Friday, December 12, 2025 at 8:19 PM 
+To: "Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco)" , "Clayton Sullivan (clsulliv)" 
+Cc: "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: Re: SMU Patch for CSCwr61446
+
+Hello Team,
+
+I would like to know if there is any update regarding the previous email.
+
+
+Regards,
+
+
+
+Roberto Osorio
+
+
+
+Global CX Centers -  Data Center Routing & Switching - Support Services
+
+Email: rosorioo@cisco.com
+
+Phone:  +1 919 574 3750
+
+
+
+
+
+
+
+
+________________________________
+From: Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco) 
+Sent: Thursday, December 11, 2025 5:01 PM
+To: Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) ; ca-defect-feedback(mailer list) ; Roberto Jose Osorio O Classen -X (rosorioo) 
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile - Privacy
+
+Please click here for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p6---
+
+
+---Start of Note Titled:  Email-in.p5 (Created 12/11/2025 15:00:11 Modified 12/11/2025 15:04:43 by synchub.gen)---
+Created By: jhjordan
+Enclosure Title: Email-in.p5
+
+Enclosure Content:
+From: "Jhoyner Jordan Niebles -X (jhjordan - TPUSA INC at Cisco)" 
+Date: Thursday, December 11, 2025 at 10:01 PM 
+To: "Clayton Sullivan (clsulliv)" 
+Cc: "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" , "Roberto Jose Osorio O Classen -X (rosorioo)" 
+Subject: SMU Patch for CSCwr61446
+
+Hello Clayton and team,
+
+Regarding to the quoted email below found in the CDETS CSCwr61446, I would like to know if this SMU can be used for any customer to patch this defect, or if it is specifically designed for a single customer.
+
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)"
+Date: Tuesday, December 9, 2025 at 10:50 PM
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)"
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)"
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+Https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+Please let me know your comments to confirm whether this SMU can be suggested to one of my customer's account.
+
+Best regards,
+
+
+[Cisco Midnight White v1]
+
+Jhoyner Jordan
+
+Data Center Consulting Engineer
+
+Customer Experience
+
+jhjordan@cisco.com
+
+O: +1 408 527 9277
+
+M: +57 300 269 4561
+
+CCNP Enterprise & DC Specialist - CSCO14604327
+
+Cisco Systems, Inc.
+
+United States
+
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+
+Update Profile - Privacy
+
+Please click here for Company Registration
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in.p5---
+
+
+---Start of Note Titled:  Email-in.p4 (Created 12/09/2025 15:00:07 Modified 12/09/2025 15:02:33 by synchub.gen)---
+Created By: clsulliv
+Enclosure Title: Email-in.p4
+
+Enclosure Content:
+From: "Clayton Sullivan (clsulliv)" 
+Date: Tuesday, December 9, 2025 at 10:50 PM 
+To: "Vasu Agrawal (vasagraw)" , "Brian Sansom (brsansom)" 
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)" 
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+SMU is posted here:
+
+https://software.cisco.com/download/special/release.html?config=614a816da25d35f020f69ef1d267458e
+
+It is a hidden post so not on CCO regularly.
+
+--
+Clayton
+
+From: Vasu Agrawal (vasagraw) 
+Date: Monday, December 8, 2025 at 9:35?PM
+To: Brian Sansom (brsansom) , Clayton Sullivan (clsulliv) 
+Cc: bug-attach(mailer list) , 'email-in@cisco.com' , ca-defect-feedback(mailer list) 
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+[+Clayton]
+
+Hi Brian,
+
+It was a platform independent fix. Do we need any different RPM for N9K-C9336C-FX2 from what is available in the SMU branch? I doubt N9K-C9336C-FX2 is an S1 platform.
+
+(64)$> pwd
+/auto/ins-bld-tools/smu_builds/smu_rel_10_4_6/nexus/SMU_10_4_6_5/nx/standalone/build/CSCwr61446/64
+(64)$>
+(64)$>
+(64)$> find . -name "*CSCwr61446*.rpm"
+./SRPMS/nxos64-cs.CSCwr61446-1.0.0-10.4.6.src.rpm
+./SRPMS/nxos64-msll.CSCwr61446-1.0.0-10.4.6.src.rpm
+./RPMS/nxos64-cs.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000.rpm       <<<<<<<< SHOUD IT NOT WORK?
+./RPMS/nxos64-msll.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000.rpm
+(64)$>
+
+
+Regards,
+
+Vasu
+
+From: Brian Sansom (brsansom) 
+Date: Monday, 8 December 2025 at 7:26?PM
+To: Vasu Agrawal (vasagraw) 
+Cc: bug-attach(mailer list) , 'email-in@cisco.com' 
+Subject: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+Good morning,
+
+In Webex chat, the SMU that this cu needs is "smu_rel_10_4_6 - posted already as on 6-Nov - "SMU Posted bug: CSCwr61446 for Goldman Sachs?.
+
+The cu and I cannot find this SMU for N9K-C9336C-FX2.
+
+Can you point me in the right direction?
+
+Thanks!
+
+Note: bug-attach@cisco was added to auto-attach this email to the bug
+
+Brian Sansom
+
+
+
+Security Technical Consulting Engineer
+
+AAA Security
+
+Email: brsansom@cisco.com
+
+Phone: 984-216-1358
+
+Work week: Monday - Friday
+
+Work hours: 8:00am - 4:00pm EST/EDT
+
+
+
+Use Cisco Support Assistant to get an instant case update OR escalate a case.
+
+WebEx: tac.connect@webex.bot or learn more here.
+
+
+
+Cisco U.S. Contact Numbers: +1-800-553-2447 or +1-408-526-7209
+
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p4---
+
+
+---Start of Note Titled:  Email-in.p3 (Created 12/08/2025 21:45:17 Modified 12/08/2025 21:48:30 by synchub.gen)---
+Created By: vasagraw
+Enclosure Title: Email-in.p3
+
+Enclosure Content:
+From: "Vasu Agrawal (vasagraw)" 
+Date: Tuesday, December 9, 2025 at 5:35 AM 
+To: "Brian Sansom (brsansom)" , "Clayton Sullivan (clsulliv)" 
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" , "ca-defect-feedback(mailer list)" 
+Subject: Re: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+[+Clayton]
+
+Hi Brian,
+
+It was a platform independent fix. Do we need any different RPM for N9K-C9336C-FX2 from what is available in the SMU branch? I doubt N9K-C9336C-FX2 is an S1 platform.
+
+(64)$> pwd
+/auto/ins-bld-tools/smu_builds/smu_rel_10_4_6/nexus/SMU_10_4_6_5/nx/standalone/build/CSCwr61446/64
+(64)$>
+(64)$>
+(64)$> find . -name "*CSCwr61446*.rpm"
+./SRPMS/nxos64-cs.CSCwr61446-1.0.0-10.4.6.src.rpm
+./SRPMS/nxos64-msll.CSCwr61446-1.0.0-10.4.6.src.rpm
+./RPMS/nxos64-cs.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000.rpm       <<<<<<<< SHOUD IT NOT WORK?
+./RPMS/nxos64-msll.CSCwr61446-1.0.0-10.4.6.lib32_64_n9000.rpm
+(64)$>
+
+
+Regards,
+
+Vasu
+
+From: Brian Sansom (brsansom) 
+Date: Monday, 8 December 2025 at 7:26?PM
+To: Vasu Agrawal (vasagraw) 
+Cc: bug-attach(mailer list) , 'email-in@cisco.com' 
+Subject: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+Good morning,
+
+In Webex chat, the SMU that this cu needs is "smu_rel_10_4_6 - posted already as on 6-Nov - "SMU Posted bug: CSCwr61446 for Goldman Sachs?.
+
+The cu and I cannot find this SMU for N9K-C9336C-FX2.
+
+Can you point me in the right direction?
+
+Thanks!
+
+Note: bug-attach@cisco was added to auto-attach this email to the bug
+
+Brian Sansom
+
+
+
+Security Technical Consulting Engineer
+
+AAA Security
+
+Email: brsansom@cisco.com
+
+Phone: 984-216-1358
+
+Work week: Monday - Friday
+
+Work hours: 8:00am - 4:00pm EST/EDT
+
+
+
+Use Cisco Support Assistant to get an instant case update OR escalate a case.
+
+WebEx: tac.connect@webex.bot or learn more here.
+
+
+
+Cisco U.S. Contact Numbers: +1-800-553-2447 or +1-408-526-7209
+
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p3---
+
+
+---Start of Note Titled:  Email-in.p2 (Created 12/08/2025 06:00:06 Modified 12/08/2025 06:04:58 by synchub.gen)---
+Created By: brsansom
+Enclosure Title: Email-in.p2
+
+Enclosure Content:
+From: "Brian Sansom (brsansom)" 
+Date: Monday, December 8, 2025 at 1:56 PM 
+To: "Vasu Agrawal (vasagraw)" 
+Cc: "bug-attach(mailer list)" , "'email-in@cisco.com'" 
+Subject: CSCwr61446: TACACS Not Receiving AV-Pair With Loopback Source SR 699997647
+
+Good morning,
+
+In Webex chat, the SMU that this cu needs is "smu_rel_10_4_6 - posted already as on 6-Nov - "SMU Posted bug: CSCwr61446 for Goldman Sachs?.
+
+The cu and I cannot find this SMU for N9K-C9336C-FX2.
+
+Can you point me in the right direction?
+
+Thanks!
+
+Note: bug-attach@cisco was added to auto-attach this email to the bug
+
+Brian Sansom
+
+
+
+Security Technical Consulting Engineer
+
+AAA Security
+
+Email: brsansom@cisco.com
+
+Phone: 984-216-1358
+
+Work week: Monday - Friday
+
+Work hours: 8:00am - 4:00pm EST/EDT
+
+
+
+Use Cisco Support Assistant to get an instant case update OR escalate a case.
+
+WebEx: tac.connect@webex.bot or learn more here.
+
+
+
+Cisco U.S. Contact Numbers: +1-800-553-2447 or +1-408-526-7209
+
+
+
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled: Automation-Log (Created 11/30/2025 20:55:12 Added 11/30/2025 20:55:12 by palshanm)---
+OR6M CCO Fail Log-https://ngdevx.cisco.com/services/taas/results/d8ada775-4749-4d98-a758-949929a85e12
+
+OR7M Pass log - https://ngdevx.cisco.com/services/taas/results/6acef303-5c1a-42b8-af3c-99d57630f05c
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments.p2 (Created 11/30/2025 12:48:57 Added 11/30/2025 12:48:57 by palshanm)---
+1. S/W Version : 10.4.6.18
+2. Platform : N9K-C9348GC-FXP
+3. Automation Suite: https://ngdevx.cisco.com/services/taas/results/6acef303-5c1a-42b8-af3c-99d57630f05c
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled:  Email-in.p1 (Created 11/17/2025 10:21:06 Modified 11/17/2025 10:28:08 by synchub.gen)---
+Created By: vasagraw
+Enclosure Title: Email-in.p1
+
+Enclosure Content:
+From: "Vasu Agrawal (vasagraw)" 
+Date: Tuesday, November 4, 2025 at 4:03 AM 
+To: "Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" 
+Cc: "agilis-new-ic-team-nxos(mailer list)" , "maildediscussion(mailer list)" , "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: Re: CSCwr61446
+
+Hi Abhishek,
+
+Yes, 10.4.6 (along with 10.5.3 and 10.6.1) is impacted by the bug. All platforms, running these versions, are likely impacted.
+
+Regards,
+
+Vasu
+
+
+
+Cisco Confidential
+From: Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco) 
+Date: Monday, 3 November 2025 at 3:23?PM
+To: Vasu Agrawal (vasagraw) 
+Cc: agilis-new-ic-team-nxos(mailer list) , maildediscussion(mailer list) , bug-attach(mailer list) , ca-defect-feedback(mailer list) 
+Subject: CSCwr61446
+Hi Vasu,
+
+Sorry for bothering you. Your reply would be very helpful.
+
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwr61446) the following is my observation:
+
+As per DetectionLogic: code is 10.5.4 or 10.6.1 only (dated: 31-10-2025), but according to the version field, it is found in version 10.4(6) (dated 28-10-2025).
+
+Could you please confirm if it affects N3k, N3.5k and N9k running 10.4.x release?
+
+I appreciate your help,
+Abhishek Gupta
+
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p1---
+
+
+---Start of Note Titled: V-comments (Created 11/09/2025 01:09:52 Added 11/09/2025 01:09:52 by palshanm)---
+1. S/W Version : 10.6(1)IMG9(0.158)
+2. Platform : N9K-C9348GC-FXP
+3. Automation Suite: N/A
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: smu_unit-test (Created 11/05/2025 21:42:59 Added 11/05/2025 21:42:59 by divshah)---
+Palshanm-FXP-DND#  install verify bootflash:nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000.rpm
+RSA signed
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND#  install add bootflash:///nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000.rpm
+[####################] 100%
+Install operation 11 completed successfully at Tue Nov  4 09:12:18 2025
+
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# sh install inactive 
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.6.3.M.bin
+
+Inactive Packages:
+        nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000 available
+
+Inactive Base Packages:
+        nxos-connector-1.0.11.20250805194845527-1.x86_64
+        tahusd_common-1.0.0.0-10.4.7.lib32_64_n9000
+        tor-2.0.0.0-10.4.7.lib32_n9000
+        tor_n9k-2.0.0.0-10.4.7.lib32_n9000
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# install activate nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000
+[####################] 100%
+Install operation 12 completed successfully at Tue Nov  4 09:15:32 2025
+
+Palshanm-FXP-DND# show install patches
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.6.3.M.bin
+
+----------------------------------------------------
+nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000 Active 
+----------------------------------------------------
+Palshanm-FXP-DND# show install active
+Boot Image:
+        NXOS Image: bootflash:///nxos64-cs.10.4.6.3.M.bin
+
+Active Packages:
+        nxos64-cs.CSCwr61446-1.0.0-10.4.6.3.lib32_64_n9000 active
+        nxos-connector-1.0.11.20251002223908460-1.x86_64
+
+Active Base Packages:
+        app_hosting-1.0.0.0-10.4.7.lib32_64_n9000
+        bfd-2.0.0.0-10.4.7.lib32_64_n9000
+        bgp-2.0.0.0-10.4.7.lib32_64_n9000
+        container-tracker-2.0.0.0-10.4.7.lib32_64_n9000
+        dme-2.0.0.0-10.4.7.lib32_64_n9000
+        eigrp-2.0.0.0-10.4.7.lib32_64_n9000
+        ext-eth-2.0.0.0-10.4.7.lib32_64_n9000
+        ext_eth_lowmem_opt-1.0.0.0-10.4.7.lib32_64_n9000
+        fcoe-2.0.0.0-10.4.7.lib32_64_n9000
+        fex-2.0.0.0-10.4.7.lib32_64_n9000
+        fex_images-2.0.0.0-10.4.7.lib32_64_n9000
+        fhrp-2.0.0.0-10.4.7.lib32_64_n9000
+        guestshell-2.0.0.0-10.4.7.lib32_64_n9000
+        hw_telemetry-2.0.0.0-10.4.7.lib32_64_n9000
+        icam-2.0.0.0-10.4.7.lib32_64_n9000
+        intersight_64-1.0.0.0-10.4.7.lib32_64_n9000
+        isis-2.0.0.0-10.4.7.lib32_64_n9000
+        lacp-2.0.0.0-10.4.7.lib32_64_n9000
+        libnxsdk-2.0.0.0-10.4.7.lib32_64_n9000
+        lldp-2.0.0.0-10.4.7.lib32_64_n9000
+        lowmem_opt-1.0.0.0-10.4.7.lib32_64_n9000
+        mcast-2.0.0.0-10.4.7.lib32_64_n9000
+        mpls-2.0.0.0-10.4.7.lib32_64_n9000
+        mtx-infra-all-1.0.0.0-10.4.7.lib32_64_n9000
+        mtx-openconfig-all-2.0.0.0-10.4.7.lib32_64_n9000
+        nbproxy-2.0.0.0-10.4.7.lib32_64_n9000
+        nia-2.3.7.1-10.4.7.lib32_64_n9000
+        ntp-2.0.0.0-10.4.7.lib32_64_n9000
+        nxos-ssh-2.0.0.0-10.4.7.lib32_64_n9000
+        nxsdk-2.0.0.0-10.4.7.lib32_64_n9000
+        nxsdk_rpc_server-1.0-10.4.2.lib32_64_n9000
+        ospf-2.0.0.0-10.4.7.lib32_64_n9000
+        rip-2.0.0.0-10.4.7.lib32_64_n9000
+        sdaa-2.0.0.0-10.4.7.lib32_64_n9000
+        services-2.0.0.0-10.4.7.lib32_64_n9000
+        snmp-2.0.0.0-10.4.7.lib32_64_n9000
+        sr-2.0.0.0-10.4.7.lib32_64_n9000
+        svi-2.0.0.0-10.4.7.lib32_64_n9000
+        tacacs-2.0.0.0-10.4.7.lib32_64_n9000
+        telemetry-2.3.4.0-10.4.7.lib32_64_n9000
+        virtualization-2.0.0.0-10.4.7.lib32_64_n9000
+        vmtracker-2.0.0.0-10.4.7.lib32_64_n9000
+        vtp-2.0.0.0-10.4.7.lib32_64_n9000
+        vxlan-2.0.0.0-10.4.7.lib32_64_n9000
+Palshanm-FXP-DND#                         
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Nov  4 05:17:24 2025
+!Time: Tue Nov  4 09:18:00 2025
+
+version 10.4(7) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+
+
+Palshanm-FXP-DND#               
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND#  show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Nov  4 05:17:24 2025
+!Time: Tue Nov  4 09:18:19 2025
+
+version 10.4(7) Bios:version 05.53 
+aaa authentication login default group CSCwr61446 
+aaa authentication login console local 
+aaa authorization config-commands default group CSCwr61446 
+aaa authorization commands default group CSCwr61446 
+aaa accounting default group CSCwr61446 
+
+
+Palshanm-FXP-DND# 
+
+sjc-ads-6693:/ws/divshah-bgl > ssh palani@10.105.194.181
+User Access Verification
+Password: 
+
+
+Palshanm-FXP-DND# ethanalyzer local interface inband display-filter "ip.addr == 255.1.1.1" limit-captured-frames 0 
+Capturing on 'ps-inb'
+   13 2025-11-04 09:19:32.328691480  192.168.1.1 ? 255.1.1.1    TCP 74 58953 ? 49 
+[SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=145560 TSecr=0
+   14 2025-11-04 09:19:32.329201698    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 58953 
+[SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=342733844 TSecr=145560 WS=
+128
+   15 2025-11-04 09:19:32.329542531  192.168.1.1 ? 255.1.1.1    TCP 66 58953 ? 49 
+[ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=145560 TSecr=342733844
+   16 2025-11-04 09:19:32.329803622  192.168.1.1 ? 255.1.1.1    TACACS+ 114 Q: Au
+thentication
+   17 2025-11-04 09:19:32.329960544    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 58953 
+[ACK] Seq=1 Ack=49 Win=29056 Len=0 TSval=342733845 TSecr=145560
+   18 2025-11-04 09:19:32.412119120    255.1.1.1 ? 192.168.1.1  TACACS+ 84 R: Aut
+hentication
+   19 2025-11-04 09:19:32.412192861    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 58953 
+[FIN, ACK] Seq=19 Ack=49 Win=29056 Len=0 TSval=342733928 TSecr=145560
+   20 2025-11-04 09:19:32.412562508  192.168.1.1 ? 255.1.1.1    TCP 66 58953 ? 49 
+[ACK] Seq=49 Ack=20 Win=17358 Len=0 TSval=145561 TSecr=342733927
+   21 2025-11-04 09:19:32.422332244  192.168.1.1 ? 255.1.1.1    TCP 66 58953 ? 49 
+[FIN, ACK] Seq=49 Ack=20 Win=17376 Len=0 TSval=145561 TSecr=342733927
+   22 2025-11-04 09:19:32.422621012    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 58953 
+[ACK] Seq=20 Ack=50 Win=29056 Len=0 TSval=342733938 TSecr=145561
+   23 2025-11-04 09:19:32.423577338  192.168.1.1 ? 255.1.1.1    TCP 74 59110 ? 49 
+[SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=145561 TSecr=0
+   24 2025-11-04 09:19:32.423844822    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 59110 
+[SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=342733939 TSecr=145561 WS=
+128
+   25 2025-11-04 09:19:32.424133969  192.168.1.1 ? 255.1.1.1    TCP 66 59110 ? 49 
+[ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=145561 TSecr=342733939
+   26 2025-11-04 09:19:32.424406660  192.168.1.1 ? 255.1.1.1    TACACS+ 153 Q: Au
+thorization
+   27 2025-11-04 09:19:32.424559839    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59110 
+[ACK] Seq=1 Ack=88 Win=29056 Len=0 TSval=342733940 TSecr=145561
+   28 2025-11-04 09:19:32.443500183    255.1.1.1 ? 192.168.1.1  TACACS+ 120 R: Au
+thorization
+   29 2025-11-04 09:19:32.443514432    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59110 
+[FIN, ACK] Seq=55 Ack=88 Win=29056 Len=0 TSval=342733959 TSecr=145561
+   30 2025-11-04 09:19:32.443743740  192.168.1.1 ? 255.1.1.1    TCP 66 59110 ? 49 
+[ACK] Seq=88 Ack=56 Win=17322 Len=0 TSval=145561 TSecr=342733959
+   31 2025-11-04 09:19:32.444185339  192.168.1.1 ? 255.1.1.1    TCP 66 59110 ? 49 
+[FIN, ACK] Seq=88 Ack=56 Win=17376 Len=0 TSval=145561 TSecr=342733959
+   32 2025-11-04 09:19:32.444343389    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59110 
+[ACK] Seq=56 Ack=89 Win=29056 Len=0 TSval=342733960 TSecr=145561
+   34 2025-11-04 09:19:33.694331684  192.168.1.1 ? 255.1.1.1    TCP 74 59341 ? 49 
+[SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=145574 TSecr=0
+   35 2025-11-04 09:19:33.694702374    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 59341 
+[SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=342735210 TSecr=145574 WS=
+128
+   36 2025-11-04 09:19:33.695079419  192.168.1.1 ? 255.1.1.1    TCP 66 59341 ? 49 
+[ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=145574 TSecr=342735210
+   37 2025-11-04 09:19:33.695334868  192.168.1.1 ? 255.1.1.1    TACACS+ 183 Q: Ac
+counting
+   38 2025-11-04 09:19:33.695505811    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59341 
+[ACK] Seq=1 Ack=118 Win=29056 Len=0 TSval=342735211 TSecr=145574
+   39 2025-11-04 09:19:33.698426643    255.1.1.1 ? 192.168.1.1  TACACS+ 83 R: Acc
+ounting
+   40 2025-11-04 09:19:33.698489928    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59341 
+[FIN, ACK] Seq=18 Ack=118 Win=29056 Len=0 TSval=342735214 TSecr=145574
+   41 2025-11-04 09:19:33.698714649  192.168.1.1 ? 255.1.1.1    TCP 66 59341 ? 49 
+[ACK] Seq=118 Ack=19 Win=17359 Len=0 TSval=145574 TSecr=342735214
+   42 2025-11-04 09:19:33.699050012  192.168.1.1 ? 255.1.1.1    TCP 66 59341 ? 49 
+[FIN, ACK] Seq=118 Ack=19 Win=17376 Len=0 TSval=145574 TSecr=342735214
+   43 2025-11-04 09:19:33.699221962    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59341 
+[ACK] Seq=19 Ack=119 Win=29056 Len=0 TSval=342735215 TSecr=145574
+30 ^C
+Palshanm-FXP-DND# ^C
+Palshanm-FXP-DND# ^C
+Palshanm-FXP-DND# ^C
+Palshanm-FXP-DND# show user-account palani
+user:palani
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Nov  4 05:17:24 2025
+!Time: Tue Nov  4 09:20:06 2025
+
+version 10.4(7) Bios:version 05.53 
+aaa authentication login default group CSCwr61446 
+aaa authentication login console local 
+aaa authorization config-commands default group CSCwr61446 
+aaa authorization commands default group CSCwr61446 
+aaa accounting default group CSCwr61446 
+
+
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# 
+Palshanm-FXP-DND# aaa authentication login default group CSCwr61446
+                   ^
+% Invalid command at '^' marker.
+Palshanm-FXP-DND# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# aaa authentication login default group CSCwr61446
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config 
+
+!Command: show running-config
+!Running configuration last done at: Tue Nov  4 09:20:27 2025
+!Time: Tue Nov  4 09:20:36 2025
+
+version 10.4(7) Bios:version 05.53 
+hostname Palshanm-FXP-DND
+vdc Palshanm-FXP-DND id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+feature nxapi
+feature bash-shell
+feature tacacs+
+feature netconf
+feature interface-vlan
+
+no password strength-check
+username admin password 5 $5$NPGFFN$bg4ur34IQfWTojezw5j.gGbq9/dje59.Mb9KR4NUJa5 
+ role network-admin
+username test password 5 !  role network-operator
+username test passphrase  lifetime 99999 warntime 14 gracetime 3
+username test123 password 5 $5$KPIAPH$KIgepp1.wvf2wOeKK1BTnMKTzP538.n3XC8V.L43fT
+4  role network-operator
+username test123 passphrase  lifetime 99999 warntime 14 gracetime 3
+ip domain-lookup
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+feature password encryption aes tam
+crypto ca trustpoint ca1 
+     revocation-check  crl 
+copp profile strict
+snmp-server user test network-operator 
+snmp-server user admin network-admin pwd_type 6 auth md5 JDYkkfVHFijZ5OjKSv00CFp
+rfiSHgfzYqkgKVrTU+PCHhjDdun0hJ4OCiLWiAjNjqd1dRobtArH9WRKHVmSrbf8Tw8ckTJT6Qa8PgmS
+a841D6d8Ie5YkLGEA priv aes-128 JDYksXQauRM3jpnB2UrCO6mwTSQV9/R3oWlM0+XvDtLUKsVjW
+mVCP9qP1kzOs16pvyuWv9YNQlDh9xisF1Wy0FhCuvIk3ebIunueDPXkRrEzzZ4h4LMqZUoA localize
+dV2key
+snmp-server user test123 network-operator pwd_type 6 auth md5 JDYkDNvKk0KSq3X0BE
+ERwOgoACRmQBVhbozmyOrIm1hZufThTN1r4tvLrK11NfeQziI2hJHqmwgjN7mw+tc6VUeks0cksxu137
+ZolkX1QYS2hdQAOTIPikQA priv aes-128 JDYkkK3/sImG/RxPAPH4pokLsCTmmnkex5K/Run/5byq
+wUd9trvwGk9djB6q5oQ8vBScQMUGCWoYS0615UiZXa/No/wk1Nu3itczEr8zHf9hXqreJOVK/XgA loc
+alizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+ntp authentication-key 1 md5 nacrv5 7
+ntp authentication-key 2 aes128cmac nacfws 7
+aaa authentication login default group CSCwr61446 
+aaa authentication login console local 
+aaa authorization config-commands default group CSCwr61446 
+aaa authorization commands default group CSCwr61446 
+aaa accounting default group CSCwr61446 
+
+vlan 1,4,100
+
+vrf context management
+  ip route 0.0.0.0/0 10.105.194.129
+  ipv6 route 0::/0 2001:420:5445:2021::216:1
+vrf context test1
+nxapi http port 80
+
+
+interface Vlan1
+
+interface Vlan4
+  no shutdown
+  ip address 4.4.4.1/24
+  ipv6 address 4::1/64
+
+interface Ethernet1/1
+  ip address 255.1.1.2/24
+  ipv6 address 255::2/64
+  no shutdown
+
+interface Ethernet1/2
+  switchport
+
+interface Ethernet1/3
+  no shutdown
+
+interface Ethernet1/4
+  no shutdown
+
+interface Ethernet1/5
+  no shutdown
+
+interface Ethernet1/6
+  no shutdown
+
+interface Ethernet1/7
+  no shutdown
+
+interface Ethernet1/8
+  no shutdown
+
+interface Ethernet1/9
+  no shutdown
+
+interface Ethernet1/10
+  no shutdown
+
+interface Ethernet1/11
+  no shutdown
+
+interface Ethernet1/12
+  no shutdown
+
+interface Ethernet1/13
+  ip address 2.2.2.1/24
+  ipv6 address 2::1/64
+  no shutdown
+
+interface Ethernet1/14
+  no shutdown
+
+interface Ethernet1/15
+  no shutdown
+
+interface Ethernet1/16
+  no shutdown
+
+interface Ethernet1/17
+  no shutdown
+
+interface Ethernet1/18
+  no shutdown
+
+interface Ethernet1/19
+  no shutdown
+
+interface Ethernet1/20
+  no shutdown
+
+interface Ethernet1/21
+  no shutdown
+
+interface Ethernet1/22
+  no shutdown
+
+interface Ethernet1/23
+  no shutdown
+
+interface Ethernet1/24
+  no shutdown
+
+interface Ethernet1/24.1
+  encapsulation dot1q 3
+  ip address 3.3.3.1/24
+  ipv6 address 3::1/64
+  no shutdown
+
+interface Ethernet1/25
+  no shutdown
+
+interface Ethernet1/26
+  no shutdown
+
+interface Ethernet1/27
+  no shutdown
+
+interface Ethernet1/28
+  no shutdown
+
+interface Ethernet1/29
+  no shutdown
+
+interface Ethernet1/30
+  no shutdown
+
+interface Ethernet1/31
+  no shutdown
+
+interface Ethernet1/32
+  switchport
+  switchport access vlan 4
+  no shutdown
+
+interface Ethernet1/33
+  no shutdown
+
+interface Ethernet1/34
+  no shutdown
+
+interface Ethernet1/35
+  no shutdown
+
+interface Ethernet1/36
+  no shutdown
+
+interface Ethernet1/37
+  no shutdown
+
+interface Ethernet1/38
+  no shutdown
+
+interface Ethernet1/39
+  no shutdown
+
+interface Ethernet1/40
+  no shutdown
+
+interface Ethernet1/41
+  no shutdown
+
+interface Ethernet1/42
+  no shutdown
+
+interface Ethernet1/43
+  no shutdown
+
+interface Ethernet1/44
+  no shutdown
+
+interface Ethernet1/45
+  no shutdown
+
+interface Ethernet1/46
+  no shutdown
+
+interface Ethernet1/47
+  no shutdown
+
+interface Ethernet1/48
+  no shutdown
+
+interface Ethernet1/49
+  no shutdown
+
+interface Ethernet1/50
+  no shutdown
+
+interface Ethernet1/51
+  no shutdown
+
+interface Ethernet1/52
+  no shutdown
+
+interface Ethernet1/53
+  no shutdown
+
+interface Ethernet1/54
+  no shutdown
+
+interface mgmt0
+  vrf member management
+  ip address 10.105.194.181/25
+  ipv6 address 2001:420:5445:2021::216:20/119
+  ipv6 link-local fe80::d6c9:3cff:feea:340c
+
+interface loopback1
+  shutdown
+  ip address 1.1.1.1/32
+  ipv6 address 1::1/64
+
+interface loopback10
+
+interface loopback11
+
+interface loopback100
+  ip address 192.168.1.1/24
+
+interface loopback123
+icam monitor scale
+
+cli alias name ps run bash sudo ps -eaf | grep socat | grep default
+cli alias name cmd1 test aaa group tac2 palani Cisc0123 ; test aaa group tac3 pa
+lani Cisc0123 ; test aaa group tacethv4  palani Cisc0123 ; test aaa group taceth
+v6 palani Cisc0123 ; test aaa group  tac_sub_int_v4 palani Cisc0123 ; test aaa g
+roup  tac_sub_int_v6 palani Cisc0123 ; test aaa group tac_svi_v4  palani Cisc012
+3 ; test aaa group tac_svi_v6 palani Cisc0123
+line console
+  exec-timeout 0
+line vty
+  exec-timeout 0
+boot nxos bootflash:/nxos64-cs.10.4.6.3.M.bin
+---End of Note Titled: smu_unit-test---
+
+
+---Start of Note Titled:  Email-in (Created 11/03/2025 02:00:05 Modified 11/03/2025 02:02:32 by synchub.gen)---
+Created By: abhigup7
+Enclosure Title: Email-in
+
+Enclosure Content:
+From: "Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" 
+Date: Monday, November 3, 2025 at 9:53 AM 
+To: "Vasu Agrawal (vasagraw)" 
+Cc: "agilis-new-ic-team-nxos(mailer list)" , "maildediscussion(mailer list)" , "bug-attach(mailer list)" , "ca-defect-feedback(mailer list)" 
+Subject: CSCwr61446
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwr61446) the following is my observation:
+ 
+As per DetectionLogic: code is 10.5.4 or 10.6.1 only (dated: 31-10-2025), but according to the version field, it is found in version 10.4(6) (dated 28-10-2025).
+ 
+Could you please confirm if it affects N3k, N3.5k and N9k running 10.4.x release?
+ 
+I appreciate your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  SS-Review (Created 10/28/2025 01:34:36 Modified 10/31/2025 04:52:34 by synchub.gen)---
+Created By: vasagraw
+Enclosure Title: SS-Review
+
+Enclosure Content:
+---------------------
+## Auto copied from the duplicate bug  as a result of the 'D' state transition. ##
+ ---------------------
+$$NOOIB
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 10/28/2025 00:59:23 Added 10/28/2025 00:59:23 by rp)---
+https://gnosis.cisco.com/signature/bug/69005923d4c6c78ae9d3cc59/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled:  DetectionLogic (Created 10/27/2025 12:01:24 Modified 10/31/2025 04:52:34 by synchub.gen)---
+Created By: seshea
+Enclosure Title: DetectionLogic
+
+Enclosure Content:
+--- Update 2025-10-27 19:01:23.446009 seshea (via 699958671)
+0. nexus 3000 or 9000
+
+
+
+1. code is 10.5.4 or 10.6.1 only    - issue due to commit of CSCwo90314, and DE is fixing again the same bug (our bug is resolved without diff, in theory could be duplicate also)
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 01.09
+  NXOS: version 10.6(1) [Feature Release]
+  Host NXOS: version 10.6(1)
+  BIOS compile time:  10/08/2023
+  NXOS image file is: bootflash:///nxos64-cs.10.6.1.F.bin
+  NXOS compile time:  7/31/2025 12:00:00 [08/12/2025 22:18:15]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9300 C93180YC-FX3H Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 32795992 kB of memory.
+  Processor Board ID FDO2929179S
+  Device name: cnspbt-gc-r-553027-01
+  bootflash:  115810648 kB
+
+Kernel uptime is 7 day(s), 19 hour(s), 1 minute(s), 42 second(s)
+
+Last reset at 498654 usecs after Thu Sep 25 15:26:50 2025
+  Reason: Module PowerCycled
+  System version: 
+  Service: HW check by card-client
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+
+
+
+2. look for config in show run:
+
+ip tacacs source-interface loopback10          <<< specifying a loopback of some kind
+
+aaa group server tacacs+ RANDOM-STRING            <<< random name for the aaa server group
+    server 62.7.171.47 
+    server 62.7.170.111 
+    deadtime 10
+    source-interface loopback10                <<< some kind of source-interface loopback
+
+`show running-config`
+
+!Command: show running-config
+!Running configuration last done at: Fri Oct  3 10:17:17 2025
+!Time: Fri Oct  3 10:28:00 2025
+
+version 10.6(1) Bios:version 01.09 
+hostname cnspbt-gc-r-553027-01
+vdc cnspbt-gc-r-553027-01 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature scp-server
+feature tacacs+
+cfs eth distribute
+feature interface-vlan
+feature lacp
+feature vpc
+feature lldp
+clock timezone GMT 0 0
+clock summer-time BST 5 Sunday March 02:00 5 Sunday October 02:00 60
+
+no ip domain-lookup
+ip domain-name btcnsp.bt.com
+ip tacacs source-interface loopback10                                        <<<< match
+tacacs-server host 62.7.170.111 key 7 "" timeout 10 
+tacacs-server host 62.7.171.47 key 7 "" 
+tacacs-server host 217.32.123.1 key 7 "" timeout 10 
+aaa group server tacacs+ BT_TACACS 
+    server 62.7.171.47 
+    server 62.7.170.111 
+    deadtime 10
+    source-interface loopback10                                        <<< match
+ip access-list NetBrainSNMPv3
+  10 permit ip 81.144.76.0 0.0.1.255 any 
+  20 permit ip 81.144.72.0 0.0.1.255 any 
+  4294967295 deny ip any any log 
+  
+  
+LOGIC: Symptomatic
+
+LOGIC : 0 & 1 & 2
+
+BORG severity - ALERT
+
+Positive File : 699846034/show tech non working nexus.log
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled:  R-comments (Created 10/12/2025 21:40:06 Modified 01/08/2026 20:11:40 by vasagraw)---
+CSCwr61446 is a regression caused by an older fix CSCwo90314 ? We would be using CSCwo90314 itself to commit a comprehensive fix (for both CSCwo90314 and CSCwr61446) -
+
+Upcoming 10.6.2 => The comprehensive fix has been committed already. 
+Upcoming 10.4.7 => The comprehensive fix has been committed already.
+
+CCO-ed 10.5.4 => Being late into the release when CSCwr61446 was reported, we quickly reverted the original CSCwo90314 fix. So, it is not impacted by CSCwr61446, but the CSCwo90314 issue is present. We have plans to commit the comprehensive fix in the next MR of this release train. =====>>>>> Later, the comprehensive fix had been committed to upcoming 10.5.5 -
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Eng-notes (Created 10/12/2025 21:36:33 Modified 03/20/2026 07:52:42 by vasagraw)---
+CSCwr61446 is a regression caused by an older fix CSCwo90314 - Only the following versions are impacted by the regression.
+<10.6.1, 10.4.6 and 10.5.3>
+
+We would be using CSCwo90314 itself to commit a comprehensive fix (for both CSCwo90314 and CSCwr61446) -
+
+10.6.2 => The comprehensive fix has been committed already. 
+10.4.7 => The comprehensive fix has been committed already.
+10.5.4 => Being late into the release when CSCwr61446 was reported, we quickly reverted the original CSCwo90314 fix. So, it is not impacted by CSCwr61446, but the CSCwo90314 issue is present.
+10.5.5 => The comprehensive fix has been committed already.
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled:  Scrubnote (Created 10/09/2025 02:58:03 Modified 11/06/2025 00:50:38 by cms)---
+{251106 samekama S B} Or7m - Commit done, via CSCwo90314 - 
+{251103 samekama S B} Pending manual sanity result, rest of checks are holding good.
+{251010 samekama S B} RCA done, issue occurred due to commit from CSCwo90314 needed further fixes.
+{251009 samekama S B} RCA in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 10/08/2025 10:18:05 Added 10/08/2025 10:18:05 by samekama)---
+Plz check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: reproduction-steps (Created 10/08/2025 09:43:40 Added 10/08/2025 09:43:40 by bridahlq)---
+With loopback:
+IP-N9K-LEAF-8(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Oct  8 16:05:35 2025
+!Time: Wed Oct  8 16:11:33 2025
+
+version 10.6(1s) Bios:version 01.18 
+feature tacacs+
+
+tacacs-server key 6 "JDYkZwRYG6+HAacPcf4VYlSK+STKE4+dd0z5Wq2UsTmYLL4UJOJX4CjlSTs5z8t
+Nqq6GtnP8N2q/AA=="
+ip tacacs source-interface loopback10
+tacacs-server host 10.8.52.34 
+tacacs-server host 10.8.52.35 
+aaa group server tacacs+ CITI-TACACS 
+    server 10.8.52.34 
+    server 10.8.52.35 
+    deadtime 3
+    source-interface loopback10
+
+IP-N9K-LEAF-8# sh user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:global
+        this user account has no expiry date
+        roles:network-admin 
+user:librenms
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+user:bridahlq
+        roles:network-operator 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+
+
+With mgmt0:
+IP-N9K-LEAF-8# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Oct  8 16:11:45 2025
+!Time: Wed Oct  8 16:35:08 2025
+
+version 10.6(1s) Bios:version 01.18 
+feature tacacs+
+
+tacacs-server key 6 "JDYkZwRYG6+HAacPcf4VYlSK+STKE4+dd0z5Wq2UsTmYLL4UJOJX4CjlSTs5z8t
+Nqq6GtnP8N2q/AA=="
+ip tacacs source-interface mgmt0
+tacacs-server host 10.8.52.34 
+tacacs-server host 10.8.52.35 
+aaa group server tacacs+ CITI-TACACS 
+    server 10.8.52.34 
+    server 10.8.52.35 
+    deadtime 3
+    use-vrf management
+    source-interface mgmt0
+IP-N9K-LEAF-8# sh user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:global
+        this user account has no expiry date
+        roles:network-admin 
+user:librenms
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user acc
+ount
+Local login not possible
+user:bridahlq
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user acc
+ount
+Local login not possible
+user:ndfcro
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user acc
+ount
+Local login not possible
+IP-N9K-LEAF-8#
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 10/08/2025 09:42:52 Modified 03/11/2026 06:36:49 by bridahlq)---
+FCS Code
+
+<B>Symptom:</B>
+When TACACS is configured to send on a loopback, SVI, etc (non-mgmt0 interface) interface it will not receive an AV pair from ISE but using the same ISE servers and configurations but sourced from the management VRF using mgmt0 interface it works fine. In the broken scenario the user will always be granted network-operator role regardless of what role they should have.
+
+<B>Conditions:</B>
+TACACS configured for non-mgmt0 source interface and vrf
+
+<B>Workaround:</B>
+While customer could possibly use mgmt0 this isn't an acceptable workaround in all scenarios
+
+<B>Further Problem Description:</B>
+Verified this works without issue in 10.4(4) and the AV pair is received properly on Loopback interfaces.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (9 of 9)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     957            bridahlq       03/11/2026 06:36:49      
+Diffs-commit-smu_rel_10_4_6.p2                    ascii text     7237           nxbld          01/08/2026 13:54:31      
+Diffs-commit-smu_rel_10_4_6                       ascii text     878            nxbld          01/08/2026 13:54:29      
+CSCwr61446_QR2F_Test_Logs.txt                     binary         38413          palshanm       11/09/2025 01:11:00      
+gnosis_neg_CSCwr61446-negative.txt                ascii text     2579           rp             10/28/2025 00:59:25      
+Debug_Output_AAA TACACS _10.6.1-type7-lo10.txt    binary         79306          bridahlq       10/08/2025 11:40:39      
+Debug_Output_AAA TACACS _10.6.1-mgmt0.txt         ascii text     103683         bridahlq       10/08/2025 09:58:15      
+Debug_Output_AAA TACACS _10.6.1.txt               ascii text     78960          bridahlq       10/08/2025 09:43:21      
+Debug_Output_AAA TACACS _10.4.4.txt               binary         169575         bridahlq       10/08/2025 09:43:11      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/03/2026 aalbliwi 	serviceRequests/C3/70151	                             	                             	Mod
+10/29/2026 pisces   	VF-patched              	                             	NX-OS:10.4(8),NX-OS:10.5(6),N	New
+10/29/2026 pisces   	VF-unpatched            	                             	NX-OS:10.3(10),NX-OS:10.3(9),	New
+10/29/2026 pisces   	Potentially-affected-rel	                             	10.3(10),10.3(9),8.4(14),9.3(	New
+10/26/2026 ankubish 	serviceRequests/C3/70159	                             	                             	Mod
+10/26/2026 ankubish 	SR-associated           	                             	2026-10-18T13:40:57+0000,2026	New
+10/19/2026 admohant 	serviceRequests/C3/70159	                             	C3/701594556                 	New
+10/19/2026 admohant 	Tickets-count           	58                           	59                           	Mod
+10/19/2026 admohant 	TACSR-count             	55                           	56                           	Mod
+10/19/2026 admohant 	Tickets-count-direct    	55                           	56                           	Mod
+10/19/2026 admohant 	Trouble-tickets         	                             	701594556                    	New
+10/19/2026 admohant 	Trouble-tickets-direct  	                             	C3701594556                  	New
+10/18/2026 aalbliwi 	serviceRequests/C3/70151	                             	C3/701519015                 	New
+10/18/2026 aalbliwi 	Tickets-count           	57                           	58                           	Mod
+10/18/2026 aalbliwi 	TACSR-count             	54                           	55                           	Mod
+10/18/2026 aalbliwi 	Tickets-count-direct    	54                           	55                           	Mod
+10/18/2026 aalbliwi 	Trouble-tickets         	                             	701519015                    	New
+10/18/2026 aalbliwi 	Trouble-tickets-direct  	                             	C3701519015                  	New
+10/10/2026 jrodrgue 	serviceRequests/C3/70156	                             	                             	Mod
+10/10/2026 jrodrgue 	SR-associated           	                             	2026-10-11T04:54:15+0000     	New
+10/10/2026 herferna 	serviceRequests/C3/70156	                             	C3/701560184                 	New
+10/10/2026 herferna 	Tickets-count           	56                           	57                           	Mod
+10/10/2026 herferna 	TACSR-count             	53                           	54                           	Mod
+10/10/2026 herferna 	Tickets-count-direct    	53                           	54                           	Mod
+10/10/2026 herferna 	Trouble-tickets         	                             	701560184                    	New
+10/10/2026 herferna 	Trouble-tickets-direct  	                             	C3701560184                  	New
+10/10/2026 oyasin   	serviceRequests/C3/70098	                             	                             	Mod
+10/09/2026 zabubake 	serviceRequests/C3/70132	                             	                             	Mod
+10/09/2026 zabubake 	SR-associated           	                             	2026-09-28T17:54:07+0000     	New
+09/28/2026 zabubake 	serviceRequests/C3/70132	                             	C3/701329166                 	New
+09/28/2026 zabubake 	Tickets-count           	55                           	56                           	Mod
+09/28/2026 zabubake 	TACSR-count             	52                           	53                           	Mod
+09/28/2026 zabubake 	Tickets-count-direct    	52                           	53                           	Mod
+09/28/2026 zabubake 	Trouble-tickets         	                             	701329166                    	New
+09/28/2026 zabubake 	Trouble-tickets-direct  	                             	C3701329166                  	New
+09/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/23/2026 satdr    	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+08/17/2026 rp       	Note Title              	                             	KnowledgeSignature.p3        	New
+08/11/2026 sherholm 	serviceRequests/C3/70104	                             	                             	Mod
+08/11/2026 sherholm 	SR-associated           	                             	2026-07-24T10:04:53+0000     	New
+08/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/31/2026 divshah  	Note Title              	                             	Code-review                  	New
+07/31/2026 divshah  	Note Title              	                             	static-analysis-runinfo-n9k  	New
+07/24/2026 alhens   	serviceRequests/C3/70111	                             	C3/701112700                 	New
+07/24/2026 alhens   	Tickets-count           	54                           	55                           	Mod
+07/24/2026 alhens   	TACSR-count             	51                           	52                           	Mod
+07/24/2026 alhens   	Tickets-count-direct    	51                           	52                           	Mod
+07/24/2026 alhens   	Trouble-tickets         	                             	701112700                    	New
+07/24/2026 alhens   	Trouble-tickets-direct  	                             	C3701112700                  	New
+07/17/2026 sherholm 	serviceRequests/C3/70104	                             	                             	Mod
+07/07/2026 amendoz2 	serviceRequests/C3/70084	                             	                             	Mod
+07/07/2026 amendoz2 	SR-associated           	                             	2026-07-07T02:29:21+0000,2026	New
+07/06/2026 shaurobe 	serviceRequests/C3/70104	                             	C3/701049255                 	New
+07/06/2026 shaurobe 	Tickets-count           	53                           	54                           	Mod
+07/06/2026 shaurobe 	TACSR-count             	50                           	51                           	Mod
+07/06/2026 shaurobe 	Tickets-count-direct    	50                           	51                           	Mod
+07/06/2026 shaurobe 	Trouble-tickets         	                             	701049255                    	New
+07/06/2026 shaurobe 	Trouble-tickets-direct  	                             	C3701049255                  	New
+07/03/2026 shaurobe 	serviceRequests/C3/70104	                             	C3/701041114                 	New
+07/03/2026 shaurobe 	Tickets-count           	52                           	53                           	Mod
+07/03/2026 shaurobe 	TACSR-count             	49                           	50                           	Mod
+07/03/2026 shaurobe 	Tickets-count-direct    	49                           	50                           	Mod
+07/03/2026 shaurobe 	Trouble-tickets         	                             	701041114                    	New
+07/03/2026 shaurobe 	Trouble-tickets-direct  	                             	C3701041114                  	New
+07/02/2026 niskonda 	serviceRequests/C3/70095	                             	                             	Mod
+07/02/2026 niskonda 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/02/2026 niskonda 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/26/2026 shaurobe 	serviceRequests/C3/70097	                             	                             	Mod
+06/26/2026 shaurobe 	SR-associated           	                             	2026-06-20T08:54:35+0000,2026	New
+06/26/2026 shaurobe 	serviceRequests/C3/70097	                             	C3/700972550                 	New
+06/26/2026 shaurobe 	Tickets-count           	51                           	52                           	Mod
+06/26/2026 shaurobe 	TACSR-count             	48                           	49                           	Mod
+06/26/2026 shaurobe 	Tickets-count-direct    	48                           	49                           	Mod
+06/26/2026 shaurobe 	Trouble-tickets         	                             	700972550                    	New
+06/26/2026 shaurobe 	Trouble-tickets-direct  	                             	C3700972550                  	New
+06/25/2026 niskonda 	serviceRequests/C3/70095	                             	C3/700953035                 	New
+06/25/2026 niskonda 	Tickets-count           	50                           	51                           	Mod
+06/25/2026 niskonda 	TACSR-count             	47                           	48                           	Mod
+06/25/2026 niskonda 	Tickets-count-direct    	47                           	48                           	Mod
+06/25/2026 niskonda 	Trouble-tickets         	                             	700953035                    	New
+06/25/2026 niskonda 	Trouble-tickets-direct  	                             	C3700953035                  	New
+06/20/2026 oyasin   	serviceRequests/C3/70098	                             	C3/700982169                 	New
+06/20/2026 oyasin   	Tickets-count           	49                           	50                           	Mod
+06/20/2026 oyasin   	TACSR-count             	46                           	47                           	Mod
+06/20/2026 oyasin   	Tickets-count-direct    	46                           	47                           	Mod
+06/20/2026 oyasin   	Trouble-tickets         	                             	700982169                    	New
+06/20/2026 oyasin   	Trouble-tickets-direct  	                             	C3700982169                  	New
+06/15/2026 amendoz2 	serviceRequests/C3/70084	                             	C3/700841517                 	New
+06/15/2026 amendoz2 	Tickets-count           	48                           	49                           	Mod
+06/15/2026 amendoz2 	TACSR-count             	45                           	46                           	Mod
+06/15/2026 amendoz2 	Tickets-count-direct    	45                           	46                           	Mod
+06/15/2026 amendoz2 	Trouble-tickets         	                             	700841517                    	New
+06/15/2026 amendoz2 	Trouble-tickets-direct  	                             	C3700841517                  	New
+06/09/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/09/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/05/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/31/2026 kavipsar 	Note Title              	                             	KnowledgeSignature.p2        	New
+05/31/2026 shiyliu  	serviceRequests/C3/70072	                             	                             	Mod
+05/31/2026 shiyliu  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/26/2026 diesquiv 	serviceRequests/C3/70073	                             	                             	Mod
+05/23/2026 awalarab 	serviceRequests/C3/70068	                             	                             	Mod
+05/23/2026 awalarab 	SR-associated           	                             	2026-05-22T07:58:36+0000,2026	New
+05/22/2026 shaurobe 	serviceRequests/C3/70074	                             	C3/700740509                 	New
+05/22/2026 shaurobe 	Tickets-count           	47                           	48                           	Mod
+05/22/2026 shaurobe 	TACSR-count             	44                           	45                           	Mod
+05/22/2026 shaurobe 	Tickets-count-direct    	44                           	45                           	Mod
+05/22/2026 shaurobe 	Trouble-tickets         	                             	700740509                    	New
+05/22/2026 shaurobe 	Trouble-tickets-direct  	                             	C3700740509                  	New
+05/21/2026 shiyliu  	serviceRequests/C3/70072	                             	C3/700723491                 	New
+05/21/2026 shiyliu  	Tickets-count           	46                           	47                           	Mod
+05/21/2026 shiyliu  	TACSR-count             	43                           	44                           	Mod
+05/21/2026 shiyliu  	Tickets-count-direct    	43                           	44                           	Mod
+05/21/2026 shiyliu  	Trouble-tickets         	                             	700723491                    	New
+05/21/2026 shiyliu  	Trouble-tickets-direct  	                             	C3700723491                  	New
+05/19/2026 juliorom 	serviceRequests/C3/70047	                             	                             	Mod
+05/13/2026 alhens   	serviceRequests/C3/70078	                             	                             	Mod
+05/13/2026 alhens   	SR-associated           	                             	2026-05-13T10:02:20+0000     	New
+05/13/2026 alhens   	serviceRequests/C3/70078	                             	C3/700781152                 	New
+05/13/2026 alhens   	Tickets-count           	45                           	46                           	Mod
+05/13/2026 alhens   	TACSR-count             	42                           	43                           	Mod
+05/13/2026 alhens   	Tickets-count-direct    	42                           	43                           	Mod
+05/13/2026 alhens   	Trouble-tickets         	                             	700781152                    	New
+05/13/2026 alhens   	Trouble-tickets-direct  	                             	C3700781152                  	New
+05/12/2026 ijoudeh  	serviceRequests/C3/70072	                             	                             	Mod
+05/11/2026 ijoudeh  	serviceRequests/C3/70072	                             	                             	Mod
+05/05/2026 makowali 	serviceRequests/C3/70060	                             	                             	Mod
+05/05/2026 makowali 	SR-associated           	                             	2026-04-24T06:33:30+0000,2026	New
+04/24/2026 mjaskolk 	serviceRequests/C3/70072	                             	C3/700725400                 	New
+04/24/2026 mjaskolk 	Tickets-count           	44                           	45                           	Mod
+04/24/2026 mjaskolk 	TACSR-count             	41                           	42                           	Mod
+04/24/2026 mjaskolk 	Tickets-count-direct    	41                           	42                           	Mod
+04/24/2026 mjaskolk 	Trouble-tickets         	                             	700725400                    	New
+04/24/2026 mjaskolk 	Trouble-tickets-direct  	                             	C3700725400                  	New
+04/23/2026 awalarab 	serviceRequests/C3/70068	                             	C3/700685511                 	New
+04/23/2026 awalarab 	Tickets-count           	43                           	44                           	Mod
+04/23/2026 awalarab 	TACSR-count             	40                           	41                           	Mod
+04/23/2026 awalarab 	Tickets-count-direct    	40                           	41                           	Mod
+04/23/2026 awalarab 	Trouble-tickets         	                             	700685511                    	New
+04/23/2026 awalarab 	Trouble-tickets-direct  	                             	C3700685511                  	New
+04/23/2026 sherholm 	serviceRequests/C3/70073	                             	C3/700731887                 	New
+04/23/2026 sherholm 	Tickets-count           	42                           	43                           	Mod
+04/23/2026 sherholm 	TACSR-count             	39                           	40                           	Mod
+04/23/2026 sherholm 	Tickets-count-direct    	39                           	40                           	Mod
+04/23/2026 sherholm 	Trouble-tickets         	                             	700731887                    	New
+04/23/2026 sherholm 	Trouble-tickets-direct  	                             	C3700731887                  	New
+04/23/2026 nmaiorel 	serviceRequests/C3/70066	                             	                             	Mod
+04/23/2026 nmaiorel 	SR-associated           	                             	2026-04-23T15:18:25+0000     	New
+04/23/2026 nmaiorel 	serviceRequests/C3/70066	                             	C3/700662408                 	New
+04/23/2026 nmaiorel 	Tickets-count           	41                           	42                           	Mod
+04/23/2026 nmaiorel 	TACSR-count             	38                           	39                           	Mod
+04/23/2026 nmaiorel 	Tickets-count-direct    	38                           	39                           	Mod
+04/23/2026 nmaiorel 	Trouble-tickets         	                             	700662408                    	New
+04/23/2026 nmaiorel 	Trouble-tickets-direct  	                             	C3700662408                  	New
+04/21/2026 kaself   	serviceRequests/C3/70039	                             	                             	Mod
+04/09/2026 kjermak  	serviceRequests/C3/70057	                             	                             	Mod
+04/08/2026 nmaiorel 	serviceRequests/C3/70054	                             	                             	Mod
+04/08/2026 nmaiorel 	SR-associated           	                             	2026-04-08T19:38:04+0000     	New
+04/08/2026 nmaiorel 	serviceRequests/C3/70054	                             	C3/700548633                 	New
+04/08/2026 nmaiorel 	Tickets-count           	40                           	41                           	Mod
+04/08/2026 nmaiorel 	TACSR-count             	37                           	38                           	Mod
+04/08/2026 nmaiorel 	Tickets-count-direct    	37                           	38                           	Mod
+04/08/2026 nmaiorel 	Trouble-tickets         	                             	700548633                    	New
+04/08/2026 nmaiorel 	Trouble-tickets-direct  	                             	C3700548633                  	New
+04/08/2026 dycolema 	serviceRequests/C3/70044	                             	                             	Mod
+04/08/2026 dycolema 	SR-associated           	                             	2026-04-06T13:20:30+0000     	New
+04/06/2026 kaself   	serviceRequests/C3/70039	                             	C3/700394777                 	New
+04/06/2026 kaself   	Tickets-count           	39                           	40                           	Mod
+04/06/2026 kaself   	TACSR-count             	36                           	37                           	Mod
+04/06/2026 kaself   	Tickets-count-direct    	36                           	37                           	Mod
+04/06/2026 kaself   	Trouble-tickets         	                             	700394777                    	New
+04/06/2026 kaself   	Trouble-tickets-direct  	                             	C3700394777                  	New
+04/04/2026 sbarshik 	serviceRequests/C3/70029	                             	                             	Mod
+04/04/2026 dycolema 	serviceRequests/C3/70044	                             	                             	Mod
+04/04/2026 dycolema 	Urgency-desc            	P2                           	P3                           	Mod
+04/04/2026 dycolema 	Urgency                 	4                            	6                            	Mod
+04/04/2026 dycolema 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/04/2026 dycolema 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/04/2026 trmahane 	serviceRequests/C3/70044	                             	                             	Mod
+04/04/2026 trmahane 	Urgency-desc            	P3                           	P2                           	Mod
+04/04/2026 trmahane 	Urgency                 	6                            	4                            	Mod
+04/04/2026 trmahane 	SR-associated           	                             	2026-03-31T08:34:21+0000     	New
+03/31/2026 shaurobe 	serviceRequests/C3/70055	                             	C3/700559418                 	New
+03/31/2026 shaurobe 	Tickets-count           	38                           	39                           	Mod
+03/31/2026 shaurobe 	TACSR-count             	35                           	36                           	Mod
+03/31/2026 shaurobe 	Tickets-count-direct    	35                           	36                           	Mod
+03/31/2026 shaurobe 	Trouble-tickets         	                             	700559418                    	New
+03/31/2026 shaurobe 	Trouble-tickets-direct  	                             	C3700559418                  	New
+03/30/2026 leoates  	serviceRequests/C3/70004	                             	                             	Mod
+03/29/2026 samaraga 	serviceRequests/C3/70053	                             	                             	Mod
+03/29/2026 samaraga 	SR-associated           	                             	2026-03-27T17:15:34+0000,2026	New
+03/29/2026 samaraga 	serviceRequests/C3/70053	                             	C3/700534940                 	New
+03/29/2026 samaraga 	Tickets-count           	37                           	38                           	Mod
+03/29/2026 samaraga 	TACSR-count             	34                           	35                           	Mod
+03/29/2026 samaraga 	Tickets-count-direct    	34                           	35                           	Mod
+03/29/2026 samaraga 	Trouble-tickets         	                             	700534940                    	New
+03/29/2026 samaraga 	Trouble-tickets-direct  	                             	C3700534940                  	New
+03/27/2026 alfraust 	serviceRequests/C3/70057	                             	C3/700576697                 	New
+03/27/2026 alfraust 	Tickets-count           	36                           	37                           	Mod
+03/27/2026 alfraust 	TACSR-count             	33                           	34                           	Mod
+03/27/2026 alfraust 	Tickets-count-direct    	33                           	34                           	Mod
+03/27/2026 alfraust 	Trouble-tickets         	                             	700576697                    	New
+03/27/2026 alfraust 	Trouble-tickets-direct  	                             	C3700576697                  	New
+03/26/2026 paparas  	serviceRequests/C3/70022	                             	                             	Mod
+03/26/2026 paparas  	SR-associated           	                             	2026-03-26T09:18:17+0000     	New
+03/26/2026 makowali 	serviceRequests/C3/70060	                             	C3/700607280                 	New
+03/26/2026 makowali 	Tickets-count           	35                           	36                           	Mod
+03/26/2026 makowali 	TACSR-count             	32                           	33                           	Mod
+03/26/2026 makowali 	Tickets-count-direct    	32                           	33                           	Mod
+03/26/2026 makowali 	Trouble-tickets         	                             	700607280                    	New
+03/26/2026 makowali 	Trouble-tickets-direct  	                             	C3700607280                  	New
+03/25/2026 digenov  	serviceRequests/C3/70050	                             	                             	Mod
+03/25/2026 digenov  	SR-associated           	                             	2026-03-24T21:31:35+0000,2026	New
+03/25/2026 digenov  	serviceRequests/C3/70050	                             	C3/700508663                 	New
+03/25/2026 digenov  	Tickets-count           	34                           	35                           	Mod
+03/25/2026 digenov  	TACSR-count             	31                           	32                           	Mod
+03/25/2026 digenov  	Tickets-count-direct    	31                           	32                           	Mod
+03/25/2026 digenov  	Trouble-tickets         	                             	700508663                    	New
+03/25/2026 digenov  	Trouble-tickets-direct  	                             	C3700508663                  	New
+03/24/2026 gcruztav 	serviceRequests/C3/70047	                             	C3/700478869                 	New
+03/24/2026 gcruztav 	Tickets-count           	33                           	34                           	Mod
+03/24/2026 gcruztav 	TACSR-count             	30                           	31                           	Mod
+03/24/2026 gcruztav 	Tickets-count-direct    	30                           	31                           	Mod
+03/24/2026 gcruztav 	Trouble-tickets         	                             	700478869                    	New
+03/24/2026 gcruztav 	Trouble-tickets-direct  	                             	C3700478869                  	New
+03/23/2026 jesanch2 	serviceRequests/C3/70057	                             	                             	Mod
+03/23/2026 jesanch2 	SR-associated           	                             	2026-03-23T08:15:08+0000,2026	New
+03/23/2026 jesanch2 	serviceRequests/C3/70057	                             	C3/700579020                 	New
+03/23/2026 jesanch2 	Tickets-count           	32                           	33                           	Mod
+03/23/2026 jesanch2 	TACSR-count             	29                           	30                           	Mod
+03/23/2026 jesanch2 	Tickets-count-direct    	29                           	30                           	Mod
+03/23/2026 jesanch2 	Trouble-tickets         	                             	700579020                    	New
+03/23/2026 jesanch2 	Trouble-tickets-direct  	                             	C3700579020                  	New
+03/23/2026 shaurobe 	serviceRequests/C3/70052	                             	C3/700520118                 	New
+03/23/2026 shaurobe 	Tickets-count           	31                           	32                           	Mod
+03/23/2026 shaurobe 	TACSR-count             	28                           	29                           	Mod
+03/23/2026 shaurobe 	Tickets-count-direct    	28                           	29                           	Mod
+03/23/2026 shaurobe 	Trouble-tickets         	                             	700520118                    	New
+03/23/2026 shaurobe 	Trouble-tickets-direct  	                             	C3700520118                  	New
+03/22/2026 vivikran 	serviceRequests/C3/70055	                             	                             	Mod
+03/20/2026 vasagraw 	Note                    	Eng-notes                    	Eng-notes                    	Mod
+03/20/2026 vasagraw 	Note                    	Eng-notes                    	Eng-notes                    	Mod
+03/19/2026 pisces   	VF-patched              	                             	NX-OS:10.4(7),NX-OS:10.5(5)  	New
+03/19/2026 adakaush 	serviceRequests/C3/70043	                             	                             	Mod
+03/18/2026 megpande 	serviceRequests/C3/70039	                             	                             	Mod
+03/18/2026 megpande 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2026 megpande 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/18/2026 megpande 	Known-fixed-releases    	                             	10.4(7)                      	New
+03/16/2026 aalbliwi 	serviceRequests/C3/70053	                             	                             	Mod
+03/16/2026 aalbliwi 	SR-associated           	                             	2026-03-16T02:57:55+0000,2026	New
+03/16/2026 aalbliwi 	serviceRequests/C3/70053	                             	C3/700534608                 	New
+03/16/2026 aalbliwi 	Tickets-count           	30                           	31                           	Mod
+03/16/2026 aalbliwi 	TACSR-count             	27                           	28                           	Mod
+03/16/2026 aalbliwi 	Tickets-count-direct    	27                           	28                           	Mod
+03/16/2026 aalbliwi 	Trouble-tickets         	                             	700534608                    	New
+03/16/2026 aalbliwi 	Trouble-tickets-direct  	                             	C3700534608                  	New
+03/15/2026 vivikran 	serviceRequests/C3/70055	                             	C3/700551945                 	New
+03/15/2026 vivikran 	Tickets-count           	29                           	30                           	Mod
+03/15/2026 vivikran 	TACSR-count             	26                           	27                           	Mod
+03/15/2026 vivikran 	Tickets-count-direct    	26                           	27                           	Mod
+03/15/2026 vivikran 	Trouble-tickets         	                             	700551945                    	New
+03/15/2026 vivikran 	Trouble-tickets-direct  	                             	C3700551945                  	New
+03/11/2026 cdetsbtk 	Security-screening-times	2026-02-09 14:12:07.000+0000 	2026-03-12 13:20:34.000+0000 	Mod
+03/11/2026 adakaush 	serviceRequests/C3/70043	                             	C3/700432044                 	New
+03/11/2026 adakaush 	Tickets-count           	28                           	29                           	Mod
+03/11/2026 adakaush 	TACSR-count             	25                           	26                           	Mod
+03/11/2026 adakaush 	Tickets-count-direct    	25                           	26                           	Mod
+03/11/2026 adakaush 	Trouble-tickets         	                             	700432044                    	New
+03/11/2026 adakaush 	Trouble-tickets-direct  	                             	C3700432044                  	New
+03/11/2026 bridahlq 	Note                    	Release-note                 	Release-note                 	Mod
+03/11/2026 bridahlq 	contents                	                             	Release-note-diff            	Mod
+03/11/2026 bridahlq 	FileSize                	130                          	957                          	Mod
+03/11/2026 bridahlq 	Headline                	TACACS Not Receiving AV-Pair 	TACACS Not Receiving AV-Pair 	Mod
+03/11/2026 bridahlq 	Summary                 	When TACACS is configured to 	When TACACS is configured to 	Mod
+03/11/2026 bridahlq 	Symptoms                	When TACACS is configured to 	When TACACS is configured to 	Mod
+03/06/2026 dherran  	serviceRequests/C3/70033	                             	                             	Mod
+03/06/2026 leoates  	serviceRequests/C3/70004	                             	                             	Mod
+03/06/2026 leoates  	SR-associated           	                             	2026-03-05T23:28:57+0000     	New
+03/05/2026 dherran  	serviceRequests/C3/70033	                             	C3/700338886                 	New
+03/05/2026 dherran  	Tickets-count           	27                           	28                           	Mod
+03/05/2026 dherran  	TACSR-count             	24                           	25                           	Mod
+03/05/2026 dherran  	Tickets-count-direct    	24                           	25                           	Mod
+03/05/2026 dherran  	Trouble-tickets         	                             	700338886                    	New
+03/05/2026 dherran  	Trouble-tickets-direct  	                             	C3700338886                  	New
+03/02/2026 aalbatsh 	serviceRequests/C3/70043	                             	                             	Mod
+03/02/2026 aalbatsh 	Urgency-desc            	NA                           	P3                           	Mod
+03/02/2026 aalbatsh 	Urgency                 	9                            	6                            	Mod
+03/01/2026 sarwchow 	serviceRequests/C3/70043	                             	                             	Mod
+03/01/2026 sarwchow 	SR-associated           	                             	2026-03-01T10:19:37+0000     	New
+03/01/2026 sarwchow 	serviceRequests/C3/70043	                             	C3/700439753                 	New
+03/01/2026 sarwchow 	Tickets-count           	26                           	27                           	Mod
+03/01/2026 sarwchow 	TACSR-count             	23                           	24                           	Mod
+03/01/2026 sarwchow 	Tickets-count-direct    	23                           	24                           	Mod
+03/01/2026 sarwchow 	Trouble-tickets         	                             	700439753                    	New
+03/01/2026 sarwchow 	Trouble-tickets-direct  	                             	C3700439753                  	New
+02/26/2026 palshanm 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+02/26/2026 palshanm 	Note Title              	                             	QR3F-V-comments              	New
+02/26/2026 palshanm 	Note Title              	                             	Pr5M-V-comments              	New
+02/24/2026 luwhelan 	serviceRequests/C3/70032	                             	                             	Mod
+02/24/2026 luwhelan 	SR-associated           	                             	2026-02-23T19:44:47+0000,2026	New
+02/24/2026 luwhelan 	serviceRequests/C3/70032	                             	C3/700328467                 	New
+02/24/2026 luwhelan 	Tickets-count           	25                           	26                           	Mod
+02/24/2026 luwhelan 	TACSR-count             	22                           	23                           	Mod
+02/24/2026 luwhelan 	Tickets-count-direct    	22                           	23                           	Mod
+02/24/2026 luwhelan 	Trouble-tickets         	                             	700328467                    	New
+02/24/2026 luwhelan 	Trouble-tickets-direct  	                             	C3700328467                  	New
+02/23/2026 epinedap 	serviceRequests/C3/70044	                             	C3/700440734                 	New
+02/23/2026 epinedap 	Tickets-count           	24                           	25                           	Mod
+02/23/2026 epinedap 	TACSR-count             	21                           	22                           	Mod
+02/23/2026 epinedap 	Tickets-count-direct    	21                           	22                           	Mod
+02/23/2026 epinedap 	Trouble-tickets         	                             	700440734                    	New
+02/23/2026 epinedap 	Trouble-tickets-direct  	                             	C3700440734                  	New
+02/19/2026 lsanche2 	serviceRequests/C3/70033	                             	                             	Mod
+02/19/2026 ealmoghr 	serviceRequests/C3/70040	                             	                             	Mod
+02/19/2026 ealmoghr 	SR-associated           	                             	2026-02-15T09:18:05+0000,2026	New
+02/15/2026 aalbatsh 	serviceRequests/C3/70043	                             	C3/700430549                 	New
+02/15/2026 aalbatsh 	Tickets-count           	23                           	24                           	Mod
+02/15/2026 aalbatsh 	TACSR-count             	20                           	21                           	Mod
+02/15/2026 aalbatsh 	Tickets-count-direct    	20                           	21                           	Mod
+02/15/2026 aalbatsh 	Trouble-tickets         	                             	700430549                    	New
+02/15/2026 aalbatsh 	Trouble-tickets-direct  	                             	C3700430549                  	New
+02/11/2026 cesasanc 	serviceRequests/C3/70022	                             	C3/700223995                 	New
+02/11/2026 cesasanc 	Tickets-count           	22                           	23                           	Mod
+02/11/2026 cesasanc 	TACSR-count             	19                           	20                           	Mod
+02/11/2026 cesasanc 	Tickets-count-direct    	19                           	20                           	Mod
+02/11/2026 cesasanc 	Trouble-tickets         	                             	700223995                    	New
+02/11/2026 cesasanc 	Trouble-tickets-direct  	                             	C3700223995                  	New
+02/11/2026 leoates  	serviceRequests/C3/70040	                             	                             	Mod
+02/11/2026 leoates  	SR-associated           	                             	2026-02-06T19:20:48+0000,2026	New
+02/10/2026 ealmoghr 	serviceRequests/C3/70040	                             	C3/700404971                 	New
+02/10/2026 ealmoghr 	Tickets-count           	21                           	22                           	Mod
+02/10/2026 ealmoghr 	TACSR-count             	18                           	19                           	Mod
+02/10/2026 ealmoghr 	Tickets-count-direct    	18                           	19                           	Mod
+02/10/2026 ealmoghr 	Trouble-tickets         	                             	700404971                    	New
+02/10/2026 ealmoghr 	Trouble-tickets-direct  	                             	C3700404971                  	New
+02/10/2026 leoates  	serviceRequests/C3/70040	                             	C3/700409043                 	New
+02/10/2026 leoates  	Tickets-count           	20                           	21                           	Mod
+02/10/2026 leoates  	TACSR-count             	17                           	18                           	Mod
+02/10/2026 leoates  	Tickets-count-direct    	17                           	18                           	Mod
+02/10/2026 leoates  	Trouble-tickets         	                             	700409043                    	New
+02/10/2026 leoates  	Trouble-tickets-direct  	                             	C3700409043                  	New
+02/09/2026 lsanche2 	serviceRequests/C3/70033	                             	C3/700336221                 	New
+02/09/2026 lsanche2 	Tickets-count           	19                           	20                           	Mod
+02/09/2026 lsanche2 	TACSR-count             	16                           	17                           	Mod
+02/09/2026 lsanche2 	Tickets-count-direct    	16                           	17                           	Mod
+02/09/2026 lsanche2 	Trouble-tickets         	                             	700336221                    	New
+02/09/2026 lsanche2 	Trouble-tickets-direct  	                             	C3700336221                  	New
+02/08/2026 cdetsbtk 	Security-screening-times	2025-10-09 09:26:47.000+0000 	2026-02-09 14:12:07.000+0000 	Mod
+02/07/2026 amendoz2 	serviceRequests/C3/70039	                             	C3/700398265                 	New
+02/07/2026 amendoz2 	Tickets-count           	18                           	19                           	Mod
+02/07/2026 amendoz2 	TACSR-count             	15                           	16                           	Mod
+02/07/2026 amendoz2 	Tickets-count-direct    	15                           	16                           	Mod
+02/07/2026 amendoz2 	Trouble-tickets         	                             	700398265                    	New
+02/07/2026 amendoz2 	Trouble-tickets-direct  	                             	C3700398265                  	New
+02/06/2026 leoates  	serviceRequests/C3/70004	                             	C3/700042048                 	New
+02/06/2026 leoates  	Tickets-count           	17                           	18                           	Mod
+02/06/2026 leoates  	TACSR-count             	14                           	15                           	Mod
+02/06/2026 leoates  	Tickets-count-direct    	14                           	15                           	Mod
+02/06/2026 leoates  	Trouble-tickets         	                             	700042048                    	New
+02/06/2026 leoates  	Trouble-tickets-direct  	                             	C3700042048                  	New
+02/06/2026 leoates  	Note                    	Release-note                 	Release-note                 	Mod
+02/06/2026 leoates  	File Name               	                             	Release-note-diff            	New
+02/06/2026 leoates  	Conditions              	Code version: 10.6(1)
+TACACS 	TACACS configured for non-mgm	Mod
+02/02/2026 jenniwil 	serviceRequests/C3/69982	                             	                             	Mod
+02/02/2026 jenniwil 	SR-associated           	                             	2026-01-20T14:20:01+0000     	New
+01/28/2026 clsulliv 	Note                    	Email-in.p10                 	Email-in.p10                 	Mod
+01/21/2026 rosorioo 	Note                    	Email-in.p10                 	Email-in.p10                 	Mod
+01/20/2026 swajsark 	serviceRequests/C3/70029	                             	C3/700299337                 	New
+01/20/2026 swajsark 	Tickets-count           	16                           	17                           	Mod
+01/20/2026 swajsark 	TACSR-count             	13                           	14                           	Mod
+01/20/2026 swajsark 	Tickets-count-direct    	13                           	14                           	Mod
+01/20/2026 swajsark 	Trouble-tickets         	                             	700299337                    	New
+01/20/2026 swajsark 	Trouble-tickets-direct  	                             	C3700299337                  	New
+01/14/2026 rosorioo 	Note Title              	                             	Email-in.p10                 	New
+01/13/2026 pisces   	VF-patched              	                             	NX-OS:10.6(2),NX-OS:10.6(2s) 	New
+01/13/2026 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+01/13/2026 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+01/12/2026 ssvetosl 	serviceRequests/C3/70018	                             	                             	Mod
+01/12/2026 leoates  	serviceRequests/C3/70010	                             	                             	Mod
+01/08/2026 vasagraw 	Note                    	R-comments                   	R-comments                   	Mod
+01/08/2026 vasagraw 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+01/08/2026 vasagraw 	Note                    	R-comments                   	R-comments                   	Mod
+01/08/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_6.p	New
+01/08/2026 nxbld    	Multi-commit-flag       	                             	Y                            	Mod
+01/08/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_6  	New
+01/05/2026 arbandyo 	serviceRequests/C3/70010	                             	                             	Mod
+01/05/2026 arbandyo 	SR-associated           	                             	2025-12-24T15:33:39+0000,2025	New
+12/24/2025 vborisla 	serviceRequests/C3/70018	                             	C3/700189940                 	New
+12/24/2025 vborisla 	Tickets-count           	15                           	16                           	Mod
+12/24/2025 vborisla 	TACSR-count             	12                           	13                           	Mod
+12/24/2025 vborisla 	Tickets-count-direct    	12                           	13                           	Mod
+12/24/2025 vborisla 	Trouble-tickets         	                             	700189940                    	New
+12/24/2025 vborisla 	Trouble-tickets-direct  	                             	C3700189940                  	New
+12/23/2025 arbandyo 	serviceRequests/C3/70010	                             	C3/700108618                 	New
+12/23/2025 arbandyo 	Tickets-count           	14                           	15                           	Mod
+12/23/2025 arbandyo 	TACSR-count             	11                           	12                           	Mod
+12/23/2025 arbandyo 	Tickets-count-direct    	11                           	12                           	Mod
+12/23/2025 arbandyo 	Trouble-tickets         	                             	700108618                    	New
+12/23/2025 arbandyo 	Trouble-tickets-direct  	                             	C3700108618                  	New
+12/22/2025 lingliwa 	Tickets-count           	13                           	14                           	Mod
+12/22/2025 lingliwa 	Trouble-tickets         	                             	699955402                    	New
+12/22/2025 lingliwa 	Trouble-tickets-indirect	                             	C3/699955402                 	New
+12/21/2025 oelqasem 	serviceRequests/C3/70014	                             	                             	Mod
+12/21/2025 oelqasem 	SR-associated           	                             	2025-12-20T08:40:08+0000,2025	New
+12/20/2025 shaurobe 	serviceRequests/C3/70008	                             	C3/700089415                 	New
+12/20/2025 shaurobe 	Tickets-count           	12                           	13                           	Mod
+12/20/2025 shaurobe 	TACSR-count             	10                           	11                           	Mod
+12/20/2025 shaurobe 	Tickets-count-direct    	10                           	11                           	Mod
+12/20/2025 shaurobe 	Trouble-tickets         	                             	700089415                    	New
+12/20/2025 shaurobe 	Trouble-tickets-direct  	                             	C3700089415                  	New
+12/19/2025 oelqasem 	serviceRequests/C3/70014	                             	C3/700144683                 	New
+12/19/2025 oelqasem 	Tickets-count           	11                           	12                           	Mod
+12/19/2025 oelqasem 	TACSR-count             	9                            	10                           	Mod
+12/19/2025 oelqasem 	Tickets-count-direct    	9                            	10                           	Mod
+12/19/2025 oelqasem 	Trouble-tickets         	                             	700144683                    	New
+12/19/2025 oelqasem 	Trouble-tickets-direct  	                             	C3700144683                  	New
+12/16/2025 synchub.g	Note                    	Email-in.p9                  	Email-in.p9                  	Mod
+12/16/2025 rosorioo 	Note Title              	                             	Email-in.p9                  	New
+12/16/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/16/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/16/2025 pisces   	Known-fixed-releases    	                             	10.6(2)                      	New
+12/15/2025 synchub.g	Note                    	Email-in.p8                  	Email-in.p8                  	Mod
+12/15/2025 clsulliv 	Note Title              	                             	Email-in.p8                  	New
+12/15/2025 synchub.g	Note                    	Email-in.p7                  	Email-in.p7                  	Mod
+12/15/2025 rosorioo 	Note Title              	                             	Email-in.p7                  	New
+12/15/2025 dcasalei 	Tickets-count           	10                           	11                           	Mod
+12/15/2025 dcasalei 	Trouble-tickets         	                             	700055718                    	New
+12/15/2025 dcasalei 	Trouble-tickets-indirect	                             	C3/700055718                 	New
+12/12/2025 synchub.g	Note                    	Email-in.p6                  	Email-in.p6                  	Mod
+12/12/2025 rosorioo 	Note Title              	                             	Email-in.p6                  	New
+12/12/2025 brsansom 	serviceRequests/C3/69999	                             	                             	Mod
+12/12/2025 brsansom 	SR-associated           	                             	2025-12-06T13:09:33+0000     	New
+12/11/2025 synchub.g	Note                    	Email-in.p5                  	Email-in.p5                  	Mod
+12/11/2025 jhjordan 	Note Title              	                             	Email-in.p5                  	New
+12/09/2025 synchub.g	Note                    	Email-in.p4                  	Email-in.p4                  	Mod
+12/09/2025 clsulliv 	Note Title              	                             	Email-in.p4                  	New
+12/08/2025 synchub.g	Note                    	Email-in.p3                  	Email-in.p3                  	Mod
+12/08/2025 vasagraw 	Note Title              	                             	Email-in.p3                  	New
+12/08/2025 synchub.g	Note                    	Email-in.p2                  	Email-in.p2                  	Mod
+12/08/2025 brsansom 	Note Title              	                             	Email-in.p2                  	New
+12/06/2025 oyasin   	serviceRequests/C3/70010	                             	C3/700102804                 	New
+12/06/2025 oyasin   	Tickets-count           	9                            	10                           	Mod
+12/06/2025 oyasin   	TACSR-count             	8                            	9                            	Mod
+12/06/2025 oyasin   	Tickets-count-direct    	8                            	9                            	Mod
+12/06/2025 oyasin   	Trouble-tickets         	                             	700102804                    	New
+12/06/2025 oyasin   	Trouble-tickets-direct  	                             	C3700102804                  	New
+12/03/2025 viab     	serviceRequests/C3/69994	                             	                             	Mod
+12/03/2025 viab     	SR-associated           	                             	2025-12-04T02:33:04+0000     	New
+12/03/2025 viab     	serviceRequests/C3/69994	                             	C3/699941526                 	New
+12/03/2025 viab     	Tickets-count           	8                            	9                            	Mod
+12/03/2025 viab     	TACSR-count             	7                            	8                            	Mod
+12/03/2025 viab     	Tickets-count-direct    	7                            	8                            	Mod
+12/03/2025 viab     	Trouble-tickets         	                             	699941526                    	New
+12/03/2025 viab     	Trouble-tickets-direct  	                             	C3699941526                  	New
+12/03/2025 momirand 	serviceRequests/C3/70006	                             	                             	Mod
+12/03/2025 momirand 	SR-associated           	                             	2025-12-03T13:50:24+0000     	New
+12/03/2025 momirand 	serviceRequests/C3/70006	                             	C3/700061282                 	New
+12/03/2025 momirand 	Tickets-count           	7                            	8                            	Mod
+12/03/2025 momirand 	TACSR-count             	6                            	7                            	Mod
+12/03/2025 momirand 	Tickets-count-direct    	6                            	7                            	Mod
+12/03/2025 momirand 	Trouble-tickets         	                             	700061282                    	New
+12/03/2025 momirand 	Trouble-tickets-direct  	                             	C3700061282                  	New
+11/30/2025 palshanm 	Note Title              	                             	Automation-Log               	New
+11/30/2025 palshanm 	Automated-test          	N                            	Y                            	Mod
+11/30/2025 palshanm 	Note Title              	                             	V-comments.p2                	New
+11/30/2025 palshanm 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/25/2025 viab     	serviceRequests/C3/70004	                             	                             	Mod
+11/25/2025 viab     	SR-associated           	                             	2025-11-20T17:29:55+0000,2025	New
+11/25/2025 viab     	serviceRequests/C3/70004	                             	C3/700049274                 	New
+11/25/2025 viab     	Tickets-count           	6                            	7                            	Mod
+11/25/2025 viab     	TACSR-count             	5                            	6                            	Mod
+11/25/2025 viab     	Tickets-count-direct    	5                            	6                            	Mod
+11/25/2025 viab     	Trouble-tickets         	                             	700049274                    	New
+11/25/2025 viab     	Trouble-tickets-direct  	                             	C3700049274                  	New
+11/25/2025 avalonso 	serviceRequests/C3/69965	                             	                             	Mod
+11/25/2025 avalonso 	serviceRequests/C3/69965	                             	                             	Mod
+11/25/2025 avalonso 	serviceRequests/C3/69965	                             	C3/699650750                 	New
+11/25/2025 avalonso 	Tickets-count           	5                            	6                            	Mod
+11/25/2025 avalonso 	TACSR-count             	4                            	5                            	Mod
+11/25/2025 avalonso 	Tickets-count-direct    	4                            	5                            	Mod
+11/25/2025 avalonso 	Trouble-tickets         	                             	699650750                    	New
+11/25/2025 avalonso 	Trouble-tickets-direct  	                             	C3699650750                  	New
+11/20/2025 jokirkpa 	serviceRequests/C3/69982	                             	C3/699825218                 	New
+11/20/2025 jokirkpa 	Tickets-count           	4                            	5                            	Mod
+11/20/2025 jokirkpa 	TACSR-count             	3                            	4                            	Mod
+11/20/2025 jokirkpa 	Tickets-count-direct    	3                            	4                            	Mod
+11/20/2025 jokirkpa 	Trouble-tickets         	                             	699825218                    	New
+11/20/2025 jokirkpa 	Trouble-tickets-direct  	                             	C3699825218                  	New
+11/17/2025 synchub.g	Note                    	Email-in.p1                  	Email-in.p1                  	Mod
+11/17/2025 vasagraw 	Note Title              	                             	Email-in.p1                  	New
+11/11/2025 admohant 	serviceRequests/C3/69987	                             	                             	Mod
+11/11/2025 admohant 	SR-associated           	                             	2025-11-04T13:36:00+0000,2025	New
+11/09/2025 palshanm 	File Name               	                             	CSCwr61446_QR2F_Test_Logs.txt	New
+11/09/2025 palshanm 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/09/2025 palshanm 	Note Title              	                             	V-comments                   	New
+11/09/2025 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+11/09/2025 palshanm 	Status                  	R                            	V                            	Mod
+11/09/2025 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+11/09/2025 palshanm 	Verified-release        	                             	10.6(1)IMG9(0.158)           	New
+11/09/2025 palshanm 	Verified-confidence     	                             	tested                       	Mod
+11/09/2025 palshanm 	Verified-on             	                             	2025-11-09 09:09:52.000+0000 	Mod
+11/09/2025 palshanm 	statusStates            	                             	[status=R, startDate=Mon Oct 	New
+11/09/2025 palshanm 	statusStates            	[status=R, startDate=Mon Oct 	                             	Del
+11/09/2025 palshanm 	Age-status              	5                            	32                           	Mod
+11/09/2025 palshanm 	Mean-time-to-verified   	                             	31                           	Mod
+11/06/2025 vdani    	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/06/2025 samekama 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/06/2025 vasagraw 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/06/2025 vasagraw 	Integrated-releases     	                             	10.4(7),10.6(2)              	New
+11/06/2025 vasagraw 	Integrated-releases     	10.4(6.8),10.5(2)IMS9(0.146),	                             	Del
+11/06/2025 vasagraw 	Integrated-releases     	10.4(6.1)                    	                             	Del
+11/06/2025 vasagraw 	Version                 	                             	10.6(1)IMG9(0.139)           	New
+11/06/2025 vasagraw 	Integrated-releases     	                             	10.4(6.8),10.5(2)IMS9(0.146),	New
+11/06/2025 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/06/2025 vasagraw 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+11/06/2025 vasagraw 	Known-fixed-releases    	                             	10.5(4)                      	New
+11/06/2025 vasagraw 	Note                    	R-comments                   	R-comments                   	Mod
+11/06/2025 vasagraw 	Note                    	Eng-notes                    	Eng-notes                    	Mod
+11/06/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/06/2025 divshah  	Integrated-releases     	                             	10.4(6.1)                    	New
+11/06/2025 admohant 	serviceRequests/C3/69987	                             	C3/699874407                 	New
+11/06/2025 admohant 	Tickets-count           	3                            	4                            	Mod
+11/06/2025 admohant 	TACSR-count             	2                            	3                            	Mod
+11/06/2025 admohant 	Tickets-count-direct    	2                            	3                            	Mod
+11/06/2025 admohant 	Trouble-tickets         	                             	699874407                    	New
+11/06/2025 admohant 	Trouble-tickets-direct  	                             	C3699874407                  	New
+11/05/2025 divshah  	Note Title              	                             	smu_unit-test                	New
+11/04/2025 manojohn 	Attribute               	gnosis SVS-CITI-S520946-oib S	gnosis SVS-CITI-S520946-oib S	Mod
+11/04/2025 brsansom 	serviceRequests/C3/69999	                             	C3/699997647                 	New
+11/04/2025 brsansom 	Urgency-desc            	CL4                          	NA                           	Mod
+11/04/2025 brsansom 	Urgency                 	8                            	9                            	Mod
+11/04/2025 brsansom 	Tickets-count           	2                            	3                            	Mod
+11/04/2025 brsansom 	TACSR-count             	1                            	2                            	Mod
+11/04/2025 brsansom 	Tickets-count-direct    	1                            	2                            	Mod
+11/04/2025 brsansom 	Trouble-tickets         	                             	699997647                    	New
+11/04/2025 brsansom 	Trouble-tickets-direct  	                             	C3699997647                  	New
+11/03/2025 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+11/03/2025 abhigup7 	Note Title              	                             	Email-in                     	New
+11/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/31/2025 synchub.g	Note Type               	SS-Review                    	Other                        	Mod
+10/31/2025 synchub.g	Note                    	SS-Review                    	SS-Review                    	Mod
+10/31/2025 synchub.g	Note                    	DetectionLogic               	DetectionLogic               	Mod
+10/30/2025 vasagraw 	Note                    	Eng-notes                    	Eng-notes                    	Mod
+10/28/2025 vasagraw 	Note Title              	                             	SS-Review                    	New
+10/28/2025 vasagraw 	Related-bugs            	                             	Duplicate/CSCwr79925         	New
+10/28/2025 vasagraw 	Other-mail              	                             	mmaziark                     	Mod
+10/28/2025 vasagraw 	Version                 	                             	10.4(6)                      	New
+10/28/2025 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/28/2025 vasagraw 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/28/2025 vasagraw 	Known-affected-releases 	                             	10.4(6)                      	New
+10/28/2025 vasagraw 	Tickets-count           	1                            	2                            	Mod
+10/28/2025 vasagraw 	Trouble-tickets         	                             	699788692                    	New
+10/28/2025 vasagraw 	Trouble-tickets-indirect	                             	C3/699788692                 	New
+10/28/2025 rp       	File Name               	                             	gnosis_neg_CSCwr61446-negativ	New
+10/28/2025 rp       	Note Title              	                             	KnowledgeSignature           	New
+10/27/2025 rp       	Attribute               	SVS-CITI-S520946-oib SVS-CITI	gnosis SVS-CITI-S520946-oib S	Mod
+10/27/2025 seshea   	Note Title              	                             	DetectionLogic               	New
+10/24/2025 hehussai 	serviceRequests/C3/69984	                             	                             	Mod
+10/24/2025 hehussai 	Found                   	sol-test                     	customer-use                 	Mod
+10/24/2025 hehussai 	Urgency-desc            	NA                           	CL4                          	Mod
+10/24/2025 hehussai 	Urgency                 	9                            	8                            	Mod
+10/24/2025 hehussai 	Found-during            	Solution Test                	Customer                     	Mod
+10/24/2025 hehussai 	Activity-when-found     	Usability Testing            	Customer-Use                 	Mod
+10/23/2025 vasagraw 	Found                   	customer-use                 	sol-test                     	Mod
+10/23/2025 vasagraw 	Found-during            	Customer                     	Solution Test                	Mod
+10/23/2025 vasagraw 	Activity-when-found     	Customer-Use                 	Usability Testing            	Mod
+10/23/2025 vasagraw 	Detailed-activity       	Basic Functionality          	                             	Mod
+10/17/2025 hehussai 	Related-bugs            	                             	Teacat/CSCwr72921            	New
+10/17/2025 hehussai 	serviceRequests/C3/69984	                             	C3/699846034                 	New
+10/17/2025 hehussai 	Found                   	sol-test                     	customer-use                 	Mod
+10/17/2025 hehussai 	Teabugid                	                             	CSCwr72921                   	Mod
+10/17/2025 hehussai 	Urgency                 	                             	9                            	Mod
+10/17/2025 hehussai 	Found-during            	Solution Test                	Customer                     	Mod
+10/17/2025 hehussai 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+10/17/2025 hehussai 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+10/17/2025 hehussai 	Data-classification-reas	                             	Default value of Data-classif	Mod
+10/17/2025 hehussai 	Care-Update             	                             	Y                            	Mod
+10/17/2025 hehussai 	Submitted-on            	2025-10-08 16:42:52.744+0000 	2025-10-08 16:42:52.000+0000 	Mod
+10/17/2025 hehussai 	IFD-CFD-Conv-date       	                             	2025-10-17 10:46:02.000+0000 	Mod
+10/17/2025 hehussai 	New-on                  	2025-10-08 16:42:52.744+0000 	2025-10-08 16:42:52.000+0000 	Mod
+10/17/2025 hehussai 	Tickets-count           	0                            	1                            	Mod
+10/17/2025 hehussai 	TACSR-count             	                             	1                            	Mod
+10/17/2025 hehussai 	Tickets-count-direct    	                             	1                            	Mod
+10/17/2025 hehussai 	Trouble-tickets         	                             	699846034                    	New
+10/17/2025 hehussai 	Trouble-tickets-direct  	                             	C3699846034                  	New
+10/17/2025 hehussai 	Trouble-ticket-CFD      	                             	Y                            	Mod
+10/12/2025 vasagraw 	Note Title              	                             	R-comments                   	New
+10/12/2025 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+10/12/2025 vasagraw 	Status                  	A                            	R                            	Mod
+10/12/2025 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+10/12/2025 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+10/12/2025 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+10/12/2025 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+10/12/2025 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+10/12/2025 vasagraw 	Released-code           	                             	Y                            	Mod
+10/12/2025 vasagraw 	Test-escape             	N                            	Y                            	Mod
+10/12/2025 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+10/12/2025 vasagraw 	Test-EDP-activity       	                             	Regression Testing           	Mod
+10/12/2025 vasagraw 	Behavior-changed        	                             	N                            	Mod
+10/12/2025 vasagraw 	Original-resolved-on    	                             	2025-10-13 04:40:06.000+0000 	Mod
+10/12/2025 vasagraw 	Documents-changed       	                             	none                         	Mod
+10/12/2025 vasagraw 	More-on                 	                             	2025-10-13 04:40:06.000+0000 	Mod
+10/12/2025 vasagraw 	Opened-on               	                             	2025-10-13 04:40:06.000+0000 	Mod
+10/12/2025 vasagraw 	Resolved-on             	                             	2025-10-13 04:40:06.000+0000 	Mod
+10/12/2025 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Oct 	New
+10/12/2025 vasagraw 	statusStates            	[status=A, startDate=Wed Oct 	                             	Del
+10/12/2025 vasagraw 	Age-status              	0                            	5                            	Mod
+10/12/2025 vasagraw 	Mean-time-to-resolved   	                             	4                            	Mod
+10/12/2025 vasagraw 	Note Title              	                             	Eng-notes                    	New
+10/12/2025 kriprem  	Attribute               	SVS-CITI-S520946-oib SVS-CITI	SVS-CITI-S520946-oib SVS-CITI	Mod
+10/10/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/09/2025 kratnam  	Attribute               	SVS-CITI-S520946-oib SVS-CITI	SVS-CITI-S520946-oib SVS-CITI	Mod
+10/09/2025 kratnam  	Version                 	                             	10.5(3.147)                  	New
+10/09/2025 cms      	Note Title              	                             	Scrubnote                    	New
+10/08/2025 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+10/08/2025 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+10/08/2025 cdetsbtk 	Security-screening-times	                             	2025-10-09 09:26:47.000+0000 	Mod
+10/08/2025 bridahlq 	File Name               	                             	Debug_Output_AAA TACACS _10.6	New
+10/08/2025 samekama 	Note Title              	                             	A-comments                   	New
+10/08/2025 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+10/08/2025 samekama 	Status                  	N                            	A                            	Mod
+10/08/2025 samekama 	Engineer                	                             	vasagraw                     	Mod
+10/08/2025 samekama 	Assigner                	                             	samekama                     	Mod
+10/08/2025 samekama 	Assigned Date           	                             	2025-10-08 17:18:05.000+0000 	Mod
+10/08/2025 samekama 	statusStates            	                             	[status=N, startDate=Wed Oct 	New
+10/08/2025 samekama 	statusStates            	[status=N, startDate=Wed Oct 	                             	Del
+10/08/2025 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+10/08/2025 bridahlq 	File Name               	                             	Debug_Output_AAA TACACS _10.6	New
+10/08/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-825582       	New
+10/08/2025 cxtm-cdet	Attribute               	                             	SVS-CITI-S520946-oib SVS-CITI	Mod
+10/08/2025 bridahlq 	Is-reproducible         	No                           	Cisco Lab Reproduced         	Mod
+10/08/2025 bridahlq 	Note Title              	                             	reproduction-steps           	New
+10/08/2025 bridahlq 	File Name               	                             	Debug_Output_AAA TACACS _10.6	New
+10/08/2025 bridahlq 	File Name               	                             	Debug_Output_AAA TACACS _10.4	New
+10/08/2025 bridahlq 	Note Title              	                             	Release-note                 	New
+10/08/2025 bridahlq 	Headline                	                             	TACACS Not Receiving AV-Pair 	Mod
+10/08/2025 bridahlq 	Summary                 	                             	When TACACS is configured to 	Mod
+10/08/2025 bridahlq 	Project                 	                             	CSC.datacenter               	Mod
+10/08/2025 bridahlq 	Product                 	                             	n9k-standalone-sw            	Mod
+10/08/2025 bridahlq 	Component               	                             	aaa                          	Mod
+10/08/2025 bridahlq 	Status-desc             	                             	N-New                        	Mod
+10/08/2025 bridahlq 	Status                  	                             	N                            	Mod
+10/08/2025 bridahlq 	Found                   	                             	sol-test                     	Mod
+10/08/2025 bridahlq 	Hardening               	                             	N                            	Mod
+10/08/2025 bridahlq 	Original-found          	                             	sol-test                     	Mod
+10/08/2025 bridahlq 	Hardware                	                             	Nexus 9000                   	New
+10/08/2025 bridahlq 	Feature                 	                             	fix                          	Mod
+10/08/2025 bridahlq 	Urgency-desc            	                             	NA                           	Mod
+10/08/2025 bridahlq 	Severity-desc           	                             	severe                       	Mod
+10/08/2025 bridahlq 	Severity                	                             	2                            	Mod
+10/08/2025 bridahlq 	S1S2-without-workaround 	                             	Y                            	Mod
+10/08/2025 bridahlq 	DE Priority Desc        	                             	medium                       	Mod
+10/08/2025 bridahlq 	DE-priority             	                             	3                            	Mod
+10/08/2025 bridahlq 	Impact                  	                             	Features/Functionality,Ease-o	New
+10/08/2025 bridahlq 	Is-reproducible         	                             	No                           	Mod
+10/08/2025 bridahlq 	Submitter               	                             	bridahlq                     	Mod
+10/08/2025 bridahlq 	Submitter-manager       	                             	thfergus                     	Mod
+10/08/2025 bridahlq 	DE-manager              	                             	anikunna                     	Mod
+10/08/2025 bridahlq 	DTPT-manager            	                             	mukamath                     	Mod
+10/08/2025 bridahlq 	Version                 	                             	10.6(1),10.6(1s)             	New
+10/08/2025 bridahlq 	Original-version        	                             	10.6(1s)                     	Mod
+10/08/2025 bridahlq 	Found-during            	                             	Solution Test                	Mod
+10/08/2025 bridahlq 	Activity-when-found     	                             	Feature/ Functionality Testin	Mod
+10/08/2025 bridahlq 	Detailed-activity       	                             	Basic Functionality          	Mod
+10/08/2025 bridahlq 	Automated-test          	                             	N                            	Mod
+10/08/2025 bridahlq 	Automated-test-reason   	                             	Unknown                      	Mod
+10/08/2025 bridahlq 	Regression-submitter    	                             	Y                            	Mod
+10/08/2025 bridahlq 	Breakage                	                             	Yes, unknown source          	Mod
+10/08/2025 bridahlq 	Regression              	                             	Y                            	Mod
+10/08/2025 bridahlq 	Working-release-id      	                             	10.4(4)                      	New
+10/08/2025 bridahlq 	By-previous-commit-value	                             	Unknown                      	Mod
+10/08/2025 bridahlq 	Bug-origin              	                             	Code / Implementation        	Mod
+10/08/2025 bridahlq 	Origin                  	                             	base code                    	Mod
+10/08/2025 bridahlq 	Test-escape             	                             	N                            	Mod
+10/08/2025 bridahlq 	PSIRT                   	                             	N                            	Mod
+10/08/2025 bridahlq 	Data-classification     	                             	Cisco Confidential           	Mod
+10/08/2025 bridahlq 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+10/08/2025 bridahlq 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+10/08/2025 bridahlq 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/08/2025 bridahlq 	Software-type-ids       	                             	282253564,286280105,286321149	New
+10/08/2025 bridahlq 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/08/2025 bridahlq 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+10/08/2025 bridahlq 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+10/08/2025 bridahlq 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+10/08/2025 bridahlq 	MDF-edited              	                             	N                            	Mod
+10/08/2025 bridahlq 	Attribute2              	                             	n/a                          	Mod
+10/08/2025 bridahlq 	Doc-manager             	                             	anikunna                     	Mod
+10/08/2025 bridahlq 	Document                	                             	nexus                        	Mod
+10/08/2025 bridahlq 	Documentation-resolution	                             	Undefined                    	Mod
+10/08/2025 bridahlq 	Original-activity-when-f	                             	Feature/ Functionality Testin	Mod
+10/08/2025 bridahlq 	Original-found-during   	                             	Solution Test                	Mod
+10/08/2025 bridahlq 	Submitter-org-bug       	                             	CX GC.Cloud.SVS.AMER.NOPS.9-U	Mod
+10/08/2025 bridahlq 	Component-scenarios     	                             	N                            	Mod
+10/08/2025 bridahlq 	Submitted-on            	                             	2025-10-08 16:42:52.744+0000 	Mod
+10/08/2025 bridahlq 	New-on                  	                             	2025-10-08 16:42:52.744+0000 	Mod
+10/08/2025 bridahlq 	statusStates            	                             	[status=S, startDate=Wed Oct 	New
+10/08/2025 bridahlq 	Transition-day          	0                            	2460957                      	Mod
+10/08/2025 bridahlq 	Release-note-status     	                             	have                         	Mod
+10/08/2025 bridahlq 	Reported By             	                             	bridahlq                     	Mod
+10/08/2025 bridahlq 	Known-affected-releases 	                             	10.6(1)                      	New
+10/08/2025 bridahlq 	RNE-Type                	                             	NONE                         	Mod
+10/08/2025 bridahlq 	Justification           	                             	FCS Code                     	Mod
+10/08/2025 bridahlq 	Symptoms                	                             	When TACACS is configured to 	Mod
+10/08/2025 bridahlq 	Conditions              	                             	Code version: 10.6(1)
+TACACS 	Mod
+10/08/2025 bridahlq 	Workarounds             	                             	While customer could possibly	Mod
+10/08/2025 bridahlq 	Further-Problem-Descript	                             	Verified this works without i	Mod
+10/08/2025 bridahlq 	Tickets-count           	                             	0                            	Mod
+10/08/2025 bridahlq 	Class                   	                             	CSC.datacenter               	Mod
+10/08/2025 bridahlq 	Reti-bug                	                             	Y                            	Mod
+10/08/2025 bridahlq 	Defect Created          	                             	                             	New

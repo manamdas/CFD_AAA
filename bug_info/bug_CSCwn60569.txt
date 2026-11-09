@@ -1,0 +1,1054 @@
+*******************************************************************************
+
+Bug ID   : CSCwn60569         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : network-operator execute commands for admin after removing VSA on Radius-server
+PrimaryPV : 
+Version :10.5(2) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : N                 
+Software :                    Hardware : Nexus 9000         
+Submitter: ktakahag           Submitted: 12/23/2024 17:05:58     Last Updtd : 07/28/2026 09:27:53  
+RNE-Type: NONE                New-on : 12/23/2024 17:05:58      
+Root-cause-analysis:                                                  
+Interest : ddts-jp-nexus
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:rytakao                                             
+Known-affected-releases:10.5(2) 
+
+Known-fixed-releases:10.4(5) 10.5(3) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.2(9) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.5(1) 10.5(2) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 7.0(3)I7(10) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(3)D1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.2(10) 8.2(11) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.4(1) 8.4(10) 8.4(11) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 01/14/2025 06:01:07                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 13                                             
+Mean-time-to-resolved: 21                                             
+Mean-time-to-verified: 35     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 12/23/2024 17:05:58            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 01/05/2025 19:50:28 
+Code-reviewer: sarchand       
+Opened-on: 01/14/2025 06:01:07Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn tac-repro or5m-done or5m-m
+Est. completion date: 01/20/2025 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 01/14/2025 06:01:07  
+
+Documents Changed: none       Resolved: 01/14/2025 06:01:07 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 01/27/2025 21:04:42      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Japan-APAC-SNTC
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              698451050
+Trouble-tickets-direct :C3698451050 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 01/09/2025 02:44:29
+Document :    nexus
+
+Summary:
+Hardware: Nexus 9000 series switches
+Software: 10.5(2)F, customer confirmed that same symptom observed in 9.3(14), 10.3(6)
+
+A user as network-operator assined by radius VSA can execute commands for network-admin when :
+
+- The user was previously authenticated as network-admin
+- On radius-server, VSA for the user was removed(No VSA).
+- When the user is logged in, role for the user is network-operator, but can excute commands for network-admin
+
+This symptom can be recreated at Cisco lab. Please find steps-to-reproduce.
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         698451050       NTT COMMUNICATIONS CORPORATION           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-263569                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (10 of 10 ) ***********************
+
+---Start of Note Titled:  Email-in (Created 06/29/2025 22:15:06 Modified 06/29/2025 23:45:22 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Monday, June 30, 2025 at 6:22 AM 
+To: "Yoshiyuki Noda -X (ynoda)" <ynoda@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>
+Subject: Re: CSCwn60569:network-operator execute commands for admin after removing VSA on Radius-server
+
+Hi
+Yoshiyuki,
+ 
+The fix went into a common (to both RADIUS and TACACS) code area. So, TACACS is likely impacted by the bug.
+ 
+Regards,
+ 
+Vasu
+
+ 
+From:
+Yoshiyuki Noda -X (ynoda) <ynoda@cisco.com>
+Date: Monday, 30 June 2025 at 10:31?AM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>
+Subject: CSCwn60569:network-operator execute commands for admin after removing VSA on Radius-server
+
+
+Hi Vasu Agrawal,
+ 
+I am currently evaluating CSCwn60569 for a software recommendation for my Japanese customer.
+ 
+Is the DDTS CSCwn60569 a RADIUS specific issue?
+Are customers using TACACS+ safe?
+ 
+Best regards,
+Yoshiyuki Noda
+
+
+############################ MESSAGE IDS ############################
+# <DM6PR11MB30824C3CFAB84914F073D9F2BD46A@DM6PR11MB3082.namprd11.prod.outlook.com>
+# <CO1PR11MB5058C426B954CA689C8D2CDFC646A@CO1PR11MB5058.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  Automation-Log (Created 06/21/2025 11:18:56 Modified 06/22/2025 11:47:28 by palshanm)---
+Fail log - https://ngdevx.cisco.com/services/taas/results/fddd1efa-5e07-494f-a6e5-505b8f889de1
+Pass log - https://ngdevx.cisco.com/services/taas/results/18e047f7-2440-4a98-905c-9679ad3a1815
+
+GIT - https://wwwin-github.cisco.com/nexus-test-team/nexus-test-pyats/pull/8120
+PRRQ - https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CSCwn60569
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments (Created 01/27/2025 21:04:43 Added 01/27/2025 21:04:43 by palshanm)---
+1. S/W Version : 10.4(4.45)
+2. Platform : FX2
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Test Log Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 01/22/2025 09:26:10 Added 01/22/2025 09:26:10 by seshea)---
+--- Update 2025-01-22 17:26:09.389258 seshea (via 698538467)
+Unsuitable - Conditions too Generic
+from repro steps and bug info:
+- user needs to be previous configured as network-admin ON RADIUS only, not in nexus
+- user is then changed to network-operator on RADIUS only again, not nexus
+- nothing in configuration locally to indicate how this user is configured currently
+- AAA config is normal default config, all steps are in background and on radius server
+- affects ability to make config changes and show clis not normally available, cant digitize this from my perspective
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Unit-test_olympia_rel.p2 (Created 01/20/2025 06:01:36 Modified 01/20/2025 06:03:15 by divshah)---
+UNIT-TEST
+------------------------------------------
+TC 01 : VSA  WITH ADMIN ROLE IS PRESENT FOR THE USER ON RADIUS SERVER: 
+TC 02: VSA IS REMOVED FOR THE USER ON RADIUS SERVER:
+
+
+
+TC 01 : VSA  WITH ADMIN ROLE IS PRESENT FOR THE USER ON RADIUS SERVER: 
+bob Cleartext-Password := "bob123"
+#               Cisco-AVPair += "shell:roles=network-operator"
+                Cisco-AVPair += "shell:roles=network-admin,priv-1,priv-5"
+
+
+root@secdev-lnx:/home/admin# ssh bob@10.77.143.50
+
+vasu# show run                      <<<<<<<<<<<<< ABLE TO EXECUTE THE CLI AVAILABLE TO ADMIN
+
+!Command: show running-config        
+!Running configuration last done at: Mon Jan 20 09:25:15 2025
+!Time: Mon Jan 20 13:55:03 2025
+
+version 10.4(5) Bios:version 05.52 
+hostname vasu
+vdc vasu id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+
+
+TC02: VSA IS REMOVED FOR THE USER ON RADIUS SERVER:
+
+bob Cleartext-Password := "bob123"
+#               Cisco-AVPair += "shell:roles=network-operator"
+#               Cisco-AVPair += "shell:roles=network-admin,priv-1,priv-5"
+
+root@secdev-lnx:/home/admin# 
+root@secdev-lnx:/home/admin# ssh bob@10.77.143.50
+User Access Verification
+(bob@10.77.143.50) Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+vasu# 
+vasu# 
+vasu# show run           <<<<<<<<<<< ADMIN CLI NOT ALLOWED (AS EXPECTED)
+% Permission denied for the role
+
+
+
+---------------------
+PLATFORM INFO
+---------------------
+vasu# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.52
+  NXOS: version 10.4(5) [build 10.4(4.39)] [Maintenance Release]
+  Host NXOS: version 10.4(5) [build 10.4(4.39)]
+  BIOS compile time:  12/03/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.4.4.39.M_div.bin
+  NXOS compile time:  3/5/2025 31:00:00 [01/17/2025 08:14:48]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93600CD-GX Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 32803104 kB of memory.
+  Processor Board ID FDO243707PY
+  Device name: vasu
+  bootflash:  115805708 kB
+
+Kernel uptime is 0 day(s), 4 hour(s), 40 minute(s), 23 second(s)
+
+Last reset at 139763 usecs after Mon Jan 20 09:20:48 2025
+  Reason: Reset due to upgrade
+  System version: 9.3(15)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+vasu#
+---End of Note Titled: Unit-test_olympia_rel.p2---
+
+
+---Start of Note Titled: R-comments (Created 01/14/2025 06:01:07 Added 01/14/2025 06:01:07 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Unit-test (Created 01/13/2025 19:46:00 Added 01/13/2025 19:46:00 by qddts)---
+***************
+BEFORE SSH LOGIN OF THE REMOTE USER:
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Jan 13 10:19:23 2025
+!Time: Tue Jan 14 03:28:52 2025
+
+version 10.5(3) Bios:version 05.52 
+radius-server host 10.76.80.252 key 7 &quot;fewhg&quot; authentication accounting 
+aaa group server radius rad1 
+    server 10.76.80.252 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jan 13 10:19:23 2025
+!Time: Tue Jan 14 03:28:55 2025
+
+version 10.5(3) Bios:version 05.52 
+aaa authentication login default group rad1 
+aaa authentication login console local 
+
+switch(config)# 
+switch(config)# 
+switch(config)# no username bob
+switch(config)# 
+switch(config)#  show user-account bob
+user:bob does not exist
+switch(config)# 
+switch(config)# 
+switch(config)# run bash id bob
+id: &lsquo;bob&rsquo;: no such user
+switch(config)#
+***************
+
+
+***************
+VSA  WITH ADMIN ROLE IS PRESENT FOR THE USER ON RADIUS SERVER: 
+
+bob Cleartext-Password := &quot;bob123&quot;
+#               Cisco-AVPair += &quot;shell:roles=network-operator&quot;
+                Cisco-AVPair += &quot;shell:roles=network-admin,priv-1,priv-5&quot;
+***************
+
+
+***************
+SSH LOGIN WITH REMOTE USER:
+
+(~)$> ssh -l bob 10.77.143.50
+User Access Verification
+Password: 
+......
+......
+switch# 
+switch# show running-config         <<<<<<<<<<<<< ABLE TO EXECUTE THE CLI AVAILABLE TO ADMIN
+
+!Command: show running-config
+!Running configuration last done at: Tue Jan 14 03:29:34 2025
+!Time: Tue Jan 14 03:32:51 2025
+
+version 10.5(3) Bios:version 05.52 
+vdc switch id 1
+  limit-resource vlan minimum 16 maximum 4094
+......
+***************
+
+
+***************
+AFTER SSH LOGIN:
+
+switch(config)# 
+switch(config)# show user-account bob
+user:bob
+        roles:network-admin priv-1 priv-5 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+switch(config)# run bash id bob
+uid=2007(bob) gid=503(network-admin) groups=503(network-admin),504(network-operator),513(priv-1),523(priv-5)
+switch(config)# 
+***************
+
+
+
+***************
+VSA IS REMOVED FOR THE USER ON RADIUS SERVER:
+
+bob Cleartext-Password := &quot;bob123&quot;
+# Commented out               Cisco-AVPair += &quot;shell:roles=network-admin,priv-1,priv-5&quot;
+***************
+
+
+***************
+SSH RE-LOGIN WITH REMOTE USER:
+
+(~)$> ssh -l bob 10.77.143.50
+User Access Verification
+Password: 
+......
+......
+switch# 
+switch# show running-config<<<<<<<<<<< ADMIN CLI NOT ALLOWED (AS EXPECTED)
+% Permission denied for the role
+switch# 
+***************
+
+
+***************
+AFTER SSH RE-LOGIN:
+
+switch(config)# 
+switch(config)# show user-account bob
+user:bob
+        roles:network-operator 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+switch(config)# 
+switch(config)#  run bash id bob
+uid=2007(bob) gid=504(network-operator) groups=504(network-operator)
+switch(config)# 
+***************
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 01/05/2025 21:21:27 Modified 06/02/2025 23:14:03 by cms)---
+{250603 palshanm S B} QA:Palani:Automation: New ETA 6/20
+{250403 palshanm S B} QA:Palani:Automation:ETA 4/17
+{250312 palshanm S B} Identified steps to automate using ISE. Will start scripting next week
+{250121 srisund S B} PR raised
+{250120 samekama S B} OR5M changes done. UT in progress.
+{250113 samekama S B} Fix tested to be working. Additional UT being identified.
+{250110 samekama S B} Potential fix identified. In progress.
+{250109 samekama S B} WIP for fix.
+{250108 samekama S B} Day-1 issue. RCA done. Empty VSA string issue.
+{250107 samekama S B} RCA in progress.
+{250106 samekama S B} Came in during shutdown. Will start looking into it.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 12/23/2024 17:05:58 Modified 01/27/2025 21:04:43 by palshanm)---
+<B>Symptom:</B>
+A user as network-operator can excute commands that allowed for network-admin when the user was previously network-admin and VSA for the user was removed on radius-server.
+
+<B>Conditions:</B>
+Nexus 9000 Series running 10.5(2)F, may be observed in previous releases.
+A user was previously authenticated as network-admin with radius via VSA and VSA for that user was removed.
+
+<B>Workaround:</B>
+Assigning correct role (network-operator) on radius server
+or
+Reloading switch. After reload and the user log in, network-operator is assigned for that user and can not excute commands for network-admin
+
+<B>Further Problem Description:</B>
+Currently under investigation
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: reproduction-steps (Created 12/23/2024 17:05:58 Added 12/23/2024 17:05:58 by ktakahag)---
+1. Configure user3 as followed on radius server
+
+user3    Cleartext-Password := "cisco"
+Service-Type = NAS-Prompt-User,
+cisco-avpair := "shell:roles*\"network-admin network-operator\""
+
+
+
+2. login to switch with username user3, confirmed that role is network-admin and can execute show run
+
+N9K-C93600CD-GX-1# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    pts/11       Dec 24 00:16 00:01       25814 (10.71.168.203) session=ssh
+user3    pts/13       Dec 24 00:43   .         12898 (10.141.73.23) session=ssh *
+admin    pts/0        Dec 24 00:29 00:13        3184
+N9K-C93600CD-GX-1# show user-account
+user:admin
+        this user account has no expiry date
+        roles:network-admin
+user:user3
+        roles:network-admin network-operator
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+N9K-C93600CD-GX-1# show run
+
+!Command: show running-config
+!No configuration change since last restart
+!Time: Tue Dec 24 00:43:18 2024
+
+version 10.5(2) Bios:version 05.51
+hostname N9K-C93600CD-GX-1
+vdc N9K-C93600CD-GX-1 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+cfs eth distribute
+feature grpc
+feature interface-vlan
+feature analytics
+feature hsrp
+feature lacp
+feature vpc
+feature lldp
+feature telemetry
+N9K-C93600CD-GX-1#
+
+
+
+3. user3 logout from switch
+
+
+
+4. On Radius-server, delete "cisco-avpair" for user3 as followed
+
+user3    Cleartext-Password := "cisco"
+         Service-Type = NAS-Prompt-User
+
+
+
+5. login to switch with username user3, confirmed that role is network-operator but can execute show run, which should not be allowed for network-operator.
+
+N9K-C93600CD-GX-1# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    pts/11       Dec 24 00:16 00:02       25814 (10.71.168.203) session=ssh
+user3    pts/13       Dec 24 00:44   .         13909 (10.141.73.23) session=ssh *
+admin    pts/0        Dec 24 00:29 00:14        3184
+N9K-C93600CD-GX-1# show user-account
+user:admin
+        this user account has no expiry date
+        roles:network-admin
+user:user3
+        roles:network-operator
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+N9K-C93600CD-GX-1# show run
+
+!Command: show running-config
+!No configuration change since last restart
+!Time: Tue Dec 24 00:44:36 2024
+
+version 10.5(2) Bios:version 05.51
+hostname N9K-C93600CD-GX-1
+vdc N9K-C93600CD-GX-1 id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+cfs eth distribute
+feature grpc
+feature interface-vlan
+feature analytics
+feature hsrp
+feature lacp
+feature vpc
+feature lldp
+feature telemetry
+
+Not only for show run, changing configuration also allowed.
+
+N9K-C93600CD-GX-1# conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+N9K-C93600CD-GX-1(config)# int e 1/1
+N9K-C93600CD-GX-1(config-if)# show run int e 1/1
+
+!Command: show running-config interface Ethernet1/1
+!Running configuration last done at: Tue Dec 24 00:46:46 2024
+!Time: Tue Dec 24 00:46:49 2024
+
+version 10.5(2) Bios:version 05.51
+
+interface Ethernet1/1
+  switchport
+  switchport mode trunk
+  channel-group 2 mode active
+  no shutdown
+
+N9K-C93600CD-GX-1(config-if)# description test
+N9K-C93600CD-GX-1(config-if)# show run int e 1/1
+
+!Command: show running-config interface Ethernet1/1
+!Running configuration last done at: Tue Dec 24 00:46:53 2024
+!Time: Tue Dec 24 00:46:57 2024
+
+version 10.5(2) Bios:version 05.51
+
+interface Ethernet1/1
+  description test
+  switchport
+  switchport mode trunk
+  channel-group 2 mode active
+  no shutdown
+
+N9K-C93600CD-GX-1(config-if)# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    pts/11       Dec 24 00:16 00:01       25814 (10.71.168.203) session=ssh
+user3    pts/13       Dec 24 00:44 00:03       13909 (10.141.73.23) session=ssh
+admin    pts/0        Dec 24 00:29   .          3184 *
+N9K-C93600CD-GX-1(config-if)# show user-account
+user:admin
+        this user account has no expiry date
+        roles:network-admin
+user:user3
+        roles:network-operator
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (19 of 19)
+------------------------------------------------------------------------------------------------------------------
+N39K-QA-CFD-Script-Reviews-code-review            ascii text     939            prrqengg       06/22/2025 11:46:11      
+CSCwn60569_PR3F_Test_Logs.txt                     ascii text     20481          palshanm       02/28/2025 02:55:01      
+CSCwn60569_OR5M_Test_Logs.txt                     binary         38722          palshanm       01/27/2025 21:05:00      
+Diffs-commit-olympia_rel                          ascii text     2803           divshah        01/21/2025 03:44:18      
+code-review-olympia_rel.p4                        binary         1590           divshah        01/20/2025 22:30:55      
+code-review-olympia_rel.p3                        binary         1590           divshah        01/20/2025 21:50:42      
+code-review-olympia_rel.p2                        binary         1590           divshah        01/20/2025 21:47:16      
+PR-Description-51839                              ascii text     1137           divshah        01/20/2025 22:30:57      
+code-review-olympia_rel                           binary         1590           divshah        01/20/2025 21:36:20      
+ccwarnings-olympia_rel                            ascii text     182            baas           01/20/2025 06:56:53      
+static-analysis-olympia_rel                       ascii text     174136         baas           01/20/2025 06:56:16      
+Diffs-commit-nx_main                              binary         2706           vasagraw       01/14/2025 05:57:06      
+code-review-nx_main.p2                            binary         1382           vasagraw       01/13/2025 21:13:49      
+PR-Description-51479                              binary         926            vasagraw       01/13/2025 21:13:50      
+code-review-nx_main                               binary         1382           vasagraw       01/13/2025 21:12:00      
+vxlan_sanity_sanity_baseline_compare              ascii text     13644          root           01/20/2025 10:08:31      
+vxlan_sanity_sanity_report                        ascii text     9411           root           01/20/2025 10:08:31      
+ccwarnings-nx_main                                ascii text     182            baas           01/13/2025 11:26:47      
+static-analysis-nx_main                           ascii text     128235         baas           01/13/2025 11:26:10      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/28/2026 satdr    	Attribute               	cfd-mukamath tac-repro or5m-d	cfd-manojohn tac-repro or5m-d	Mod
+04/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/19/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/19/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/01/2025 pisces   	VF-patched              	                             	NX-OS:10.4(5),NX-OS:10.5(3),N	New
+07/01/2025 pisces   	VF-unpatched            	                             	NX-OS:10.2(9),NX-OS:10.4(4g),	New
+07/01/2025 pisces   	Potentially-affected-rel	                             	10.2(9),10.4(4g),9.3(15)     	New
+06/29/2025 vasagraw 	Note                    	Email-in                     	Email-in                     	Mod
+06/29/2025 ynoda    	Note Title              	                             	Email-in                     	New
+06/22/2025 palshanm 	Note                    	Automation-Log               	Automation-Log               	Mod
+06/22/2025 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+06/21/2025 palshanm 	Note Title              	                             	Automation-Log               	New
+06/21/2025 palshanm 	Automated-test          	N                            	Y                            	Mod
+06/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/01/2025 sajxavie 	Integrated-releases     	                             	10.5(3)                      	New
+05/01/2025 sajxavie 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/01/2025 sajxavie 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/01/2025 sajxavie 	Known-fixed-releases    	                             	10.5(3)                      	New
+04/08/2025 divvenka 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/03/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/11/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/07/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/07/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/07/2025 pisces   	Known-fixed-releases    	                             	10.4(5)                      	New
+02/28/2025 palshanm 	File Name               	                             	CSCwn60569_PR3F_Test_Logs.txt	New
+02/28/2025 palshanm 	Attribute               	cfd-mukamath tac-repro or5m-d	cfd-mukamath tac-repro or5m-d	Mod
+02/28/2025 palshanm 	Verified-release        	                             	10.5(2)IMG9(0.182)           	New
+02/24/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+02/24/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+02/11/2025 nxbld    	Integrated-releases     	                             	10.5(3)IQA9(0)               	New
+02/11/2025 nxbld    	Integrated-releases     	                             	10.5(3)IQA9(0.9)             	New
+02/11/2025 nxbld    	Apply-to                	                             	10.5(3)IQA9(0.9)             	New
+02/04/2025 sachinj  	Attribute               	tac-repro or5m-done or5m-muka	cfd-mukamath tac-repro or5m-d	Mod
+01/27/2025 palshanm 	Attribute               	tac-repro or5m-done or5m-muka	tac-repro or5m-done or5m-muka	Mod
+01/27/2025 palshanm 	File Name               	                             	CSCwn60569_OR5M_Test_Logs.txt	New
+01/27/2025 palshanm 	Note Title              	                             	V-comments                   	New
+01/27/2025 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+01/27/2025 palshanm 	Status                  	R                            	V                            	Mod
+01/27/2025 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+01/27/2025 palshanm 	Verified-release        	                             	10.4(4.45)                   	New
+01/27/2025 palshanm 	Verified-confidence     	                             	tested                       	Mod
+01/27/2025 palshanm 	Verified-on             	                             	2025-01-28 05:04:42.000+0000 	Mod
+01/27/2025 palshanm 	statusStates            	                             	[status=R, startDate=Tue Jan 	New
+01/27/2025 palshanm 	statusStates            	[status=R, startDate=Tue Jan 	                             	Del
+01/27/2025 palshanm 	Age-status              	21                           	35                           	Mod
+01/27/2025 palshanm 	Mean-time-to-verified   	                             	35                           	Mod
+01/27/2025 spatllol 	Attribute               	tac-repro or5m-done or5m-muka	tac-repro or5m-done or5m-muka	Mod
+01/23/2025 ktakahag 	serviceRequests/C3/69845	                             	                             	Mod
+01/23/2025 ktakahag 	Urgency-desc            	P3                           	CL3                          	Mod
+01/22/2025 laramesh 	Attribute               	tac-repro or5m-done          	tac-repro or5m-done or5m-muka	Mod
+01/22/2025 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+01/21/2025 nxbld    	Integrated-releases     	                             	10.4(5)                      	New
+01/21/2025 nxbld    	Integrated-releases     	                             	10.4(4.44)                   	New
+01/21/2025 nxbld    	Apply-to                	                             	10.4(4.44)                   	New
+01/21/2025 divshah  	Attribute               	tac-repro olympia-done       	tac-repro or5m-done          	Mod
+01/21/2025 divshah  	Attribute               	tac-repro                    	tac-repro olympia-done       	Mod
+01/21/2025 divshah  	Code-reviewer           	vasagraw                     	                             	Del
+01/21/2025 divshah  	File Name               	                             	Diffs-commit-olympia_rel     	New
+01/21/2025 divshah  	Multi-commit-flag       	                             	Y                            	Mod
+01/21/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/20/2025 divshah  	contents                	                             	PR-Description-51839         	Mod
+01/20/2025 divshah  	File Name               	                             	code-review-olympia_rel.p4   	New
+01/20/2025 divshah  	Engineer                	divshah                      	vasagraw                     	Mod
+01/20/2025 divshah  	Code-reviewer           	                             	vasagraw                     	New
+01/20/2025 divshah  	contents                	                             	PR-Description-51839         	Mod
+01/20/2025 divshah  	File Name               	                             	code-review-olympia_rel.p3   	New
+01/20/2025 divshah  	Engineer                	vasagraw                     	divshah                      	Mod
+01/20/2025 divshah  	contents                	                             	PR-Description-51839         	Mod
+01/20/2025 divshah  	File Name               	                             	code-review-olympia_rel.p2   	New
+01/20/2025 divshah  	File Name               	                             	PR-Description-51839         	New
+01/20/2025 divshah  	File Name               	                             	code-review-olympia_rel      	New
+01/20/2025 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+01/20/2025 root     	FileSize                	13328                        	13644                        	Mod
+01/20/2025 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+01/20/2025 root     	FileSize                	9420                         	9411                         	Mod
+01/20/2025 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+01/20/2025 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+01/20/2025 divshah  	Note                    	Unit-test_olympia_rel.p2     	Unit-test_olympia_rel.p2     	Mod
+01/20/2025 divshah  	Note Title              	                             	Unit-test_olympia_rel.p2     	New
+01/19/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/16/2025 cms      	Est-fix-date            	2025-01-13 08:00:00.000+0000 	2025-01-20 08:00:00.000+0000 	Mod
+01/14/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMG9(0)               	New
+01/14/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMG9(0.93)            	New
+01/14/2025 nxbld    	Apply-to                	                             	10.5(2)IMG9(0.93)            	New
+01/14/2025 vasagraw 	Note Title              	                             	R-comments                   	New
+01/14/2025 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+01/14/2025 vasagraw 	Status                  	A                            	R                            	Mod
+01/14/2025 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+01/14/2025 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+01/14/2025 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+01/14/2025 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+01/14/2025 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+01/14/2025 vasagraw 	Breakage                	                             	No                           	Mod
+01/14/2025 vasagraw 	Regression              	                             	N                            	Mod
+01/14/2025 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+01/14/2025 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+01/14/2025 vasagraw 	Released-code           	                             	Y                            	Mod
+01/14/2025 vasagraw 	Origin                  	                             	base code                    	Mod
+01/14/2025 vasagraw 	Test-escape             	N                            	Y                            	Mod
+01/14/2025 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+01/14/2025 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+01/14/2025 vasagraw 	TPS_issue               	                             	N                            	Mod
+01/14/2025 vasagraw 	TPS_flag                	                             	N                            	Mod
+01/14/2025 vasagraw 	Behavior-changed        	                             	N                            	Mod
+01/14/2025 vasagraw 	Original-resolved-on    	                             	2025-01-14 14:01:07.000+0000 	Mod
+01/14/2025 vasagraw 	Documents-changed       	                             	none                         	Mod
+01/14/2025 vasagraw 	More-on                 	                             	2025-01-14 14:01:07.000+0000 	Mod
+01/14/2025 vasagraw 	Opened-on               	                             	2025-01-14 14:01:07.000+0000 	Mod
+01/14/2025 vasagraw 	Resolved-on             	                             	2025-01-14 14:01:07.000+0000 	Mod
+01/14/2025 vasagraw 	statusStates            	                             	[status=A, startDate=Mon Jan 	New
+01/14/2025 vasagraw 	statusStates            	[status=A, startDate=Mon Jan 	                             	Del
+01/14/2025 vasagraw 	Age-status              	13                           	21                           	Mod
+01/14/2025 vasagraw 	Mean-time-to-resolved   	                             	21                           	Mod
+01/14/2025 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+01/13/2025 vasagraw 	contents                	                             	PR-Description-51479         	Mod
+01/13/2025 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+01/13/2025 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+01/13/2025 vasagraw 	File Name               	                             	PR-Description-51479         	New
+01/13/2025 vasagraw 	File Name               	                             	code-review-nx_main          	New
+01/13/2025 qddts    	Note Title              	                             	Unit-test                    	New
+01/13/2025 root     	File Name               	                             	vxlan_sanity_sanity_baseline_	New
+01/13/2025 root     	File Name               	                             	vxlan_sanity_sanity_report   	New
+01/13/2025 baas     	File Name               	                             	ccwarnings-nx_main           	New
+01/13/2025 baas     	File Name               	                             	static-analysis-nx_main      	New
+01/12/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/09/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/09/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/08/2025 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+01/08/2025 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+01/08/2025 cdetsbtk 	Security-screening-times	                             	2025-01-09 10:44:29.000+0000 	Mod
+01/07/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/07/2025 cms      	Est-fix-date            	                             	2025-01-13 08:00:00.000+0000 	Mod
+01/07/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/05/2025 cms      	Note Title              	                             	Scrubnote                    	New
+01/05/2025 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+01/05/2025 samekama 	Status                  	N                            	A                            	Mod
+01/05/2025 samekama 	Engineer                	                             	vasagraw                     	Mod
+01/05/2025 samekama 	Assigner                	                             	samekama                     	Mod
+01/05/2025 samekama 	Assigned Date           	                             	2025-01-06 03:50:28.000+0000 	Mod
+01/05/2025 samekama 	statusStates            	                             	[status=N, startDate=Tue Dec 	New
+01/05/2025 samekama 	statusStates            	[status=N, startDate=Tue Dec 	                             	Del
+01/05/2025 samekama 	Age-status              	0                            	13                           	Mod
+01/05/2025 samekama 	Mean-time-to-assigned   	                             	13                           	Mod
+12/23/2024 ktakahag 	Note Title              	reproduction-steps.p2        	                             	Del
+12/23/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-263569       	New
+12/23/2024 ktakahag 	Headline                	network-operator excute comma	network-operator execute comm	Mod
+12/23/2024 ktakahag 	serviceRequests/C3/69845	                             	C3/698451050                 	New
+12/23/2024 ktakahag 	Urgency-desc            	NA                           	P3                           	Mod
+12/23/2024 ktakahag 	Urgency                 	                             	6                            	Mod
+12/23/2024 ktakahag 	Tickets-count           	0                            	1                            	Mod
+12/23/2024 ktakahag 	TACSR-count             	                             	1                            	Mod
+12/23/2024 ktakahag 	Tickets-count-direct    	                             	1                            	Mod
+12/23/2024 ktakahag 	Trouble-tickets         	                             	698451050                    	New
+12/23/2024 ktakahag 	Trouble-tickets-direct  	                             	C3698451050                  	New
+12/23/2024 ktakahag 	Note Title              	                             	Release-note                 	New
+12/23/2024 ktakahag 	Note Title              	                             	reproduction-steps           	New
+12/23/2024 ktakahag 	Note Title              	                             	reproduction-steps.p2        	New
+12/23/2024 ktakahag 	Headline                	                             	network-operator excute comma	Mod
+12/23/2024 ktakahag 	Summary                 	                             	Hardware: Nexus 9000 series s	Mod
+12/23/2024 ktakahag 	Project                 	                             	CSC.datacenter               	Mod
+12/23/2024 ktakahag 	Product                 	                             	n9k-standalone-sw            	Mod
+12/23/2024 ktakahag 	Component               	                             	radius                       	Mod
+12/23/2024 ktakahag 	Status-desc             	                             	N-New                        	Mod
+12/23/2024 ktakahag 	Status                  	                             	N                            	Mod
+12/23/2024 ktakahag 	Found                   	                             	customer-use                 	Mod
+12/23/2024 ktakahag 	Hardening               	                             	N                            	Mod
+12/23/2024 ktakahag 	Product-owner           	                             	gsheehan                     	Mod
+12/23/2024 ktakahag 	Original-found          	                             	customer-use                 	Mod
+12/23/2024 ktakahag 	Hardware                	                             	Nexus 9000                   	New
+12/23/2024 ktakahag 	Feature                 	                             	fix                          	Mod
+12/23/2024 ktakahag 	Attribute               	                             	tac-repro                    	Mod
+12/23/2024 ktakahag 	Urgency-desc            	                             	NA                           	Mod
+12/23/2024 ktakahag 	Severity-desc           	                             	moderate                     	Mod
+12/23/2024 ktakahag 	Severity                	                             	3                            	Mod
+12/23/2024 ktakahag 	S1S2-without-workaround 	                             	N                            	Mod
+12/23/2024 ktakahag 	DE Priority Desc        	                             	medium                       	Mod
+12/23/2024 ktakahag 	DE-priority             	                             	3                            	Mod
+12/23/2024 ktakahag 	Impact                  	                             	Reliability,Integrity / Secur	New
+12/23/2024 ktakahag 	Is-reproducible         	                             	Cisco Lab Reproduced         	Mod
+12/23/2024 ktakahag 	Submitter               	                             	ktakahag                     	Mod
+12/23/2024 ktakahag 	Submitter-manager       	                             	rytakao                      	Mod
+12/23/2024 ktakahag 	DE-manager              	                             	anikunna                     	Mod
+12/23/2024 ktakahag 	Other-mail              	                             	ddts-jp-nexus                	Mod
+12/23/2024 ktakahag 	DTPT-manager            	                             	mukamath                     	Mod
+12/23/2024 ktakahag 	Version                 	                             	10.5(2)                      	New
+12/23/2024 ktakahag 	Original-version        	                             	10.5(2)                      	Mod
+12/23/2024 ktakahag 	Found-during            	                             	Customer                     	Mod
+12/23/2024 ktakahag 	Activity-when-found     	                             	Customer-Use                 	Mod
+12/23/2024 ktakahag 	Automated-test          	                             	N                            	Mod
+12/23/2024 ktakahag 	Test-escape             	                             	N                            	Mod
+12/23/2024 ktakahag 	PSIRT                   	                             	N                            	Mod
+12/23/2024 ktakahag 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+12/23/2024 ktakahag 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+12/23/2024 ktakahag 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+12/23/2024 ktakahag 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+12/23/2024 ktakahag 	Software-type-ids       	                             	282253564,286280105,286321149	New
+12/23/2024 ktakahag 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/23/2024 ktakahag 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+12/23/2024 ktakahag 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+12/23/2024 ktakahag 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+12/23/2024 ktakahag 	MDF-edited              	                             	N                            	Mod
+12/23/2024 ktakahag 	Attribute2              	                             	n/a                          	Mod
+12/23/2024 ktakahag 	Care-Update             	                             	Y                            	Mod
+12/23/2024 ktakahag 	Doc-manager             	                             	anikunna                     	Mod
+12/23/2024 ktakahag 	Document                	                             	nexus                        	Mod
+12/23/2024 ktakahag 	Documentation-resolution	                             	Undefined                    	Mod
+12/23/2024 ktakahag 	Original-activity-when-f	                             	Customer-Use                 	Mod
+12/23/2024 ktakahag 	Original-found-during   	                             	Customer                     	Mod
+12/23/2024 ktakahag 	Submitter-org-bug       	                             	Support DC-Japan-APAC-SNTC   	Mod
+12/23/2024 ktakahag 	Component-scenarios     	                             	N                            	Mod
+12/23/2024 ktakahag 	Submitted-on            	                             	2024-12-24 01:05:58.700+0000 	Mod
+12/23/2024 ktakahag 	IFD-CFD-Conv-date       	                             	2024-12-24 01:05:58.700+0000 	Mod
+12/23/2024 ktakahag 	New-on                  	                             	2024-12-24 01:05:58.700+0000 	Mod
+12/23/2024 ktakahag 	statusStates            	                             	[status=S, startDate=Tue Dec 	New
+12/23/2024 ktakahag 	Transition-day          	0                            	2460669                      	Mod
+12/23/2024 ktakahag 	Release-note-status     	                             	have                         	Mod
+12/23/2024 ktakahag 	Reported By             	                             	ktakahag                     	Mod
+12/23/2024 ktakahag 	Known-affected-releases 	                             	10.5(2)                      	New
+12/23/2024 ktakahag 	RNE-Type                	                             	NONE                         	Mod
+12/23/2024 ktakahag 	Symptoms                	                             	A user as network-operator ca	Mod
+12/23/2024 ktakahag 	Conditions              	                             	Nexus 9000 Series running 10.	Mod
+12/23/2024 ktakahag 	Workarounds             	                             	Assigning correct role (netwo	Mod
+12/23/2024 ktakahag 	Further-Problem-Descript	                             	Currently under investigation	Mod
+12/23/2024 ktakahag 	Tickets-count           	                             	0                            	Mod
+12/23/2024 ktakahag 	Class                   	                             	CSC.datacenter               	Mod
+12/23/2024 ktakahag 	Reti-bug                	                             	Y                            	Mod
+12/23/2024 ktakahag 	Defect Created          	                             	                             	New

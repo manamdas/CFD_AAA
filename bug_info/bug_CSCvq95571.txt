@@ -1,0 +1,1945 @@
+*******************************************************************************
+
+Bug ID   : CSCvq95571         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: radius             Severity: 2 (severe)     
+Headline : N9K: Radius authentication fails after reload/upgrade when DNS is used.
+PrimaryPV : 
+Version :7.0(3)I7(4) 9.3(1) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: atupatil           Submitted: 08/19/2019 07:45:53     Last Updtd : 08/05/2026 06:33:14  
+RNE-Type: NONE                New-on : 08/19/2019 07:45:54      
+Root-cause-analysis:                                                  
+Interest : vajose, afleck
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:                                                    
+Known-affected-releases:7.0(3)I7(4) 9.3(1) 
+
+Known-fixed-releases:7.0(3)I7(8) 9.3(2) 
+
+
+
+Potentially-affected-releases:5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.3(1) 8.3(2) 8.4(1) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(3) 9.3(6) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 02/23/2020 23:13:32                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 188                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 08/19/2019 02:44:39            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 08/19/2019 09:14:22 
+Code-reviewer:                
+Opened-on: 08/28/2019 05:58:17Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : girshank        Est Time/Attribute : gnosis gmr6-rne TAC_repro gmr7  gmr6-tb
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 08/28/2019 05:58:17  
+
+Documents Changed: none       Resolved: 02/23/2020 23:13:32 Resolver: girshank       
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCSW-RTP
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              685502560
+Trouble-tickets-direct :C3685502560 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 08/26/2019 01:14:59
+Document :    nexus
+
+Summary:
+Please TAC repro detail
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         685502560       TWO SIGMA INVESTMENTS C/O CYRU           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1263667               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 girshank      02/23/2020 23:12:27    CSCvt15723      CSC.tea         R            
+
+
+********************* Listing of Notes (20 of 20 ) ***********************
+
+---Start of Note Titled: V-comments.p2 (Created 01/13/2020 05:13:40 Added 01/13/2020 05:13:40 by palshanm)---
+Bug fix is verified in GMR7 release using 7.0(3)I7(7.38) build.
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled:  static-analysis-greensboro (Created 12/05/2019 00:11:40 Modified 12/05/2019 00:11:41 by baas)---
+# Enclosure (static-analysis-greensboro) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvq95571).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6922
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build 
+# Generated at
+#     Thu Dec  5 08:11:34 2019 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_1e0a2ada.49030.baas.1575533412
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_1e0a2ada.49030.baas.1575533412':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/12052019/For_SA_Debugging-baas-00-10-14 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/49040-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/49040-diff-file.txt 
+Found C file : feature/security/dnscache/dns_cache.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch greensboro.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/filelist.filtered -branch greensboro -cov7  -use_cc_cmd 
+
+Unable to locate /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/pctmp/top_level_sa_custom.json  
+TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/libdnscache/sup/dns_cache.lo 
+Altered cc_cmd : ARCH=x86e x86-64-wrswrap-linux-gnu-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/dnscache -I../feature/security/tacacs -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../feature/security/dnscache -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_map.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache//wr-x86-xeon/5.0-rcpl42g/sysroots/intel_xeon_core_32-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=return-type -O1 -rdynamic -w -DINS_EOR -rdynamic -fPIC -DPIC -U_IO_MTSAFE_IO -c -MMD -MT ins/x86e/final/libdnscache/sup/dns_cache.lo -MF ins/x86e/final/libdnscache/sup/dns_cache.ld -o ins/x86e/final/libdnscache/sup/dns_cache.lo ../feature/security/dnscache/dns_cache.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/greensboro  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/command_file_list.baas.49206  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - stream_name-> greensboro-nchan
+WARN - security tag -> https
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/feature/security/dnscache/dns_cache.c
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 11
+Total parent warnings: 8
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=greensboro-nchan&cid=73625&cid=19071&cid=16517&cid=32982&cid=25558&cid=32122&cid=37747&cid=22532&cid=70690
+Analysis archive: /auto/sa-html1/cov8/archive/greensboro/nchan/greensboro-nchan_20191205_081119/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA PASSED2:
+  feature/security/dnscache/dns_cache.c
+SESLOG = /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/ses_static_analysis.log
+dirname = /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build
+sa_passed_home = /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/pctmp/pass
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/12052019/For_SA_Debugging-baas-00-10-14 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20191204_22011575525716/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+---End of Note Titled: static-analysis-greensboro---
+
+
+---Start of Note Titled:  unit-test-GMR7 (Created 12/03/2019 00:44:32 Modified 12/03/2019 00:44:33 by vasagraw)---
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.59
+ NXOS: version 9.3(3) [build 9.3(3)IDI9(0.431)]
+  System version: 
+switch(config)# 
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Dec  3 08:22:51 2019
+!Time: Tue Dec  3 08:22:58 2019
+
+version 9.3(3) Bios:version 07.59 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+radius-server host dummy-1 key 7 "dxg123" authentication accounting 
+radius-server host dummy-2 key 7 "dxg123" authentication accounting 
+radius-server host dummy-3 key 7 "dxg123" authentication accounting 
+radius-server host dummy-4 key 7 "dxg123" authentication accounting 
+radius-server host dummy-5 key 7 "dxg123" authentication accounting 
+radius-server host dummy-6 key 7 "dxg123" authentication accounting 
+radius-server host dummy-7 key 7 "dxg123" authentication accounting 
+radius-server host dummy-8 key 7 "dxg123" authentication accounting 
+radius-server host dummy-9 key 7 "dxg123" authentication accounting 
+radius-server host dummy-10 key 7 "dxg123" authentication accounting 
+radius-server host dummy-21 key 7 "dxg123" authentication accounting 
+radius-server host dummy-22 key 7 "dxg123" authentication accounting 
+radius-server host dummy-23 key 7 "dxg123" authentication accounting 
+radius-server host dummy-24 key 7 "dxg123" authentication accounting 
+radius-server host dummy-25 key 7 "dxg123" authentication accounting 
+radius-server host dummy-26 key 7 "dxg123" authentication accounting 
+radius-server host dummy-27 key 7 "dxg123" authentication accounting 
+radius-server host dummy-28 key 7 "dxg123" authentication accounting 
+radius-server host dummy-29 key 7 "dxg123" authentication accounting 
+radius-server host dummy-30 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch(config)#        
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Dec  3 08:22:51 2019
+!Time: Tue Dec  3 08:23:08 2019
+
+version 9.3(3) Bios:version 07.59 
+feature tacacs+
+
+tacacs-server key 7 "wawycet"
+ip tacacs source-interface mgmt0
+tacacs-server timeout 8
+tacacs-server host access-tools.cisco.com key 7 "wawyanb123" 
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+tacacs-server host access-tools key 7 "fewhg123" 
+aaa group server tacacs+ tac1 
+    server access-tools.cisco.com 
+    server 10.77.143.170 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# ping access-tools vrf management 
+PING access-tools.cisco.com (10.77.143.170): 56 data bytes
+64 bytes from 10.77.143.170: icmp_seq=0 ttl=63 time=0.63 ms
+64 bytes from 10.77.143.170: icmp_seq=1 ttl=63 time=0.432 ms
+64 bytes from 10.77.143.170: icmp_seq=2 ttl=63 time=0.475 ms
+64 bytes from 10.77.143.170: icmp_seq=3 ttl=63 time=0.489 ms
+64 bytes from 10.77.143.170: icmp_seq=4 ttl=63 time=0.459 ms
+^C
+--- access-tools.cisco.com ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 0.432/0.497/0.63 ms
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 abc abc
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 tom tom123
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 nxopeuser nxopeuser
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 abc abc
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 tom tom123
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaaa
+                                       ^
+% Invalid command at '^' marker.
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Dec  3 08:22:51 2019
+!Time: Tue Dec  3 08:24:30 2019
+
+version 9.3(3) Bios:version 07.59 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa accounting default group tac1 
+radius-server directed-request 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# boot nxos nxos.7.0.3.I7.7.16.bin
+Performing image verification and compatibility check, please wait....
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show boot
+Current Boot Variables:
+sup-1
+NXOS variable = bootflash:/nxos.7.0.3.I7.7.16.bin
+Boot POAP Disabled
+
+Boot Variables on next reload:
+sup-1
+NXOS variable not set
+Boot POAP Disabled
+switch(config)# 
+switch(config)# 
+switch(config)# copy r s
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show boot
+Current Boot Variables:
+sup-1
+NXOS variable = bootflash:/nxos.7.0.3.I7.7.16.bin
+Boot POAP Disabled
+
+Boot Variables on next reload:
+sup-1
+NXOS variable = bootflash:/nxos.7.0.3.I7.7.16.bin
+Boot POAP Disabled
+switch(config)# 
+switch(config)# 
+switch(config)# reload
+This command will reboot the system. (y/n)?  [n] y
+[4
+CISCO SWITCH Ver7.59
+Device detected on 0:6:0 after 0 msecs  
+
+
+
+
+
+
+POST RELOAD
+
+
+
+
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Tue Dec  3 08:41:04 2019
+
+version 7.0(3)I7(8) Bios:version 07.59 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+radius-server host dummy-1 key 7 "dxg123" authentication accounting 
+radius-server host dummy-2 key 7 "dxg123" authentication accounting 
+radius-server host dummy-3 key 7 "dxg123" authentication accounting 
+radius-server host dummy-4 key 7 "dxg123" authentication accounting 
+radius-server host dummy-5 key 7 "dxg123" authentication accounting 
+radius-server host dummy-6 key 7 "dxg123" authentication accounting 
+radius-server host dummy-7 key 7 "dxg123" authentication accounting 
+radius-server host dummy-8 key 7 "dxg123" authentication accounting 
+radius-server host dummy-9 key 7 "dxg123" authentication accounting 
+radius-server host dummy-10 key 7 "dxg123" authentication accounting 
+radius-server host dummy-21 key 7 "dxg123" authentication accounting 
+radius-server host dummy-22 key 7 "dxg123" authentication accounting 
+radius-server host dummy-23 key 7 "dxg123" authentication accounting 
+radius-server host dummy-24 key 7 "dxg123" authentication accounting 
+radius-server host dummy-25 key 7 "dxg123" authentication accounting 
+radius-server host dummy-26 key 7 "dxg123" authentication accounting 
+radius-server host dummy-27 key 7 "dxg123" authentication accounting 
+radius-server host dummy-28 key 7 "dxg123" authentication accounting 
+radius-server host dummy-29 key 7 "dxg123" authentication accounting 
+radius-server host dummy-30 key 7 "dxg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch(config)#    
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Tue Dec  3 08:41:10 2019
+
+version 7.0(3)I7(8) Bios:version 07.59 
+feature tacacs+
+
+tacacs-server key 7 "wawycet"
+ip tacacs source-interface mgmt0
+tacacs-server timeout 8
+tacacs-server host access-tools.cisco.com key 7 "wawyanb123" 
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+tacacs-server host access-tools key 7 "fewhg123" 
+aaa group server tacacs+ tac1 
+    server access-tools.cisco.com 
+    server 10.77.143.170 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 abc abc
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 nxopeuser nxopeuser
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 abc abc
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 tom tom123
+user has been authenticated
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.59
+  NXOS: version 7.0(3)I7(8) [build 7.0(3)I7(7.16)]
+  System version: 9.3(3)
+switch(config)#
+---End of Note Titled: unit-test-GMR7---
+
+
+---Start of Note Titled: V-comments (Created 09/27/2019 02:15:16 Added 09/27/2019 02:15:16 by palshanm)---
+Bug fix is verified in IMR1 release using 9.3(1.74) build.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 09/09/2019 03:03:16 Added 09/09/2019 03:03:16 by manjanga)---
+https://gnosis.cisco.com/#!/signature/bug/5d760b2b7f6379a4353f9fc1/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 09/06/2019 13:25:28 Added 09/06/2019 13:25:28 by clsulliv)---
+Affects all N9K prior to 9.3(2) and I7(8)
+
+Check running config for radius server with DNS name
+
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication
+
+
+Then check to see if device has been reloaded/upgraded and check for the following syslogs:
+
+%RADIUS-3-RADIUS_ERROR_MESSAGE: RADIUS server vip-radius-general-ad.nje.twosigma.com failed to respond even after all retries
+%RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+
+or 
+
+2019 Aug 13 21:50:21 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+2019 Aug 13 21:51:36 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2019 Aug 13 21:52:19 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+2019 Aug 13 21:52:36 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2019 Aug 13 21:53:18 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: M-comments (Created 08/28/2019 05:58:17 Added 08/28/2019 05:58:17 by vasagraw)---
+committed fix to IMR1
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: static-analysis-irvine.p3 (Created 08/28/2019 01:32:57 Added 08/28/2019 01:32:57 by baas)---
+# Enclosure (static-analysis-irvine) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvq95571).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6537
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build 
+# Generated at
+#     Wed Aug 28 08:32:52 2019 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_1e0a2fd8.40781.baas.1566981071
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_1e0a2fd8.40781.baas.1566981071':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08282019/For_SA_Debugging-baas-01-31-12 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/40791-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/40791-diff-file.txt 
+Found C file : feature/security/dnscache/dns_cache.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/libdnscache/sup/dns_cache.lo 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/dnscache -I../feature/security/tacacs -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../feature/security/dnscache -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_map.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -O1 -rdynamic -w -DINS_EOR -rdynamic -fPIC -DPIC -U_IO_MTSAFE_IO -c -MMD -MT ins/x86e/final/libdnscache/sup/dns_cache.lo -MF ins/x86e/final/libdnscache/sup/dns_cache.ld -o ins/x86e/final/libdnscache/sup/dns_cache.lo ../feature/security/dnscache/dns_cache.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build/command_file_list.baas.40994  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - strem_name-> irvine-baas
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/feature/security/dnscache/dns_cache.c
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 11
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: http://nxops-sa-5:8182/query/defects.htm?stream=irvine-baas&cid=19071&cid=16517&cid=32982&cid=25558&cid=32122&cid=37747&cid=22532&cid=70690
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/baas/irvine-baas_20190828_083221/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA PASSED2:
+  feature/security/dnscache/dns_cache.c
+SESLOG = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build/ses_static_analysis.log
+dirname = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build
+sa_passed_home = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build/pctmp/pass
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08282019/For_SA_Debugging-baas-01-31-12 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20190827_22161566969413/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+---End of Note Titled: static-analysis-irvine.p3---
+
+
+---Start of Note Titled: static-analysis-irvine.p2 (Created 08/27/2019 05:17:35 Added 08/27/2019 05:17:35 by baas)---
+# Enclosure (static-analysis-irvine) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvq95571).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6923
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build 
+# Generated at
+#     Tue Aug 27 12:17:29 2019 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_1e0a2bda.15540.baas.1566908130
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_1e0a2bda.15540.baas.1566908130':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08272019/For_SA_Debugging-baas-05-15-31 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/15556-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/15556-diff-file.txt 
+Found C file : feature/security/dnscache/dns_cache.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/libdnscache/sup/dns_cache.lo 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/dnscache -I../feature/security/tacacs -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../feature/security/dnscache -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_map.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -O1 -rdynamic -w -DINS_EOR -rdynamic -fPIC -DPIC -U_IO_MTSAFE_IO -c -MMD -MT ins/x86e/final/libdnscache/sup/dns_cache.lo -MF ins/x86e/final/libdnscache/sup/dns_cache.ld -o ins/x86e/final/libdnscache/sup/dns_cache.lo ../feature/security/dnscache/dns_cache.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build/command_file_list.baas.15763  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - strem_name-> irvine-nchan
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/feature/security/dnscache/dns_cache.c
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 11
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: http://nxops-sa-5:8182/query/defects.htm?stream=irvine-nchan&cid=19071&cid=16517&cid=32982&cid=25558&cid=32122&cid=37747&cid=22532&cid=70690
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/nchan/irvine-nchan_20190827_121648/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA PASSED2:
+  feature/security/dnscache/dns_cache.c
+SESLOG = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build/ses_static_analysis.log
+dirname = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build
+sa_passed_home = /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build/pctmp/pass
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08272019/For_SA_Debugging-baas-05-15-31 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20190827_01471566895644/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+---End of Note Titled: static-analysis-irvine.p2---
+
+
+---Start of Note Titled: static-analysis-irvine (Created 08/27/2019 02:10:13 Added 08/27/2019 02:10:13 by baas)---
+# Enclosure (static-analysis-irvine) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvq95571).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-2284
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build 
+# Generated at
+#     Tue Aug 27 09:10:08 2019 UTC by baas
+# Enclosure contains contents of the following files:
+#     /tmp/sa_report_46abde3e.45772.baas.1566896920
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/tmp/sa_report_46abde3e.45772.baas.1566896920':
+INFO: ==== This is not a nested workspace === 
+INFO: WSROOT : /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace ===
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0mSleeping few seconds 
+[1;31m
+
+/auto/andatc/independent/acme_scripts/1.0/bin/static_dcos detected CCA environment variable. NX Build Team observer few issues with CCA SA runs.
+[0m[1;31m We advice you to abrot this run and execute SA without CCA 
+
+[0m[static_dcos]This is the start of static_dcos
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08272019/For_SA_Debugging-baas-02-08-40 
+ 
+ Coverity7 is used 
+Executing cmd cd /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace && acme diff > /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/45788-diff-file.txt 
+Reading /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/45788-diff-file.txt 
+Found C file : feature/security/dnscache/dns_cache.c 
+ nested_ws_pref :  
+ get_phase_containment_setup returned tool : coverity7 
+ TOOL : coverity7 
+Using_sa_tooltype coverity7 for branch irvine.
+ DISHONOR_USER_MARKED_PARENT is not set ..
+[static_dcos]About to run SA command below:
+
+/usr/cisco/bin/perl /auto/andatc/independent/acme_scripts/1.0/bin/static_nxos  -f /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build/filelist.filtered -branch irvine -cov7  -use_cc_cmd 
+
+TESTING 
+STATIC_NXOS_INFO: Cleaning ses*.log files before analysis...
+Verifying cc_cmd 1 files . It may take 0 minutes:30 seconds .. please wait ..
+Working ins/x86e/final/libdnscache/sup/dns_cache.lo 
+Altered cc_cmd : ARCH=x86e x86_64-wrs8-linux-gcc -I../routing-sw/include -I../routing-sw/include/pre-os -I../routing-sw/include/pre-os/x86e -I../include -I../include/dcos -I../routing-sw/include/post-os -I../routing-sw/include/kernel -I../feature/security/dnscache -I../feature/security/tacacs -I../feature/security -I../third-party/bin/x86s/openssl/ciscossl-fips/include -I../feature/security/dnscache -Iins/x86e/final/sup/include/cli -I../feature/nxos_config/ins -I../feature/nxos_config/ins/x86e -I../feature/nxos_config/ins/x86e/sup -I../third-party/bin/x86s/openssl/ciscossl-fips/include -include osc_map.h -DNDEBUG -DFINAL -DLCINST_DIR_PREFIX= -D__dcos__ -D__linux__ -D__EXCLUDE_SNMP__ -D__XOS_LINUX__ -DARCH_HAS_VDCS -DMAX_ALLOWED_VDC=17 -Wall -g -MP -pipe -fno-omit-frame-pointer --sysroot=/auto/andpkg/rep_cache/wr-x86/8.0/sysroots/CORE-ML-28/sysroots/corei7-64-wrs-linux -Wall -Werror -std=gnu99 -fno-omit-frame-pointer -Wno-pointer-sign -fgnu89-inline -fno-strict-aliasing -march=corei7 -m32 -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -pthread -Wno-error=unused-but-set-variable -DHAVE_RUSAGE_THREAD -DINS_GLOB_CONST -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-error=implicit-function-declaration -Wno-error=switch -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wno-error=unused-variable -Wno-error=unused-function -Wno-error=maybe-uninitialized -Wno-unused-parameter -Wno-uninitialized -Wno-ignored-qualifiers -O1 -rdynamic -w -DINS_EOR -rdynamic -fPIC -DPIC -U_IO_MTSAFE_IO -c -MMD -MT ins/x86e/final/libdnscache/sup/dns_cache.lo -MF ins/x86e/final/libdnscache/sup/dns_cache.ld -o ins/x86e/final/libdnscache/sup/dns_cache.lo ../feature/security/dnscache/dns_cache.c 
+ Not invoked by CCA workflow 
+STATIC_NXOS_INFO: Running samake command: /auto/ses/repository/coverity/cov7/bin/sa-make.pl  -allwarns  -debug-log static_nxos-baas.log  -branch nxos/irvine  -command-file-list /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build/command_file_list.baas.46001  -allwarns  -license /auto/ses/coverity/cov7/cov-analysis-linux64-7.5.1.5/bin/license.dat 
+INFO - Debug log file is static_nxos-baas.log
+INFO - Clearcase view: ** NONE **
+STATIC-0008-002I>Calling Coverity
+INFO - Starting build
+INFO - Starting static analysis
+INFO - Retrieving compiled files
+INFO - strem_name-> irvine-nchan
+SESTOOLS-001-008I>/nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/feature/security/dnscache/dns_cache.c
+INFO - Committing defects
+
+Total active warnings: 0
+Total noise  warnings: 11
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: http://nxops-sa-5:8182/query/defects.htm?stream=irvine-nchan&cid=19071&cid=16517&cid=32982&cid=25558&cid=32122&cid=37747&cid=22532&cid=70690
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/nchan/irvine-nchan_20190827_090941/sa_summary.tar.gz
+STATIC-003-523I>Static analysis completed
+STATIC-003-523I+Warnings are in 'ses_static_analysis.log'
+Done
+STATIC_NXOS_INFO: samake command completed 
+STATIC_NXOS_INFO: Static Analysis SUCCESS
+SA PASSED2:
+  feature/security/dnscache/dns_cache.c
+SESLOG = /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build/ses_static_analysis.log
+dirname = /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build
+sa_passed_home = /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build/pctmp/pass
+
+Please see the following log file: 
+ /auto/andlog/sa_debug_logs/08272019/For_SA_Debugging-baas-02-08-40 
+ 
+[static_dcos--main::debug_print]See /nobackup/baas/programs/fa_1_10_2/n9k/20190826_22581566885514/workspace/build/ses_static_analysis.log for entire SA result logfile.
+[static_dcos--main::debug_print]Exiting with exit_value as 0
+---End of Note Titled: static-analysis-irvine---
+
+
+---Start of Note Titled:  static-analysis (Created 08/27/2019 01:42:26 Modified 08/27/2019 01:42:27 by vasagraw)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvq95571).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/vasagraw/irvine_REL_9_3_1_9/build 
+# Generated at
+#     Tue Aug 27 08:42:23 2019 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     /nobackup/vasagraw/irvine_REL_9_3_1_9/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/vasagraw/irvine_REL_9_3_1_9/build/ses_static_analysis.log':
+@@Start processing of /nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c
+**Active warnings for /nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c
+**Noise warnings for /nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:238:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:918:array_null:NO_EFFECT:Comparing an array to null is not useful: "entry->serv_name != NULL", since the test will always evaluate as true. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:920:array_null:NO_EFFECT:Comparing an array to null is not useful: "entry->service != NULL", since the test will always evaluate as true. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1687:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1689:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1697:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1736:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:149:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:156:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:821:array_null:NO_EFFECT:Comparing an array to null is not useful: "ptr->ai_canonname[iter]", since the test will always evaluate as true. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:838:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+**Parent warnings for /nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1687:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 512 bytes on destination array "entry.serv_name" of size 512 bytes might leave the destination string unterminated. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1689:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 12 bytes on destination array "entry.service" of size 12 bytes might leave the destination string unterminated. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:1697:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 524 bytes on destination array "entry.cache_id" of size 524 bytes might leave the destination string unterminated. [coverity]
+/nobackup/vasagraw/irvine_REL_9_3_1_9/feature/security/dnscache/dns_cache.c:829:none:OVERRUN:Allocating insufficient memory for the terminating null of the string. [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 11
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: http://nxops-sa-5:8182/query/defects.htm?stream=irvine-vasagraw&cid=19071&cid=16517&cid=32982&cid=25558&cid=32122&cid=37747&cid=22532&cid=70690
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/vasagraw/irvine-vasagraw_20190827_084040/sa_summary.tar.gz
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled:  Unit-test (Created 08/26/2019 22:51:04 Modified 08/26/2019 22:51:05 by vasagraw)---
+N9K3(config)# 
+N9K3(config)# show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Mon Aug 26 09:23:48 2019
+
+version 9.3(2) Bios:version 07.66 
+radius-server key 7 "fewhg124"
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# test aaa group grp-radius atupatil Cisco!123
+user has been authenticated
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# boot nxos nxos.9.3.1.9.bin_PVT3
+Performing image verification and compatibility check, please wait....
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# copy r s
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# show boot
+Current Boot Variables:
+sup-1
+NXOS variable = bootflash:/nxos.9.3.1.9.bin_PVT3
+Boot POAP Disabled
+
+Boot Variables on next reload:
+sup-1
+NXOS variable = bootflash:/nxos.9.3.1.9.bin_PVT3
+Boot POAP Disabled
+N9K3(config)# 
+N9K3(config)# show startup-config radius 
+
+!Command: show startup-config radius
+!Time: Mon Aug 26 09:25:21 2019
+!Startup config saved at: Mon Aug 26 09:25:07 2019
+
+version 9.3(2) Bios:version 07.66 
+radius-server key 7 "fewhg124"
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# reload
+This command will reboot the system. (y/n)?  [n] y
+2019 Aug 26 09:25:29 N9K3 %$ VDC-1 %$ %VMAN-2-ACTIVATION_STATE: Successfully deactivated virtual service 'guestshell+'  
+2019 Aug 26 09:25:31 N9K3 %$ VDC-1 %$ %PLATFORM-2-PFM_SYSTEM_RESET: Manual system restart from Command Line Interface
+
+CISCO SWITCH Ver7.66
+Switch G2
+Device detected on 0:1:2 after 0 msecs  
+Device detected on 0:1:1 after 0 msecs  
+Device detected on 0:1:0 after 0 msecs  
+MCFrequency 1333Mhz
+Relocated to memory
+Time: 8/26/2019  9:25:55
+Pre-Reserving Memory Bar of size 8000000 for root-port B0|D1C|F0 7ffffff 4
+Detected CISCO IOFPGA
+MIFPGA Present
+Code Signing Results:                                    0x0 
+Using Upgrade FPGA
+Checking and setting PSU fan directions 
+Booting from Primary Bios 
+FPGA Revison        : 0x3
+FPGA ID             : 0x1528227
+FPGA Date           : 0x20160315
+Power Debug Register: 0x80000000
+Reset Cause Register: 0x4
+Boot Ctrl Register  : 0xe0ff
+FPGA Update Status  : 0x20
+
+FPGA SPI Flash Micron(Numonyx) N25Q064A
+Detected CISCO MIFPGA
+FPGA Update Status  : 0x20
+Version 2.16.1240. Copyright (C) 2013 American Megatrends, Inc.                 
+Board type  2
+IOFPGA @ 0xc8000000
+SLOT_ID @ 0xf
+Standalone chassis 
+check_bootmode: grub: Continue grub
+Trying to read config file /boot/grub/menu.lst.local from (hd0,4) 
+ Filesystem type is ext2fs, partition type 0x83
+
+Booting bootflash:/nxos.9.3.1.9.bin_PVT3 ...
+
+Security Lock
+Booting bootflash:/nxos.9.3.1.9.bin_PVT3 
+Trying diskboot 
+ Filesystem type is ext2fs, partition type 0x83
+Image valid
+
+
+Image Signature verification was Successful.
+
+Boot Time: 8/26/2019  9:26:29
+
+Security Lock
+Installing klm_card_index
+done
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+INIT: version 2.88 booting
+Installing ata_piix module ... done.
+Unsquashing rootfs ...
+Total size needed in bootflash is 98020
+check bootflash : OK
+Total size needed in bootflash is 31644
+check bootflash : OK
+Enabling 8250 serial driver spurious INTs workaround
+Installing isan procfs ... done.
+Installing SSE module ... done.
+Creating SSE device node 247 ... done.
+Inserting kernel_services module ... done.
+Making kernel_services character devices
+is_lxc: is_stby: suffix:
+Installing ftrace in non-lxc mode done
+cgroups initialized
+Checking SSD firmware ...
+        Model Number:       Micron_M600_MTFDDAT064MBF               
+        Serial Number:      MSA1952086X
+        Firmware Revision:  MC04    
+Loading I2C driver ... done.
+Loading MEM scrub driver ... done.
+Installing CCTRL driver for card_type 46 without NEED_GEM ... done.
+Loading IGB driver ... 
+Checking all filesystems.
+done.
+Extracting rpms from image...
+Installing SPROM driver ... IS_N9K done.
+Installing pfmsvcs module ...done.
+Installing nvram module ... done.
+Installing if_index module with port mode 6 ... done.
+Installing fcfwd
+Installing RNI lcnd ... done
+Installing LC netdev ... done
+Installing psdev module ... done.
+Installing veobc module ... done.
+Checking SR card
+Card Index is 21124
+Inserting eMMC module ... 
+Inserting mtdphysmap module...Inserting OBFL module ... done.
+Making OBFL character devices
+mounting plog for N9k!
+Mounting OBFL pstore for mtd
+Starting portmap daemon...
+Starting OpenBSD Secure Shell server: sshd ... creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+exit code: 1
+done.
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+tune2fs 1.42.9 (28-Dec-2013)
+Setting reserved blocks percentage to 0% (0 blocks)
+Saving image for img-sync ...
+ Removing any system startup links for docker ...
+Running groupadd commands...
+NOTE: docker: Performing groupadd with [ -r docker]
+Running useradd commands...
+NOTE: docker: Performing useradd with [ -r -U -s /bin/false dockremap]
+NOTE: docker: user dockremap already exists, not re-creating it
+
+Loading system software
+update-alternatives: Linking /bin/vi to /usr/bin/vim.vim
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.vim
+Installing local RPMS
+Patch Repository Setup completed successfully
+Creating /dev/mcelog
+Starting mcelog daemon
+fastboot or torissu for Tahoe cards
+INIT: Entering runlevel: 3
+Running S93thirdparty-script...
+
+Populating conf files for hybrid sysmgr ...
+Starting hybrid sysmgr ...
+done
+Netbroker support IS present in the kernel.
+done
+Executing Prune clis.
+Aug 26 09:27:12 %FW_APP-2-FIRMWARE_IMAGE_LOAD_SUCCESS No Firmware needed for Non SR card.
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-PS_FAIL: Power supply 1 failed or shut down (Serial number LIT201104SS)
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-PS_OK: Power supply 2 ok (Serial number LIT201104S7)
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-PS_FANOK: Fan in Power supply 2 ok
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-PS_ABSENT: Power supply 1 is absent/shutdown, ps-redundancy might be affected
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-PS_RED_MODE_CHG: Power supply operational redundancy mode changed to non-redundant
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 1 (Fan1(sys_fan1) fan) ok
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 2 (Fan2(sys_fan2) fan) ok
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 3 (Fan3(sys_fan3) fan) ok
+2019 Aug 26 09:27:15 N9K3 %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 4 (Fan4(sys_fan4) fan) ok
+2019 Aug 26 09:27:16 N9K3 %$ VDC-1 %$  %USER-2-SYSTEM_MSG: <<%USBHSD-2-MOUNT>> logflash: online  - usbhsd
+2019 Aug 26 09:27:17 N9K3 %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii-cfg[31416]
+2019 Aug 26 09:27:19 N9K3 %$ VDC-1 %$ netstack: Registration with cli server complete
+2019 Aug 26 09:27:23 N9K3 %$ VDC-1 %$ %LICMGR-2-LOG_LIC_MISSING_WARNING: A feature that requires NEXUS_24PORT_LICENSE license is not installed. System supports honor based licensing so feature will continue to be fully functional. Use 'show license usage <package-name>' to find features using missing license.
+2019 Aug 26 09:27:32 N9K3 %$ VDC-1 %$ %USER-2-SYSTEM_MSG: ssnmgr_app_init called on ssnmgr up - aclmgr
+2019 Aug 26 09:27:40 N9K3 %$ VDC-1 %$ %USER-0-SYSTEM_MSG: end of default policer - copp
+2019 Aug 26 09:27:42 N9K3 %$ VDC-1 %$ %CARDCLIENT-2-FPGA_BOOT_PRIMARY: IOFPGA booted from Primary
+2019 Aug 26 09:27:42 N9K3 %$ VDC-1 %$ %CARDCLIENT-2-FPGA_BOOT_PRIMARY: MIFPGA booted from Primary
+2019 Aug 26 09:27:45 N9K3 %$ VDC-1 %$ %VDC_MGR-2-VDC_ONLINE: vdc 1 has come online 
+
+
+User Access Verification
+N9K3 login: atupatil
+Password: 
+
+Remote AAA servers unreachable; local authentication failed
+
+
+Login incorrect
+
+User Access Verification
+login: atupatil
+Password: 
+
+Remote AAA servers unreachable; local authentication failed
+
+
+Login incorrect
+
+2019 Aug 26 09:28:56 N9K3 %$ VDC-1 %$ %ASCII-CFG-2-CONF_CONTROL: System ready
+User Access Verification
+login: Login timed out 
+User Access Verification
+N9K3 login: atupatil
+Password: 2019 Aug 26 09:29:15 N9K3 %$ VDC-1 %$ %VMAN-2-ACTIVATION_STATE: Successfully activated virtual service 'guestshell+'  
+2019 Aug 26 09:29:15 N9K3 %$ VDC-1 %$ %VMAN-2-GUESTSHELL_ENABLED: The guest shell has been enabled. The command 'guestshell' may be used to access it, 'guestshell destroy' to remove it.
+
+
+Remote AAA servers unreachable; local authentication failed
+
+
+Login incorrect
+
+User Access Verification
+login: 
+Password: 
+Login incorrect
+
+User Access Verification
+login: admin
+Password: 
+
+Remote AAA servers unreachable; local authentication done 
+
+
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K3# 
+N9K3# 
+N9K3# 
+N9K3# 
+N9K3# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# run bash echo 1 > /tmp/dnscache.log.1
+N9K3(config)# 
+N9K3(config)# run bash cat /tmp/dnscache.log.1
+1
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# test aaa group grp-radius atupatil Cisco!123
+user has been authenticated
+N9K3(config)# 
+N9K3(config)# exit
+N9K3# exit
+
+User Access Verification
+N9K3 login: atupatil
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K3# 
+N9K3# 
+N9K3# 
+N9K3# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+
+Inactive timeout reached, logging out.
+
+
+User Access Verification
+N9K3 login: admin
+Password: 
+Login incorrect
+
+User Access Verification
+login: atupatil          
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K3# 
+N9K3# 
+N9K3# 
+N9K3# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.66
+ NXOS: version 9.3(2) [build 9.3(1.9)]
+  System version: 9.3(2)
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Mon Aug 26 10:13:05 2019
+
+version 9.3(2) Bios:version 07.66 
+radius-server key 7 "fewhg124"
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authe
+ntication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# 
+N9K3(config)# show ver | inc image
+  NXOS image file is: bootflash:///nxos.9.3.1.9.bin_PVT3
+N9K3(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: GMR6_TBP_OK_IMR_TBP_NOT_OK (Created 08/21/2019 11:00:10 Added 08/21/2019 11:00:10 by masaxena)---
+I am OK to TBP for GMR6
+CSCvq95571
+A
+ 
+Given it is last minute bug. However, I don't agree TBP on this for IMR1. We have a TAC repro. So, we should fix this in IMR1 and bring it back in GMR7
+ 
+Pls help followup with Girisha on closure.. Also it would be good to list this bug in open-caveats.
+ 
+sukumar
+---End of Note Titled: GMR6_TBP_OK_IMR_TBP_NOT_OK---
+
+
+---Start of Note Titled: IMR1-TBP-EVAL (Created 08/21/2019 01:42:43 Added 08/21/2019 01:42:43 by vasagraw)---
+It is a DAY-1 issue in DNS Cache and is not exposed easily. Only when getaddrinfo() is quite slow to respond, there is a chance to hit it.
+
+The code path is sensitive as it is exercised in every AAA request when RADIUS/TACACS is being used.
+
+We have verified the RCA based on tweaked code but need more time for final fix. Planning to address it in IPLUS_DEV
+---End of Note Titled: IMR1-TBP-EVAL---
+
+
+---Start of Note Titled:  GMR6-TBP-EVAL (Created 08/20/2019 23:36:44 Modified 08/21/2019 01:43:53 by vasagraw)---
+It is a DAY-1 issue in DNS Cache and is not exposed easily. Only when getaddrinfo() is quite slow to respond, there is a chance to hit it.
+
+The code path is sensitive as it is exercised in every AAA request when RADIUS/TACACS is being used.
+
+We have verified the RCA based on tweaked code but need more time for final fix. Planning to address it in IPLUS_DEV -
+---End of Note Titled: GMR6-TBP-EVAL---
+
+
+---Start of Note Titled: Eng-note (Created 08/20/2019 23:02:23 Added 08/20/2019 23:02:23 by vasagraw)---
+When getaddrinfo() does not fetch DNS resolution in 3 seconds via blocking call, there is a mechanism to spawn an ASYNC job for it. When the ASYNC job concludes, the resolution is kept in cache for later use and the cache is kept refreshed periodically.
+
+In the problem case reported by customer when getaddrinfo() fails in a blocking call, we are unable to spawn the ASYNC call as per the design.
+
+Tweaked the problem code to verify the RCA and RADIUS AUTH started working with it. Given the complex design of currently available DNS Cache, we would investigate a little more before finalizing the fix.. just to ensure we do not break any other working code.
+---End of Note Titled: Eng-note---
+
+
+---Start of Note Titled:  Scrubnote (Created 08/19/2019 10:36:16 Modified 12/16/2019 09:09:20 by cms)---
+{191205 preechan S B} In BAT commit for GMR7
+{190827 girshank S G} Initiated BAT Commit.
+{190826 girshank S B} IMR1 ETA: 8/30
+{190821 masaxena S R} Please add TBP_EVAL notes ASAP
+{190820 girshank S B} Proposing TBP for IMR1. Will address this in I-Plus.
+{190820 girshank S B} Proposing TBP for GMR6. Will address this in I-Plus.
+{190820 girshank S B} RCA identified. Very corner case causing a delay in address resolution. This is a day 1 issue. Detailed Eng-Note attached.
+{190820 agurkha S B} New CFD. Need to RCA before we can TBP
+{190819 girshank S B} Investigating the issue. Apparently the name resolution is taking longer time. Will be having a debug session with submitter today evening.
+{190819 masaxena S B} IMR/GMR7 ?
+{190819 masaxena S B} new incoming CFD
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  reproduction-steps (Created 08/19/2019 08:04:29 Modified 11/23/2020 07:15:01 by cdetsadm)---
+TAC-Repro:
+
++ This bug was raised in response to case 685502560; where customer upgraded their switch from 7.0(3)I4(7) to 7.0(3)I7(4) due to some other unrelated bug. After upgrade switch was reporting following messages. Customer observed this issue on multiple switches.
+
+2018 Oct 25 15:29:54.112 spsw30-e11-1 %RADIUS-3-RADIUS_ERROR_MESSAGE: RADIUS server vip-radius-general-ad.nje.twosigma.com failed to respond evenafter all retries
+2018 Oct 25 15:29:54.112 spsw30-e11-1 %RADIUS-3-RADIUS_ERROR_MESSAGE: specific server failed to respond after retries.
+2018 Oct 25 15:29:57.640 spsw30-e11-1 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2018 Oct 25 15:29:59.613 spsw30-e11-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 172.23.111.29 - dcos_sshd[23151]
+
++ Lab access
+
+Please do not change IP address assigne to port 1/1 or 1/31 on a switch; because that is how both switches communicate to DNS/Radius server
+DNS/Radius server already set; so there is no need to change the config on them.
+
+Calo lab case: Feb19afleckRTPTestbed3541
+
+1) N9K-C93180YC-EX -- Named as SW3
+
+Console: telnet://F340-08-25-COMM:2010
+
+2) N9K-C9504-B1  -- Named as N9K2-9504-685502560
+
+Console: telnet://F340-08-11-COMM:2020
+
++ Lab set up
+
+
+EOR
+N9K-C93180YC-EX                       +-------+
++-------+10.122.163.201               | DNS_VM|
+| N3K2  |1/1                          |       | 172.18.121.21
+|       +--------------+              |       | ord.twosigma.com
+|       |              |              +--+----+
+|       |           +--+-----+           |
++-------+           | CALO   |           |
+                    | switch +-----------+
+                    |        |
+                    |        +-------------+
+ +------+           +--+-----+             |
+ |N9K2  |              |                   |
+ |      |              |                   |
+ |      | 1/31         |                   |
+ |      +--------------+               +---+---+
+ |      |10.122.176.32                 |ISE_VM |
+ +------+                              |       |
+TOR                                    |       |
+N9K-X9732C-EX                          |       |
+                                       +-------+
+                                         172.18.121.110/RadiusServer
+
+
+
++ Relevant config on both switches
+
+ip domain-name ord.twosigma.com
+ip name-server 172.18.121.21
+!
+aaa authentication login default group grp-radius 
+aaa authentication login console group grp-radius 
+aaa authentication login error-enable
+!
+radius-server key 7 "fewhg124"
+radius-server deadtime 1
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+ip radius source-interface Ethernet1/1
+
++ DNS server is built with entries for Switches/ISE server. Name <> ip mapping.
++ ISE is configured to allow radius autentication for user/switch.
+
++ Example output from one switch
+
+Step1:
+======
++ Switch is configured with above mentioned config.
++ following CLI is verify authentication with radius server
+
+N9K3(config)# test aaa group grp-radius atupatil Cisco!123
+user has been authenticated
+
+N9K3(config)# ping vip-radius-general-ad.ord.twosigma.com
+PING vip-radius-general-ad.ord.twosigma.com (172.18.121.110): 56 data bytes
+64 bytes from 172.18.121.110: icmp_seq=0 ttl=59 time=0.977 ms
+64 bytes from 172.18.121.110: icmp_seq=1 ttl=59 time=0.769 ms
+64 bytes from 172.18.121.110: icmp_seq=2 ttl=59 time=0.687 ms
+64 bytes from 172.18.121.110: icmp_seq=3 ttl=59 time=0.657 ms
+64 bytes from 172.18.121.110: icmp_seq=4 ttl=59 time=0.577 ms
+
+--- vip-radius-general-ad.ord.twosigma.com ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 0.577/0.733/0.977 ms
+
+Step2:
+======
++ Just reload or upgrade the switch to any version
+
+N9K3(config)# copy run start
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+N9K3(config)# sh clock
+21:45:49.790 UTC Tue Aug 13 2019
+Time source is NTP
+N9K3(config)# reload
+
++ After reload
+
+N9K3# test aaa group grp-radius atupatil Cisco!123       --> Authentication is failing
+error authenticating to server, status=7
+
+N9K3# ping vip-radius-general-ad.ord.twosigma.com     --> We are able to radius server by it name
+PING vip-radius-general-ad.ord.twosigma.com (172.18.121.110): 56 data bytes
+64 bytes from 172.18.121.110: icmp_seq=0 ttl=59 time=0.95 ms
+64 bytes from 172.18.121.110: icmp_seq=1 ttl=59 time=0.74 ms
+64 bytes from 172.18.121.110: icmp_seq=2 ttl=59 time=0.725 ms
+64 bytes from 172.18.121.110: icmp_seq=3 ttl=59 time=0.592 ms
+64 bytes from 172.18.121.110: icmp_seq=4 ttl=59 time=0.576 ms
+
+
++ We see following syslogs
+
+2019 Aug 13 21:50:21 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+2019 Aug 13 21:51:19 N9K3 last message repeated 1 time
+2019 Aug 13 21:51:36 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2019 Aug 13 21:52:19 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+2019 Aug 13 21:52:36 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2019 Aug 13 21:53:18 N9K3 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for directed RADIUS server vip-radius-general-ad.ord.twosigma.com
+
++ Takeing Eth-analzyer capture while above mentioned CLI is used to test authetication shows switch sending AAAA DNS query
+
+N9K3# ethanalyzer local interface inband display-filter dns limit-captured-frames 0
+
+Capturing on inband
+2019-08-13 22:01:15.118452 10.122.163.201 -> 172.18.121.21 DNS Standard query AAAA vip-radius-general-ad.ord.twosigma.com
+2019-08-13 22:01:15.118893 172.18.121.21 -> 10.122.163.201 DNS Standard query response
+2019-08-13 22:01:15.120922 10.122.163.201 -> 172.18.121.21 DNS Standard query AAAA vip-radius-general-ad.ord.twosigma.com.ord.twosigma.com
+2019-08-13 22:01:15.121224 172.18.121.21 -> 10.122.163.201 DNS Standard query response, No such name
+2019-08-13 22:01:15.122737 10.122.163.201 -> 172.18.121.21 DNS Standard query AAAA vip-radius-general-ad.ord.twosigma.com.twosigma.com
+2019-08-13 22:01:27.180250 172.18.121.21 -> 10.122.163.201 DNS Standard query response, Server failure
+
++ But when when we ping to radius server by its NAME; we see DNS A query; which DNS server is able to respond okay
+
+2019-08-13 22:01:49.827360 10.122.163.201 -> 172.18.121.21 DNS Standard query A vip-radius-general-ad.ord.twosigma.com
+2019-08-13 22:01:49.827859 172.18.121.21 -> 10.122.163.201 DNS Standard query response A 172.18.121.110
+
+Step3 (workaround):
+======
++ Remove/re-add the radius config
+
++ sh run radius 
+
+!Command: show running-config radius
+!Time: Mon Aug 19 14:17:02 2019
+
+version 7.0(3)I7(4)
+radius-server key 7 "fewhg124"
+radius-server deadtime 1
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+ip radius source-interface Ethernet1/1
+
++ Remove the config
+
+N9K2-9504-685502560(config)# aaa group server radius grp-radius 
+N9K2-9504-685502560(config-radius)# no server vip-radius-general-ad.ord.twosigma.com 
+N9K2-9504-685502560(config-radius)# exit
+N9K2-9504-685502560(config)# no radius-server host vip-radius-general-ad.ord.twosigma.com
+
++ check the config
+
+sh run radius 
+
+!Command: show running-config radius
+!Time: Mon Aug 19 14:18:01 2019
+
+version 7.0(3)I7(4)
+radius-server key 7 "fewhg124"
+radius-server deadtime 1
+aaa group server radius grp-radius 
+    source-interface Ethernet1/1
+
+ip radius source-interface Ethernet1/1
+
++ Re-add the config
+
+N9K2-9504-685502560(config-radius)# radius-server host vip-radius-general-ad.ord.twosigma.com key cisco124 authentication 
+N9K2-9504-685502560(config)# aaa group server radius grp-radius 
+N9K2-9504-685502560(config-radius)# server vip-radius-general-ad.ord.twosigma.com 
+
++ Verify 
+
+sh run radius 
+
+!Command: show running-config radius
+!Time: Mon Aug 19 14:18:47 2019
+
+version 7.0(3)I7(4)
+radius-server key 7 "fewhg124"
+radius-server deadtime 1
+radius-server host vip-radius-general-ad.ord.twosigma.com key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server vip-radius-general-ad.ord.twosigma.com 
+    source-interface Ethernet1/1
+
+ip radius source-interface Ethernet1/1
+
+
++ Test again
+N9K2-9504-685502560(config)# test aaa group grp-radius atupatil Cisco!123        -->This time we are able to authenticate okay
+
+
+Step4 (extra):
+==============
+IF just ip address of radius-server is used then issue is not seeen after reload/upgrade
+
+radius-server key 7 "fewhg124"
+radius-server deadtime 1
+radius-server host 172.18.121.110 key 7 "fewhg124" authentication 
+aaa group server radius grp-radius 
+    server 172.18.121.110 
+    source-interface Ethernet1/1
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled: SS-Review (Created 08/19/2019 07:47:08 Added 08/19/2019 07:47:08 by atupatil)---
+$$OIB - after reload/upgrade user is unable to authenticate
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled:  Release-note (Created 08/19/2019 07:45:54 Modified 02/23/2020 23:13:32 by girshank)---
+<B>Symptom:</B>
+Remote AAA/Radius authentication fails.
+
+<B>Conditions:</B>
+Radius server is configured with its DNS name, instead of IP address
+
+<B>Workaround:</B>
+remove/re-add the radius server configuration.
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (17 of 17)
+------------------------------------------------------------------------------------------------------------------
+CSCvq95571_test_logs_GMR7_7.0.3.I7.7.38.txt       ascii text     20627          palshanm       01/13/2020 05:17:04      
+Diffs-commit-greensboro                           ascii text     9678           vasagraw       12/05/2019 16:11:30      
+Diffs-release-greensboro                          ascii text     2649           vasagraw       12/05/2019 16:11:18      
+SSR_report_for_best_ez_tier1_n9000_NXOS_greensboroascii text     4350           jabajaj        12/05/2019 13:27:19      
+nxos-pi-common-security-code-review-2             ascii text     402            prrqengg       12/03/2019 00:50:59      
+CSCvq95571 _iMR1_Test_Logs.txt                    ascii text     19570          palshanm       09/27/2019 02:15:41      
+gnosis_neg_CSCvq95571_neg                         ascii text     291267         manjanga       09/09/2019 03:03:33      
+gnosis_pos_CSCvq95571_pos                         ascii text     291266         manjanga       09/09/2019 03:03:30      
+Diffs-release-irvine                              ascii text     2645           vasagraw       08/28/2019 04:56:29      
+Diffs-commit-irvine                               ascii text     9661           vasagraw       08/28/2019 04:56:21      
+SSR_report_for_best_ez_tier1_n9000_NXOS_irvine_133ascii text     4320           adityasi       08/28/2019 04:10:35      
+ccwarnings-irvine.p3                              ascii text     470            baas           08/28/2019 01:37:31      
+SSR_report_for_best_ez_tier1_n9000_NXOS_irvine_133ascii text     4320           adityasi       08/27/2019 07:23:14      
+ccwarnings-irvine.p2                              ascii text     337            baas           08/27/2019 05:22:20      
+ccwarnings-irvine                                 ascii text     337            baas           08/27/2019 02:14:52      
+nxos-pi-common-security-code-review               ascii text     400            prrqengg       08/23/2019 07:25:41      
+Release-note-diff                                 ascii text     567            atupatil       08/23/2019 05:52:02      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/05/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1263667      	New
+08/05/2026 pisces   	VF-patched              	                             	NX-OS:9.3(2)                 	New
+08/05/2026 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV5(1.2),NX-OS:5.	New
+08/05/2026 pisces   	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+08/05/2026 pisces   	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+08/05/2026 pisces   	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+08/05/2026 pisces   	Software-type-ids       	                             	282253564,286280105,286321149	New
+08/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/05/2026 pisces   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/05/2026 pisces   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/05/2026 pisces   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/05/2026 pisces   	MDF-edited              	                             	N                            	Mod
+08/05/2026 pisces   	Potentially-affected-rel	                             	5.2(1)SV5(1.2),5.2(1)SV5(1.3)	New
+08/05/2026 pisces   	Known-affected-releases 	                             	7.0(3)I7(4),9.3(1)           	New
+08/05/2026 pisces   	Known-fixed-releases    	                             	7.0(3)I7(8)                  	New
+11/23/2020 cdetsadm 	Note Title              	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Note Type               	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Is-reproducible         	                             	Cisco Lab Reproducible       	Mod
+10/30/2020 hkatakam 	Original-version        	                             	7.0(3)I7(4)                  	Mod
+10/30/2020 hkatakam 	Automated-test          	N                            	Y                            	Mod
+06/09/2020 cdetsadm 	Integrated-releases     	                             	9.4(1)IJB9(0)                	New
+06/09/2020 cdetsadm 	Integrated-releases     	                             	9.4(1)IJB9(0.200)            	New
+02/23/2020 girshank 	Status-desc             	M-More                       	R-Resolved                   	Mod
+02/23/2020 girshank 	Status                  	M                            	R                            	Mod
+02/23/2020 girshank 	Resolver                	                             	girshank                     	Mod
+02/23/2020 girshank 	Original-resolved-on    	                             	2020-02-24 07:13:32.000+0000 	Mod
+02/23/2020 girshank 	Resolved-on             	                             	2020-02-24 07:13:32.000+0000 	Mod
+02/23/2020 girshank 	statusStates            	                             	[status=M, startDate=Wed Aug 	New
+02/23/2020 girshank 	statusStates            	[status=M, startDate=Wed Aug 	                             	Del
+02/23/2020 girshank 	Age-status              	0                            	189                          	Mod
+02/23/2020 girshank 	Mean-time-to-resolved   	                             	188                          	Mod
+02/23/2020 girshank 	Related-bugs            	                             	Teacat/CSCvt15723            	New
+02/23/2020 girshank 	Teabugid                	                             	CSCvt15723                   	Mod
+01/26/2020 hkatakam 	Attribute               	gnosis gmr6-rne TAC_repro gmr	gnosis gmr6-rne TAC_repro gmr	Mod
+01/23/2020 samekama 	Attribute               	gnosis gmr6-rne TAC_repro gmr	gnosis gmr6-rne TAC_repro gmr	Mod
+01/13/2020 palshanm 	File Name               	                             	CSCvq95571_test_logs_GMR7_7.0	New
+01/13/2020 palshanm 	File Name               	CSCvq95571_test_logs_GMR7_7.0	                             	Del
+01/13/2020 palshanm 	File Name               	                             	CSCvq95571_test_logs_GMR7_7.0	New
+01/13/2020 palshanm 	Note Title              	                             	V-comments.p2                	New
+01/13/2020 palshanm 	Verified-release        	                             	7.0(3)I7(7.38)               	New
+01/02/2020 kratnam  	Attribute               	gnosis gmr6-rne TAC_repro gmr	gnosis gmr6-rne TAC_repro gmr	Mod
+12/16/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/10/2019 cdetsadm 	Known-fixed-releases    	                             	9.3(2)                       	New
+12/05/2019 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(8)                  	New
+12/05/2019 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(7.22)               	New
+12/05/2019 vasagraw 	File Name               	                             	Diffs-commit-greensboro      	New
+12/05/2019 vasagraw 	File Name               	                             	Diffs-release-greensboro     	New
+12/05/2019 jabajaj  	File Name               	                             	SSR_report_for_best_ez_tier1_	New
+12/05/2019 baas     	Note Title              	                             	static-analysis-greensboro   	New
+12/05/2019 baas     	RNE-Approval-Flg        	N                            	                             	New
+12/03/2019 pdharmam 	Attribute               	gnosis gmr6-rne TAC_repro gmr	gnosis gmr6-rne TAC_repro gmr	Mod
+12/03/2019 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+12/03/2019 vasagraw 	Note Title              	                             	unit-test-GMR7               	New
+12/03/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+09/27/2019 palshanm 	File Name               	                             	CSCvq95571 _iMR1_Test_Logs.tx	New
+09/27/2019 palshanm 	Note Title              	                             	V-comments                   	New
+09/27/2019 palshanm 	RNE-Approval-Flg        	N                            	                             	New
+09/27/2019 palshanm 	Verified-release        	                             	9.3(1.74)                    	New
+09/09/2019 manjanga 	File Name               	                             	gnosis_neg_CSCvq95571_neg    	New
+09/09/2019 manjanga 	File Name               	                             	gnosis_pos_CSCvq95571_pos    	New
+09/09/2019 manjanga 	Note Title              	                             	KnowledgeSignature           	New
+09/09/2019 manjanga 	RNE-Approval-Flg        	N                            	                             	New
+09/09/2019 manjanga 	Attribute               	gmr6-rne TAC_repro gmr7  gmr6	gnosis gmr6-rne TAC_repro gmr	Mod
+09/08/2019 prafulla 	Attribute               	gmr6-rne TAC_repro gmr7  gmr6	gmr6-rne TAC_repro gmr7  gmr6	Mod
+09/06/2019 clsulliv 	Note Title              	                             	DetectionLogic               	New
+09/06/2019 clsulliv 	RNE-Approval-Flg        	N                            	                             	New
+09/06/2019 afleck   	serviceRequests/C3/68550	                             	                             	Mod
+09/06/2019 afleck   	Urgency-desc            	P3                           	CL3                          	Mod
+09/05/2019 afleck   	serviceRequests/C3/68550	                             	                             	Mod
+09/05/2019 afleck   	Urgency-desc            	P1                           	P3                           	Mod
+08/28/2019 cdetsadm 	Integrated-releases     	                             	9.3(2)                       	New
+08/28/2019 cdetsadm 	Integrated-releases     	                             	9.3(1.33)                    	New
+08/28/2019 vasagraw 	TPS_flag                	                             	N                            	Mod
+08/28/2019 vasagraw 	Behavior-changed        	                             	N                            	Mod
+08/28/2019 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+08/28/2019 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+08/28/2019 vasagraw 	Documents-changed       	                             	none                         	Mod
+08/28/2019 vasagraw 	Note Title              	                             	M-comments                   	New
+08/28/2019 vasagraw 	Opened-on               	                             	08/28/2019 05:58:17          	Mod
+08/28/2019 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+08/28/2019 vasagraw 	Origin                  	                             	base code                    	Mod
+08/28/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/28/2019 vasagraw 	Released-code           	                             	Y                            	Mod
+08/28/2019 vasagraw 	Status                  	A                            	M                            	Mod
+08/28/2019 vasagraw 	Age-status              	0                            	9                            	Mod
+08/28/2019 vasagraw 	statusStates            	                             	[status=A, startDate=Mon Aug 	New
+08/28/2019 vasagraw 	statusStates            	[status=A, startDate=Mon Aug 	                             	Del
+08/28/2019 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+08/28/2019 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+08/28/2019 vasagraw 	Test-escape             	                             	Y                            	Mod
+08/28/2019 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+08/28/2019 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+08/28/2019 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+08/28/2019 adityasi 	File Name               	                             	SSR_report_for_best_ez_tier1_	New
+08/28/2019 baas     	File Name               	                             	ccwarnings-irvine.p3         	New
+08/28/2019 baas     	Note Title              	                             	static-analysis-irvine.p3    	New
+08/28/2019 baas     	RNE-Approval-Flg        	N                            	                             	New
+08/27/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/27/2019 adityasi 	File Name               	                             	SSR_report_for_best_ez_tier1_	New
+08/27/2019 baas     	File Name               	                             	ccwarnings-irvine.p2         	New
+08/27/2019 baas     	Note Title              	                             	static-analysis-irvine.p2    	New
+08/27/2019 baas     	RNE-Approval-Flg        	N                            	                             	New
+08/27/2019 baas     	File Name               	                             	ccwarnings-irvine            	New
+08/27/2019 baas     	Note Title              	                             	static-analysis-irvine       	New
+08/27/2019 baas     	RNE-Approval-Flg        	N                            	                             	New
+08/27/2019 vasagraw 	Note Title              	                             	static-analysis              	New
+08/27/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/26/2019 vasagraw 	Note Title              	                             	Unit-test                    	New
+08/26/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/26/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/25/2019 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+08/25/2019 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	                             	Mod
+08/25/2019 cdetsbtk 	Security-screening-times	08/19/2019 14:37:28          	08/26/2019 01:14:59          	Mod
+08/23/2019 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/23/2019 atupatil 	contents                	                             	Release-note-diff            	Mod
+08/23/2019 atupatil 	Note                    	Release-note                 	Release-note                 	Mod
+08/23/2019 atupatil 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+08/23/2019 atupatil 	serviceRequests/C3/68550	                             	C3/685502560                 	New
+08/23/2019 atupatil 	TACSR-count             	                             	1                            	Mod
+08/23/2019 atupatil 	Tickets-count           	0                            	1                            	Mod
+08/23/2019 atupatil 	Tickets-count-direct    	                             	1                            	Mod
+08/23/2019 atupatil 	Trouble-tickets         	                             	685502560                    	New
+08/23/2019 atupatil 	Trouble-tickets-direct  	                             	C3685502560                  	New
+08/23/2019 atupatil 	Urgency-desc            	NA                           	P1                           	Mod
+08/22/2019 masaxena 	Attribute               	TAC_repro gmr7  gmr6-tbp-ok i	gmr6-rne TAC_repro gmr7  gmr6	Mod
+08/21/2019 masaxena 	Attribute               	TAC_repro gmr6-tbp-ok imr-tbp	TAC_repro gmr7  gmr6-tbp-ok i	Mod
+08/21/2019 masaxena 	Note Title              	                             	GMR6_TBP_OK_IMR_TBP_NOT_OK   	New
+08/21/2019 masaxena 	RNE-Approval-Flg        	N                            	                             	New
+08/21/2019 masaxena 	Attribute               	TAC_repro gmr6-tbp imr-tbp ip	TAC_repro gmr6-tbp-ok imr-tbp	Mod
+08/21/2019 masaxena 	Attribute               	TAC_repro gmr6-tbp imr-tbp ip	TAC_repro gmr6-tbp imr-tbp ip	Mod
+08/21/2019 masaxena 	Attribute               	TAC_repro                    	TAC_repro gmr6-tbp imr-tbp ip	Mod
+08/21/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/21/2019 vasagraw 	Note Title              	GMR6-TBP                     	GMR6-TBP-EVAL                	Mod
+08/21/2019 vasagraw 	Note Title              	                             	GMR6-TBP-EVAL                	Mod
+08/21/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	Mod
+08/21/2019 vasagraw 	Note Title              	                             	IMR1-TBP-EVAL                	New
+08/21/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/20/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/20/2019 vasagraw 	Note Title              	                             	GMR6-TBP                     	New
+08/20/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/20/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/20/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/20/2019 vasagraw 	Note Title              	                             	Eng-note                     	New
+08/20/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+08/20/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/19/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/19/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/19/2019 atupatil 	Note                    	tac-repro                    	tac-repro                    	Mod
+08/19/2019 atupatil 	Note                    	tac-repro                    	tac-repro                    	Mod
+08/19/2019 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+08/19/2019 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+08/19/2019 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+08/19/2019 cdetsbtk 	Security-screening-times	                             	08/19/2019 14:37:28          	Mod
+08/19/2019 cms      	Note Title              	                             	Scrubnote                    	New
+08/19/2019 cms      	RNE-Approval-Flg        	N                            	                             	New
+08/19/2019 girshank 	Assigned Date           	                             	08/19/2019 09:14:21          	Mod
+08/19/2019 girshank 	Assigner                	                             	girshank                     	Mod
+08/19/2019 girshank 	Engineer                	                             	vasagraw                     	Mod
+08/19/2019 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+08/19/2019 girshank 	Status                  	N                            	A                            	Mod
+08/19/2019 girshank 	statusStates            	                             	[status=N, startDate=Mon Aug 	New
+08/19/2019 girshank 	statusStates            	[status=N, startDate=Mon Aug 	                             	Del
+08/19/2019 atupatil 	Note                    	tac-repro                    	tac-repro                    	Mod
+08/19/2019 atupatil 	contents                	                             	Release-note-diff            	Mod
+08/19/2019 atupatil 	Note                    	Release-note                 	Release-note                 	Mod
+08/19/2019 atupatil 	Workarounds             	remove/re-add the radius serv	remove/re-add the radius serv	Mod
+08/19/2019 atupatil 	Note Title              	                             	tac-repro                    	New
+08/19/2019 atupatil 	RNE-Approval-Flg        	N                            	                             	New
+08/19/2019 atupatil 	File Name               	TAC_repro.txt                	                             	Del
+08/19/2019 atupatil 	File Name               	                             	TAC_repro.txt                	New
+08/19/2019 atupatil 	Note Title              	TAC_repro                    	                             	Del
+08/19/2019 atupatil 	Note Title              	                             	TAC_repro                    	New
+08/19/2019 atupatil 	RNE-Approval-Flg        	N                            	                             	New
+08/19/2019 atupatil 	Note Title              	TAC_repro                    	                             	Del
+08/19/2019 atupatil 	contents                	                             	Release-note-diff            	Mod
+08/19/2019 atupatil 	Note                    	Release-note                 	Release-note                 	Mod
+08/19/2019 atupatil 	Further-Problem-Descript	check                        	                             	Mod
+08/19/2019 atupatil 	File Name               	                             	Release-note-diff            	New
+08/19/2019 atupatil 	Note                    	Release-note                 	Release-note                 	Mod
+08/19/2019 atupatil 	Note                    	TAC_repro                    	TAC_repro                    	Mod
+08/19/2019 atupatil 	Further-Problem-Descript	                             	check                        	Mod
+08/19/2019 atupatil 	Note Title              	                             	TAC_repro                    	New
+08/19/2019 atupatil 	RNE-Approval-Flg        	N                            	                             	New
+08/19/2019 atupatil 	Note Title              	                             	SS-Review                    	New
+08/19/2019 atupatil 	RNE-Approval-Flg        	N                            	                             	New
+08/19/2019 atupatil 	Defect Created          	                             	                             	New
+08/19/2019 atupatil 	Note Title              	                             	Release-note                 	New
+08/19/2019 atupatil 	Version                 	                             	7.0(3)I7(4),9.3(1)           	New

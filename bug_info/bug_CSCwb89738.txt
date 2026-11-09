@@ -1,0 +1,961 @@
+*******************************************************************************
+
+Bug ID   : CSCwb89738         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : Niles #17 : Tacacs server authenication failure after switch over
+PrimaryPV : 
+Version :10.3(0.17) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: ashmurug           Submitted: 05/17/2022 02:32:32     Last Updtd : 08/09/2026 21:22:28  
+RNE-Type: $$IGNORE            New-on : 05/17/2022 02:32:32      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:shrpande                                            
+Known-affected-releases:
+
+Known-fixed-releases:10.3(1) 10.3(2) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 06/02/2022 02:39:25                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 16                                             
+Mean-time-to-verified: 56     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 05/15/2024 18:49:20            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 05/17/2022 02:48:10 
+Code-reviewer:                
+Opened-on: 06/02/2022 02:39:25Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : nr1f nr1f-reg cfd-manojohn             
+Est. completion date: 06/02/2022 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 06/02/2022 02:39:25  
+
+Documents Changed: none       Resolved: 06/02/2022 02:39:25 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: ashmurug            Verified Confidence: tested                       
+Verified Date: 07/12/2022 11:01:56      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           Y
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              697233798
+Trouble-tickets-direct :C3697233798 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$IGNORE flag is in the RNE
+Security-screening-timestamp :                 05/08/2025 17:52:31
+Document :    nexus
+
+Summary:
+Test case blocked is 1.
+
+Failed log: https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats3_jan22/users/ashmurug/archive/22-05/cisco-av-pair-tacacs_job.2022May13_19:25:57.281991.zip&atstype=ATS
+
+n9k1_EOR# test aaa group tac1 user1 Cisc0123
+
+user has been authenticated
+n9k1_EOR#
+n9k1_EOR# system switchover
+n9k1_EOR#
+
+n9k1_EOR# test aaa group tac1 user1 Cisc0123
+
+error authenticating to server, status=7
+n9k1_EOR#
+n9k1_EOR#
+
+n9k1_EOR# sh run int mgmt0
+
+!Command: show running-config interface mgmt0
+!Running configuration last done at: Tue May 17 17:16:50 2022
+!Time: Tue May 17 17:18:11 2022
+
+version 10.3(1) Bios:version 08.38
+
+interface mgmt0
+vrf member management
+ip address 10.105.194.176/24
+ipv6 address 2001:420:5445:2021::211:f7/118
+
+n9k1_EOR# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue May 17 17:16:50 2022
+!Time: Tue May 17 17:18:17 2022
+
+version 10.3(1) Bios:version 08.38
+aaa authentication login default group tac1
+aaa authentication login console local
+
+
+n9k1_EOR# sh run tacacs+
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue May 17 17:16:50 2022
+!Time: Tue May 17 17:18:22 2022
+
+version 10.3(1) Bios:version 08.38
+feature tacacs+
+
+tacacs-server host 10.77.143.115 key 7 "Fewh0123"
+aaa group server tacacs+ tac1
+server 10.77.143.115
+use-vrf management
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         697233798       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-172433                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (8 of 8 ) ***********************
+
+---Start of Note Titled: DetectionUnsuitable (Created 06/03/2024 13:22:02 Added 06/03/2024 13:22:02 by seshea)---
+--- Update 2024-06-03 20:22:01.404493 seshea (via 697376420)
+Unsuitable - Conditions too Generic
+lot of reasons aaa failure can occur
+this case is for switchover
+insufficient data to digitize as only test aaa was used and no log is there for that, only console
+not a typical aaa auth step
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: V-comments (Created 07/12/2022 11:01:56 Added 07/12/2022 11:01:56 by ashmurug)---
+tah-reg-tb1-eor1# sh run int mgmt0
+
+!Command: show running-config interface mgmt0
+!Running configuration last done at: Tue Jul 12 17:55:56 2022
+!Time: Tue Jul 12 17:58:27 2022
+
+version 10.3(1) Bios:version 05.46 
+
+interface mgmt0
+  vrf member management
+  ip address 10.127.57.89/24
+  ipv6 address 2001:420:5446:2014::241:13/119
+
+tah-reg-tb1-eor1# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jul 12 17:55:56 2022
+!Time: Tue Jul 12 17:58:34 2022
+
+version 10.3(1) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+tah-reg-tb1-eor1# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Jul 12 17:55:56 2022
+!Time: Tue Jul 12 17:58:41 2022
+
+version 10.3(1) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 10.78.63.121 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+    server 10.78.63.121 
+    use-vrf management
+
+
+tah-reg-tb1-eor1# test aaa group tac1 user1 Cisc0123
+user has been authenticated
+tah-reg-tb1-eor1# system switchover 
+tah-reg-tb1-eor1# 
+CISCO MODULE 
+BIOS Ver: 5.46
+Switch G5
+RC Revision:  02.03.00
+
+Memory Information:
+ MRC Revision:00.50.00
+ Total  DRAM: 32768 MB
+ Memory TOLM: 80000000
+ PCIE   BASE: 80000000     	Size : 10000000
+ PCI32  BASE: 90000000     	Limit: FBFFFFFF
+ PCI64  BASE: 80000000000     	Limit: 83FFFFFFFFF
+ UC    START: 80000000000     	End  : 84000000000
+ME Operational Firmware Version: 06:3.0.3.201
+
+DIMM Information:
+ Clock Speed: 1067MHz
+ Socket: 0x0 Channel: 0x0 Number: 0x0 Presence: Yes Size: 16GB
+ Socket: 0x0 Channel: 0x0 Number: 0x1 Presence: No
+ Socket: 0x0 Channel: 0x1 Number: 0x0 Presence: Yes Size: 16GB
+ Socket: 0x0 Channel: 0x1 Number: 0x1 Presence: No
+
+Detected CISCO IOFPGA 
+Booting from Primary BIOS 
+ Code Signing Results: 0x0 
+ Booting from Upgrade FPGA
+IOFPGA Subsystem Vendor ID 0x1172
+ FPGA Revision         : 0x18
+ FPGA ID               : 0x11543991
+ FPGA Date             : 0x20201102
+ Power Debug Register1  : 0xbaadbeef
+ Power Debug Register2  : 0xbaadbeef
+ Reset Cause Register  : 0x2
+ Boot Ctrl Register    : 0xe0ff
+ FPGA Update Status    : 0x0
+EventLog  Register1 : 0xc2048000
+EventLog  Register2 : 0xfffeffff
+
+Board Type: Sup-B+
+
+Bootable Disk is detected. Device Name: Micron_M500IT_MTFDDAT256MBD             
+Version 2.18.1260. Copyright (C) 2022 American Megatrends, Inc.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+FPGA SPI Flash MfgId=0xC2, DevId=0x2018, DevSize=0x18
+
+Board type  1
+CISCO SUP-B+
+IOFPGA @ 0xe8000000
+SLOT_ID @ 0x1b
+Standalone chassis 
+check_bootmode: grub: Continue grub
+Trying to read config file /boot/grub/menu.lst.local from (hd0,4) 
+ Filesystem type is ext2fs, partition type 0x83
+
+
+Security Lock
+Booting bootflash:/nxos64-cs.10.3.0.135.F.bin 
+Trying diskboot 
+ Filesystem type is ext2fs, partition type 0x83
+IOFPGA ID: 11543991 
+Image valid
+OS Image Key Type: Development KEY
+
+
+Image Signature verification was Successful.
+
+Boot Time: 7/12/2022  18:0:9
+
+Security Lock
+[    3.024446] Created proc for bigphysarea
+[    3.148972] check if this has MMC
+[    3.188693] may be MMC, Skipping mtd registration on this card
+mount: overlay mounted on /newroot/usr.
+Installing klm_card_index
+done
+Setting nativeboot
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+INIT: version 2.88 booting
+Installing ata_piix module ... done.
+Installing kheaders module ... done.
+/etc/rc.d/rcS.d/S03mount-ramfs: line 230: [: too many arguments
+Unsquashing rootfs ...
+Total size needed in bootflash is 163800
+check bootflash : OK
+Total size needed in bootflash is 51428
+check bootflash : OK
+/etc/rc.d/rcS.d/S04fastboot: line 287: echo: write error: Invalid argument
+Enabling 8250 serial driver spurious INTs workaround
+Installing isan procfs ... done.
+is_lxc: is_titan_eor: is_stby: suffix: klm_ftrace: /isanboot/lib/modules/klm_ftrace.o
+Installing ftrace in non-lxc mode done
+Installing SSE module with card index 21019 ... done.
+Creating SSE device node 243 ... done.
+Loading I2C driver ... done.
+Installing CCTRL driver for card_type 64 without NEED_GEM ... done.
+old data: 4000004 new data: 1
+Loading IGB driver ... done.
+
+Checking all filesystems.
+Extracting rpms from image...
+2368717 blocks
+/
+N9K CPA setup done
+Installing SPROM driver ... 21019 IS_N9K done.
+Resetting Backplane ACT2/SPROM...SUP IOFPGA Base addr 0xe0000000SUP IOFPGA Reset control reg. addr 0xE8000084old data: 0 new data: 8
+old data: 8 new data: 0
+CORTINA-SUPInstalling pfmsvcs module ...done.
+Installing nvram module ... done.
+Installing if_index module with port mode 6 ... done.
+Installing fcfwd
+Installing RNI lcnd ... done.
+Installing lcnd ... done.
+\n S090setup-eth sup_start
+Installing psdev ...
+Installing veobc module ... done.
+Clean up previous pcap files present in tmp directory
+Checking SR card
+Card Index is 21019
+Inserting eMMC module ... 
+Inserting OBFL module ... 43.00: eMMC Device found.
+43.01: card has mmc
+done.
+43.02: Making OBFL character devices for mmc
+43.06: mounting plog for N9k!
+43.07: Done..mounting plog for N9k!
+Mounting OBFL for eMMC
+1+0 records in
+1+0 records out
+512 bytes copied, 0.0544729 s, 9.4 kB/s
+Attach blkoops
+44.53: Before mounting blkoops
+44.54: After mounting blkoops
+44.55: recreate_mmcftrace_rr_device
+Inserting kernel_services module ... done.
+Making kernel_services character devices
+cgroups initialized
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No
+grpck: no changes
+exit code: 1
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+Starting rpcbind daemon...done.
+creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+Saving image for img-sync ...
+Checking SSD firmware ...
+	Model Number:       Micron_M500IT_MTFDDAT256MBD             
+	Serial Number:      MSA2502053H
+	Firmware Revision:  MC03.00 
+SSD Model: Micron_M500IT_MT
+Current SSD Firmware Version: 3
+SSD firmware does not need to be upgraded
+Loading system software
+Installing local RPMS
+Patch Repository Setup completed successfully
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Stopping crond: OK
+Creating /dev/mcelog
+Starting mcelog daemon
+Starting crond: OK
+INIT: Entering runlevel: 3
+rm: cannot remove '/isan/etc/sysmgr.d/s1hal.conf': No such file or directory
+Running S93thirdparty-script...
+vlc_card_index 
+S26: sw_id -1 vp 0
+S26 C: sw_id -1, Retaining libcrdcfgdata.so as is
+/etc/init.d/rc: line 294: [: ==: unary operator expected
+done
+Netbroker support IS present in the kernel.
+done
+Executing Prune clis.
+Removing exusd cli files if it is not exbl_card in prune_clis
+ethernet switching mode Tue Jul 12 18:01:25 UTC 2022
+prepare span CLI
+
+User Access Verification
+tah-reg-tb1-eor1(standby) login: 
+User Access Verification
+tah-reg-tb1-eor1(standby) login: 
+telnet> q
+Connection closed.
+[ashmurug@bgl-ads-5180 scheduler]$ telnet 10.127.57.176 2052
+Trying 10.127.57.176...
+Connected to 10.127.57.176.
+Escape character is '^]'.
+
+tah-reg-tb1-eor1# test aaa group tac1 user1 Cisc0123
+user has been authenticated
+tah-reg-tb1-eor1#
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 06/02/2022 02:39:25 Added 06/02/2022 02:39:25 by vasagraw)---
+committed fix.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: checkin_L2_ULS (Created 06/02/2022 01:44:01 Added 06/02/2022 01:44:01 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity79
+Testbed  name       : sanity79-testbed.yml
+TestSuite           : checkin_l2_uls.yml
+Total Test cases Run: 22
+Passed test cases   : 22
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/276326
+Report file         : /auto/nxos-sanity/logs/vasagraw/276326/checkin_l2_uls-sanity79.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/276326/checkin_l2_uls-sanity79.log
+Test start time     : 2022_06_01_22_52_22
+Test End time       : 2022_06_02_01_37_41
+Test Duration       : 2:45:19.248113
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '276326', '-cdet', 'CSCwb89738', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.3.0.72.F.bin_PVT', '-testsuite', 'checkin_l2_uls.yml', '-testbed', 'sanity79-testbed.yml', '-asic', 'hw', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/276326/checkin_l2_uls-sanity79.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/276326/checkin_l2_uls-sanity79.report', '-jobid', 'HW'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:05   
+testBootTime                                                              pass      0:00:18   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:12:57   
+testL2SanityMacLearning                                                   pass      0:11:44   
+testL2SanityMacAging                                                      pass      0:15:45   
+testL2SanityMacMove                                                       pass      0:09:37   
+testDynamicL2MulticastPC                                                  pass      0:05:25   
+testVpcConfig                                                             pass      0:07:38   
+testVpcPeerLink                                                           pass      0:01:01   
+testVpcPeerKeepAlive                                                      pass      0:00:36   
+testVpcPortChannels                                                       pass      0:01:42   
+testVpcStpStates                                                          pass      0:00:38   
+testVpcConsistencies                                                      pass      0:03:32   
+testVpcPeerGateway                                                        pass      0:05:44   
+testVrrp                                                                  pass      0:03:42   
+testHsrp                                                                  pass      0:04:11   
+testHsrpv6                                                                pass      0:02:57   
+testVpcMacLearningAndSyncCfdCSCvc72856                                    pass      0:11:07   
+testVpcDoNotLearnPeerLink                                                 pass      0:00:53   
+testVpcLegDown                                                            pass      0:33:03   
+testGoldDiagnostic                                                        pass      0:00:10   
+testCores                                                                 pass      0:00:05   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kernel                       4.0  05:22:43.50  05:22:47.50 
+bootscripts                 68.0  22:22:54.00  22:24:02.00 
+sysmgr_bootup                4.1  22:24:02.00  22:24:06.19 
+pfm_init                     5.0  22:24:06.00  22:24:11.00 
+lcm_init                     4.6  22:24:11.00  22:24:15.65 
+module_insert               27.5  22:24:15.65  22:24:43.23 
+sup_online                   0.1  22:24:43.24  22:24:43.39 
+lc_online                   33.5  22:24:44.19  22:25:17.74 
+pss_acfg                     7.2  22:25:17.74  22:25:25.01 
+----------------------------------------------------------
+full_boot                  162.1  22:22:43.00  22:25:25.01 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            10.35 |            4.0 | PASS   |
+| bootscripts   |            77.05 |           68.0 | PASS   |
+| sysmgr_bootup |            3.795 |            4.1 | SKIP   |
+| pfm_init      |              4.6 |            5.0 | SKIP   |
+| sup_online    |            0.115 |            0.1 | PASS   |
+| lcm_init      |            5.865 |            4.6 | PASS   |
+| module_insert |            35.42 |           27.5 | PASS   |
+| lc_online     |           46.345 |           33.5 | PASS   |
+| pss_acfg      |            0.115 |            7.2 | SKIP   |
+| full_boot     |          188.945 |          162.1 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: checkin_L2_ULS---
+
+
+---Start of Note Titled: Unit-test (Created 06/01/2022 11:35:57 Added 06/01/2022 11:35:57 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Jun  1 08:53:32 2022
+!Time: Wed Jun  1 08:53:37 2022
+
+version 10.3(1) Bios:version 08.39 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.77.143.115 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 vasagraw Cisc0123
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# system switchover 
+switch(config)# 
+CISCO SWITCH Ver 8.39
+
+CISCO SWITCH Ver 8.39
+Switch G3
+Memory Size (Bytes): 0x0000000080000000 + 0x0000000380000000
+ Relocated to memory
+
+
+
+
+*************************************************
+
+
+switch(standby)# 
+switch(standby)# 
+switch(standby)# 
+switch(standby)# 2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %KERN-2-SYSTEM_MSG: [  880.600012] Switchover started by redundancy driver - kernel
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %SYSMGR-2-HASWITCHOVER_PRE_START: This supervisor is becoming active (pre-start phase).
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %SYSMGR-2-HASWITCHOVER_START: Supervisor 28 is becoming active.
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %PLATFORM-2-PS_ABSENT: Power supply 3 is absent/shutdown, ps-redundancy might be affected
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %PLATFORM-2-PS_ABSENT: Power supply 4 is absent/shutdown, ps-redundancy might be affected
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ %PLATFORM-2-PS_ABSENT: Power supply 5 is absent/shutdown, ps-redundancy might be affected
+2022 Jun  1 08:54:09 switch %$ VDC-1 %$ netstack: Registration with cli server complete
+2022 Jun  1 08:54:10 switch %$ VDC-1 %$ %SYSMGR-2-SWITCHOVER_OVER: Switchover completed.
+2022 Jun  1 08:54:10 switch %$ VDC-1 %$ %USER-2-SYSTEM_MSG: KIM Switchover active cb - kim
+
+switch# 2022 Jun  1 08:54:13 switch %$ VDC-1 %$ %PLATFORM-2-MODULE_EJECTOR_POLICY_DISABLED: Ejector based shutdown disabled for Module 22 . Push-Button ejector has been open (null). Please close all the ejectors to enable ejector based shutdown
+
+switch# 
+switch# 
+switch# 2022 Jun  1 08:54:14 switch %$ VDC-1 %$ %PLATFORM-2-MODULE_EJECTOR_POLICY_DISABLED: Ejector based shutdown disabled for Module 24 . Push-Button ejector has been open (null). Please close all the ejectors to enable ejector based shutdown
+
+switch# 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Jun  1 08:53:32 2022
+!Time: Wed Jun  1 08:54:51 2022
+
+version 10.3(1) Bios:version 08.39 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.77.143.115 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 vasagraw Cisc0123
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 08.39
+  NXOS: version 10.3(1) [build 10.3(0.56)] [Feature Release]
+  System version: 10.3(1)
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 05/17/2022 02:49:03 Modified 06/01/2022 23:26:06 by cms)---
+{220602 vasagraw S B} waiting for sanity
+{220529 anikunna S B} Not a regression. Discussed with DT team.
+{220530 anikunna S B} Starting on this today. Has setup dependency from submitter
+{220524 avinayak S B} DE on escalations, come back post that.
+{220517 anikunna S B} Came in today. Need to debug.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 05/17/2022 02:48:10 Added 05/17/2022 02:48:10 by anikunna)---
+Pls check & address
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 05/17/2022 02:32:32 Modified 05/17/2022 02:36:07 by ashmurug)---
+$$IGNORE
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (9 of 9)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-niles                                ascii text     1834           vasagraw       06/02/2022 02:35:31      
+Diffs-release-niles                               ascii text     1198           vasagraw       06/02/2022 02:35:29      
+checkin_l2_uls_sanity_baseline_compare            ascii text     219            root           06/02/2022 01:38:03      
+checkin_l2_uls_sanity_report                      ascii text     5473           root           06/02/2022 01:38:02      
+ccwarnings-niles.p2                               ascii text     135            baas           06/01/2022 17:48:39      
+static-analysis-niles.p2                          ascii text     7633           baas           06/01/2022 17:48:08      
+ccwarnings-niles                                  ascii text     135            baas           06/01/2022 10:59:13      
+static-analysis-niles                             ascii text     6999           baas           06/01/2022 10:58:42      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       06/01/2022 02:39:26      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/09/2026 satdr    	Attribute               	nr1f nr1f-reg                	nr1f nr1f-reg cfd-manojohn   	Mod
+08/09/2026 satdr    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/08/2025 cdetsbtk 	Software-type-ids       	286278844                    	                             	Del
+05/08/2025 cdetsbtk 	Security-screening-times	2024-06-04 03:22:02.000+0000 	2025-05-09 00:52:31.000+0000 	Mod
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/08/2025 cdetsadm 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+06/03/2024 cdetsbtk 	Security-screening-times	2024-05-16 08:49:22.000+0000 	2024-06-04 03:22:02.000+0000 	Mod
+06/03/2024 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+05/15/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-172433       	New
+05/15/2024 linyquan 	serviceRequests/C3/69723	                             	                             	Mod
+05/15/2024 linyquan 	Urgency-desc            	NA                           	CL3                          	Mod
+05/15/2024 linyquan 	Urgency                 	9                            	6                            	Mod
+05/15/2024 cdetsbtk 	Security-screening-times	2022-09-13 01:11:26.000+0000 	2024-05-16 08:49:22.000+0000 	Mod
+05/15/2024 linyquan 	serviceRequests/C3/69723	                             	C3/697233798                 	New
+05/15/2024 linyquan 	Found                   	func-test                    	customer-use                 	Mod
+05/15/2024 linyquan 	Urgency                 	                             	9                            	Mod
+05/15/2024 linyquan 	Found-during            	Feature Test                 	Customer                     	Mod
+05/15/2024 linyquan 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+05/15/2024 linyquan 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+05/15/2024 linyquan 	Data-classification-reas	N/A                          	Default value of Data-classif	Mod
+05/15/2024 linyquan 	Software-type-ids       	                             	282253564,286280105,286321149	New
+05/15/2024 linyquan 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/15/2024 linyquan 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+05/15/2024 linyquan 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+05/15/2024 linyquan 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+05/15/2024 linyquan 	Care-Update             	                             	Y                            	Mod
+05/15/2024 linyquan 	IFD-CFD-Conv-date       	                             	2024-05-16 01:49:20.000+0000 	Mod
+05/15/2024 linyquan 	Known-fixed-releases    	                             	10.3(2)                      	New
+05/15/2024 linyquan 	Tickets-count           	0                            	1                            	Mod
+05/15/2024 linyquan 	TACSR-count             	                             	1                            	Mod
+05/15/2024 linyquan 	Tickets-count-direct    	                             	1                            	Mod
+05/15/2024 linyquan 	Trouble-tickets         	                             	697233798                    	New
+05/15/2024 linyquan 	Trouble-tickets-direct  	                             	C3697233798                  	New
+05/15/2024 linyquan 	Trouble-ticket-CFD      	                             	Y                            	Mod
+01/18/2023 fas      	Integrated-releases     	                             	10.3(2)                      	New
+09/12/2022 cdetsbtk 	Security-screening-times	2022-07-13 01:01:57.000+0000 	2022-09-13 01:11:26.000+0000 	Mod
+09/12/2022 fas      	Known-fixed-releases    	                             	10.3(1)                      	New
+07/12/2022 ashmurug 	Attribute               	nr1f                         	nr1f nr1f-reg                	Mod
+07/12/2022 cdetsbtk 	Security-screening-times	2022-06-02 16:39:26.000+0000 	2022-07-13 01:01:57.000+0000 	Mod
+07/12/2022 ashmurug 	Note Title              	                             	V-comments                   	New
+07/12/2022 ashmurug 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/12/2022 ashmurug 	Status                  	R                            	V                            	Mod
+07/12/2022 ashmurug 	Verified By Employee    	                             	ashmurug                     	Mod
+07/12/2022 ashmurug 	Verified-release        	                             	10.3(0.135)                  	New
+07/12/2022 ashmurug 	Verified-confidence     	                             	tested                       	Mod
+07/12/2022 ashmurug 	Verified-on             	                             	2022-07-12 18:01:56.000+0000 	Mod
+07/12/2022 ashmurug 	statusStates            	                             	[status=R, startDate=Thu Jun 	New
+07/12/2022 ashmurug 	statusStates            	[status=R, startDate=Thu Jun 	                             	Del
+07/12/2022 ashmurug 	Age-status              	16                           	56                           	Mod
+07/12/2022 ashmurug 	Mean-time-to-verified   	                             	56                           	Mod
+06/22/2022 vasagraw 	Regression-submitter    	N                            	Y                            	Mod
+06/22/2022 vasagraw 	Regression-submitter    	Y                            	N                            	Mod
+06/22/2022 vasagraw 	Breakage                	Yes, unknown source          	No                           	Mod
+06/22/2022 vasagraw 	Regression              	Y                            	N                            	Mod
+06/22/2022 vasagraw 	By-previous-commit-value	Unknown                      	No                           	Mod
+06/22/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+06/22/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+06/15/2022 divvenka 	Integrated-releases     	                             	10.3(0)INA9(0),10.3(0)INA9(0.	New
+06/02/2022 divvenka 	Integrated-releases     	                             	10.3(0.81),10.3(1)           	New
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 16:35:32.000+0000 	2022-06-02 16:39:26.000+0000 	Mod
+06/02/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+06/02/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+06/02/2022 vasagraw 	Status                  	A                            	R                            	Mod
+06/02/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+06/02/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+06/02/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+06/02/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+06/02/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+06/02/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+06/02/2022 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+06/02/2022 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+06/02/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+06/02/2022 vasagraw 	Original-resolved-on    	                             	2022-06-02 09:39:25.000+0000 	Mod
+06/02/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+06/02/2022 vasagraw 	More-on                 	                             	2022-06-02 09:39:25.000+0000 	Mod
+06/02/2022 vasagraw 	Opened-on               	                             	2022-06-02 09:39:25.000+0000 	Mod
+06/02/2022 vasagraw 	Resolved-on             	                             	2022-06-02 09:39:25.000+0000 	Mod
+06/02/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Tue May 	New
+06/02/2022 vasagraw 	statusStates            	[status=A, startDate=Tue May 	                             	Del
+06/02/2022 vasagraw 	Age-status              	0                            	16                           	Mod
+06/02/2022 vasagraw 	Mean-time-to-resolved   	                             	16                           	Mod
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 16:35:30.000+0000 	2022-06-02 16:35:32.000+0000 	Mod
+06/02/2022 vasagraw 	File Name               	                             	Diffs-commit-niles           	New
+06/02/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 15:44:01.000+0000 	2022-06-02 16:35:30.000+0000 	Mod
+06/02/2022 vasagraw 	File Name               	                             	Diffs-release-niles          	New
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 15:38:04.000+0000 	2022-06-02 15:44:01.000+0000 	Mod
+06/02/2022 vasagraw 	Note Title              	                             	checkin_L2_ULS               	New
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 15:38:03.000+0000 	2022-06-02 15:38:04.000+0000 	Mod
+06/02/2022 cdetsbtk 	Security-screening-times	2022-06-02 13:26:07.000+0000 	2022-06-02 15:38:03.000+0000 	Mod
+06/02/2022 root     	File Name               	                             	checkin_l2_uls_sanity_baselin	New
+06/02/2022 root     	File Name               	                             	checkin_l2_uls_sanity_report 	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-02 07:48:40.000+0000 	2022-06-02 13:26:07.000+0000 	Mod
+06/01/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-02 07:48:09.000+0000 	2022-06-02 07:48:40.000+0000 	Mod
+06/01/2022 baas     	File Name               	                             	ccwarnings-niles.p2          	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-02 01:35:59.000+0000 	2022-06-02 07:48:09.000+0000 	Mod
+06/01/2022 baas     	File Name               	                             	static-analysis-niles.p2     	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-02 00:59:13.000+0000 	2022-06-02 01:35:59.000+0000 	Mod
+06/01/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-02 00:58:43.000+0000 	2022-06-02 00:59:13.000+0000 	Mod
+06/01/2022 baas     	File Name               	                             	ccwarnings-niles             	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-06-01 16:39:27.000+0000 	2022-06-02 00:58:43.000+0000 	Mod
+06/01/2022 baas     	File Name               	                             	static-analysis-niles        	New
+06/01/2022 cdetsbtk 	Security-screening-times	2022-05-30 12:43:07.000+0000 	2022-06-01 16:39:27.000+0000 	Mod
+06/01/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/31/2022 vasagraw 	Attribute               	nr1f nr1f-reg                	nr1f                         	Mod
+05/29/2022 cdetsbtk 	Security-screening-times	2022-05-30 12:41:14.000+0000 	2022-05-30 12:43:07.000+0000 	Mod
+05/29/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/29/2022 cdetsbtk 	Security-screening-times	2022-05-24 17:51:12.000+0000 	2022-05-30 12:41:14.000+0000 	Mod
+05/29/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/24/2022 cdetsbtk 	Security-screening-times	2022-05-18 17:22:48.000+0000 	2022-05-24 17:51:12.000+0000 	Mod
+05/24/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/24/2022 cms      	Est-fix-date            	                             	2022-06-02 07:00:00.000+0000 	Mod
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-17 17:12:37.000+0000 	2022-05-18 17:22:48.000+0000 	Mod
+05/18/2022 ashmurug 	Regression-submitter    	                             	Y                            	Mod
+05/18/2022 ashmurug 	Breakage                	                             	Yes, unknown source          	Mod
+05/18/2022 ashmurug 	Regression              	                             	Y                            	Mod
+05/18/2022 ashmurug 	By-previous-commit-value	                             	Unknown                      	Mod
+05/18/2022 ashmurug 	Bug-origin              	                             	Code / Implementation        	Mod
+05/18/2022 ashmurug 	Origin                  	                             	base code                    	Mod
+05/18/2022 ashmurug 	Known-affected-releases 	10.3(0.17)                   	                             	Del
+05/17/2022 ashmurug 	Attribute               	gldn nr1f nr1f-reg           	nr1f nr1f-reg                	Mod
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 16:49:04.000+0000 	2022-05-17 17:12:37.000+0000 	Mod
+05/17/2022 ashmurug 	Summary                 	Failed log: https://earms-tra	Test case blocked is 1.
+
+Fail	Mod
+05/17/2022 ashmurug 	Attribute               	gldn nr1f                    	gldn nr1f nr1f-reg           	Mod
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 16:48:10.000+0000 	2022-05-17 16:49:04.000+0000 	Mod
+05/17/2022 cms      	Note Title              	                             	Scrubnote                    	New
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 16:36:07.000+0000 	2022-05-17 16:48:10.000+0000 	Mod
+05/17/2022 anikunna 	Note Title              	                             	A-comments                   	New
+05/17/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+05/17/2022 anikunna 	Status                  	N                            	A                            	Mod
+05/17/2022 anikunna 	Engineer                	                             	vasagraw                     	Mod
+05/17/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+05/17/2022 anikunna 	Assigned Date           	                             	2022-05-17 09:48:10.000+0000 	Mod
+05/17/2022 anikunna 	statusStates            	                             	[status=N, startDate=Tue May 	New
+05/17/2022 anikunna 	statusStates            	[status=N, startDate=Tue May 	                             	Del
+05/17/2022 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 16:32:33.000+0000 	2022-05-17 16:36:07.000+0000 	Mod
+05/17/2022 ashmurug 	Summary                 	Failed log: https://earms-tra	Failed log: https://earms-tra	Mod
+05/17/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+05/17/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+05/17/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+05/17/2022 cdetsbtk 	Security-screening-times	                             	2022-05-17 16:32:33.000+0000 	Mod
+05/17/2022 ashmurug 	Note Title              	                             	Release-note                 	New
+05/17/2022 ashmurug 	Impact                  	                             	Features/Functionality       	New
+05/17/2022 ashmurug 	Version                 	                             	10.3(0.17)                   	New
+05/17/2022 ashmurug 	Known-affected-releases 	                             	10.3(0.17)                   	New
+05/17/2022 ashmurug 	Defect Created          	                             	                             	New

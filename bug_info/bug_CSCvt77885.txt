@@ -1,0 +1,1282 @@
+*******************************************************************************
+
+Bug ID   : CSCvt77885         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : Cisco Nexus 3000 and 9000 Series Switches Privilege Escalation Vulnerability
+PrimaryPV : 
+Version :9.2(3) 9.3(3) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: bhargapa           Submitted: 04/10/2020 16:54:57     Last Updtd : 11/03/2026 05:09:55  
+RNE-Type: NONE                New-on : 04/10/2020 16:54:57      
+Root-cause-analysis:                                                  
+Interest : arppaliw
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:atukhann                                            
+Known-affected-releases:9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(4) 9.3(1) 9.3(2) 9.3(3) 
+
+Known-fixed-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.2(9) 10.3(1) 10.3(10) 10.3(2) 10.3(3) 10.3(4a) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(9) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(5) 10.4(6) 10.4(7) 10.4(8) 10.5(1) 10.5(2) 10.5(3) 10.5(3s) 10.5(4) 10.5(5) 10.5(6) 10.6(1) 10.6(1s) 10.6(2) 10.6(2n) 10.6(3) 10.6(3s) 10.6(4) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(16) 9.3(4) 9.3(5) 9.3(6) 9.3(7) 9.3(7a) 9.3(8) 9.3(9) 
+
+
+
+Potentially-affected-releases:9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/13/2020 19:21:04                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 3                                              
+Mean-time-to-verified: 4      
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/10/2020 11:31:50            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: Y                                                              
+PSIRT-status: disclosed                                               
+SIR: High                                                             
+Hardening: N                                                          
+PSIRT-attribute: SN Update:10                                         
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Data-integrity 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 04/10/2020 19:59:09 
+Code-reviewer:                
+Opened-on: 04/13/2020 19:21:04Opener: girshank              
+Engineer : sarchand           DE-manager  : girshank        Est Time/Attribute : iplusa-mr-hkatakam tac-repro greensboro
+Est. completion date: 04/13/2020 00:00:00  
+Script-version:                         
+
+More-by : girshank            More-on: 04/13/2020 19:21:04  
+
+Documents Changed: none       Resolved: 04/13/2020 19:21:04 Resolver: girshank       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 04/15/2020 04:08:45      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCSW-SJ
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   6
+Tickets-count-direct :            6
+Trouble-tickets :              688860403;689856600;690697022;690963564;692373266;PSIRT-0757785462
+Trouble-tickets-direct :C3690697022 
+Trouble-tickets-direct :C3689856600 
+Trouble-tickets-direct :C3690963564 
+Trouble-tickets-direct :C3688860403 
+Trouble-tickets-direct :PSIRTPSIRT-0757785462 
+Trouble-tickets-direct :C3692373266 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoReleased-Defect Auto released - PSIRT Evaluation present in RNE of Bug
+Security-screening-timestamp :                 08/30/2026 04:47:03
+Document :    nexus
+
+Summary:
+NXOS 9.x 'enable' or 'enable 15' succeeds with wrong password when feature privilege is enabled
+
+Issue:  'feature privilege' is enable and configured enable secret. However,  when user login with any privilege level  and then enter "enable" command to elevate privilege level to 15 and if user type in any character string ( not the password specified using enable secret) as password switch still grant privilege level 15 to the user.
+
+******************* Related Service Requests (6 of 6)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         688860403       CASE WESTERN RESERVE UNIVERSIT           
+C3         689856600       IBM SO JANALAKSHMI FINANCIAL S           
+C3         690697022       IBM SO JANALAKSHMI FINANCIAL S           
+C3         690963564       FAA WJHTC                                
+C3         692373266       FAA WJHTC                                
+PSIRT      PSIRT-075778546 FAA WJHTC                                
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-526995                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 girshank      04/13/2020 19:21:03    CSCvt80647      CSC.tea         R            
+
+
+********************* Listing of Notes (10 of 10 ) ***********************
+
+---Start of Note Titled: Other (Created 03/21/2021 02:12:16 Added 03/21/2021 02:12:16 by palshanm)---
+Automated through TEACAT CSCvt80647
+---End of Note Titled: Other---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/19/2020 01:55:48 Modified 05/11/2020 21:39:07 by cms)---
+{200511 girshank S B} This issue is not seen in Greensboro. Not required in GMR8.
+{200507 nachen S R} SIR:High
+{200413 girshank S G} Committed to Irvine. 
+{200413 girshank S B} Testing completed. In PRRQ. Will initiate BAT commit.
+{200411 girshank S B} Identified RCA. Code changes in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: DetectionLogic (Created 04/16/2020 03:35:15 Added 04/16/2020 03:35:15 by arppaliw)---
+** Condition 1 : Platform
+
+Issue seen on Nexus 9k
+
+
+** Condition 2 : NXOS Version
+
+Issue seen in 9.2(3),9.3(3)
+
+ 
+** Condition 3 : Feature privilege is enabled
+
+show running-config | in feature
+
+feature privilege  <<<<<<<<<<<<<<<<<<<<<<<<<<<
+feature ospf
+feature pim
+
+** Condition 4 : User has a role with privilege less than 15.  Example: privilege 2
+
+show user-account
+user:guest
+	roles:priv-2  <<<<<<<<
+	
+** Condition 5 : The same user must have issued 'enable' or 'enable 15' commands
+
+show accounting log | in "enable"
+
+Mon Dec 25 11:07:25 2006:type=update:id=console0:user=guest:cmd=enable (SUCCESS)
+Mon Dec 25 11:07:27 2006:type=update:id=console0:user=guest:cmd=enable 15 (SUCCESS)
+
+Logic : Condition1 AND Condition2 AND Condition3 AND Condition4 AND Condition5
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled:  Eng-Notes (Created 04/15/2020 09:02:37 Modified 04/18/2020 07:46:50 by sukumars)---
+'enable secret' is not supported (yes yes, we get it, then why you have the command  still)  in NxOS, as RBACL
+supports superior user access control based on privilege levels, and in addition passwords on RBACL (username x password y ) 
+uses more secure SHA256 encryption, while 'enable secret..' uses Md5 weak  encryption.
+
+Long story,  'enable secret' was added in NxOS to support IOS to  NxOS config migration as a transition feature. It should have been long removed (get get, we should have removed).
+
+Pls advise your customers not use 'enable secret' and instead use 'RBACL' in NxOS, until we deprecate 'enable secret' after reviewing any upgrade/existing customer usage implications.
+
+We have updated  documentation for Command reference and Config guide for ?enable secret? usage and deprecation:
+ 
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/9-x/command_references/921/config/b_N9K_Config_Commands_921/b_N9K_Config_Commands_921_chapter_0101.html#wp1160990493
+ 
+Warning
+Do not use this command. This command is deprecated, is not supported, and will not be available in future releases. As an alternative, use RBAC rules, which provide more granular security control. For more information on RBAC refer to "Configuring User Accounts and RBAC" in the Cisco Nexus 9000 Series NX-OS Security Configuration Guide.
+ 
+and Config Guide also where it appears:
+ 
+https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/security/configuration/guide/b-cisco-nexus-9000-nx-os-security-configuration-guide-93x.pdf
+ 
+Warning: Do not use the enable secret command. This command is not supported and is being deprecated. It will not
+be available in future releases. As an alternative, use RBAC rules, which provide more granular security
+control. For more information on RBAC, see "Configuring User Accounts and RBAC" in the Cisco Nexus
+9000 Series NX-OS Security Configuration Guide.
+
+In addition for years,  NxOS  Hardening guide public documentation documents to *not* use enable secret.
+
+https://tools.cisco.com/security/center/resources/securing_nx_os.html
+
+"The enable secret command is used in Cisco IOS Software to set a password that grants privileged administrative access to a Cisco IOS Software system. In Cisco NX-OS, there is no concept of an enable-secret or enable-password setting. Privileges are managed using role-based access control (RBAC). The functional equivalent to enabling mode access on a Cisco IOS Software device is assignment of an account to the network-admin (global privileged access) or vdc-admin (virtual device context [VDC]-specific privileged access) role in Cisco NX-OS."
+---End of Note Titled: Eng-Notes---
+
+
+---Start of Note Titled: V-comments (Created 04/15/2020 04:08:45 Added 04/15/2020 04:08:45 by palshanm)---
+Bug fix is verified in IMR release using 9.3(3.113)
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  reproduction-steps (Created 04/14/2020 19:47:05 Modified 11/23/2020 07:14:11 by cdetsadm)---
+BROKEN  STATE  -- NXOS 9.3(3)
+====================
+N9K running 9.3(3)  with feature privilege enabled  and enable secret configured
+
+LEAF47# sh mod
+Mod Ports             Module-Type                       Model          Status
+--- ----- ------------------------------------- --------------------- ---------
+1    54   48x10/25G + 6x40/100G Ethernet Module N9K-C93180YC-EX       active *
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    9.3(3)                   3.0    NA
+
+LEAF47# sh feature | in privileg
+privilege              1          enabled
+
+(1)	Admin enable feature privilege and configure enable secret with clear-text password e.g.  IT_DOES_NOT_MATTER
+
+LEAF47# conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+LEAF47(config)# feature privilege
+LEAF47(config)# enable secret 0 IT_DOES_NOT_MATTER ?
+  <CR>
+  all       Add/remove all privilege level secrets
+  priv-lvl  Privilege-level to which this secret belongs
+LEAF47(config)# enable secret 0 IT_DOES_NOT_MATTER
+LEAF47(config)# end
+
+(2) User Guest (local or remote) logs into the switch
+e.g. we use a remote user Guest that is being assigned priv-lvl 2 (network-operator) by the ISE AAA server upon successful authentication
+ 
+LEAF47# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+guest    pts/0        Apr 15 02:39   .         11964 (10.19.50.197) session=ssh *
+
+LEAF47# show user-account guest
+user:guest
+        roles:priv-2  <<<<<<<<<<<<<<<<<<<<<<<<  priv-2
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+
+TRIGGER STEPS 
+
+(3)  Guest user now  issue EXEC cli  'enable' or 'enable 15'   and when prompted passes ANY password with more than 1 character and is able to reach the enable state.  (note:  'ENTER' alone will not succeed. Need at least one character)
+
+LEAF47# enable ?
+  <CR>
+  15     Privilege level 15
+         *Default value is 15
+ 
+LEAF47# enable 15
+Password: Cisco Nexus Operating System (NX-OS) Software   <<<<<<<   I passed an IN-Correct password   !!  And still get promoted
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+LEAF47-enable# show privilege
+User name: guest
+Current privilege level: 15   <<<<<
+Feature privilege: Enabled
+ 
+ 
+
+WORKING STATE   (running I7(x) which is NOT impacted by this defect)
+==========
+
+
+LEAF43# show mod
+Mod Ports             Module-Type                       Model          Status
+--- ----- ------------------------------------- --------------------- ---------
+1    54   48x1/10G-T 6x40G Ethernet Module      N9K-C9372TX           active *
+ 
+Mod  Sw                Hw     Slot
+---  ----------------  ------ ----
+1    7.0(3)I7(8)       1.0    NA
+
+1. configure the secret with clear-text password 'T@k3mE2Th3T0p'  and remove local user guest/password guest
+ (we rely instead on remote user AAA/ISE as an example).
+ 
+LEAF43(config)# enable secret 0 T@k3mE2Th3T0p priv-lvl 15
+LEAF43(config)# no username guest
+LEAF43(config)# end
+ 
+LEAF43# test aaa server tacacs+ sj-dcrs-ise.cisco.com guest guest
+user has been authenticated   <<<<<<<<<<<<<<<<<<<<<<<<<<
+ 
+ 
+2. log in as guest and confirm priv-2 authorization level
+ 
+LEAF43# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+guest    pts/2        Apr 10 05:31   .          1704 (10.19.50.196) session=ssh *  <<<<<<<   logged in as guest
+
+ 
+ 
+LEAF43# show user-account guest
+user:guest
+        roles:priv-2
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+ 
+ 
+ 3.  Attempt to promote to priv-15  but  passing the WRONG password first.   We see the correct behavior:  we are prompted again for Password
+ 
+LEAF43# enable 15
+Password:
+Password:   <<<<<<<<<<<<<       When I pass the WRONG password,   it REFUSES to move to lvl-15  =   CORRECT BEHAVIOR   in I7(8)
+
+4. Provide the Correct Password and confirm that guest is correctly promoted to enable level
+
+Password: Cisco Nexus Operating System (NX-OS) Software   <<<<<<<   passs the CORRECT password -- CORRECT BEHAVIOR
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+LEAF43-enable#
+ 
+LEAF43-enable# show user-account guest
+user:guest
+        roles:priv-2
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+
+LEAF43-enable# show privilege
+User name: guest
+Current privilege level: 15
+Feature privilege: Enabled
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled: R-comments (Created 04/13/2020 19:21:05 Added 04/13/2020 19:21:05 by girshank)---
+Committed to Irvine.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis-irvine (Created 04/13/2020 08:01:33 Added 04/13/2020 08:01:33 by sarchand)---
+# Enclosure (static-analysis-irvine) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvt77885).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-8046
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/sarchand/imr_4_12 
+# Generated at
+#     Mon Apr 13 15:01:31 2020 UTC by sarchand
+# Enclosure contains contents of the following files:
+#     /nobackup/sarchand/imr_4_12/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/sarchand/imr_4_12/build/ses_static_analysis.log':
+@@Start processing of /nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c
+**Active warnings for /nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c
+**Noise warnings for /nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:914:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:856:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+**Parent warnings for /nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:1015:none:safec:migrate from strncat to strncat_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:423:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:531:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:534:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:537:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:541:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:544:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:1015:none:OVERRUN:Overrunning array "digest_hex" of 1024 bytes by passing it to a function which accesses it at byte offset 1024 using argument "1024U". [coverity]
+/nobackup/sarchand/imr_4_12/feature/security/lib/security_encrypt.c:1015:overflow:BUFFER_SIZE:Buffer "digest_hex" has a size of 1024 characters, and its string length (null character not included) is 0 characters, leaving an available space of 1024 characters. Appending 1024 characters from "str" plus the null character overruns "digest_hex". [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 2
+Total parent warnings: 9
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=irvine-sarchand&cid=97496&cid=360655&cid=69613&cid=66859&cid=360654&cid=101870&cid=406169
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/sarchand/irvine-sarchand_20200413_145201/sa_summary.tar.gz
+---End of Note Titled: static-analysis-irvine---
+
+
+---Start of Note Titled: unit-test (Created 04/13/2020 07:48:51 Added 04/13/2020 07:48:51 by sarchand)---
+With old 16byte truncated hash
+
+N9K-ask-SARCHAND# sh run | sec enable
+enable secret 5 $1$520c2cd1$bedf57795217c262
+aaa authentication login chap enable 
+N9K-ask-SARCHAND#
+
+
+N9K-ask-SARCHAND# en
+enable   end      
+N9K-ask-SARCHAND# en 15
+Password:  <--- Wrong password
+Password:  <--- Right password
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K-ask-SARCHAND-enable# exit
+N9K-ask-SARCHAND# 
+
+
+
+=================================================================
+
+With 32byte hash (generated in I release and above)
+
+ 
+N9K-ask-SARCHAND# 
+N9K-ask-SARCHAND# 
+N9K-ask-SARCHAND# conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+N9K-ask-SARCHAND(config)# enable secret 0 Cisc0123
+N9K-ask-SARCHAND(config)# sh run | sec enable
+enable secret 5 $1$2efd5c6$e3a4c72e5070d4617f58e13c18156d64
+aaa authentication login chap enable 
+
+N9K-ask-SARCHAND# en 15
+Password:    <-- Wrong password 
+Password:    <-- Right password
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+N9K-ask-SARCHAND-enable# 
+Inactive timeout reached, logging out.
+---End of Note Titled: unit-test---
+
+
+---Start of Note Titled:  Release-note (Created 04/10/2020 16:54:57 Modified 08/26/2020 09:00:56 by psirt.gen)---
+<B>Symptom:</B>
+A vulnerability in the Enable Secret feature of Cisco Nexus 3000 Series Switches and Cisco Nexus 9000 Series Switches in standalone NX-OS mode could allow an authenticated, local attacker to issue the enable command and get full administrative privileges. To exploit this vulnerability, the attacker would need to have valid credentials for the affected device.
+
+The vulnerability is due to a logic error in the implementation of the enable command. An attacker could exploit this vulnerability by logging in to the device and issuing the enable command. A successful exploit could allow the attacker to gain full administrative privileges without using the enable password.
+
+Note: The Enable Secret feature is disabled by default.
+
+Cisco has released software updates that address this vulnerability. There are workarounds that address this vulnerability.
+
+This advisory is available at the following link:
+https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-n3n9k-priv-escal-3QhXJBC
+
+<B>Conditions:</B>
+Please refer to the Security Advisory.
+
+<B>Workaround:</B>
+Please refer to the Security Advisory.
+
+<B>Further Problem Description:</B>
+Please refer to the Security Advisory.
+
+<B>PSIRT Evaluation:</B>
+The Cisco PSIRT has assigned this bug the following CVSS version 3 score. The Base CVSS score as of the time of evaluation is 7.8:
+https://tools.cisco.com/security/center/cvssCalculator.x?vector=CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+ 
+CVE ID CVE-2020-3394 has been assigned to document this issue.       
+ 
+Additional information on Cisco's security vulnerability policy can be found at the following URL:
+http://www.cisco.com/en/US/products/products_security_vulnerability_policy.html
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (8 of 8)
+------------------------------------------------------------------------------------------------------------------
+CSCvt77885_IMR_test_logs9.3.3.113                 ascii text     131129         palshanm       04/15/2020 04:09:07      
+Release-note-diff                                 ascii text     9084           psirt.gen      08/26/2020 09:00:56      
+Diffs-commit-irvine                               ascii text     2459           sarchand       04/13/2020 16:21:59      
+Diffs-release-irvine                              ascii text     2653           sarchand       04/13/2020 16:21:55      
+SSR_report_for_best_ez_tier1_n9000_NXOS_irvine    ascii text     4334           jabajaj        04/13/2020 15:53:57      
+ccwarnings-irvine                                 ascii text     344            baas           04/13/2020 13:54:49      
+static-analysis-irvine.p2                         binary         6616           cdetsadm       04/13/2020 13:53:57      
+nxos-pi-common-security-code-review               ascii text     413            prrqengg       04/13/2020 02:57:04      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/03/2026 pisces   	VF-patched              	                             	NX-OS:9.3(18)                	New
+10/31/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/31/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/30/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/30/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/29/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/21/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/21/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/14/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/14/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/12/2026 pisces   	VF-patched              	                             	NX-OS:10.7(0g)               	New
+10/08/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/08/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/15/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/15/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/03/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/01/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/01/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/31/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/31/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/29/2026 cdetsbtk 	Security-screening-times	2026-08-26 23:42:48.000+0000 	2026-08-30 11:47:03.000+0000 	Mod
+08/29/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/29/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/29/2026 psirt.gen	PSIRT-KFR               	                             	10.4(8)                      	New
+08/29/2026 psirt.gen	Known-fixed-releases    	                             	10.4(8)                      	New
+08/28/2026 pisces   	VF-patched              	                             	NX-OS:10.4(8)                	New
+08/26/2026 cdetsbtk 	Security-screening-times	2026-08-22 10:35:09.000+0000 	2026-08-26 23:42:48.000+0000 	Mod
+08/26/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+08/26/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+08/26/2026 psirt.gen	PSIRT-KFR               	                             	10.6(3s)                     	New
+08/26/2026 psirt.gen	Known-fixed-releases    	                             	10.6(3s)                     	New
+08/26/2026 pisces   	VF-patched              	                             	NX-OS:10.6(3s)               	New
+08/21/2026 cdetsbtk 	Security-screening-times	2026-08-14 10:35:11.000+0000 	2026-08-22 10:35:09.000+0000 	Mod
+08/21/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/21/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/21/2026 psirt.gen	PSIRT-KFR               	                             	10.6(4)                      	New
+08/21/2026 psirt.gen	Known-fixed-releases    	                             	10.6(4)                      	New
+08/20/2026 pisces   	VF-patched              	                             	NX-OS:10.6(4)                	New
+08/13/2026 cdetsbtk 	Security-screening-times	2026-07-22 10:40:46.000+0000 	2026-08-14 10:35:11.000+0000 	Mod
+08/13/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/13/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/13/2026 psirt.gen	PSIRT-KFR               	                             	10.3(10)                     	New
+08/13/2026 psirt.gen	Known-fixed-releases    	                             	10.3(10)                     	New
+08/13/2026 pisces   	VF-patched              	                             	NX-OS:10.3(10)               	New
+08/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/27/2026 pisces   	VF-patched              	                             	NX-OS:10.5(6)                	New
+07/21/2026 cdetsbtk 	Security-screening-times	2026-05-14 22:35:33.000+0000 	2026-07-22 10:40:46.000+0000 	Mod
+07/21/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/21/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/21/2026 psirt.gen	PSIRT-KFR               	                             	10.5(6)                      	New
+07/21/2026 psirt.gen	Known-fixed-releases    	                             	10.5(6)                      	New
+06/30/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/30/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/05/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/03/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/03/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/28/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/14/2026 cdetsbtk 	Security-screening-times	2026-04-29 22:34:50.000+0000 	2026-05-14 22:35:33.000+0000 	Mod
+05/14/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/14/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/14/2026 psirt.gen	PSIRT-KFR               	                             	10.3(9)                      	New
+05/14/2026 psirt.gen	Known-fixed-releases    	                             	10.3(9)                      	New
+05/13/2026 pisces   	VF-patched              	                             	NX-OS:10.3(9)                	New
+04/29/2026 cdetsbtk 	Security-screening-times	2026-04-24 22:34:33.000+0000 	2026-04-29 22:34:50.000+0000 	Mod
+04/29/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/29/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/29/2026 psirt.gen	PSIRT-KFR               	                             	10.6(3)                      	New
+04/29/2026 psirt.gen	Known-fixed-releases    	                             	10.6(3)                      	New
+04/28/2026 pisces   	VF-patched              	                             	NX-OS:10.6(3)                	New
+04/24/2026 cdetsbtk 	Security-screening-times	2026-03-20 22:33:22.000+0000 	2026-04-24 22:34:33.000+0000 	Mod
+04/24/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/24/2026 psirt.gen	PSIRT-KFR               	                             	10.6(2n)                     	New
+04/24/2026 psirt.gen	Known-fixed-releases    	                             	10.6(2n)                     	New
+04/23/2026 pisces   	VF-patched              	                             	NX-OS:10.6(2n)               	New
+04/16/2026 pisces   	VF-patched              	                             	NX-OS:9.3(17)                	New
+04/04/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/04/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/25/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/25/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/20/2026 cdetsbtk 	Security-screening-times	2026-02-20 00:35:24.000+0000 	2026-03-20 22:33:22.000+0000 	Mod
+03/20/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/20/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/20/2026 psirt.gen	PSIRT-KFR               	                             	10.5(5)                      	New
+03/20/2026 psirt.gen	Known-fixed-releases    	                             	10.5(5)                      	New
+03/18/2026 pisces   	VF-patched              	                             	NX-OS:10.5(5)                	New
+03/17/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+03/17/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+02/19/2026 cdetsbtk 	Security-screening-times	2025-12-19 12:33:48.000+0000 	2026-02-20 00:35:24.000+0000 	Mod
+02/19/2026 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+02/19/2026 psirt.gen	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+02/19/2026 psirt.gen	PSIRT-KFR               	                             	10.4(7)                      	New
+02/19/2026 psirt.gen	Known-fixed-releases    	                             	10.4(7)                      	New
+02/18/2026 pisces   	VF-patched              	                             	NX-OS:10.4(7)                	New
+12/19/2025 pisces   	VF-patched              	                             	NX-OS:10.6(2s)               	New
+12/18/2025 cdetsbtk 	Security-screening-times	2025-10-24 10:35:29.000+0000 	2025-12-19 12:33:48.000+0000 	Mod
+12/18/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/18/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/18/2025 psirt.gen	PSIRT-KFR               	                             	10.6(2)                      	New
+12/18/2025 psirt.gen	Known-fixed-releases    	                             	10.6(2)                      	New
+12/17/2025 pisces   	VF-patched              	                             	NX-OS:10.6(2)                	New
+10/31/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/31/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/23/2025 cdetsbtk 	Security-screening-times	2025-09-19 10:33:24.000+0000 	2025-10-24 10:35:29.000+0000 	Mod
+10/23/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/23/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/23/2025 psirt.gen	PSIRT-KFR               	                             	10.5(4)                      	New
+10/23/2025 psirt.gen	Known-fixed-releases    	                             	10.5(4)                      	New
+10/23/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3p),NX-OS:10.5(4) 	New
+09/18/2025 cdetsbtk 	Security-screening-times	2025-09-07 10:33:33.000+0000 	2025-09-19 10:33:24.000+0000 	Mod
+09/18/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+09/18/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+09/18/2025 psirt.gen	PSIRT-KFR               	                             	10.5(3s),10.6(1s)            	New
+09/18/2025 psirt.gen	Known-fixed-releases    	                             	10.5(3s),10.6(1s)            	New
+09/17/2025 pisces   	VF-patched              	                             	NX-OS:10.6(1s)               	New
+09/10/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/10/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/06/2025 cdetsbtk 	Security-screening-times	2025-09-04 10:35:16.000+0000 	2025-09-07 10:33:33.000+0000 	Mod
+09/06/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/06/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/06/2025 psirt.gen	PSIRT-KFR               	                             	9.3(16)                      	New
+09/06/2025 psirt.gen	Known-fixed-releases    	                             	9.3(16)                      	New
+09/05/2025 pisces   	VF-patched              	                             	NX-OS:9.3(16)                	New
+09/03/2025 cdetsbtk 	Security-screening-times	2025-08-20 10:39:39.000+0000 	2025-09-04 10:35:16.000+0000 	Mod
+09/03/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/03/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/03/2025 psirt.gen	PSIRT-KFR               	                             	10.4(6)                      	New
+09/03/2025 psirt.gen	Known-fixed-releases    	                             	10.4(6)                      	New
+09/03/2025 pisces   	VF-patched              	                             	NX-OS:10.4(6)                	New
+08/22/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3o)               	New
+08/19/2025 cdetsbtk 	Security-screening-times	2025-07-15 10:36:52.000+0000 	2025-08-20 10:39:39.000+0000 	Mod
+08/19/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/19/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/19/2025 psirt.gen	PSIRT-KFR               	                             	10.6(1)                      	New
+08/19/2025 psirt.gen	Known-fixed-releases    	                             	10.6(1)                      	New
+08/19/2025 pisces   	VF-patched              	                             	NX-OS:10.6(1)                	New
+08/02/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/01/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/01/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/31/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/30/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/29/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/26/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/25/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/25/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/20/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3e)               	New
+07/19/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/18/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/18/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/16/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/14/2025 cdetsbtk 	Security-screening-times	2025-05-08 06:53:02.000+0000 	2025-07-15 10:36:52.000+0000 	Mod
+07/14/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/14/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/14/2025 psirt.gen	PSIRT-KFR               	                             	10.3(8)                      	New
+07/14/2025 psirt.gen	Known-fixed-releases    	                             	10.3(8)                      	New
+07/12/2025 pisces   	VF-patched              	                             	NX-OS:10.3(8)                	New
+06/20/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3s)               	New
+06/07/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-526995       	New
+06/07/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3t)               	New
+05/07/2025 cdetsbtk 	Software-type-ids       	286278844                    	                             	Del
+05/07/2025 cdetsbtk 	Security-screening-times	2025-04-28 10:34:50.000+0000 	2025-05-08 06:53:02.000+0000 	Mod
+05/07/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+04/30/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/30/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/27/2025 cdetsbtk 	Security-screening-times	2025-03-28 10:34:31.000+0000 	2025-04-28 10:34:50.000+0000 	Mod
+04/27/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/27/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/27/2025 psirt.gen	PSIRT-KFR               	                             	10.5(3)                      	New
+04/27/2025 psirt.gen	Known-fixed-releases    	                             	10.5(3)                      	New
+04/26/2025 pisces   	VF-patched              	                             	NX-OS:10.5(3)                	New
+04/08/2025 psirt.gen	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/01/2025 pisces   	VF-patched              	                             	NX-OS:10.4(4g)               	New
+03/28/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/27/2025 cdetsbtk 	Security-screening-times	2025-03-14 10:33:22.000+0000 	2025-03-28 10:34:31.000+0000 	Mod
+03/27/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/27/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/27/2025 psirt.gen	PSIRT-KFR               	                             	9.3(15)                      	New
+03/27/2025 psirt.gen	Known-fixed-releases    	                             	9.3(15)                      	New
+03/26/2025 pisces   	VF-patched              	                             	NX-OS:9.3(15)                	New
+03/13/2025 cdetsbtk 	Security-screening-times	2025-03-07 12:34:34.000+0000 	2025-03-14 10:33:22.000+0000 	Mod
+03/13/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/13/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/13/2025 psirt.gen	PSIRT-KFR               	                             	10.4(5)                      	New
+03/13/2025 psirt.gen	Known-fixed-releases    	                             	10.4(5)                      	New
+03/12/2025 pisces   	VF-patched              	                             	NX-OS:10.4(5)                	New
+03/07/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/07/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/06/2025 cdetsbtk 	Security-screening-times	2025-02-04 20:44:29.000+0000 	2025-03-07 12:34:34.000+0000 	Mod
+03/06/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/06/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/06/2025 psirt.gen	PSIRT-KFR               	                             	10.2(9)                      	New
+03/06/2025 psirt.gen	Known-fixed-releases    	                             	10.2(9)                      	New
+03/06/2025 pisces   	VF-patched              	                             	NX-OS:10.2(9)                	New
+02/28/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/28/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/21/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/21/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/04/2025 cdetsbtk 	Security-screening-times	2025-02-02 12:33:26.000+0000 	2025-02-04 20:44:29.000+0000 	Mod
+02/01/2025 cdetsbtk 	Security-screening-times	2024-12-05 01:55:46.000+0000 	2025-02-02 12:33:26.000+0000 	Mod
+02/01/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/01/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/01/2025 psirt.gen	PSIRT-KFR               	                             	10.3(7)                      	New
+02/01/2025 psirt.gen	Known-fixed-releases    	                             	10.3(7)                      	New
+01/31/2025 pisces   	VF-patched              	                             	NX-OS:10.3(7)                	New
+01/28/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/28/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/24/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/24/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/18/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/15/2025 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/15/2025 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+12/04/2024 cdetsbtk 	Security-screening-times	2024-10-30 10:33:23.000+0000 	2024-12-05 01:55:46.000+0000 	Mod
+12/04/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/04/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+12/04/2024 psirt.gen	PSIRT-KFR               	                             	10.5(2)                      	New
+12/04/2024 psirt.gen	Known-fixed-releases    	                             	10.5(2)                      	New
+12/04/2024 pisces   	VF-patched              	                             	NX-OS:10.5(2)                	New
+10/31/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/31/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/29/2024 cdetsbtk 	Security-screening-times	2024-09-18 10:33:23.000+0000 	2024-10-30 10:33:23.000+0000 	Mod
+10/29/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/29/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/29/2024 psirt.gen	PSIRT-KFR               	                             	10.4(4)                      	New
+10/29/2024 psirt.gen	Known-fixed-releases    	                             	10.4(4)                      	New
+10/28/2024 pisces   	VF-patched              	                             	NX-OS:10.4(4)                	New
+10/19/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/19/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/30/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/30/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/18/2024 pisces   	VF-patched              	                             	NX-OS:10.3(4h)               	New
+09/17/2024 cdetsbtk 	Security-screening-times	2024-08-28 10:33:42.000+0000 	2024-09-18 10:33:23.000+0000 	Mod
+09/17/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/17/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/17/2024 psirt.gen	PSIRT-KFR               	                             	9.3(14)                      	New
+09/17/2024 psirt.gen	Known-fixed-releases    	                             	9.3(14)                      	New
+09/17/2024 pisces   	VF-patched              	                             	NX-OS:9.3(14)                	New
+09/06/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/06/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/29/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/27/2024 cdetsbtk 	Security-screening-times	2024-08-28 10:33:33.000+0000 	2024-08-28 10:33:42.000+0000 	Mod
+08/27/2024 cdetsbtk 	Security-screening-times	2024-08-05 10:33:25.000+0000 	2024-08-28 10:33:33.000+0000 	Mod
+08/27/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/27/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/27/2024 psirt.gen	PSIRT-KFR               	                             	10.3(6)                      	New
+08/27/2024 psirt.gen	Known-fixed-releases    	                             	10.3(6)                      	New
+08/27/2024 pisces   	VF-patched              	                             	NX-OS:10.3(6)                	New
+08/04/2024 cdetsbtk 	Security-screening-times	2024-07-03 10:33:21.000+0000 	2024-08-05 10:33:25.000+0000 	Mod
+08/04/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/04/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/04/2024 psirt.gen	PSIRT-KFR               	                             	10.5(1)                      	New
+08/04/2024 psirt.gen	Known-fixed-releases    	                             	10.5(1)                      	New
+08/04/2024 pisces   	VF-patched              	                             	NX-OS:10.5(1)                	New
+07/12/2024 pisces   	VF-patched              	                             	NX-OS:10.3(3r)               	New
+07/11/2024 pisces   	VF-patched              	                             	NX-OS:10.3(4g)               	New
+07/10/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/10/2024 psirt.gen	PSIRT-KFR               	10.3(99w),10.3(99x)          	                             	Del
+07/10/2024 psirt.gen	Known-fixed-releases    	10.3(99w),10.3(99x)          	                             	Del
+07/02/2024 cdetsbtk 	Security-screening-times	2024-05-24 10:33:32.000+0000 	2024-07-03 10:33:21.000+0000 	Mod
+07/02/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/02/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/02/2024 psirt.gen	PSIRT-KFR               	                             	10.2(8)                      	New
+07/02/2024 psirt.gen	Known-fixed-releases    	                             	10.2(8)                      	New
+07/02/2024 pisces   	VF-patched              	                             	NX-OS:10.2(8)                	New
+06/05/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/05/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2024 pisces   	VF-patched              	                             	NX-OS:10.2(7)                	New
+06/04/2024 pisces   	VF-patched              	NX-OS:10.2(7)                	                             	Del
+05/24/2024 pisces   	VF-patched              	                             	NX-OS:10.3(3x),NX-OS:10.3(4),	New
+05/23/2024 cdetsbtk 	Security-screening-times	2024-04-05 10:33:44.000+0000 	2024-05-24 10:33:32.000+0000 	Mod
+05/23/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/23/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/23/2024 psirt.gen	PSIRT-KFR               	                             	10.3(5)                      	New
+05/23/2024 psirt.gen	Known-fixed-releases    	                             	10.3(5)                      	New
+04/23/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/23/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/04/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/04/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/04/2024 cdetsbtk 	Security-screening-times	2024-02-28 12:34:05.000+0000 	2024-04-05 10:33:44.000+0000 	Mod
+04/04/2024 psirt.gen	PSIRT-KFR               	                             	10.4(3)                      	New
+04/04/2024 psirt.gen	Known-fixed-releases    	                             	10.4(3)                      	New
+03/07/2024 pisces   	VF-patched              	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+03/07/2024 pisces   	VF-unpatched            	                             	NX-OS:9.2(1),NX-OS:9.2(2),NX-	New
+03/07/2024 pisces   	Potentially-affected-rel	                             	9.2(1),9.2(2),9.2(2t),9.2(2v)	New
+02/29/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/29/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/27/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2024 cdetsbtk 	Security-screening-times	2024-01-11 12:33:47.000+0000 	2024-02-28 12:34:05.000+0000 	Mod
+02/27/2024 psirt.gen	PSIRT-KFR               	                             	10.2(7)                      	New
+02/27/2024 psirt.gen	Known-fixed-releases    	                             	10.2(7)                      	New
+02/17/2024 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/17/2024 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/10/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/10/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/10/2024 cdetsbtk 	Security-screening-times	2023-12-23 12:34:06.000+0000 	2024-01-11 12:33:47.000+0000 	Mod
+01/10/2024 psirt.gen	PSIRT-KFR               	                             	9.3(13)                      	New
+01/10/2024 psirt.gen	Known-fixed-releases    	                             	9.3(13)                      	New
+12/22/2023 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/22/2023 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+12/22/2023 cdetsbtk 	Security-screening-times	2023-12-17 12:37:10.000+0000 	2023-12-23 12:34:06.000+0000 	Mod
+12/22/2023 psirt.gen	PSIRT-KFR               	                             	10.4(2)                      	New
+12/22/2023 psirt.gen	Known-fixed-releases    	                             	10.4(2)                      	New
+12/16/2023 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/16/2023 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+12/16/2023 cdetsbtk 	Security-screening-times	2023-12-15 12:33:54.000+0000 	2023-12-17 12:37:10.000+0000 	Mod
+12/16/2023 psirt.gen	PSIRT-KAR               	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+12/16/2023 psirt.gen	Known-affected-releases 	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+12/14/2023 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/14/2023 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+12/14/2023 cdetsbtk 	Security-screening-times	2023-11-15 12:33:39.000+0000 	2023-12-15 12:33:54.000+0000 	Mod
+12/14/2023 psirt.gen	PSIRT-KAR               	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+12/14/2023 psirt.gen	Known-affected-releases 	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+11/14/2023 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/14/2023 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+11/14/2023 cdetsbtk 	Security-screening-times	2023-09-21 10:33:29.000+0000 	2023-11-15 12:33:39.000+0000 	Mod
+11/14/2023 psirt.gen	PSIRT-KFR               	                             	10.3(4a)                     	New
+11/14/2023 psirt.gen	Known-fixed-releases    	                             	10.3(4a)                     	New
+10/26/2023 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/26/2023 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/05/2023 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/05/2023 psirt.gen	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/20/2023 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/20/2023 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/20/2023 cdetsbtk 	Security-screening-times	2023-08-31 10:35:07.000+0000 	2023-09-21 10:33:29.000+0000 	Mod
+09/20/2023 psirt.gen	PSIRT-KFR               	                             	10.2(6)                      	New
+09/20/2023 psirt.gen	Known-fixed-releases    	                             	10.2(6)                      	New
+09/13/2023 psirt.gen	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+09/13/2023 psirt.gen	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+09/13/2023 psirt.gen	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+09/13/2023 psirt.gen	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/30/2023 cdetsbtk 	Security-screening-times	2023-07-21 10:33:30.000+0000 	2023-08-31 10:35:07.000+0000 	Mod
+08/30/2023 psirt.gen	PSIRT-KFR               	                             	10.3(99x),10.4(1)            	New
+08/30/2023 psirt.gen	Known-fixed-releases    	                             	10.3(99x),10.4(1)            	New
+07/20/2023 cdetsbtk 	Security-screening-times	2023-07-13 10:33:29.000+0000 	2023-07-21 10:33:30.000+0000 	Mod
+07/20/2023 psirt.gen	PSIRT-KFR               	                             	10.2(3v)                     	New
+07/20/2023 psirt.gen	Known-fixed-releases    	                             	10.2(3v)                     	New
+07/12/2023 cdetsbtk 	Security-screening-times	2023-07-02 10:34:35.000+0000 	2023-07-13 10:33:29.000+0000 	Mod
+07/12/2023 psirt.gen	PSIRT-KFR               	                             	9.3(12),10.3(99w)            	New
+07/12/2023 psirt.gen	Known-fixed-releases    	                             	10.3(99w),9.3(12)            	New
+07/01/2023 cdetsbtk 	Security-screening-times	2023-07-01 10:33:51.000+0000 	2023-07-02 10:34:35.000+0000 	Mod
+07/01/2023 psirt.gen	PSIRT-KAR               	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+07/01/2023 psirt.gen	Known-affected-releases 	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+06/30/2023 cdetsbtk 	Security-screening-times	2023-06-20 19:56:45.000+0000 	2023-07-01 10:33:51.000+0000 	Mod
+06/30/2023 psirt.gen	PSIRT-KAR               	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+06/30/2023 psirt.gen	Known-affected-releases 	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+06/26/2023 psirt.gen	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/26/2023 psirt.gen	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+06/20/2023 cdetsbtk 	Security-screening-times	2023-06-20 10:35:16.000+0000 	2023-06-20 19:56:45.000+0000 	Mod
+06/20/2023 psirt.gen	PSIRT-KAR               	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+06/20/2023 psirt.gen	Known-affected-releases 	                             	9.2(1),9.2(2),9.3(1),9.3(2)  	New
+06/19/2023 cdetsbtk 	Security-screening-times	2023-05-25 10:33:29.000+0000 	2023-06-20 10:35:16.000+0000 	Mod
+06/19/2023 psirt.gen	PSIRT-KAR               	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+06/19/2023 psirt.gen	Known-affected-releases 	9.2(1),9.2(2),9.3(1),9.3(2)  	                             	Del
+05/24/2023 cdetsbtk 	Security-screening-times	2023-04-21 04:12:44.000+0000 	2023-05-25 10:33:29.000+0000 	Mod
+05/24/2023 psirt.gen	PSIRT-KFR               	                             	10.3(3)                      	New
+05/24/2023 psirt.gen	Known-fixed-releases    	                             	10.3(3)                      	New
+04/25/2023 psirt.gen	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+04/20/2023 cdetsbtk 	Security-screening-times	2022-04-16 10:33:42.000+0000 	2023-04-21 04:12:44.000+0000 	Mod
+04/20/2023 psirt.gen	PSIRT-KAR               	                             	9.2(1),9.2(2),9.2(2t),9.2(2v)	New
+04/20/2023 psirt.gen	PSIRT-KFR               	                             	9.3(4),9.3(5),9.3(6),9.3(7),9	New
+04/20/2023 psirt.gen	Known-affected-releases 	                             	9.2(1),9.2(2),9.2(2t),9.2(2v)	New
+04/20/2023 psirt.gen	Known-fixed-releases    	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+04/20/2023 psirt.gen	Known-fixed-releases    	9.3(3.113)                   	                             	Del
+04/15/2022 cdetsbtk 	Security-screening-times	2021-10-26 19:24:54.000+0000 	2022-04-16 10:33:42.000+0000 	Mod
+04/15/2022 psirt.gen	PSIRT-attribute         	SN Update:9                  	SN Update:10                 	Mod
+04/15/2022 psirt.gen	PSIRT-CVEs              	                             	CVE-2020-3394                	New
+11/26/2021 rkarthig 	serviceRequests/C3/69237	                             	                             	Mod
+11/26/2021 rkarthig 	Urgency-desc            	CL4                          	CL3                          	Mod
+11/26/2021 rkarthig 	Urgency                 	8                            	6                            	Mod
+10/26/2021 cdetsadm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/26/2021 cdetsadm 	MDF-edited              	                             	N                            	Mod
+10/26/2021 cdetsbtk 	Security-screening-times	2021-10-18 21:10:06.000+0000 	2021-10-26 19:24:54.000+0000 	Mod
+10/26/2021 cdetsadm 	Known-affected-releases 	                             	9.2(3),9.3(3)                	New
+10/26/2021 cdetsadm 	Known-fixed-releases    	                             	9.3(3.113),9.3(4)            	New
+10/18/2021 cdetsbtk 	Security-screening-times	2021-10-18 14:33:52.000+0000 	2021-10-18 21:10:06.000+0000 	Mod
+10/18/2021 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+10/18/2021 cdetsbtk 	Not-customer-visible-rea	                             	AutoReleased-Defect Auto rele	Mod
+10/18/2021 cdetsbtk 	Security-screening-times	2020-08-26 18:05:14.000+0000 	2021-10-18 14:33:52.000+0000 	Mod
+10/18/2021 rkarthig 	serviceRequests/C3/69237	                             	C3/692373266                 	New
+10/18/2021 rkarthig 	Urgency-desc            	CL3                          	CL4                          	Mod
+10/18/2021 rkarthig 	Urgency                 	6                            	8                            	Mod
+10/18/2021 rkarthig 	Tickets-count           	5                            	6                            	Mod
+10/18/2021 rkarthig 	TACSR-count             	4                            	5                            	Mod
+10/18/2021 rkarthig 	Tickets-count-direct    	5                            	6                            	Mod
+10/18/2021 rkarthig 	Trouble-tickets         	                             	692373266                    	New
+10/18/2021 rkarthig 	Trouble-tickets-direct  	                             	C3692373266                  	New
+04/28/2021 aeguiart 	Attribute               	iplusa-mr-hkatakam tac-repro 	iplusa-mr-hkatakam tac-repro 	Mod
+04/23/2021 psirt.gen	CWE                     	                             	CWE-285                      	Mod
+03/21/2021 palshanm 	Note Title              	                             	Other                        	New
+03/21/2021 palshanm 	Automated-test          	N                            	Y                            	Mod
+03/13/2021 cuanthon 	serviceRequests/C3/69096	                             	                             	Mod
+03/13/2021 cuanthon 	Urgency-desc            	P3                           	CL3                          	Mod
+03/13/2021 cuanthon 	serviceRequests/C3/69096	                             	C3/690963564                 	New
+03/13/2021 cuanthon 	Urgency-desc            	CL4                          	P3                           	Mod
+03/13/2021 cuanthon 	Urgency                 	8                            	6                            	Mod
+03/13/2021 cuanthon 	Tickets-count           	4                            	5                            	Mod
+03/13/2021 cuanthon 	TACSR-count             	3                            	4                            	Mod
+03/13/2021 cuanthon 	Tickets-count-direct    	4                            	5                            	Mod
+03/13/2021 cuanthon 	Trouble-tickets         	                             	690963564                    	New
+03/13/2021 cuanthon 	Trouble-tickets-direct  	                             	C3690963564                  	New
+01/22/2021 ialeksan 	serviceRequests/C3/69069	                             	C3/690697022                 	New
+01/22/2021 ialeksan 	Urgency-desc            	CL3                          	CL4                          	Mod
+01/22/2021 ialeksan 	Urgency                 	6                            	8                            	Mod
+01/22/2021 ialeksan 	Tickets-count           	3                            	4                            	Mod
+01/22/2021 ialeksan 	TACSR-count             	2                            	3                            	Mod
+01/22/2021 ialeksan 	Tickets-count-direct    	3                            	4                            	Mod
+01/22/2021 ialeksan 	Trouble-tickets         	                             	690697022                    	New
+01/22/2021 ialeksan 	Trouble-tickets-direct  	                             	C3690697022                  	New
+12/10/2020 jdasgupt 	Attribute               	iplusa-mr-hkatakam tac-repro 	iplusa-mr-hkatakam tac-repro 	Mod
+11/23/2020 cdetsadm 	Note Title              	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Note Type               	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Is-reproducible         	                             	Cisco Lab Reproducible       	Mod
+09/17/2020 badmitta 	serviceRequests/C3/68985	                             	                             	Mod
+09/17/2020 badmitta 	Urgency-desc            	P3                           	CL3                          	Mod
+09/17/2020 badmitta 	serviceRequests/C3/68985	                             	C3/689856600                 	New
+09/17/2020 badmitta 	Urgency-desc            	CL3                          	P3                           	Mod
+09/17/2020 badmitta 	Tickets-count           	2                            	3                            	Mod
+09/17/2020 badmitta 	TACSR-count             	1                            	2                            	Mod
+09/17/2020 badmitta 	Tickets-count-direct    	2                            	3                            	Mod
+09/17/2020 badmitta 	Trouble-tickets         	                             	689856600                    	New
+09/17/2020 badmitta 	Trouble-tickets-direct  	                             	C3689856600                  	New
+09/01/2020 psirt.gen	PSIRT-attribute         	SN Update:8                  	SN Update:9                  	Mod
+09/01/2020 psirt.gen	PSIRT-status            	under_investigation          	disclosed                    	Mod
+08/26/2020 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE_P	                             	Mod
+08/26/2020 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+08/26/2020 cdetsbtk 	Security-screening-times	2020-04-15 07:13:07.000+0000 	2020-08-26 18:05:14.000+0000 	Mod
+08/26/2020 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+08/26/2020 psirt.gen	RNE-Type                	$$IGNORE-PSIRT               	NONE                         	Mod
+08/26/2020 psirt.gen	contents                	                             	Release-note-diff            	Mod
+08/26/2020 psirt.gen	FileSize                	8954                         	9084                         	Mod
+08/26/2020 psirt.gen	PSIRT-attribute         	SN Update:7                  	SN Update:8                  	Mod
+08/14/2020 psirt.gen	PSIRT-attribute         	SN Update:6                  	SN Update:7                  	Mod
+08/14/2020 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+08/14/2020 psirt.gen	contents                	                             	Release-note-diff            	Mod
+08/14/2020 psirt.gen	FileSize                	5868                         	8954                         	Mod
+08/14/2020 psirt.gen	PSIRT-attribute         	SN Update:5                  	SN Update:6                  	Mod
+08/14/2020 psirt.gen	Justification           	Pending PSIRT instructions   	                             	Mod
+08/14/2020 psirt.gen	Symptoms                	a user with privilege level <	A vulnerability in the Enable	Mod
+08/14/2020 psirt.gen	Conditions              	1. feature privilege is enabl	Please refer to the Security 	Mod
+08/14/2020 psirt.gen	Workarounds             	disable feature privilege and	Please refer to the Security 	Mod
+08/14/2020 psirt.gen	Further-Problem-Descript	this issue is specific to 9.x	Please refer to the Security 	Mod
+07/23/2020 psirt.gen	Headline                	NXOS 9.x 'enable' or 'enable 	Cisco Nexus 3000 and 9000 Ser	Mod
+07/23/2020 psirt.gen	Summary                 	Issue:  'feature privilege' i	NXOS 9.x 'enable' or 'enable 	Mod
+07/23/2020 psirt.gen	PSIRT-attribute         	SN Update:4                  	SN Update:5                  	Mod
+07/23/2020 psirt.gen	Original-version        	                             	9.2(3)                       	Mod
+06/11/2020 psirt.gen	PSIRT-attribute         	SN Update:3                  	SN Update:4                  	Mod
+06/11/2020 psirt.gen	Attribute               	iplusa-mr-hkatakam tac-repro 	iplusa-mr-hkatakam tac-repro 	Mod
+05/11/2020 girshank 	Attribute               	iplusa-mr-hkatakam tac-repro 	iplusa-mr-hkatakam tac-repro 	Mod
+05/11/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/07/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/01/2020 bhargapa 	serviceRequests/C3/68886	                             	                             	Mod
+05/01/2020 bhargapa 	Urgency-desc            	P3                           	CL3                          	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/19/2020 cms      	Note Title              	                             	Scrubnote                    	New
+04/18/2020 sukumars 	Note                    	Eng-Notes                    	Eng-Notes                    	Mod
+04/16/2020 arppaliw 	Note Title              	                             	DetectionLogic               	New
+04/16/2020 arppaliw 	Other-mail              	                             	arppaliw                     	Mod
+04/15/2020 sukumars 	Note Title              	                             	Eng-Notes                    	New
+04/15/2020 psirt.gen	serviceRequests/PSIRT/PS	                             	PSIRT/PSIRT-0757785462       	New
+04/15/2020 psirt.gen	PSIRT-attribute         	SN Update:2                  	SN Update:3                  	Mod
+04/15/2020 psirt.gen	Tickets-count           	1                            	2                            	Mod
+04/15/2020 psirt.gen	Tickets-count-direct    	1                            	2                            	Mod
+04/15/2020 psirt.gen	Trouble-tickets         	                             	PSIRT-0757785462             	New
+04/15/2020 psirt.gen	Trouble-tickets-direct  	                             	PSIRTPSIRT-0757785462        	New
+04/15/2020 psirt.gen	PSIRT-attribute         	SN Update:1                  	SN Update:2                  	Mod
+04/15/2020 psirt.gen	PSIRT-status            	                             	under_investigation          	Mod
+04/15/2020 psirt.gen	PSIRT-attribute         	                             	SN Update:1                  	Mod
+04/15/2020 psirt.gen	SIR                     	                             	High                         	Mod
+04/15/2020 palshanm 	File Name               	                             	CSCvt77885_IMR_test_logs9.3.3	New
+04/15/2020 palshanm 	Note Title              	                             	V-comments                   	New
+04/15/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+04/15/2020 palshanm 	Status                  	R                            	V                            	Mod
+04/15/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+04/15/2020 palshanm 	Verified-release        	                             	9.3(3.113)                   	New
+04/15/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+04/15/2020 palshanm 	Verified-on             	                             	2020-04-15 11:08:45.000+0000 	Mod
+04/15/2020 palshanm 	statusStates            	                             	[status=R, startDate=Tue Apr 	New
+04/15/2020 palshanm 	statusStates            	[status=R, startDate=Tue Apr 	                             	Del
+04/15/2020 palshanm 	Age-status              	4                            	5                            	Mod
+04/15/2020 palshanm 	Mean-time-to-verified   	                             	4                            	Mod
+04/14/2020 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	Defect ignored - The IGNORE_P	Mod
+04/14/2020 cdetsbtk 	Security-screening-times	2020-04-11 03:10:42.000+0000 	2020-04-15 07:13:07.000+0000 	Mod
+04/14/2020 psirt.gen	PSIRT                   	N                            	Y                            	Mod
+04/14/2020 vricci   	Note                    	Release-note                 	Release-note                 	Mod
+04/14/2020 vricci   	RNE-Type                	$$IGNORE                     	$$IGNORE-PSIRT               	Mod
+04/14/2020 vricci   	contents                	                             	Release-note-diff            	Mod
+04/14/2020 vricci   	FileSize                	5731                         	5868                         	Mod
+04/14/2020 vricci   	serviceRequests/C3/68886	                             	C3/688860403                 	New
+04/14/2020 vricci   	Urgency-desc            	NA                           	P3                           	Mod
+04/14/2020 vricci   	Urgency                 	                             	6                            	Mod
+04/14/2020 vricci   	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+04/14/2020 vricci   	Data-classification-reas	$$IGNORE                     	Default value of Data-classif	Mod
+04/14/2020 vricci   	Tickets-count           	0                            	1                            	Mod
+04/14/2020 vricci   	TACSR-count             	                             	1                            	Mod
+04/14/2020 vricci   	Tickets-count-direct    	                             	1                            	Mod
+04/14/2020 vricci   	Trouble-tickets         	                             	688860403                    	New
+04/14/2020 vricci   	Trouble-tickets-direct  	                             	C3688860403                  	New
+04/14/2020 vricci   	Headline                	NXOS 9.x 'enable <privilege>'	NXOS 9.x 'enable' or 'enable 	Mod
+04/14/2020 vricci   	Note                    	Release-note                 	Release-note                 	Mod
+04/14/2020 vricci   	contents                	                             	Release-note-diff            	Mod
+04/14/2020 vricci   	FileSize                	5451                         	5731                         	Mod
+04/14/2020 vricci   	Symptoms                	a user with privilege level <	a user with privilege level <	Mod
+04/14/2020 vricci   	Note                    	Release-note                 	Release-note                 	Mod
+04/14/2020 vricci   	contents                	                             	Release-note-diff            	Mod
+04/14/2020 vricci   	FileSize                	4970                         	5451                         	Mod
+04/14/2020 vricci   	Symptoms                	a user with privilege level <	a user with privilege level <	Mod
+04/14/2020 vricci   	Note Title              	                             	tac-repro                    	New
+04/14/2020 vricci   	Attribute               	iplusa-mr-hkatakam           	iplusa-mr-hkatakam tac-repro 	Mod
+04/14/2020 vricci   	Note                    	Release-note                 	Release-note                 	Mod
+04/14/2020 vricci   	File Name               	                             	Release-note-diff            	New
+04/14/2020 vricci   	Justification           	Need to confirm the defacts  	Pending PSIRT instructions   	Mod
+04/14/2020 vricci   	Symptoms                	If User has privilege which i	a user with privilege level <	Mod
+04/14/2020 vricci   	Conditions              	                             	1. feature privilege is enabl	Mod
+04/14/2020 vricci   	Workarounds             	                             	disable feature privilege and	Mod
+04/14/2020 vricci   	Further-Problem-Descript	                             	this issue is specific to 9.x	Mod
+04/14/2020 vricci   	Headline                	NX OS (9.x) not check enable 	NXOS 9.x 'enable <privilege>'	Mod
+04/14/2020 venkrish 	Attribute               	                             	iplusa-mr-hkatakam           	Mod
+04/14/2020 cdetsadm 	Integrated-releases     	                             	9.3(4)                       	New
+04/14/2020 cdetsadm 	Integrated-releases     	                             	9.3(3.113)                   	New
+04/13/2020 girshank 	Note Title              	                             	R-comments                   	New
+04/13/2020 girshank 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/13/2020 girshank 	Status                  	A                            	R                            	Mod
+04/13/2020 girshank 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/13/2020 girshank 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/13/2020 girshank 	More-by                 	                             	girshank                     	Mod
+04/13/2020 girshank 	Opener                  	                             	girshank                     	Mod
+04/13/2020 girshank 	Resolver                	                             	girshank                     	Mod
+04/13/2020 girshank 	Breakage                	                             	No                           	Mod
+04/13/2020 girshank 	Regression              	                             	N                            	Mod
+04/13/2020 girshank 	By-previous-commit-value	                             	No                           	Mod
+04/13/2020 girshank 	Bug-origin              	                             	Code / Implementation        	Mod
+04/13/2020 girshank 	Released-code           	                             	N                            	Mod
+04/13/2020 girshank 	Origin                  	                             	base code                    	Mod
+04/13/2020 girshank 	Test-escape             	                             	Y                            	Mod
+04/13/2020 girshank 	Test-EDP-phase          	                             	Regression Test              	Mod
+04/13/2020 girshank 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+04/13/2020 girshank 	TPS_issue               	                             	N                            	Mod
+04/13/2020 girshank 	TPS_flag                	                             	N                            	Mod
+04/13/2020 girshank 	Behavior-changed        	                             	N                            	Mod
+04/13/2020 girshank 	Original-resolved-on    	                             	2020-04-14 02:21:04.000+0000 	Mod
+04/13/2020 girshank 	Documents-changed       	                             	none                         	Mod
+04/13/2020 girshank 	More-on                 	                             	2020-04-14 02:21:04.000+0000 	Mod
+04/13/2020 girshank 	Opened-on               	                             	2020-04-14 02:21:04.000+0000 	Mod
+04/13/2020 girshank 	Resolved-on             	                             	2020-04-14 02:21:04.000+0000 	Mod
+04/13/2020 girshank 	statusStates            	                             	[status=A, startDate=Sat Apr 	New
+04/13/2020 girshank 	statusStates            	[status=A, startDate=Sat Apr 	                             	Del
+04/13/2020 girshank 	Age-status              	1                            	4                            	Mod
+04/13/2020 girshank 	Mean-time-to-resolved   	                             	3                            	Mod
+04/13/2020 sarchand 	File Name               	                             	Diffs-commit-irvine          	New
+04/13/2020 sarchand 	File Name               	                             	Diffs-release-irvine         	New
+04/13/2020 sarchand 	Multi-commit-flag       	                             	Y                            	Mod
+04/13/2020 girshank 	Related-bugs            	                             	Teacat/CSCvt80647            	New
+04/13/2020 girshank 	Teabugid                	                             	CSCvt80647                   	Mod
+04/13/2020 jabajaj  	File Name               	                             	SSR_report_for_best_ez_tier1_	New
+04/13/2020 baas     	File Name               	                             	ccwarnings-irvine            	New
+04/13/2020 cdetsadm 	File Name               	                             	static-analysis-irvine.p2    	New
+04/13/2020 sarchand 	Note Title              	                             	static-analysis-irvine       	New
+04/13/2020 sarchand 	Note Title              	                             	unit-test                    	New
+04/13/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/11/2020 cms      	Est-fix-date            	                             	2020-04-13 07:00:00.000+0000 	Mod
+04/10/2020 girshank 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/10/2020 girshank 	Status                  	N                            	A                            	Mod
+04/10/2020 girshank 	Engineer                	                             	sarchand                     	Mod
+04/10/2020 girshank 	Assigner                	                             	girshank                     	Mod
+04/10/2020 girshank 	Assigned Date           	                             	2020-04-11 02:59:09.000+0000 	Mod
+04/10/2020 girshank 	statusStates            	                             	[status=N, startDate=Fri Apr 	New
+04/10/2020 girshank 	statusStates            	[status=N, startDate=Fri Apr 	                             	Del
+04/10/2020 girshank 	Age-status              	0                            	1                            	Mod
+04/10/2020 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+04/10/2020 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/10/2020 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+04/10/2020 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/10/2020 cdetsbtk 	Security-screening-times	                             	2020-04-11 03:10:42.000+0000 	Mod
+04/10/2020 bhargapa 	Note Title              	                             	Release-note                 	New
+04/10/2020 bhargapa 	Version                 	                             	9.2(3),9.3(3)                	New
+04/10/2020 bhargapa 	Defect Created          	                             	                             	New

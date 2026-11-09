@@ -1,0 +1,1395 @@
+*******************************************************************************
+
+Bug ID   : CSCvt64662         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 2 (severe)     
+Headline : non-sysmgr(non-sysmgr) crashed when do "show tacacs-server" via xml client
+PrimaryPV : 
+Version :7.0(3)I7(7) 7.0(3)I7(8) 9.2(1) 9.2(2) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: qianlu             Submitted: 04/01/2020 06:46:03     Last Updtd : 08/05/2026 06:55:41  
+RNE-Type: NONE                New-on : 04/01/2020 06:46:03      
+Root-cause-analysis:                                                  
+Interest : aeguiart
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:wzhigang                                            
+Known-affected-releases:7.0(3)I7(7) 7.0(3)I7(8) 9.2(1) 9.2(2) 
+
+Known-fixed-releases:7.0(3)I7(9) 
+
+
+
+Potentially-affected-releases:5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/11/2020 05:11:25                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 9                                              
+Mean-time-to-verified: 112    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/01/2020 01:43:41            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 04/01/2020 08:47:12 
+Code-reviewer: asmurali       
+Opened-on: 04/11/2020 05:11:25Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : girshank        Est Time/Attribute : gnosis irvine-na gmr8-hkatakam gmr8-ver
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 04/11/2020 05:11:25  
+
+Documents Changed: none       Resolved: 04/11/2020 05:11:25 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 07/23/2020 02:22:26      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Beijing-APAC-SNTC
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   5
+Tickets-count-direct :            5
+Trouble-tickets :              688761735;689207438;689207488;692249213;695766696
+Trouble-tickets-direct :C3692249213 
+Trouble-tickets-direct :C3689207438 
+Trouble-tickets-direct :C3688761735 
+Trouble-tickets-direct :C3689207488 
+Trouble-tickets-direct :C3695766696 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 07/28/2020 01:51:21
+Document :    nexus
+
+Summary:
+non-sysmgr(non-sysmgr) crashed when do "show tacacs-server" via xml client
+
+******************* Related Service Requests (5 of 5)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         688761735       JINGDONG FINANCIAL GROUP                 
+C3         689207438       PANASONIC AVIONICS CORP                  
+C3         689207488       PANASONIC AVIONICS CORP                  
+C3         692249213       PANASONIC AVIONICS CORP                  
+C3         695766696       CHINA UNIONPAY                           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-509480                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 vasagraw      04/11/2020 05:09:15    CSCvt78183      CSC.tea         R            
+
+
+********************* Listing of Notes (15 of 15 ) ***********************
+
+---Start of Note Titled:  KnowledgeSignature (Created 09/14/2020 07:51:48 Modified 09/14/2020 07:53:29 by vepabbu)---
+https://gnosis.cisco.com/#!/signature/bug/5f5f5f647f610e532ca22034/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 08/07/2020 03:02:11 Added 08/07/2020 03:02:11 by ablusenk)---
+NXOS IC Creation Quality Guidance
+=================================
+CRASH BUGS: We are creating DetectionLogic enclosures for Crash Bugs. The minimum CLI commands needed for all bugs include in the IC enclosure are: `show system reset-reason`, `show logging onboard stack-trace` and `show logging log`.
+Crash Bugs with a valid NXOS Core file: Use the SmartDecoder and include the decode output in the DetectionLogic.
+...
+
+1) 7.0(x) till 7.0(3)I7(9) are affected. 9.2(x) also affected. Fixed starting from 7.0(3)I7(9). This defect does not affect GM(R) train - 9.3(x). 
+2) relevant outputs
+{code}
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 07.66
+  NXOS: version 7.0(3)I7(7)
+  BIOS compile time:  06/11/2019
+  NXOS image file is: bootflash:///nxos.7.0.3.I7.7.bin
+  NXOS compile time:  8/28/2019 16:00:00 [08/29/2019 08:41:42]
+
+
+Hardware
+  cisco Nexus9000 C92160YC-X chassis 
+  Intel(R) Core(TM) i3- CPU @ 2.50GHz with 16401100 kB of memory.
+  Processor Board ID FDO23470SGJ
+
+  Device name: BJM6-DB-ACC-C92160-1091_1092-40U-2
+  bootflash:   53298520 kB
+Kernel uptime is 24 day(s), 6 hour(s), 17 minute(s), 38 second(s)
+
+Last reset at 479925 usecs after Tue Mar  3 15:34:06 2020
+  Reason: Reset Requested by CLI command reload
+  System version: 7.0(3)I7(7)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        nxos.CSCvr81063-n9k_ALL-1.0.0-7.0.3.I7.7.lib32_n9000
+        
+
+`show system reset-reason`
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 479925 usecs after Tue Mar  3 15:34:06 2020
+    Reason: Reset Requested by CLI command reload
+    Service: 
+    Version: 7.0(3)I7(7)
+2) At 231110 usecs after Tue Jan  7 17:04:07 2020
+    Reason: Module PowerCycled
+    Service: HW check by card-client
+    Version: 
+3) At 873501 usecs after Fri Jan  3 14:21:45 2020
+    Reason: Module PowerCycled
+    Service: HW check by card-client
+    Version: 
+4) At 620401 usecs after Fri Dec 27 17:31:44 2019
+    Reason: Reset Requested by CLI command reload
+    Service: 
+    Version: 7.0(3)I7(7)
+
+
+
+`show logging log`
+
+2020 Mar 26 14:38:33.157 BJM6-DB-ACC-C92160-1091_1092-40U-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Mar 26 14:41:30.444 BJM6-DB-ACC-C92160-1091_1092-40U-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 5277 with message non-sysmgr(non-sysmgr) crashed, core will be saved . 
+
+2020 Mar 27 17:03:35.698 BJM6-DB-ACC-C92160-1091_1092-40U-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Mar 27 17:06:25.078 BJM6-DB-ACC-C92160-1091_1092-40U-2 last message repeated 1 time
+2020 Mar 27 17:06:25.078 BJM6-DB-ACC-C92160-1091_1092-40U-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 11675 with message non-sysmgr(non-sysmgr) crashed, core will be saved . 
+2020 Mar 27 17:06:25.084 BJM6-DB-ACC-C92160-1091_1092-40U-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 11754 with message non-sysmgr(non-sysmgr) crashed, core will be saved . 
+2020 Mar 27 17:07:08.283 BJM6-DB-ACC-C92160-1091_1092-40U-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Mar 27 17:09:57.724 BJM6-DB-ACC-C92160-1091_1092-40U-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 12835 with message non-sysmgr(non-sysmgr) crashed, core will be saved . 
+
+
+`show logging onboard internal reset-reason`
+----------------------------
+    Module:  1
+----------------------------
+        Last log in OBFL was written at time Fri Mar 27 20:53:23 2020
+
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Unknown (0) at time Tue Mar  3 15:36:26 2020
+        Reset Reason (SW): Reset Requested by CLI command reload (9) at time Tue Mar  3 15:34:02 2020
+          Service (Additional Info): 
+        Reset Reason (HW): Watchdog Reset (32) at time Tue Mar  3 15:36:26 2020
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Reset Requested by CLI command reload (9) at time Tue Mar  3 15:34:02 2020
+        Reset Reason (SW): Unknown (0) 
+        Reset Reason (HW): NULL (9) at time Tue Mar  3 15:34:02 2020
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Unknown (0) at time Tue Jan  7 17:04:32 2020
+        Reset Reason (SW): Unknown (0) 
+        Reset Reason (HW): Power Cycled (112) at time Tue Jan  7 17:04:32 2020
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Unknown (0) at time Fri Jan  3 14:22:08 2020
+        Reset Reason (SW): Unknown (0) 
+        Reset Reason (HW): Power Cycled (112) at time Fri Jan  3 14:22:08 2020
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Unknown (0) at time Fri Dec 27 17:33:59 2019
+        Reset Reason (SW): Reset Requested by CLI command reload (9) at time Fri Dec 27 17:31:40 2019
+          Service (Additional Info): 
+        Reset Reason (HW): Watchdog Reset (32) at time Fri Dec 27 17:33:59 2019
+
+
+Reset Reason for this card:
+        Image Version : 7.0(3)I7(7)
+        Reset Reason (LCM): Reset Requested by CLI command reload (9) at time Fri Dec 27 17:31:40 2019
+        Reset Reason (SW): Unknown (0) 
+        Reset Reason (HW): NULL (9) at time Fri Dec 27 17:31:40 2019
+
+
+Reset Reason for this card:
+        Image Version : 9.2(3)
+        Reset Reason (LCM): Unknown (0) at time Fri Dec  6 19:52:22 2019
+        Reset Reason (SW): Unknown (0) 
+        Reset Reason (HW): Power Cycled (112) at time Fri Dec  6 19:52:22 2019
+
+
+
+`show logging onboard stack-trace`
+----------------------------
+    Module:  1
+----------------------------
+
+`show logging onboard internal kernel`
+----------------------------
+    Module:  1
+----------------------------
+
+
+Fri Dec  6 19:51:49 2019 (425612 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294889885, pid 17958 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec  6 19:51:49 2019 (426502 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec  6 19:51:49 2019 (426573 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Fri Dec  6 19:51:49 2019 (812455 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294890001, pid 17959 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec  6 19:51:49 2019 (813333 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec  6 19:51:49 2019 (813383 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Fri Dec  6 19:51:51 2019 (551371 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Fri Dec 27 17:22:23 2019 (200652 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294886899, pid 18597 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec 27 17:22:23 2019 (202337 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec 27 17:22:23 2019 (202409 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Fri Dec 27 17:22:25 2019 (113448 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887472, pid 18598 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec 27 17:22:25 2019 (114507 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec 27 17:22:25 2019 (114560 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Fri Dec 27 17:22:25 2019 (501982 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Fri Dec 27 17:33:26 2019 (808074 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294886779, pid 18414 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec 27 17:33:26 2019 (809612 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec 27 17:33:26 2019 (809683 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Fri Dec 27 17:33:28 2019 (715122 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887351, pid 18415 hb_intvl 60 max_hb_loss 4
+
+
+Fri Dec 27 17:33:28 2019 (716154 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Dec 27 17:33:28 2019 (716207 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Fri Dec 27 17:33:29 2019 (346733 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Fri Jan  3 14:21:35 2020 (733045 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294886757, pid 18073 hb_intvl 60 max_hb_loss 4
+
+
+Fri Jan  3 14:21:35 2020 (734877 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Jan  3 14:21:35 2020 (734949 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Fri Jan  3 14:21:37 2020 (632225 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887327, pid 18074 hb_intvl 60 max_hb_loss 4
+
+
+Fri Jan  3 14:21:37 2020 (633265 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Fri Jan  3 14:21:37 2020 (633317 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Fri Jan  3 14:21:38 2020 (266887 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Tue Jan  7 17:03:56 2020 (814765 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294886783, pid 18098 hb_intvl 60 max_hb_loss 4
+
+
+Tue Jan  7 17:03:56 2020 (816679 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Tue Jan  7 17:03:56 2020 (816754 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Tue Jan  7 17:03:58 2020 (725179 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887356, pid 18099 hb_intvl 60 max_hb_loss 4
+
+
+Tue Jan  7 17:03:58 2020 (726149 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Tue Jan  7 17:03:58 2020 (726238 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Tue Jan  7 17:03:59 2020 (439227 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Tue Mar  3 15:35:50 2020 (395878 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887257, pid 17976 hb_intvl 60 max_hb_loss 4
+
+
+Tue Mar  3 15:35:50 2020 (397221 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Tue Mar  3 15:35:50 2020 (397292 us) 
+MTS node 4: state changed from 'offline' to 'supervisor'
+
+
+Tue Mar  3 15:35:52 2020 (299286 us) 
+smhb_sm_reg: Sysmgr registering with KLM at 4294887828, pid 17977 hb_intvl 60 max_hb_loss 4
+
+
+Tue Mar  3 15:35:52 2020 (300255 us) 
+MTS state 'offline': last_sync_msg opc=0, seq_no=0x0, next_seqno=0x0
+
+
+Tue Mar  3 15:35:52 2020 (300303 us) 
+MTS node 3: state changed from 'offline' to 'line card'
+
+
+Tue Mar  3 15:35:53 2020 ( 33002 us) 
+MTS node 4: state changed from 'supervisor' to 'active alone'
+
+
+Smart Decode tool (https://smartdecoder.cisco.com/history/542174) 
+=================================================================
+ 1. 0xf5c31f85 sochi_moonshot_card ---> /auto/n3kfijifastboot/release/greensboro/nexus/REL_7_0_3_I7_7_102/build/ins/x86e/final/supe/liblinks/libcrdcfgdata.so
+ 2. 0xf5d75000 placid_sensor_instinfo ---> /auto/andpkg/rep_cache/wr-x86-xeon/5.0.1/sysroot/intel_xeon_32_core-wrs-linux/usr/lib/libglib-2.0.so.0
+
+{code}
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled:  Email-in (Created 07/27/2020 10:00:06 Modified 07/28/2020 22:09:13 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Wednesday, July 29, 2020 at 1:08 AM 
+To: "Sean Higgins (seanhigg)" <seanhigg@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "nxos-aaa-dev(mailer list)" <nxos-aaa-dev@cisco.com>
+Subject: Re: CSCvt64662: non-sysmgr(non-sysmgr) crashed when do "show tacacs-server" via xml client
+
+The bug led TACACS into crashing, so yes it got compromised. SYSMGR had no impact out of it.
+ 
+Regards,
+ 
+Vasu
+ 
+
+From: "Sean Higgins (seanhigg)" <seanhigg@cisco.com>
+Date: Monday, 27 July 2020 at 10:29 PM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>
+Subject: CSCvt64662: non-sysmgr(non-sysmgr) crashed when do "show tacacs-server" via xml client
+
+
+ 
+
+Hi Vasu,
+I had recently had a bug scrub delivered to a customer, and for the bug CSCvt64662, the customer had some questions.
+What is the impact of SYSMGR crashing? Or is TACACs compromised? Are there any Other caveats?
+Please let me know. Thank you.
+Note: bug-attach@cisco was added to auto-attach this email to the bug
+
+
+############################ MESSAGE IDS ############################
+# <MN2PR11MB45361A495B6D02CC773000E8D8720@MN2PR11MB4536.namprd11.prod.outlook.com>
+# <5DFF253A-5BC9-4C13-89FD-42ADEA667AD4@cisco.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments (Created 07/23/2020 02:22:29 Added 07/23/2020 02:22:29 by palshanm)---
+Bug fix is verified in GMR8 release using 7.0(3)I7(8.63)
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 04/19/2020 22:28:15 Added 04/19/2020 22:28:15 by vijayall)---
+Crash with valid core file.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/18/2020 07:13:45 Modified 04/18/2020 21:19:49 by cms)---
+{200408 vasagraw S B} issue with BAT, checking with codenet team
+{200407 vasagraw S B} in BAT commit
+{200406 girshank S B} In PRRQ
+{200405 vasagraw S B} Fix identified, finalizing the same.
+{200402 vasagraw S B} seen only on greensboro, not applicable to latest H and I MRs
+{200401 girshank S B} Analysis in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: R-comments.p2 (Created 04/11/2020 05:11:25 Added 04/11/2020 05:11:25 by vasagraw)---
+committed fix to greensboro
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled:  R-comments (Created 04/11/2020 05:09:17 Modified 04/11/2020 05:10:18 by vasagraw)---
+committed fix to Greensboro
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis (Created 04/08/2020 03:00:33 Added 04/08/2020 03:00:33 by vasagraw)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvt64662).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9 
+# Generated at
+#     Wed Apr  8 10:00:23 2020 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/build/ses_static_analysis.log':
+@@Start processing of /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c
+**Active warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c
+**Noise warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:512:none:REVERSE_INULL:Null-checking "password" suggests that it may be null, but it has already been dereferenced on all paths leading to the check. [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:640:none:DEADCODE:Execution cannot reach the expression "0U" inside this statement: "av_list_add_av(aaa_authen_r...". [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:670:none:DEADCODE:Execution cannot reach the expression "0U" inside this statement: "av_list_add_av(aaa_authen_r...". [coverity]
+**Parent warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:135:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:683:deref_constant_null:FORWARD_NULL:Dereferencing null pointer "aaa_authen_req.user_data". [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:1017:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:269:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2564:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:269:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 65 bytes on destination array "roles.roles[roles.num_roles]" of size 65 bytes might leave the destination string unterminated. [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:683:none:RETURN_LOCAL:Using "aaa_authen_req.user_data", which points to an out-of-scope variable "data_buffer". [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:683:none:RETURN_LOCAL:Using "aaa_authen_req.user_data", which points to an out-of-scope variable "data_buffer". [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:3138:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:954:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:1662:none:UNINIT:Using uninitialized value "service_type". [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:613:fixed_size_dest:STRING_OVERFLOW:You might overrun the 64-character fixed-size string "username" by copying "user" without checking the length. [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2312:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2313:none:OVERRUN:Overrunning array "argv" of 256 bytes by passing it to a function which accesses it at byte offset 256. [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2185:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2188:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2191:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2194:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_lib.c:2197:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+@@Start processing of /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c
+**Active warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c
+**Noise warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c
+**Parent warnings for /nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2340:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2344:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2345:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2346:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2340:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 30 bytes on destination array "prev_state" of size 30 bytes might leave the destination string unterminated. [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:3173:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2438:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/vasagraw/greensboro_REL_7_0_3_I7_8_9/feature/security/aaa/lib/aaa_servers.c:2442:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 3
+Total parent warnings: 27
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8185/query/defects.htm?stream=greensboro-vasagraw&cid=72354&cid=347848&cid=71223&cid=317160&cid=73169&cid=71286&cid=50526&cid=56774&cid=350468&cid=54601&cid=71940&cid=350467&cid=356535&cid=60929&cid=406243&cid=63994&cid=68787&cid=48676&cid=63836&cid=67854
+Analysis archive: /auto/sa-html1/cov8/archive/greensboro/vasagraw/greensboro-vasagraw_20200408_094941/sa_summary.tar.gz
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: Unit-test (Created 04/07/2020 02:55:33 Added 04/07/2020 02:55:33 by vasagraw)---
+switch(config)# 
+switch(config)# show ver | inc image
+  NXOS image file is: bootflash:///nxos.7.0.3.I7.8.8.bin_PVT
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.67
+  NXOS: version 7.0(3)I7(9) [build 7.0(3)I7(8.8)]
+  System version: 9.3(5)
+switch(config)# 
+switch(config)# 
+
+
+switch(config)# feature tacacs+ 
+switch(config)# 
+switch(config)# show tacacs-server 
+timeout value:5
+deadtime value:0
+source interface:any available
+total number of servers:0
+switch(config)# 
+
+
+bash-4.2$ 
+bash-4.2$ ssh -l admin 10.77.143.108 -s xmlagent
+User Access Verification
+Password: 
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:writable-running:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=file</capability>
+    <capability>urn:ietf:params:netconf:capability:rollback-on-error:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+  </capabilities>
+  <session-id>6035</session-id>
+</hello>
+]]>]]><?xml version="1.0"?>
+<nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+<nc:capabilities>
+<nc:capability>urn:ietf:params:xml:ns:netconf:base:1.0</nc:capability>
+</nc:capabilities>
+</nc:hello>
+]]>]]><?xml version="1.0"?>
+<nf:rpc xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1">
+<nf:get>
+<nf:filter type="subtree">
+<show>
+<tacacs-server/>
+</show>
+</nf:filter>
+</nf:get>
+</nf:rpc>
+]]>]]>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nf:rpc-reply xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <nf:data>
+  <show>
+   <tacacs-server>
+    <__readonly__>
+     <global_timeout>5</global_timeout>
+     <global_deadtime>0</global_deadtime>
+     <global_source_intf>any available</global_source_intf>
+     <server_count>0</server_count>
+    </__readonly__>
+   </tacacs-server>
+  </show>
+ </nf:data>
+</nf:rpc-reply>
+]]>]]>
+
+
+
+
+*****************************************
+
+
+
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Apr  3 06:31:02 2020
+!Time: Fri Apr  3 06:31:32 2020
+
+version 7.0(3)I7(9) Bios:version 07.67 
+feature tacacs+
+
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    deadtime 5
+    use-vrf management
+    source-interface mgmt0
+
+
+
+<?xml version="1.0"?>
+<nf:rpc xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1">
+<nf:get>
+<nf:filter type="subtree">
+<show>
+<tacacs-server/>
+</show>
+</nf:filter>
+</nf:get>
+</nf:rpc>
+]]>]]>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nf:rpc-reply xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <nf:data>
+  <show>
+   <tacacs-server>
+    <__readonly__>
+     <global_timeout>5</global_timeout>
+     <global_deadtime>0</global_deadtime>
+     <global_source_intf>any available</global_source_intf>
+     <server_count>1</server_count>
+     <TABLE_server>
+      <ROW_server>
+       <server_ip>10.77.143.170</server_ip>
+       <port>49</port>
+       <secretKey>********</secretKey>
+      </ROW_server>
+     </TABLE_server>
+    </__readonly__>
+   </tacacs-server>
+  </show>
+ </nf:data>
+</nf:rpc-reply>
+]]>]]>
+
+
+
+*****************************************
+
+
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Apr  3 06:38:11 2020
+!Time: Fri Apr  3 06:38:14 2020
+
+version 7.0(3)I7(9) Bios:version 07.67 
+feature tacacs+
+
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+tacacs-server host 1.1.1.1 key 7 "dxgi" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    deadtime 5
+    use-vrf management
+    source-interface mgmt0
+
+
+
+
+<?xml version="1.0"?>
+<nf:rpc xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1">
+<nf:get>
+<nf:filter type="subtree">
+<show>
+<tacacs-server/>
+</show>
+</nf:filter>
+</nf:get>
+</nf:rpc>
+]]>]]>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nf:rpc-reply xmlns="http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree" message-id="1" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0">
+ <nf:data>
+  <show>
+   <tacacs-server>
+    <__readonly__>
+     <global_timeout>5</global_timeout>
+     <global_deadtime>0</global_deadtime>
+     <global_source_intf>any available</global_source_intf>
+     <server_count>2</server_count>
+     <TABLE_server>
+      <ROW_server>
+       <server_ip>10.77.143.170</server_ip>
+       <port>49</port>
+       <secretKey>********</secretKey>
+      </ROW_server>
+      <ROW_server>
+       <server_ip>1.1.1.1</server_ip>
+       <port>49</port>
+       <secretKey>********</secretKey>
+      </ROW_server>
+     </TABLE_server>
+    </__readonly__>
+   </tacacs-server>
+  </show>
+ </nf:data>
+</nf:rpc-reply>
+]]>]]>
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: imr1-iplus_a-iplus_b-NOT-applicable (Created 04/02/2020 04:56:50 Added 04/02/2020 04:56:50 by vasagraw)---
+the issue is seen on latest GMR and upto 9.2.2 -
+
+issue is not seen 9.2.3 onwards.. not applicable to iplus_a and iplus_b -
+---End of Note Titled: imr1-iplus_a-iplus_b-NOT-applicable---
+
+
+---Start of Note Titled: Crash-decode (Created 04/01/2020 08:18:07 Added 04/01/2020 08:18:07 by nih)---
+(gdb) bt
+#0  0xf5c31f85 in raise () from //tmp/nxos_gdb.5VA1wV/core_n9000-final-rootfs/lib/libc.so.6
+#1  0xf5c355d5 in abort () from //tmp/nxos_gdb.5VA1wV/core_n9000-final-rootfs/lib/libc.so.6
+#2  0xf5c6e50a in ?? () from //tmp/nxos_gdb.5VA1wV/core_n9000-final-rootfs/lib/libc.so.6
+#3  0xf5c79002 in ?? () from //tmp/nxos_gdb.5VA1wV/core_n9000-final-rootfs/lib/libc.so.6
+#4  0xeb48d8da in mtrack_int_free (ptr=0x10ba4633, memseg=0x0) at ../utils/malloc_track/mtrack.c:2127
+#5  0xf5fc8da4 in mtrack_free (ptr=0x10ba4690) at ../include/isan/mtrack.h:276
+#6  0xf5f1af50 in cmi_aaa_server_monitor_config (q=33, opcode=8430, operation=GET_REQ, server_conf=0xffc74654, 
+    cmd_type=vsh_show_cmd_type, cmi_username=0x10b88148 "admin", cmi_session_id=0x10b88188 "10.79.112.67@xml.3755")
+    at ../feature/security/aaa/lib/aaa_servers.c:2949
+#7  0xda073d3e in show_tacacs_server (p=0x10b87e40) at ../feature/security/tacacs/cli/tacacscli.c:1809
+#8  0xf7010e0c in sanos_execute_eol_function (at_node=0xf713a460 <g_eol_node>, pinfo=0x10b87e40, cmd_action=VSH_CMD_NORMAL)
+    at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:391
+#9  0xf70114cd in sanos_launch_eol (at_node=0xf713a460 <g_eol_node>, pinfo=0x10b87e40, cmd_action=VSH_CMD_NORMAL)
+    at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:448
+#10 0xf7015212 in sanos_launch_process (process=0x10b8c900, pgid=<optimized out>, infile=0, outfile=1, closefd=0xffc75240, errfile=2, 
+    foreground=1) at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:1098
+#11 0xf7015a56 in sanos_nested_fork (process=0x10b8c900, foreground=1, pipe_in=0, pipe_out=-1, job=0x10b87c20)
+    at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:1233
+#12 0xf7015f70 in sanos_launch_job_nested (job=0x10b87c20, foreground=1) at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:1315
+#13 0xf70163b5 in sanos_execute_command (at_node=0xf713a460 <g_eol_node>, pinfo=0x10b87e40, paginate=false, 
+    mode_path=0x50113b44 "/exec") at ../feature/vsh/cli/cli_sanos/cli_eol_process.c:1456
+#14 0xf6f8558b in command_dispatcher_c::send_legacy_command [_ZN20command_dispatc...] (this=0x10b76e60, args=..., ctx=..., 
+    cmd_line=0xffc7ed70 "show tacacs-server", cmd=..., reason=2, filter=0xf70cebcc <clic_g+396>)
+    at ../feature/vsh/cli/cli_private/cli_command_dispatcher.cc:9065
+#15 0xf6faa920 in command_dispatcher_c::send_command [_ZN20command_dispatc...] (this=0x10b76e60, ctx=..., 
+    cmd_line=0xffc7ed70 "show tacacs-server", cmd=..., reason=2, filter=0xf70cebcc <clic_g+396>)
+    at ../feature/vsh/cli/cli_private/cli_command_dispatcher.cc:8481
+#16 0xf6facf45 in command_dispatcher_c::proxy_command [_ZN20command_dispatc...] (this=0x10b76e60, ctx=..., 
+    line=0xffc7ed70 "show tacacs-server", cmd=..., reason=2, filter=0xf70cebcc <clic_g+396>)
+    at ../feature/vsh/cli/cli_private/cli_command_dispatcher.cc:6251
+#17 0xf6ebdd59 in clic_command_dispatcher_c::send_command [_ZN25clic_command_di...] (this=0x10b76e60, ctx=..., 
+    line=0xffc7ed70 "show tacacs-server", cmd=..., reason=2, filter=0xf70cebcc <clic_g+396>)
+    at ../feature/vsh/cli/cli_pparser/clic.cc:2642
+#18 0xf6fbb383 in command_dispatcher_c::handle_command [_ZN20command_dispatc...] (this=0x10b76e60, 
+    line=0x10b87648 "show tacacs-server ", filter=0xf70cebcc <clic_g+396>, expanded_line=0xffc814e8)
+    at ../feature/vsh/cli/cli_private/cli_command_dispatcher.cc:4902
+#19 0xf6ebbc0a in clic_command_dispatcher_c::handle_command [_ZN25clic_command_di...] (this=0x10b76e60, 
+    line=0x10b87648 "show tacacs-server ", filter=0xf70cebcc <clic_g+396>, expanded_line=0xffc814e8)
+    at ../feature/vsh/cli/cli_pparser/clic.cc:2430
+#20 0xf6ebe26f in clic_c::handle_command_internal [_ZN6clic_c23handle_c...] (this=0xf70cea40 <clic_g>, 
+    line=0x10b87648 "show tacacs-server ", filter=0xf70cebcc <clic_g+396>, expanded_line=0xffc814e8)
+    at ../feature/vsh/cli/cli_pparser/clic.cc:1207
+#21 0xf6ec37b3 in clic_c::handle_command [_ZN6clic_c14handle_c...] (this=0xf70cea40 <clic_g>, line=0xffc86d62 "show tacacs-server ", 
+    expand_alias=1) at ../feature/vsh/cli/cli_pparser/clic.cc:1453
+#22 0xf6ec3d0c in clic_c::exec_line [_ZN6clic_c9exec_line...] (this=0xf70cea40 <clic_g>, line=0xffc86d62 "show tacacs-server ")
+    at ../feature/vsh/cli/cli_pparser/clic.cc:1004
+#23 0xf6eb87ec in vsh_procket_exec_cmd_get_state (line=0xffc86d62 "show tacacs-server ", state=0xffc81ab0, 
+    fptr=0x100575e1 <vsh_get_cb>, flag=0, userData=0xffc86c24, no_cleanup_on_exit=true)
+    at ../feature/vsh/cli/cli_pparser/clic_main.cc:2876
+#24 0x10057b87 in sendCmd2Parser (ud=0xffc86c24, action=RPC_ACTION_GET, operation=OPERATION_NONE, cmd=0xffc86d62 "show tacacs-server ", 
+    mode_level=0xffc86ba0) at ../feature/xml/sub-agent/xmlsa_vshell.c:382
+#25 0x1006374e in parse_xml_command (doc=0x10b87d70, current_node=0x10b8ac58, command=0xffc86d62 "show tacacs-server ", ud=0xffc86c24, 
+    action=RPC_ACTION_GET, operation=OPERATION_NONE, mode_level=0xffc86ba0, continue_on_err=0, rpc_node=0x10b8a410)
+    at ../feature/xml/sub-agent/xmlsa_parser.c:4288
+#26 0x100639a6 in parse_xml_command (doc=0x10b87d70, current_node=0x10b8ac18, command=0xffc86d62 "show tacacs-server ", ud=0xffc86c24, 
+    action=RPC_ACTION_GET, operation=OPERATION_NONE, mode_level=0xffc87d60, continue_on_err=0, rpc_node=0x10b8a410)
+    at ../feature/xml/sub-agent/xmlsa_parser.c:4384
+#27 0x1005c891 in rpc_get (doc=0x10b87d70, node=0x10b8ab20, rpc_node=0x10b8a410, req_comp_ns=0xffc87de8)
+    at ../feature/xml/sub-agent/xmlsa_parser.c:1584
+#28 0x10061719 in process_rpc (doc=0x10b87d70, node=0x10b8a410) at ../feature/xml/sub-agent/xmlsa_parser.c:3561
+#29 0x10062586 in parsing_request (
+    msg=0x1006ae60 <msg> "<?xml version=\"1.0\"?>\n<nf:rpc xmlns:nf=\"urn:ietf:params:xml:ns:netconf:base:1.0\" xmlns=\"http://www.cisco.com/nxos:7.0.3.I7.7.:tacacs_dynamic_tree\" message-id=\"1\">\n  <nf:get>\n    <nf:filter type=\"subtr"...)
+    at ../feature/xml/sub-agent/xmlsa_parser.c:3898
+#30 0x100545bf in handle_stdin_msg () at ../feature/xml/sub-agent/xmlsa_request.c:147
+#31 0x1005493f in handle_request () at ../feature/xml/sub-agent/xmlsa_request.c:201
+#32 0x10053b67 in main (argc=1, argv=0xffc88994) at ../feature/xml/sub-agent/xmlsa_nf.c:477
+(gdb)
+---End of Note Titled: Crash-decode---
+
+
+---Start of Note Titled: F-comments (Created 04/01/2020 08:17:26 Added 04/01/2020 08:17:26 by nih)---
+Crash is inside "show tacacs-server" CLI handler.
+
+2020 Oct 18 02:10:03 N92160-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Oct 18 02:10:44 N92160-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 4129 with message non-sysmgr(non-sysmgr) crashed, core will be saved .
+
+Please refer to complete core decode.
+---End of Note Titled: F-comments---
+
+
+---Start of Note Titled:  reproduction-steps (Created 04/01/2020 06:50:27 Modified 11/23/2020 07:14:13 by cdetsadm)---
+show tacacs-server  from xml client
+
+Hello xml
+
+<?xml version="1.0"?>
+<nc:hello xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+<nc:capabilities>
+<nc:capability>urn:ietf:params:xml:ns:netconf:base:1.0</nc:capability>
+</nc:capabilities>
+</nc:hello>
+]]>]]>
+
+
+
+<?xml version="1.0"?>
+<nf:rpc xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="http://www.cisco.com/nxos:9.3.3.:tacacs_dynamic_tree" message-id="1">
+  <nf:get>
+    <nf:filter type="subtree">
+      <show>
+        <tacacs-server/>
+      </show>
+    </nf:filter>
+  </nf:get>
+</nf:rpc>
+]]>]]>
+
+
+Error from xml client:
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nf:rpc-reply xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns=" http://www.cisco.com/nxos:7.0.3.I7.8.:tacacs_dynamic_tree"; message-id="1">
+  <nf:rpc-error>
+    <nf:error-type>application</nf:error-type>
+    <nf:error-tag>invalid-value</nf:error-tag>
+    <nf:error-severity>error</nf:error-severity>
+    <nf:error-message>*** glibc detected *** /isan/bin/xmlsa: free(): invalid pointer: 0x110d55fb ***
+======= Backtrace: =========
+/lib/libc.so.6(+0x74002)[0xf5cea002]
+/isan/lib/libmtrack.so(mtrack_int_free+0x1cd)[0xeb4fe8da]
+/isan/lib/libsdwrap.so(mtrack_free+0x36)[0xf6039da4</nf:error-message>
+    <nf:error-info>
+      <nf:bad-element>show</nf:bad-element>
+    </nf:error-info>
+  </nf:rpc-error>
+</nf:rpc-reply>
+]]>]]>
+
+device report error log as below:
+2020 Oct 18 02:09:24 N92160-2 last message repeated 2 times
+2020 Oct 18 02:10:03 N92160-2 last message repeated 3 times
+2020 Oct 18 02:10:03 N92160-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Oct 18 02:10:44 N92160-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 4129 with message non-sysmgr(non-sysmgr) crashed, core will be saved .
+
+N92160-2# show core
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+1    1       1         non-sysmgr       4129      2020-10-18 02:10:44
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 04/01/2020 06:46:03 Modified 07/23/2020 02:22:29 by palshanm)---
+<B>Symptom:</B>
+2020 Oct 18 02:09:24 N92160-2 last message repeated 2 times
+2020 Oct 18 02:10:03 N92160-2 last message repeated 3 times
+2020 Oct 18 02:10:03 N92160-2 %VSHD-2-VSHD_SYSLOG_EOL_ERR: EOL function show_tacacs_server from library libtacacscli.so exited due to Signal 6
+2020 Oct 18 02:10:44 N92160-2 %SYSMGR-2-LAST_CORE_BASIC_TRACE: : PID 4129 with message non-sysmgr(non-sysmgr) crashed, core will be saved .
+# show core
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+1    1       1         non-sysmgr       4129      2020-10-18 02:10:44
+
+<B>Conditions:</B>
+"non-sysmgr(non-sysmgr)" crashed when do "show tacacs-server" via xml client
+
+<B>Workaround:</B>
+none
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (10 of 10)
+------------------------------------------------------------------------------------------------------------------
+gnosis_neg_CSCvt64662_neg.txt                     ascii text     10126          vepabbu        09/14/2020 07:51:53      
+gnosis_pos_CSCvt64662_pos.txt                     ascii text     11234          vepabbu        09/14/2020 07:51:50      
+CSCvt64662_gmr8_test_logs.txt                     ascii text     15836          palshanm       07/23/2020 02:23:00      
+Diffs-commit-greensboro                           ascii text     5325           vasagraw       04/11/2020 04:53:17      
+Diffs-release-greensboro                          ascii text     2769           vasagraw       04/11/2020 04:53:13      
+SSR_report_for_best_ez_tier1_n9000_NXOS_greensboroascii text     4348           jabajaj        04/10/2020 17:40:08      
+static-analysis-greensboro                        binary         8483           cdetsadm       04/10/2020 15:33:58      
+nxos-pi-common-security-code-review               ascii text     914            prrqengg       04/07/2020 02:58:23      
+Release-note-diff                                 ascii text     122            zhenguo        04/01/2020 18:47:10      
+1602958250_0x101_non-sysmgr_log.4129.tar.gz       binary         9944353        qianlu         04/01/2020 06:51:58      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/05/2026 pisces   	VF-patched              	                             	NX-OS:9.2(3),NX-OS:9.2(3y),NX	New
+08/05/2026 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV5(1.2),NX-OS:5.	New
+08/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/05/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/05/2026 pisces   	Potentially-affected-rel	                             	5.2(1)SV5(1.2),5.2(1)SV5(1.3)	New
+03/16/2026 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/18/2026 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/13/2026 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/13/2026 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/13/2026 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/04/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+07/22/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+07/22/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+06/05/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+05/20/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-509480       	New
+05/20/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+05/08/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+05/08/2025 buildins 	Software-type-ids       	286278844                    	                             	Del
+05/07/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/23/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+04/08/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/26/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+03/26/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/26/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/27/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/27/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/13/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+01/30/2025 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+12/10/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/19/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/07/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/07/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/07/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/18/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/11/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/10/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/10/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/09/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/09/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/09/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/07/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/04/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/04/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/03/2024 buildins 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+10/03/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/03/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/21/2024 cdetsadm 	Component-hops-count    	0                            	1                            	Mod
+01/29/2024 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/13/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/11/2023 yibinzha 	serviceRequests/C3/69576	                             	                             	Mod
+07/11/2023 yibinzha 	Urgency-desc            	P3                           	CL3                          	Mod
+07/11/2023 yibinzha 	serviceRequests/C3/69576	                             	C3/695766696                 	New
+07/11/2023 yibinzha 	Urgency-desc            	CL3                          	P3                           	Mod
+07/11/2023 yibinzha 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/11/2023 yibinzha 	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+07/11/2023 yibinzha 	Tickets-count           	4                            	5                            	Mod
+07/11/2023 yibinzha 	TACSR-count             	4                            	5                            	Mod
+07/11/2023 yibinzha 	Tickets-count-direct    	4                            	5                            	Mod
+07/11/2023 yibinzha 	Trouble-tickets         	                             	695766696                    	New
+07/11/2023 yibinzha 	Trouble-tickets-direct  	                             	C3695766696                  	New
+05/09/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+05/03/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+03/24/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+03/14/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/17/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/16/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/16/2023 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+12/12/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/17/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+11/08/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+07/25/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+06/30/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+06/30/2022 candid   	Known-fixed-releases    	7.0(3)I7(8.10)               	                             	Del
+04/21/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+04/05/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+02/06/2022 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+12/08/2021 cdetsadm 	Known-affected-releases 	                             	7.0(3)I7(7),7.0(3)I7(8),9.2(1	New
+12/08/2021 cdetsadm 	Known-fixed-releases    	                             	7.0(3)I7(8.10),7.0(3)I7(9)   	New
+12/08/2021 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+12/08/2021 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+12/08/2021 cdetsadm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+12/08/2021 cdetsadm 	MDF-edited              	                             	N                            	Mod
+12/08/2021 candid   	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+09/30/2021 xinyzhen 	serviceRequests/C3/69224	                             	                             	Mod
+09/30/2021 xinyzhen 	Urgency-desc            	CL4                          	CL3                          	Mod
+09/30/2021 xinyzhen 	Urgency                 	8                            	6                            	Mod
+09/30/2021 xinyzhen 	serviceRequests/C3/69224	                             	C3/692249213                 	New
+09/30/2021 xinyzhen 	Tickets-count           	3                            	4                            	Mod
+09/30/2021 xinyzhen 	TACSR-count             	3                            	4                            	Mod
+09/30/2021 xinyzhen 	Tickets-count-direct    	3                            	4                            	Mod
+09/30/2021 xinyzhen 	Trouble-tickets         	                             	692249213                    	New
+09/30/2021 xinyzhen 	Trouble-tickets-direct  	                             	C3692249213                  	New
+04/28/2021 aeguiart 	Attribute               	gnosis irvine-na gmr8-hkataka	gnosis irvine-na gmr8-hkataka	Mod
+04/03/2021 aeguiart 	Other-mail              	                             	aeguiart                     	Mod
+11/23/2020 cdetsadm 	Note Title              	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Note Type               	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Is-reproducible         	                             	Cisco Lab Reproducible       	Mod
+11/19/2020 hkatakam 	Automated-test          	N                            	Y                            	Mod
+09/14/2020 vepabbu  	File Name               	                             	gnosis_neg_CSCvt64662_neg.txt	New
+09/14/2020 vepabbu  	File Name               	                             	gnosis_pos_CSCvt64662_pos.txt	New
+09/14/2020 vepabbu  	Note Title              	                             	KnowledgeSignature           	New
+09/14/2020 vepabbu  	Note Title              	KnowledgeSignature           	                             	Del
+09/14/2020 vepabbu  	Attribute               	gnosis dsig_no_na irvine-na g	gnosis irvine-na gmr8-hkataka	Mod
+08/07/2020 ablusenk 	Note Title              	                             	DetectionLogic               	New
+07/28/2020 vasagraw 	Note                    	Email-in                     	Email-in                     	Mod
+07/27/2020 cdetsbtk 	Security-screening-times	2020-04-07 08:51:13.000+0000 	2020-07-28 08:51:21.000+0000 	Mod
+07/27/2020 seanhigg 	Note Title              	                             	Email-in                     	New
+07/23/2020 palshanm 	File Name               	                             	CSCvt64662_gmr8_test_logs.txt	New
+07/23/2020 palshanm 	Attribute               	gnosis dsig_no_na irvine-na g	gnosis dsig_no_na irvine-na g	Mod
+07/23/2020 palshanm 	Note Title              	                             	V-comments                   	New
+07/23/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/23/2020 palshanm 	Status                  	R                            	V                            	Mod
+07/23/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+07/23/2020 palshanm 	Original-version        	                             	7.0(3)I7(7)                  	Mod
+07/23/2020 palshanm 	Verified-release        	                             	7.0(3)I7(8.63)               	New
+07/23/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+07/23/2020 palshanm 	Verified-on             	                             	2020-07-23 09:22:26.000+0000 	Mod
+07/23/2020 palshanm 	statusStates            	                             	[status=R, startDate=Sat Apr 	New
+07/23/2020 palshanm 	statusStates            	[status=R, startDate=Sat Apr 	                             	Del
+07/23/2020 palshanm 	Age-status              	10                           	113                          	Mod
+07/23/2020 palshanm 	Mean-time-to-verified   	                             	112                          	Mod
+06/09/2020 relam    	serviceRequests/C3/68920	                             	                             	Mod
+06/09/2020 relam    	Urgency-desc            	P4                           	CL4                          	Mod
+06/09/2020 keitocon 	serviceRequests/C3/68920	                             	                             	Mod
+06/09/2020 keitocon 	Urgency-desc            	P3                           	P4                           	Mod
+06/09/2020 keitocon 	Urgency                 	6                            	8                            	Mod
+06/05/2020 relam    	serviceRequests/C3/68920	                             	                             	Mod
+06/05/2020 relam    	Urgency-desc            	P4                           	P3                           	Mod
+06/05/2020 relam    	Urgency                 	8                            	6                            	Mod
+06/03/2020 relam    	serviceRequests/C3/68920	                             	C3/689207438                 	New
+06/03/2020 relam    	Tickets-count           	2                            	3                            	Mod
+06/03/2020 relam    	TACSR-count             	2                            	3                            	Mod
+06/03/2020 relam    	Tickets-count-direct    	2                            	3                            	Mod
+06/03/2020 relam    	Trouble-tickets         	                             	689207438                    	New
+06/03/2020 relam    	Trouble-tickets-direct  	                             	C3689207438                  	New
+06/03/2020 relam    	serviceRequests/C3/68920	                             	C3/689207488                 	New
+06/03/2020 relam    	Urgency-desc            	CL3                          	P4                           	Mod
+06/03/2020 relam    	Urgency                 	6                            	8                            	Mod
+06/03/2020 relam    	Tickets-count           	1                            	2                            	Mod
+06/03/2020 relam    	TACSR-count             	1                            	2                            	Mod
+06/03/2020 relam    	Tickets-count-direct    	1                            	2                            	Mod
+06/03/2020 relam    	Trouble-tickets         	                             	689207488                    	New
+06/03/2020 relam    	Trouble-tickets-direct  	                             	C3689207488                  	New
+05/17/2020 ssoppann 	Attribute               	gnosis dsig_no_na irvine-na  	gnosis dsig_no_na irvine-na g	Mod
+04/23/2020 qianlu   	serviceRequests/C3/68876	                             	                             	Mod
+04/23/2020 qianlu   	Urgency-desc            	P3                           	CL3                          	Mod
+04/19/2020 vijayall 	Note Title              	                             	KnowledgeSignature           	New
+04/19/2020 vijayall 	Attribute               	irvine-na                    	gnosis dsig_no_na irvine-na  	Mod
+04/19/2020 vijayall 	Note Title              	                             	DetectionUnsuitable          	New
+04/18/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/18/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/18/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/18/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/18/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/18/2020 cms      	Note Title              	                             	Scrubnote                    	New
+04/16/2020 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(9)                  	New
+04/16/2020 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(8.10)               	New
+04/11/2020 vasagraw 	Note Title              	                             	R-comments.p2                	New
+04/11/2020 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/11/2020 vasagraw 	Status                  	A                            	R                            	Mod
+04/11/2020 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/11/2020 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/11/2020 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+04/11/2020 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+04/11/2020 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+04/11/2020 vasagraw 	Breakage                	                             	No                           	Mod
+04/11/2020 vasagraw 	Regression              	                             	N                            	Mod
+04/11/2020 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+04/11/2020 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+04/11/2020 vasagraw 	Released-code           	                             	Y                            	Mod
+04/11/2020 vasagraw 	Origin                  	                             	base code                    	Mod
+04/11/2020 vasagraw 	Test-escape             	                             	Y                            	Mod
+04/11/2020 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+04/11/2020 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+04/11/2020 vasagraw 	TPS_issue               	                             	N                            	Mod
+04/11/2020 vasagraw 	Behavior-changed        	                             	N                            	Mod
+04/11/2020 vasagraw 	Original-resolved-on    	                             	2020-04-11 12:11:25.000+0000 	Mod
+04/11/2020 vasagraw 	Documents-changed       	                             	none                         	Mod
+04/11/2020 vasagraw 	More-on                 	                             	2020-04-11 12:11:25.000+0000 	Mod
+04/11/2020 vasagraw 	Opened-on               	                             	2020-04-11 12:11:25.000+0000 	Mod
+04/11/2020 vasagraw 	Resolved-on             	                             	2020-04-11 12:11:25.000+0000 	Mod
+04/11/2020 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Apr 	New
+04/11/2020 vasagraw 	statusStates            	[status=A, startDate=Wed Apr 	                             	Del
+04/11/2020 vasagraw 	Age-status              	0                            	10                           	Mod
+04/11/2020 vasagraw 	Mean-time-to-resolved   	                             	9                            	Mod
+04/11/2020 vasagraw 	Note Title              	                             	R-comments                   	New
+04/11/2020 vasagraw 	Related-bugs            	                             	Teacat/CSCvt78183            	New
+04/11/2020 vasagraw 	Teabugid                	                             	CSCvt78183                   	Mod
+04/11/2020 vasagraw 	File Name               	                             	Diffs-commit-greensboro      	New
+04/11/2020 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+04/11/2020 vasagraw 	File Name               	                             	Diffs-release-greensboro     	New
+04/10/2020 jabajaj  	File Name               	                             	SSR_report_for_best_ez_tier1_	New
+04/10/2020 cdetsadm 	File Name               	                             	static-analysis-greensboro   	New
+04/08/2020 vasagraw 	Note Title              	                             	static-analysis              	New
+04/07/2020 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+04/07/2020 prrqengg 	FileSize                	400                          	914                          	Mod
+04/07/2020 prrqengg 	Code-reviewer           	                             	asmurali                     	New
+04/07/2020 vasagraw 	Note Title              	                             	Unit-test                    	New
+04/06/2020 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	                             	Mod
+04/06/2020 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+04/06/2020 cdetsbtk 	Security-screening-times	2020-04-02 02:08:31.000+0000 	2020-04-07 08:51:13.000+0000 	Mod
+04/06/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/02/2020 girshank 	Attribute               	                             	irvine-na                    	Mod
+04/02/2020 vasagraw 	Note Title              	                             	imr1-iplus_a-iplus_b-NOT-appl	New
+04/01/2020 zhenguo  	Note                    	Release-note                 	Release-note                 	Mod
+04/01/2020 zhenguo  	RNE-Type                	$$PREFCS                     	NONE                         	Mod
+04/01/2020 zhenguo  	File Name               	                             	Release-note-diff            	New
+04/01/2020 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/01/2020 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+04/01/2020 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/01/2020 cdetsbtk 	Security-screening-times	                             	2020-04-02 02:08:31.000+0000 	Mod
+04/01/2020 girshank 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/01/2020 girshank 	Status                  	N                            	A                            	Mod
+04/01/2020 girshank 	Engineer                	                             	vasagraw                     	Mod
+04/01/2020 girshank 	Assigner                	                             	girshank                     	Mod
+04/01/2020 girshank 	Assigned Date           	                             	2020-04-01 15:47:12.000+0000 	Mod
+04/01/2020 girshank 	statusStates            	                             	[status=N, startDate=Wed Apr 	New
+04/01/2020 girshank 	statusStates            	[status=N, startDate=Wed Apr 	                             	Del
+04/01/2020 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+04/01/2020 nih      	Component               	xml                          	tacacs                       	Mod
+04/01/2020 nih      	DE-manager              	ambtripa                     	girshank                     	Mod
+04/01/2020 nih      	Doc-manager             	egrover                      	girshank                     	Mod
+04/01/2020 nih      	Note Title              	                             	Crash-decode                 	New
+04/01/2020 nih      	Note Title              	                             	F-comments                   	New
+04/01/2020 qianlu   	serviceRequests/C3/68876	                             	C3/688761735                 	New
+04/01/2020 qianlu   	Urgency-desc            	NA                           	P3                           	Mod
+04/01/2020 qianlu   	Urgency                 	                             	6                            	Mod
+04/01/2020 qianlu   	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+04/01/2020 qianlu   	Data-classification-reas	It has customer's information	Default value of Data-classif	Mod
+04/01/2020 qianlu   	Tickets-count           	0                            	1                            	Mod
+04/01/2020 qianlu   	TACSR-count             	                             	1                            	Mod
+04/01/2020 qianlu   	Tickets-count-direct    	                             	1                            	Mod
+04/01/2020 qianlu   	Trouble-tickets         	                             	688761735                    	New
+04/01/2020 qianlu   	Trouble-tickets-direct  	                             	C3688761735                  	New
+04/01/2020 qianlu   	File Name               	                             	1602958250_0x101_non-sysmgr_l	New
+04/01/2020 qianlu   	Note Title              	                             	tac-repro                    	New
+04/01/2020 qianlu   	Note Title              	                             	Release-note                 	New
+04/01/2020 qianlu   	Version                 	                             	7.0(3)I7(7),7.0(3)I7(8),9.2(1	New
+04/01/2020 qianlu   	Defect Created          	                             	                             	New

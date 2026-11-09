@@ -1,0 +1,522 @@
+[
+  {
+    "bugid": "CSCvm14311",
+    "Identifier": "CSCvm14311",
+    "Headline": "N9k: Enhancement to add LDAPS support.",
+    "Component": "ldap",
+    "Status": "R",
+    "Attribute": "gnosis dsig_no_notapplicable ed_ic_dc_rs",
+    "Automated-test": "",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvp34494",
+    "Identifier": "CSCvp34494",
+    "Headline": "N9K: shows incorrect privilege level after change radius config",
+    "Component": "radius",
+    "Status": "R",
+    "Attribute": "gnosis dsig_no_notapplicable n3kn9k_cfd i-kasrini2 amitku6 ds-sprint-na hmr3 hmr3-kasrini2 nxos-i-rel-verified hmr3-verified gmr6-verified cfd-hkatakam n9k-tea-nal",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvp62539",
+    "Identifier": "CSCvp62539",
+    "Headline": "local auth with switch ip mgmt failed as system login quiet-mode is config with ACL for certain host",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "hmr3 PI-REG-NXOS irivine udb irvine-ss hmr3-tbp qr3f-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvq73077",
+    "Identifier": "CSCvq73077",
+    "Headline": "Only the first shell:roles role is used to assign the account into Linux groups in NX-OS",
+    "Component": "aaa",
+    "Status": "R",
+    "Attribute": "gnosis dsig_no_limit imr1 gmr6-hkatakam imr1-hkatakam hmr2-tbp-ok \\u000a ed_ic_dc_rs",
+    "Automated-test": "Y",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvq91933",
+    "Identifier": "CSCvq91933",
+    "Headline": "TACACS+ IETF draft compliant single-connect support",
+    "Component": "tacacs",
+    "Status": "D",
+    "Attribute": "ed_ic_dc_rs",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvq95571",
+    "Identifier": "CSCvq95571",
+    "Headline": "N9K: Radius authentication fails after reload/upgrade when DNS is used.",
+    "Component": "radius",
+    "Status": "R",
+    "Attribute": "gnosis gmr6-rne TAC_repro gmr7 gmr6-tbp-ok imr-tbp-not-ok iplus-dev imr1-hkatakam gmr7-hkatakam needed-for-davisplus-n7k gmr7-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvs56078",
+    "Identifier": "CSCvs56078",
+    "Headline": "logging server received the TACACS+ accounting messages with invalid output",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "iplusb-sprabhud gnosis cfd-mukamath pi-mukamath ed_ic_dc_rs metadata-v20 metadata-v20 metadata-v21|metadata-v22 metadata-v23 metadata-v25 metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvt43029",
+    "Identifier": "CSCvt43029",
+    "Headline": "DME: Tacacs type-6 key is not reflected on DME. Hence, config out-of-sync between CLI/DME",
+    "Component": "tacacs",
+    "Status": "R",
+    "Attribute": "gnosis iplus-b cfd-kasrini2 kr2f kr3f nr1f metadata-v25 metadata-v26 nr2f-kasrini2 nr2f-rel-verified nr2f-verified metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48 metadata-v50 metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvt64662",
+    "Identifier": "CSCvt64662",
+    "Headline": "non-sysmgr(non-sysmgr) crashed when do \"show tacacs-server\" via xml client",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis irvine-na gmr8-hkatakam gmr8-verified \\u000a ed_ic_dc_rs metadata-v20 metadata-v20 metadata-v21 metadata-v22 metadata-v23 metadata-v25 metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48 metadata-v50 metadata-v57 metadata-v57 metadata-v57 metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v65 metadata-v65 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v99999 metadata-v999991 metadata-v999991 metadata-v999991 metadata-v9999911",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvt77885",
+    "Identifier": "CSCvt77885",
+    "Headline": "Cisco Nexus 3000 and 9000 Series Switches Privilege Escalation Vulnerability",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "iplusa-mr-hkatakam tac-repro greensboro-na CVE-2020-3394 cfd-hkatakam \\u000a ed_ic_dc_rs",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvu19790",
+    "Identifier": "CSCvu19790",
+    "Headline": "'login on-success log' not see it in 'show run'&'show run all'",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "gnosis dsig_no_notapplicable iplusb-hkatakam iplusb iplus-b iplus-b-verified cfd-manojohn pi-mukamath",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvv68826",
+    "Identifier": "CSCvv68826",
+    "Headline": "LDAP search-filter config breaks in Cisco NX-OS 9.3.x",
+    "Component": "ldap",
+    "Status": "V",
+    "Attribute": "gnosis dsig_no_icexists imr5-hkatakam ed_ic_dc_rs metadata-v20 metadata-v20 metadata-v21|metadata-v22 metadata-v23 metadata-v25 metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvz15142",
+    "Identifier": "CSCvz15142",
+    "Headline": "n9k-standalone: \"tacacs-server key\" may missing after PoAP.",
+    "Component": "aaa",
+    "Status": "R",
+    "Attribute": "cfd-manojohn metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48",
+    "Automated-test": "Y",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCvz47575",
+    "Identifier": "CSCvz47575",
+    "Headline": "Traceback TACACS-3-L3VM_LIBINIT Seen After AAA Failures",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "or4m-verified metadata-v68 metadata-v72 SVS-GOHS-S050092-encountered n9k-longevity-test or4m metadata-v77 n9k-longevity-seen metadata-v64 SVS-GOHS-S054884-encountered metadata-v73 metadata-v65 metadata-v99999 SVS-GOHS-S050092-auto SVS-WEGO-S048693 en-svs-gdc-gs SVS-WEGO-S048693-auto metadata-v75 metadata-v71 metadata-v80 imr7 kr2f metadata-v999991 scaled-mcast-sit sr-sit metadata-v79 n9k-systest or4m-mukamath pr2f-verified metadata-v9999 mukamath-palshanm cfd-manojohn metadata-v76 or4m-r2v metadata-v81 imr8 gnosis metadata-v9999911 cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvz55570",
+    "Identifier": "CSCvz55570",
+    "Headline": "Nexus 9k not sending authorization request",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis dsig_no_notapplicable ed_ic_dc_rs cfd-manojohn imr8-hkatakam ic-esc-not-digitizable imr8-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCvz86703",
+    "Identifier": "CSCvz86703",
+    "Headline": "nxos 9.3(8) ip radius-source interface not working",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "fb_msw_cvt fb_msw_cvt_system-health fb_msw_cvt_t1 7316-ss fb-msw-drop1 733_cvt_msft 733-ss 938-ss 733_cvt_fb nx828-mf nx846-mf cfd-manojohn imr8-hkatakam imr8-verified 846-mukamath k-mukamath",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwa16832",
+    "Identifier": "CSCwa16832",
+    "Headline": "Nexus 9000: No RADIUS packets sent after an OIR or switchover event on the active supervisor",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "imr8-hkatakam kr2f-hkatakam cfd-manojohn imr8-verified metadata-v25 metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48 metadata-v50 metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v74 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwa58935",
+    "Identifier": "CSCwa58935",
+    "Headline": "Radius Daemon crash when pointer is not accessible",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "kr3f kr3f-hkatakam gnosis imr8-hkatakam cfd-manojohn imr8-verified ed_ic_dc_arch metadata-v25 metadata-v26 metadata-v31 metadata-v32 metadata-v33 metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39",
+    "Automated-test": "Y",
+    "Verified-confidence": "believed"
+  },
+  {
+    "bugid": "CSCwa96146",
+    "Identifier": "CSCwa96146",
+    "Headline": "NX-OS 10.1(1) does NOT set TACACS+ Single-Connect Flag with CLI Enabled",
+    "Component": "tacacs",
+    "Status": "M",
+    "Attribute": "gnosis ed_ic_dc_rs nr1f kr4m k-mukamath kr4m-verified metadata-v35 metadata-v36 metadata-v37 metadata-v38 imr12-mf imr12-mukamath imr12-verified",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCwb69703",
+    "Identifier": "CSCwb69703",
+    "Headline": "Radius: User roles are not assigned properly when radius-accept receives with multiple Cisco VSA",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "nr1f kr5m kr5m-qa kr5m-rg cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwb82585",
+    "Identifier": "CSCwb82585",
+    "Headline": "Longevity: aaa_authenticate() memory leak",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "gnosis dsig_no_ambiguous cfd-manojohn imr8 imr9 n9k-longevity-test imr9-verified KR4M NR1F n-rel-verified kr4m-verified ed_ic_dc_arch n9k-tea-nal n9k-tea-nal-no-verify",
+    "Automated-test": "N",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwb89738",
+    "Identifier": "CSCwb89738",
+    "Headline": "Niles #17 : Tacacs server authenication failure after switch over",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "nr1f nr1f-reg cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwc17000",
+    "Identifier": "CSCwc17000",
+    "Headline": "Cisco NXOS SSH X.509v3 Cert Auth w/Unsupported Remote Authorization Priv Escalation Issues",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "ed_ic_dc_rs cfd-manojohn n-mukamath nr1f-verified kr4m-verified imr10 FT Multi-Feature imr10-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwc75464",
+    "Identifier": "CSCwc75464",
+    "Headline": "MTS leak with incompatible single-connect config",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "believed"
+  },
+  {
+    "bugid": "CSCwc90986",
+    "Identifier": "CSCwc90986",
+    "Headline": "Unable to config \"ip tacacs source-interface\" when \"feature password encryption aes\" is configured",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis ed_ic_dc_rs cfd-manojohn nr2f-mukamath k-mukamath kr4m-verified nr2f-verified nr2f-rel-verified imr10-mukamath FT Multi-Feature imr10-verified metadata-v35 metadata-v36 metadata-v37 metadata-v38 metadata-v39 metadata-v48 metadata-v50 metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwd79584",
+    "Identifier": "CSCwd79584",
+    "Headline": "Enhancement to include last date and time masterkey update",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "ed_ic_dc_rs NXOS1-2258",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwd81099",
+    "Identifier": "CSCwd81099",
+    "Headline": "CLI CR failing with default radius server configs",
+    "Component": "radius",
+    "Status": "R",
+    "Attribute": "nr3f imr10-tbp cfd-manojohn imr10-tbp-ok nr3f-clicr nr3f-verified imr11-verified kr6m kr6m-qa FT Functional kr6m-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwe72648",
+    "Identifier": "CSCwe72648",
+    "Headline": "Cisco NX-OS TACACS+ or RADIUS Remote Authentication Directed Request DoS Vulnerability",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "kerry-done imr11-mf nr3f-mukamath mukamath-palshanm cfd-manojohn CVE-2023-20168 kr6m kr6m-qa nr3f-verified imr11-verified FT Functional kr6m-verified ed_ic_dc_rs or1f-no-rg metadata-v48 metadata-v50 metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v74 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwf10110",
+    "Identifier": "CSCwf10110",
+    "Headline": "Seeing error logs on upgrade: invalid group file entry delete line 'aaa-db-operator:508:'? No",
+    "Component": "aaa",
+    "Status": "M",
+    "Attribute": "imr11-mukamath ed_ic_dc_rs cfd-manojohn imr11-verified kr6m FT Upgradeskr6m-verified or1f-verified nr5m mukamath-sahmedr nr5m-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwf54392",
+    "Identifier": "CSCwf54392",
+    "Headline": "N9K: \"radius-server key <>\" missing after ND ISSU",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "gnosis ic-bu-review or1f or1f-issu or1f-verified ed_ic_dc_rs kr6m nr4m kr6m-qa or1f-cft kr6m-verified or1f-rn imr12-doc nr4m-verified oci-acl-clicr or2f-na oci-acl-no-rg pamplona-done cfd-manojohn",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwh16634",
+    "Identifier": "CSCwh16634",
+    "Headline": "tacacs-server key or radius-server key missing in startup config after ND ISSU",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis or1f or1f-issu or2f-verified nr4m-verified scaled-mcast-sit n9k-systest or1f-rn or1f-no-verify nr4m nr4m-qa n9k-longevity-seen metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 pamplona-done metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911 cfd-manojohn",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwh68013",
+    "Identifier": "CSCwh68013",
+    "Headline": "User role are not showing correctly after NX upgrade",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "cfd-manojohn nr4m-mukamath nr4m-verified or2f-mukamath mukamath-palshanm or2f-verified kr7m-mukamath mukamath-palshanm kr7m-verified pamplona-done",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwi01617",
+    "Identifier": "CSCwi01617",
+    "Headline": "N9K Radius Authentication on 10.4.1 fails with passwords over 16 characters long",
+    "Component": "aaa",
+    "Status": "R",
+    "Attribute": "ed_ic_dc_rs nr4m-no-rg kr7m-na kerry-na niles-na pamplona-done cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCwi08391",
+    "Identifier": "CSCwi08391",
+    "Headline": "DME CC failure seen with radius accport",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "or3f baseline-or3f random-cli.py cfd-manojohn",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwi21420",
+    "Identifier": "CSCwi21420",
+    "Headline": "dot1x radius-accounting did not works with ISE due to unknown Acct-Status-Type",
+    "Component": "radius",
+    "Status": "R",
+    "Attribute": "ed_ic_dc_rs nr5m kr7m-mukamath mukamath-palshanm kr7m-verified nr5m-mukamath nr5m-verified imr-review-done pamplona-done cfd-vinurao",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCwj45146",
+    "Identifier": "CSCwj45146",
+    "Headline": "SSH login triggers TACACS \"temporary failure in name resolution\" after reload/upgrade",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis nr5m-mukamath nr5m-verified cfd-manojohn mukamath-palshanm pr1f-verified n9k-tea-nal or4m-verified metadata-v57 metadata-v61 metadata-v62 metadata-v63 metadata-v64 metadata-v65 metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911 rr1f-verified",
+    "Automated-test": "N",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwj65063",
+    "Identifier": "CSCwj65063",
+    "Headline": "Login with \"admin\" user with incorrect password allowed when \"none\" aaa authentication is configured",
+    "Component": "aaa",
+    "Status": "R",
+    "Attribute": "kr9m-mf nr5m-mukamath mukamath-palshanm nr5m-verified cfd-manojohn pr1f-verified or4m-verified pr2f-verified imr14-mf imr14-psirt kerry-done kr9m-shrpande kr9m-shrpande-ppegada pamplona-done kr9m-verified mr14-shrpande PI-imr14-shrpande imr14-verified imr14-shrpande",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwj68462",
+    "Identifier": "CSCwj68462",
+    "Headline": "AAA: Process AAA crashed during x509 based authentication with multiple groups in aaa authorization",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "gnosis pr1f noauto_porting baseline pr1f-verified or4m or4m-qa or4m-verified metadata-v9999 metadata-v68 metadata-v71 metadata-v72 metadata-v73 metadata-v74 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81 metadata-v99999 metadata-v999991 metadata-v9999911 cfd-manojohn",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwk70839",
+    "Identifier": "CSCwk70839",
+    "Headline": "Evaluation of n9k-standalone-sw for BlastRADIUS vulnerability",
+    "Component": "radius",
+    "Status": "R",
+    "Attribute": "imr14-shrpande imr14-PI-shrpande kr9m-mf BUGDOM psirt-proto-radius-jul24 CVE-2024-3596 pr1f-no-rg nr6m-na kr9m-mf niles-na imr14-mf imr14-psirt kerry-done kr9m-shrpande kr9m-PI-ashmurug kr9m-verified imr14-verified qr1f metadata-v74 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 qr1f-na metadata-v81 qr2f-shrpande qr2f-verified NXOS1-3977 olympia-na pr5m-mukamath mukamath-amsethi pr5m-verified cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCwm40879",
+    "Identifier": "CSCwm40879",
+    "Headline": "N9K: LDAP Public Key Auth: SSH login fails with ldap authentication",
+    "Component": "ldap",
+    "Status": "V",
+    "Attribute": "cfd-manojohn gnosis kerry-done kr9m-mf pr2f-verified imr13-mf imr13-verified or4m-done or4m-mukamath pr2f-done or4m-verified pr2f-mukamath metadata-v71 metadata-v72 metadata-v73 metadata-v75 metadata-v76 metadata-v77 metadata-v79 metadata-v80 metadata-v81",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwn60569",
+    "Identifier": "CSCwn60569",
+    "Headline": "network-operator execute commands for admin after removing VSA on Radius-server",
+    "Component": "radius",
+    "Status": "V",
+    "Attribute": "cfd-manojohn tac-repro or5m-done or5m-mukamath mukamath-palshanm or5m-verified pr3f-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwo61245",
+    "Identifier": "CSCwo61245",
+    "Headline": "Cisco NX-OS Software Sensitive Log Information Disclosure Vulnerability",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "ucs-res CWE-1029 CWE-532 nr8m-mf nr8m-ppegada psirt_disclosure CVE-2025-20290 nr8m-verified pr4m ifd-shrpande qr1f-verified or6m-verified imr15-done imr15-mf imr15-shrpande imr15-ashmurug pr4m-verified imr15-verified ed_ic_dc_rs pr3f_xai_mf cfd-manojohn",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwo66923",
+    "Identifier": "CSCwo66923",
+    "Headline": "Radius server configuration missing after reload or upgrade",
+    "Component": "radius",
+    "Status": "C",
+    "Attribute": "gnosis logging2.0-cfd pr3f-no-rg cfd-manojohn metadata-v79 metadata-v80 mukamath-palshanm pr4m metadata-v81 n9k-tea-nal qr1f-bh-esc-not-ok ed_ic_dc_rs",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  },
+  {
+    "bugid": "CSCwo71832",
+    "Identifier": "CSCwo71832",
+    "Headline": "Cisco NX-OS Software Sensitive Log Information Disclosure Vulnerability",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "pr3f-no-rg nr8m-mf niles-done nr8m-ashmurug psirt_disclosure ucs-res nr8m-verified pr4m ifd-shrpande qr1f-verified or6m-verified imr15-done imr15-mf imr15-shrpande imr15-ashmurug pr4m-verified imr15-verified cfd-manojohn ed_ic_dc_rs pr3f_xai_mf",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwo90314",
+    "Identifier": "CSCwo90314",
+    "Headline": "When the aaa group1 cannot access the TACACS Server but the source-interface remains up, the permissions obtained by the role are abnormal",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "pr4m cfd-manojohn mukamath-palshanm qr1f qr1f-verified or6m-verified quezon-done pr4m-verified pr4m-tbp pr4m-tbp-ok pr5m or7m-verified pr3f_xai_mf pr5m-verified qr3f-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwo94447",
+    "Identifier": "CSCwo94447",
+    "Headline": "Type 6 primary key fails to get programmed post multi-hop-upgrade + aaa config changes to 10.4.x",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "cfd-manojohn pr4m mukamath-palshanm qr1f-verified en-svs-gdc-tmo or6m-verified pr4m-verified ed_ic_dc_rs pr3f_xai_mf pr5m-verified qr3f-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwr61446",
+    "Identifier": "CSCwr61446",
+    "Headline": "TACACS Not Receiving AV-Pair With Non-Mgmt0 Source",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "gnosis SVS-CITI-S520946-oib SVS-CITI-S520946 pr4m pr4m-rg pamplona-done cfd-manojohn qr2f-done olympia-done mukamath-palshanm qr2f-verified or7m-verified quezon-done pr5m-verified qr3f-verified",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwr68860",
+    "Identifier": "CSCwr68860",
+    "Headline": "Type-6: Radius/Tacacs AAA using type-6 with TAM is not working when reload due to internal file issue",
+    "Component": "tacacs",
+    "Status": "V",
+    "Attribute": "gnosis pr4m pr4m-regression pr4m-issu pr4m-verified qr2f qr2f-verified olympia-done ed_ic_dc_rs pr3f_xai_mf or7m-verified cfd-manojohn",
+    "Automated-test": "Y",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCws69383",
+    "Identifier": "CSCws69383",
+    "Headline": "Unable to login to console after numerous failed SSH login attempts",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "Tesla-poc or7m-tbp-ok irvine-na pr5m-verified qr3f-verified n9k-tea-nal n9k-tea-nal-autoprogress or8m-verified cfd-manojohn n9k-tea-nal n9k-tea-nal-autoprogress",
+    "Automated-test": "",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwv57610",
+    "Identifier": "CSCwv57610",
+    "Headline": "Invalid Config rrplace Patch Generated for Username config",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "qr4m-mf qr4m-manojohn qr4m-verified cfd-manojohn optx-spl optx-spl-done NXOS1-000 manojohn-palshanm",
+    "Automated-test": "N",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCwv83800",
+    "Identifier": "CSCwv83800",
+    "Headline": "XAI : S1 : reordering issue with config-staging for whitespace in candidate config",
+    "Component": "aaa",
+    "Status": "V",
+    "Attribute": "xai xai-customer-found cfd-manojohn ioptx-spl-mf optx-spl-done optx-spl-verified rr1f-verified",
+    "Automated-test": "N",
+    "Verified-confidence": "tested"
+  },
+  {
+    "bugid": "CSCww55822",
+    "Identifier": "CSCww55822",
+    "Headline": "TACACS packets sourced from incorrect IP when destination is reachable via VXLAN route",
+    "Component": "aaa",
+    "Status": "R",
+    "Attribute": "cfd-manojohn pr7m manojhn-amsethi",
+    "Automated-test": "N",
+    "Verified-confidence": ""
+  }
+]

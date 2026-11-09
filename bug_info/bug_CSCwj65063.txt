@@ -1,0 +1,2283 @@
+*******************************************************************************
+
+Bug ID   : CSCwj65063         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : Login with "admin" user with incorrect password allowed when "none" aaa authentication is configured
+PrimaryPV : 
+Version :10.3(4a) 7.0(3)I4(1) 9.3(13) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: jorandre           Submitted: 04/08/2024 12:43:16     Last Updtd : 11/06/2026 08:22:36  
+RNE-Type: NONE                New-on : 04/08/2024 12:43:16      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:riwhitin                                            
+Known-affected-releases:10.3(4a) 7.0(3)I4(1) 9.3(13) 
+
+Known-fixed-releases:10.2(9) 10.3(5) 10.4(4) 10.5(1) 10.5(2) 9.3(15) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(11) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(10) 8.4(11) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/18/2024 09:16:56                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 1                                              
+Mean-time-to-resolved: 755                                            
+Mean-time-to-verified: 16     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/08/2024 12:43:16            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: Y                                                              
+PSIRT-status: no-disclosure-reqd                                      
+SIR: Low                                                              
+Hardening: Y                                                          
+PSIRT-attribute: SN Update:5                                          
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 04/10/2024 00:01:38 
+Code-reviewer: greddyda       
+Opened-on: 04/18/2024 09:16:56Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : kr9m-mf nr5m-mukamath mukamath-palshanm
+Est. completion date: 01/15/2025 00:00:00  
+Script-version:                         
+
+More-by : divshah             More-on: 01/09/2025 02:07:06  
+
+Documents Changed: none       Resolved: 05/04/2026 01:03:50 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 04/25/2024 11:49:05      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCApps-US
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Requirements
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  User Story
+Test-EDP-activity :               Design/Functional Spec Review
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              700630940;PSIRT-0116558902
+Trouble-tickets-direct :PSIRTPSIRT-0116558902 
+Trouble-tickets-direct :C3700630940 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoReleased-Defect Auto released - PSIRT Evaluation present in RNE of Bug
+Security-screening-timestamp :                 05/04/2026 08:03:51
+Document :    nexus
+
+Summary:
+There is a aaa config option that allows no authentication:
+
+"aaa authentication login default none"
+
+With "none" configured, there only needs to be a known username to access the Nexus switch. However, all Nexus switches are required to have the username admin defined.
+
+From testing, we found that this means any login attempt is successful if the username exists. The passwords isn't checked. We also see there is no authorization enforced and any command can be run.
+
+There are multiple concerns with this:
+
+1. The "admin" username is well known on the Nexus platform and it can't be disabled.
+2. There is no privilege limitation/authorization on commands run.
+3. Customers may unintentionally configure TACACS authentication with "none" authentication as the fallback instead of local authentication as the fallback. By doing this, they may not realize that if the TACACS authentication times out, any user who can reach the device, will be able to log into the admin account with no correct password.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         700630940       null                                     
+PSIRT      PSIRT-011655890 null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-162889                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (25 of 25 ) ***********************
+
+---Start of Note Titled: R-comments.p2 (Created 05/04/2026 01:03:50 Added 05/04/2026 01:03:50 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+None method allows users to login without password. A warning has been added when user configures ?none? login method.
+
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+The fix includes a warning in the backend code and the BI logic. So, better test REST APIs as well.
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+It is a platform independent code. Yes, can be ported to other releases.
+
+4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Yes.  Look for the following warning.
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)# 
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Look for the following warning.
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: static-analysis.p2 (Created 01/23/2025 00:21:58 Added 01/23/2025 00:21:58 by vasuraje)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwj65063).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6167
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15 
+# Generated at
+#     Thu Jan 23 08:21:48 2025 UTC by vasuraje
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/build/pctmp/sa_attachments/Static-Analysis.8aeddcf8c1a351dc60da49172c9d7d36
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/build/pctmp/sa_attachments/Static-Analysis.8aeddcf8c1a351dc60da49172c9d7d36':
+@@Start processing of /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c
+**Active warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c
+**Noise warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c
+**Parent warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3986:fixed_size_dest:STRING_OVERFLOW:You might overrun the 5000-character fixed-size string "buff_test_show_cmd" by copying "(char *)string + matches[0].rm_eo" without checking the length. [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:320:fixed_size_dest:STRING_OVERFLOW:You might overrun the 20-character fixed-size string "temp_service" by copying "aaa_cmd_appl_map[i].appl" without checking the length. [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:332:fixed_size_dest:STRING_OVERFLOW:You might overrun the 20-character fixed-size string "temp_service" by copying "aaa_cmd_appl_map[i].appl" without checking the length. [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:333:likely_overflow:STRING_OVERFLOW:You might overrun the 20-character destination string "temp_method" by writing 1350 characters from "methods_buf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3119:none:UNINIT:Using uninitialized value "*thms" as argument to "%8s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:2683:none:UNINIT:Using uninitialized value "*password" when calling "strlen". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:2540:none:UNINIT:Using uninitialized value "*password" when calling "strlen". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3487:none:UNINIT:Using uninitialized value "*fmonth" as argument to "%3s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3489:none:UNINIT:Using uninitialized value "*tmonth" as argument to "%3s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3487:none:UNINIT:Using uninitialized value "*fhms" as argument to "%8s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3489:none:UNINIT:Using uninitialized value "*thms" as argument to "%8s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:990:none:UNINIT:Using uninitialized value "*test_password" when calling "strlen". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:2690:no_null_terminator_warn:BUFFER_SIZE:Calling "strncpy" with a maximum size argument of 32 bytes on destination array "snmp_user_info.user" of size 32 bytes might leave the destination string unterminated. [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:2749:no_null_terminator_warn:BUFFER_SIZE:Calling "strncpy" with a maximum size argument of 512 bytes on destination array "attrbuf" of size 512 bytes might leave the destination string unterminated. [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3119:none:UNINIT:Using uninitialized value "*tmonth" as argument to "%3s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3117:none:UNINIT:Using uninitialized value "*fmonth" as argument to "%3s" when calling "snprintf". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:2690:none:UNINIT:Using uninitialized element of array "user" when calling "strncpy". [coverity]
+/ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/feature/security/aaa/cli/aaa_cli.c:3117:none:UNINIT:Using uninitialized value "*fhms" as argument to "%8s" when calling "snprintf". [coverity]
+
+@@Start processing of /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Active warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Noise warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Parent warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+
+@@Start processing of /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Active warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Noise warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Parent warnings for /ws/wit2-sjck/users/vasuraje/space_vasuraje_irvine_15/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 18
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://sjc-devx-savm03.cisco.com:8444/query/defects.htm?stream=irvine-vasuraje&cid=75042&cid=306046&cid=678474&cid=103113&cid=2284284&cid=675003&cid=678795&cid=675552&cid=676429&cid=832312&cid=828454&cid=676021&cid=675763&cid=832527&cid=676191
+
+Baseline Server Details: https://nxops-sa-1.cisco.com:8444
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/vasuraje/irvine-vasuraje_20250123_075620/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p2---
+
+
+---Start of Note Titled: static-analysis (Created 01/10/2025 04:23:56 Added 01/10/2025 04:23:56 by divshah)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwj65063).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6693
+#     View name: UNKNOWN 
+#     Working directory: /witspace/divshah/space_divshah_CSCwj65063 
+# Generated at
+#     Fri Jan 10 12:23:52 2025 UTC by divshah
+# Enclosure contains contents of the following files:
+#     /witspace/divshah/space_divshah_CSCwj65063/build/pctmp/sa_attachments/Static-Analysis.909c0b247a2c967091d6365d10adff0e
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/witspace/divshah/space_divshah_CSCwj65063/build/pctmp/sa_attachments/Static-Analysis.909c0b247a2c967091d6365d10adff0e':
+@@Start processing of /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Active warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Noise warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+**Parent warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/ConsoleAuthBI.cc
+
+@@Start processing of /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Active warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Noise warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+**Parent warnings for /witspace/divshah/space_divshah_CSCwj65063/app_bi/svc/policyelem/src/gen/ifc/beh/imp/aaa/DefaultAuthBI.cc
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 0
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://wwwin-ses.cisco.com/staticAnalysis/blank.html
+
+Baseline Server Details: https://nxops-sa-1.cisco.com:8444
+Analysis archive: /auto/sa-html1/cov8/archive/k_dev/divshah/k_dev-divshah_20250110_121251/sa_summary.tar.gz
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: M-comments (Created 01/09/2025 02:07:07 Added 01/09/2025 02:07:07 by divshah)---
+Double commit to kerry and irvine imr14
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: Unit-test_kerry.p2 (Created 01/07/2025 21:57:29 Added 01/07/2025 21:57:29 by divshah)---
+UNIT-TEST
+-----------------------------------------------------------------------------
+ClientSwitch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the 'none' method will be deprecated in future releases.
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the 'none' method will be deprecated in future releases.
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:49:36 2025
+!Time: Tue Jan  7 21:49:41 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# no aaa authentication login default none
+ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:49:47 2025
+!Time: Tue Jan  7 21:49:55 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login console none 
+
+
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# no aaa authentication login console none
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:50:04 2025
+!Time: Tue Jan  7 21:50:08 2025
+
+version 10.2(9) Bios:version 05.52 
+
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# 
+ClientSwitch(config)# run bash sudo su
+bash-4.4# 
+bash-4.4# 
+bash-4.4# vsh -X
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# 
+root@ClientSwitch# onf
+                   ^
+% Invalid command at '^' marker.
+root@ClientSwitch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+root@ClientSwitch(config)#  aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the 'none' method will be deprecated in future releases.
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:50:43 2025
+!Time: Tue Jan  7 21:50:53 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login default none 
+
+
+root@ClientSwitch(config)#   aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the 'none' method will be deprecated in future releases.
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:51:05 2025
+!Time: Tue Jan  7 21:51:15 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login default none 
+
+
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# aaa authentication login console none 
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the 'none' method will be deprecated in future releases.
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:52:20 2025
+!Time: Tue Jan  7 21:52:26 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# no aaa authentication login default none 
+root@ClientSwitch(config)#  show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:52:34 2025
+!Time: Tue Jan  7 21:52:42 2025
+
+version 10.2(9) Bios:version 05.52 
+aaa authentication login console none 
+
+
+root@ClientSwitch(config)# no aaa authentication login console none
+root@ClientSwitch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan  7 21:52:49 2025
+!Time: Tue Jan  7 21:52:54 2025
+
+version 10.2(9) Bios:version 05.52 
+
+root@ClientSwitch(config)# 
+root@ClientSwitch(config)# 
+-----------------------------------------------
+PLATFORM INFO
+---------------------------------------------------
+root@ClientSwitch(config)# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.52
+  NXOS: version 10.2(9) [build 10.2(8.14)] [Maintenance Release]
+  BIOS compile time:  12/03/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.2.8.14.M_aaa.bin
+  NXOS compile time:  2/28/2025 12:00:00 [01/07/2025 04:02:25]
+
+Hardware
+  cisco Nexus9000 C9348GC-FXP Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 24556000 kB of memory.
+  Processor Board ID FDO21461592
+  Device name: ClientSwitch
+  bootflash:  115805356 kB
+
+Kernel uptime is 0 day(s), 0 hour(s), 15 minute(s), 23 second(s)
+
+Last reset at 515515 usecs after Tue Jan  7 21:22:02 2025
+  Reason: Reset due to upgrade
+  System version: 10.5(3)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+root@ClientSwitch(config)#
+---End of Note Titled: Unit-test_kerry.p2---
+
+
+---Start of Note Titled: Email-in.p4 (Created 09/17/2024 19:15:17 Added 09/17/2024 19:15:17 by abhigup7)---
+From: "Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <abhigup7@cisco.com>
+Date: Friday, May 3, 2024 at 4:33 AM 
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "agilis-new-ic-team-nxos(mailer list)" <agilis-new-ic-team-nxos@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>
+Subject: CSCwj65063
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwj65063) the following is my observation:
+ 
+As issue is found in 10.3(4a), 7.0(3)I4(1), 9.3(13) and fixed in 10.3(5).
+ 
+Could you please confirm if it affects 10.4.x and above releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# <IA1PR11MB6345C002710F8D64218D11F7971F2@IA1PR11MB6345.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p4---
+
+
+---Start of Note Titled: Email-in.p3 (Created 09/17/2024 17:42:54 Added 09/17/2024 17:42:54 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Friday, May 3, 2024 at 5:07 AM 
+To: "Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <abhigup7@cisco.com>
+Cc: "agilis-new-ic-team-nxos(mailer list)" <agilis-new-ic-team-nxos@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>
+Subject: Re: CSCwj65063
+
+Hi Abhishek,
+ 
+It is a baseline behaviour (not an issue as such) affecting all the releases. The fix is not yet ported on 10.4.X release train. The fix basically is in the form of a warning. No
+ customer is supposed to have this config.
+
+Regards,
+ 
+Vasu
+ 
+From:
+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco) <abhigup7@cisco.com>
+Date: Friday, 3 May 2024 at 10:03?AM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: agilis-new-ic-team-nxos(mailer list) <agilis-new-ic-team-nxos@cisco.com>, maildediscussion(mailer list) <maildediscussion@cisco.com>, bug-attach(mailer list) <bug-attach@cisco.com>, ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: CSCwj65063
+
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwj65063)
+ the following is my observation:
+ 
+As issue is found in 10.3(4a), 7.0(3)I4(1), 9.3(13) and fixed in 10.3(5).
+ 
+Could you please confirm if it affects 10.4.x and above releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# <IA1PR11MB6345C002710F8D64218D11F7971F2@IA1PR11MB6345.namprd11.prod.outlook.com>
+# <SJ0PR11MB50695EFBF2034515EDEEB1F2C61F2@SJ0PR11MB5069.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p3---
+
+
+---Start of Note Titled: ULS_OR4M (Created 07/01/2024 23:31:29 Added 07/01/2024 23:31:29 by qddts)---
+#################################################################
+################### &quot;Basic_Sanity&quot; Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity604
+Testbed  name       : n9kv604-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/803865/n9kv_vxlan_sanity.yml
+Total Test cases Run: 79
+Passed test cases   : 79
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/803865
+Report file         : /auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.log
+Test start time     : 2024_07_01_21_09_52
+Test End time       : 2024_07_01_23_29_07
+Test Duration       : 2:19:15.166180
+Arguments passed: [&#39;/automation/basic_sanity.py&#39;, &#39;-infra_id&#39;, &#39;803865&#39;, &#39;-cdet&#39;, &#39;CSCwj45146&#39;, &#39;-build&#39;, &#39;/ws/vasagraw-sjc/nxos64-cs.10.4.3.13.M.bin&#39;, &#39;-testsuite&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/803865/n9kv_vxlan_sanity.yml&#39;, &#39;-testbed&#39;, &#39;n9kv604-testbed.yml&#39;, &#39;-asic&#39;, &#39;n9kv&#39;, &#39;-logicaldict&#39;, &#39;logical_dict.yml&#39;, &#39;-skip_dependency&#39;, &#39;-email&#39;, &#39;vasagraw&#39;, &#39;-logfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.log&#39;, &#39;-reportfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.report&#39;, &#39;-jobid&#39;, &#39;N9KV&#39;] 
+Job Info           : &quot;Basic_Sanity&quot; Report: Job-id:N9KV Passed:79/79  Failed:0/79  Aborted:0/79  Never-Run:0/79
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:12   
+testBoxOnline                                                             pass      0:00:00   
+testModuleStatus                                                          pass      0:00:28   
+testInterfaceInconsistencies                                              pass      0:00:10   
+configVxLANFnL40G                                                         pass      0:07:35   
+testVxLANPeerLearnAccessFnL40G                                            pass      0:01:36   
+testVxLANBCAccessFnL40G                                                   pass      0:00:18   
+testVxLANL2MCAccessFnL40G                                                 pass      0:00:18   
+testVxLANUUCAccessFnL40G                                                  pass      0:00:18   
+testVxLANUCAccessFnL40G                                                   pass      0:00:32   
+testVxLANUCIPv6AccessFnL40G                                               pass      0:00:32   
+testVxLANPeerLearnTrunkFnL40G                                             pass      0:01:36   
+testVxLANBCTrunkFnL40G                                                    pass      0:00:18   
+testVxLANL2MCTrunkFnL40G                                                  pass      0:00:18   
+testVxLANUUCTrunkFnL40G                                                   pass      0:00:17   
+testVxLANUCTrunkFnL40G                                                    pass      0:00:32   
+testVxLANL3IPv4AccessNRAVtepFnL40G                                        pass      0:01:26   
+testVxLANL3IPv4AccessNRAFnL40G                                            pass      0:01:26   
+testVxLANL3IPv6AccessNRAVtepFnL40G                                        pass      0:01:26   
+testVxLANL3IPv6AccessNRAFnL40G                                            pass      0:01:26   
+testVxLANL3IPv4TrunkNRAVtepFnL40G                                         pass      0:01:26   
+testVxLANL3IPv4TrunkNRAFnL40G                                             pass      0:01:26   
+testVxLANL3IPv6TrunkNRAVtepFnL40G                                         pass      0:01:26   
+testVxLANL3IPv6TrunkNRAFnL40G                                             pass      0:01:26   
+testVxLANL3IPv4TrunkARNVtepFnL40G                                         pass      0:01:26   
+testVxLANL3IPv4TrunkARNFnL40G                                             pass      0:01:26   
+testVxLANL3IPv6TrunkARNVtepFnL40G                                         pass      0:01:26   
+testVxLANL3IPv6TrunkARNFnL40G                                             pass      0:01:26   
+testVxLANL3IPv4TrunkNRNFnL40G                                             pass      0:01:27   
+testVxLANL3IPv6TrunkNRNFnL40G                                             pass      0:01:27   
+unconfigVxLANFnL40G                                                       pass      0:05:12   
+configVxLANsIR40G                                                         pass      0:07:13   
+testVxLANPeerLearnAccesssIR40G                                            pass      0:01:36   
+testVxLANBCAccesssIR40G                                                   pass      0:00:18   
+testVxLANL2MCAccesssIR40G                                                 pass      0:00:17   
+testVxLANUUCAccesssIR40G                                                  pass      0:00:17   
+testVxLANUCAccesssIR40G                                                   pass      0:00:32   
+testVxLANUCIPv6AccesssIR40G                                               pass      0:00:32   
+testVxLANPeerLearnTrunksIR40G                                             pass      0:01:36   
+testVxLANBCTrunksIR40G                                                    pass      0:00:18   
+testVxLANL2MCTrunksIR40G                                                  pass      0:00:18   
+testVxLANUUCTrunksIR40G                                                   pass      0:00:18   
+testVxLANUCTrunksIR40G                                                    pass      0:00:32   
+testVxLANUCIPv6TrunksIR40G                                                pass      0:00:32   
+testVxLANL3IPv4AccessNRAVtepsIR40G                                        pass      0:01:26   
+testVxLANL3IPv4AccessNRAsIR40G                                            pass      0:01:26   
+testVxLANL3IPv6AccessNRAVtepsIR40G                                        pass      0:01:26   
+testVxLANL3IPv6AccessNRAsIR40G                                            pass      0:01:26   
+testVxLANL3IPv4TrunkNRAVtepsIR40G                                         pass      0:01:26   
+testVxLANL3IPv4TrunkNRAsIR40G                                             pass      0:01:26   
+testVxLANL3IPv6TrunkNRAVtepsIR40G                                         pass      0:01:26   
+testVxLANL3IPv6TrunkNRAsIR40G                                             pass      0:01:26   
+testVxLANL3IPv4TrunkARNVtepsIR40G                                         pass      0:01:26   
+testVxLANL3IPv4TrunkARNsIR40G                                             pass      0:01:26   
+testVxLANL3IPv6TrunkARNVtepsIR40G                                         pass      0:01:26   
+testVxLANL3IPv6TrunkARNsIR40G                                             pass      0:01:26   
+testVxLANL3IPv4TrunkNRNsIR40G                                             pass      0:01:27   
+testVxLANL3IPv6TrunkNRNsIR40G                                             pass      0:01:27   
+unconfigVxLANsIR40G                                                       pass      0:06:52   
+configVxLANEvpn40GHost                                                    pass      0:11:16   
+testVxLANPeerLearnAccessEvpn40GHost                                       pass      0:01:06   
+testVxLANBCAccessEvpn40GHost                                              pass      0:00:18   
+testVxLANL2MCAccessEvpn40GHost                                            pass      0:00:18   
+testVxLANUUCAccessEvpn40GHost                                             pass      0:00:18   
+testVxLANUCAccessEvpn40GHost                                              pass      0:00:33   
+testVxLANUCIPv6AccessEvpn40GHost                                          pass      0:00:33   
+testVxLANPeerLearnTrunkEvpn40GHost                                        pass      0:01:06   
+testVxLANBCTrunkEvpn40GHost                                               pass      0:00:18   
+testVxLANL2MCTrunkEvpn40GHost                                             pass      0:00:18   
+testVxLANUUCTrunkEvpn40GHost                                              pass      0:00:18   
+testVxLANUCTrunkEvpn40GHost                                               pass      0:00:33   
+testVxLANUCIPv6TrunkEvpn40GHost                                           pass      0:00:32   
+testVxLANL3IPv4L3VnidOrphanEvpn40GHost                                    pass      0:01:26   
+testVxLANL3IPv6L3VnidOrphanEvpn40GHost                                    pass      0:01:26   
+testVxLANL3IPv4L3VnidEvpn40GHost                                          pass      0:01:26   
+testVxLANL3IPv6L3VnidEvpn40GHost                                          pass      0:01:26   
+unconfigVxLANEvpn40GHost                                                  pass      0:07:55   
+testGoldDiagnostic                                                        pass      0:00:07   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: ULS_OR4M---
+
+
+---Start of Note Titled: unit-test_OR4M (Created 07/01/2024 03:58:41 Added 07/01/2024 03:58:41 by qddts)---
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:52:43 2024
+!Time: Mon Jul  1 10:52:45 2024
+
+version 10.4(4) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:53:23 2024
+!Time: Mon Jul  1 10:53:28 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+switch(config)# 
+switch(config)# 
+switch(config)# no aaa authentication login default none
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:53:37 2024
+!Time: Mon Jul  1 10:53:39 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login console none 
+
+
+switch(config)# 
+switch(config)# no aaa authentication login console none 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:53:44 2024
+!Time: Mon Jul  1 10:53:46 2024
+
+version 10.4(4) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.4# 
+bash-4.4# 
+bash-4.4# vsh -X
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided &quot;as is,&quot; and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | &#39;__|| &#39;_ ` _ \    | |  | &#39;_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| &#39;__|/ _ \/ __| / _ \| &#39;_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+root@switch# 
+root@switch# 
+root@switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:54:34 2024
+!Time: Mon Jul  1 10:54:36 2024
+
+version 10.4(4) Bios:version 05.51 
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login default none 
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:54:46 2024
+!Time: Mon Jul  1 10:54:52 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login console none 
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:54:58 2024
+!Time: Mon Jul  1 10:55:06 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# no aaa authentication login default none 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:55:13 2024
+!Time: Mon Jul  1 10:55:14 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login console none 
+
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# no aaa authentication login console none 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul  1 10:55:21 2024
+!Time: Mon Jul  1 10:55:24 2024
+
+version 10.4(4) Bios:version 05.51 
+
+root@switch(config)# 
+root@switch(config)#
+---End of Note Titled: unit-test_OR4M---
+
+
+---Start of Note Titled: unit-test_PR2F (Created 06/18/2024 23:23:39 Added 06/18/2024 23:23:39 by qddts)---
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:15:35 2024
+!Time: Wed Jun 19 06:15:40 2024
+
+version 10.4(4) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login default none 
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:00 2024
+!Time: Wed Jun 19 06:16:03 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# no aaa authentication login default none 
+switch(config)# 
+switch(config)# 
+switch(config)# no aaa authentication login console none 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:16 2024
+!Time: Wed Jun 19 06:16:19 2024
+
+version 10.4(4) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.4# 
+bash-4.4# 
+bash-4.4# vsh -X
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided &quot;as is,&quot; and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | &#39;__|| &#39;_ ` _ \    | |  | &#39;_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| &#39;__|/ _ \/ __| / _ \| &#39;_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+root@switch# 
+root@switch# 
+root@switch# 
+root@switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:16 2024
+!Time: Wed Jun 19 06:16:32 2024
+
+version 10.4(4) Bios:version 05.51 
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login default none 
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:37 2024
+!Time: Wed Jun 19 06:16:40 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login console none 
+WARNING: It is not recommended to configure &#39;none&#39; as authentication method.
+The users would be able to login without password. Please revisit the config.
+Please note the &#39;none&#39; method will be deprecated in future releases.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:45 2024
+!Time: Wed Jun 19 06:16:47 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# no aaa authentication login default none 
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:16:54 2024
+!Time: Wed Jun 19 06:16:56 2024
+
+version 10.4(4) Bios:version 05.51 
+aaa authentication login console none 
+
+
+root@switch(config)# 
+root@switch(config)# no aaa authentication login console none 
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jun 19 06:17:01 2024
+!Time: Wed Jun 19 06:17:03 2024
+
+version 10.4(4) Bios:version 05.51 
+
+root@switch(config)# 
+root@switch(config)#
+---End of Note Titled: unit-test_PR2F---
+
+
+---Start of Note Titled:  Scrubnote (Created 06/12/2024 01:16:53 Modified 01/22/2025 22:46:04 by cms)---
+{250123 vasuraje D B} PRRQ modified
+{250122 vasuraje D B} PRRQ modified
+{250122 vasuraje D B} PRRQ modified
+{250122 samekama S B} IMR14 - PR to be raised today
+{250117 samekama S B} Getting code-pull errors. In touch with Sunil.
+{250108 samekama S B}  IMR-14 ETA 1/31
+{241212 rohitraw S B} This will be picked up in the 2nd week of Jan as all are occupied with DMR11, KKMR9, GDCH, and recent Salt Typhoon attack related issues.
+{241210 gopatnai S B} need to check
+{241126 rohitraw S B} Double commit needed. Sameer to update ETA.
+{241106 pbhavesh S B} SMU is given do we need to check with Escalation if this needs to be taken in IMR14
+{241104 pbhavesh S B} need to check with AAA team
+{240612 anikunna S B} OR4M applicable. WIP
+{240514 palshanm S B} Assigned to Palani for automation
+{240423 pbhavesh S B} not able to figure out why/how 9.3(13) got added. but, this defact is in PI area and need not take in IMR13
+{240418 avinayak S G} Commit done
+{240417 siramego S B} niles_rel https://gh-nx.scm.engit.cisco.com/nx/nx/pull/34931
+{240416 siramego S B} ETA moved to 4/19
+{240416 preechan S B} SIR: High
+{240416 samekama S B} More scenarios to be addressed. ETA 4/19
+{240413 siramego S B} ETA: 4/16
+{240412 samekama S B} Considering adding a 'warning message' for this case as recommended by submitter..
+{240412 avinayak S B} Sameer to get back on by Monday to see if this can be TBP'ed for nr5m
+{240412 samekama S B} DIscussion in progress with submitter about expected behavior & security perspective
+{240410 vasagraw S B} expected behaviour.. have informed the submitter.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: V-comments.p2 (Created 06/02/2024 01:18:48 Added 06/02/2024 01:18:48 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.5(0)IMG9(0.41)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+N9K-C93360YC-FX2
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+No
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+
+Refer attached file (CSCwj65063_PR1f_Test_Logs.txt)
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Automation-Log (Created 05/18/2024 11:12:05 Added 05/18/2024 11:12:05 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2Fdcbg-nx-pi%2FNEW_PYATS%2Fusers%2Fpalshanm%2Farchive%2F24-05%2FCFD_CSCwj65063_job.2024May17_13:53:48.673846.zip&atstype=ATS
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled:  unit-test_nx_main (Created 05/06/2024 00:45:53 Modified 05/06/2024 01:31:37 by synchub.gen)---
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 06:18:08 2024
+!Time: Mon May 6 07:41:49 2024
+
+version 10.5(1) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)# 
+switch(config)# 
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 07:42:02 2024
+!Time: Mon May 6 07:42:11 2024
+
+version 10.5(1) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# no aaa authentication login default none 
+switch(config)# 
+switch(config)# 
+switch(config)# no aaa authentication login console none 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 07:42:47 2024
+!Time: Mon May 6 07:42:48 2024
+
+version 10.5(1) Bios:version 05.51 
+
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# vsh -X
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+root@switch# 
+root@switch# 
+root@switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+root@switch(config)# 
+root@switch(config)# terminal width 200
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 07:42:47 2024
+!Time: Mon May 6 07:43:10 2024
+
+version 10.5(1) Bios:version 05.51 
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 07:43:25 2024
+!Time: Mon May 6 07:43:30 2024
+
+version 10.5(1) Bios:version 05.51 
+aaa authentication login default none 
+aaa authentication login console none 
+
+
+root@switch(config)# 
+root@switch(config)# 
+root@switch(config)# no aaa authentication login console none
+root@switch(config)# 
+root@switch(config)# no aaa authentication login default none
+root@switch(config)# 
+root@switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 6 07:43:45 2024
+!Time: Mon May 6 07:43:48 2024
+
+version 10.5(1) Bios:version 05.51 
+
+root@switch(config)#
+---End of Note Titled: unit-test_nx_main---
+
+
+---Start of Note Titled:  DetectionUnsuitable (Created 05/03/2024 08:24:30 Modified 05/06/2024 01:31:37 by synchub.gen)---
+--- Update 2024-05-03 15:24:27.806898 seshea (via 697221892)
+Unsuitable - CDETS Content
+As per Email discussion with DE of BUG, should not be digitized (fix is only a warning message when doing this config and its not supported to run in prod) also there is psirt note to not externalize:
+Hi Sean,
+
+I don?t think this should be made visible. There is no fix as such , just a warning message. Customers are not expected to have this configuration in production. 
+
+Thanks,
+Sarath
+
+From: Sean Shea (seshea)  
+Sent: Thursday, May 2, 2024 10:29 PM
+To: Jordan Andrews (jorandre) ; Vasu Agrawal (vasagraw) ; Sarath Chandran Sasikumar (sarchand) 
+Cc: Anil Kunnath (anikunna) 
+Subject: RE: regarding https://cdetsng.cisco.com/summary/#/defect/CSCwj65063
+
+Hi Jordan,
+
+I have an IC SR that I am looking at ? if the bug should be customer visible then I will digitize it for any other customer who has the specific AAA config and could be exposed to this issue. First and foremost, I need confirmation that this bug SHOULD or SHOULD NOT be visible. Can you help on this Vasu/Sarath?
+
+Thanks
+Sean
+
+From: Jordan Andrews (jorandre)  
+Sent: Thursday, May 2, 2024 11:09 AM
+To: Vasu Agrawal (vasagraw) ; Sean Shea (seshea) ; Sarath Chandran Sasikumar (sarchand) 
+Cc: Anil Kunnath (anikunna) 
+Subject: RE: regarding https://cdetsng.cisco.com/summary/#/defect/CSCwj65063
+
+Hello Vasu,
+
+The SR is closed so I?m not concerned about sharing it with the customer. The main reason we may want to make this bug visible is to allow other customers to see the bug.
+
+However, I don?t think we need to make this bug visible unless Sean disagrees.
+
+Regards,
+
+Jordan Andrews
+Cisco HTTS
+Phone: (919)574-5650
+Email: jorandre@cisco.com
+Office Hours: 8:00 AM - 5:00 PM EST
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Email-in.p2 (Created 05/02/2024 23:04:15 Modified 05/06/2024 01:31:37 by synchub.gen)---
+From:(\[^\"\])"+Vasu Agrawal (vasagraw(\[^\"\])"+ 
+Date: Friday, May 3, 2024 at 5:07 AM 
+To:(\[^\"\])"+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Cc:(\[^\"\])"+agilis-new-ic-team-nxos(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ ,(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ 
+Subject: Re: CSCwj65063
+
+Hi Abhishek,
+ 
+It is a baseline behaviour (not an issue as such) affecting all the releases. The fix is not yet ported on 10.4.X release train. The fix basically is in the form of a warning. No
+ customer is supposed to have this config.
+
+Regards,
+ 
+Vasu
+ 
+From:
+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco) 
+Date: Friday, 3 May 2024 at 10:03?AM
+To: Vasu Agrawal (vasagraw) 
+Cc: agilis-new-ic-team-nxos(mailer list) , maildediscussion(mailer list) , bug-attach(mailer list) , ca-defect-feedback(mailer list) 
+Subject: CSCwj65063
+
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwj65063)
+ the following is my observation:
+ 
+As issue is found in 10.3(4a), 7.0(3)I4(1), 9.3(13) and fixed in 10.3(5).
+ 
+Could you please confirm if it affects 10.4.x and above releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled:  Email-in (Created 05/02/2024 22:06:30 Modified 05/06/2024 01:31:37 by synchub.gen)---
+From:(\[^\"\])"+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Date: Friday, May 3, 2024 at 4:33 AM 
+To:(\[^\"\])"+Vasu Agrawal (vasagraw(\[^\"\])"+ 
+Cc:(\[^\"\])"+agilis-new-ic-team-nxos(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ ,(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ 
+Subject: CSCwj65063
+
+Hi Vasu,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwj65063) the following is my observation:
+ 
+As issue is found in 10.3(4a), 7.0(3)I4(1), 9.3(13) and fixed in 10.3(5).
+ 
+Could you please confirm if it affects 10.4.x and above releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  Code-review (Created 04/30/2024 02:24:11 Modified 05/06/2024 01:31:37 by synchub.gen)---
+Code Review Enclosure: Added [dd-mmm-yyyy] by [userid] *** Start of CDETS attachment for CR Information *** ++Status: [Open, Closed] ++Review type: [Formal Review, Basic Review] Code review requestor / Point of contact: [Name] ([userid]) To access all feedback for this code review: [link or text for code review comments, e.g., link to search of newsgroup for this CDETS# OR link to Meeting Minutes in EDCS OR text for actual comments] To see summary data for this review: [link or text for code review summary (setup info such as date, reviewers, etc.), e.g. link to Meeting Minutes in EDCS or text showing date, reviewers, etc.] *** End of CDETS attachment for CR Information *** *** Start of CDETS attachment for CR Measures *** Code Review Results (leave blank till review is closed) Measures available for metrics Dashboard: ++High/Medium Issues: ++Low Issues: ++Issues: [total of High, Medium, & Low] ++Person Hours: [estimate of total person-hours spent for CR prep and meeting] ++Participants: *** End of CDETS attachment for CR Measures ***
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: V-comments (Created 04/25/2024 11:49:05 Added 04/25/2024 11:49:05 by palshanm)---
+1. S/W Version : 10.3(4.104)
+2. Platform : N9K-C93180YC-EX
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 04/18/2024 09:16:56 Added 04/18/2024 09:16:56 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+None method allows users to login without password. A warning has been added when user configures ?none? login method.
+
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+The fix includes a warning in the backend code and the BI logic. So, better test REST APIs as well.
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+It is a platform independent code. Yes, can be ported to other releases.
+
+4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Yes.  Look for the following warning.
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)# 
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Look for the following warning.
+switch(config)# aaa authentication login console none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+switch(config)# aaa authentication login default none
+WARNING: It is not recommended to configure 'none' as authentication method.
+The users would be able to login without password. Please revisit the config.
+switch(config)#
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Unit-test (Created 04/18/2024 07:08:19 Modified 05/06/2024 22:04:23 by synchub.gen)---
+switch(config)# switch(config)# switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:10:48 2024 !Time: Thu Apr 18 11:11:04 2024 version 10.3(5) Bios:version 05.51 switch(config)# switch(config)# switch(config)# switch(config)# aaa authentication login default none WARNING: It is not recommended to configure 'none' as authentication method. The users would be able to login without password. Please revisit the config. switch(config)# switch(config)# switch(config)# aaa authentication login console none WARNING: It is not recommended to configure 'none' as authentication method. The users would be able to login without password. Please revisit the config. switch(config)# switch(config)# switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:11:17 2024 !Time: Thu Apr 18 11:11:25 2024 version 10.3(5) Bios:version 05.51 aaa authentication login default none aaa authentication login console none switch(config)# switch(config)# switch(config)# switch(config)# no aaa authentication login default none switch(config)# switch(config)# switch(config)# no aaa authentication login console none switch(config)# switch(config)# switch(config)# switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:11:35 2024 !Time: Thu Apr 18 11:11:38 2024 version 10.3(5) Bios:version 05.51 switch(config)# switch(config)# switch(config)# switch(config)# run bash sudo su bash-4.4# bash-4.4# bash-4.4# bash-4.4# vsh -X Cisco Nexus Operating System (NX-OS) Software TAC support: http://www.cisco.com/tac Copyright (C) 2002-2024, Cisco and/or its affiliates. All rights reserved. The copyrights to certain works contained in this software are owned by other third parties and used and distributed under their own licenses, such as open source. This software is provided(\\\\\\\[^\"\\\\\\\])"+as is(\\\\\\\[^\"\\\\\\\])"+ and unless otherwise stated, there is no warranty, express or implied, including but not limited to warranties of merchantability and fitness for a particular purpose. Certain components of this software are licensed under the GNU General Public License (GPL) version 2.0 or GNU General Public License (GPL) version 3.0 or the GNU Lesser General Public License (LGPL) Version 2.1 or Lesser General Public License (LGPL) Version 2.0. A copy of each such license is available at http://www.opensource.org/licenses/gpl-2.0.php and http://opensource.org/licenses/gpl-3.0.html and http://www.opensource.org/licenses/lgpl-2.1.php and http://www.gnu.org/licenses/old-licenses/library.txt. root@switch# root@switch# root@switch# root@switch# conf Enter configuration commands, one per line. End with CNTL/Z. root@switch(config)# root@switch(config)# root@switch(config)# root@switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:12:10 2024 !Time: Thu Apr 18 11:12:13 2024 version 10.3(5) Bios:version 05.51 root@switch(config)# root@switch(config)# root@switch(config)# aaa authentication login default none WARNING: It is not recommended to configure 'none' as authentication method. The users would be able to login without password. Please revisit the config. root@switch(config)# root@switch(config)# aaa authentication login console none WARNING: It is not recommended to configure 'none' as authentication method. The users would be able to login without password. Please revisit the config. root@switch(config)# root@switch(config)# root@switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:12:24 2024 !Time: Thu Apr 18 11:12:27 2024 version 10.3(5) Bios:version 05.51 aaa authentication login default none aaa authentication login console none root@switch(config)# root@switch(config)# root@switch(config)# no aaa authentication login console none root@switch(config)# root@switch(config)# no aaa authentication login default none root@switch(config)# root@switch(config)# root@switch(config)# root@switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Thu Apr 18 11:12:37 2024 !Time: Thu Apr 18 11:12:39 2024 version 10.3(5) Bios:version 05.51 root@switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  ULS (Created 04/18/2024 07:06:42 Modified 04/30/2024 02:24:11 by synchub.gen)---
+#################################################################
+###################(\[^\"])"+Basic_Sanit([^\"\])"+ Report ###########################
+#################################################################
+
+
+Test server name : nxosv-sanity09
+Testbed name : n9kv09-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/vasagraw/740160/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases : 28
+Failed test cases : 0
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/vasagraw/740160
+Report file : /auto/nxos-sanity/logs/vasagraw/740160/uls-n9kv09.report
+logfile : /auto/nxos-sanity/logs/vasagraw/740160/uls-n9kv09.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time : 2024_04_18_12_14_08
+Test End time : 2024_04_18_14_04_18
+Test Duration : 1:50:10.236944
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '740160', '-cdet', 'CSCwj06794', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.3.4.93.M.bin', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/740160/eor_n9kv_uls.yml', '-testbed', 'n9kv09-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/740160/uls-n9kv09.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/740160/uls-n9kv09.report', '-jobid', 'EOR_N9KV'] 
+Job Info :(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:EOR_N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:40 
+testBoxOnline pass 0:00:01 
+testModuleStatus pass 0:00:29 
+testStaticRoute pass 0:00:34 
+testLacpShutNoshut pass 0:04:46 
+testToggleSwitchport pass 0:01:53 
+testL2BridgingAccess pass 0:01:35 
+testHierarchicalRouting pass 0:04:36 
+testIpv6Interface pass 0:00:57 
+testOspfv3 pass 0:03:57 
+testBgpv4 pass 0:03:49 
+testBgpv6 pass 0:03:23 
+testEigrpv4 pass 0:02:17 
+testRip pass 0:01:52 
+testCdp pass 0:01:19 
+testLLDP pass 0:00:50 
+testSvi pass 0:03:37 
+testSviVrf pass 0:03:32 
+testVrfRouteLeak pass 0:04:31 
+testL2SanityMacLearning pass 0:05:58 
+testL2SanityUnconfig pass 0:00:33 
+testSpanningTreeAccess pass 0:02:16 
+testSpanningTreeTrunk pass 0:01:49 
+testL3DhcpRelayv4 pass 0:03:35 
+testL3DhcpRelayv6 pass 0:02:42 
+testCopyRunnStart pass 0:09:14 
+testGoldDiagnostic pass 0:00:01 
+testCores pass 0:00:05
+---End of Note Titled: ULS---
+
+
+---Start of Note Titled: A-comments (Created 04/10/2024 00:01:38 Added 04/10/2024 00:01:38 by samekama)---
+Plz check. Reflecting Niles also, confirm if applicable or not
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  reproduction-steps (Created 04/08/2024 13:10:37 Modified 04/30/2024 02:24:11 by synchub.gen)---
+1. No remote authentication (TACACS/other) enabled, the device can be accessed with no password if the username exists:
+
+aaa authentication login default none <<<<<<< When configured with(\[^\"])"+non([^\"\])"+, only a username is required to access.
+
+2. Is the same with remote authentication configured on the Nexus switch, but the authentication server is not reachable:
+
+tacacs-server key 7 
+ip tacacs source-interface mgmt0
+tacacs-server host x.x.x.x
+aaa group server tacacs+ TACACS 
+ server x.x.x.x
+ use-vrf management
+
+aaa authentication login default group TACACS none <<<<<<< When configured with(\[^\"])"+non([^\"\])"+, if the TACACS server is not reachable then only a username is required to access.
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 04/08/2024 12:43:16 Modified 05/04/2026 01:03:50 by vasagraw)---
+<B>Symptom:</B>
+- User can log into the switch without the correct password.
+
+<B>Conditions:</B>
+- The username is configured locally on the switch.
+- aaa authentication is configured with "none."
+
+<B>Workaround:</B>
+- Not available.
+
+<B>Further Problem Description:</B>
+This is a modification on the product to adopt new secure code best practices to enhance the security posture and resiliency of the product.
+
+This issue was found during an internal security audit of the product. This issue should not be made public as it is an internal hardening issue to be considered for integration.
+
+*PSIRT Evaluation:*
+The Cisco PSIRT has evaluated this issue and does not meet the criteria for PSIRT ownership or involvement. This issue will be addressed via normal resolution channels.
+ 
+If you believe that there is new information that would cause a change in the severity of this issue, please contact psirt@cisco.com for another evaluation.
+ 
+Additional information on Cisco's security vulnerability policy can be found at the following URL:
+ 
+https://sec.cloudapps.cisco.com/security/center/resources/security_vulnerability_policy.html
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (48 of 48)
+------------------------------------------------------------------------------------------------------------------
+CSCwj65063_V_IMR14.rtf                            ascii text     17267          brangapp       02/15/2025 15:50:36      
+ccwarnings-irvine                                 ascii text     97741          baas           01/24/2025 04:43:08      
+static-analysis-irvine                            ascii text     16602          baas           01/24/2025 04:42:41      
+Diffs-release-irvine                              ascii text     1396           vasuraje       01/23/2025 00:22:09      
+Diffs-commit-irvine                               ascii text     6647           vasuraje       01/23/2025 00:22:05      
+CSCwj65063_KR9M_verified_logs.rtf                 ascii text     14635          ppegada        01/22/2025 22:23:38      
+nxos-pi-common-security-code-review-4             ascii text     940            prrqengg       01/22/2025 22:45:46      
+unit_test_logs_irvine.txt                         ascii text     6631           vasuraje       01/21/2025 23:31:52      
+ccwarnings-kerry                                  ascii text     266            baas           01/12/2025 15:44:58      
+static-analysis-kerry                             ascii text     15835          baas           01/12/2025 15:44:31      
+Diffs-commit-kerry                                binary         6067           divshah        01/10/2025 04:24:07      
+Diffs-release-kerry                               ascii text     1368           divshah        01/10/2025 04:24:03      
+nxos-pi-common-security-code-review-3             ascii text     932            prrqengg       01/09/2025 21:12:37      
+nxos-pi-common-security-code-review-2             ascii text     936            prrqengg       01/09/2025 21:03:55      
+nxos-pi-common-security-code-review               ascii text     932            prrqengg       01/09/2025 21:05:17      
+CSCwj65063_PR2F_Test_Logs.txt                     ascii text     39815          palshanm       10/17/2024 13:02:09      
+Diffs-commit-olympia_rel                          ascii text     4523           vasagraw       07/02/2024 04:49:11      
+code-review-olympia_rel.p2                        binary         534            vasagraw       07/01/2024 18:41:42      
+PR-Description-39650                              ascii text     56             vasagraw       07/01/2024 18:41:43      
+code-review-olympia_rel                           binary         534            vasagraw       07/01/2024 18:27:52      
+ccwarnings-olympia_rel                            ascii text     336            baas           07/01/2024 08:05:19      
+static-analysis-olympia_rel                       ascii text     66794          baas           07/01/2024 08:04:42      
+Diffs-commit-pr2f_dev                             binary         4907           vasagraw       06/19/2024 08:04:21      
+ccwarnings-pr2f_dev                               ascii text     336            baas           06/19/2024 02:47:47      
+static-analysis-pr2f_dev                          ascii text     49816          baas           06/19/2024 02:47:10      
+code-review-pr2f_dev.p2                           binary         1607           vasagraw       06/19/2024 01:13:09      
+PR-Description-38819                              binary         1156           vasagraw       06/19/2024 01:13:11      
+code-review-pr2f_dev                              binary         1607           vasagraw       06/18/2024 23:57:08      
+Diffs-commit-nx_main                              binary         5197           vasagraw       05/06/2024 22:03:25      
+cdt_uls_sanity_baseline_compare                   ascii text     219            root           05/06/2024 14:14:42      
+ccwarnings-nx_main                                ascii text     336            baas           05/06/2024 10:53:58      
+static-analysis-nx_main                           ascii text     51016          baas           05/06/2024 10:53:22      
+code-review-nx_main.p3                            binary         1454           vasagraw       05/06/2024 09:02:12      
+code-review-nx_main.p2                            binary         1454           vasagraw       05/06/2024 01:58:49      
+PR-Description-36108                              binary         1001           vasagraw       05/06/2024 09:02:13      
+code-review-nx_main                               binary         1454           vasagraw       05/06/2024 01:29:51      
+CSCwj65063_NR5M_Test_Logs.txt                     ascii text     47460          palshanm       04/25/2024 11:49:21      
+Diffs-commit-niles_rel                            binary         4803           vasagraw       04/18/2024 09:09:46      
+ccwarnings-niles_rel.p3                           ascii text     336            baas           04/18/2024 07:43:21      
+static-analysis-niles_rel.p3                      ascii text     51548          baas           04/18/2024 07:42:46      
+code-review-niles_rel.p2                          binary         1315           vasagraw       04/18/2024 06:39:26      
+ccwarnings-niles_rel.p2                           ascii text     336            baas           04/18/2024 06:29:16      
+static-analysis-niles_rel.p2                      ascii text     51554          baas           04/18/2024 06:28:41      
+PR-Description-34931                              binary         862            vasagraw       04/18/2024 06:39:27      
+code-review-niles_rel                             binary         1315           vasagraw       04/18/2024 05:51:32      
+ccwarnings-niles_rel                              ascii text     245            baas           04/17/2024 07:44:43      
+static-analysis-niles_rel                         ascii text     39560          baas           04/17/2024 07:44:08      
+Release-note-diff                                 ascii text     4475           jorandre       05/01/2024 13:11:05      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/06/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/06/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/04/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/04/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/30/2026 satdr    	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+05/04/2026 pisces   	VF-patched              	                             	NX-OS:10.2(9),NX-OS:10.3(5),N	New
+05/04/2026 pisces   	VF-unpatched            	                             	NX-OS:10.2(7),NX-OS:10.2(8),N	New
+05/04/2026 pisces   	Potentially-affected-rel	                             	10.2(7),10.2(8),10.3(3r),10.3	New
+05/04/2026 cdetsbtk 	Security-screening-times	2026-04-20 22:14:24.000+0000 	2026-05-04 15:03:51.000+0000 	Mod
+05/04/2026 vasagraw 	Note Title              	                             	R-comments.p2                	New
+05/04/2026 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+05/04/2026 vasagraw 	Status                  	M                            	R                            	Mod
+05/04/2026 vasagraw 	Resolved-on             	2024-04-18 16:16:56.000+0000 	2026-05-04 08:03:50.000+0000 	Mod
+05/04/2026 vasagraw 	statusStates            	                             	[status=M, startDate=Thu Jan 	New
+05/04/2026 vasagraw 	statusStates            	[status=M, startDate=Thu Jan 	                             	Del
+05/04/2026 vasagraw 	Age-status              	276                          	756                          	Mod
+05/04/2026 vasagraw 	Mean-time-to-resolved   	9                            	755                          	Mod
+04/20/2026 cdetsbtk 	Security-screening-times	2026-04-01 14:07:18.000+0000 	2026-04-20 22:14:24.000+0000 	Mod
+04/20/2026 megpande 	serviceRequests/C3/70063	                             	                             	Mod
+04/20/2026 megpande 	Urgency-desc            	NA                           	CL3                          	Mod
+04/20/2026 megpande 	Urgency                 	9                            	6                            	Mod
+04/01/2026 cdetsbtk 	Security-screening-times	2025-04-02 04:45:20.000+0000 	2026-04-01 14:07:18.000+0000 	Mod
+04/01/2026 sherholm 	serviceRequests/C3/70063	                             	C3/700630940                 	New
+04/01/2026 sherholm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/01/2026 sherholm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/01/2026 sherholm 	Tickets-count           	1                            	2                            	Mod
+04/01/2026 sherholm 	TACSR-count             	                             	1                            	Mod
+04/01/2026 sherholm 	Tickets-count-direct    	1                            	2                            	Mod
+04/01/2026 sherholm 	Trouble-tickets         	                             	700630940                    	New
+04/01/2026 sherholm 	Trouble-tickets-direct  	                             	C3700630940                  	New
+01/19/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+01/19/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+11/12/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/12/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/31/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/23/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/19/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/19/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/01/2025 cdetsbtk 	Security-screening-times	2025-03-05 04:10:16.000+0000 	2025-04-02 04:45:20.000+0000 	Mod
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/01/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/01/2025 pisces   	Known-fixed-releases    	                             	9.3(15)                      	New
+03/08/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/08/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/07/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/07/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/04/2025 cdetsbtk 	Security-screening-times	2025-02-16 07:50:37.000+0000 	2025-03-05 04:10:16.000+0000 	Mod
+03/04/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/04/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/04/2025 divvenka 	Known-fixed-releases    	                             	10.2(9)                      	New
+03/01/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/01/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/22/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/22/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/16/2025 vsajjan  	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+02/15/2025 cdetsbtk 	Security-screening-times	2025-01-24 20:43:09.000+0000 	2025-02-16 07:50:37.000+0000 	Mod
+02/15/2025 brangapp 	File Name               	                             	CSCwj65063_V_IMR14.rtf       	New
+02/15/2025 brangapp 	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/29/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/29/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/26/2025 napatra  	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/25/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/25/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/24/2025 cdetsbtk 	Security-screening-times	2025-01-24 20:42:41.000+0000 	2025-01-24 20:43:09.000+0000 	Mod
+01/24/2025 baas     	File Name               	                             	ccwarnings-irvine            	New
+01/24/2025 cdetsbtk 	Security-screening-times	2025-01-23 16:22:10.000+0000 	2025-01-24 20:42:41.000+0000 	Mod
+01/24/2025 baas     	File Name               	                             	static-analysis-irvine       	New
+01/23/2025 divvenka 	Integrated-releases     	                             	9.3(14.19),9.3(15)           	New
+01/23/2025 cdetsbtk 	Security-screening-times	2025-01-23 16:22:06.000+0000 	2025-01-23 16:22:10.000+0000 	Mod
+01/23/2025 vasuraje 	File Name               	                             	Diffs-release-irvine         	New
+01/23/2025 cdetsbtk 	Security-screening-times	2025-01-23 16:22:00.000+0000 	2025-01-23 16:22:06.000+0000 	Mod
+01/23/2025 vasuraje 	File Name               	                             	Diffs-commit-irvine          	New
+01/23/2025 cdetsbtk 	Security-screening-times	2025-01-23 14:46:05.000+0000 	2025-01-23 16:22:00.000+0000 	Mod
+01/23/2025 vasuraje 	Note Title              	                             	static-analysis.p2           	New
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-23 14:45:47.000+0000 	2025-01-23 14:46:05.000+0000 	Mod
+01/22/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-23 14:23:40.000+0000 	2025-01-23 14:45:47.000+0000 	Mod
+01/22/2025 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/22/2025 prrqengg 	FileSize                	941                          	940                          	Mod
+01/22/2025 ppegada  	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/22/2025 ppegada  	Verified-release        	                             	10.2(8.15)                   	New
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 18:45:21.000+0000 	2025-01-23 14:23:40.000+0000 	Mod
+01/22/2025 ppegada  	File Name               	                             	CSCwj65063_KR9M_verified_logs	New
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 18:44:37.000+0000 	2025-01-22 18:45:21.000+0000 	Mod
+01/22/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 18:12:06.000+0000 	2025-01-22 18:44:37.000+0000 	Mod
+01/22/2025 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/22/2025 prrqengg 	FileSize                	942                          	941                          	Mod
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 18:10:37.000+0000 	2025-01-22 18:12:06.000+0000 	Mod
+01/22/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 16:41:48.000+0000 	2025-01-22 18:10:37.000+0000 	Mod
+01/22/2025 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/22/2025 cdetsbtk 	Security-screening-times	2025-01-22 15:31:53.000+0000 	2025-01-22 16:41:48.000+0000 	Mod
+01/22/2025 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/21/2025 cdetsbtk 	Security-screening-times	2025-01-22 15:04:25.000+0000 	2025-01-22 15:31:53.000+0000 	Mod
+01/21/2025 vasuraje 	File Name               	                             	unit_test_logs_irvine.txt    	New
+01/21/2025 cdetsbtk 	Security-screening-times	2025-01-17 13:59:25.000+0000 	2025-01-22 15:04:25.000+0000 	Mod
+01/21/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/16/2025 cdetsbtk 	Security-screening-times	2025-01-13 07:44:59.000+0000 	2025-01-17 13:59:25.000+0000 	Mod
+01/16/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/16/2025 samekama 	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/12/2025 napatra  	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/12/2025 cdetsbtk 	Security-screening-times	2025-01-13 07:44:32.000+0000 	2025-01-13 07:44:59.000+0000 	Mod
+01/12/2025 baas     	File Name               	                             	ccwarnings-kerry             	New
+01/12/2025 cdetsbtk 	Security-screening-times	2025-01-10 20:24:08.000+0000 	2025-01-13 07:44:32.000+0000 	Mod
+01/12/2025 baas     	File Name               	                             	static-analysis-kerry        	New
+01/11/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+01/11/2025 pisces   	VF-unpatched            	NX-OS:4.2(1)SV1(4),NX-OS:4.2(	                             	Del
+01/11/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+01/11/2025 pisces   	Potentially-affected-rel	4.2(1)SV1(4),4.2(1)SV1(4a),4.	                             	Del
+01/11/2025 divvenka 	Integrated-releases     	                             	10.2(8.15),10.2(9)           	New
+01/10/2025 srkatti  	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+01/10/2025 cdetsbtk 	Security-screening-times	2025-01-10 20:24:04.000+0000 	2025-01-10 20:24:08.000+0000 	Mod
+01/10/2025 divshah  	File Name               	                             	Diffs-commit-kerry           	New
+01/10/2025 cdetsbtk 	Security-screening-times	2025-01-10 20:23:57.000+0000 	2025-01-10 20:24:04.000+0000 	Mod
+01/10/2025 divshah  	File Name               	                             	Diffs-release-kerry          	New
+01/10/2025 cdetsbtk 	Security-screening-times	2025-01-10 13:12:38.000+0000 	2025-01-10 20:23:57.000+0000 	Mod
+01/10/2025 divshah  	Note Title              	                             	static-analysis              	New
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-10 13:05:18.000+0000 	2025-01-10 13:12:38.000+0000 	Mod
+01/09/2025 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-10 13:03:56.000+0000 	2025-01-10 13:05:18.000+0000 	Mod
+01/09/2025 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/09/2025 prrqengg 	FileSize                	930                          	932                          	Mod
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-09 23:18:40.000+0000 	2025-01-10 13:03:56.000+0000 	Mod
+01/09/2025 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/09/2025 prrqengg 	FileSize                	934                          	936                          	Mod
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-09 18:33:47.000+0000 	2025-01-09 23:18:40.000+0000 	Mod
+01/09/2025 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-09 18:07:07.000+0000 	2025-01-09 18:33:47.000+0000 	Mod
+01/09/2025 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/09/2025 cdetsbtk 	Security-screening-times	2025-01-08 15:43:15.000+0000 	2025-01-09 18:07:07.000+0000 	Mod
+01/09/2025 divshah  	Note Title              	                             	M-comments                   	New
+01/09/2025 divshah  	Status-desc             	V-Verified                   	M-More                       	Mod
+01/09/2025 divshah  	Status                  	V                            	M                            	Mod
+01/09/2025 divshah  	More-by                 	vasagraw                     	divshah                      	Mod
+01/09/2025 divshah  	More-on                 	2024-04-18 16:16:56.000+0000 	2025-01-09 10:07:06.000+0000 	Mod
+01/09/2025 divshah  	statusStates            	                             	[status=V, startDate=Thu Apr 	New
+01/09/2025 divshah  	statusStates            	[status=V, startDate=Thu Apr 	                             	Del
+01/09/2025 divshah  	Age-status              	17                           	276                          	Mod
+01/07/2025 cdetsbtk 	Security-screening-times	2025-01-08 13:57:30.000+0000 	2025-01-08 15:43:15.000+0000 	Mod
+01/07/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/07/2025 cdetsbtk 	Security-screening-times	2024-12-21 03:27:14.000+0000 	2025-01-08 13:57:30.000+0000 	Mod
+01/07/2025 divshah  	Note Title              	                             	Unit-test_kerry.p2           	New
+01/06/2025 cms      	Est-fix-date            	2024-12-09 08:00:00.000+0000 	2025-01-15 08:00:00.000+0000 	Mod
+12/20/2024 cdetsbtk 	Security-screening-times	2024-12-20 06:12:00.000+0000 	2024-12-21 03:27:14.000+0000 	Mod
+12/20/2024 divvenka 	Integrated-releases     	                             	10.5(1)                      	New
+12/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/20/2024 divvenka 	Known-fixed-releases    	                             	10.5(1)                      	New
+12/19/2024 cdetsbtk 	Security-screening-times	2024-12-12 13:08:03.000+0000 	2024-12-20 06:12:00.000+0000 	Mod
+12/19/2024 divvenka 	Integrated-releases     	                             	10.5(2)                      	New
+12/19/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/19/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/19/2024 divvenka 	Known-fixed-releases    	                             	10.5(2)                      	New
+12/16/2024 gopatnai 	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+12/11/2024 cdetsbtk 	Security-screening-times	2024-12-10 14:26:17.000+0000 	2024-12-12 13:08:03.000+0000 	Mod
+12/11/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/11/2024 gopatnai 	Attribute               	kr9m-mf nr5m-mukamath mukamat	kr9m-mf nr5m-mukamath mukamat	Mod
+12/09/2024 cdetsbtk 	Security-screening-times	2024-11-26 12:05:38.000+0000 	2024-12-10 14:26:17.000+0000 	Mod
+12/09/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/27/2024 cms      	Est-fix-date            	2024-04-19 07:00:00.000+0000 	2024-12-09 08:00:00.000+0000 	Mod
+11/25/2024 cdetsbtk 	Security-screening-times	2024-11-06 16:15:11.000+0000 	2024-11-26 12:05:38.000+0000 	Mod
+11/25/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/11/2024 shrpande 	Attribute               	nr5m-mukamath mukamath-palsha	kr9m-mf nr5m-mukamath mukamat	Mod
+11/06/2024 cdetsbtk 	Security-screening-times	2024-11-04 14:19:12.000+0000 	2024-11-06 16:15:11.000+0000 	Mod
+11/06/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-10-29 06:25:41.000+0000 	2024-11-04 14:19:12.000+0000 	Mod
+11/03/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/03/2024 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/03/2024 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/28/2024 cdetsbtk 	Security-screening-times	2024-10-18 03:02:10.000+0000 	2024-10-29 06:25:41.000+0000 	Mod
+10/28/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/28/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/28/2024 divvenka 	Known-fixed-releases    	                             	10.4(4)                      	New
+10/17/2024 cdetsbtk 	Security-screening-times	2024-09-18 09:15:18.000+0000 	2024-10-18 03:02:10.000+0000 	Mod
+10/17/2024 palshanm 	File Name               	                             	CSCwj65063_PR2F_Test_Logs.txt	New
+10/17/2024 palshanm 	Attribute               	nr5m-mukamath mukamath-palsha	nr5m-mukamath mukamath-palsha	Mod
+10/17/2024 palshanm 	Verified-release        	                             	10.5(1)IMG9(0.153)           	New
+10/09/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/09/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/18/2024 cspgre   	Apply-to                	                             	UCSM-6.0.100.240076.A        	New
+09/17/2024 cdetsbtk 	Security-screening-times	2024-09-18 07:42:55.000+0000 	2024-09-18 09:15:18.000+0000 	Mod
+09/17/2024 abhigup7 	Note Title              	                             	Email-in.p4                  	New
+09/17/2024 cdetsbtk 	Security-screening-times	2024-07-02 18:49:12.000+0000 	2024-09-18 07:42:55.000+0000 	Mod
+09/17/2024 vasagraw 	Note Title              	                             	Email-in.p3                  	New
+09/06/2024 palshanm 	Attribute               	nr5m-mukamath mukamath-palsha	nr5m-mukamath mukamath-palsha	Mod
+09/06/2024 palshanm 	Verified-release        	                             	10.4(3.40)                   	New
+09/06/2024 palshanm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/20/2024 nxbld    	Integrated-releases     	                             	10.5(0)ICL9(0)               	New
+08/20/2024 nxbld    	Integrated-releases     	                             	10.5(0)ICL9(0.222)           	New
+08/20/2024 nxbld    	Apply-to                	                             	10.5(0)ICL9(0.222)           	New
+08/13/2024 divvenka 	Integrated-releases     	                             	10.4(0)IFM9(0)               	New
+08/13/2024 divvenka 	Integrated-releases     	                             	10.4(0)IFM9(0.26)            	New
+08/13/2024 divvenka 	Apply-to                	                             	10.4(0)IFM9(0.26)            	New
+08/02/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0)               	New
+08/02/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0.342)           	New
+08/02/2024 divvenka 	Apply-to                	                             	10.4(1)IUM9(0.342)           	New
+07/17/2024 divvenka 	Integrated-releases     	                             	10.5(1)IMG9(0)               	New
+07/17/2024 divvenka 	Integrated-releases     	                             	10.5(1)IMG9(0.1)             	New
+07/17/2024 divvenka 	Apply-to                	                             	10.5(1)IMG9(0.1)             	New
+07/12/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0.96)            	New
+07/12/2024 divvenka 	Apply-to                	                             	10.5(0)IMG9(0.96)            	New
+07/04/2024 divvenka 	Integrated-releases     	                             	10.4(4)                      	New
+07/04/2024 divvenka 	Integrated-releases     	                             	10.4(3.16)                   	New
+07/04/2024 divvenka 	Apply-to                	                             	10.4(3.16)                   	New
+07/02/2024 cdetsbtk 	Security-screening-times	2024-07-02 13:31:30.000+0000 	2024-07-02 18:49:12.000+0000 	Mod
+07/02/2024 vasagraw 	File Name               	                             	Diffs-commit-olympia_rel     	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-02 08:41:44.000+0000 	2024-07-02 13:31:30.000+0000 	Mod
+07/01/2024 qddts    	Note Title              	                             	ULS_OR4M                     	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-02 08:41:43.000+0000 	2024-07-02 08:41:44.000+0000 	Mod
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-02 08:27:55.000+0000 	2024-07-02 08:41:43.000+0000 	Mod
+07/01/2024 vasagraw 	contents                	                             	PR-Description-39650         	Mod
+07/01/2024 vasagraw 	File Name               	                             	code-review-olympia_rel.p2   	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-02 08:27:53.000+0000 	2024-07-02 08:27:55.000+0000 	Mod
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-01 22:05:20.000+0000 	2024-07-02 08:27:53.000+0000 	Mod
+07/01/2024 vasagraw 	File Name               	                             	PR-Description-39650         	New
+07/01/2024 vasagraw 	File Name               	                             	code-review-olympia_rel      	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-01 22:04:43.000+0000 	2024-07-01 22:05:20.000+0000 	Mod
+07/01/2024 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-07-01 17:58:42.000+0000 	2024-07-01 22:04:43.000+0000 	Mod
+07/01/2024 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+07/01/2024 cdetsbtk 	Security-screening-times	2024-06-21 00:25:30.000+0000 	2024-07-01 17:58:42.000+0000 	Mod
+07/01/2024 qddts    	Note Title              	                             	unit-test_OR4M               	New
+06/20/2024 cdetsbtk 	Security-screening-times	2024-06-19 22:04:21.000+0000 	2024-06-21 00:25:30.000+0000 	Mod
+06/20/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/19/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPF9(0.44)            	New
+06/19/2024 divvenka 	Apply-to                	                             	10.5(0)IPF9(0.44)            	New
+06/19/2024 cdetsbtk 	Security-screening-times	2024-06-19 16:47:48.000+0000 	2024-06-19 22:04:21.000+0000 	Mod
+06/19/2024 vasagraw 	File Name               	                             	Diffs-commit-pr2f_dev        	New
+06/19/2024 cdetsbtk 	Security-screening-times	2024-06-19 16:47:11.000+0000 	2024-06-19 16:47:48.000+0000 	Mod
+06/19/2024 baas     	File Name               	                             	ccwarnings-pr2f_dev          	New
+06/19/2024 cdetsbtk 	Security-screening-times	2024-06-19 15:13:12.000+0000 	2024-06-19 16:47:11.000+0000 	Mod
+06/19/2024 baas     	File Name               	                             	static-analysis-pr2f_dev     	New
+06/19/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0)               	New
+06/19/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0.42)            	New
+06/19/2024 divvenka 	Apply-to                	                             	10.4(2)IEH9(0.42)            	New
+06/19/2024 cdetsbtk 	Security-screening-times	2024-06-19 15:13:10.000+0000 	2024-06-19 15:13:12.000+0000 	Mod
+06/19/2024 vasagraw 	contents                	                             	PR-Description-38819         	Mod
+06/19/2024 cdetsbtk 	Security-screening-times	2024-06-19 13:57:11.000+0000 	2024-06-19 15:13:10.000+0000 	Mod
+06/19/2024 vasagraw 	File Name               	                             	code-review-pr2f_dev.p2      	New
+06/18/2024 cdetsbtk 	Security-screening-times	2024-06-19 13:57:09.000+0000 	2024-06-19 13:57:11.000+0000 	Mod
+06/18/2024 vasagraw 	File Name               	                             	PR-Description-38819         	New
+06/18/2024 cdetsbtk 	Security-screening-times	2024-06-19 13:23:40.000+0000 	2024-06-19 13:57:09.000+0000 	Mod
+06/18/2024 vasagraw 	File Name               	                             	code-review-pr2f_dev         	New
+06/18/2024 cdetsbtk 	Security-screening-times	2024-06-16 23:08:11.000+0000 	2024-06-19 13:23:40.000+0000 	Mod
+06/18/2024 qddts    	Note Title              	                             	unit-test_PR2F               	New
+06/16/2024 cdetsbtk 	Security-screening-times	2024-06-14 04:48:25.000+0000 	2024-06-16 23:08:11.000+0000 	Mod
+06/16/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/13/2024 cdetsbtk 	Security-screening-times	2024-06-13 17:22:28.000+0000 	2024-06-14 04:48:25.000+0000 	Mod
+06/13/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/13/2024 cdetsbtk 	Security-screening-times	2024-06-13 13:35:42.000+0000 	2024-06-13 17:22:28.000+0000 	Mod
+06/13/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-13 08:55:19.000+0000 	2024-06-13 13:35:42.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-13 06:43:32.000+0000 	2024-06-13 08:55:19.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-13 06:08:34.000+0000 	2024-06-13 06:43:32.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-12 23:50:10.000+0000 	2024-06-13 06:08:34.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-12 21:48:05.000+0000 	2024-06-12 23:50:10.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-12 20:20:52.000+0000 	2024-06-12 21:48:05.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-12 20:17:44.000+0000 	2024-06-12 20:20:52.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-12 15:16:54.000+0000 	2024-06-12 20:17:44.000+0000 	Mod
+06/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-06-02 15:18:48.000+0000 	2024-06-12 15:16:54.000+0000 	Mod
+06/12/2024 cms      	Note Title              	                             	Scrubnote                    	New
+06/06/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPF9(0)               	New
+06/06/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPF9(0.33)            	New
+06/06/2024 divvenka 	Apply-to                	                             	10.5(0)IPF9(0.33)            	New
+06/06/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/06/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2024 pisces   	VF-unpatched            	NX-OS:10.2(7)                	                             	Del
+06/04/2024 pisces   	Potentially-affected-rel	10.2(7)                      	                             	Del
+06/02/2024 cdetsbtk 	Security-screening-times	2024-05-19 01:12:06.000+0000 	2024-06-02 15:18:48.000+0000 	Mod
+06/02/2024 palshanm 	Note Title              	                             	V-comments.p2                	New
+06/02/2024 palshanm 	Attribute               	nr5m-mukamath mukamath-palsha	nr5m-mukamath mukamath-palsha	Mod
+06/02/2024 palshanm 	Verified-release        	                             	10.5(0)IMG9(0.41)            	New
+06/02/2024 palshanm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/02/2024 palshanm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/25/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+05/25/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+05/18/2024 cdetsbtk 	Security-screening-times	2024-05-19 01:11:22.000+0000 	2024-05-19 01:12:06.000+0000 	Mod
+05/18/2024 palshanm 	Note Title              	                             	Automation-Log               	New
+05/18/2024 cdetsbtk 	Security-screening-times	2024-05-07 12:04:23.000+0000 	2024-05-19 01:11:22.000+0000 	Mod
+05/18/2024 palshanm 	Automated-test          	N                            	Y                            	Mod
+05/18/2024 palshanm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/18/2024 palshanm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/18/2024 palshanm 	Known-fixed-releases    	                             	10.3(5)                      	New
+05/07/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0)               	New
+05/07/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0.19)            	New
+05/07/2024 divvenka 	Apply-to                	                             	10.5(0)IMG9(0.19)            	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 12:03:25.000+0000 	2024-05-07 12:04:23.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 04:17:36.000+0000 	2024-05-07 12:03:25.000+0000 	Mod
+05/06/2024 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+05/06/2024 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 04:14:42.000+0000 	2024-05-07 04:17:36.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 00:56:42.000+0000 	2024-05-07 04:14:42.000+0000 	Mod
+05/06/2024 root     	File Name               	                             	cdt_uls_sanity_baseline_compa	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 00:53:58.000+0000 	2024-05-07 00:56:42.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-07 00:53:23.000+0000 	2024-05-07 00:53:58.000+0000 	Mod
+05/06/2024 baas     	File Name               	                             	ccwarnings-nx_main           	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 23:03:25.000+0000 	2024-05-07 00:53:23.000+0000 	Mod
+05/06/2024 baas     	File Name               	                             	static-analysis-nx_main      	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 23:02:14.000+0000 	2024-05-06 23:03:25.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 23:02:13.000+0000 	2024-05-06 23:02:14.000+0000 	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 16:03:13.000+0000 	2024-05-06 23:02:13.000+0000 	Mod
+05/06/2024 vasagraw 	contents                	                             	PR-Description-36108         	Mod
+05/06/2024 vasagraw 	File Name               	                             	code-review-nx_main.p3       	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 15:58:51.000+0000 	2024-05-06 16:03:13.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 15:58:49.000+0000 	2024-05-06 15:58:51.000+0000 	Mod
+05/06/2024 vasagraw 	contents                	                             	PR-Description-36108         	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 15:31:37.000+0000 	2024-05-06 15:58:49.000+0000 	Mod
+05/06/2024 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 15:29:53.000+0000 	2024-05-06 15:31:37.000+0000 	Mod
+05/06/2024 synchub.g	Note                    	DetectionUnsuitable          	DetectionUnsuitable          	Mod
+05/06/2024 synchub.g	Note                    	unit-test_nx_main            	unit-test_nx_main            	Mod
+05/06/2024 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+05/06/2024 synchub.g	Note                    	Email-in.p2                  	Email-in.p2                  	Mod
+05/06/2024 synchub.g	Note                    	Code-review                  	Code-review                  	Mod
+05/06/2024 synchub.g	Note Type               	Other                        	Unit-test                    	Mod
+05/06/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 15:29:52.000+0000 	2024-05-06 15:29:53.000+0000 	Mod
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-06 14:45:54.000+0000 	2024-05-06 15:29:52.000+0000 	Mod
+05/06/2024 vasagraw 	File Name               	                             	PR-Description-36108         	New
+05/06/2024 vasagraw 	File Name               	                             	code-review-nx_main          	New
+05/06/2024 cdetsbtk 	Security-screening-times	2024-05-03 22:24:30.000+0000 	2024-05-06 14:45:54.000+0000 	Mod
+05/06/2024 vasagraw 	Note Title              	                             	unit-test_nx_main            	New
+05/05/2024 sivadura 	Attribute               	nr5m-mukamath mukamath-palsha	nr5m-mukamath mukamath-palsha	Mod
+05/03/2024 cdetsbtk 	Security-screening-times	2024-05-03 13:04:16.000+0000 	2024-05-03 22:24:30.000+0000 	Mod
+05/03/2024 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+05/02/2024 cdetsbtk 	Security-screening-times	2024-05-03 12:06:30.000+0000 	2024-05-03 13:04:16.000+0000 	Mod
+05/02/2024 vasagraw 	Note Title              	                             	Email-in.p2                  	New
+05/02/2024 cdetsbtk 	Security-screening-times	2024-05-02 03:11:06.000+0000 	2024-05-03 12:06:30.000+0000 	Mod
+05/02/2024 abhigup7 	Note Title              	                             	Email-in                     	New
+05/01/2024 cdetsbtk 	Security-screening-times	2024-04-30 16:24:12.000+0000 	2024-05-02 03:11:06.000+0000 	Mod
+05/01/2024 jorandre 	Note                    	Release-note                 	Release-note                 	Mod
+05/01/2024 jorandre 	contents                	                             	Release-note-diff            	Mod
+05/01/2024 jorandre 	FileSize                	3782                         	4475                         	Mod
+05/01/2024 jorandre 	Symptoms                	This is a modification on the	- User can log into the switc	Mod
+05/01/2024 jorandre 	Conditions              	Device running with default c	- The username is configured 	Mod
+05/01/2024 jorandre 	Workarounds             	Not available or not applicab	- Not available.             	Mod
+05/01/2024 jorandre 	Further-Problem-Descript	This issue was found during a	This is a modification on the	Mod
+04/30/2024 cdetsbtk 	Security-screening-times	2024-04-30 16:21:34.000+0000 	2024-04-30 16:24:12.000+0000 	Mod
+04/30/2024 synchub.g	Note Type               	Unit-test                    	Other                        	Mod
+04/30/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+04/30/2024 synchub.g	Note                    	ULS                          	ULS                          	Mod
+04/30/2024 synchub.g	Note Title              	                             	Code-review                  	New
+04/30/2024 synchub.g	Note                    	Release-note                 	Release-note                 	Mod
+04/30/2024 synchub.g	Note Type               	reproduction-steps           	Other                        	Mod
+04/30/2024 synchub.g	Note                    	reproduction-steps           	reproduction-steps           	Mod
+04/30/2024 synchub.g	contents                	                             	Release-note-diff            	Mod
+04/30/2024 synchub.g	FileSize                	3617                         	3782                         	Mod
+04/30/2024 synchub.g	Further-Problem-Descript	This issue was found during a	This issue was found during a	Mod
+04/30/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-162889       	New
+04/30/2024 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoReleased-Defect Auto rele	Mod
+04/30/2024 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+04/30/2024 cdetsbtk 	Security-screening-times	2024-04-26 01:49:22.000+0000 	2024-04-30 16:21:34.000+0000 	Mod
+04/30/2024 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+04/30/2024 psirt.gen	RNE-Type                	$$IGNORE-PSIRT               	NONE                         	Mod
+04/30/2024 psirt.gen	contents                	                             	Release-note-diff            	Mod
+04/30/2024 psirt.gen	FileSize                	3487                         	3617                         	Mod
+04/30/2024 psirt.gen	PSIRT-attribute         	SN Update:4                  	SN Update:5                  	Mod
+04/30/2024 psirt.gen	RNE-Type                	$$IGNORE-PSIRT               	NONE                         	Mod
+04/25/2024 palshanm 	Attribute               	nr5m-mukamath mukamath-palsha	nr5m-mukamath mukamath-palsha	Mod
+04/25/2024 cdetsbtk 	Security-screening-times	2024-04-26 01:49:05.000+0000 	2024-04-26 01:49:22.000+0000 	Mod
+04/25/2024 palshanm 	File Name               	                             	CSCwj65063_NR5M_Test_Logs.txt	New
+04/25/2024 cdetsbtk 	Security-screening-times	2024-04-25 21:09:58.000+0000 	2024-04-26 01:49:05.000+0000 	Mod
+04/25/2024 palshanm 	Note Title              	                             	V-comments                   	New
+04/25/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+04/25/2024 palshanm 	Status                  	R                            	V                            	Mod
+04/25/2024 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+04/25/2024 palshanm 	Verified-release        	                             	10.3(4.104)                  	New
+04/25/2024 palshanm 	Verified-confidence     	                             	tested                       	Mod
+04/25/2024 palshanm 	Verified-on             	                             	2024-04-25 18:49:05.000+0000 	Mod
+04/25/2024 palshanm 	statusStates            	                             	[status=R, startDate=Thu Apr 	New
+04/25/2024 palshanm 	statusStates            	[status=R, startDate=Thu Apr 	                             	Del
+04/25/2024 palshanm 	Age-status              	10                           	17                           	Mod
+04/25/2024 palshanm 	Mean-time-to-verified   	                             	16                           	Mod
+04/25/2024 cdetsbtk 	Security-screening-times	2024-04-18 23:16:57.000+0000 	2024-04-25 21:09:58.000+0000 	Mod
+04/25/2024 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+04/25/2024 psirt.gen	contents                	                             	Release-note-diff            	Mod
+04/25/2024 psirt.gen	FileSize                	1245                         	3487                         	Mod
+04/25/2024 psirt.gen	Hardening               	N                            	Y                            	Mod
+04/25/2024 psirt.gen	PSIRT-attribute         	SN Update:3                  	SN Update:4                  	Mod
+04/25/2024 psirt.gen	PSIRT-status            	under_investigation          	no-disclosure-reqd           	Mod
+04/25/2024 psirt.gen	SIR                     	High                         	Low                          	Mod
+04/25/2024 psirt.gen	Justification           	CISCO HIGHLY CONFIDENTIAL - C	                             	Mod
+04/25/2024 psirt.gen	Symptoms                	                             	This is a modification on the	Mod
+04/25/2024 psirt.gen	Conditions              	                             	Device running with default c	Mod
+04/25/2024 psirt.gen	Workarounds             	                             	Not available or not applicab	Mod
+04/25/2024 psirt.gen	Further-Problem-Descript	                             	This issue was found during a	Mod
+04/25/2024 dgokarn  	Attribute               	nr5m-mukamath                	nr5m-mukamath mukamath-palsha	Mod
+04/23/2024 divvenka 	Integrated-releases     	                             	10.3(4.99)                   	New
+04/23/2024 kopidiki 	Attribute               	                             	nr5m-mukamath                	Mod
+04/18/2024 siramego 	Integrated-releases     	                             	10.3(4.98),10.3(5)           	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 23:09:47.000+0000 	2024-04-18 23:16:57.000+0000 	Mod
+04/18/2024 vasagraw 	Note Title              	                             	R-comments                   	New
+04/18/2024 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/18/2024 vasagraw 	Status                  	A                            	R                            	Mod
+04/18/2024 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/18/2024 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/18/2024 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+04/18/2024 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+04/18/2024 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+04/18/2024 vasagraw 	Breakage                	                             	No                           	Mod
+04/18/2024 vasagraw 	Regression              	                             	N                            	Mod
+04/18/2024 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+04/18/2024 vasagraw 	Bug-origin              	                             	Requirements                 	Mod
+04/18/2024 vasagraw 	Released-code           	                             	Y                            	Mod
+04/18/2024 vasagraw 	Origin                  	                             	requirements                 	Mod
+04/18/2024 vasagraw 	Test-EDP-phase          	                             	User Story                   	Mod
+04/18/2024 vasagraw 	Test-EDP-activity       	                             	Design/Functional Spec Review	Mod
+04/18/2024 vasagraw 	TPS_issue               	                             	N                            	Mod
+04/18/2024 vasagraw 	TPS_flag                	                             	N                            	Mod
+04/18/2024 vasagraw 	Behavior-changed        	                             	N                            	Mod
+04/18/2024 vasagraw 	Original-resolved-on    	                             	2024-04-18 16:16:56.000+0000 	Mod
+04/18/2024 vasagraw 	Documents-changed       	                             	none                         	Mod
+04/18/2024 vasagraw 	More-on                 	                             	2024-04-18 16:16:56.000+0000 	Mod
+04/18/2024 vasagraw 	Opened-on               	                             	2024-04-18 16:16:56.000+0000 	Mod
+04/18/2024 vasagraw 	Resolved-on             	                             	2024-04-18 16:16:56.000+0000 	Mod
+04/18/2024 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Apr 	New
+04/18/2024 vasagraw 	statusStates            	[status=A, startDate=Wed Apr 	                             	Del
+04/18/2024 vasagraw 	Age-status              	2                            	10                           	Mod
+04/18/2024 vasagraw 	Mean-time-to-resolved   	                             	9                            	Mod
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 21:43:22.000+0000 	2024-04-18 23:09:47.000+0000 	Mod
+04/18/2024 vasagraw 	File Name               	                             	Diffs-commit-niles_rel       	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 21:42:46.000+0000 	2024-04-18 21:43:22.000+0000 	Mod
+04/18/2024 baas     	File Name               	                             	ccwarnings-niles_rel.p3      	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 21:08:19.000+0000 	2024-04-18 21:42:46.000+0000 	Mod
+04/18/2024 baas     	File Name               	                             	static-analysis-niles_rel.p3 	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 21:06:42.000+0000 	2024-04-18 21:08:19.000+0000 	Mod
+04/18/2024 vasagraw 	Note Title              	                             	Unit-test                    	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 20:39:28.000+0000 	2024-04-18 21:06:42.000+0000 	Mod
+04/18/2024 vasagraw 	Note Title              	                             	ULS                          	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 20:39:26.000+0000 	2024-04-18 20:39:28.000+0000 	Mod
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 20:29:17.000+0000 	2024-04-18 20:39:26.000+0000 	Mod
+04/18/2024 vasagraw 	contents                	                             	PR-Description-34931         	Mod
+04/18/2024 vasagraw 	File Name               	                             	code-review-niles_rel.p2     	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 20:28:42.000+0000 	2024-04-18 20:29:17.000+0000 	Mod
+04/18/2024 baas     	File Name               	                             	ccwarnings-niles_rel.p2      	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 19:51:34.000+0000 	2024-04-18 20:28:42.000+0000 	Mod
+04/18/2024 baas     	File Name               	                             	static-analysis-niles_rel.p2 	New
+04/18/2024 vasagraw 	Code-reviewer           	                             	greddyda,sarchand            	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-18 19:51:32.000+0000 	2024-04-18 19:51:34.000+0000 	Mod
+04/18/2024 vasagraw 	File Name               	                             	PR-Description-34931         	New
+04/18/2024 cdetsbtk 	Security-screening-times	2024-04-17 21:44:44.000+0000 	2024-04-18 19:51:32.000+0000 	Mod
+04/18/2024 vasagraw 	File Name               	                             	code-review-niles_rel        	New
+04/17/2024 cdetsbtk 	Security-screening-times	2024-04-17 21:44:09.000+0000 	2024-04-17 21:44:44.000+0000 	Mod
+04/17/2024 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+04/17/2024 cdetsbtk 	Security-screening-times	2024-04-10 14:01:39.000+0000 	2024-04-17 21:44:09.000+0000 	Mod
+04/17/2024 baas     	File Name               	                             	static-analysis-niles_rel    	New
+04/15/2024 cms      	Est-fix-date            	2024-04-16 07:00:00.000+0000 	2024-04-19 07:00:00.000+0000 	Mod
+04/12/2024 cms      	Est-fix-date            	                             	2024-04-16 07:00:00.000+0000 	Mod
+04/10/2024 cdetsbtk 	Security-screening-times	2024-04-09 03:33:30.000+0000 	2024-04-10 14:01:39.000+0000 	Mod
+04/10/2024 samekama 	Note Title              	                             	A-comments                   	New
+04/10/2024 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/10/2024 samekama 	Status                  	N                            	A                            	Mod
+04/10/2024 samekama 	Engineer                	                             	vasagraw                     	Mod
+04/10/2024 samekama 	Assigner                	                             	samekama                     	Mod
+04/10/2024 samekama 	Assigned Date           	                             	2024-04-10 07:01:38.000+0000 	Mod
+04/10/2024 samekama 	statusStates            	                             	[status=N, startDate=Mon Apr 	New
+04/10/2024 samekama 	statusStates            	[status=N, startDate=Mon Apr 	                             	Del
+04/10/2024 samekama 	Age-status              	0                            	2                            	Mod
+04/10/2024 samekama 	Mean-time-to-assigned   	                             	1                            	Mod
+04/08/2024 psirt.gen	PSIRT-attribute         	SN Update:2                  	SN Update:3                  	Mod
+04/08/2024 psirt.gen	PSIRT-status            	                             	under_investigation          	Mod
+04/08/2024 psirt.gen	SIR                     	                             	High                         	Mod
+04/08/2024 cdetsbtk 	Security-screening-times	2024-04-09 03:10:37.000+0000 	2024-04-09 03:33:30.000+0000 	Mod
+04/08/2024 psirt.gen	serviceRequests/PSIRT/PS	                             	PSIRT/PSIRT-0116558902       	New
+04/08/2024 psirt.gen	PSIRT-attribute         	SN Update:1                  	SN Update:2                  	Mod
+04/08/2024 psirt.gen	Urgency                 	                             	9                            	Mod
+04/08/2024 psirt.gen	Tickets-count           	0                            	1                            	Mod
+04/08/2024 psirt.gen	Tickets-count-direct    	                             	1                            	Mod
+04/08/2024 psirt.gen	Trouble-tickets         	                             	PSIRT-0116558902             	New
+04/08/2024 psirt.gen	Trouble-tickets-direct  	                             	PSIRTPSIRT-0116558902        	New
+04/08/2024 cdetsbtk 	Security-screening-times	2024-04-09 02:47:30.000+0000 	2024-04-09 03:10:37.000+0000 	Mod
+04/08/2024 jorandre 	Note Title              	                             	reproduction-steps           	New
+04/08/2024 cdetsbtk 	Security-screening-times	2024-04-09 02:43:16.000+0000 	2024-04-09 02:47:30.000+0000 	Mod
+04/08/2024 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+04/08/2024 psirt.gen	File Name               	                             	Release-note-diff            	New
+04/08/2024 psirt.gen	PSIRT-attribute         	                             	SN Update:1                  	Mod
+04/08/2024 psirt.gen	Justification           	                             	CISCO HIGHLY CONFIDENTIAL - C	Mod
+04/08/2024 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/08/2024 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+04/08/2024 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/08/2024 cdetsbtk 	Security-screening-times	                             	2024-04-09 02:43:16.000+0000 	Mod
+04/08/2024 jorandre 	Note Title              	                             	Release-note                 	New
+04/08/2024 jorandre 	Headline                	                             	Login with "admin" user with 	Mod
+04/08/2024 jorandre 	Summary                 	                             	There is a aaa config option 	Mod
+04/08/2024 jorandre 	Project                 	                             	CSC.datacenter               	Mod
+04/08/2024 jorandre 	Product                 	                             	n9k-standalone-sw            	Mod
+04/08/2024 jorandre 	Component               	                             	aaa                          	Mod
+04/08/2024 jorandre 	Status-desc             	                             	N-New                        	Mod
+04/08/2024 jorandre 	Status                  	                             	N                            	Mod
+04/08/2024 jorandre 	Found                   	                             	customer-use                 	Mod
+04/08/2024 jorandre 	Hardening               	                             	N                            	Mod
+04/08/2024 jorandre 	Original-found          	                             	customer-use                 	Mod
+04/08/2024 jorandre 	Hardware                	                             	Nexus 9000                   	New
+04/08/2024 jorandre 	Feature                 	                             	fix                          	Mod
+04/08/2024 jorandre 	Urgency-desc            	                             	NA                           	Mod
+04/08/2024 jorandre 	Severity-desc           	                             	moderate                     	Mod
+04/08/2024 jorandre 	Severity                	                             	3                            	Mod
+04/08/2024 jorandre 	DE Priority Desc        	                             	medium                       	Mod
+04/08/2024 jorandre 	DE-priority             	                             	3                            	Mod
+04/08/2024 jorandre 	Impact                  	                             	Integrity / Security         	New
+04/08/2024 jorandre 	Submitter               	                             	jorandre                     	Mod
+04/08/2024 jorandre 	Submitter-manager       	                             	riwhitin                     	Mod
+04/08/2024 jorandre 	DE-manager              	                             	anikunna                     	Mod
+04/08/2024 jorandre 	DTPT-manager            	                             	mukamath                     	Mod
+04/08/2024 jorandre 	Version                 	                             	10.3(4a),7.0(3)I4(1),9.3(13) 	New
+04/08/2024 jorandre 	Original-version        	                             	10.3(4a)                     	Mod
+04/08/2024 jorandre 	Found-during            	                             	Customer                     	Mod
+04/08/2024 jorandre 	Activity-when-found     	                             	Customer-Use                 	Mod
+04/08/2024 jorandre 	Automated-test          	                             	N                            	Mod
+04/08/2024 jorandre 	Test-escape             	                             	N                            	Mod
+04/08/2024 jorandre 	PSIRT                   	                             	Y                            	Mod
+04/08/2024 jorandre 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+04/08/2024 jorandre 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/08/2024 jorandre 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/08/2024 jorandre 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/08/2024 jorandre 	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/08/2024 jorandre 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/08/2024 jorandre 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/08/2024 jorandre 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/08/2024 jorandre 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/08/2024 jorandre 	MDF-edited              	                             	N                            	Mod
+04/08/2024 jorandre 	Attribute2              	                             	n/a                          	Mod
+04/08/2024 jorandre 	Care-Update             	                             	Y                            	Mod
+04/08/2024 jorandre 	Doc-manager             	                             	anikunna                     	Mod
+04/08/2024 jorandre 	Document                	                             	nexus                        	Mod
+04/08/2024 jorandre 	Documentation-resolution	                             	Undefined                    	Mod
+04/08/2024 jorandre 	Original-activity-when-f	                             	Customer-Use                 	Mod
+04/08/2024 jorandre 	Original-found-during   	                             	Customer                     	Mod
+04/08/2024 jorandre 	Submitter-org-bug       	                             	CX-GC-AMER-DC-DCApps-US      	Mod
+04/08/2024 jorandre 	Component-scenarios     	                             	N                            	Mod
+04/08/2024 jorandre 	Submitted-on            	                             	2024-04-08 19:43:16.278+0000 	Mod
+04/08/2024 jorandre 	IFD-CFD-Conv-date       	                             	2024-04-08 19:43:16.278+0000 	Mod
+04/08/2024 jorandre 	New-on                  	                             	2024-04-08 19:43:16.278+0000 	Mod
+04/08/2024 jorandre 	statusStates            	                             	[status=S, startDate=Mon Apr 	New
+04/08/2024 jorandre 	Transition-day          	0                            	2460409                      	Mod
+04/08/2024 jorandre 	Release-note-status     	                             	have                         	Mod
+04/08/2024 jorandre 	Reported By             	                             	jorandre                     	Mod
+04/08/2024 jorandre 	Known-affected-releases 	                             	10.3(4a),7.0(3)I4(1),9.3(13) 	New
+04/08/2024 jorandre 	RNE-Type                	                             	$$IGNORE-PSIRT               	Mod
+04/08/2024 jorandre 	Tickets-count           	                             	0                            	Mod
+04/08/2024 jorandre 	Class                   	                             	CSC.datacenter               	Mod
+04/08/2024 jorandre 	Reti-bug                	                             	Y                            	Mod
+04/08/2024 jorandre 	Defect Created          	                             	                             	New

@@ -1,0 +1,956 @@
+*******************************************************************************
+
+Bug ID   : CSCwa58935         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : Radius Daemon crash when pointer is not accessible 
+PrimaryPV : 
+Version :10.2(2.49) 9.3(8) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: bryserra           Submitted: 01/05/2022 22:03:38     Last Updtd : 10/20/2026 04:55:22  
+RNE-Type: NONE                New-on : 01/05/2022 22:03:38      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:evidalga                                            
+Known-affected-releases:9.3(8) 
+
+Known-fixed-releases:10.2(3) 10.2(4) 9.3(9) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 01/11/2022 20:36:23                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 3                                              
+Mean-time-to-resolved: 32                                             
+Mean-time-to-verified: 73     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 01/06/2022 05:55:39            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Crash 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 01/08/2022 22:20:32 
+Code-reviewer:                
+Opened-on: 01/11/2022 20:36:23Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : kr3f kr3f-hkatakam gnosis imr8-hkatakam
+Est. completion date: 01/12/2022 00:00:00  
+Script-version:                         
+
+More-by : ananshar            More-on: 02/03/2022 02:48:39  
+
+Documents Changed: none       Resolved: 02/07/2022 02:46:17 Resolver: ananshar       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: believed                     
+Verified Date: 03/20/2022 10:46:35      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Preproduction
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-ENTNET-ARCHITECTURE2-MEX
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Regression Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   4
+Tickets-count-direct :            4
+Trouble-tickets :              692687057;692985367;694977248;697822574
+Trouble-tickets-direct :C3692687057 
+Trouble-tickets-direct :C3694977248 
+Trouble-tickets-direct :C3692985367 
+Trouble-tickets-direct :C3697822574 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 01/06/2022 06:14:40
+Document :    nexus
+
+Summary:
+Device will crash when trying to configure radius and a pointer cannot access memory in get_destination_socket().
+
+******************* Related Service Requests (4 of 4)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         692687057       NET SERVE 365 LLC                        
+C3         692985367       NET SERVE 365 LLC                        
+C3         694977248       NET SERVE 365 LLC                        
+C3         697822574       CITY OF CEDAR PARK                       
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-213987                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (19 of 19 ) ***********************
+
+---Start of Note Titled: Eng-note (Created 06/07/2022 00:34:15 Added 06/07/2022 00:34:15 by vasagraw)---
+150     static int
+151     get_destination_socket(radius_new_server_t *server, bool accounting, 
+152              radius_request_state_t *radius_request_state, int *curr_ai_family)
+153     {
+154         struct addrinfo hints, *res, *aip;                                                                    <<<<<<======== UN-INITIALIZED 'res' POINTER - POINTING TO INVALID MEMORY 
+155         char serv_port[8];
+
+
+287  #ifdef ACI_CHANGE
+288      error = getaddrinfo_vrf_aware_inline(server->hostname, serv_port, &hints, vrf_context_id, TRUE, &res);
+289  #else //ACI_CHANGE
+290      error = getaddrinfo_async_n7k(server->hostname, serv_port, &hints, vrf_context_id, &res);        <<<<<<<<======= 'res' NOT POPULATED INSIDE API, STILL POINTING TO INVALID MEMORY
+291  #endif //ACI_CHANGE
+
+
+302          if(res)                                     <<<<<<<<======= TRUE SINCE 'res' IS NOT NULL
+303          {
+304              freeaddrinfo(res);               <<<<<<<<======= CAUSING THE TRIP SINCE 'res' IS HAVING INVALID ADDRESS
+305              res= NULL;
+306          }
+---End of Note Titled: Eng-note---
+
+
+---Start of Note Titled: KnowledgeSignature.p3 (Created 04/06/2022 04:54:17 Added 04/06/2022 04:54:17 by mgrabovs)---
+https://gnosis.cisco.com/signature/CSCwa58935/view
+---End of Note Titled: KnowledgeSignature.p3---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 04/06/2022 04:00:09 Added 04/06/2022 04:00:09 by geawad)---
+https://gnosis.cisco.com/signature/CSCwa58935/view
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: V-comments.p2 (Created 03/20/2022 10:46:35 Added 03/20/2022 10:46:35 by palshanm)---
+1. S/W Version : 10.2(2.144)
+2. Platform : PI fix
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled:  Scrubnote (Created 02/25/2022 07:41:22 Modified 03/10/2022 02:26:37 by cms)---
+{220204 anikunna S B} Waiting for Kerry branch to open to commit
+{220110 anikunna S B} Fix under progress.
+{220110 anikunna S B} No repro. Have a potential fix from the core analysis.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: R-comments (Created 02/07/2022 02:46:17 Added 02/07/2022 02:46:17 by ananshar)---
+Committed to kerry
+
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Unit-test.p2.p2 (Created 02/03/2022 04:02:43 Modified 02/03/2022 05:50:33 by ananshar)---
+switch# show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Thu Feb  3 13:46:49 2022
+
+version 10.2(3) Bios:version 05.45 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch# debug logfile rad1
+switch# debug radius all
+switch#  test aaa group rad1 tom tom
+error authenticating to server, status=7
+switch# configure 
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# show cores 
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch(config)# 
+switch(config)#  show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Thu Feb  3 13:48:02 2022
+
+version 10.2(3) Bios:version 05.45 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.45
+  NXOS: version 10.2(3) [build 10.2(2.39)] [Feature Release]
+  System version: 10.2(3)
+---End of Note Titled: Unit-test.p2.p2---
+
+
+---Start of Note Titled: static-analysis.p2 (Created 02/03/2022 03:20:15 Added 02/03/2022 03:20:15 by ananshar)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa58935).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-3355
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39 
+# Generated at
+#     Thu Feb  3 11:20:11 2022 UTC by ananshar
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/build/ses_static_analysis.log':
+@@Start processing of /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c
+**Active warnings for /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c
+**Noise warnings for /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c
+/ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c:2356:none:DEADCODE:Execution cannot reach this statement: "reply->reply_code = REQUEST...". [coverity]
+**Parent warnings for /ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c
+/ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c:1792:none:STRING_NULL:Passing unterminated string "request_state->server.secret" to "add_password", which expects a null-terminated string. [coverity]
+/ws/wit2-sjck/users/ananshar/space_ananshar_kerry_39/feature/security/radius/radius_client.c:1341:dead_default_in_switch:DEADCODE:Execution cannot reach this statement: "default:". [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 1
+Total parent warnings: 2
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8446/query/defects.htm?stream=k_dev-ananshar&cid=829343&cid=71786&cid=35646
+Analysis archive: /auto/sa-html1/cov8/archive/k_dev/ananshar/k_dev-ananshar_20220203_110406/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p2---
+
+
+---Start of Note Titled: M-comments (Created 02/03/2022 02:48:39 Added 02/03/2022 02:48:39 by ananshar)---
+Moving to M to port the fix to kerry
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: Automation-Log (Created 01/29/2022 03:45:20 Added 01/29/2022 03:45:20 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F22-01%2FCFD_CSCwa58935_job.2022Jan29_16:57:59.275876.zip&atstype=ATS
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments (Created 01/19/2022 01:03:29 Added 01/19/2022 01:03:29 by palshanm)---
+1. S/W Version : 9.3(8.107)
+2. Platform : PI fix
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 01/18/2022 02:23:24 Added 01/18/2022 02:23:24 by gkandru)---
+https://gnosis.cisco.com/signature/bug/61e5053f964742d3ed576a7d/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled:  DetectionLogic (Created 01/14/2022 11:30:26 Modified 04/06/2022 03:23:00 by geawad)---
+--- Update 2022-04-06 10:22:58.833234 (geawad via 693367802)
+{+} Analyzing the bug for Signature creation
+
+--- Update 2022-01-14 19:30:33.404087 (flfuchs via 692870244)
+1: Verify if logs are present by checking
+
+Show system reset reason
+
+At 181733 usecs after Mon Jan  3 12:49:39 2022
+    Reason: Reset triggered due to HA policy of Reset
+    Service: Radius Daemon hap reset
+    Version: 9.3(8)
+
+Or
+
+Show logging nvram
+
+%SYSMGR-2-SERVICE_CRASHED: Service "Radius Daemon" (PID 17206) hasn't caught signal 6 (core will be saved).
+
+If one or both conditions are met above. Use Warning
+
+--- Update 2022-01-14 19:30:25.893294 (flfuchs via 692870244)
+1: Verify if logs are present by checking
+
+Show system reset reason
+
+At 181733 usecs after Mon Jan  3 12:49:39 2022
+    Reason: Reset triggered due to HA policy of Reset
+    Service: Radius Daemon hap reset
+    Version: 9.3(8)
+
+Or
+
+Show logging nvram
+
+%SYSMGR-2-SERVICE_CRASHED: Service "Radius Daemon" (PID 17206) hasn't caught signal 6 (core will be saved).
+
+If one or both conditions are met above. Use Warning
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: static-analysis-irvine (Created 01/10/2022 05:03:17 Added 01/10/2022 05:03:17 by vasagraw)---
+# Enclosure (static-analysis-irvine) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwa58935).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-426
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS 
+# Generated at
+#     Mon Jan 10 13:03:15 2022 UTC by vasagraw
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/build/ses_static_analysis.log':
+@@Start processing of /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c
+**Active warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c
+**Noise warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c:2314:none:DEADCODE:Execution cannot reach this statement: "reply->reply_code = REQUEST...". [coverity]
+**Parent warnings for /ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c:1749:none:STRING_NULL:Passing unterminated string "request_state->server.secret" to "add_password", which expects a null-terminated string. [coverity]
+/ws/wit2-sjck/users/vasagraw/space_vasagraw_WS/feature/security/radius/radius_client.c:1298:dead_default_in_switch:DEADCODE:Execution cannot reach this statement: "default:". [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 1
+Total parent warnings: 2
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-5.cisco.com:8446/query/defects.htm?stream=irvine-vasagraw&cid=829343&cid=71786&cid=35646
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/vasagraw/irvine-vasagraw_20220110_130044/sa_summary.tar.gz
+---End of Note Titled: static-analysis-irvine---
+
+
+---Start of Note Titled: Unit-test (Created 01/10/2022 02:37:02 Added 01/10/2022 02:37:02 by vasagraw)---
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Jan 10 10:04:05 2022
+!Time: Mon Jan 10 10:04:08 2022
+
+version 9.3(9) Bios:version 07.68 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# debug logfile rad1
+switch(config)# debug radius all
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group rad1 tom tom
+error authenticating to server, status=7
+switch(config)# 
+
+switch(config)# 
+switch(config)# show cores 
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Jan 10 10:04:05 2022
+!Time: Mon Jan 10 10:24:03 2022
+
+version 9.3(9) Bios:version 07.68 
+radius-server host access-tools key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server access-tools 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+switch(config)# 
+
+
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.68
+ NXOS: version 9.3(9) [build 9.3(8.99)]
+  System version: 9.3(9)
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: A-comments (Created 01/08/2022 22:20:32 Added 01/08/2022 22:20:32 by anikunna)---
+Pls check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  TAC-Analysis (Created 01/05/2022 22:18:25 Modified 02/03/2022 11:55:13 by bryserra)---
+Crash occurs because there is a pointer being de-referenced but is an inaccessible memory address in frame 0.
+
+(gdb) f 0
+#0  freeaddrinfo (ai=0x31463479) at ../routing-sw/libs/bind/lib/irs/getaddrinfo.c:297
+297                     next = ai->ai_next;
+(gdb) p ai
+$6 = (struct addrinfo *) 0x31463479
+(gdb) x /100x 0x31463479
+0x31463479:     Cannot access memory at address 0x31463479
+(gdb) 
+
+Now the questions is who assigned "ai"? We can see it is an argument, for "freeaddrinfo"
+
+(gdb) info args
+ai = 0x31463479
+(gdb) 
+
+Going to frame 1, we see that "res" is "ai" and can confirm since it has the same invalid address:
+
+(gdb) f 1
+#1  0x1012ae56 in get_destination_socket (server=0x1107fa5c, accounting=false, radius_request_state=0x1107d388, curr_ai_family=0xffeca6c8) at ../feature/security/radius/radius_client.c:282
+282                 freeaddrinfo(res);
+(gdb) p res
+$5 = (struct addrinfo *) 0x31463479
+(gdb) x /100x 0x31463479
+0x31463479:     Cannot access memory at address 0x31463479
+
+Again, who assigned res? The function was used in frame 1 is "get_destination_socket ". In the the code, variable is declared but not initiated. 
+
+(gdb)  l* get_destination_socket
+0x100591fa is in get_destination_socket (../feature/security/radius/radius_client.c:153).
+148      * take server->hostname, and convert it to server->ip and server->port
+149      */
+150     static int
+151     get_destination_socket(radius_new_server_t *server, bool accounting, 
+152              radius_request_state_t *radius_request_state, int *curr_ai_family)
+153     {
+154         struct addrinfo hints, *res, *aip;                                                                <<<---
+155         char serv_port[8];
+156         int error;
+157         int i;
+
+"re" is stored in a valid memory address (so we can use something like &res) but the value can't be de-referenced.
+
+(gdb) p res
+$7 = (struct addrinfo *) 0x31463479
+(gdb) p &res
+$8 = (struct addrinfo **) 0xffd3ce5c
+(gdb) p *res
+Cannot access memory at address 0x31463479
+(gdb)
+---End of Note Titled: TAC-Analysis---
+
+
+---Start of Note Titled: Crash-decode (Created 01/05/2022 22:04:08 Added 01/05/2022 22:04:08 by bryserra)---
+(gdb) bt
+#0  freeaddrinfo (ai=0x31463479) at ../routing-sw/libs/bind/lib/irs/getaddrinfo.c:297
+#1  0x1012ae56 in get_destination_socket (server=0x1107fa5c, accounting=false, radius_request_state=0x1107d388, curr_ai_family=0xffeca6c8) at ../feature/security/radius/radius_client.c:282
+#2  0x10131713 in radius_request_process_next_server (request_state=0x1107d388, reply=0xffecabc8, rctx=0x0) at ../feature/security/radius/radius_client.c:1894
+#3  0x10137877 in radius_request_process (request_state=0x1107d388, event=FIRST_REQUEST, reply=0xffecabc8) at ../feature/security/radius/radius_client.c:3161
+#4  0x1011ae97 in radius_pap_authenticate (user=0xffecd7d9 "lportera", passwd=0xffecbd24 "Ltcp_199532923", port=0xffecc5d9 "ssh", msg_ref=0xffece067, radius_group=0xffecc6d9 "RadServer", hostname=0xffecc4d8 "") at ../feature/security/radius/radauth_req.c:1653
+#5  0x10111c21 in process_aaa_radius_request (aaa_radius_payload=0xf283f4b0 "\001\001\f", aaa_radius_payload_len=380, msg_ref=0xffece067) at ../feature/security/radius/radacct_req.c:579
+#6  0x101564cc in mts_aaa_radius_request_handler (mts_payload=0xf283f4b0 "\001\001\f", mts_payload_len=380, mts_return_payload=0xffecdfd4, mts_return_payload_len=0xffecdfd0, notification=0xffecdfcc, msg_ref=0xffece067) at ../feature/security/radius/radius_mts.c:2383
+#7  0x10153f16 in mts_message_handler (q=6, msg_ref=0xffece067) at ../feature/security/radius/radius_mts.c:1219
+#8  0x10156757 in mts_callback (mts_q=0x102422d8 <radius_q>) at ../feature/security/radius/radius_mts.c:2553
+#9  0x10157743 in radius_process_fd_set (fs=0xffecf360) at ../feature/security/radius/radius_mts.c:2735
+#10 0x1015444e in event_loop () at ../feature/security/radius/radius_mts.c:1351
+#11 0x101560c1 in active_start () at ../feature/security/radius/radius_mts.c:2187
+#12 0x101558d8 in main () at ../feature/security/radius/radius_mts.c:1985
+(gdb)
+---End of Note Titled: Crash-decode---
+
+
+---Start of Note Titled:  Release-note (Created 01/05/2022 22:03:38 Modified 03/20/2022 10:46:35 by palshanm)---
+<B>Symptom:</B>
+Radius Daemon may crash when trying to authenticate, the below logs may be seen.
+
+<pre>
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 181733 usecs after Mon Jan  3 12:49:39 2022
+    Reason: Reset triggered due to HA policy of Reset
+    Service: Radius Daemon hap reset
+    Version: 9.3(8)
+
+%SYSMGR-2-SERVICE_CRASHED: Service "Radius Daemon" (PID *) hasn't caught signal 6 (core will be saved).
+</pre>
+
+<B>Conditions:</B>
+The symptoms were seen when configuring radius and trying to authenticate.
+
+<B>Workaround:</B>
+NA
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (19 of 19)
+------------------------------------------------------------------------------------------------------------------
+gnosis_neg_freeform.txt                           ascii text     19             geawad         04/06/2022 04:00:11      
+CSCwa58935_kr3f_test_logs.txt                     ascii text     7021           palshanm       03/20/2022 10:51:39      
+Diffs-commit-kerry                                ascii text     1224           ananshar       02/07/2022 02:43:32      
+Diffs-release-kerry                               ascii text     1193           ananshar       02/07/2022 02:43:28      
+ccwarnings-kerry.p2                               ascii text     237            baas           02/06/2022 21:49:31      
+static-analysis-kerry.p2                          ascii text     6838           baas           02/06/2022 21:49:17      
+ccwarnings-kerry                                  ascii text     237            baas           02/03/2022 11:06:27      
+static-analysis-kerry                             ascii text     6853           baas           02/03/2022 11:05:51      
+nxos-pi-common-security-code-review-3             ascii text     935            prrqengg       02/03/2022 00:11:10      
+N39K-QA-CFD-Script-Reviews-code-review-2          ascii text     942            prrqengg       01/29/2022 04:01:12      
+CSCwa58935_imr8_test_logs.txt                     ascii text     11390          palshanm       01/19/2022 01:04:00      
+gnosis_neg_CSCwa58935_neg.txt                     ascii text     3060           gkandru        01/18/2022 02:23:25      
+Diffs-release-irvine                              ascii text     1200           vasagraw       01/11/2022 13:28:21      
+Diffs-commit-irvine                               ascii text     1459           vasagraw       01/11/2022 13:28:18      
+ccwarnings-irvine                                 ascii text     617            baas           01/11/2022 12:58:16      
+static-analysis-irvine.p2                         ascii text     7233           baas           01/11/2022 12:57:50      
+l2_uls_sanity_report                              ascii text     4687           root           01/10/2022 07:46:15      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       01/10/2022 02:33:48      
+core file                                         binary         2969519        bryserra       01/05/2022 22:06:18      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+10/20/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/20/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/29/2026 satdr    	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+04/16/2026 pisces   	Software-type-ids       	286278844                    	                             	Del
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/26/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/26/2025 pisces   	Known-fixed-releases    	9.3(10)                      	                             	Del
+04/01/2025 pisces   	VF-patched              	                             	NX-OS:10.2(3),NX-OS:9.3(10),N	New
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/01/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/01/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+04/01/2025 pisces   	Known-fixed-releases    	                             	9.3(10)                      	New
+08/20/2024 pedrper2 	serviceRequests/C3/69782	                             	                             	Mod
+08/20/2024 pedrper2 	Urgency-desc            	P3                           	CL3                          	Mod
+08/17/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-213987       	New
+08/17/2024 pedrper2 	serviceRequests/C3/69782	                             	                             	Mod
+08/17/2024 pedrper2 	serviceRequests/C3/69782	                             	C3/697822574                 	New
+08/17/2024 pedrper2 	Urgency-desc            	CL3                          	P3                           	Mod
+08/17/2024 pedrper2 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/17/2024 pedrper2 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/17/2024 pedrper2 	Tickets-count           	3                            	4                            	Mod
+08/17/2024 pedrper2 	TACSR-count             	3                            	4                            	Mod
+08/17/2024 pedrper2 	Tickets-count-direct    	3                            	4                            	Mod
+08/17/2024 pedrper2 	Trouble-tickets         	                             	697822574                    	New
+08/17/2024 pedrper2 	Trouble-tickets-direct  	                             	C3697822574                  	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+05/09/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+05/03/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+05/03/2023 candid   	Known-fixed-releases    	                             	10.2(4)                      	New
+03/24/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+03/14/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+02/22/2023 agorbach 	serviceRequests/C3/69497	                             	                             	Mod
+02/22/2023 agorbach 	Urgency-desc            	NA                           	CL3                          	Mod
+02/22/2023 agorbach 	Urgency                 	9                            	6                            	Mod
+02/17/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+02/16/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+02/16/2023 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+02/08/2023 agorbach 	serviceRequests/C3/69497	                             	C3/694977248                 	New
+02/08/2023 agorbach 	Urgency-desc            	CL3                          	NA                           	Mod
+02/08/2023 agorbach 	Urgency                 	6                            	9                            	Mod
+02/08/2023 agorbach 	Tickets-count           	2                            	3                            	Mod
+02/08/2023 agorbach 	TACSR-count             	2                            	3                            	Mod
+02/08/2023 agorbach 	Tickets-count-direct    	2                            	3                            	Mod
+02/08/2023 agorbach 	Trouble-tickets         	                             	694977248                    	New
+02/08/2023 agorbach 	Trouble-tickets-direct  	                             	C3694977248                  	New
+12/12/2022 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+11/17/2022 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+11/08/2022 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+11/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1)                    	New
+10/31/2022 fas      	Integrated-releases     	                             	10.2(4)                      	New
+08/17/2022 fas      	Integrated-releases     	10.2(3.1)                    	                             	Del
+08/17/2022 fas      	Integrated-releases     	10.2(4)                      	                             	Del
+07/25/2022 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+06/30/2022 candid   	Attribute               	kr3f kr3f-hkatakam gnosis imr	kr3f kr3f-hkatakam gnosis imr	Mod
+06/07/2022 vasagraw 	Note Title              	                             	Eng-note                     	New
+06/07/2022 vasagraw 	Known-affected-releases 	/tmp/perl_modules_used.log:,/	                             	Del
+06/07/2022 vasagraw 	Known-fixed-releases    	10.2(2.53),10.2(4),10.2(3.1),	                             	Del
+05/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1),10.2(4)            	New
+05/04/2022 divvenka 	Known-fixed-releases    	                             	10.2(4),10.2(3.1)            	New
+04/06/2022 mgrabovs 	Note Title              	                             	KnowledgeSignature.p3        	New
+04/06/2022 geawad   	File Name               	                             	gnosis_neg_freeform.txt      	New
+04/06/2022 geawad   	Note Title              	                             	KnowledgeSignature.p2        	New
+04/06/2022 geawad   	Note                    	DetectionLogic               	DetectionLogic               	Mod
+04/01/2022 rassing3 	serviceRequests/C3/69268	                             	                             	Mod
+04/01/2022 rassing3 	Urgency-desc            	P3                           	CL3                          	Mod
+03/20/2022 palshanm 	File Name               	                             	CSCwa58935_kr3f_test_logs.txt	New
+03/20/2022 palshanm 	Note Title              	                             	V-comments.p2                	New
+03/20/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+03/20/2022 palshanm 	Status                  	R                            	V                            	Mod
+03/20/2022 palshanm 	Verified-release        	                             	10.2(2.144)                  	New
+03/20/2022 palshanm 	Verified-on             	2022-01-19 09:03:29.000+0000 	2022-03-20 17:46:35.000+0000 	Mod
+03/20/2022 palshanm 	statusStates            	                             	[status=R, startDate=Mon Feb 	New
+03/20/2022 palshanm 	statusStates            	[status=R, startDate=Mon Feb 	                             	Del
+03/20/2022 palshanm 	Age-status              	32                           	73                           	Mod
+03/20/2022 palshanm 	Mean-time-to-verified   	13                           	73                           	Mod
+03/14/2022 rubherna 	serviceRequests/C3/69298	                             	                             	Mod
+03/10/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/25/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+02/25/2022 cms      	Note Title              	                             	Scrubnote                    	New
+02/14/2022 dsaraf   	Attribute               	kr3f gnosis imr8-hkatakam cfd	kr3f kr3f-hkatakam gnosis imr	Mod
+02/07/2022 cdetsadm 	Known-fixed-releases    	                             	10.2(2.53)                   	New
+02/07/2022 divvenka 	Integrated-releases     	                             	10.2(2.53),10.2(3)           	New
+02/07/2022 divvenka 	Known-fixed-releases    	                             	10.2(3)                      	New
+02/07/2022 ananshar 	Note Title              	                             	R-comments                   	New
+02/07/2022 ananshar 	Status-desc             	M-More                       	R-Resolved                   	Mod
+02/07/2022 ananshar 	Status                  	M                            	R                            	Mod
+02/07/2022 ananshar 	Resolver                	vasagraw                     	ananshar                     	Mod
+02/07/2022 ananshar 	Resolved-on             	2022-01-12 04:36:23.000+0000 	2022-02-07 10:46:17.000+0000 	Mod
+02/07/2022 ananshar 	statusStates            	                             	[status=M, startDate=Thu Feb 	New
+02/07/2022 ananshar 	statusStates            	[status=M, startDate=Thu Feb 	                             	Del
+02/07/2022 ananshar 	Age-status              	28                           	32                           	Mod
+02/07/2022 ananshar 	Mean-time-to-resolved   	5                            	32                           	Mod
+02/07/2022 ananshar 	File Name               	                             	Diffs-commit-kerry           	New
+02/07/2022 ananshar 	File Name               	                             	Diffs-release-kerry          	New
+02/06/2022 baas     	File Name               	                             	ccwarnings-kerry.p2          	New
+02/06/2022 baas     	File Name               	                             	static-analysis-kerry.p2     	New
+02/06/2022 masaxena 	Attribute               	gnosis imr8-hkatakam cfd-hkat	kr3f gnosis imr8-hkatakam cfd	Mod
+02/06/2022 masaxena 	Version                 	                             	10.2(2.49)                   	New
+02/06/2022 masaxena 	Known-affected-releases 	                             	10.2(2.49)                   	New
+02/03/2022 rfurr    	Attribute               	gnosis imr8-hkatakam cfd-hkat	gnosis imr8-hkatakam cfd-hkat	Mod
+02/03/2022 bryserra 	Note                    	TAC-Analysis                 	TAC-Analysis                 	Mod
+02/03/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+02/03/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+02/03/2022 ananshar 	Note Title              	Unit-test.p2                 	Unit-test.p2.p2              	Mod
+02/03/2022 ananshar 	Note                    	Unit-test.p2                 	Unit-test.p2                 	Mod
+02/03/2022 rubherna 	serviceRequests/C3/69298	                             	C3/692985367                 	New
+02/03/2022 rubherna 	Tickets-count           	1                            	2                            	Mod
+02/03/2022 rubherna 	TACSR-count             	1                            	2                            	Mod
+02/03/2022 rubherna 	Tickets-count-direct    	1                            	2                            	Mod
+02/03/2022 rubherna 	Trouble-tickets         	                             	692985367                    	New
+02/03/2022 rubherna 	Trouble-tickets-direct  	                             	C3692985367                  	New
+02/03/2022 ananshar 	Note Title              	                             	Unit-test.p2                 	New
+02/03/2022 ananshar 	Note Title              	                             	static-analysis.p2           	New
+02/03/2022 ananshar 	Note Title              	                             	M-comments                   	New
+02/03/2022 ananshar 	Status-desc             	V-Verified                   	M-More                       	Mod
+02/03/2022 ananshar 	Status                  	V                            	M                            	Mod
+02/03/2022 ananshar 	More-by                 	vasagraw                     	ananshar                     	Mod
+02/03/2022 ananshar 	More-on                 	2022-01-12 04:36:23.000+0000 	2022-02-03 10:48:39.000+0000 	Mod
+02/03/2022 ananshar 	statusStates            	                             	[status=V, startDate=Wed Jan 	New
+02/03/2022 ananshar 	statusStates            	[status=V, startDate=Wed Jan 	                             	Del
+02/03/2022 ananshar 	Age-status              	13                           	28                           	Mod
+02/03/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/29/2022 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+01/29/2022 palshanm 	Note Title              	                             	Automation-Log               	New
+01/29/2022 palshanm 	Automated-test          	N                            	Y                            	Mod
+01/19/2022 palshanm 	File Name               	                             	CSCwa58935_imr8_test_logs.txt	New
+01/19/2022 palshanm 	Attribute               	gnosis imr8-hkatakam cfd-hkat	gnosis imr8-hkatakam cfd-hkat	Mod
+01/19/2022 palshanm 	Note Title              	                             	V-comments                   	New
+01/19/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+01/19/2022 palshanm 	Status                  	R                            	V                            	Mod
+01/19/2022 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+01/19/2022 palshanm 	Verified-release        	                             	9.3(8.107)                   	New
+01/19/2022 palshanm 	Verified-confidence     	                             	believed                     	Mod
+01/19/2022 palshanm 	Verified-on             	                             	2022-01-19 09:03:29.000+0000 	Mod
+01/19/2022 palshanm 	statusStates            	                             	[status=R, startDate=Wed Jan 	New
+01/19/2022 palshanm 	statusStates            	[status=R, startDate=Wed Jan 	                             	Del
+01/19/2022 palshanm 	Age-status              	6                            	13                           	Mod
+01/19/2022 palshanm 	Mean-time-to-verified   	                             	13                           	Mod
+01/18/2022 gkandru  	File Name               	                             	gnosis_neg_CSCwa58935_neg.txt	New
+01/18/2022 gkandru  	Note Title              	                             	KnowledgeSignature           	New
+01/16/2022 gkandru  	Attribute               	imr8-hkatakam cfd-hkatakam   	gnosis imr8-hkatakam cfd-hkat	Mod
+01/16/2022 jdasgupt 	Attribute               	imr8-hkatakam                	imr8-hkatakam cfd-hkatakam   	Mod
+01/14/2022 kratnam  	Attribute               	                             	imr8-hkatakam                	Mod
+01/14/2022 flfuchs  	Note                    	DetectionLogic               	DetectionLogic               	Mod
+01/14/2022 flfuchs  	Note Title              	                             	DetectionLogic               	New
+01/12/2022 divvenka 	Integrated-releases     	                             	9.3(8.104),9.3(9)            	New
+01/12/2022 divvenka 	Known-fixed-releases    	                             	9.3(8.104),9.3(9)            	New
+01/11/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+01/11/2022 vasagraw 	Status                  	A                            	R                            	Mod
+01/11/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+01/11/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+01/11/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+01/11/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+01/11/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+01/11/2022 vasagraw 	Breakage                	                             	No                           	Mod
+01/11/2022 vasagraw 	Regression              	                             	N                            	Mod
+01/11/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+01/11/2022 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+01/11/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+01/11/2022 vasagraw 	Origin                  	                             	base code                    	Mod
+01/11/2022 vasagraw 	Test-escape             	N                            	Y                            	Mod
+01/11/2022 vasagraw 	Test-EDP-phase          	                             	Regression Test              	Mod
+01/11/2022 vasagraw 	Test-EDP-activity       	                             	Regression Testing           	Mod
+01/11/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+01/11/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+01/11/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+01/11/2022 vasagraw 	Original-resolved-on    	                             	2022-01-12 04:36:23.000+0000 	Mod
+01/11/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+01/11/2022 vasagraw 	More-on                 	                             	2022-01-12 04:36:23.000+0000 	Mod
+01/11/2022 vasagraw 	Opened-on               	                             	2022-01-12 04:36:23.000+0000 	Mod
+01/11/2022 vasagraw 	Resolved-on             	                             	2022-01-12 04:36:23.000+0000 	Mod
+01/11/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Sun Jan 	New
+01/11/2022 vasagraw 	statusStates            	[status=A, startDate=Sun Jan 	                             	Del
+01/11/2022 vasagraw 	Age-status              	3                            	6                            	Mod
+01/11/2022 vasagraw 	Mean-time-to-resolved   	                             	5                            	Mod
+01/11/2022 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+01/11/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+01/11/2022 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+01/11/2022 baas     	File Name               	                             	ccwarnings-irvine            	New
+01/11/2022 baas     	File Name               	                             	static-analysis-irvine.p2    	New
+01/10/2022 cms      	Est-fix-date            	                             	2022-01-12 08:00:00.000+0000 	Mod
+01/10/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+01/10/2022 vasagraw 	Note Title              	                             	static-analysis-irvine       	New
+01/10/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+01/10/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+01/08/2022 anikunna 	Note Title              	                             	A-comments                   	New
+01/08/2022 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+01/08/2022 anikunna 	Status                  	N                            	A                            	Mod
+01/08/2022 anikunna 	Engineer                	                             	vasagraw                     	Mod
+01/08/2022 anikunna 	Assigner                	                             	anikunna                     	Mod
+01/08/2022 anikunna 	Assigned Date           	                             	2022-01-09 06:20:32.000+0000 	Mod
+01/08/2022 anikunna 	statusStates            	                             	[status=N, startDate=Thu Jan 	New
+01/08/2022 anikunna 	statusStates            	[status=N, startDate=Thu Jan 	                             	Del
+01/08/2022 anikunna 	Age-status              	0                            	3                            	Mod
+01/08/2022 anikunna 	Mean-time-to-assigned   	                             	3                            	Mod
+01/05/2022 bryserra 	serviceRequests/C3/69268	                             	C3/692687057                 	New
+01/05/2022 bryserra 	Urgency-desc            	NA                           	P3                           	Mod
+01/05/2022 bryserra 	Urgency                 	                             	6                            	Mod
+01/05/2022 bryserra 	Activity-when-found     	Customer-Preproduction       	Customer-Use                 	Mod
+01/05/2022 bryserra 	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+01/05/2022 bryserra 	Data-classification-reas	software defect              	Default value of Data-classif	Mod
+01/05/2022 bryserra 	Tickets-count           	0                            	1                            	Mod
+01/05/2022 bryserra 	TACSR-count             	                             	1                            	Mod
+01/05/2022 bryserra 	Tickets-count-direct    	                             	1                            	Mod
+01/05/2022 bryserra 	Trouble-tickets         	                             	692687057                    	New
+01/05/2022 bryserra 	Trouble-tickets-direct  	                             	C3692687057                  	New
+01/05/2022 bryserra 	Note Title              	                             	TAC-Analysis                 	New
+01/05/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+01/05/2022 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+01/05/2022 cdetsbtk 	Security-screening-times	                             	2022-01-06 14:14:40.000+0000 	Mod
+01/05/2022 bryserra 	contents                	                             	1641232306_0x101_radius_log.1	Mod
+01/05/2022 bryserra 	File Name               	1641232306_0x101_radius_log.1	core file                    	Mod
+01/05/2022 bryserra 	ActivityFileName        	1641232306_0x101_radius_log.1	core file                    	Mod
+01/05/2022 bryserra 	File Name               	                             	1641232306_0x101_radius_log.1	New
+01/05/2022 bryserra 	Note Title              	                             	Crash-decode                 	New
+01/05/2022 bryserra 	Note Title              	                             	Release-note                 	New
+01/05/2022 bryserra 	Version                 	                             	9.3(8)                       	New
+01/05/2022 bryserra 	Known-affected-releases 	                             	/tmp/perl_modules_used.log:,/	New
+01/05/2022 bryserra 	Defect Created          	                             	                             	New

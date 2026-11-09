@@ -1,0 +1,2345 @@
+*******************************************************************************
+
+Bug ID   : CSCwo90314         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : When the aaa group1 cannot access the TACACS Server but the source-interface remains up, the permissions obtained by the role are abnormal
+PrimaryPV : 
+Version :10.4(4) 9.3(5) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: hepwang            Submitted: 04/24/2025 00:53:47     Last Updtd : 11/04/2026 02:38:41  
+RNE-Type: NONE                New-on : 04/24/2025 00:53:47      
+Root-cause-analysis:                                                  
+Interest : brsansom
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:siniu                                               
+Known-affected-releases:10.4(4) 9.3(5) 
+
+Known-fixed-releases:10.4(6) 10.4(7) 10.5(5) 10.6(1) 10.6(2) 
+
+
+
+Potentially-affected-releases:10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)N1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)N1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)N1(1) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 06/08/2025 08:28:52                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 172                                            
+Mean-time-to-resolved: 183                                            
+Mean-time-to-verified: 213    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/24/2025 00:53:47            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : medium        Assigned: 10/13/2025 23:42:25 
+Code-reviewer: samekama       
+Opened-on: 06/08/2025 08:28:52Opener: greddyda              
+Engineer : greddyda           DE-manager  : anikunna        Est Time/Attribute : pr4m cfd-manojohn mukamath-palshanm qr1
+Est. completion date: 10/27/2025 00:00:00  
+Script-version:                         
+
+More-by : greddyda            More-on: 06/08/2025 08:28:52  
+
+Documents Changed: none       Resolved: 10/24/2025 23:39:46 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 11/23/2025 21:34:49      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Dalian-APAC-SNTC-China
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   4
+Tickets-count-direct :            4
+Trouble-tickets :              698812143;700197632;700373642;700841517
+Trouble-tickets-direct :C3700197632 
+Trouble-tickets-direct :C3700373642 
+Trouble-tickets-direct :C3698812143 
+Trouble-tickets-direct :C3700841517 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 06/06/2025 09:01:43
+Document :    nexus
+
+Summary:
+1/ The Tacacs configuration of N9K is as follows:
+
+N95# show run tacacs+ 
+version 10.4(4) Bios:version 05.51 
+feature tacacs+
+
+tacacs-server host x.x.x.1 key 7 "fewhg" single-connection 
+aaa group server tacacs+ group1
+    server x.x.x.1
+    source-interface loopback0
+aaa group server tacacs+ group2
+    server x.x.x.1
+    use-vrf management
+    source-interface mgmt0
+
+
+N95# show run aaa
+aaa authentication login default group group1 group2 local 
+aaa authentication login console local 
+aaa authorization config-commands default group group1 group2 local 
+aaa authorization commands default group group1 group2 local 
+aaa accounting default group group1 group2
+aaa authentication login ascii-authentication 
+
+Can obtain admin permissions normally?
+N95# show user-account 
+user:test
+        roles:network-admin                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+
+2/ When the aaa group1 cannot access the tacacs server and maintain the source-interface up, (the group2 is normal), there will be problems with the permissions obtained by the user.
+
+The permissions obtained are abnormal?
+N95# show user-account 
+user:test
+        roles:network-operator                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+******************* Related Service Requests (4 of 4)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         698812143       null                                     
+C3         700197632       null                                     
+C3         700373642       null                                     
+C3         700841517       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-461332                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (22 of 22 ) ***********************
+
+---Start of Note Titled: QR3F-V-comments (Created 02/26/2026 23:50:44 Added 02/26/2026 23:50:44 by palshanm)---
+https://ngdevx.cisco.com/services/taas/results/0384a392-309c-4874-a775-14142ed18e95
+---End of Note Titled: QR3F-V-comments---
+
+
+---Start of Note Titled: PR5M V-Comments (Created 01/31/2026 01:51:56 Added 01/31/2026 01:51:56 by palshanm)---
+1. S/W Version : 10.5(4.23)
+2. Platform : FXP
+3. Automation Suite: Yes
+4. Steps to reproduce and Verify: Test Log attached
+
+https://ngdevx.cisco.com/services/taas/results/c6aecdde-42a2-40b7-8f4d-1bee26d1ba56
+---End of Note Titled: PR5M V-Comments---
+
+
+---Start of Note Titled: V-comments.p3 (Created 11/23/2025 21:34:49 Added 11/23/2025 21:34:49 by palshanm)---
+1. S/W Version : CSCwo90314
+2. Platform : FXP
+3. Automation Suite: Yes
+4. Steps to reproduce and Verify: Test Log attached
+
+https://ngdevx.cisco.com/services/taas/results/9deac901-2c02-4746-bd24-d7d5123ae1d5
+---End of Note Titled: V-comments.p3---
+
+
+---Start of Note Titled: Unit-test_olympia (Created 10/29/2025 20:48:04 Added 10/29/2025 20:48:04 by divshah)---
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Oct 29 12:01:11 2025
+!Time: Thu Oct 30 03:36:13 2025
+
+version 10.4(6) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+
+
+Palshanm-FXP-DND(config)#           show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Oct 29 12:01:11 2025
+!Time: Thu Oct 30 03:36:24 2025
+
+version 10.4(6) Bios:version 05.53 
+aaa authentication login default group CSCwr61446_not_reachable CSCwr61446 
+aaa authentication login console local 
+aaa authentication login error-enable
+
+
+sjc-ads-6693:/nobackup/divshah/olympia_rel_COV_10_4_6_1 > ssh palani@10.105.194.181
+User Access Verification
+Password:
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# ethanalyzer local interface inband display-filter "ip.addr == 255.1.1.1" limit-captured-frames 0 
+Capturing on 'ps-inb'
+   12 2025-10-30 03:39:05.224617871  192.168.1.1 ? 255.1.1.1    TCP 74 60166 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=572549 TSecr=0
+   13 2025-10-30 03:39:05.225030436    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 60166 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=4185273581 TSecr=572549 WS=128
+   14 2025-10-30 03:39:05.225362056  192.168.1.1 ? 255.1.1.1    TCP 66 60166 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=572549 TSecr=4185273581
+   15 2025-10-30 03:39:05.225655383  192.168.1.1 ? 255.1.1.1    TACACS+ 114 Q: Authentication
+   16 2025-10-30 03:39:05.225795937    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60166 [ACK] Seq=1 Ack=49 Win=29056 Len=0 TSval=4185273582 TSecr=572549
+   17 2025-10-30 03:39:05.241970991    255.1.1.1 ? 192.168.1.1  TACACS+ 84 R: Authentication
+   18 2025-10-30 03:39:05.242038230    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60166 [FIN, ACK] Seq=19 Ack=49 Win=29056 Len=0 TSval=4185273598 TSecr=572549
+   19 2025-10-30 03:39:05.242228691  192.168.1.1 ? 255.1.1.1    TCP 66 60166 ? 49 [ACK] Seq=49 Ack=20 Win=17358 Len=0 TSval=572549 TSecr=4185273598
+   20 2025-10-30 03:39:05.242599147  192.168.1.1 ? 255.1.1.1    TCP 66 60166 ? 49 [FIN, ACK] Seq=49 Ack=20 Win=17376 Len=0 TSval=572549 TSecr=4185273598
+   21 2025-10-30 03:39:05.242747706    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60166 [ACK] Seq=20 Ack=50 Win=29056 Len=0 TSval=4185273599 TSecr=572549
+   22 2025-10-30 03:39:05.243625180  192.168.1.1 ? 255.1.1.1    TCP 74 60403 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=572549 TSecr=0
+   23 2025-10-30 03:39:05.243821628    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 60403 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=4185273600 TSecr=572549 WS=128
+   24 2025-10-30 03:39:05.244082623  192.168.1.1 ? 255.1.1.1    TCP 66 60403 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=572549 TSecr=4185273600
+   25 2025-10-30 03:39:05.244336087  192.168.1.1 ? 255.1.1.1    TACACS+ 153 Q: Authorization
+   26 2025-10-30 03:39:05.244433397    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60403 [ACK] Seq=1 Ack=88 Win=29056 Len=0 TSval=4185273601 TSecr=572549
+   27 2025-10-30 03:39:05.262043051    255.1.1.1 ? 192.168.1.1  TACACS+ 120 R: Authorization
+   28 2025-10-30 03:39:05.262069522    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60403 [FIN, ACK] Seq=55 Ack=88 Win=29056 Len=0 TSval=4185273618 TSecr=572549
+   29 2025-10-30 03:39:05.262275237  192.168.1.1 ? 255.1.1.1    TCP 66 60403 ? 49 [ACK] Seq=88 Ack=56 Win=17322 Len=0 TSval=572549 TSecr=4185273618
+   30 2025-10-30 03:39:05.262816679  192.168.1.1 ? 255.1.1.1    TCP 66 60403 ? 49 [FIN, ACK] Seq=88 Ack=56 Win=17376 Len=0 TSval=572549 TSecr=4185273618
+20    31 2025-10-30 03:39:05.263099677    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 60403 [ACK] Seq=56 Ack=89 Win=29056 Len=0 TSval=4185273619 TSecr=572549
+20 ^C
+Palshanm-FXP-DND(config)# ^C
+Palshanm-FXP-DND(config)# ^C
+Palshanm-FXP-DND(config)# show user-account palani
+user:palani
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+Palshanm-FXP-DND(config)#
+
+Palshanm-FXP-DND(config)#  show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Oct 29 12:01:11 2025
+!Time: Thu Oct 30 03:46:16 2025
+
+version 10.4(6) Bios:version 05.53 
+aaa authentication login default group CSCwr61446_not_reachable CSCwr61446 
+aaa authentication login console local 
+aaa authentication login error-enable 
+
+
+Palshanm-FXP-DND(config)# aaa authentication login default group CSCwr61446
+Palshanm-FXP-DND(config)#  show running-config  
+
+!Command: show running-config
+!Running configuration last done at: Thu Oct 30 03:46:27 2025
+!Time: Thu Oct 30 03:46:32 2025
+
+version 10.4(6) Bios:version 05.53 
+hostname Palshanm-FXP-DND
+vdc Palshanm-FXP-DND id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+feature nxapi
+feature bash-shell
+feature tacacs+
+feature netconf
+feature interface-vlan
+
+no password strength-check
+username admin password 5 $5$NPGFFN$bg4ur34IQfWTojezw5j.gGbq9/dje59.Mb9KR4NUJa5  role network-admin
+username test password 5 !  role network-operator
+username test passphrase  lifetime 99999 warntime 14 gracetime 3
+username test123 password 5 $5$KPIAPH$KIgepp1.wvf2wOeKK1BTnMKTzP538.n3XC8V.L43fT4  role network-operator
+username test123 passphrase  lifetime 99999 warntime 14 gracetime 3
+ip domain-lookup
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+feature password encryption aes tam
+crypto ca trustpoint ca1 
+     revocation-check  crl 
+copp profile strict
+snmp-server user test network-operator 
+snmp-server user admin network-admin pwd_type 6 auth md5 JDYkkfVHFijZ5OjKSv00CFprfiSHgfzYqkgKVrTU+PCHhjDdun0hJ4OCiLWiAjNjqd1dRobtArH9WRKHVmSrbf8Tw8ckTJT6Qa8PgmSa841D6d8Ie5YkLGEA priv aes-128 JDYksXQau
+RM3jpnB2UrCO6mwTSQV9/R3oWlM0+XvDtLUKsVjWmVCP9qP1kzOs16pvyuWv9YNQlDh9xisF1Wy0FhCuvIk3ebIunueDPXkRrEzzZ4h4LMqZUoA localizedV2key
+snmp-server user test123 network-operator pwd_type 6 auth md5 JDYkDNvKk0KSq3X0BEERwOgoACRmQBVhbozmyOrIm1hZufThTN1r4tvLrK11NfeQziI2hJHqmwgjN7mw+tc6VUeks0cksxu137ZolkX1QYS2hdQAOTIPikQA priv aes-128 JDYk
+kK3/sImG/RxPAPH4pokLsCTmmnkex5K/Run/5byqwUd9trvwGk9djB6q5oQ8vBScQMUGCWoYS0615UiZXa/No/wk1Nu3itczEr8zHf9hXqreJOVK/XgA localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+ntp authentication-key 1 md5 nacrv5 7
+ntp authentication-key 2 aes128cmac nacfws 7
+aaa authentication login default group CSCwr61446 
+aaa authentication login console local 
+aaa authentication login error-enable 
+
+vlan 1,4,100
+
+vrf context management
+  ip route 0.0.0.0/0 10.105.194.129
+  ipv6 route 0::/0 2001:420:5445:2021::216:1
+vrf context test1
+nxapi http port 80
+
+
+interface Vlan1
+
+interface Vlan4
+  no shutdown
+  ip address 4.4.4.1/24
+  ipv6 address 4::1/64
+
+interface Ethernet1/1
+  ip address 255.1.1.2/24
+  ipv6 address 255::2/64
+  no shutdown
+
+interface Ethernet1/2
+  switchport
+
+interface Ethernet1/3
+  no shutdown
+
+interface Ethernet1/4
+  no shutdown
+
+interface Ethernet1/5
+  no shutdown
+
+interface Ethernet1/6
+  no shutdown
+
+interface Ethernet1/7
+  no shutdown
+
+interface Ethernet1/8
+  no shutdown
+
+interface Ethernet1/9
+  no shutdown
+
+interface Ethernet1/10
+  no shutdown
+
+interface Ethernet1/11
+  no shutdown
+
+interface Ethernet1/12
+  no shutdown
+
+interface Ethernet1/13
+  ip address 2.2.2.1/24
+  ipv6 address 2::1/64
+  no shutdown
+
+interface Ethernet1/14
+  no shutdown
+
+interface Ethernet1/15
+  no shutdown
+
+interface Ethernet1/16
+  no shutdown
+
+interface Ethernet1/17
+  no shutdown
+
+interface Ethernet1/18
+  no shutdown
+
+interface Ethernet1/19
+  no shutdown
+
+interface Ethernet1/20
+  no shutdown
+
+interface Ethernet1/21
+  no shutdown
+
+interface Ethernet1/22
+  no shutdown
+
+interface Ethernet1/23
+  no shutdown
+
+interface Ethernet1/24
+  no shutdown
+
+interface Ethernet1/24.1
+  encapsulation dot1q 3
+  ip address 3.3.3.1/24
+  ipv6 address 3::1/64
+  no shutdown
+
+interface Ethernet1/25
+  no shutdown
+
+interface Ethernet1/26
+  no shutdown
+
+interface Ethernet1/27
+  no shutdown
+
+interface Ethernet1/28
+  no shutdown
+
+interface Ethernet1/29
+  no shutdown
+
+interface Ethernet1/30
+  no shutdown
+
+interface Ethernet1/31
+  no shutdown
+
+interface Ethernet1/32
+  switchport
+  switchport access vlan 4
+  no shutdown
+
+interface Ethernet1/33
+  no shutdown
+
+interface Ethernet1/34
+  no shutdown
+
+interface Ethernet1/35
+  no shutdown
+
+interface Ethernet1/36
+  no shutdown
+
+interface Ethernet1/37
+  no shutdown
+
+interface Ethernet1/38
+  no shutdown
+
+interface Ethernet1/39
+  no shutdown
+
+interface Ethernet1/40
+  no shutdown
+
+interface Ethernet1/41
+  no shutdown
+
+interface Ethernet1/42
+  no shutdown
+
+interface Ethernet1/43
+  no shutdown
+
+interface Ethernet1/44
+  no shutdown
+
+interface Ethernet1/45
+  no shutdown
+
+interface Ethernet1/46
+  no shutdown
+
+interface Ethernet1/47
+  no shutdown
+
+interface Ethernet1/48
+  no shutdown
+
+interface Ethernet1/49
+  no shutdown
+
+interface Ethernet1/50
+  no shutdown
+
+interface Ethernet1/51
+  no shutdown
+
+interface Ethernet1/52
+  no shutdown
+
+interface Ethernet1/53
+  no shutdown
+
+interface Ethernet1/54
+  no shutdown
+
+interface mgmt0
+  vrf member management
+  ip address 10.105.194.181/25
+  ipv6 address 2001:420:5445:2021::216:20/119
+  ipv6 link-local fe80::d6c9:3cff:feea:340c
+
+interface loopback1
+  ip address 1.1.1.1/32
+  ipv6 address 1::1/64
+
+interface loopback10
+
+interface loopback11
+
+interface loopback100
+  ip address 192.168.1.1/24
+icam monitor scale
+
+cli alias name ps run bash sudo ps -eaf | grep socat | grep default
+cli alias name cmd1 test aaa group tac2 palani Cisc0123 ; test aaa group tac3 palani Cisc0123 ; test aaa group tacethv4  palani Cisc0123 ; test aaa group tacethv6 palani Cisc0123 ; test aaa group  tac
+_sub_int_v4 palani Cisc0123 ; test aaa group  tac_sub_int_v6 palani Cisc0123 ; test aaa group tac_svi_v4  palani Cisc0123 ; test aaa group tac_svi_v6 palani Cisc0123
+line console
+  exec-timeout 0
+line vty
+  exec-timeout 0
+---End of Note Titled: Unit-test_olympia---
+
+
+---Start of Note Titled:  OR6M-BadCode-10-4-6 (Created 10/29/2025 08:15:07 Modified 10/29/2025 08:20:48 by samekama)---
+The original fix caused regression (CSCwr61446) & was shipped in 10.4(6).
+
+Rectified & proper fix will be shipped as part of OR7M - 10.4(7).
+---End of Note Titled: OR6M-BadCode-10-4-6---
+
+
+---Start of Note Titled: R-comments.p2 (Created 10/24/2025 23:39:47 Added 10/24/2025 23:39:47 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+tacacs get context based on vrf is not added.
+
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+Added code to fetch vrf context based on ifindex
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases. - N9k Releases
+
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)?
+check attached UT logs for repro.
+collect debug of tacacs and AAA.
+ 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Attached UT logs with clear steps.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled:  unit-test_qr2f (Created 10/24/2025 05:22:26 Modified 11/23/2025 21:36:03 by synchub.gen)---
+Created By: qddts
+Enclosure Title: unit-test_qr2f
+
+Enclosure Content:
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct 24 12:10:46 2025
+!Time: Fri Oct 24 12:10:49 2025
+
+version 10.6(2) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+
+Palshanm-FXP-DND(config)#         
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct 24 12:10:46 2025
+!Time: Fri Oct 24 12:10:53 2025
+
+version 10.6(2) Bios:version 05.53 
+aaa authentication login default group CSCwr61446_not_reachable CSCwr61446 
+aaa authentication login console local 
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show user-account palani
+user:palani does not exist
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)#  ethanalyzer local interface inband display-filter "ip.addr == 255.1.1.1" limit-captured-frames 0            <<<<<<<<<< SSH LOGIN WITH REMOTE/TACACS USER 'palani' IN A PARALLEL SESSION
+Capturing on 'ps-inb'         
+2    11 2025-10-24 12:12:05.790267771  192.168.1.1 ? 255.1.1.1    TCP 74 59349 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=983562 TSecr=0
+3    12 2025-10-24 12:12:05.790637356    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 59349 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=3697653337 TSecr=983562 WS=128
+4    13 2025-10-24 12:12:05.790969961  192.168.1.1 ? 255.1.1.1    TCP 66 59349 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=983562 TSecr=3697653337
+5    14 2025-10-24 12:12:05.791378295  192.168.1.1 ? 255.1.1.1    TACACS+ 114 Q: Authentication
+7    15 2025-10-24 12:12:05.791571614    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59349 [ACK] Seq=1 Ack=49 Win=29056 Len=0 TSval=3697653338 TSecr=983562
+8    16 2025-10-24 12:12:05.873417108    255.1.1.1 ? 192.168.1.1  TACACS+ 84 R: Authentication
+9    17 2025-10-24 12:12:05.873442162    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59349 [FIN, ACK] Seq=19 Ack=49 Win=29056 Len=0 TSval=3697653420 TSecr=983562
+10    18 2025-10-24 12:12:05.873816829  192.168.1.1 ? 255.1.1.1    TCP 66 59349 ? 49 [ACK] Seq=49 Ack=20 Win=17358 Len=0 TSval=983563 TSecr=3697653420
+11    19 2025-10-24 12:12:05.874612627  192.168.1.1 ? 255.1.1.1    TCP 66 59349 ? 49 [FIN, ACK] Seq=49 Ack=20 Win=17376 Len=0 TSval=983563 TSecr=3697653420
+13    20 2025-10-24 12:12:05.874775668    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59349 [ACK] Seq=20 Ack=50 Win=29056 Len=0 TSval=3697653421 TSecr=983563
+14    22 2025-10-24 12:12:05.877284363  192.168.1.1 ? 255.1.1.1    TCP 74 59601 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=983563 TSecr=0
+15    23 2025-10-24 12:12:05.877466184    255.1.1.1 ? 192.168.1.1  TCP 74 49 ? 59601 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=3697653424 TSecr=983563 WS=128
+17    24 2025-10-24 12:12:05.877734962  192.168.1.1 ? 255.1.1.1    TCP 66 59601 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=983563 TSecr=3697653424
+18    25 2025-10-24 12:12:05.878105605  192.168.1.1 ? 255.1.1.1    TACACS+ 153 Q: Authorization
+19    26 2025-10-24 12:12:05.878236241    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59601 [ACK] Seq=1 Ack=88 Win=29056 Len=0 TSval=3697653425 TSecr=983563
+20    27 2025-10-24 12:12:05.895013024    255.1.1.1 ? 192.168.1.1  TACACS+ 120 R: Authorization
+   28 2025-10-24 12:12:05.895028749    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59601 [FIN, ACK] Seq=55 Ack=88 Win=29056 Len=0 TSval=3697653442 TSecr=983563
+   29 2025-10-24 12:12:05.895238524  192.168.1.1 ? 255.1.1.1    TCP 66 59601 ? 49 [ACK] Seq=88 Ack=56 Win=17322 Len=0 TSval=983563 TSecr=3697653442
+   30 2025-10-24 12:12:05.896279145  192.168.1.1 ? 255.1.1.1    TCP 66 59601 ? 49 [FIN, ACK] Seq=88 Ack=56 Win=17376 Len=0 TSval=983563 TSecr=3697653442
+   31 2025-10-24 12:12:05.896460575    255.1.1.1 ? 192.168.1.1  TCP 66 49 ? 59601 [ACK] Seq=56 Ack=89 Win=29056 Len=0 TSval=3697653443 TSecr=983563
+20 ^C
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show user-account palani
+user:palani
+        roles:network-admin vdc-admin         <<<<<<<<<<<<
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+Palshanm-FXP-DND(config)#
+
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Oct 27 08:34:41 2025
+!Time: Mon Oct 27 08:34:44 2025
+
+version 10.6(2) Bios:version 05.53 
+aaa authentication login default group CSCwr61446_not_reachable CSCwr61446 
+aaa authentication login console local 
+aaa authentication login error-enable 
+aaa authentication login ascii-authentication 
+
+
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# aaa authentication login default group CSCwr61446
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# 
+Palshanm-FXP-DND(config)# show running-config  
+
+!Command: show running-config
+!Running configuration last done at: Mon Oct 27 08:34:56 2025
+!Time: Mon Oct 27 08:35:07 2025
+
+version 10.6(2) Bios:version 05.53 
+hostname Palshanm-FXP-DND
+vdc Palshanm-FXP-DND id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature telnet
+feature nxapi
+feature bash-shell
+feature tacacs+
+feature netconf
+feature interface-vlan
+
+no password strength-check
+username admin password 5 $5$NPGFFN$bg4ur34IQfWTojezw5j.gGbq9/dje59.Mb9KR4NUJa5  role network-admin
+username test password 5 !  role network-operator
+username test passphrase  lifetime 99999 warntime 14 gracetime 3
+username test123 password 5 $5$KPIAPH$KIgepp1.wvf2wOeKK1BTnMKTzP538.n3XC8V.L43fT4  role network-operator
+username test123 passphrase  lifetime 99999 warntime 14 gracetime 3
+ip domain-lookup
+tacacs-server key 7 "fewhg"
+ip tacacs source-interface loopback100
+tacacs-server host 4::1 
+tacacs-server host 3.3.3.1 key 7 "fewhg" 
+tacacs-server host 2::1 key 7 "fewhg" 
+tacacs-server host 3::1 key 7 "fewhg" 
+tacacs-server host 2.2.2.1 key 7 "fewhg" 
+tacacs-server host 4.4.4.1 key 7 "fewhg" 
+tacacs-server host 1.1.1.1 key 7 "fewhg" 
+tacacs-server host 1::1 key 7 "fewhg" 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ tac3 
+    server 1::1 
+aaa group server tacacs+ tac2 
+    server 1.1.1.1 
+aaa group server tacacs+ tac_sub_int_v4 
+    server 3.3.3.1 
+aaa group server tacacs+ tacethv4 
+    server 2.2.2.1 
+aaa group server tacacs+ tacethv6 
+    server 2::1 
+aaa group server tacacs+ tac_sub_int_v6 
+    server 3::1 
+aaa group server tacacs+ tac_svi_v4 
+    server 4.4.4.1 
+aaa group server tacacs+ tac_svi_v6 
+    server 4::1 
+aaa group server tacacs+ CSCwr61446 
+    server 255.1.1.1 
+    source-interface loopback100
+aaa group server tacacs+ CSCwr61446_not_reachable 
+    server 255.1.1.1 
+    source-interface mgmt0
+feature password encryption aes tam
+crypto ca trustpoint ca1 
+  revocation-check crl
+copp profile strict
+snmp-server user test network-operator 
+snmp-server user admin network-admin pwd_type 6 auth md5 JDYkkfVHFijZ5OjKSv00CFprfiSHgfzYqkgKVrTU+PCHhjDdun0hJ4OCiLWiAjNjqd1dRobtArH9WRKHVmSrbf8Tw8ckTJT6Qa8PgmSa841D6d8Ie5YkLGEA priv aes-128 JDYksXQau
+RM3jpnB2UrCO6mwTSQV9/R3oWlM0+XvDtLUKsVjWmVCP9qP1kzOs16pvyuWv9YNQlDh9xisF1Wy0FhCuvIk3ebIunueDPXkRrEzzZ4h4LMqZUoA localizedV2key
+snmp-server user test123 network-operator pwd_type 6 auth md5 JDYkDNvKk0KSq3X0BEERwOgoACRmQBVhbozmyOrIm1hZufThTN1r4tvLrK11NfeQziI2hJHqmwgjN7mw+tc6VUeks0cksxu137ZolkX1QYS2hdQAOTIPikQA priv aes-128 JDYk
+kK3/sImG/RxPAPH4pokLsCTmmnkex5K/Run/5byqwUd9trvwGk9djB6q5oQ8vBScQMUGCWoYS0615UiZXa/No/wk1Nu3itczEr8zHf9hXqreJOVK/XgA localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+ntp authentication-key 1 md5 nacrv5 7
+ntp authentication-key 2 aes128cmac nacfws 7
+aaa authentication login default group CSCwr61446 
+aaa authentication login console local 
+
+vlan 1,4,100
+
+vrf context management
+  ip route 0.0.0.0/0 10.105.194.129
+  ipv6 route 0::/0 2001:420:5445:2021::216:1
+vrf context test1
+nxapi http port 80
+
+
+interface Vlan1
+
+interface Vlan4
+  no shutdown
+  ip address 4.4.4.1/24
+  ipv6 address 4::1/64
+
+interface Ethernet1/1
+  ip address 255.1.1.2/24
+  ipv6 address 255::2/64
+  no shutdown
+
+interface Ethernet1/2
+  switchport
+
+interface Ethernet1/3
+  no shutdown
+
+interface Ethernet1/4
+  no shutdown
+
+interface Ethernet1/5
+  no shutdown
+
+interface Ethernet1/6
+  no shutdown
+
+interface Ethernet1/7
+  no shutdown
+
+interface Ethernet1/8
+  no shutdown
+
+interface Ethernet1/9
+  no shutdown
+
+interface Ethernet1/10
+  no shutdown
+
+interface Ethernet1/11
+  no shutdown
+
+interface Ethernet1/12
+  no shutdown
+
+interface Ethernet1/13
+  ip address 2.2.2.1/24
+  ipv6 address 2::1/64
+  no shutdown
+
+interface Ethernet1/14
+  no shutdown
+
+interface Ethernet1/15
+  no shutdown
+
+interface Ethernet1/16
+  no shutdown
+
+interface Ethernet1/17
+  no shutdown
+
+interface Ethernet1/18
+  no shutdown
+
+interface Ethernet1/19
+  no shutdown
+
+interface Ethernet1/20
+  no shutdown
+
+interface Ethernet1/21
+  no shutdown
+
+interface Ethernet1/22
+  no shutdown
+
+interface Ethernet1/23
+  no shutdown
+
+interface Ethernet1/24
+  no shutdown
+
+interface Ethernet1/24.1
+  encapsulation dot1q 3
+  ip address 3.3.3.1/24
+  ipv6 address 3::1/64
+  no shutdown
+
+interface Ethernet1/25
+  no shutdown
+
+interface Ethernet1/26
+  no shutdown
+
+interface Ethernet1/27
+  no shutdown
+
+interface Ethernet1/28
+  no shutdown
+
+interface Ethernet1/29
+  no shutdown
+
+interface Ethernet1/30
+  no shutdown
+
+interface Ethernet1/31
+  no shutdown
+
+interface Ethernet1/32
+  switchport
+  switchport access vlan 4
+  no shutdown
+
+interface Ethernet1/33
+  no shutdown
+
+interface Ethernet1/34
+  no shutdown
+
+interface Ethernet1/35
+  no shutdown
+
+interface Ethernet1/36
+  no shutdown
+
+interface Ethernet1/37
+  no shutdown
+
+interface Ethernet1/38
+  no shutdown
+
+interface Ethernet1/39
+  no shutdown
+
+interface Ethernet1/40
+  no shutdown
+
+interface Ethernet1/41
+  no shutdown
+
+interface Ethernet1/42
+  no shutdown
+
+interface Ethernet1/43
+  no shutdown
+
+interface Ethernet1/44
+  no shutdown
+
+interface Ethernet1/45
+  no shutdown
+
+interface Ethernet1/46
+  no shutdown
+
+interface Ethernet1/47
+  no shutdown
+
+interface Ethernet1/48
+  no shutdown
+
+interface Ethernet1/49
+  no shutdown
+
+interface Ethernet1/50
+  no shutdown
+
+interface Ethernet1/51
+  no shutdown
+
+interface Ethernet1/52
+  no shutdown
+
+interface Ethernet1/53
+  no shutdown
+
+interface Ethernet1/54
+  no shutdown
+
+interface mgmt0
+  vrf member management
+  ip address 10.105.194.181/25
+  ipv6 address 2001:420:5445:2021::216:20/119
+  ipv6 link-local fe80::d6c9:3cff:feea:340c
+
+interface loopback1
+  ip address 1.1.1.1/32
+  ipv6 address 1::1/64
+
+interface loopback10
+
+interface loopback11
+
+interface loopback100
+  ip address 192.168.1.1/24
+icam monitor scale
+
+cli alias name ps run bash sudo ps -eaf | grep socat | grep default
+cli alias name cmd1 test aaa group tac2 palani Cisc0123 ; test aaa group tac3 palani Cisc0123 ; test aaa group tacethv4  palani Cisc0123 ; test aaa group tacethv6 palani Cisc0123 ; test aaa group  tac
+_sub_int_v4 palani Cisc0123 ; test aaa group  tac_sub_int_v6 palani Cisc0123 ; test aaa group tac_svi_v4  palani Cisc0123 ; test aaa group tac_svi_v6 palani Cisc0123
+line console
+  exec-timeout 0
+line vty
+  exec-timeout 0
+
+Palshanm-FXP-DND(config)#
+---End of Note Titled: unit-test_qr2f---
+
+
+---Start of Note Titled: A-comments.p2 (Created 10/13/2025 23:42:26 Added 10/13/2025 23:42:26 by vasagraw)---
+Re-opening due to regression bug CSCwr61446 - will put comprehensive fix via this original CFD itself.
+---End of Note Titled: A-comments.p2---
+
+
+---Start of Note Titled: A-comments.p3 (Created 10/13/2025 23:42:26 Added 10/13/2025 23:42:26 by vasagraw)---
+Re-opening due to regression bug CSCwr61446 - will put comprehensive fix via this original CFD itself.
+---End of Note Titled: A-comments.p3---
+
+
+---Start of Note Titled: pr4m-tbp-eval (Created 10/10/2025 22:14:10 Added 10/10/2025 22:14:10 by vasagraw)---
+The CSCwr61446 issue, caused by CSCwo90314 fix, has been found out too late into PR4M - Reverted the CSCwo90314 code fix. We will devise a comprehensive fix (which needs minor design changes) in the next MR.
+---End of Note Titled: pr4m-tbp-eval---
+
+
+---Start of Note Titled:  static-analysis-runinfo-n9k (Created 10/09/2025 04:31:08 Modified 10/12/2025 21:51:07 by divshah)---
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+
+Total active warnings: 0
+Total noise warnings: 0
+Total parent warnings: 0
+
+Files not analyzed:
+	
+
+Files analyzed:
+	
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (0):
+
+Warnings marked parent (0):
+
+
+
+For details on the SA CLI output, see the run_sa FAQ: https://wiki.cisco.com/display/CSTATIC/run_sa+FAQ
+---End of Note Titled: static-analysis-runinfo-n9k---
+
+
+---Start of Note Titled: V-comments.p2 (Created 08/09/2025 11:34:02 Added 08/09/2025 11:34:02 by palshanm)---
+1. S/W Version : 10.5(3.94)
+2. Platform : FX2
+3. Automation Suite:  Yes
+4. Steps to reproduce and Verify:
+
+PR3F CCO Fail log - https://ngdevx.cisco.com/services/taas/results/22f5eae0-5c62-437e-9bae-0ad3b659ef2c
+PR4M Pass log - https://ngdevx.cisco.com/services/taas/results/3485b2b4-d62b-4dec-b613-33811f929972
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Automation-Log (Created 07/30/2025 22:45:51 Added 07/30/2025 22:45:51 by palshanm)---
+Fail Log - https://ngdevx.cisco.com/services/taas/results/3848826b-8529-4e71-9ae1-f0020c0b251d
+Pass Log - https://ngdevx.cisco.com/services/taas/results/8436bd52-c7f8-40fb-80d9-b803527d777b
+---End of Note Titled: Automation-Log---
+
+
+---Start of Note Titled: V-comments (Created 06/24/2025 11:53:07 Added 06/24/2025 11:53:07 by palshanm)---
+1. S/W Version : 10.6(0)IMG9(0.114)
+2. Platform : FX2
+3. Automation Suite:  No
+4. Steps to reproduce and Verify: Test Log attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 06/20/2025 12:09:35 Added 06/20/2025 12:09:35 by seshea)---
+--- Update 2025-06-20 19:09:34.131586 seshea (via 699223450)
+Unsuitable - CDETS Content
+matching only on aaa config + interface which is up is not a good logic, most aaa cases will match positively on this minimal logic
+
+issue is in the credentials provided to the role are incorrect
+this would only be measurable from specific aaa clis about the role and we would need to know the configured role on aaa/ise server vs what is on switch
+
+not possible to see the remote info so going unsuitable
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Email-in (Created 06/09/2025 03:45:07 Modified 11/23/2025 21:36:03 by synchub.gen)---
+Created By: mandlaks
+Enclosure Title: Email-in
+
+Enclosure Content:
+From: "Mandavilli Lakshmi Naga Sai Lahari -X (mandlaks - TATA CONSULTANCY SERVICES LIMITED at Cisco)" 
+Date: Monday, June 9, 2025 at 10:37 AM 
+To: "agilis-new-ic-team-nxos(mailer list)" 
+Cc: "ca-defect-feedback(mailer list)" , "bug-attach(mailer list)" , "maildediscussion(mailer list)" 
+Subject: CSCwo90314
+
+As per DE:
+You 6/9/2025 4:02 PM ? 
+Hi Govardhan
+Sorry for bothering you again
+RE: CSCwo90314 - When the second TACACS group cannot access the TACACS Server but the source-interface remains up, the permissions obtained by the role are abnormal
+As per R-comments
+Created By:greddydaCreated On:06/08/2025 08:28:53
+Updated By:greddydaUpdated On:06/08/2025 08:28:53
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted and whether this needs to be backported to previous long-lived releases. - N9k Releases
+Does this imply that the issue is specific to the N9k platform?
+New messages
+Govardhana Reddy Dasari 6/9/2025 4:03 PM ? Hi
+we did not hit this issue so far in other platforms like N7k and MDS
+You 6/9/2025 4:04 PM ? Could you please confirm is this issue impacts N3k and N3.5K platforms?
+Govardhana Reddy Dasari 6/9/2025 4:04 PM ? will have to check on those platforms before i can comment
+this will be applicable to N3K and N3.5k platforms
+You 6/9/2025 4:04 PM ? okay thank you
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: R-comments (Created 06/08/2025 08:28:53 Added 06/08/2025 08:28:53 by greddyda)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+tacacs get context based on vrf is not added.
+
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+Added code to fetch vrf context based on ifindex
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases. - N9k Releases
+
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)?
+check attached UT logs for repro.
+collect debug of tacacs and AAA.
+ 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Attached UT logs with clear steps.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Unit-test (Created 06/06/2025 21:23:15 Added 06/06/2025 21:23:15 by greddyda)---
+switch(config)# sh run interface loopback 0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Fri Jun  6 07:18:15 2025
+!Time: Fri Jun  6 07:19:39 2025
+
+version 10.6(1) Bios:version 05.53 
+
+interface loopback0
+  ip address 1.1.1.1/32
+
+switch(config)# show run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Jun  6 07:18:15 2025
+!Time: Fri Jun  6 07:19:44 2025
+
+version 10.6(1) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" single-connection 
+aaa group server tacacs+ tac1 
+    server 10.76.80.245 
+    source-interface loopback0
+aaa group server tacacs+ tac2 
+    server 10.76.80.245 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Jun  6 07:18:15 2025
+!Time: Fri Jun  6 07:20:10 2025
+
+version 10.6(1) Bios:version 05.53 
+aaa authentication login default group tac1 tac2 
+
+
+switch(config)# 
+
+switch(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:govardhan
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+
+Now shutdown loopback interface and test the roles after authentication:
+switch(config)# interface loopback 0
+switch(config-if)# shutdown 
+switch(config-if)# sh run interface loopback 
+                                             ^
+Invalid command (incomplete interface) at '^' marker.
+switch(config-if)# sh run interface loopback 0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Fri Jun  6 07:21:14 2025
+!Time: Fri Jun  6 07:21:22 2025
+
+version 10.6(1) Bios:version 05.53 
+
+interface loopback0
+  shutdown
+  ip address 1.1.1.1/32
+
+switch(config-if)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:govardhan
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config-if)#
+
+Now do no shut of loopback interface and check roles after authentication:
+switch(config-if)# no shut
+switch(config-if)# 
+switch(config-if)# sh run interface loopback 0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Fri Jun  6 07:22:55 2025
+!Time: Fri Jun  6 07:23:01 2025
+
+version 10.6(1) Bios:version 05.53 
+
+interface loopback0
+  ip address 1.1.1.1/32
+
+switch(config-if)# 
+switch(config-if)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:govardhan
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config-if)#
+
+reload the device with no shut and test show user-account before and after remote user authentication:
+switch(config)# show version 
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.53
+  NXOS: version 10.6(1) [build 10.6(0)IMG9(0.83)] [Feature Release]
+  Host NXOS: version 10.6(1) [build 10.6(0)IMG9(0.83)]
+  BIOS compile time:  01/22/2025
+  NXOS image file is: bootflash:///aaa-remote-userrole.bin
+  NXOS compile time:  7/31/2025 12:00:00 [06/06/2025 06:27:46]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C9348GC-FXP Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 24538944 kB of memory.
+  Processor Board ID FDO2222109A
+  Device name: switch
+  bootflash:  115805356 kB
+
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 26 second(s)
+
+Last reset at 535199 usecs after Sat Jun  7 04:14:44 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.6(1)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+switch(config)#  
+
+Successfull authentication with remote use:
+switch(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:govardhan
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+
+Did shutdown of loopback interface and authenticated remote user:
+switch(config)# interface loopback 0
+switch(config-if)# sh run interface loopback 0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Sat Jun  7 04:20:52 2025
+!Time: Sat Jun  7 04:20:56 2025
+
+version 10.6(1) Bios:version 05.53 
+
+interface loopback0
+  ip address 1.1.1.1/32
+
+switch(config-if)# shutdown 
+
+After authentication roles are same:
+
+switch(config-if)# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:govardhan
+        roles:network-admin vdc-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config-if)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/24/2025 22:49:08 Modified 10/23/2025 23:48:15 by cms)---
+{251024 samekama S B} PR to be raised. UT in progress.
+{251017 samekama S B} On track for ETA: 10/24
+{251014 samekama S B} Started working on the incremental changes. 
+{251013 chrconlo S B} TBP approved based on badfix reverted out of PR4M and new fix being designed.
+{250812 tdenotte S B} RNE review esc input: needs documenting (CFD with RNE)
+{250722 samekama S B} Quezon-done
+{250620 greddyda S B} PR raised for PR4M double commit
+{250618 bkganesh S B} Added to RL, but codenet stuck
+{250611 samekama S G} PR raised for Or6m
+{250610 samekama S B} OR6M ETA 6/13
+{250609 samekama S B} OR6M - Double commit to be initiated today/tomorrow.
+{250606 samekama S B} PR to be raised today for qr1f
+{250602 samekama S B} Fix being identified.
+{250529 samekama S B} Yet to finalize the changes, to be discussed with Vasu.
+{250528 samekama S B} Able to repro. Identifying fix.
+{250521 samekama S B} Will resume on this from 5/26. DE busy with escalation.
+{250515 samekama S B} Starting from 5/15
+{250513 samekama S B} Fix identified, first attempt did not solve all scenarios, improvising it.
+{250513 samekama S B} DE busy with OCI escalation. Fix needs involved efforts.
+{250512 samekama S B} RCA is done. Fix to be identified.
+{250509 samekama S B} RCA in progress.
+{250507 samekama S B} RCA started. 5/7
+{250506 samekama S B} To start on this after CSCwo94447 commit.
+{250502 samekama S B} Able to repro in CALO setup. RCA in progress.
+{250429 samekama S B} DE busy with Citi escalation CSCwo94447.
+{250425 samekama S B} Came in today. DE busy with Citi escalation, will start on this post 4/28
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 04/24/2025 22:48:48 Added 04/24/2025 22:48:48 by samekama)---
+Plz check.
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 04/24/2025 01:47:55 Modified 11/23/2025 21:34:49 by palshanm)---
+When the aaa group1 cannot access the TACACS Server but the source-interface remains up, the permissions obtained by the role are abnormal
+
+<B>Symptom:</B>
+When the aaa group1 cannot access the tacacs server and maintain the source-interface up, (the group2 is normal), there will be problems with the permissions obtained by the user.
+
+The role permissions obtained through TACACS are always "network-operator" and cannot be obtained as "network-admin"
+
+Example:
+The "test" account, which should have obtained network-admin permissions, has abnormal permissions. This will make it impossible to configure the switch:
+
+N9k# show user-account 
+user:test
+        roles:network-operator                                <<<<<<<<<<<<<<<<<
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+
+<B>Conditions:</B>
+The aaa group1 cannot access the Tacacs server, but the group source-interface is kept up.
+
+<B>Workaround:</B>
+Remove the source-interface configuration or shut down the source-interface interface:
+
+N9k(config)# aaa group server tacacs+ bytedance
+N9k(config-tacacs+)# no source-interface loopback0
+
+Or
+
+N9k(config)# int loopback 0
+N9k(config-if)# shutdown
+
+<B>Further Problem Description:</B>
+All accounts get abnormal roles
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled:  reproduction-steps (Created 04/24/2025 01:47:55 Modified 11/23/2025 21:36:03 by synchub.gen)---
+Created By: hepwang
+Enclosure Title: reproduction-steps
+
+Enclosure Content:
+Topology:
+
+                  N9500
+ group 2 lo0 |      | group 1 mgmt
+                  |      |
+                  |      |
+              N9K1   N9K2
+                  |      |
+                  |      |
+                  |      |
+                   N9K3
+                     | 
+                     |  
+                     |
+              Tacacs Server
+
+-------------------------------------------------------------------------
+It is very easy to reproduce. The process is as follows?
+
+1/ The Tacacs configuration of N9K is as follows (group1 is the primary group ,and group2 is the secondary group):
+
+N95# show run tacacs+ 
+tacacs-server host x.x.x.1 key 7 "fewhg" single-connection 
+aaa group server tacacs+ group1
+    server x.x.x.1
+    use-vrf management
+    source-interface mgmt0
+aaa group server tacacs+ group2
+    server x.x.x.1
+    source-interface loopback0
+
+N95# show run aaa
+aaa authentication login default group group1 group2 local 
+aaa authentication login console local 
+aaa authorization config-commands default group group1 group2 local 
+aaa authorization commands default group group1 group2 local 
+aaa accounting default group group1 group2
+aaa authentication login ascii-authentication 
+
+1.1/ The source-interface of both groups can access the tacacs server normally?
+N95# ping x.x.x.1 vrf management 
+PING x.x.x.1 (x.x.x.1): 56 data bytes
+64 bytes from x.x.x.1: icmp_seq=0 ttl=61 time=0.623 ms
+64 bytes from x.x.x.1: icmp_seq=1 ttl=61 time=0.302 ms
+64 bytes from x.x.x.1: icmp_seq=2 ttl=61 time=0.255 ms
+64 bytes from x.x.x.1: icmp_seq=3 ttl=61 time=0.325 ms
+64 bytes from x.x.x.1: icmp_seq=4 ttl=61 time=0.298 ms
+
+N95# ping x.x.x.1 source-interface lo0
+PING x.x.x.1 (x.x.x.1): 56 data bytes
+64 bytes from x.x.x.1: icmp_seq=0 ttl=61 time=0.676 ms
+64 bytes from x.x.x.1: icmp_seq=1 ttl=61 time=0.348 ms
+64 bytes from x.x.x.1: icmp_seq=2 ttl=61 time=0.301 ms
+64 bytes from x.x.x.1: icmp_seq=3 ttl=61 time=0.276 ms
+64 bytes from x.x.x.1: icmp_seq=4 ttl=61 time=0.288 ms
+
+
+1.2/ When we SSH to N95 from any device, the permissions we get are normal. We use N9K2 for SSH testing here:
+N95# show user-account 
+user:test
+        roles:network-admin                                <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (76 of 76)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-smu_rel_10_4_6                       ascii text     878            nxbld          01/08/2026 13:54:26      
+Diffs-commit-pamplona_rel.p3                      ascii text     8429           shgedam        11/17/2025 20:42:34      
+ccwarnings-pamplona_rel.p5                        ascii text     279            baas           11/16/2025 22:24:57      
+static-analysis-pamplona_rel.p5                   ascii text     591            baas           11/16/2025 22:24:21      
+code-review-pamplona_rel.p6                       ascii text     2076           shgedam        11/16/2025 21:42:57      
+PR-Description-75051                              ascii text     1686           shgedam        11/16/2025 21:42:58      
+code-review-pamplona_rel.p5                       ascii text     2076           shgedam        11/16/2025 21:16:16      
+ccwarnings-pamplona_rel.p4                        ascii text     279            baas           11/16/2025 12:37:35      
+static-analysis-pamplona_rel.p4                   ascii text     591            baas           11/16/2025 12:36:58      
+ccwarnings-pamplona_rel.p3                        ascii text     279            baas           11/10/2025 02:19:25      
+static-analysis-pamplona_rel.p3                   ascii text     591            baas           11/10/2025 02:18:51      
+Diffs-commit-olympia_rel.p2                       ascii text     7419           divshah        11/06/2025 00:06:37      
+ccwarnings-olympia_rel.p3                         ascii text     279            baas           10/31/2025 03:53:55      
+static-analysis-olympia_rel.p3                    ascii text     591            baas           10/31/2025 03:53:20      
+code-review-olympia_rel.p10                       ascii text     3021           divshah        10/30/2025 01:22:30      
+PR-Description-73916                              ascii text     1820           divshah        10/30/2025 01:22:31      
+code-review-olympia_rel.p9                        ascii text     3021           divshah        10/30/2025 01:21:01      
+Diffs-commit-nx_main.p3                           ascii text     8367           vasagraw       10/24/2025 23:34:26      
+ccwarnings-nx_main.p6                             ascii text     279            baas           10/24/2025 09:41:03      
+static-analysis-nx_main.p8                        ascii text     591            baas           10/24/2025 09:40:27      
+code-review-nx_main.p8                            ascii text     2097           vasagraw       10/24/2025 06:24:10      
+PR-Description-73543                              ascii text     1686           vasagraw       10/24/2025 06:24:10      
+code-review-nx_main.p7                            ascii text     2097           vasagraw       10/24/2025 05:35:57      
+Diffs-commit-nx_main.p2                           ascii text     6726           divshah        10/15/2025 23:30:47      
+ccwarnings-nx_main.p5                             ascii text     233            baas           10/14/2025 10:02:14      
+static-analysis-nx_main.p7                        ascii text     591            baas           10/14/2025 10:01:37      
+code-review-nx_main.p6                            ascii text     2205           divshah        10/13/2025 22:43:44      
+code-review-nx_main.p5                            ascii text     2205           divshah        10/13/2025 22:28:00      
+code-review-nx_main.p4                            ascii text     2205           divshah        10/13/2025 04:54:25      
+PR-Description-72425                              ascii text     1820           divshah        10/13/2025 22:43:46      
+code-review-nx_main.p3                            ascii text     2205           divshah        10/13/2025 04:35:08      
+Diffs-commit-pamplona_rel.p2                      ascii text     6626           divshah        10/10/2025 08:41:47      
+ccwarnings-pamplona_rel.p2                        ascii text     233            baas           10/10/2025 03:53:11      
+static-analysis-pamplona_rel.p2                   ascii text     591            baas           10/10/2025 03:52:35      
+code-review-pamplona_rel.p4                       ascii text     2244           divshah        10/09/2025 11:07:38      
+PR-Description-72141                              ascii text     1819           divshah        10/09/2025 11:07:39      
+code-review-pamplona_rel.p3                       ascii text     2244           divshah        10/09/2025 10:50:02      
+CSCwo90314_OR6M_Test_Logs.txt                     ascii text     16334          palshanm       07/02/2025 21:23:09      
+CSCwo90314_QR1F_Test_Logs.txt                     ascii text     34439          palshanm       06/24/2025 11:53:36      
+Diffs-commit-pamplona_rel                         ascii text     5747           greddyda       06/23/2025 01:26:16      
+code-review-pamplona_rel.p2                       ascii text     1419           greddyda       06/23/2025 01:20:06      
+PR-Description-63107                              ascii text     846            greddyda       06/23/2025 01:20:07      
+code-review-pamplona_rel                          ascii text     1419           greddyda       06/23/2025 00:48:32      
+base_sanity_uls_sanity_baseline_compare           ascii text     7057           root           11/10/2025 08:32:05      
+ccwarnings-pamplona_rel                           ascii text     233            baas           06/19/2025 23:25:30      
+static-analysis-pamplona_rel                      ascii text     144249         baas           06/19/2025 23:24:54      
+Diffs-commit-olympia_rel                          ascii text     5682           greddyda       06/18/2025 02:28:21      
+code-review-olympia_rel.p8                        ascii text     1415           greddyda       06/17/2025 23:19:40      
+code-review-olympia_rel.p7                        ascii text     1415           greddyda       06/17/2025 23:18:44      
+ccwarnings-olympia_rel.p2                         ascii text     233            baas           06/16/2025 01:12:33      
+static-analysis-olympia_rel.p2                    ascii text     180762         baas           06/16/2025 01:11:56      
+code-review-olympia_rel.p6                        ascii text     1415           greddyda       06/16/2025 01:03:41      
+code-review-olympia_rel.p5                        ascii text     1415           greddyda       06/16/2025 00:55:11      
+code-review-olympia_rel.p4                        ascii text     1417           greddyda       06/15/2025 21:40:58      
+base_sanity_uls_sanity_report                     ascii text     4767           root           11/17/2025 04:37:09      
+ccwarnings-olympia_rel                            ascii text     233            baas           06/13/2025 01:05:30      
+static-analysis-olympia_rel                       ascii text     180712         baas           06/13/2025 01:04:54      
+code-review-olympia_rel.p3                        ascii text     1417           greddyda       06/12/2025 21:29:09      
+code-review-olympia_rel.p2                        ascii text     1417           greddyda       06/11/2025 23:54:42      
+PR-Description-62265                              ascii text     847            greddyda       06/17/2025 23:19:41      
+code-review-olympia_rel                           ascii text     1417           greddyda       06/11/2025 23:30:03      
+Diffs-commit-nx_main                              ascii text     6022           greddyda       06/08/2025 08:24:14      
+ccwarnings-nx_main.p4                             ascii text     233            baas           06/08/2025 00:38:19      
+static-analysis-nx_main.p6                        ascii text     143474         baas           06/08/2025 00:37:42      
+ccwarnings-nx_main.p3                             ascii text     233            baas           06/08/2025 00:17:16      
+static-analysis-nx_main.p5                        ascii text     142747         baas           06/08/2025 00:16:39      
+ccwarnings-nx_main.p2                             ascii text     233            baas           06/07/2025 23:51:24      
+static-analysis-nx_main.p4                        ascii text     143487         baas           06/07/2025 23:50:16      
+PR-Description-62002                              ascii text     1137           greddyda       06/07/2025 23:47:03      
+code-review-nx_main.p2                            ascii text     3917           greddyda       06/07/2025 23:47:01      
+code-review-nx_main                               ascii text     3917           greddyda       06/07/2025 23:47:01      
+ccwarnings-nx_main                                ascii text     233            baas           06/06/2025 22:34:54      
+static-analysis-nx_main.p3                        ascii text     143437         baas           06/06/2025 22:34:17      
+static-analysis-nx_main.p2                        ascii text     143436         baas           06/06/2025 22:32:56      
+static-analysis-nx_main                           ascii text     143681         baas           06/06/2025 22:31:43      
+Release-note-diff                                 ascii text     4481           hepwang        06/06/2025 01:39:19      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/04/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/04/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/10/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/28/2026 satdr    	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-manojohn mukamath-pa	Mod
+07/07/2026 amendoz2 	serviceRequests/C3/70084	                             	                             	Mod
+07/07/2026 amendoz2 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/07/2026 amendoz2 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/07/2026 amendoz2 	SR-associated           	                             	2026-06-15T23:29:02+0000     	New
+07/07/2026 amendoz2 	SR-associated           	2026-04-09T21:01:18+0000     	                             	Del
+06/15/2026 amendoz2 	serviceRequests/C3/70084	                             	C3/700841517                 	New
+06/15/2026 amendoz2 	Tickets-count           	3                            	4                            	Mod
+06/15/2026 amendoz2 	TACSR-count             	3                            	4                            	Mod
+06/15/2026 amendoz2 	Tickets-count-direct    	3                            	4                            	Mod
+06/15/2026 amendoz2 	Trouble-tickets         	                             	700841517                    	New
+06/15/2026 amendoz2 	Trouble-tickets-direct  	                             	C3700841517                  	New
+06/08/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/08/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/08/2026 fas      	Known-affected-releases 	10.6(2)                      	                             	Del
+06/08/2026 fas      	Known-affected-releases-	                             	10.6(2)                      	New
+06/08/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/08/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/05/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/23/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/23/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/23/2026 fas      	Known-affected-releases 	10.6(1)                      	                             	Del
+04/23/2026 fas      	Known-affected-releases-	                             	10.6(1)                      	New
+04/23/2026 nmaiorel 	serviceRequests/C3/70066	C3/700662408                 	                             	Del
+04/23/2026 nmaiorel 	Tickets-count           	4                            	3                            	Mod
+04/23/2026 nmaiorel 	TACSR-count             	4                            	3                            	Mod
+04/23/2026 nmaiorel 	Tickets-count-direct    	4                            	3                            	Mod
+04/23/2026 nmaiorel 	Trouble-tickets         	700662408                    	                             	Del
+04/23/2026 nmaiorel 	Trouble-tickets-direct  	C3700662408                  	                             	Del
+04/23/2026 pisces   	VF-patched              	                             	NX-OS:10.4(7)                	New
+04/09/2026 nmaiorel 	serviceRequests/C3/70066	                             	                             	Mod
+04/09/2026 nmaiorel 	SR-associated           	                             	2026-04-09T21:01:18+0000     	New
+04/09/2026 nmaiorel 	serviceRequests/C3/70066	                             	C3/700662408                 	New
+04/09/2026 nmaiorel 	Tickets-count           	3                            	4                            	Mod
+04/09/2026 nmaiorel 	TACSR-count             	3                            	4                            	Mod
+04/09/2026 nmaiorel 	Tickets-count-direct    	3                            	4                            	Mod
+04/09/2026 nmaiorel 	Trouble-tickets         	                             	700662408                    	New
+04/09/2026 nmaiorel 	Trouble-tickets-direct  	                             	C3700662408                  	New
+04/07/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/07/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/20/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/20/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/20/2026 pisces   	Known-fixed-releases    	                             	10.5(5)                      	New
+03/18/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDM9(0)               	New
+03/18/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDM9(0.4)             	New
+03/18/2026 nxbld    	Apply-to                	                             	10.7(0)IDM9(0.4)             	New
+03/18/2026 nxbld    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2026 nxbld    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/18/2026 nxbld    	Known-fixed-releases    	                             	10.4(7)                      	New
+03/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDL9(0)               	New
+03/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDL9(0.3)             	New
+03/14/2026 nxbld    	Apply-to                	                             	10.7(0)IDL9(0.3)             	New
+03/07/2026 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0.47)            	New
+03/07/2026 nxbld    	Apply-to                	                             	10.5(2)ICX9(0.47)            	New
+03/06/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDV9(0)               	New
+03/06/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDV9(0.119)           	New
+03/06/2026 nxbld    	Apply-to                	                             	10.7(0)IDV9(0.119)           	New
+02/26/2026 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+02/26/2026 palshanm 	Note Title              	                             	QR3F-V-comments              	New
+02/12/2026 yibinzha 	serviceRequests/C3/70037	                             	                             	Mod
+02/12/2026 yibinzha 	SR-associated           	                             	2026-02-12T09:39:34+0000     	New
+02/12/2026 yibinzha 	serviceRequests/C3/70037	                             	C3/700373642                 	New
+02/12/2026 yibinzha 	Tickets-count           	2                            	3                            	Mod
+02/12/2026 yibinzha 	TACSR-count             	2                            	3                            	Mod
+02/12/2026 yibinzha 	Tickets-count-direct    	2                            	3                            	Mod
+02/12/2026 yibinzha 	Trouble-tickets         	                             	700373642                    	New
+02/12/2026 yibinzha 	Trouble-tickets-direct  	                             	C3700373642                  	New
+02/06/2026 dtsvetan 	serviceRequests/C3/70019	                             	                             	Mod
+02/02/2026 nxbld    	Integrated-releases     	                             	10.5(2)INN9(0)               	New
+02/02/2026 nxbld    	Integrated-releases     	                             	10.5(2)INN9(0.4)             	New
+02/02/2026 nxbld    	Apply-to                	                             	10.5(2)INN9(0.4)             	New
+01/31/2026 palshanm 	Verified-release        	                             	10.5(4.23)                   	New
+01/31/2026 palshanm 	Note Title              	                             	PR5M V-Comments              	New
+01/31/2026 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+01/14/2026 nxbld    	Integrated-releases     	                             	10.5(2)INP9(0.164)           	New
+01/14/2026 nxbld    	Apply-to                	                             	10.5(2)INP9(0.164)           	New
+01/09/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/09/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/09/2026 fas      	Known-affected-releases 	                             	10.6(2)                      	New
+01/09/2026 fas      	Known-affected-releases-	                             	10.6(2)                      	New
+01/09/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/09/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/09/2026 fas      	Known-affected-releases 	                             	10.6(1)                      	New
+01/09/2026 fas      	Known-affected-releases-	                             	10.6(1)                      	New
+01/08/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_4_6  	New
+12/30/2025 dtsvetan 	serviceRequests/C3/70019	                             	                             	Mod
+12/30/2025 dtsvetan 	Urgency-desc            	NA                           	P3                           	Mod
+12/30/2025 dtsvetan 	Urgency                 	9                            	6                            	Mod
+12/30/2025 dtsvetan 	SR-associated           	                             	2025-04-30T01:53:01+0000,2025	New
+12/23/2025 vborisla 	serviceRequests/C3/70019	                             	C3/700197632                 	New
+12/23/2025 vborisla 	Urgency-desc            	CL3                          	NA                           	Mod
+12/23/2025 vborisla 	Urgency                 	6                            	9                            	Mod
+12/23/2025 vborisla 	Tickets-count           	1                            	2                            	Mod
+12/23/2025 vborisla 	TACSR-count             	1                            	2                            	Mod
+12/23/2025 vborisla 	Tickets-count-direct    	1                            	2                            	Mod
+12/23/2025 vborisla 	Trouble-tickets         	                             	700197632                    	New
+12/23/2025 vborisla 	Trouble-tickets-direct  	                             	C3700197632                  	New
+12/20/2025 sajxavie 	Integrated-releases     	                             	10.6(2)                      	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/20/2025 sajxavie 	Known-fixed-releases    	                             	10.6(2)                      	New
+12/20/2025 sajxavie 	Integrated-releases     	                             	10.6(1)                      	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/20/2025 sajxavie 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/20/2025 sajxavie 	Known-fixed-releases    	                             	10.6(1)                      	New
+12/15/2025 shgedam  	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+12/15/2025 shgedam  	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+12/03/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0.182)           	New
+12/03/2025 nxbld    	Apply-to                	                             	10.5(2)IMS9(0.182)           	New
+11/23/2025 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+11/23/2025 synchub.g	Note                    	unit-test_qr2f               	unit-test_qr2f               	Mod
+11/23/2025 synchub.g	Note Type               	reproduction-steps           	Other                        	Mod
+11/23/2025 synchub.g	Note                    	reproduction-steps           	reproduction-steps           	Mod
+11/23/2025 synchub.g	Code-reviewer           	sarchand,vasagraw            	                             	Del
+11/23/2025 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+11/23/2025 palshanm 	Note Title              	                             	V-comments.p3                	New
+11/23/2025 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+11/23/2025 palshanm 	Status                  	R                            	V                            	Mod
+11/23/2025 palshanm 	Verified-on             	2025-06-24 18:53:07.000+0000 	2025-11-24 05:34:49.000+0000 	Mod
+11/23/2025 palshanm 	statusStates            	                             	[status=R, startDate=Sat Oct 	New
+11/23/2025 palshanm 	statusStates            	[status=R, startDate=Sat Oct 	                             	Del
+11/23/2025 palshanm 	Age-status              	184                          	214                          	Mod
+11/23/2025 palshanm 	Mean-time-to-verified   	61                           	213                          	Mod
+11/19/2025 brsansom 	Other-mail              	                             	brsansom                     	Mod
+11/19/2025 nxbld    	Integrated-releases     	                             	10.5(5)                      	New
+11/19/2025 nxbld    	Integrated-releases     	                             	10.5(4.5)                    	New
+11/19/2025 nxbld    	Apply-to                	                             	10.5(4.5)                    	New
+11/17/2025 shgedam  	File Name               	                             	Diffs-commit-pamplona_rel.p3 	New
+11/17/2025 nxbld    	Integrated-releases     	                             	10.6(2)IUN9(0)               	New
+11/17/2025 nxbld    	Integrated-releases     	                             	10.6(2)IUN9(0.5)             	New
+11/17/2025 nxbld    	Apply-to                	                             	10.6(2)IUN9(0.5)             	New
+11/17/2025 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+11/16/2025 samekama 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+11/16/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p5   	New
+11/16/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+11/16/2025 shgedam  	contents                	                             	PR-Description-75051         	Mod
+11/16/2025 shgedam  	File Name               	                             	code-review-pamplona_rel.p6  	New
+11/16/2025 shgedam  	File Name               	                             	PR-Description-75051         	New
+11/16/2025 shgedam  	File Name               	                             	code-review-pamplona_rel.p5  	New
+11/16/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p4   	New
+11/16/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+11/10/2025 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+11/10/2025 root     	FileSize                	8953                         	7057                         	Mod
+11/10/2025 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+11/10/2025 root     	FileSize                	7820                         	4767                         	Mod
+11/10/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p3   	New
+11/10/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+11/09/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0.166)           	New
+11/09/2025 nxbld    	Apply-to                	                             	10.5(2)IMS9(0.166)           	New
+11/09/2025 nxbld    	Integrated-releases     	                             	10.6(3)ICD9(0)               	New
+11/09/2025 nxbld    	Integrated-releases     	                             	10.6(3)ICD9(0.154)           	New
+11/09/2025 nxbld    	Apply-to                	                             	10.6(3)ICD9(0.154)           	New
+11/07/2025 pisces   	VF-patched              	NX-OS:10.4(6),NX-OS:10.6(1),N	                             	Del
+11/07/2025 nxbld    	Integrated-releases     	                             	10.6(2)IQB9(0.62)            	New
+11/07/2025 nxbld    	Apply-to                	                             	10.6(2)IQB9(0.62)            	New
+11/06/2025 nxbld    	Integrated-releases     	                             	10.4(7)                      	New
+11/06/2025 nxbld    	Integrated-releases     	                             	10.4(6.8)                    	New
+11/06/2025 nxbld    	Apply-to                	                             	10.4(6.8)                    	New
+11/06/2025 divshah  	File Name               	                             	Diffs-commit-olympia_rel.p2  	New
+11/04/2025 nxbld    	Integrated-releases     	                             	10.6(2)IDV9(0.100)           	New
+11/04/2025 nxbld    	Apply-to                	                             	10.6(2)IDV9(0.100)           	New
+11/03/2025 nxbld    	Integrated-releases     	                             	10.6(2)IQB9(0)               	New
+11/03/2025 nxbld    	Integrated-releases     	                             	10.6(2)IQB9(0.59)            	New
+11/03/2025 nxbld    	Apply-to                	                             	10.6(2)IQB9(0.59)            	New
+11/03/2025 nxbld    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/03/2025 nxbld    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/31/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p3    	New
+10/31/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+10/30/2025 nxbld    	Integrated-releases     	                             	10.6(2)IDV9(0)               	New
+10/30/2025 nxbld    	Integrated-releases     	                             	10.6(2)IDV9(0.89)            	New
+10/30/2025 nxbld    	Apply-to                	                             	10.6(2)IDV9(0.89)            	New
+10/30/2025 divshah  	contents                	                             	PR-Description-73916         	Mod
+10/30/2025 divshah  	File Name               	                             	code-review-olympia_rel.p10  	New
+10/30/2025 divshah  	Code-reviewer           	                             	vasagraw                     	New
+10/30/2025 divshah  	File Name               	                             	PR-Description-73916         	New
+10/30/2025 divshah  	File Name               	                             	code-review-olympia_rel.p9   	New
+10/29/2025 divshah  	Note Title              	                             	Unit-test_olympia            	New
+10/29/2025 samekama 	Note                    	OR6M-BadCode-10-4-6          	OR6M-BadCode-10-4-6          	Mod
+10/29/2025 samekama 	Integrated-releases     	10.5(4)                      	                             	Del
+10/29/2025 samekama 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/29/2025 samekama 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/29/2025 samekama 	Known-fixed-releases    	10.5(4)                      	                             	Del
+10/29/2025 samekama 	Note Title              	                             	OR6M-BadCode-10-4-6          	New
+10/27/2025 vasagraw 	Note                    	unit-test_qr2f               	unit-test_qr2f               	Mod
+10/27/2025 vasagraw 	Note                    	unit-test_qr2f               	unit-test_qr2f               	Mod
+10/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IMG9(0.153)           	New
+10/25/2025 nxbld    	Apply-to                	                             	10.6(1)IMG9(0.153)           	New
+10/25/2025 pisces   	VF-unpatched            	                             	NX-OS:7.3(0)N1(1),NX-OS:7.3(0	New
+10/25/2025 pisces   	Potentially-affected-rel	                             	7.3(0)N1(1),7.3(0)N1(1a),7.3(	New
+10/24/2025 vasagraw 	Note Title              	                             	R-comments.p2                	New
+10/24/2025 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+10/24/2025 vasagraw 	Status                  	A                            	R                            	Mod
+10/24/2025 vasagraw 	Resolver                	greddyda                     	vasagraw                     	Mod
+10/24/2025 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/24/2025 vasagraw 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/24/2025 vasagraw 	Resolved-on             	2025-06-08 15:28:52.000+0000 	2025-10-25 06:39:46.000+0000 	Mod
+10/24/2025 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Oct 	New
+10/24/2025 vasagraw 	statusStates            	[status=A, startDate=Tue Oct 	                             	Del
+10/24/2025 vasagraw 	Age-status              	173                          	184                          	Mod
+10/24/2025 vasagraw 	Known-fixed-releases    	                             	10.4(6),10.5(4)              	New
+10/24/2025 vasagraw 	Mean-time-to-resolved   	45                           	183                          	Mod
+10/24/2025 vasagraw 	File Name               	                             	Diffs-commit-nx_main.p3      	New
+10/24/2025 baas     	File Name               	                             	ccwarnings-nx_main.p6        	New
+10/24/2025 baas     	File Name               	                             	static-analysis-nx_main.p8   	New
+10/24/2025 vasagraw 	contents                	                             	PR-Description-73543         	Mod
+10/24/2025 vasagraw 	File Name               	                             	code-review-nx_main.p8       	New
+10/24/2025 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+10/24/2025 vasagraw 	File Name               	                             	PR-Description-73543         	New
+10/24/2025 vasagraw 	File Name               	                             	code-review-nx_main.p7       	New
+10/24/2025 qddts    	Note Title              	                             	unit-test_qr2f               	New
+10/23/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/23/2025 cms      	Est-fix-date            	2025-10-24 07:00:00.000+0000 	2025-10-27 07:00:00.000+0000 	Mod
+10/23/2025 vasagraw 	Engineer                	vasagraw                     	greddyda                     	Mod
+10/16/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/16/2025 nxbld    	Integrated-releases     	                             	10.6(1)IMG9(0)               	New
+10/16/2025 nxbld    	Integrated-releases     	                             	10.6(1)IMG9(0.139)           	New
+10/16/2025 nxbld    	Apply-to                	                             	10.6(1)IMG9(0.139)           	New
+10/15/2025 divshah  	File Name               	                             	Diffs-commit-nx_main.p2      	New
+10/15/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0)               	New
+10/15/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0.146)           	New
+10/15/2025 nxbld    	Apply-to                	                             	10.5(2)IMS9(0.146)           	New
+10/14/2025 baas     	File Name               	                             	ccwarnings-nx_main.p5        	New
+10/14/2025 baas     	File Name               	                             	static-analysis-nx_main.p7   	New
+10/14/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/14/2025 cms      	Est-fix-date            	2025-06-08 07:00:00.000+0000 	2025-10-24 07:00:00.000+0000 	Mod
+10/13/2025 vasagraw 	Engineer                	greddyda                     	vasagraw                     	Mod
+10/13/2025 vasagraw 	Code-reviewer           	vasagraw                     	                             	Del
+10/13/2025 vasagraw 	Note Title              	                             	A-comments.p3                	New
+10/13/2025 vasagraw 	Note Title              	                             	A-comments.p2                	New
+10/13/2025 vasagraw 	Status-desc             	V-Verified                   	A-Assigned                   	Mod
+10/13/2025 vasagraw 	Status                  	V                            	A                            	Mod
+10/13/2025 vasagraw 	Assigner                	samekama                     	vasagraw                     	Mod
+10/13/2025 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/13/2025 vasagraw 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/13/2025 vasagraw 	Assigned Date           	2025-04-25 05:48:48.000+0000 	2025-10-14 06:42:25.000+0000 	Mod
+10/13/2025 vasagraw 	statusStates            	                             	[status=V, startDate=Tue Jun 	New
+10/13/2025 vasagraw 	statusStates            	[status=V, startDate=Tue Jun 	                             	Del
+10/13/2025 vasagraw 	Age-status              	61                           	173                          	Mod
+10/13/2025 vasagraw 	Known-fixed-releases    	10.4(6)                      	                             	Del
+10/13/2025 vasagraw 	Mean-time-to-assigned   	0                            	172                          	Mod
+10/13/2025 divshah  	contents                	                             	PR-Description-72425         	Mod
+10/13/2025 divshah  	File Name               	                             	code-review-nx_main.p6       	New
+10/13/2025 divshah  	contents                	                             	PR-Description-72425         	Mod
+10/13/2025 divshah  	File Name               	                             	code-review-nx_main.p5       	New
+10/13/2025 divshah  	contents                	                             	PR-Description-72425         	Mod
+10/13/2025 divshah  	File Name               	                             	code-review-nx_main.p4       	New
+10/13/2025 divshah  	File Name               	                             	PR-Description-72425         	New
+10/13/2025 divshah  	File Name               	                             	code-review-nx_main.p3       	New
+10/12/2025 chrconlo 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+10/12/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/11/2025 pisces   	VF-unpatched            	NX-OS:10.1(1),NX-OS:10.1(2),N	                             	Del
+10/11/2025 pisces   	Potentially-affected-rel	10.1(1),10.1(2),10.1(2t),10.2	                             	Del
+10/10/2025 vasagraw 	Note Title              	                             	pr4m-tbp-eval                	New
+10/10/2025 vasagraw 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+10/10/2025 nxbld    	Integrated-releases     	                             	10.5(3.151)                  	New
+10/10/2025 nxbld    	Apply-to                	                             	10.5(3.151)                  	New
+10/10/2025 divshah  	File Name               	                             	Diffs-commit-pamplona_rel.p2 	New
+10/10/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel.p2   	New
+10/10/2025 baas     	File Name               	                             	static-analysis-pamplona_rel.	New
+10/09/2025 divshah  	contents                	                             	PR-Description-72141         	Mod
+10/09/2025 divshah  	File Name               	                             	code-review-pamplona_rel.p4  	New
+10/09/2025 divshah  	File Name               	                             	PR-Description-72141         	New
+10/09/2025 divshah  	File Name               	                             	code-review-pamplona_rel.p3  	New
+10/09/2025 divshah  	Note Title              	                             	static-analysis-runinfo-n9k  	New
+09/30/2025 pisces   	VF-patched              	                             	NX-OS:10.4(6),NX-OS:10.6(1),N	New
+09/30/2025 pisces   	VF-unpatched            	                             	NX-OS:10.3(8),NX-OS:10.5(3e),	New
+09/30/2025 pisces   	Potentially-affected-rel	                             	10.3(8),10.5(3e),10.5(3o),9.3	New
+09/22/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0)               	New
+09/22/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0.21)            	New
+09/22/2025 nxbld    	Apply-to                	                             	10.5(2)ICX9(0.21)            	New
+09/03/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/03/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/03/2025 pisces   	Known-fixed-releases    	                             	10.4(6)                      	New
+09/02/2025 nxbld    	Integrated-releases     	                             	10.5(2)INP9(0)               	New
+09/02/2025 nxbld    	Integrated-releases     	                             	10.5(2)INP9(0.61)            	New
+09/02/2025 nxbld    	Apply-to                	                             	10.5(2)INP9(0.61)            	New
+08/12/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/09/2025 palshanm 	Note Title              	                             	V-comments.p2                	New
+08/09/2025 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+08/09/2025 palshanm 	Verified-release        	                             	10.5(3.94)                   	New
+08/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/30/2025 palshanm 	Note Title              	                             	Automation-Log               	New
+07/30/2025 palshanm 	Automated-test          	N                            	Y                            	Mod
+07/22/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/22/2025 samekama 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+07/11/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0)               	New
+07/11/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0.35)            	New
+07/11/2025 nxbld    	Apply-to                	                             	10.5(2)IRH9(0.35)            	New
+07/02/2025 palshanm 	File Name               	                             	CSCwo90314_OR6M_Test_Logs.txt	New
+07/02/2025 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+07/02/2025 palshanm 	Verified-release        	                             	10.4(5.13)                   	New
+06/30/2025 pisces   	VF-unpatched            	                             	NX-OS:10.5(3s)               	New
+06/30/2025 pisces   	Potentially-affected-rel	                             	10.5(3s)                     	New
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0)               	New
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0.17)            	New
+06/30/2025 nxbld    	Apply-to                	                             	10.6(1)IQZ9(0.17)            	New
+06/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0)               	New
+06/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0.33)            	New
+06/25/2025 nxbld    	Apply-to                	                             	10.6(1)IQD9(0.33)            	New
+06/24/2025 palshanm 	File Name               	                             	CSCwo90314_QR1F_Test_Logs.txt	New
+06/24/2025 palshanm 	Attribute               	pr4m cfd-mukamath mukamath-pa	pr4m cfd-mukamath mukamath-pa	Mod
+06/24/2025 palshanm 	Note Title              	                             	V-comments                   	New
+06/24/2025 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/24/2025 palshanm 	Status                  	R                            	V                            	Mod
+06/24/2025 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+06/24/2025 palshanm 	Verified-release        	                             	10.6(0)IMG9(0.114)           	New
+06/24/2025 palshanm 	Verified-confidence     	                             	tested                       	Mod
+06/24/2025 palshanm 	Verified-on             	                             	2025-06-24 18:53:07.000+0000 	Mod
+06/24/2025 palshanm 	statusStates            	                             	[status=R, startDate=Sun Jun 	New
+06/24/2025 palshanm 	statusStates            	[status=R, startDate=Sun Jun 	                             	Del
+06/24/2025 palshanm 	Age-status              	45                           	61                           	Mod
+06/24/2025 palshanm 	Mean-time-to-verified   	                             	61                           	Mod
+06/23/2025 nxbld    	Integrated-releases     	                             	10.5(4)                      	New
+06/23/2025 nxbld    	Integrated-releases     	                             	10.5(3.37)                   	New
+06/23/2025 nxbld    	Apply-to                	                             	10.5(3.37)                   	New
+06/23/2025 greddyda 	File Name               	                             	Diffs-commit-pamplona_rel    	New
+06/23/2025 greddyda 	contents                	                             	PR-Description-63107         	Mod
+06/23/2025 greddyda 	File Name               	                             	code-review-pamplona_rel.p2  	New
+06/23/2025 greddyda 	File Name               	                             	PR-Description-63107         	New
+06/23/2025 greddyda 	File Name               	                             	code-review-pamplona_rel     	New
+06/20/2025 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+06/20/2025 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+06/20/2025 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+06/19/2025 baas     	File Name               	                             	ccwarnings-pamplona_rel      	New
+06/19/2025 baas     	File Name               	                             	static-analysis-pamplona_rel 	New
+06/19/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/18/2025 nxbld    	Integrated-releases     	                             	10.4(6)                      	New
+06/18/2025 nxbld    	Integrated-releases     	                             	10.4(5.14)                   	New
+06/18/2025 nxbld    	Apply-to                	                             	10.4(5.14)                   	New
+06/18/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/18/2025 greddyda 	File Name               	                             	Diffs-commit-olympia_rel     	New
+06/18/2025 greddyda 	Multi-commit-flag       	                             	Y                            	Mod
+06/17/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/17/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p8   	New
+06/17/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/17/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p7   	New
+06/16/2025 baas     	File Name               	                             	ccwarnings-olympia_rel.p2    	New
+06/16/2025 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+06/16/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/16/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p6   	New
+06/16/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/16/2025 greddyda 	FileSize                	846                          	847                          	Mod
+06/16/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p5   	New
+06/15/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/15/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p4   	New
+06/14/2025 vdani    	Attribute               	pr4m cfd-mukamath            	pr4m cfd-mukamath mukamath-pa	Mod
+06/13/2025 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+06/13/2025 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+06/13/2025 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+06/12/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/12/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p3   	New
+06/11/2025 greddyda 	contents                	                             	PR-Description-62265         	Mod
+06/11/2025 greddyda 	File Name               	                             	code-review-olympia_rel.p2   	New
+06/11/2025 greddyda 	Code-reviewer           	                             	samekama                     	New
+06/11/2025 greddyda 	File Name               	                             	PR-Description-62265         	New
+06/11/2025 greddyda 	File Name               	                             	code-review-olympia_rel      	New
+06/11/2025 ambanerj 	Attribute               	pr4m                         	pr4m cfd-mukamath            	Mod
+06/10/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/10/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+06/10/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+06/09/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/09/2025 mandlaks 	Note Title              	                             	Email-in                     	New
+06/08/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/08/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0)               	New
+06/08/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0.95)            	New
+06/08/2025 nxbld    	Apply-to                	                             	10.6(0)IMG9(0.95)            	New
+06/08/2025 greddyda 	Note Title              	                             	R-comments                   	New
+06/08/2025 greddyda 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+06/08/2025 greddyda 	Status                  	A                            	R                            	Mod
+06/08/2025 greddyda 	Dev-escape-resolver-opin	                             	N                            	Mod
+06/08/2025 greddyda 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+06/08/2025 greddyda 	More-by                 	                             	greddyda                     	Mod
+06/08/2025 greddyda 	Opener                  	                             	greddyda                     	Mod
+06/08/2025 greddyda 	Resolver                	                             	greddyda                     	Mod
+06/08/2025 greddyda 	Breakage                	                             	No                           	Mod
+06/08/2025 greddyda 	Regression              	                             	N                            	Mod
+06/08/2025 greddyda 	By-previous-commit-value	                             	No                           	Mod
+06/08/2025 greddyda 	Released-code           	                             	N                            	Mod
+06/08/2025 greddyda 	Test-escape             	N                            	Y                            	Mod
+06/08/2025 greddyda 	Test-EDP-phase          	                             	Feature Test                 	Mod
+06/08/2025 greddyda 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+06/08/2025 greddyda 	Behavior-changed        	                             	N                            	Mod
+06/08/2025 greddyda 	Original-resolved-on    	                             	2025-06-08 15:28:52.000+0000 	Mod
+06/08/2025 greddyda 	Documents-changed       	                             	none                         	Mod
+06/08/2025 greddyda 	More-on                 	                             	2025-06-08 15:28:52.000+0000 	Mod
+06/08/2025 greddyda 	Opened-on               	                             	2025-06-08 15:28:52.000+0000 	Mod
+06/08/2025 greddyda 	Resolved-on             	                             	2025-06-08 15:28:52.000+0000 	Mod
+06/08/2025 greddyda 	statusStates            	                             	[status=A, startDate=Fri Apr 	New
+06/08/2025 greddyda 	statusStates            	[status=A, startDate=Fri Apr 	                             	Del
+06/08/2025 greddyda 	Age-status              	1                            	45                           	Mod
+06/08/2025 greddyda 	Mean-time-to-resolved   	                             	45                           	Mod
+06/08/2025 greddyda 	File Name               	                             	Diffs-commit-nx_main         	New
+06/08/2025 baas     	File Name               	                             	ccwarnings-nx_main.p4        	New
+06/08/2025 baas     	File Name               	                             	static-analysis-nx_main.p6   	New
+06/08/2025 baas     	File Name               	                             	ccwarnings-nx_main.p3        	New
+06/08/2025 baas     	File Name               	                             	static-analysis-nx_main.p5   	New
+06/07/2025 baas     	File Name               	                             	ccwarnings-nx_main.p2        	New
+06/07/2025 baas     	File Name               	                             	static-analysis-nx_main.p4   	New
+06/07/2025 greddyda 	Code-reviewer           	                             	vasagraw                     	New
+06/07/2025 greddyda 	contents                	                             	PR-Description-62002         	Mod
+06/07/2025 greddyda 	File Name               	                             	PR-Description-62002         	New
+06/07/2025 greddyda 	File Name               	                             	code-review-nx_main.p2       	New
+06/07/2025 greddyda 	File Name               	                             	code-review-nx_main          	New
+06/06/2025 baas     	File Name               	                             	ccwarnings-nx_main           	New
+06/06/2025 baas     	File Name               	                             	static-analysis-nx_main.p3   	New
+06/06/2025 baas     	File Name               	                             	static-analysis-nx_main.p2   	New
+06/06/2025 baas     	File Name               	                             	static-analysis-nx_main      	New
+06/06/2025 greddyda 	Note Title              	                             	Unit-test                    	New
+06/06/2025 cdetsbtk 	Security-screening-times	2025-04-24 16:33:35.000+0000 	2025-06-06 16:01:43.000+0000 	Mod
+06/06/2025 hepwang  	Note                    	Release-note                 	Release-note                 	Mod
+06/06/2025 hepwang  	contents                	                             	Release-note-diff            	Mod
+06/06/2025 hepwang  	FileSize                	1509                         	2995                         	Mod
+06/06/2025 hepwang  	FileSize                	2995                         	4481                         	Mod
+06/06/2025 hepwang  	Headline                	When the second TACACS group 	When the aaa group1 cannot ac	Mod
+06/06/2025 hepwang  	Summary                 	1/ The Tacacs configuration o	1/ The Tacacs configuration o	Mod
+06/06/2025 hepwang  	Justification           	When the second TACACS group 	When the aaa group1 cannot ac	Mod
+06/06/2025 hepwang  	Symptoms                	When the Tacacs primary group	When the aaa group1 cannot ac	Mod
+06/06/2025 hepwang  	Conditions              	One of the Tacacs groups cann	The aaa group1 cannot access 	Mod
+06/06/2025 hepwang  	Workarounds             	disable/shutdown source-inter	Remove the source-interface c	Mod
+06/06/2025 hepwang  	Further-Problem-Descript	All roles can only obtain net	All accounts get abnormal rol	Mod
+06/06/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/05/2025 cms      	Est-fix-date            	2025-06-06 07:00:00.000+0000 	2025-06-08 07:00:00.000+0000 	Mod
+06/04/2025 samekama 	Attribute               	                             	pr4m                         	Mod
+06/01/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/01/2025 cms      	Est-fix-date            	                             	2025-06-06 07:00:00.000+0000 	Mod
+05/29/2025 cms      	Est-fix-date            	2025-05-30 07:00:00.000+0000 	                             	Mod
+05/28/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/27/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/25/2025 samekama 	Engineer                	pradepan                     	greddyda                     	Mod
+05/25/2025 hepwang  	serviceRequests/C3/69881	                             	                             	Mod
+05/25/2025 hepwang  	Urgency-desc            	NA                           	CL3                          	Mod
+05/25/2025 hepwang  	Urgency                 	9                            	6                            	Mod
+05/20/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/20/2025 cms      	Est-fix-date            	2025-05-22 07:00:00.000+0000 	2025-05-30 07:00:00.000+0000 	Mod
+05/14/2025 cms      	Est-fix-date            	                             	2025-05-22 07:00:00.000+0000 	Mod
+05/14/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2025 cms      	Est-fix-date            	2025-05-16 07:00:00.000+0000 	                             	Mod
+05/13/2025 samekama 	Engineer                	samekama                     	pradepan                     	Mod
+05/13/2025 hgumaste 	Engineer                	pradepan                     	samekama                     	Mod
+05/13/2025 samekama 	Engineer                	vasagraw                     	pradepan                     	Mod
+05/13/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/12/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/12/2025 cms      	Est-fix-date            	2025-05-12 07:00:00.000+0000 	2025-05-16 07:00:00.000+0000 	Mod
+05/11/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/08/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/06/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/06/2025 cms      	Est-fix-date            	                             	2025-05-12 07:00:00.000+0000 	Mod
+05/05/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/01/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/01/2025 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/01/2025 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/29/2025 hepwang  	serviceRequests/C3/69881	                             	C3/698812143                 	New
+04/29/2025 hepwang  	Tickets-count           	0                            	1                            	Mod
+04/29/2025 hepwang  	TACSR-count             	                             	1                            	Mod
+04/29/2025 hepwang  	Tickets-count-direct    	0                            	1                            	Mod
+04/29/2025 hepwang  	Trouble-tickets         	                             	698812143                    	New
+04/29/2025 hepwang  	Trouble-tickets-direct  	                             	C3698812143                  	New
+04/28/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/27/2025 hepwang  	serviceRequests/C3/69881	C3/698812143                 	                             	Del
+04/27/2025 hepwang  	Tickets-count           	1                            	0                            	Mod
+04/27/2025 hepwang  	TACSR-count             	1                            	                             	Mod
+04/27/2025 hepwang  	Tickets-count-direct    	1                            	0                            	Mod
+04/27/2025 hepwang  	Trouble-tickets         	698812143                    	                             	Del
+04/27/2025 hepwang  	Trouble-tickets-direct  	C3698812143                  	                             	Del
+04/27/2025 hepwang  	serviceRequests/C3/69881	                             	C3/698812143                 	New
+04/27/2025 hepwang  	Urgency                 	                             	9                            	Mod
+04/27/2025 hepwang  	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+04/27/2025 hepwang  	Data-classification-reas	                             	Default value of Data-classif	Mod
+04/27/2025 hepwang  	Tickets-count           	0                            	1                            	Mod
+04/27/2025 hepwang  	TACSR-count             	                             	1                            	Mod
+04/27/2025 hepwang  	Tickets-count-direct    	                             	1                            	Mod
+04/27/2025 hepwang  	Trouble-tickets         	                             	698812143                    	New
+04/27/2025 hepwang  	Trouble-tickets-direct  	                             	C3698812143                  	New
+04/24/2025 cms      	Note Title              	                             	Scrubnote                    	New
+04/24/2025 samekama 	Note Title              	                             	A-comments                   	New
+04/24/2025 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/24/2025 samekama 	Status                  	N                            	A                            	Mod
+04/24/2025 samekama 	Engineer                	                             	vasagraw                     	Mod
+04/24/2025 samekama 	Assigner                	                             	samekama                     	Mod
+04/24/2025 samekama 	Assigned Date           	                             	2025-04-25 05:48:48.000+0000 	Mod
+04/24/2025 samekama 	statusStates            	                             	[status=N, startDate=Thu Apr 	New
+04/24/2025 samekama 	statusStates            	[status=N, startDate=Thu Apr 	                             	Del
+04/24/2025 samekama 	Age-status              	0                            	1                            	Mod
+04/24/2025 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+04/24/2025 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+04/24/2025 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+04/24/2025 cdetsbtk 	Security-screening-times	2025-04-24 14:53:47.000+0000 	2025-04-24 16:33:35.000+0000 	Mod
+04/24/2025 hepwang  	Note                    	Release-note                 	Release-note                 	Mod
+04/24/2025 hepwang  	contents                	                             	Release-note-diff            	Mod
+04/24/2025 hepwang  	FileSize                	498                          	1509                         	Mod
+04/24/2025 hepwang  	Symptoms                	The role permissions obtained	When the Tacacs primary group	Mod
+04/24/2025 hepwang  	Note                    	Release-note                 	Release-note                 	Mod
+04/24/2025 hepwang  	contents                	                             	Release-note-diff            	Mod
+04/24/2025 hepwang  	FileSize                	330                          	498                          	Mod
+04/24/2025 hepwang  	Further-Problem-Descript	                             	All roles can only obtain net	Mod
+04/24/2025 hepwang  	Note                    	Release-note                 	Release-note                 	Mod
+04/24/2025 hepwang  	File Name               	                             	Release-note-diff            	New
+04/24/2025 hepwang  	Symptoms                	The role permissions obtained	The role permissions obtained	Mod
+04/24/2025 hepwang  	Note Title              	                             	reproduction-steps           	New
+04/24/2025 hepwang  	Note Title              	                             	Release-note                 	New
+04/24/2025 hepwang  	Headline                	When the route of the second 	When the second TACACS group 	Mod
+04/24/2025 hepwang  	Summary                 	1/ The Tacacs configuration o	1/ The Tacacs configuration o	Mod
+04/24/2025 hepwang  	Data-classification     	Cisco Highly Confidential    	Cisco Public                 	Mod
+04/24/2025 hepwang  	RNE-Type                	                             	NONE                         	Mod
+04/24/2025 hepwang  	Justification           	                             	When the second TACACS group 	Mod
+04/24/2025 hepwang  	Symptoms                	                             	The role permissions obtained	Mod
+04/24/2025 hepwang  	Conditions              	                             	One of the Tacacs groups cann	Mod
+04/24/2025 hepwang  	Workarounds             	                             	disable/shutdown source-inter	Mod
+04/24/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-461332       	New
+04/24/2025 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/24/2025 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+04/24/2025 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/24/2025 cdetsbtk 	Security-screening-times	                             	2025-04-24 14:53:47.000+0000 	Mod
+04/24/2025 hepwang  	Headline                	                             	When the route of the second 	Mod
+04/24/2025 hepwang  	Summary                 	                             	1/ The Tacacs configuration o	Mod
+04/24/2025 hepwang  	Project                 	                             	CSC.datacenter               	Mod
+04/24/2025 hepwang  	Product                 	                             	n9k-standalone-sw            	Mod
+04/24/2025 hepwang  	Component               	                             	tacacs                       	Mod
+04/24/2025 hepwang  	Status-desc             	                             	N-New                        	Mod
+04/24/2025 hepwang  	Status                  	                             	N                            	Mod
+04/24/2025 hepwang  	Found                   	                             	customer-use                 	Mod
+04/24/2025 hepwang  	Hardening               	                             	N                            	Mod
+04/24/2025 hepwang  	Product-owner           	                             	gsheehan                     	Mod
+04/24/2025 hepwang  	Original-found          	                             	customer-use                 	Mod
+04/24/2025 hepwang  	Hardware                	                             	Nexus 9000                   	New
+04/24/2025 hepwang  	Feature                 	                             	fix                          	Mod
+04/24/2025 hepwang  	Urgency-desc            	                             	NA                           	Mod
+04/24/2025 hepwang  	Severity-desc           	                             	moderate                     	Mod
+04/24/2025 hepwang  	Severity                	                             	3                            	Mod
+04/24/2025 hepwang  	DE Priority Desc        	                             	medium                       	Mod
+04/24/2025 hepwang  	DE-priority             	                             	3                            	Mod
+04/24/2025 hepwang  	Impact                  	                             	Features/Functionality       	New
+04/24/2025 hepwang  	Submitter               	                             	hepwang                      	Mod
+04/24/2025 hepwang  	Submitter-manager       	                             	siniu                        	Mod
+04/24/2025 hepwang  	DE-manager              	                             	anikunna                     	Mod
+04/24/2025 hepwang  	DTPT-manager            	                             	mukamath                     	Mod
+04/24/2025 hepwang  	Version                 	                             	10.4(4),9.3(5)               	New
+04/24/2025 hepwang  	Original-version        	                             	9.3(5)                       	Mod
+04/24/2025 hepwang  	Found-during            	                             	Customer                     	Mod
+04/24/2025 hepwang  	Activity-when-found     	                             	Customer-Use                 	Mod
+04/24/2025 hepwang  	Automated-test          	                             	N                            	Mod
+04/24/2025 hepwang  	Bug-origin              	                             	Code / Implementation        	Mod
+04/24/2025 hepwang  	Origin                  	                             	base code                    	Mod
+04/24/2025 hepwang  	Test-escape             	                             	N                            	Mod
+04/24/2025 hepwang  	PSIRT                   	                             	N                            	Mod
+04/24/2025 hepwang  	Data-classification     	                             	Cisco Highly Confidential    	Mod
+04/24/2025 hepwang  	TPS_issue               	                             	N                            	Mod
+04/24/2025 hepwang  	TPS_flag                	                             	N                            	Mod
+04/24/2025 hepwang  	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/24/2025 hepwang  	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/24/2025 hepwang  	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/24/2025 hepwang  	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/24/2025 hepwang  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/24/2025 hepwang  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/24/2025 hepwang  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/24/2025 hepwang  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/24/2025 hepwang  	MDF-edited              	                             	N                            	Mod
+04/24/2025 hepwang  	Attribute2              	                             	n/a                          	Mod
+04/24/2025 hepwang  	Care-Update             	                             	Y                            	Mod
+04/24/2025 hepwang  	Doc-manager             	                             	anikunna                     	Mod
+04/24/2025 hepwang  	Document                	                             	nexus                        	Mod
+04/24/2025 hepwang  	Documentation-resolution	                             	Undefined                    	Mod
+04/24/2025 hepwang  	Original-activity-when-f	                             	Customer-Use                 	Mod
+04/24/2025 hepwang  	Original-found-during   	                             	Customer                     	Mod
+04/24/2025 hepwang  	Submitter-org-bug       	                             	Support DC-Dalian-APAC-SNTC-C	Mod
+04/24/2025 hepwang  	Component-scenarios     	                             	N                            	Mod
+04/24/2025 hepwang  	Submitted-on            	                             	2025-04-24 07:53:47.692+0000 	Mod
+04/24/2025 hepwang  	IFD-CFD-Conv-date       	                             	2025-04-24 07:53:47.692+0000 	Mod
+04/24/2025 hepwang  	New-on                  	                             	2025-04-24 07:53:47.692+0000 	Mod
+04/24/2025 hepwang  	statusStates            	                             	[status=S, startDate=Thu Apr 	New
+04/24/2025 hepwang  	Transition-day          	0                            	2460790                      	Mod
+04/24/2025 hepwang  	Release-note-status     	                             	none                         	Mod
+04/24/2025 hepwang  	Reported By             	                             	hepwang                      	Mod
+04/24/2025 hepwang  	Known-affected-releases 	                             	10.4(4),9.3(5)               	New
+04/24/2025 hepwang  	Tickets-count           	                             	0                            	Mod
+04/24/2025 hepwang  	Class                   	                             	CSC.datacenter               	Mod
+04/24/2025 hepwang  	Reti-bug                	                             	Y                            	Mod
+04/24/2025 hepwang  	Defect Created          	                             	                             	New

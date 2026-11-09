@@ -1,0 +1,1424 @@
+*******************************************************************************
+
+Bug ID   : CSCwb82585         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : Longevity: aaa_authenticate() memory leak
+PrimaryPV : 
+Version :9.3(9) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: dpuscasu           Submitted: 05/09/2022 14:45:56     Last Updtd : 07/30/2026 10:00:07  
+RNE-Type: NONE                New-on : 05/09/2022 14:45:56      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:shihchi                                             
+Known-affected-releases:9.3(9) 
+
+Known-fixed-releases:10.2(4) 10.3(1) 10.3(2) 9.3(10) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/18/2022 21:07:51                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 103                                            
+Mean-time-to-verified: 135    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 05/09/2025 13:05:18            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : medium        Assigned: 05/09/2022 23:27:27 
+Code-reviewer:                
+Opened-on: 05/18/2022 21:07:51Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis dsig_no_ambiguous cfd-manojohn i
+Est. completion date: 05/18/2022 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 08/20/2022 23:43:04  
+
+Documents Changed: none       Resolved: 08/21/2022 09:44:13 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: dpuscasu            Verified Confidence: tested                       
+Verified Date: 09/21/2022 18:01:55      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          System Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Usability Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-US
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Regression Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              699029749
+Trouble-tickets-direct :C3699029749 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 06/24/2025 08:39:03
+Document :    nexus
+
+Summary:
+This memory increase is most probably triggered by the periodic ssh users login using TACACS authentication.
+
+Below is the memory increase during 2days run;
+1.7 MiB +   3.5 MiB =   5.2 MiB      nginx_1_fe (2)
+3.6 MiB +   3.5 MiB =   7.1 MiB       nginx_1_fe (2)
+6.9 MiB +   3.6 MiB =  10.4 MiB      nginx_1_fe (2)
+
+==14099== 2,256 (1,020 direct, 1,236 indirect) bytes in 3 blocks are definitely lost in loss record 1,118 of 1,154
+==14099==    at 0x482CAFC: malloc (vg_replace_malloc.c:296)
+==14099==    by 0x5BB3BB2: mtrack_alloc (in /isan/lib/libsdwrap.so)
+==14099==    by 0x55C740B: aaa_lib_malloc (aaa_lib_mem.h:34)
+==14099==    by 0x55CC178: aaa_parse_result (aaa_lib.c:3211)
+==14099==    by 0x55CC4D4: aaa_get_result (aaa_lib.c:3323)
+==14099==    by 0x55CB812: aaa_request (aaa_lib.c:2751)
+==14099==    by 0x55CA9B0: aaa_authenticate (aaa_lib.c:2101)
+==14099==    by 0x18EA5447: ???
+==14099==    by 0x18EA28BA: ???
+==14099==    by 0x4CBF5E4: ??? (in /lib/libpam.so.0.84.1)
+==14099==    by 0x4CBED09: pam_authenticate (in /lib/libpam.so.0.84.1)
+==14099==    by 0x1B6FEF: ngx_http_auth_pam_authenticate (ngx_http_auth_pam_module.c:638)
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         699029749       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-503199                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (17 of 17 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 08/19/2025 23:52:27 Added 08/19/2025 23:52:27 by geawad)---
+https://gnosis.cisco.com/signature/bug/68a5709b74ee2fdfe3b1b013/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: Automation-Note (Created 07/21/2025 22:51:29 Added 07/21/2025 22:51:29 by palshanm)---
+Due to Longevity, Added test cases in EDCS-11504615 for future release tracking?s
+---End of Note Titled: Automation-Note---
+
+
+---Start of Note Titled: DetectionLogic (Created 06/24/2025 01:29:04 Added 06/24/2025 01:29:04 by geawad)---
+--- Update 2025-06-24 08:29:03.486869 geawad (via 699088965)
+{+} Memory Leak in the "nginx" process,
+
+{+} the Leak is triggered by the periodic ssh users login using TACACS authentication.
+
+{+} Release notes added
+
+{+} symptoms available are seen only to be the "nginx" high memory usage under the "show processes memory", and "nginx_f" under "show system internal processes memory" that is no available for the show tech  
+
+{+} Signature can be created to detect the "nginx" process high memory usage from the show tech for Cisco Nexus 9000
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: V-comments.p3 (Created 09/21/2022 18:01:55 Added 09/21/2022 18:01:55 by dpuscasu)---
+1. S/W Version : nxos.9.3.9.49.bin :  S49
+2. Platform : Applicable to all the platforms
+3. Automation Suite: 
+There was no nginx_1_fe memory increase during 5days longevity run with multiple users login/logout.
+fanout-oslo# show system uptime
+System start time:          Fri May 27 10:02:45 2022
+System uptime:              5 days, 12 hours, 41 minutes, 34 seconds
+Kernel uptime:              5 days, 12 hours, 44 minutes, 34 seconds
+
+bash-4.3# cat ps_mem_24h.txt | grep nginx_1_fe | tail -5
+428.0 KiB +   3.7 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+
+Verified with KR4M_B95 running for 18days:
+bash-4.4# cat ps_mem_24h.txt | grep nginx_1_fe 
+  2.7 MiB +  11.5 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.7 MiB +  11.5 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.7 MiB +  11.5 MiB =  14.2 MiB       nginx_1_fe (2)
+. . .  
+ 2.7 MiB +  11.5 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.7 MiB +  11.5 MiB =  14.2 MiB       nginx_1_fe (2)
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+---End of Note Titled: V-comments.p3---
+
+
+---Start of Note Titled: R-comments.p3 (Created 08/21/2022 09:44:13 Added 08/21/2022 09:44:13 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments.p3---
+
+
+---Start of Note Titled: unit-test_KERRY (Created 08/20/2022 23:37:29 Added 08/20/2022 23:37:29 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sat Aug 20 13:12:30 2022
+!Time: Sun Aug 21 06:01:35 2022
+
+version 10.2(4) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 1.1.1.1 key 7 "kdl" 
+tacacs-server host 10.77.143.115 key 7 "fewhg" single-connection 
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Sat Aug 20 13:12:30 2022
+!Time: Sun Aug 21 06:01:39 2022
+
+version 10.2(4) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa authentication login error-enable 
+aaa authentication login ascii-authentication 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config | grep nxapi
+feature nxapi
+nxapi http port 80
+switch(config)# 
+
+bash-4.4# 
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx
+  1.6 MiB +  11.7 MiB =  13.3 MiB       nginx_1_fe (2)
+  1.6 MiB +  14.9 MiB =  16.5 MiB       nginx (5)
+ 41.4 MiB +   5.9 MiB =  47.3 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# <<<<<<<<<<< 10 iterations of NGINX login
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx
+  1.6 MiB +  11.7 MiB =  13.3 MiB       nginx_1_fe (2)
+  1.6 MiB +  14.9 MiB =  16.5 MiB       nginx (5)
+ 41.4 MiB +   5.8 MiB =  47.2 MiB       nginx_dme
+bash-4.4#
+---End of Note Titled: unit-test_KERRY---
+
+
+---Start of Note Titled: ULS_kerry (Created 08/20/2022 22:44:17 Added 08/20/2022 22:44:17 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity81
+Testbed  name       : sanity81-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls.yml
+Total Test cases Run: 22
+Passed test cases   : 22
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/308736
+Report file         : /auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls-sanity81.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls-sanity81.log
+Test start time     : 2022_08_20_12_11_20
+Test End time       : 2022_08_20_14_47_33
+Test Duration       : 2:36:13.608353
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '308736', '-cdet', 'CSCwc75464', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.2.3.78.M.bin_PVT', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls.yml', '-testbed', 'sanity81-testbed.yml', '-asic', 'hw', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls-sanity81.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/308736/checkin_l2_uls-sanity81.report', '-jobid', 'HW'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:06   
+testBootTime                                                              pass      0:00:19   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:12:50   
+testL2SanityMacLearning                                                   pass      0:11:33   
+testL2SanityMacAging                                                      pass      0:15:38   
+testL2SanityMacMove                                                       pass      0:09:30   
+testDynamicL2MulticastPC                                                  pass      0:08:30   
+testVpcConfig                                                             pass      0:07:50   
+testVpcPeerLink                                                           pass      0:00:56   
+testVpcPeerKeepAlive                                                      pass      0:00:31   
+testVpcPortChannels                                                       pass      0:01:35   
+testVpcStpStates                                                          pass      0:00:33   
+testVpcConsistencies                                                      pass      0:03:27   
+testVpcPeerGateway                                                        pass      0:05:37   
+testVrrp                                                                  pass      0:03:38   
+testHsrp                                                                  pass      0:04:10   
+testHsrpv6                                                                pass      0:02:56   
+testVpcMacLearningAndSyncCfdCSCvc72856                                    pass      0:10:10   
+testVpcDoNotLearnPeerLink                                                 pass      0:00:46   
+testVpcLegDown                                                            pass      0:33:22   
+testGoldDiagnostic                                                        pass      0:00:11   
+testCores                                                                 pass      0:00:03   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+bootscripts                 64.0  12:19:24.00  12:20:28.00 
+sysmgr_bootup                5.6  12:20:28.00  12:20:33.69 
+pfm_init                     4.0  12:20:34.00  12:20:38.00 
+lcm_init                     5.4  12:20:38.00  12:20:43.41 
+module_insert               27.3  12:20:43.41  12:21:10.74 
+sup_online                   0.1  12:21:10.74  12:21:10.89 
+lc_online                   32.8  12:21:11.61  12:21:43.69 
+pss_acfg                    11.3  12:21:43.69  12:21:55.02 
+kernel                       4.0  19:19:11.50  19:19:15.50 
+----------------------------------------------------------
+full_boot                  163.2  12:19:12.00  12:21:55.02 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            10.35 |            4.0 | PASS   |
+| bootscripts   |            77.05 |           64.0 | PASS   |
+| sysmgr_bootup |            3.795 |            5.6 | SKIP   |
+| pfm_init      |              4.6 |            4.0 | PASS   |
+| sup_online    |            0.115 |            0.1 | PASS   |
+| lcm_init      |            5.865 |            5.4 | PASS   |
+| module_insert |            35.42 |           27.3 | PASS   |
+| lc_online     |           46.345 |           32.8 | PASS   |
+| pss_acfg      |            0.115 |           11.3 | SKIP   |
+| full_boot     |          188.945 |          163.2 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: ULS_kerry---
+
+
+---Start of Note Titled:  Email-in (Created 08/10/2022 06:00:19 Modified 08/12/2022 04:00:19 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Friday, August 12, 2022 at 6:24 AM 
+To: "Mike Sargent (lesargen)" <lesargen@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>
+Subject: Re: CSCwb82585:Longevity: aaa_authenticate() memory leak
+
+Hi Mike,
+ 
+The leak was not manifesting every iteration. If I remember it correctly, it was 100-200KB every 5 iterations.
+
+ 
+Regards,
+ 
+Vasu
+ 
+
+From:
+Mike Sargent (lesargen) <lesargen@cisco.com>
+Date: Thursday, 11 August 2022 at 4:41 PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>, ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: RE: CSCwb82585:Longevity: aaa_authenticate() memory leak
+
+Thanks Vasu,   
+       Can you please tell me how much memory is leaked on each request as my customer has several tools that use tacacs to access their device on a regular basis
+
+ 
+
+
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+
+Sent: Thursday, August 11, 2022 1:33 AM
+To: Mike Sargent (lesargen) <lesargen@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>; ca-defect-feedback(mailer list) <ca-defect-feedback@cisco.com>
+Subject: Re: CSCwb82585:Longevity: aaa_authenticate() memory leak
+
+
+ 
+Hi Mike,
+ 
+The issue is likely to impact 10.2.3 ?
+ 
+Regards,
+ 
+Vasu
+ 
+
+From:
+Mike Sargent (lesargen) <lesargen@cisco.com>
+Date: Wednesday, 10 August 2022 at 6:26 PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: bug-attach(mailer list) <bug-attach@cisco.com>
+Subject: CSCwb82585:Longevity: aaa_authenticate() memory leak
+
+Hi Vasu                                                                                                                 
+
+ I am currently evaluating CSCwb82585 for a software recommendation of 10.2(3)F
+
+for my customer BANK OF AMERICA GLOBAL ENTERPRISE:
+
+Having read the Bug enclosures, I'm still unsure as to whether this bug will 
+affect my customer or not, so hopefully you can clarify this for me.
+
+Are you able to provide and further details on this issue
+
+
+will this bug impact 10.2(3)F
+ 
+ 
+Note:bug-attach@cisco was added to auto-attach this email to the bug
+Sent from Mail for Windows
+
+
+############################ MESSAGE IDS ############################
+# <SJ0PR11MB50869F64D6635A4A9F850675C5659@SJ0PR11MB5086.namprd11.prod.outlook.com>
+# <SJ0PR11MB50697BF5646513869EE7CC88C6649@SJ0PR11MB5069.namprd11.prod.outlook.com>
+# <SJ0PR11MB508671085B3138201440587AC5649@SJ0PR11MB5086.namprd11.prod.outlook.com>
+# <SJ0PR11MB50691286D5C9601F16AEE367C6679@SJ0PR11MB5069.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments.p2 (Created 07/15/2022 10:55:58 Added 07/15/2022 10:55:58 by dpuscasu)---
+1. S/W Version : nxos64-cs.10.3.0.171
+2. Platform : Applicable to all the platforms
+3. Automation Suite: 
+There was no nginx_1_fe memory increase during 2days longevity run with multiple users login/logout.
+long-Graceland(config)# show system uptime
+System start time:          Wed Jul 13 11:54:01 2022
+System uptime:              1 days, 22 hours, 52 minutes, 7 seconds
+Kernel uptime:              1 days, 22 hours, 53 minutes, 43 seconds
+
+bash-4.4# cat ps_mem_24h.txt | grep nginx_1_fe | tail -5
+  1.3 MiB +  12.1 MiB =  13.4 MiB       nginx_1_fe (2)
+  2.2 MiB +  11.8 MiB =  14.0 MiB       nginx_1_fe (2)
+  2.2 MiB +  11.8 MiB =  14.0 MiB       nginx_1_fe (2)
+  2.2 MiB +  11.8 MiB =  14.0 MiB       nginx_1_fe (2)
+  2.2 MiB +  11.8 MiB =  14.0 MiB       nginx_1_fe (2)
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: R-comments.p2 (Created 07/08/2022 07:59:27 Added 07/08/2022 07:59:27 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled:  Unit-test_niles (Created 07/07/2022 01:51:39 Modified 07/07/2022 01:54:42 by vasagraw)---
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Jul  7 06:31:43 2022
+!Time: Thu Jul  7 08:49:11 2022
+
+version 10.3(1) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 10.77.143.115 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.115 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Jul  7 06:31:43 2022
+!Time: Thu Jul  7 08:49:19 2022
+
+version 10.3(1) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa authentication login error-enable 
+aaa authentication login ascii-authentication 
+
+switch(config)# 
+switch(config)# 
+
+
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< STARTING STATS
+  1.7 MiB +  12.1 MiB =  13.8 MiB       nginx_1_fe (2)
+  1.7 MiB +  14.8 MiB =  16.5 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+
+
+MULTIPLE NGINX BASED LOGINS BEING TRIED OUT - INCREASING MEMORY USAGE TEMPORARILY
+
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  2.5 MiB +  11.7 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.1 MiB +  14.8 MiB =  16.9 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  2.5 MiB +  11.7 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.1 MiB +  14.8 MiB =  16.9 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  2.5 MiB +  11.7 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.1 MiB +  14.8 MiB =  16.9 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  1.7 MiB +  12.1 MiB =  13.8 MiB       nginx_1_fe (2)
+  1.7 MiB +  14.8 MiB =  16.5 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  2.5 MiB +  11.7 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.2 MiB +  14.8 MiB =  17.0 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< TRANSIENT STATS
+  2.5 MiB +  11.7 MiB =  14.2 MiB       nginx_1_fe (2)
+  2.2 MiB +  14.8 MiB =  17.0 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# 
+bash-4.4# python /bootflash/ps_mem.py | grep nginx<<<<<<<<< FINAL STATS (SAME AS START)
+  1.7 MiB +  12.1 MiB =  13.8 MiB       nginx_1_fe (2)
+  1.7 MiB +  14.8 MiB =  16.5 MiB       nginx (5)
+ 39.5 MiB +   6.3 MiB =  45.8 MiB       nginx_dme
+bash-4.4#
+---End of Note Titled: Unit-test_niles---
+
+
+---Start of Note Titled: V-comments (Created 06/01/2022 22:45:35 Added 06/01/2022 22:45:35 by dpuscasu)---
+1. S/W Version : nxos.9.3.9.49.bin :  S49
+2. Platform : Applicable to all the platforms
+3. Automation Suite: 
+There was no nginx_1_fe memory increase during 5days longevity run with multiple users login/logout.
+fanout-oslo# show system uptime
+System start time:          Fri May 27 10:02:45 2022
+System uptime:              5 days, 12 hours, 41 minutes, 34 seconds
+Kernel uptime:              5 days, 12 hours, 44 minutes, 34 seconds
+
+bash-4.3# cat ps_mem_24h.txt | grep nginx_1_fe | tail -5
+428.0 KiB +   3.7 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+456.0 KiB +   3.6 MiB =   4.1 MiB       nginx_1_fe (2)
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 05/18/2022 21:07:51 Added 05/18/2022 21:07:51 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Unit-test (Created 05/18/2022 06:02:20 Added 05/18/2022 06:02:20 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue May 17 05:16:27 2022
+!Time: Tue May 17 05:18:11 2022
+
+version 9.3(10) Bios:version 05.46 
+feature tacacs+
+
+tacacs-server host 10.77.143.40 key 7 "fewhg" 
+tacacs-server host 10.28.13.126 key 7 "dxg" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.40 
+    use-vrf management
+    source-interface mgmt0
+aaa group server tacacs+ tac2 
+    server 10.28.13.126 
+    use-vrf management
+
+
+switch(config)# 
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon May 16 10:22:36 2022
+!Time: Mon May 16 10:25:58 2022
+
+version 9.3(10) Bios:version 05.46 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+aaa authentication login error-enable 
+aaa authentication login ascii-authentication 
+
+
+switch(config)# 
+
+switch(config)# 
+switch(config)# show running-config | grep nxapi
+feature nxapi
+nxapi http port 80
+switch(config)# 
+
+switch(config)# show ver | inc image
+  NXOS image file is: bootflash:///nxos.9.3.9.40.bin_PVT3
+switch(config)# 
+
+
+***********************
+
+Opened and closed multiple HTTP connections on switchs management port. No leak is observed.
+
+ON SWITCH BASH PROMPT:
+bash-4.3# python /bootflash/ps_mem.py | grep nginx
+  1.5 MiB +   3.1 MiB =   4.6 MiB       nginx_1_fe (2)
+ 30.9 MiB +   9.8 MiB =  40.7 MiB       nginx (6)
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 05/10/2022 02:16:04 Modified 06/02/2025 23:12:39 by cms)---
+{250603 palshanm S B} Try to repor the issue - AI Palshanm
+{220517 anikunna S B} Submitter verifying PI for IMR9
+{220513 avinayak S B} Potential Fix available. 
+{220512 rahulg2 S B} hardening issue - Day-1
+{220512 rahulg2 S B} Working towards fix/commit.
+{220510 anikunna S B} Root caused
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: N-comments (Created 05/09/2022 14:53:15 Added 05/09/2022 14:53:15 by dpuscasu)---
+From: "NIRANJAN H (nih)" <nih@cisco.com>
+Date: Sunday, May 8, 2022 at 2:38 AM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "DANIEL PUSCASU (dpuscasu)" <dpuscasu@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>
+Cc: "Supritha S s (suprss)" <suprss@cisco.com>, "Magesh Nagalingam (magesh)" <magesh@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+
+Vasu,
+ 
+Please try with tacacs user login, 2-3 logins enough to see the leak.
+ 
+Regards,
+Niranjan 
+ 
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Date: Sunday, 8 May 2022 at 11:24 AM
+To: NIRANJAN H (nih) <nih@cisco.com>, DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>, Magesh Nagalingam (magesh) <magesh@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Daniel,
+ 
+I seem to have identified the issue and a potential fix. However, I am unable to replicate the issue at my end (left problematic NXAPI authentication in a loop overnight) ? Could you please advise on what exactly is being done w.r.t. the NXAPI authentication which is leading to this particular leak?
+ 
+Niranjan ? I might need to share a PI with Daniel. Would like to know the (debug related) code changes you incorporated in NGINX ? planning to incorporate them as well in my PI ? and thank you for taking the issue up to the BT level.
+ 
+Regards,
+ 
+Vasu    
+ 
+From: NIRANJAN H (nih) <nih@cisco.com>
+Date: Friday, 6 May 2022 at 11:29 PM
+To: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>, Magesh Nagalingam (magesh) <magesh@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
++ Sarath/Vasu from aaa
+ 
+Hi Daniel,
+ 
+I?ll let aaa team to take a look on aaa_authenticate() leak.
+ 
+==14099== 2,256 (1,020 direct, 1,236 indirect) bytes in 3 blocks are definitely lost in loss record 1,118 of 1,154
+==14099==    at 0x482CAFC: malloc (vg_replace_malloc.c:296)
+==14099==    by 0x5BB3BB2: mtrack_alloc (in /isan/lib/libsdwrap.so)
+==14099==    by 0x55C740B: aaa_lib_malloc (aaa_lib_mem.h:34)
+==14099==    by 0x55CC178: aaa_parse_result (aaa_lib.c:3211)
+==14099==    by 0x55CC4D4: aaa_get_result (aaa_lib.c:3323)
+==14099==    by 0x55CB812: aaa_request (aaa_lib.c:2751)
+==14099==    by 0x55CA9B0: aaa_authenticate (aaa_lib.c:2101)
+==14099==    by 0x18EA5447: ???
+==14099==    by 0x18EA28BA: ???
+==14099==    by 0x4CBF5E4: ??? (in /lib/libpam.so.0.84.1)
+==14099==    by 0x4CBED09: pam_authenticate (in /lib/libpam.so.0.84.1)
+==14099==    by 0x1B6FEF: ngx_http_auth_pam_authenticate (ngx_http_auth_pam_module.c:638)
+ 
+Regards,
+Niranjan 
+ 
+From: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Date: Friday, 6 May 2022 at 10:25 PM
+To: NIRANJAN H (nih) <nih@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Niranjan,
+   The PI2 for nginx_1_fe mem leak was loaded on another DUT ~2days ago. DUT access ssh admin@172.28.2.12 Insieme!23
+  1.7 MiB +   3.5 MiB =   5.2 MiB       nginx_1_fe (2)
+  3.6 MiB +   3.5 MiB =   7.1 MiB       nginx_1_fe (2)
+  6.9 MiB +   3.6 MiB =  10.4 MiB       nginx_1_fe (2)
+ 
+Could you please check and let me know for what component should I file the bug?
+Thank you,
+Daniel 
+ 
+From: "NIRANJAN H (nih)" <nih@cisco.com>
+Date: Wednesday, May 4, 2022 at 6:43 AM
+To: "DANIEL PUSCASU (dpuscasu)" <dpuscasu@cisco.com>
+Cc: "Supritha S s (suprss)" <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+ 
+Hi Daniel,
+ 
+Leak is from libaaa.so
+ 
+==31664== 24,368,240 (10,981,660 direct, 13,386,580 indirect) bytes in 32,299 blocks are definitely lost in loss record 1,137 of 1,137
+==31664==    at 0x482CAFC: malloc (vg_replace_malloc.c:296)
+==31664==    by 0x5BB3BB2: mtrack_alloc (in /isan/lib/libsdwrap.so)
+==31664==    by 0x55C740B: ??? (in /isan/lib/libaaa.so)
+==31664==    by 0x55CC178: aaa_parse_result (in /isan/lib/libaaa.so)
+==31664==    by 0x55CC4D4: aaa_get_result (in /isan/lib/libaaa.so)
+==31664==    by 0x55CB812: aaa_request (in /isan/lib/libaaa.so)
+==31664==    by 0x55CA9B0: aaa_authenticate (in /isan/lib/libaaa.so)
+==31664==    by 0x19D39447: ???
+==31664==    by 0x19D368BA: ???
+==31664==    by 0x4CBF5E4: ??? (in /lib/libpam.so.0.84.1)
+==31664==    by 0x4CBED09: pam_authenticate (in /lib/libpam.so.0.84.1)
+==31664==    by 0x1B6FEF: ngx_http_auth_pam_authenticate (ngx_http_auth_pam_module.c:638)
+==31664==
+==31664== LEAK SUMMARY:
+==31664==    definitely lost: 10,982,508 bytes in 32,314 blocks
+ 
+ 
+Could you please test this new image which has libaaa.so unstripped so that we can get proper symbols?
+/auto/arf/kkaushal/mnxos/nxos.9.3.9.29.bin
+ 
+You can just run the new image for few hours which involves multiple logins.
+ 
+Regards,
+Niranjan 
+ 
+From: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Date: Wednesday, 4 May 2022 at 1:13 AM
+To: NIRANJAN H (nih) <nih@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Niranjan,
+ 
+    I do not see nginx_1_fe process with the PI. I do see memcheck-x86-linux process that I?m guessing is same with nginx_1_fe and memory is getting increased every day.
+ 
+Could you please take a look: ssh admin@172.28.2.28
+ 
+fanout-oslo# show system uptime
+System start time:          Thu Apr 28 00:20:43 2022
+System uptime:              5 days, 12 hours, 20 minutes, 32 seconds
+Kernel uptime:              5 days, 12 hours, 23 minutes, 49 seconds
+ 
+bash-4.3# cat /bootflash/ps_mem_24h.txt | grep memcheck-x86-linux | tail -20
+207.6 MiB +  91.2 MiB = 298.8 MiB       memcheck-x86-linux (2)
+560.4 MiB +  21.0 MiB = 581.3 MiB       memcheck-x86-linux (2)
+565.8 MiB +  21.6 MiB = 587.5 MiB       memcheck-x86-linux (2)
+577.0 MiB +  21.0 MiB = 598.0 MiB       memcheck-x86-linux (2)
+582.5 MiB +  21.6 MiB = 604.1 MiB       memcheck-x86-linux (2)
+593.2 MiB +  20.9 MiB = 614.1 MiB       memcheck-x86-linux (2)
+ 
+Thank you,
+Daniel
+ 
+From: "NIRANJAN H (nih)" <nih@cisco.com>
+Date: Wednesday, April 27, 2022 at 6:52 AM
+To: "DANIEL PUSCASU (dpuscasu)" <dpuscasu@cisco.com>
+Cc: "Supritha S s (suprss)" <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+ 
+Hi Daniel,
+ 
+Please find the 29 label image:
+/auto/arf/kkaushal/mnxos/nxos.9.3.9.29.bin
+ 
+One caveat, ?no feature nxapi? will generate a ?sh? core. Pls ignore the core.
+ 
+Regards,
+Niranjan 
+ 
+From: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Date: Tuesday, 26 April 2022 at 9:58 PM
+To: NIRANJAN H (nih) <nih@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Niranjan,
+Build 29 should be ok.
+Thank you,
+Daniel
+ 
+From: "NIRANJAN H (nih)" <nih@cisco.com>
+Date: Tuesday, April 26, 2022 at 3:43 AM
+To: "DANIEL PUSCASU (dpuscasu)" <dpuscasu@cisco.com>
+Cc: "Supritha S s (suprss)" <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+ 
+Hi Daniel,
+ 
+Label 30 workspace is still not available to pull.
+ 
+wit space create -space imr9_valg  -branch irvine 
+Matches many snapshots. Picking latest irvine : REL_9_3_9_29. Do you want to proceed? [y/n] n
+ 
+Regards,
+Niranjan 
+ 
+From: NIRANJAN H (nih) <nih@cisco.com>
+Date: Tuesday, 26 April 2022 at 9:47 AM
+To: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Cc: Supritha S s (suprss) <suprss@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Daniel, 
+ 
+I had created one using 28 last week.
+/auto/arf/kkaushal/mnxos/nxos.9.3.9.28.bin
+ 
+Let me build one with 30.
+ 
+Regards,
+Niranjan 
+ 
+From: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Date: Tuesday, 26 April 2022 at 3:22 AM
+To: NIRANJAN H (nih) <nih@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+Hi Niranjan,
+Could you please share the PI once you have it? The latest IMR9 QA build is B30.
+Thank you,
+Daniel
+ 
+From: "NIRANJAN H (nih)" <nih@cisco.com>
+Date: Thursday, April 14, 2022 at 7:52 PM
+To: "DANIEL PUSCASU (dpuscasu)" <dpuscasu@cisco.com>
+Subject: Re: nginx_1_fe potential memory leak
+ 
+Hi Daniel,
+ 
+Long weekend in Bangalore, will share you PI by Monday.
+ 
+Regards,
+Niranjan 
+ 
+From: DANIEL PUSCASU (dpuscasu) <dpuscasu@cisco.com>
+Date: Friday, 15 April 2022 at 4:20 AM
+To: NIRANJAN H (nih) <nih@cisco.com>
+Subject: nginx_1_fe potential memory leak
+Hi Niranjan,
+     I?ve mentioned a while back that I see the memory allocated for nginx_1_fe gradually increasing over time.
+Would it be possible to build a PI with valgrind tarball and script changes based on IMR9 QA build 28 ?
+ 
+Below is the memory increase with IMR8 CCO longevity run:
+fanout-oslo# show version internal build-identifier
+nxos image file: bootflash:///nxos.9.3.8.122.bin :  S122
+fanout-oslo# show system uptime
+System start time:          Sat Feb 26 15:01:04 2022
+System uptime:              46 days, 23 hours, 18 minutes, 25 seconds
+Kernel uptime:              46 days, 23 hours, 20 minutes, 55 seconds
+ 
+fanout-oslo# show system resources
+Load average:   1 minute: 2.49   5 minutes: 3.47   15 minutes: 4.05
+Processes   :   845 total, 3 running
+CPU states  :   15.70% user,   10.47% kernel,   73.82% idle
+        CPU0 states  :   11.34% user,   10.30% kernel,   78.35% idle
+        CPU1 states  :   15.46% user,   14.43% kernel,   70.10% idle
+        CPU2 states  :   13.54% user,   12.50% kernel,   73.95% idle
+        CPU3 states  :   23.15% user,   4.21% kernel,   72.63% idle
+Memory usage:   16399572K total,   7734760K used,   8664812K free
+ 
+bash-4.3# cat ps_mem_24h.txt | grep nginx_1_fe | tail -47
+  6.6 MiB +   3.1 MiB =   9.7 MiB       nginx_1_fe (2)
+13.2 MiB +   3.2 MiB =  16.4 MiB       nginx_1_fe (2)
+20.3 MiB +   3.2 MiB =  23.5 MiB       nginx_1_fe (2)
+27.1 MiB +   3.2 MiB =  30.4 MiB       nginx_1_fe (2)
+33.8 MiB +   3.2 MiB =  37.0 MiB       nginx_1_fe (2)
+40.5 MiB +   3.2 MiB =  43.7 MiB       nginx_1_fe (2)
+47.1 MiB +   3.2 MiB =  50.3 MiB       nginx_1_fe (2)
+53.9 MiB +   3.2 MiB =  57.1 MiB       nginx_1_fe (2)
+61.4 MiB +   3.2 MiB =  64.6 MiB       nginx_1_fe (2)
+68.9 MiB +   3.2 MiB =  72.2 MiB       nginx_1_fe (2)
+77.3 MiB +   3.2 MiB =  80.5 MiB       nginx_1_fe (2)
+85.4 MiB +   3.2 MiB =  88.7 MiB       nginx_1_fe (2)
+98.4 MiB +   3.2 MiB = 101.6 MiB       nginx_1_fe (2)
+106.7 MiB +   3.3 MiB = 109.9 MiB       nginx_1_fe (2)
+106.7 MiB +   3.2 MiB = 109.9 MiB       nginx_1_fe (2)
+106.8 MiB +   3.2 MiB = 110.0 MiB       nginx_1_fe (2)
+110.8 MiB +   3.2 MiB = 114.0 MiB       nginx_1_fe (2)
+115.5 MiB +   3.3 MiB = 118.7 MiB       nginx_1_fe (2)
+120.1 MiB +   3.2 MiB = 123.3 MiB       nginx_1_fe (2)
+124.7 MiB +   3.3 MiB = 128.0 MiB       nginx_1_fe (2)
+129.4 MiB +   3.2 MiB = 132.6 MiB       nginx_1_fe (2)
+134.1 MiB +   3.2 MiB = 137.3 MiB       nginx_1_fe (2)
+139.2 MiB +   3.2 MiB = 142.4 MiB       nginx_1_fe (2)
+144.2 MiB +   3.2 MiB = 147.5 MiB       nginx_1_fe (2)
+149.2 MiB +   3.2 MiB = 152.4 MiB       nginx_1_fe (2)
+155.1 MiB +   3.2 MiB = 158.3 MiB       nginx_1_fe (2)
+161.1 MiB +   3.2 MiB = 164.3 MiB       nginx_1_fe (2)
+166.1 MiB +   3.2 MiB = 169.3 MiB       nginx_1_fe (2)
+170.5 MiB +   3.2 MiB = 173.7 MiB       nginx_1_fe (2)
+171.0 MiB +   3.2 MiB = 174.3 MiB       nginx_1_fe (2)
+175.9 MiB +   3.2 MiB = 179.1 MiB       nginx_1_fe (2)
+180.2 MiB +   3.2 MiB = 183.5 MiB       nginx_1_fe (2)
+184.7 MiB +   3.2 MiB = 187.9 MiB       nginx_1_fe (2)
+189.2 MiB +   3.2 MiB = 192.4 MiB       nginx_1_fe (2)
+193.7 MiB +   3.2 MiB = 196.9 MiB       nginx_1_fe (2)
+198.1 MiB +   3.2 MiB = 201.3 MiB       nginx_1_fe (2)
+202.7 MiB +   3.2 MiB = 205.9 MiB       nginx_1_fe (2)
+207.4 MiB +   3.2 MiB = 210.7 MiB       nginx_1_fe (2)
+212.2 MiB +   3.2 MiB = 215.4 MiB       nginx_1_fe (2)
+217.1 MiB +   3.2 MiB = 220.3 MiB       nginx_1_fe (2)
+221.9 MiB +   3.2 MiB = 225.2 MiB       nginx_1_fe (2)
+226.4 MiB +   3.2 MiB = 229.7 MiB       nginx_1_fe (2)
+230.5 MiB +   3.2 MiB = 233.7 MiB       nginx_1_fe (2)
+235.0 MiB +   3.2 MiB = 238.3 MiB       nginx_1_fe (2)
+239.6 MiB +   3.2 MiB = 242.9 MiB       nginx_1_fe (2)
+244.1 MiB +   3.2 MiB = 247.3 MiB       nginx_1_fe (2)
+248.8 MiB +   3.2 MiB = 252.0 MiB       nginx_1_fe (2)
+Thank you,
+Daniel
+---End of Note Titled: N-comments---
+
+
+---Start of Note Titled:  Release-note (Created 05/09/2022 14:45:56 Modified 06/24/2025 00:44:16 by geawad)---
+<B>Symptom:</B>
+Memory Leak in the "nginx" process
+
+<B>Conditions:</B>
+The Leak is triggered by the periodic ssh users login using TACACS authentication
+
+<B>Workaround:</B>
+N/A
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (19 of 19)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     260            geawad         06/24/2025 00:44:16      
+Diffs-commit-kerry                                ascii text     2749           vasagraw       08/21/2022 07:46:04      
+Diffs-release-kerry                               ascii text     1195           vasagraw       08/21/2022 07:46:02      
+ccwarnings-kerry                                  ascii text     139            baas           08/21/2022 07:16:09      
+static-analysis-kerry                             ascii text     6998           baas           08/21/2022 07:15:38      
+nxos-pi-common-security-code-review-3             ascii text     936            prrqengg       08/20/2022 23:00:32      
+Diffs-commit-niles                                ascii text     2749           vasagraw       07/08/2022 07:42:11      
+Diffs-release-niles                               ascii text     1187           vasagraw       07/08/2022 07:42:08      
+ccwarnings-niles                                  ascii text     139            baas           07/08/2022 06:24:14      
+static-analysis-niles                             ascii text     6975           baas           07/08/2022 06:23:44      
+nxos-pi-common-security-code-review-2             ascii text     936            prrqengg       07/06/2022 22:20:07      
+Diffs-release-irvine                              ascii text     1210           vasagraw       05/18/2022 11:04:42      
+Diffs-commit-irvine                               ascii text     2755           vasagraw       05/18/2022 11:04:40      
+ccwarnings-irvine                                 ascii text     137            baas           05/18/2022 08:48:11      
+static-analysis-irvine                            ascii text     7411           baas           05/18/2022 08:47:43      
+l2_uls_sanity_baseline_compare                    ascii text     219            root           07/08/2022 06:02:23      
+l2_uls_sanity_report                              ascii text     4718           root           07/08/2022 06:02:23      
+nxos-pi-common-security-code-review               ascii text     934            prrqengg       05/17/2022 03:24:46      
+long-StMortiz_imr9_b29pi_0509.txt                 ascii text     24434          dpuscasu       05/09/2022 14:51:18      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/30/2026 satdr    	Attribute               	gnosis dsig_no_ambiguous cfd-	gnosis dsig_no_ambiguous cfd-	Mod
+04/20/2026 spaule   	Attribute               	gnosis dsig_no_ambiguous cfd-	gnosis dsig_no_ambiguous cfd-	Mod
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+01/19/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+08/19/2025 geawad   	Note Title              	                             	KnowledgeSignature           	New
+08/19/2025 geawad   	Attribute               	cfd-mukamath imr8 imr9 n9k-lo	gnosis dsig_no_ambiguous cfd-	Mod
+08/19/2025 geawad   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/21/2025 palshanm 	Note Title              	                             	Automation-Note              	New
+07/21/2025 palshanm 	Attribute               	cfd-mukamath imr8 imr9 n9k-lo	cfd-mukamath imr8 imr9 n9k-lo	Mod
+07/07/2025 pisces   	VF-patched              	                             	NX-OS:9.3(10)                	New
+07/07/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+07/07/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+06/24/2025 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+06/24/2025 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+06/24/2025 cdetsbtk 	Security-screening-times	2025-06-03 13:12:41.000+0000 	2025-06-24 15:39:03.000+0000 	Mod
+06/24/2025 geawad   	Note Title              	                             	DetectionLogic               	New
+06/24/2025 geawad   	Note                    	Release-note                 	Release-note                 	Mod
+06/24/2025 geawad   	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+06/24/2025 geawad   	File Name               	                             	Release-note-diff            	New
+06/24/2025 geawad   	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+06/24/2025 geawad   	Symptoms                	                             	Memory Leak in the "nginx" pr	Mod
+06/24/2025 geawad   	Conditions              	                             	The Leak is triggered by the 	Mod
+06/24/2025 geawad   	Workarounds             	                             	N/A                          	Mod
+06/02/2025 cdetsbtk 	Security-screening-times	2025-05-13 00:24:45.000+0000 	2025-06-03 13:12:41.000+0000 	Mod
+06/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2025 mgonzal4 	serviceRequests/C3/69902	                             	                             	Mod
+05/13/2025 mgonzal4 	Urgency-desc            	P3                           	CL3                          	Mod
+05/12/2025 mgonzal4 	serviceRequests/C3/69902	                             	                             	Mod
+05/12/2025 mgonzal4 	Urgency-desc            	P2                           	P3                           	Mod
+05/12/2025 mgonzal4 	Urgency                 	4                            	6                            	Mod
+05/12/2025 mgonzal4 	serviceRequests/C3/69902	                             	                             	Mod
+05/12/2025 mgonzal4 	Urgency-desc            	P3                           	P2                           	Mod
+05/12/2025 mgonzal4 	Urgency                 	6                            	4                            	Mod
+05/12/2025 cdetsbtk 	Security-screening-times	2025-05-10 03:05:19.000+0000 	2025-05-13 00:24:45.000+0000 	Mod
+05/12/2025 mgonzal4 	serviceRequests/C3/69902	                             	                             	Mod
+05/12/2025 mgonzal4 	Urgency-desc            	NA                           	P3                           	Mod
+05/12/2025 mgonzal4 	Urgency                 	9                            	6                            	Mod
+05/11/2025 sachinj  	Attribute               	imr8 imr9 n9k-longevity-test 	cfd-mukamath imr8 imr9 n9k-lo	Mod
+05/09/2025 rfurr    	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+05/09/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-503199       	New
+05/09/2025 cdetsbtk 	Security-screening-times	2024-01-20 13:23:53.000+0000 	2025-05-10 03:05:19.000+0000 	Mod
+05/09/2025 mgonzal4 	serviceRequests/C3/69902	                             	C3/699029749                 	New
+05/09/2025 mgonzal4 	Found                   	sys-test                     	customer-use                 	Mod
+05/09/2025 mgonzal4 	Urgency                 	                             	9                            	Mod
+05/09/2025 mgonzal4 	Found-during            	System Test                  	Customer                     	Mod
+05/09/2025 mgonzal4 	Activity-when-found     	Usability Testing            	Customer-Use                 	Mod
+05/09/2025 mgonzal4 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+05/09/2025 mgonzal4 	Data-classification-reas	internal                     	Default value of Data-classif	Mod
+05/09/2025 mgonzal4 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/09/2025 mgonzal4 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/09/2025 mgonzal4 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+05/09/2025 mgonzal4 	Care-Update             	                             	Y                            	Mod
+05/09/2025 mgonzal4 	IFD-CFD-Conv-date       	                             	2025-05-09 20:05:18.000+0000 	Mod
+05/09/2025 mgonzal4 	Tickets-count           	0                            	1                            	Mod
+05/09/2025 mgonzal4 	TACSR-count             	                             	1                            	Mod
+05/09/2025 mgonzal4 	Tickets-count-direct    	                             	1                            	Mod
+05/09/2025 mgonzal4 	Trouble-tickets         	                             	699029749                    	New
+05/09/2025 mgonzal4 	Trouble-tickets-direct  	                             	C3699029749                  	New
+05/09/2025 mgonzal4 	Trouble-ticket-CFD      	                             	Y                            	Mod
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 cdetsbtk 	Security-screening-times	2023-07-29 09:21:37.000+0000 	2024-01-20 13:23:53.000+0000 	Mod
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 cdetsbtk 	Security-screening-times	2022-11-01 12:32:58.000+0000 	2023-07-29 09:21:37.000+0000 	Mod
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Known-fixed-releases    	                             	10.3(2)                      	New
+01/18/2023 fas      	Integrated-releases     	                             	10.3(2)                      	New
+10/31/2022 cdetsbtk 	Security-screening-times	2022-09-22 08:01:55.000+0000 	2022-11-01 12:32:58.000+0000 	Mod
+10/31/2022 fas      	Known-fixed-releases    	                             	10.2(4)                      	New
+09/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 23:44:13.000+0000 	2022-09-22 08:01:55.000+0000 	Mod
+09/21/2022 dpuscasu 	Note Title              	                             	V-comments.p3                	New
+09/21/2022 dpuscasu 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+09/21/2022 dpuscasu 	Status                  	R                            	V                            	Mod
+09/21/2022 dpuscasu 	Verified-release        	                             	10.2(3.95)                   	New
+09/21/2022 dpuscasu 	Verified-on             	2022-07-15 17:55:58.000+0000 	2022-09-22 01:01:55.000+0000 	Mod
+09/21/2022 dpuscasu 	statusStates            	                             	[status=R, startDate=Sun Aug 	New
+09/21/2022 dpuscasu 	statusStates            	[status=R, startDate=Sun Aug 	                             	Del
+09/21/2022 dpuscasu 	Age-status              	104                          	136                          	Mod
+09/21/2022 dpuscasu 	Mean-time-to-verified   	66                           	135                          	Mod
+09/21/2022 dpuscasu 	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+08/23/2022 divvenka 	Integrated-releases     	                             	10.2(3.83),10.2(4)           	New
+08/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 21:46:06.000+0000 	2022-08-21 23:44:13.000+0000 	Mod
+08/21/2022 vasagraw 	Note Title              	                             	R-comments.p3                	New
+08/21/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+08/21/2022 vasagraw 	Status                  	M                            	R                            	Mod
+08/21/2022 vasagraw 	Resolved-on             	2022-07-08 14:59:27.000+0000 	2022-08-21 16:44:13.000+0000 	Mod
+08/21/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Sun Aug 	New
+08/21/2022 vasagraw 	statusStates            	[status=M, startDate=Sun Aug 	                             	Del
+08/21/2022 vasagraw 	Mean-time-to-resolved   	59                           	103                          	Mod
+08/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 21:46:03.000+0000 	2022-08-21 21:46:06.000+0000 	Mod
+08/21/2022 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+08/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 21:16:10.000+0000 	2022-08-21 21:46:03.000+0000 	Mod
+08/21/2022 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+08/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 21:15:39.000+0000 	2022-08-21 21:16:10.000+0000 	Mod
+08/21/2022 baas     	File Name               	                             	ccwarnings-kerry             	New
+08/21/2022 cdetsbtk 	Security-screening-times	2022-08-21 13:43:05.000+0000 	2022-08-21 21:15:39.000+0000 	Mod
+08/21/2022 baas     	File Name               	                             	static-analysis-kerry        	New
+08/20/2022 cdetsbtk 	Security-screening-times	2022-08-21 13:37:29.000+0000 	2022-08-21 13:43:05.000+0000 	Mod
+08/20/2022 vasagraw 	Status-desc             	V-Verified                   	M-More                       	Mod
+08/20/2022 vasagraw 	Status                  	V                            	M                            	Mod
+08/20/2022 vasagraw 	More-on                 	2022-07-08 07:17:06.000+0000 	2022-08-21 06:43:04.000+0000 	Mod
+08/20/2022 vasagraw 	statusStates            	                             	[status=V, startDate=Fri Jul 	New
+08/20/2022 vasagraw 	statusStates            	[status=V, startDate=Fri Jul 	                             	Del
+08/20/2022 vasagraw 	Age-status              	67                           	104                          	Mod
+08/20/2022 cdetsbtk 	Security-screening-times	2022-08-21 13:00:33.000+0000 	2022-08-21 13:37:29.000+0000 	Mod
+08/20/2022 vasagraw 	Note Title              	                             	unit-test_KERRY              	New
+08/20/2022 cdetsbtk 	Security-screening-times	2022-08-21 12:44:18.000+0000 	2022-08-21 13:00:33.000+0000 	Mod
+08/20/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/20/2022 cdetsbtk 	Security-screening-times	2022-08-12 18:00:20.000+0000 	2022-08-21 12:44:18.000+0000 	Mod
+08/20/2022 vasagraw 	Note Title              	                             	ULS_kerry                    	New
+08/20/2022 vasagraw 	Known-fixed-releases    	                             	10.3(1)                      	New
+08/12/2022 cdetsbtk 	Security-screening-times	2022-08-11 19:00:24.000+0000 	2022-08-12 18:00:20.000+0000 	Mod
+08/12/2022 vasagraw 	Note                    	Email-in                     	Email-in                     	Mod
+08/11/2022 cdetsbtk 	Security-screening-times	2022-08-10 20:00:20.000+0000 	2022-08-11 19:00:24.000+0000 	Mod
+08/11/2022 lesargen 	Note                    	Email-in                     	Email-in                     	Mod
+08/11/2022 vasagraw 	Note                    	Email-in                     	Email-in                     	Mod
+08/10/2022 cdetsbtk 	Security-screening-times	2022-07-16 00:55:59.000+0000 	2022-08-10 20:00:20.000+0000 	Mod
+08/10/2022 lesargen 	Note Title              	                             	Email-in                     	New
+07/31/2022 divvenka 	Integrated-releases     	                             	10.3(0)INA9(0),10.3(0)INA9(0.	New
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+07/15/2022 dpuscasu 	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+07/15/2022 dpuscasu 	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+07/15/2022 cdetsbtk 	Security-screening-times	2022-07-08 21:59:27.000+0000 	2022-07-16 00:55:59.000+0000 	Mod
+07/15/2022 dpuscasu 	Note Title              	                             	V-comments.p2                	New
+07/15/2022 dpuscasu 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/15/2022 dpuscasu 	Status                  	R                            	V                            	Mod
+07/15/2022 dpuscasu 	Verified-release        	                             	10.3(0.171)                  	New
+07/15/2022 dpuscasu 	Known-fixed-releases    	                             	9.3(10)                      	New
+07/15/2022 dpuscasu 	Verified-on             	2022-06-02 05:45:35.000+0000 	2022-07-15 17:55:58.000+0000 	Mod
+07/15/2022 dpuscasu 	statusStates            	                             	[status=R, startDate=Fri Jul 	New
+07/15/2022 dpuscasu 	statusStates            	[status=R, startDate=Fri Jul 	                             	Del
+07/15/2022 dpuscasu 	Age-status              	60                           	67                           	Mod
+07/15/2022 dpuscasu 	Mean-time-to-verified   	23                           	66                           	Mod
+07/08/2022 divvenka 	Integrated-releases     	                             	10.3(0.162),10.3(1)          	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 21:42:12.000+0000 	2022-07-08 21:59:27.000+0000 	Mod
+07/08/2022 vasagraw 	Note Title              	                             	R-comments.p2                	New
+07/08/2022 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+07/08/2022 vasagraw 	Status                  	M                            	R                            	Mod
+07/08/2022 vasagraw 	Resolved-on             	2022-05-19 04:07:51.000+0000 	2022-07-08 14:59:27.000+0000 	Mod
+07/08/2022 vasagraw 	statusStates            	                             	[status=M, startDate=Fri Jul 	New
+07/08/2022 vasagraw 	statusStates            	[status=M, startDate=Fri Jul 	                             	Del
+07/08/2022 vasagraw 	Mean-time-to-resolved   	9                            	59                           	Mod
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 21:42:09.000+0000 	2022-07-08 21:42:12.000+0000 	Mod
+07/08/2022 vasagraw 	File Name               	                             	Diffs-commit-niles           	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 20:24:14.000+0000 	2022-07-08 21:42:09.000+0000 	Mod
+07/08/2022 vasagraw 	File Name               	                             	Diffs-release-niles          	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 20:23:45.000+0000 	2022-07-08 20:24:14.000+0000 	Mod
+07/08/2022 baas     	File Name               	                             	ccwarnings-niles             	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 20:02:24.000+0000 	2022-07-08 20:23:45.000+0000 	Mod
+07/08/2022 baas     	File Name               	                             	static-analysis-niles        	New
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-08 14:17:06.000+0000 	2022-07-08 20:02:24.000+0000 	Mod
+07/08/2022 root     	contents                	                             	l2_uls_sanity_baseline_compar	Mod
+07/08/2022 root     	contents                	                             	l2_uls_sanity_report         	Mod
+07/08/2022 root     	FileSize                	4704                         	4718                         	Mod
+07/08/2022 cdetsbtk 	Security-screening-times	2022-07-07 15:54:43.000+0000 	2022-07-08 14:17:06.000+0000 	Mod
+07/08/2022 vasagraw 	Status-desc             	V-Verified                   	M-More                       	Mod
+07/08/2022 vasagraw 	Status                  	V                            	M                            	Mod
+07/08/2022 vasagraw 	More-on                 	2022-05-19 04:07:51.000+0000 	2022-07-08 07:17:06.000+0000 	Mod
+07/08/2022 vasagraw 	statusStates            	                             	[status=V, startDate=Thu Jun 	New
+07/08/2022 vasagraw 	statusStates            	[status=V, startDate=Thu Jun 	                             	Del
+07/08/2022 vasagraw 	Age-status              	24                           	60                           	Mod
+07/07/2022 cdetsbtk 	Security-screening-times	2022-07-07 15:51:39.000+0000 	2022-07-07 15:54:43.000+0000 	Mod
+07/07/2022 vasagraw 	Note Title              	Unit-test.p2                 	Unit-test_niles              	Mod
+07/07/2022 cdetsbtk 	Security-screening-times	2022-07-07 12:20:08.000+0000 	2022-07-07 15:51:39.000+0000 	Mod
+07/07/2022 vasagraw 	Note Title              	                             	Unit-test.p2                 	New
+07/06/2022 cdetsbtk 	Security-screening-times	2022-06-02 12:45:35.000+0000 	2022-07-07 12:20:08.000+0000 	Mod
+07/06/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+06/01/2022 dpuscasu 	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+06/01/2022 cdetsbtk 	Security-screening-times	2022-05-19 11:07:51.000+0000 	2022-06-02 12:45:35.000+0000 	Mod
+06/01/2022 dpuscasu 	Note Title              	                             	V-comments                   	New
+06/01/2022 dpuscasu 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/01/2022 dpuscasu 	Status                  	R                            	V                            	Mod
+06/01/2022 dpuscasu 	Verified By Employee    	                             	dpuscasu                     	Mod
+06/01/2022 dpuscasu 	Verified-release        	                             	9.3(9.49)                    	New
+06/01/2022 dpuscasu 	Verified-confidence     	                             	tested                       	Mod
+06/01/2022 dpuscasu 	Verified-on             	                             	2022-06-02 05:45:35.000+0000 	Mod
+06/01/2022 dpuscasu 	statusStates            	                             	[status=R, startDate=Thu May 	New
+06/01/2022 dpuscasu 	statusStates            	[status=R, startDate=Thu May 	                             	Del
+06/01/2022 dpuscasu 	Age-status              	10                           	24                           	Mod
+06/01/2022 dpuscasu 	Mean-time-to-verified   	                             	23                           	Mod
+05/25/2022 susomasu 	Integrated-releases     	                             	9.3(10)                      	New
+05/25/2022 susomasu 	Integrated-releases     	                             	9.3(9.44)                    	New
+05/18/2022 vasagraw 	Attribute               	imr8 imr9 n9k-longevity-test 	imr8 imr9 n9k-longevity-test 	Mod
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-19 01:04:44.000+0000 	2022-05-19 11:07:51.000+0000 	Mod
+05/18/2022 vasagraw 	Note Title              	                             	R-comments                   	New
+05/18/2022 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+05/18/2022 vasagraw 	Status                  	A                            	R                            	Mod
+05/18/2022 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+05/18/2022 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/18/2022 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+05/18/2022 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+05/18/2022 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+05/18/2022 vasagraw 	Breakage                	                             	No                           	Mod
+05/18/2022 vasagraw 	Regression              	                             	N                            	Mod
+05/18/2022 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+05/18/2022 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+05/18/2022 vasagraw 	Released-code           	                             	Y                            	Mod
+05/18/2022 vasagraw 	Origin                  	                             	base code                    	Mod
+05/18/2022 vasagraw 	Test-escape             	N                            	Y                            	Mod
+05/18/2022 vasagraw 	Test-EDP-phase          	                             	Regression Test              	Mod
+05/18/2022 vasagraw 	Test-EDP-activity       	                             	Regression Testing           	Mod
+05/18/2022 vasagraw 	TPS_issue               	                             	N                            	Mod
+05/18/2022 vasagraw 	TPS_flag                	                             	N                            	Mod
+05/18/2022 vasagraw 	Behavior-changed        	                             	N                            	Mod
+05/18/2022 vasagraw 	Original-resolved-on    	                             	2022-05-19 04:07:51.000+0000 	Mod
+05/18/2022 vasagraw 	Documents-changed       	                             	none                         	Mod
+05/18/2022 vasagraw 	More-on                 	                             	2022-05-19 04:07:51.000+0000 	Mod
+05/18/2022 vasagraw 	Opened-on               	                             	2022-05-19 04:07:51.000+0000 	Mod
+05/18/2022 vasagraw 	Resolved-on             	                             	2022-05-19 04:07:51.000+0000 	Mod
+05/18/2022 vasagraw 	statusStates            	                             	[status=A, startDate=Tue May 	New
+05/18/2022 vasagraw 	statusStates            	[status=A, startDate=Tue May 	                             	Del
+05/18/2022 vasagraw 	Age-status              	1                            	10                           	Mod
+05/18/2022 vasagraw 	Mean-time-to-resolved   	                             	9                            	Mod
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-19 01:04:41.000+0000 	2022-05-19 01:04:44.000+0000 	Mod
+05/18/2022 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+05/18/2022 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-18 22:48:12.000+0000 	2022-05-19 01:04:41.000+0000 	Mod
+05/18/2022 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-18 22:47:44.000+0000 	2022-05-18 22:48:12.000+0000 	Mod
+05/18/2022 baas     	File Name               	                             	ccwarnings-irvine            	New
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-18 20:02:20.000+0000 	2022-05-18 22:47:44.000+0000 	Mod
+05/18/2022 baas     	File Name               	                             	static-analysis-irvine       	New
+05/18/2022 cdetsbtk 	Security-screening-times	2022-05-18 03:12:31.000+0000 	2022-05-18 20:02:20.000+0000 	Mod
+05/18/2022 vasagraw 	Note Title              	                             	Unit-test                    	New
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 17:24:47.000+0000 	2022-05-18 03:12:31.000+0000 	Mod
+05/17/2022 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+05/17/2022 root     	File Name               	                             	l2_uls_sanity_report         	New
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-17 16:45:10.000+0000 	2022-05-17 17:24:47.000+0000 	Mod
+05/17/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/17/2022 cms      	Est-fix-date            	2022-05-17 07:00:00.000+0000 	2022-05-18 07:00:00.000+0000 	Mod
+05/17/2022 cdetsbtk 	Security-screening-times	2022-05-13 17:43:07.000+0000 	2022-05-17 16:45:10.000+0000 	Mod
+05/17/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2022 cdetsbtk 	Security-screening-times	2022-05-12 11:49:19.000+0000 	2022-05-13 17:43:07.000+0000 	Mod
+05/13/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2022 cms      	Est-fix-date            	2022-05-13 07:00:00.000+0000 	2022-05-17 07:00:00.000+0000 	Mod
+05/11/2022 cdetsbtk 	Security-screening-times	2022-05-12 11:48:11.000+0000 	2022-05-12 11:49:19.000+0000 	Mod
+05/11/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/11/2022 cdetsbtk 	Security-screening-times	2022-05-10 16:16:04.000+0000 	2022-05-12 11:48:11.000+0000 	Mod
+05/11/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/10/2022 cdetsbtk 	Security-screening-times	2022-05-10 13:27:28.000+0000 	2022-05-10 16:16:04.000+0000 	Mod
+05/10/2022 cms      	Note Title              	                             	Scrubnote                    	New
+05/10/2022 cms      	Est-fix-date            	                             	2022-05-13 07:00:00.000+0000 	Mod
+05/09/2022 cdetsbtk 	Security-screening-times	2022-05-10 04:53:16.000+0000 	2022-05-10 13:27:28.000+0000 	Mod
+05/09/2022 vasagraw 	Status-desc             	N-New                        	A-Assigned                   	Mod
+05/09/2022 vasagraw 	Status                  	N                            	A                            	Mod
+05/09/2022 vasagraw 	Engineer                	                             	vasagraw                     	Mod
+05/09/2022 vasagraw 	Assigner                	                             	vasagraw                     	Mod
+05/09/2022 vasagraw 	Assigned Date           	                             	2022-05-10 06:27:27.000+0000 	Mod
+05/09/2022 vasagraw 	statusStates            	                             	[status=N, startDate=Mon May 	New
+05/09/2022 vasagraw 	statusStates            	[status=N, startDate=Mon May 	                             	Del
+05/09/2022 vasagraw 	Age-status              	0                            	1                            	Mod
+05/09/2022 vasagraw 	Mean-time-to-assigned   	                             	0                            	Mod
+05/09/2022 cdetsbtk 	Security-screening-times	2022-05-10 04:51:19.000+0000 	2022-05-10 04:53:16.000+0000 	Mod
+05/09/2022 dpuscasu 	Note Title              	                             	N-comments                   	New
+05/09/2022 cdetsbtk 	Security-screening-times	2022-05-10 04:46:11.000+0000 	2022-05-10 04:51:19.000+0000 	Mod
+05/09/2022 dpuscasu 	File Name               	                             	long-StMortiz_imr9_b29pi_0509	New
+05/09/2022 cdetsbtk 	Security-screening-times	2022-05-10 04:45:56.000+0000 	2022-05-10 04:46:11.000+0000 	Mod
+05/09/2022 dpuscasu 	Headline                	aaa_authenticate() memory lea	Longevity: aaa_authenticate()	Mod
+05/09/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+05/09/2022 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+05/09/2022 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+05/09/2022 cdetsbtk 	Security-screening-times	                             	2022-05-10 04:45:56.000+0000 	Mod
+05/09/2022 dpuscasu 	Note Title              	                             	Release-note                 	New
+05/09/2022 dpuscasu 	Impact                  	                             	Reliability                  	New
+05/09/2022 dpuscasu 	Version                 	                             	9.3(9)                       	New
+05/09/2022 dpuscasu 	Known-affected-releases 	                             	9.3(9)                       	New
+05/09/2022 dpuscasu 	Defect Created          	                             	                             	New

@@ -1,0 +1,854 @@
+*******************************************************************************
+
+Bug ID   : CSCwi21420         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : dot1x radius-accounting did not works with ISE due to unknown Acct-Status-Type
+PrimaryPV : 
+Version :10.2(1) 10.2(5) 10.3(1) 10.4(1) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: dawzhou            Submitted: 11/15/2023 21:56:06     Last Updtd : 10/19/2026 20:20:42  
+RNE-Type: NONE                New-on : 11/15/2023 21:56:06      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:wzhigang                                            
+Known-affected-releases:10.2(1) 10.2(5) 10.3(1) 10.4(1) 
+
+Known-fixed-releases:10.2(7) 10.3(5) 10.4(3) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(16)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(11) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(10) 8.4(11) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(15) 9.3(16) 9.3(17) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 12/07/2023 20:50:17                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 896                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 11/15/2023 21:53:31            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 11/16/2023 03:55:49 
+Code-reviewer: vasagraw       
+Opened-on: 12/07/2023 20:50:17Opener: rohegde               
+Engineer : rohegde            DE-manager  : anikunna        Est Time/Attribute : ed_ic_dc_rs nr5m kr7m-mukamath mukamath
+Est. completion date: 12/05/2023 00:00:00  
+Script-version:                         
+
+More-by : rohegde             More-on: 12/07/2023 20:50:56  
+
+Documents Changed: none       Resolved: 04/30/2026 22:17:42 Resolver: rohegde        
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Beijing-APAC-HTTS
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              696330538
+Trouble-tickets-direct :C3696330538 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/02/2024 10:45:03
+Document :    nexus
+
+Summary:
+Nexus sent the Accounting-Request but ISE didn't reply, this is due to Acct-Authentic and Acct-Status-Type are unknown and ISE dropped packets.
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         696330538       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-162924                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (15 of 15 ) ***********************
+
+---Start of Note Titled: R-comments.p2 (Created 04/30/2026 22:17:42 Added 04/30/2026 22:17:42 by rohegde)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+While support for 64bit was introduced, the radius aaa attribute encoding/decoding for enums needed correction. Some AAA attributes were using unit32 in some places and unsigned long in other. Hence problem is seen in the encoding/decoding routines.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+All uint32 in these AAA attributes are changed to unsigned long.
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+All platforms supporting dot1x
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Check the radius accounting logs on ISE
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Check the radius accounting logs on ISE
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled:  Code-review (Created 04/30/2024 02:49:12 Modified 05/02/2024 03:46:49 by synchub.gen)---
+Code Review Enclosure: Added [dd-mmm-yyyy] by [userid] *** Start of CDETS attachment for CR Information *** ++Status: [Open, Closed] ++Review type: [Formal Review, Basic Review] Code review requestor / Point of contact: [Name] ([userid]) To access all feedback for this code review: [link or text for code review comments, e.g., link to search of newsgroup for this CDETS# OR link to Meeting Minutes in EDCS OR text for actual comments] To see summary data for this review: [link or text for code review summary (setup info such as date, reviewers, etc.), e.g. link to Meeting Minutes in EDCS or text showing date, reviewers, etc.] *** End of CDETS attachment for CR Information *** *** Start of CDETS attachment for CR Measures *** Code Review Results (leave blank till review is closed) Measures available for metrics Dashboard: ++High/Medium Issues: ++Low Issues: ++Issues: [total of High, Medium, & Low] ++Person Hours: [estimate of total person-hours spent for CR prep and meeting] ++Participants: *** End of CDETS attachment for CR Measures ***
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: cms-log (Created 04/30/2024 02:45:14 Added 04/30/2024 02:45:14 by cms)---
+pbhavesh : Tue Apr 30 2024-09:40:20 EST : Attribute(Add) : imr-review-done
+---End of Note Titled: cms-log---
+
+
+---Start of Note Titled: static-analysis (Created 12/17/2023 20:51:32 Added 12/17/2023 20:51:32 by rohegde)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwi21420).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-354
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/rohegde/space_rohegde_cfd_kerry 
+# Generated at
+#     Mon Dec 18 04:51:30 2023 UTC by rohegde
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/rohegde/space_rohegde_cfd_kerry/build/pctmp/sa_attachments/na_sa_attachment.1702875090
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/rohegde/space_rohegde_cfd_kerry/build/pctmp/sa_attachments/na_sa_attachment.1702875090':
+/ws/wit2-sjck/users/rohegde/space_rohegde_cfd_kerry/build/pctmp/sa_attachments/na_sa_attachment.1702875090
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled:  Basic_Sanity_Kerry (Created 12/14/2023 01:31:17 Modified 05/02/2024 03:46:49 by synchub.gen)---
+#################################################################
+###################(\"\[^\""]([^\"])"++Basic_Sanit([^\""\"]([^\"\])"++ Report ###########################
+#################################################################
+ 
+ 
+Test server name : nxosv-sanity08
+Testbed name : n9kv08-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/rohegde/638273/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases : 28
+Failed test cases : 0
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/rohegde/638273
+Report file : /auto/nxos-sanity/logs/rohegde/638273/uls-n9kv08.report
+logfile : /auto/nxos-sanity/logs/rohegde/638273/uls-n9kv08.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time : 2023_12_14_07_25_18
+Test End time : 2023_12_14_09_08_47
+Test Duration : 1:43:29.049915
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '638273', '-cdet', 'CSCwi21420', '-build', '/auto/qav0/users/rohegde/nxos64-cs.10.2.6.21.M.bin', '-testsuite', '/auto/nxos-sanity/logs/rohegde/638273/eor_n9kv_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'rohegde', '-logfile', '/auto/nxos-sanity/logs/rohegde/638273/uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/rohegde/638273/uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+Job Info :(\"\[^\""]([^\"])"++Basic_Sanit([^\""\"]([^\"\])"++ Report: Job-id:EOR_N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+ 
+ 
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:33 
+testBoxOnline pass 0:00:01 
+testModuleStatus pass 0:00:21 
+testStaticRoute pass 0:00:32 
+testLacpShutNoshut pass 0:04:43 
+testToggleSwitchport pass 0:01:52 
+testL2BridgingAccess pass 0:01:33 
+testHierarchicalRouting pass 0:04:33 
+testIpv6Interface pass 0:00:56 
+testOspfv3 pass 0:03:50 
+testBgpv4 pass 0:03:42 
+testBgpv6 pass 0:03:18 
+testEigrpv4 pass 0:02:15 
+testRip pass 0:01:47 
+testCdp pass 0:01:18 
+testLLDP pass 0:00:49 
+testSvi pass 0:03:33 
+testSviVrf pass 0:03:29 
+testVrfRouteLeak pass 0:04:25 
+testL2SanityMacLearning pass 0:05:53 
+testL2SanityUnconfig pass 0:00:30 
+testSpanningTreeAccess pass 0:01:59 
+testSpanningTreeTrunk pass 0:01:47 
+testL3DhcpRelayv4 pass 0:03:29 
+testL3DhcpRelayv6 pass 0:02:39 
+testCopyRunnStart pass 0:08:47 
+testGoldDiagnostic pass 0:00:01 
+testCores pass 0:00:04
+---End of Note Titled: Basic_Sanity_Kerry---
+
+
+---Start of Note Titled:  Email-in (Created 12/11/2023 22:52:29 Modified 04/30/2024 02:49:12 by synchub.gen)---
+From:(\[^\"\])"+Lakshmi Kotla -X (lakotla - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Date: Monday, December 11, 2023 at 2:31 PM 
+To:(\[^\"\])"+Harish Gumaste (hgumaste(\[^\"\])"+ 
+Cc:(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ 
+Subject: [774935][774937]RE: CSCwi21420:dot1x radius-accounting did not works with ISE due to unknown Acct-Status-Type::CSC.datacenter
+
+Hi Harish,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+I am currently evaluating CSCwi21420 for a software recommendation
+of 10.2(x) for my customer N/A:
+
+ http://wwwin-metrics.cisco.com/protected-cgi-bin/ddtsdisp.cgi?id=CSCwi21420
+
+ Having read the Bug enclosures I'm still unsure as to whether this bug will
+
+ affect my customer or not, so hopefully you can clarify this for me.
+ 
+.Could you please confirm whether this issue impacts N9k, N3K and N3.5K running 10.2(x) Releases?
+
+ Thank you for your help,
+Lakshmi Kotla
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 12/10/2023 10:23:05 Added 12/10/2023 10:23:05 by seshea)---
+--- Update 2023-12-10 18:23:00.097790 seshea (via 696590606)
+Unsuitable - Conditions too Generic
+auth error seen is very generic
+bug is sev3 - no need to loose match
+issue is on aaa server side, not nexus
+nothing to digitize from nxos side
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: Regression runs (Created 12/08/2023 04:25:09 Added 12/08/2023 04:25:09 by rohegde)---
+Eap-tls
+Results of of the eap_tls script : https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fws%2Fsrers-bgl%2FPyATS_2%2Fusers%2Fsrers%2Farchive%2F23-12%2Feap_macsec6_ixia.2023Dec08_00:17:11.175727.zip&atstype=ATS
+
+fail-open
+Passed: 10/10 ? completed.
+  https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/Nexus-n39K/N39K_Regression/pyats/pyats3.6_dec21/users/kavkarup/archive/23-12/dot1x_failopen_job-review.2023Dec06_17:49:54.633260.zip&atstype=ATS
+
+DACL:  https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CRRaa87463
+---End of Note Titled: Regression runs---
+
+
+---Start of Note Titled: M-comments (Created 12/07/2023 20:50:57 Added 12/07/2023 20:50:57 by rohegde)---
+Needs commit to Kerry
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: R-comments (Created 12/07/2023 20:50:18 Added 12/07/2023 20:50:18 by rohegde)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+While support for 64bit was introduced, the radius aaa attribute encoding/decoding for enums needed correction. Some AAA attributes were using unit32 in some places and unsigned long in other. Hence problem is seen in the encoding/decoding routines.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+All uint32 in these AAA attributes are changed to unsigned long.
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+All platforms supporting dot1x
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Check the radius accounting logs on ISE
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Check the radius accounting logs on ISE
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Basic_Sanity (Created 12/04/2023 00:47:25 Modified 04/30/2024 02:49:12 by synchub.gen)---
+#################################################################
+###################(\[^\"])"+Basic_Sanit([^\"\])"+ Report ###########################
+#################################################################
+
+
+Test server name : nxos-sanity77
+Testbed name : sanity77-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases : 63
+Failed test cases : 0
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/rohegde/624617
+Report file : /auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls-sanity77.report
+logfile : /auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls-sanity77.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time : 2023_11_30_22_00_55
+Test End time : 2023_12_01_03_01_01
+Test Duration : 5:00:05.638377
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '624617', '-cdet', 'CSCwi21420', '-build', '/auto/qav0/users/rohegde/dot1x_cfd_77_PI.bin', '-testsuite', '/auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls.yml', '-testbed', 'sanity77-testbed.yml', '-asic', 'tah', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'rohegde', '-logfile', '/auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls-sanity77.log', '-reportfile', '/auto/nxos-sanity/logs/rohegde/624617/base_sanity_uls-sanity77.report', '-jobid', 'TAH'] 
+Job Info :(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:TAH Passed:63/63 Failed:0/63 Aborted:0/63 Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:18 
+testBootTime pass 0:00:12 
+testBoxOnline pass 0:00:01 
+testModuleStatus pass 0:00:16 
+testL3DhcpRelayv4 pass 0:03:25 
+testL3DhcpRelayv6 pass 0:02:27 
+testSviDhcpRelayv4 pass 0:03:40 
+testSviDhcpRelayv6 pass 0:02:49 
+testPTPMulticast pass 0:06:21 
+testPTPChangeL3ToL2AccessNonDefaultVlan pass 0:12:19 
+testPTPMulticastSVIAccess pass 0:06:30 
+testStaticRoute pass 0:00:42 
+testLacpShutNoshut pass 0:04:39 
+testSubPortChannelShutNoshut pass 0:02:46 
+testL2BridgingTrunk pass 0:01:49 
+testBgpv4 pass 0:03:40 
+testCdp pass 0:01:37 
+testLLDP pass 0:00:56 
+testSviVrf pass 0:03:16 
+testIpv6Interface pass 0:00:51 
+testStpLacpPcAccessWithTraffic pass 0:13:48 
+testMStpSingleInstLacpPcTrunkWithTraffic pass 0:12:53 
+testL2SanityMacLearning pass 0:11:20 
+testL2SanityPortModeChange pass 0:09:56 
+testL2SanityUnconfig pass 0:00:30 
+testDynamicL2MulticastPC pass 0:05:08 
+testPimv4 pass 0:08:37 
+GleanL3toL3V4V6 pass 0:04:42 
+testCopp pass 0:15:18 
+testRaclIPv4 pass 0:05:32 
+testSpan pass 0:02:25 
+configVxLANVPCEvpn40G pass 0:17:46 
+testVxLANPeerLearnAccessVPCEvpn40G pass 0:01:06 
+testVxLANBCAccessVPCEvpn40G pass 0:00:19 
+testVxLANL2MCAccessVPCEvpn40G pass 0:00:19 
+testVxLANUUCAccessVPCEvpn40G pass 0:00:19 
+testVxLANUCAccessVPCEvpn40G pass 0:01:03 
+testVxLANUCIPv6AccessVPCEvpn40G pass 0:00:34 
+testVxLANUCNonIPAccessVPCEvpn40G pass 0:00:34 
+testVxLANPeerLearnTrunkVPCEvpn40G pass 0:01:06 
+testVxLANBCTrunkVPCEvpn40G pass 0:00:19 
+testVxLANL2MCTrunkVPCEvpn40G pass 0:00:19 
+testVxLANUUCTrunkVPCEvpn40G pass 0:00:19 
+testVxLANUCTrunkVPCEvpn40G pass 0:01:03 
+testVxLANUCIPv6TrunkVPCEvpn40G pass 0:00:34 
+testVxLANUCNonIPTrunkVPCEvpn40G pass 0:00:34 
+testNestedVxLANBCTrunkVPCEvpnL240G_1 pass 0:00:19 
+testNestedVxLANMCTrunkVPCEvpnL240G_1 pass 0:00:19 
+testNestedVxLANUCBCVPCEvpnL240G_1 pass 0:00:19 
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G pass 0:01:26 
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G pass 0:01:26 
+testVxLANL3IPv4L3VnidVPCEvpn40G pass 0:01:26 
+testVxLANL3IPv6L3VnidVPCEvpn40G pass 0:01:26 
+testNestedVxLANVPCEvpnL3IPv440G_1 pass 0:01:25 
+testNestedVxLANVPCEvpnL3IPv640G_1 pass 0:01:26 
+testVxLANSnoopMCTrunkVPCsEvpn40G pass 0:03:40 
+testVxLANChangeNveVniTrunkVPCEvpn40G pass 0:13:42 
+testVxLANFlapNveVPCEvpn40G pass 0:16:56 
+testVxLANPeerLinkFlapStimuliVPCEvpn40G pass 0:07:40 
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G pass 0:16:57 
+unconfigVxLANVPCEvpn40G pass 0:18:51 
+testGoldDiagnostic pass 0:00:39 
+testCores pass 0:00:04
+---End of Note Titled: Basic_Sanity---
+
+
+---Start of Note Titled:  Unit-test (Created 11/30/2023 21:04:45 Modified 04/30/2024 02:49:12 by synchub.gen)---
+Check the attached image for ISE results. On Session successful authentication: Logged At 2023-12-01 04:42:32.153 Occurred At 2023-12-01 04:42:32.153 +0:00 Server secdevise-lnx Username D4-C9-3C-D4-D0-8C Network Device Name 10.105.194.177 Network Device Groups IPSEC#Is IPSEC Device#No,Location#All Locations,Device Type#All Device Types Service Selection Rule Name Allowed Protocol Default Network Access Security Group AD Domain Calling Station ID D4:C9:3C:D4:D0:8C Endpoint IP Address Endpoint IPv6 Address NAS IP Address 10.105.194.177 NAS IPv6 Address NAS Port 0 NAS Port ID NAS Identifier Account Status Type Start Account Session Id D4-C9-3C-D4-D0-8C Fri Dec 1 04:34:40 2023 Account MultiSession Id Audit Session ID 000000000000000065696259 AAA Session ID secdevise-lnx/486377509/131725 Account Authentic RADIUS Account Terminate Cause Terminate Action
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 11/20/2023 23:43:04 Modified 06/14/2024 13:05:12 by cms)---
+{240430 manoshuk S B} Reviewed ; ok to not take it in IMR13
+{240423 pbhavesh S B} need not consider for IMR13
+{240207 anikunna S B} NR5M ETA:2/9
+{231214 rohegde D B} PRRQ modified
+{231214 rohegde D B} PRRQ modified
+{231211 pbhavesh S B} no need to release-note for IMR12
+{231204 anikunna S B} Image shared with Sanity regression team for dot1x regression run
+{231130 anikunna S B} Additionally rework had to be done. Reaching out to QA for Regression
+{231126 anikunna S B} Potential fix ready. In UT.
+{231121 palshanm S B} Issue recreated and provided setup to Dev team for RCA
+{231121 anikunna S B} Able to repro the issue locally. Triaging in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 11/16/2023 03:55:49 Added 11/16/2023 03:55:49 by anikunna)---
+Pls check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 11/15/2023 21:56:07 Modified 04/30/2026 22:17:42 by rohegde)---
+<B>Symptom:</B>
+After dot1x authentication complete, the switch reports the following error message:
+2023 Nov 13 05:20:00 switch %RADIUS-3-RADIUS_ERROR_MESSAGE: RADIUS server x.x.x.x failed to respond
+2023 Nov 13 05:20:05 switch %RADIUS-3-RADIUS_ERROR_MESSAGE: RADIUS server x.x.x.x failed to respond (message repeated 1 time)
+2023 Nov 13 05:20:05 switch %RADIUS-3-RADIUS_ERROR_MESSAGE: RADIUS server x.x.x.x failed to respond evenafter all retries
+2023 Nov 13 05:20:05 switch %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+
+<B>Conditions:</B>
+dot1x radius-accounting is enabled
+
+<B>Workaround:</B>
+Disable dot1x accounting due to the fact that it not working properly.
+
+<B>Further Problem Description:</B>
+1. This feature is not working properly from 10.2(1) and above. 
+2. It can works fine with Freeradius but not with Cisco ISE.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (18 of 18)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     1058           synchub.gen    04/30/2024 02:49:12      
+CSCwi21420_NR5M_Test_Logs.docx                    binary         394360         palshanm       04/05/2024 02:22:17      
+Diffs-commit-niles_rel                            ascii text     2964           rohegde        02/08/2024 07:39:17      
+ccwarnings-niles_rel                              ascii text     238            baas           02/08/2024 00:43:47      
+static-analysis-niles_rel                         ascii text     431            baas           02/08/2024 00:43:12      
+code-review-niles_rel.p2                          ascii text     1232           rohegde        02/07/2024 22:38:40      
+PR-Description-30276                              ascii text     813            rohegde        02/07/2024 22:38:41      
+code-review-niles_rel                             ascii text     1232           rohegde        02/07/2024 21:59:58      
+Diffs-commit-kerry                                ascii text     2834           rohegde        12/17/2023 20:51:36      
+Diffs-release-kerry                               ascii text     1189           rohegde        12/17/2023 20:51:34      
+Diffs-commit-or3f_dev                             ascii text     3549           rohegde        12/07/2023 19:50:55      
+base_sanity_uls_sanity_report                     ascii text     9059           root           12/16/2023 12:38:57      
+base_sanity_uls_sanity_baseline_compare           ascii text     219            root           12/16/2023 12:38:56      
+ccwarnings-or3f_dev                               ascii text     238            baas           12/01/2023 01:59:39      
+static-analysis-or3f_dev                          ascii text     430            baas           12/01/2023 01:59:01      
+code-review-or3f_dev.p2                           ascii text     1271           rohegde        12/01/2023 00:08:33      
+code-review-or3f_dev                              ascii text     1271           rohegde        11/30/2023 22:44:11      
+2060_509_1.25.png                                 binary         83146          rohegde        11/30/2023 21:05:02      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+10/19/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/19/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/14/2026 sivrg    	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+05/03/2026 manojohn 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+05/01/2026 pisces   	VF-patched              	                             	NX-OS:10.2(7),NX-OS:10.2(8),N	New
+05/01/2026 pisces   	VF-unpatched            	                             	NX-OS:10.3(3q),NX-OS:10.3(3r)	New
+05/01/2026 pisces   	Potentially-affected-rel	                             	10.3(3q),10.3(3r),10.3(3w),10	New
+04/30/2026 rohegde  	Note Title              	                             	R-comments.p2                	New
+04/30/2026 rohegde  	Status-desc             	M-More                       	R-Resolved                   	Mod
+04/30/2026 rohegde  	Status                  	M                            	R                            	Mod
+04/30/2026 rohegde  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/30/2026 rohegde  	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/30/2026 rohegde  	Resolved-on             	2023-12-08 04:50:17.000+0000 	2026-05-01 05:17:42.000+0000 	Mod
+04/30/2026 rohegde  	statusStates            	                             	[status=M, startDate=Fri Dec 	New
+04/30/2026 rohegde  	statusStates            	[status=M, startDate=Fri Dec 	                             	Del
+04/30/2026 rohegde  	Age-status              	22                           	897                          	Mod
+04/30/2026 rohegde  	Mean-time-to-resolved   	21                           	896                          	Mod
+01/19/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+01/19/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+12/23/2025 vasagraw 	File Name               	Eng-note                     	                             	Del
+12/23/2025 qddts    	File Name               	                             	Eng-note                     	New
+12/23/2025 qddts    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/23/2025 qddts    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/30/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+06/30/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+06/04/2025 samekama 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+06/04/2025 samekama 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/04/2025 samekama 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2025 samekama 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+08/15/2024 cspgre   	Apply-to                	                             	UCSM-6.0.100.240076.A        	New
+06/14/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/13/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/13/2024 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/13/2024 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/04/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2024 divvenka 	Known-fixed-releases    	                             	10.3(5)                      	New
+05/02/2024 synchub.g	Note                    	Basic_Sanity_Kerry           	Basic_Sanity_Kerry           	Mod
+05/02/2024 synchub.g	Note                    	Code-review                  	Code-review                  	Mod
+05/02/2024 cdetsbtk 	Security-screening-times	2023-11-16 19:47:50.000+0000 	2024-05-02 17:45:03.000+0000 	Mod
+04/30/2024 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+04/30/2024 synchub.g	Note Title              	                             	Code-review                  	New
+04/30/2024 synchub.g	Note                    	Release-note                 	Release-note                 	Mod
+04/30/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+04/30/2024 synchub.g	Note                    	Basic_Sanity_Kerry           	Basic_Sanity_Kerry           	Mod
+04/30/2024 synchub.g	Note                    	Basic_Sanity                 	Basic_Sanity                 	Mod
+04/30/2024 synchub.g	File Name               	                             	Release-note-diff            	New
+04/30/2024 synchub.g	Symptoms                	After dot1x authentication co	After dot1x authentication co	Mod
+04/30/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-162924       	New
+04/30/2024 cms      	Note Title              	                             	cms-log                      	New
+04/30/2024 cms      	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+04/05/2024 palshanm 	File Name               	                             	CSCwi21420_NR5M_Test_Logs.doc	New
+04/05/2024 palshanm 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+04/05/2024 palshanm 	Verified-release        	                             	10.3(4.86)                   	New
+04/05/2024 palshanm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/05/2024 palshanm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/02/2024 divvenka 	Integrated-releases     	                             	10.4(3)                      	New
+04/02/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/02/2024 divvenka 	Known-fixed-releases    	                             	10.4(3)                      	New
+03/05/2024 kopidiki 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+03/05/2024 kopidiki 	Known-fixed-releases    	                             	10.2(7)                      	New
+02/08/2024 divvenka 	Integrated-releases     	                             	10.3(4.51),10.3(5)           	New
+02/08/2024 divvenka 	Integrated-releases     	10.3(4.51),10.3(5)           	                             	Del
+02/08/2024 divvenka 	Integrated-releases     	                             	10.3(4.51),10.3(5)           	New
+02/08/2024 rohegde  	File Name               	                             	Diffs-commit-niles_rel       	New
+02/08/2024 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+02/08/2024 baas     	File Name               	                             	static-analysis-niles_rel    	New
+02/07/2024 rohegde  	contents                	                             	PR-Description-30276         	Mod
+02/07/2024 rohegde  	File Name               	                             	code-review-niles_rel.p2     	New
+02/07/2024 rohegde  	File Name               	                             	PR-Description-30276         	New
+02/07/2024 rohegde  	File Name               	                             	code-review-niles_rel        	New
+02/06/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/11/2024 palshanm 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+01/11/2024 palshanm 	Verified-release        	                             	10.2(6.32)                   	New
+01/09/2024 vkoganti 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+01/09/2024 vkoganti 	Attribute               	ed_ic_dc_rs nr5m kr7m-mukamat	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+01/08/2024 ambanerj 	Attribute               	ed_ic_dc_rs nr5m             	ed_ic_dc_rs nr5m kr7m-mukamat	Mod
+12/26/2023 divvenka 	Integrated-releases     	                             	10.2(6.27)                   	New
+12/20/2023 susomasu 	Integrated-releases     	                             	10.2(7)                      	New
+12/20/2023 susomasu 	Integrated-releases     	                             	10.2(6.28)                   	New
+12/19/2023 rohegde  	Attribute               	ed_ic_dc_rs                  	ed_ic_dc_rs nr5m             	Mod
+12/17/2023 rohegde  	File Name               	                             	Diffs-commit-kerry           	New
+12/17/2023 rohegde  	File Name               	                             	Diffs-release-kerry          	New
+12/17/2023 rohegde  	Multi-commit-flag       	                             	Y                            	Mod
+12/17/2023 rohegde  	Note Title              	                             	static-analysis              	New
+12/16/2023 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+12/16/2023 root     	FileSize                	9074                         	9059                         	Mod
+12/16/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+12/14/2023 rohegde  	Note Title              	                             	Basic_Sanity_Kerry           	New
+12/14/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/14/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/12/2023 divvenka 	Integrated-releases     	                             	10.4(2)IMG9(0)               	New
+12/12/2023 divvenka 	Integrated-releases     	                             	10.4(2)IMG9(0.5)             	New
+12/12/2023 divvenka 	Apply-to                	                             	10.4(2)IMG9(0.5)             	New
+12/11/2023 lakotla  	Note Title              	                             	Email-in                     	New
+12/10/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/10/2023 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+12/08/2023 rohegde  	Note Title              	                             	Regression runs              	New
+12/07/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0)               	New
+12/07/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0.108)           	New
+12/07/2023 divvenka 	Apply-to                	                             	10.4(2)IOD9(0.108)           	New
+12/07/2023 rohegde  	Note Title              	                             	M-comments                   	New
+12/07/2023 rohegde  	Status-desc             	R-Resolved                   	M-More                       	Mod
+12/07/2023 rohegde  	Status                  	R                            	M                            	Mod
+12/07/2023 rohegde  	More-on                 	2023-12-08 04:50:17.000+0000 	2023-12-08 04:50:56.000+0000 	Mod
+12/07/2023 rohegde  	statusStates            	                             	[status=R, startDate=Fri Dec 	New
+12/07/2023 rohegde  	statusStates            	[status=R, startDate=Fri Dec 	                             	Del
+12/07/2023 rohegde  	Note Title              	                             	R-comments                   	New
+12/07/2023 rohegde  	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+12/07/2023 rohegde  	Status                  	A                            	R                            	Mod
+12/07/2023 rohegde  	Dev-escape-resolver-opin	                             	N                            	Mod
+12/07/2023 rohegde  	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+12/07/2023 rohegde  	More-by                 	                             	rohegde                      	Mod
+12/07/2023 rohegde  	Opener                  	                             	rohegde                      	Mod
+12/07/2023 rohegde  	Resolver                	                             	rohegde                      	Mod
+12/07/2023 rohegde  	Breakage                	                             	No                           	Mod
+12/07/2023 rohegde  	Regression              	                             	N                            	Mod
+12/07/2023 rohegde  	By-previous-commit-value	                             	No                           	Mod
+12/07/2023 rohegde  	Bug-origin              	                             	Code / Implementation        	Mod
+12/07/2023 rohegde  	Released-code           	                             	Y                            	Mod
+12/07/2023 rohegde  	Origin                  	                             	base code                    	Mod
+12/07/2023 rohegde  	Test-escape             	N                            	Y                            	Mod
+12/07/2023 rohegde  	Test-EDP-phase          	                             	Feature Test                 	Mod
+12/07/2023 rohegde  	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+12/07/2023 rohegde  	TPS_issue               	                             	N                            	Mod
+12/07/2023 rohegde  	TPS_flag                	                             	N                            	Mod
+12/07/2023 rohegde  	Behavior-changed        	                             	N                            	Mod
+12/07/2023 rohegde  	Original-resolved-on    	                             	2023-12-08 04:50:17.000+0000 	Mod
+12/07/2023 rohegde  	Documents-changed       	                             	none                         	Mod
+12/07/2023 rohegde  	More-on                 	                             	2023-12-08 04:50:17.000+0000 	Mod
+12/07/2023 rohegde  	Opened-on               	                             	2023-12-08 04:50:17.000+0000 	Mod
+12/07/2023 rohegde  	Resolved-on             	                             	2023-12-08 04:50:17.000+0000 	Mod
+12/07/2023 rohegde  	statusStates            	                             	[status=A, startDate=Thu Nov 	New
+12/07/2023 rohegde  	statusStates            	[status=A, startDate=Thu Nov 	                             	Del
+12/07/2023 rohegde  	Age-status              	0                            	22                           	Mod
+12/07/2023 rohegde  	Mean-time-to-resolved   	                             	21                           	Mod
+12/07/2023 rohegde  	File Name               	                             	Diffs-commit-or3f_dev        	New
+12/04/2023 rohegde  	Note Title              	                             	Basic_Sanity                 	New
+12/03/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/03/2023 cms      	Est-fix-date            	2023-12-04 08:00:00.000+0000 	2023-12-05 08:00:00.000+0000 	Mod
+12/01/2023 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+12/01/2023 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+12/01/2023 baas     	File Name               	                             	ccwarnings-or3f_dev          	New
+12/01/2023 baas     	File Name               	                             	static-analysis-or3f_dev     	New
+12/01/2023 rohegde  	File Name               	                             	code-review-or3f_dev.p2      	New
+11/30/2023 rohegde  	Code-reviewer           	                             	vasagraw                     	New
+11/30/2023 rohegde  	File Name               	                             	code-review-or3f_dev         	New
+11/30/2023 rohegde  	File Name               	                             	2060_509_1.25.png            	New
+11/30/2023 rohegde  	Note Title              	                             	Unit-test                    	New
+11/30/2023 cms      	Est-fix-date            	2023-11-30 08:00:00.000+0000 	2023-12-04 08:00:00.000+0000 	Mod
+11/30/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/28/2023 cms      	Est-fix-date            	2023-11-29 08:00:00.000+0000 	2023-11-30 08:00:00.000+0000 	Mod
+11/26/2023 cms      	Est-fix-date            	2023-11-28 08:00:00.000+0000 	2023-11-29 08:00:00.000+0000 	Mod
+11/26/2023 anikunna 	Engineer                	hgumaste                     	rohegde                      	Mod
+11/25/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/25/2023 cms      	Est-fix-date            	                             	2023-11-28 08:00:00.000+0000 	Mod
+11/24/2023 shuoli3  	serviceRequests/C3/69633	                             	                             	Mod
+11/24/2023 shuoli3  	Urgency-desc            	NA                           	CL3                          	Mod
+11/24/2023 shuoli3  	Urgency                 	9                            	6                            	Mod
+11/21/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/20/2023 cms      	Note Title              	                             	Scrubnote                    	New
+11/16/2023 anikunna 	Engineer                	vasagraw                     	hgumaste                     	Mod
+11/16/2023 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+11/16/2023 shuoli3  	serviceRequests/C3/69633	                             	C3/696330538                 	New
+11/16/2023 shuoli3  	Urgency                 	                             	9                            	Mod
+11/16/2023 shuoli3  	Tickets-count           	0                            	1                            	Mod
+11/16/2023 shuoli3  	TACSR-count             	                             	1                            	Mod
+11/16/2023 shuoli3  	Tickets-count-direct    	                             	1                            	Mod
+11/16/2023 shuoli3  	Trouble-tickets         	                             	696330538                    	New
+11/16/2023 shuoli3  	Trouble-tickets-direct  	                             	C3696330538                  	New
+11/16/2023 anikunna 	Note Title              	                             	A-comments                   	New
+11/16/2023 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+11/16/2023 anikunna 	Status                  	N                            	A                            	Mod
+11/16/2023 anikunna 	Engineer                	                             	vasagraw                     	Mod
+11/16/2023 anikunna 	Assigner                	                             	anikunna                     	Mod
+11/16/2023 anikunna 	Assigned Date           	                             	2023-11-16 11:55:49.000+0000 	Mod
+11/16/2023 anikunna 	statusStates            	                             	[status=N, startDate=Thu Nov 	New
+11/16/2023 anikunna 	statusStates            	[status=N, startDate=Thu Nov 	                             	Del
+11/16/2023 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+11/16/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+11/16/2023 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+11/16/2023 cdetsbtk 	Security-screening-times	                             	2023-11-16 19:47:50.000+0000 	Mod
+11/15/2023 dawzhou  	Note Title              	                             	Release-note                 	New
+11/15/2023 dawzhou  	Headline                	                             	dot1x radius-accounting did n	Mod
+11/15/2023 dawzhou  	Summary                 	                             	Nexus sent the Accounting-Req	Mod
+11/15/2023 dawzhou  	Project                 	                             	CSC.datacenter               	Mod
+11/15/2023 dawzhou  	Product                 	                             	n9k-standalone-sw            	Mod
+11/15/2023 dawzhou  	Component               	                             	radius                       	Mod
+11/15/2023 dawzhou  	Status-desc             	                             	N-New                        	Mod
+11/15/2023 dawzhou  	Status                  	                             	N                            	Mod
+11/15/2023 dawzhou  	Found                   	                             	customer-use                 	Mod
+11/15/2023 dawzhou  	Hardening               	                             	N                            	Mod
+11/15/2023 dawzhou  	Product-owner           	                             	gsheehan                     	Mod
+11/15/2023 dawzhou  	Original-found          	                             	customer-use                 	Mod
+11/15/2023 dawzhou  	Hardware                	                             	Nexus 9000                   	Mod
+11/15/2023 dawzhou  	Feature                 	                             	fix                          	Mod
+11/15/2023 dawzhou  	Urgency-desc            	                             	NA                           	Mod
+11/15/2023 dawzhou  	Severity-desc           	                             	moderate                     	Mod
+11/15/2023 dawzhou  	Severity                	                             	3                            	Mod
+11/15/2023 dawzhou  	DE Priority Desc        	                             	medium                       	Mod
+11/15/2023 dawzhou  	DE-priority             	                             	3                            	Mod
+11/15/2023 dawzhou  	Impact                  	                             	Features/Functionality       	New
+11/15/2023 dawzhou  	Submitter               	                             	dawzhou                      	Mod
+11/15/2023 dawzhou  	Submitter-manager       	                             	wzhigang                     	Mod
+11/15/2023 dawzhou  	DE-manager              	                             	anikunna                     	Mod
+11/15/2023 dawzhou  	DTPT-manager            	                             	mukamath                     	Mod
+11/15/2023 dawzhou  	Version                 	                             	10.2(1),10.2(5),10.3(1),10.4(	New
+11/15/2023 dawzhou  	Original-version        	                             	10.2(1)                      	Mod
+11/15/2023 dawzhou  	Found-during            	                             	Customer                     	Mod
+11/15/2023 dawzhou  	Activity-when-found     	                             	Customer-Use                 	Mod
+11/15/2023 dawzhou  	Automated-test          	                             	N                            	Mod
+11/15/2023 dawzhou  	Test-escape             	                             	N                            	Mod
+11/15/2023 dawzhou  	PSIRT                   	                             	N                            	Mod
+11/15/2023 dawzhou  	Data-classification     	                             	Cisco Highly Confidential    	Mod
+11/15/2023 dawzhou  	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+11/15/2023 dawzhou  	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+11/15/2023 dawzhou  	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+11/15/2023 dawzhou  	Software-type-ids       	                             	282253564,286280105,286321149	New
+11/15/2023 dawzhou  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/15/2023 dawzhou  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/15/2023 dawzhou  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/15/2023 dawzhou  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+11/15/2023 dawzhou  	MDF-edited              	                             	N                            	Mod
+11/15/2023 dawzhou  	Attribute2              	                             	n/a                          	Mod
+11/15/2023 dawzhou  	Care-Update             	                             	Y                            	Mod
+11/15/2023 dawzhou  	Doc-manager             	                             	anikunna                     	Mod
+11/15/2023 dawzhou  	Document                	                             	nexus                        	Mod
+11/15/2023 dawzhou  	Documentation-resolution	                             	Undefined                    	Mod
+11/15/2023 dawzhou  	Original-activity-when-f	                             	Customer-Use                 	Mod
+11/15/2023 dawzhou  	Original-found-during   	                             	Customer                     	Mod
+11/15/2023 dawzhou  	Submitter-org-bug       	                             	Support DC-Beijing-APAC-HTTS 	Mod
+11/15/2023 dawzhou  	Component-scenarios     	                             	N                            	Mod
+11/15/2023 dawzhou  	Submitted-on            	                             	2023-11-16 05:56:06.989+0000 	Mod
+11/15/2023 dawzhou  	IFD-CFD-Conv-date       	                             	2023-11-16 05:53:31.000+0000 	Mod
+11/15/2023 dawzhou  	New-on                  	                             	2023-11-16 05:56:06.989+0000 	Mod
+11/15/2023 dawzhou  	statusStates            	                             	[status=S, startDate=Thu Nov 	New
+11/15/2023 dawzhou  	Transition-day          	0                            	2460265                      	Mod
+11/15/2023 dawzhou  	Release-note-status     	                             	have                         	Mod
+11/15/2023 dawzhou  	Reported By             	                             	dawzhou                      	Mod
+11/15/2023 dawzhou  	Known-affected-releases 	                             	10.2(1),10.2(5),10.3(1),10.4(	New
+11/15/2023 dawzhou  	RNE-Type                	                             	NONE                         	Mod
+11/15/2023 dawzhou  	Symptoms                	                             	After dot1x authentication co	Mod
+11/15/2023 dawzhou  	Conditions              	                             	dot1x radius-accounting is en	Mod
+11/15/2023 dawzhou  	Workarounds             	                             	Disable dot1x accounting due 	Mod
+11/15/2023 dawzhou  	Further-Problem-Descript	                             	1. This feature is not workin	Mod
+11/15/2023 dawzhou  	Tickets-count           	                             	0                            	Mod
+11/15/2023 dawzhou  	Class                   	                             	CSC.datacenter               	Mod
+11/15/2023 dawzhou  	Reti-bug                	                             	Y                            	Mod
+11/15/2023 dawzhou  	Defect Created          	                             	                             	New

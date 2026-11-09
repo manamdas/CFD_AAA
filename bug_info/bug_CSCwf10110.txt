@@ -1,0 +1,1084 @@
+*******************************************************************************
+
+Bug ID   : CSCwf10110         Project  : CSC.datacenter     Status  : M              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 4 (minor)      
+Headline : Seeing error logs on upgrade: invalid group file entry delete line 'aaa-db-operator:508:'? No
+PrimaryPV : 
+Version :10.2(4) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: misemank           Submitted: 04/20/2023 10:20:42     Last Updtd : 07/30/2026 09:52:21  
+RNE-Type: NONE                New-on : 04/20/2023 17:04:24      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:pkatti                                              
+Known-affected-releases:10.2(4) 
+
+Known-fixed-releases:10.2(6) 10.3(5) 10.4(1) 10.4(2) 9.3(12) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/22/2023 21:06:26                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 2                                              
+Mean-time-to-verified: 21     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/20/2023 05:17:39            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security Ease-of-Use 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : greddyda           Priority : medium        Assigned: 04/21/2023 00:56:01 
+Code-reviewer: hongli         
+Opened-on: 04/22/2023 21:06:26Opener: greddyda              
+Engineer : greddyda           DE-manager  : anikunna        Est Time/Attribute : imr11-mukamath  ed_ic_dc_rs cfd-manojoh
+Est. completion date:                      
+Script-version:                         
+
+More-by : greddyda            More-on: 06/02/2023 02:54:14  
+
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-US
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       Yes, caused by CDETS commit
+Child-type :           
+Regression :                     Y
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       Caused-by-CDETS-commit
+By-previous-commit :             
+Previous-commit-id:              CSCuu18568
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    Y
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Development
+Test-EDP-activity :               Unit Test
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			Y
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              695206837
+Trouble-tickets-direct :C3695206837 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 04/21/2023 14:22:11
+Document :    nexus
+
+Summary:
+The following error log is seen upon upgrading the switch during bootup:
+
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No
+
+No currently known functional impact, but this causes removal of a linux security group.  May be hidden impacts from that that we may discover.
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         695206837       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-375897                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+GoodCodeFixId          glmatthe      05/04/2015 12:50:12    CSCuu18568      CSC.datacenter  V            
+
+
+********************* Listing of Notes (17 of 17 ) ***********************
+
+---Start of Note Titled: nr5m_verified (Created 03/06/2024 04:05:34 Added 03/06/2024 04:05:34 by sahmedr)---
+Pass log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/24-03/CSCwf10110_jobfile.2024Mar06_17:31:00.550884.zip&atstype=ATS
+---End of Note Titled: nr5m_verified---
+
+
+---Start of Note Titled: ULS_sanity (Created 02/22/2024 07:44:20 Added 02/22/2024 07:44:20 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Thursday, February 22, 2024 4:04 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity09
+Testbed  name       : n9kv09-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/greddyda/690698/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/690698
+Report file         : /auto/nxos-sanity/logs/greddyda/690698/uls-n9kv09.report
+logfile             : /auto/nxos-sanity/logs/greddyda/690698/uls-n9kv09.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time     : 2024_02_22_08_47_34
+Test End time       : 2024_02_22_10_34_09
+Test Duration       : 1:46:34.157955
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '690698', '-cdet', 'CSCwf10110', '-build', '/ws/greddyda-sjc/Images/nxos64-cs.10.3.4.61.M.bin', '-testsuite', '/auto/nxos-sanity/logs/greddyda/690698/eor_n9kv_uls.yml', '-testbed', 'n9kv09-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/690698/uls-n9kv09.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/690698/uls-n9kv09.report', '-jobid', 'EOR_N9KV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28  Failed:0/28  Aborted:0/28  Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:40   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:29   
+testStaticRoute                                                           pass      0:00:33   
+testLacpShutNoshut                                                        pass      0:04:43   
+testToggleSwitchport                                                      pass      0:01:52   
+testL2BridgingAccess                                                      pass      0:01:34   
+testHierarchicalRouting                                                   pass      0:04:34   
+testIpv6Interface                                                         pass      0:00:57   
+testOspfv3                                                                pass      0:03:52   
+testBgpv4                                                                 pass      0:03:46   
+testBgpv6                                                                 pass      0:03:22   
+testEigrpv4                                                               pass      0:02:16   
+testRip                                                                   pass      0:01:50   
+testCdp                                                                   pass      0:01:19   
+testLLDP                                                                  pass      0:00:53   
+testSvi                                                                   pass      0:03:34   
+testSviVrf                                                                pass      0:03:30   
+testVrfRouteLeak                                                          pass      0:04:45   
+testL2SanityMacLearning                                                   pass      0:05:55   
+testL2SanityUnconfig                                                      pass      0:00:30   
+testSpanningTreeAccess                                                    pass      0:02:15   
+testSpanningTreeTrunk                                                     pass      0:01:49   
+testL3DhcpRelayv4                                                         pass      0:03:32   
+testL3DhcpRelayv6                                                         pass      0:02:42   
+testCopyRunnStart                                                         pass      0:09:13   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: ULS_sanity---
+
+
+---Start of Note Titled: Verified_Log_Or1f (Created 07/24/2023 15:45:37 Added 07/24/2023 15:45:37 by sahmedr)---
+Verified Log in Orlf :
+
+Pass Log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-07/CSCwf10110_jobfile.2023Jul25_04:09:28.900027.zip&atstype=ATS
+---End of Note Titled: Verified_Log_Or1f---
+
+
+---Start of Note Titled: Automation Log_kr6m (Created 06/19/2023 09:00:17 Added 06/19/2023 09:00:17 by sahmedr)---
+Pass Log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-06/CSCwf10110_jobfile.2023Jun19_18:21:04.048751.zip&atstype=ATS
+---End of Note Titled: Automation Log_kr6m---
+
+
+---Start of Note Titled: Unit-test-kerry (Created 06/02/2023 02:54:42 Added 06/02/2023 02:54:42 by greddyda)---
+Before fix:
+
+Calling install_tor for TOR
+copying common rpm to ftp
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+Loading system software
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No
+grpck: no changes
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Saving image for img-sync ...
+Starting rpcbind daemon...done.
+creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+Installing local RPMS
+exit code: 1
+
+After fix:
+Calling install_tor for TOR
+copying common rpm to ftp
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+Loading system software
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Saving image for img-sync ...
+Starting rpcbind daemon...done.
+creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+Installing local RPMS
+Checking SSD firmware ...
+        Model Number:       Micron_1100_MTFDDAV256TBN
+        Serial Number:      MSA220906VC
+        Firmware Revision:  M0MU040
+SSD Model: Micron_1100_MTFD
+Current SSD Firmware Version: 40
+Your SSD firmware does not need to be upgraded
+exit code: 1
+Stopping crond: OK
+Starting crond: OK
+Patch Repository Setup completed successfully
+Creating /dev/mcelog
+Starting mcelog daemon
+INIT: Entering runlevel: 3
+Running S93thirdparty-script...
+/etc/init.d/rc: line 294: [: ==: unary operator expected
+Populating conf files for hybrid sysmgr ...
+Starting hybrid sysmgr ...
+done
+Netbroker support IS present in the kernel.
+done
+Skipping EMON in TOR ...
+Executing Prune clis.
+---End of Note Titled: Unit-test-kerry---
+
+
+---Start of Note Titled: M-comments (Created 06/02/2023 02:54:14 Added 06/02/2023 02:54:14 by greddyda)---
+double commit to kerry.
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: O-comments (Created 05/14/2023 04:30:42 Added 05/14/2023 04:30:42 by sahmedr)---
+Pass log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-05/CSCwf10110_jobfile.2023May12_15:00:36.294618.zip&atstype=ATS
+
+Fail log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-05/CSCwf10110_jobfile.2023May12_15:25:56.878398.zip&atstype=ATS
+---End of Note Titled: O-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 05/12/2023 08:05:42 Added 05/12/2023 08:05:42 by seshea)---
+--- Update 2023-05-12 15:05:41.195412 (seshea via 695491116)
+Unsuitable - Low ROI
+tried to make ic and match the error string from console bootup logs
+BOLT engineer kalyan revadi informed me that bootup console logs are filtered out by default
+as the issue is essentially cosmetic to the user and seen for a lot of cases, there is low roi to make a special exception to match this and marking unsuitable
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: Automation Log imr_11 (Created 05/12/2023 03:05:00 Added 05/12/2023 03:05:00 by sahmedr)---
+Pass log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-05/CSCwf10110_jobfile.2023May12_15:00:36.294618.zip&atstype=ATS
+---End of Note Titled: Automation Log imr_11---
+
+
+---Start of Note Titled: V-comments (Created 05/12/2023 03:04:17 Added 05/12/2023 03:04:17 by sahmedr)---
+Pass log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-05/CSCwf10110_jobfile.2023May12_15:00:36.294618.zip&atstype=ATS
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionLogic (Created 05/10/2023 10:13:43 Added 05/10/2023 10:13:43 by seshea)---
+--- Update 2023-05-10 17:13:43.035351 (seshea via 695491116)
+0. nexus 9000
+
+`show version` or `show module`
+
+N9K-2-382#  show module
+Mod Ports             Module-Type                      Model           Status
+--- ----- ------------------------------------- --------------------- ---------
+1    72   72x40G Ethernet Module                N9K-C9272Q            active *  
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    9.3(9)                   1.0    NA  
+
+
+Mod  MAC-Address(es)                         Serial-Num
+---  --------------------------------------  ----------
+1    00-35-1a-9d-bb-1c to 00-35-1a-9d-bb-db  SAL2003WZFH
+
+Mod  Online Diag Status
+---  ------------------
+1    Pass
+
+* this terminal session 
+
+
+1. code is after 7.0.3.I2.1 (due to commit CSCuu18568) and before fix of 9.3.12 (no 10.x fix)
+
+`show version` or `show module`
+
+
+N9K-2-382# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2022, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 07.69
+ NXOS: version 9.3(9)
+  BIOS compile time:  04/07/2021
+  NXOS image file is: bootflash:///nxos.9.3.9.bin
+  NXOS compile time:  2/4/2022 7:00:00 [02/04/2022 08:54:27]
+
+
+Hardware
+  cisco Nexus9000 C9272Q chassis 
+  Intel(R) Xeon(R) CPU  @ 1.80GHz with 16399028 kB of memory.
+  Processor Board ID SAL2003WZFH
+
+  Device name: N9K-2-382
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 20 hour(s), 21 minute(s), 25 second(s)
+
+Last reset at 941764 usecs after Tue May  9 20:45:46 2023
+  Reason: Reset Requested by CLI command reload
+  System version: 9.3(9)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+
+
+2. session log (not show command from switch, as this is bootup console log) shows the following message:
+
+
+Extracting 32 bit python
+Cannot extract python
+Calling install_tor for TOR
+copying common rpm to ftp
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+Loading system software
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No                                                               <<<<< match this line exactly
+grpck: no changes
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Starting rpcbind daemon...Saving image for img-sync ...
+done.
+
+
+Detection Logic : 0 & 1 & 2 
+
+
+Borg severity - notice (mostly cosmetic)
+
+
+Positive File - CSCwf10110-positive.txt attached to IC SR 695491116
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled:  R-comments (Created 04/22/2023 21:06:26 Modified 04/22/2023 21:07:39 by greddyda)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+aaa-db-operator is not added properly in group's file.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+updated aaa-db-operator parameters correctly in group file.
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/21/2023 01:02:07 Modified 03/05/2024 16:34:14 by cms)---
+{240222 anikunna S B} NR5M ETA - 2/23
+{230626 masaxena S B} Commit to NR4M and OR1F
+{230512 palshanm S B} Assigned to Sughail for Automation
+{230424 masaxena S R} - Target KR6M
+{230421 greddyda D B} PRRQ modified
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: Unit-test (Created 04/21/2023 00:19:49 Added 04/21/2023 00:19:49 by greddyda)---
+FPGA SPI Flash MfgId=0x1, DevId=0x4017, DevSize=0x17
+
+Board type  4
+IOFPGA @ 0xd8000000
+SLOT_ID @ 0xf
+Set fan speed to 100%
+Standalone chassis
+check_bootmode: grub: Continue grub
+Trying to read config file /boot/grub/menu.lst.local from (hd0,4)
+ Filesystem type is ext2fs, partition type 0x83
+
+
+Security Lock
+Booting bootflash:/nxos.9.3.8.bin
+Trying diskboot
+ Filesystem type is ext2fs, partition type 0x83
+Image valid
+>>>>
+>>>>
+>>>>
+
+Setting reserved blocks percentage to 0% (0 blocks)
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+ Removing any system startup links for docker ...
+Running groupadd commands...
+NOTE: docker: Performing groupadd with [ -r docker]
+Running useradd commands...
+NOTE: docker: Performing useradd with [ -r -U -s /bin/false dockremap]
+Loading system software
+update-alternatives: Linking /bin/vi to /usr/bin/vim.vim
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.vim
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No
+grpck: no changes
+Starting portmap daemon...
+>>>
+>>>
+>>>
+2023 Apr 20 14:45:29 switch %$ VDC-1 %$ %VDC_MGR-2-VDC_ONLINE: vdc 1 has come online
+
+
+User Access Verification
+switch login:
+
+
+
+After fix:
+
+Security Lock
+Booting bootflash:/nxos.9.3.11.18-with-fix.bin
+Trying diskboot
+ Filesystem type is ext2fs, partition type 0x83
+Image valid
+
+>>>
+>>>
+>>>
+
+Making kernel_services character devices
+cgroups initialized
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+ Removing any system startup links for docker ...
+Running groupadd commands...
+NOTE: docker: Performing groupadd with [ -r docker]
+Running useradd commands...
+NOTE: docker: Performing useradd with [ -r -U -s /bin/false dockremap]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.vim
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.vim
+update-alternatives: Linking /usr/bin/xxd to /usr/bin/xxd.vim
+exit code: 1
+tune2fs 1.42.9 (28-Dec-2013)
+Setting reserved blocks percentage to 0% (0 blocks)
+Starting portmap daemon...
+creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+Saving image for img-sync ...
+Checking SSD firmware ...
+        Model Number:       Micron_1100_MTFDDAV256TBN
+        Serial Number:      MSA220906VC
+        Firmware Revision:  M0MU040
+SSD Model: Micron_1100_MTFD
+Current SSD Firmware Version: 40
+Your SSD firmware does not need to be upgraded
+Loading system software
+Installing local RPMS
+Patch Repository Setup completed successfully
+Creating /dev/mcelog
+Starting mcelog daemon
+INIT: Entering runlevel: 3
+Running S93thirdparty-script...
+/etc/init.d/rc:
+Populating conf files for hybrid sysmgr ...
+Starting hybrid sysmgr ...
+done
+Netbroker support IS present in the kernel.
+done
+Skipping EMON in TOR ...
+Executing Prune clis.
+ethernet switching mode Thu Apr 20 15:38:29 UTC 2023
+Apr 20 15:38:33 %FW_APP-2-FIRMWARE_IMAGE_LOAD_SUCCESS No Firmware needed for Non SR card.
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-PS_OK: Power supply 2 ok (Serial number DCC2210W04H)
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-PS_FANOK: Fan in Power supply 2 ok
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-PS_ABSENT: Power supply 1 is absent/shutdown, ps-redundancy might be affected
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-PS_RED_MODE_CHG: Power supply operational redundancy mode changed to non-redundant
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 1 (Fan1(sys_fan1) fan) ok
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 2 (Fan2(sys_fan2) fan) ok
+2023 Apr 20 15:38:36 switch %$ VDC-1 %$ %PLATFORM-2-FANMOD_FAN_OK: Fan module 3 (Fan3(sys_fan3) fan) ok
+2023 Apr 20 15:38:37 switch %$ VDC-1 %$  %USER-2-SYSTEM_MSG: <<%USBHSD-2-MOUNT>> logflash: online  - usbhsd
+2023 Apr 20 15:38:39 switch %$ VDC-1 %$  %DAEMON-2-SYSTEM_MSG: <<%ASCII-CFG-2-CONF_CONTROL>> Binary restore - ascii-cfg[19127]
+2023 Apr 20 15:38:41 switch %$ VDC-1 %$ netstack: Registration with cli server complete
+2023 Apr 20 15:38:51 switch %$ VDC-1 %$ %USER-2-SYSTEM_MSG: Installing thirdparty RPMs - thirdparty_install.py
+2023 Apr 20 15:38:54 switch %$ VDC-1 %$ %USER-2-SYSTEM_MSG: ssnmgr_app_init called on ssnmgr up - aclmgr
+2023 Apr 20 15:39:02 switch %$ VDC-1 %$ %USER-0-SYSTEM_MSG: end of default policer - copp
+2023 Apr 20 15:39:05 switch %$ VDC-1 %$ %CARDCLIENT-2-FPGA_BOOT_PRIMARY: IOFPGA booted from Primary
+2023 Apr 20 15:39:05 switch %$ VDC-1 %$ %CARDCLIENT-2-FPGA_BOOT_PRIMARY: MIFPGA booted from Primary
+2023 Apr 20 15:39:07 switch %$ VDC-1 %$ %VDC_MGR-2-VDC_ONLINE: vdc 1 has come online
+
+
+User Access Verification
+switch login:
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: N-comments (Created 04/20/2023 17:04:24 Added 04/20/2023 17:04:24 by misemank)---
+Actually aaa team should handle this.
+---End of Note Titled: N-comments---
+
+
+---Start of Note Titled: A-comments (Created 04/20/2023 10:33:36 Added 04/20/2023 10:33:36 by misemank)---
+Assigning to myself
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 04/20/2023 10:20:42 Modified 06/02/2023 02:54:14 by greddyda)---
+<B>Symptom:</B>
+Error log during bootup
+
+invalid group file entry
+delete line 'aaa-db-operator:508:'? No
+
+<B>Conditions:</B>
+Upgrading from an older version of the code to newer.
+
+<B>Workaround:</B>
+None needed.
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (26 of 26)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-niles_rel                            ascii text     3670           greddyda       02/23/2024 04:39:33      
+ccwarnings-niles_rel                              ascii text     310            baas           02/23/2024 03:25:27      
+static-analysis-niles_rel                         ascii text     9085           baas           02/23/2024 03:24:52      
+code-review-niles_rel.p4                          ascii text     1186           greddyda       02/23/2024 00:09:14      
+code-review-niles_rel.p3                          ascii text     1186           greddyda       02/22/2024 23:59:39      
+code-review-niles_rel.p2                          ascii text     1186           greddyda       02/22/2024 03:08:34      
+PR-Description-31352                              ascii text     801            greddyda       02/23/2024 00:09:15      
+code-review-niles_rel                             ascii text     1186           greddyda       02/22/2024 02:17:52      
+Diffs-commit-main                                 ascii text     936            greddyda       07/12/2023 23:59:37      
+ccwarnings-main.p2                                ascii text     168            baas           07/12/2023 04:04:31      
+static-analysis-main.p2                           ascii text     426            baas           07/12/2023 04:04:17      
+code-review-nx-dev                                ascii text     433            greddyda       07/12/2023 00:55:28      
+Diffs-commit-kerry                                ascii text     1078           greddyda       06/06/2023 12:44:43      
+Diffs-release-kerry                               ascii text     1083           greddyda       06/06/2023 12:44:41      
+ccwarnings-kerry                                  ascii text     120            baas           06/02/2023 17:19:48      
+static-analysis-kerry                             ascii text     1154           baas           06/02/2023 17:19:22      
+Diffs-release-irvine                              ascii text     1095           greddyda       04/21/2023 22:01:38      
+Diffs-commit-irvine                               ascii text     1081           greddyda       04/21/2023 22:01:35      
+ccwarnings-irvine                                 ascii text     120            baas           04/21/2023 07:05:58      
+static-analysis-irvine                            ascii text     1162           baas           04/21/2023 07:05:31      
+uls_sanity_report                                 ascii text     4405           root           04/21/2023 01:31:50      
+uls_sanity_baseline_compare                       ascii text     219            root           04/21/2023 01:31:50      
+nxos-pi-common-security-code-review               ascii text     946            prrqengg       04/21/2023 04:00:00      
+ccwarnings-main                                   ascii text     168            baas           04/20/2023 19:12:53      
+static-analysis-main                              ascii text     426            baas           04/20/2023 19:12:39      
+Release-note-diff                                 ascii text     271            misemank       04/20/2023 10:22:38      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/30/2026 satdr    	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+07/03/2026 cdetssup.	DTPT-manager            	mukamath                     	manojohn                     	Mod
+07/03/2026 cdetssup.	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/03/2026 cdetssup.	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/03/2026 cdetssup.	Report-input-workflows  	KFR - VF Patched             	                             	Del
+02/14/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-375897       	New
+02/14/2025 synchub.g	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+02/14/2025 synchub.g	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/05/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/05/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/04/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/04/2024 divvenka 	Known-fixed-releases    	                             	10.3(5)                      	New
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(2)                      	New
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+03/06/2024 sahmedr  	Note Title              	                             	nr5m_verified                	New
+03/06/2024 sahmedr  	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+03/06/2024 dgokarn  	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+03/05/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/01/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/01/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+02/23/2024 divvenka 	Integrated-releases     	                             	10.3(5)                      	New
+02/23/2024 divvenka 	Integrated-releases     	                             	10.3(4.66)                   	New
+02/23/2024 divvenka 	Apply-to                	                             	10.3(4.66)                   	New
+02/23/2024 greddyda 	File Name               	                             	Diffs-commit-niles_rel       	New
+02/23/2024 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+02/23/2024 baas     	File Name               	                             	static-analysis-niles_rel    	New
+02/23/2024 greddyda 	contents                	                             	PR-Description-31352         	Mod
+02/23/2024 greddyda 	File Name               	                             	code-review-niles_rel.p4     	New
+02/22/2024 greddyda 	contents                	                             	PR-Description-31352         	Mod
+02/22/2024 greddyda 	File Name               	                             	code-review-niles_rel.p3     	New
+02/22/2024 greddyda 	Note Title              	                             	ULS_sanity                   	New
+02/22/2024 greddyda 	contents                	                             	PR-Description-31352         	Mod
+02/22/2024 greddyda 	File Name               	                             	code-review-niles_rel.p2     	New
+02/22/2024 greddyda 	Code-reviewer           	                             	sarchand                     	New
+02/22/2024 greddyda 	File Name               	                             	PR-Description-31352         	New
+02/22/2024 greddyda 	File Name               	                             	code-review-niles_rel        	New
+01/09/2024 vasagraw 	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+01/09/2024 vasagraw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/09/2024 vasagraw 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/14/2023 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/14/2023 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/04/2023 divvenka 	Known-fixed-releases    	                             	10.2(6)                      	New
+08/28/2023 divvenka 	Integrated-releases     	                             	10.4(1)                      	New
+08/28/2023 divvenka 	Known-fixed-releases    	                             	10.4(1)                      	New
+08/04/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0)               	New
+08/04/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0.51)            	New
+08/04/2023 divvenka 	Apply-to                	                             	10.4(1)IMG9(0.51)            	New
+07/24/2023 sahmedr  	Note Title              	                             	Verified_Log_Or1f            	New
+07/24/2023 sahmedr  	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+07/24/2023 sahmedr  	Verified-release        	                             	10.4(0)IMG9(0.344)           	New
+07/24/2023 sahmedr  	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/24/2023 sahmedr  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/24/2023 sahmedr  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/24/2023 sahmedr  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/13/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0)               	New
+07/13/2023 divvenka 	Integrated-releases     	                             	10.4(0)IMG9(0.333)           	New
+07/13/2023 divvenka 	Apply-to                	                             	10.4(0)IMG9(0.333)           	New
+07/12/2023 greddyda 	File Name               	                             	Diffs-commit-main            	New
+07/12/2023 baas     	File Name               	                             	ccwarnings-main.p2           	New
+07/12/2023 baas     	File Name               	                             	static-analysis-main.p2      	New
+07/12/2023 greddyda 	File Name               	                             	code-review-nx-dev           	New
+07/12/2023 greddyda 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/12/2023 greddyda 	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+07/12/2023 greddyda 	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+07/12/2023 greddyda 	Report-product-used     	n9k-standalone-sw            	                             	Mod
+07/04/2023 divvenka 	Known-fixed-releases    	                             	9.3(12)                      	New
+06/28/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/27/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/27/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+06/19/2023 sahmedr  	Note Title              	                             	Automation Log_kr6m          	New
+06/19/2023 sahmedr  	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+06/19/2023 sahmedr  	Verified-release        	                             	10.2(5.62)                   	New
+06/14/2023 jdasgupt 	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+06/14/2023 jdasgupt 	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+06/14/2023 jdasgupt 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/14/2023 jdasgupt 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+06/14/2023 jdasgupt 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+06/14/2023 jdasgupt 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+06/06/2023 divvenka 	Integrated-releases     	                             	10.2(5.52),10.2(6)           	New
+06/06/2023 greddyda 	File Name               	                             	Diffs-commit-kerry           	New
+06/06/2023 greddyda 	File Name               	                             	Diffs-release-kerry          	New
+06/02/2023 baas     	File Name               	                             	ccwarnings-kerry             	New
+06/02/2023 baas     	File Name               	                             	static-analysis-kerry        	New
+06/02/2023 baas     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/02/2023 baas     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+06/02/2023 baas     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+06/02/2023 baas     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+06/02/2023 greddyda 	Note Title              	                             	Unit-test-kerry              	New
+06/02/2023 greddyda 	Note Title              	                             	M-comments                   	New
+06/02/2023 greddyda 	Status-desc             	V-Verified                   	M-More                       	Mod
+06/02/2023 greddyda 	Status                  	V                            	M                            	Mod
+06/02/2023 greddyda 	More-on                 	2023-04-23 04:06:26.000+0000 	2023-06-02 09:54:14.000+0000 	Mod
+06/02/2023 greddyda 	statusStates            	                             	[status=V, startDate=Fri May 	New
+06/02/2023 greddyda 	statusStates            	[status=V, startDate=Fri May 	                             	Del
+06/02/2023 greddyda 	Age-status              	22                           	43                           	Mod
+05/18/2023 anikunna 	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+05/14/2023 sahmedr  	Note Title              	                             	O-comments                   	New
+05/14/2023 sahmedr  	Automated-test          	N                            	Y                            	Mod
+05/12/2023 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+05/12/2023 sahmedr  	Note Title              	                             	Automation Log imr_11        	New
+05/12/2023 sahmedr  	Note Title              	                             	V-comments                   	New
+05/12/2023 sahmedr  	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+05/12/2023 sahmedr  	Status                  	R                            	V                            	Mod
+05/12/2023 sahmedr  	Attribute               	imr11-mukamath  ed_ic_dc_rs c	imr11-mukamath  ed_ic_dc_rs c	Mod
+05/12/2023 sahmedr  	Dev-escape-resolver-opin	N                            	Y                            	Mod
+05/12/2023 sahmedr  	Dev-escape-activity     	Not-A-Dev-Escape             	Unit Test                    	Mod
+05/12/2023 sahmedr  	Verified By Employee    	                             	sahmedr                      	Mod
+05/12/2023 sahmedr  	Verified-release        	                             	9.3(11.26)                   	New
+05/12/2023 sahmedr  	Failed-release          	                             	10.2(4)                      	New
+05/12/2023 sahmedr  	Verified-confidence     	                             	tested                       	Mod
+05/12/2023 sahmedr  	Verified-on             	                             	2023-05-12 10:04:17.000+0000 	Mod
+05/12/2023 sahmedr  	statusStates            	                             	[status=R, startDate=Sun Apr 	New
+05/12/2023 sahmedr  	statusStates            	[status=R, startDate=Sun Apr 	                             	Del
+05/12/2023 sahmedr  	Age-status              	3                            	22                           	Mod
+05/12/2023 sahmedr  	Mean-time-to-verified   	                             	21                           	Mod
+05/12/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/10/2023 seshea   	Note Title              	                             	DetectionLogic               	New
+05/07/2023 jdasgupt 	Attribute               	imr11-mukamath 
+ ed_ic_dc_rs 	imr11-mukamath  ed_ic_dc_rs c	Mod
+05/07/2023 jdasgupt 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/07/2023 jdasgupt 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+05/07/2023 jdasgupt 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+05/07/2023 jdasgupt 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+05/06/2023 ipote    	serviceRequests/C3/69520	                             	                             	Mod
+05/06/2023 ipote    	Urgency-desc            	NA                           	CL3                          	Mod
+05/06/2023 ipote    	Urgency                 	9                            	6                            	Mod
+05/05/2023 rfurr    	Attribute               	imr11-mukamath               	imr11-mukamath 
+ ed_ic_dc_rs 	Mod
+05/05/2023 ipote    	serviceRequests/C3/69520	                             	C3/695206837                 	New
+05/05/2023 ipote    	Urgency                 	                             	9                            	Mod
+05/05/2023 ipote    	Tickets-count           	0                            	1                            	Mod
+05/05/2023 ipote    	TACSR-count             	                             	1                            	Mod
+05/05/2023 ipote    	Tickets-count-direct    	                             	1                            	Mod
+05/05/2023 ipote    	Trouble-tickets         	                             	695206837                    	New
+05/05/2023 ipote    	Trouble-tickets-direct  	                             	C3695206837                  	New
+05/01/2023 mukamath 	Attribute               	                             	imr11-mukamath               	Mod
+04/26/2023 divvenka 	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+04/24/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/23/2023 divvenka 	Integrated-releases     	                             	9.3(11.19),9.3(12)           	New
+04/22/2023 greddyda 	Note                    	R-comments                   	R-comments                   	Mod
+04/22/2023 greddyda 	Note Title              	                             	R-comments                   	New
+04/22/2023 greddyda 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/22/2023 greddyda 	Status                  	A                            	R                            	Mod
+04/22/2023 greddyda 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/22/2023 greddyda 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/22/2023 greddyda 	More-by                 	                             	greddyda                     	Mod
+04/22/2023 greddyda 	Opener                  	                             	greddyda                     	Mod
+04/22/2023 greddyda 	Resolver                	                             	greddyda                     	Mod
+04/22/2023 greddyda 	Released-code           	                             	N                            	Mod
+04/22/2023 greddyda 	Test-EDP-phase          	                             	Development                  	Mod
+04/22/2023 greddyda 	Test-EDP-activity       	                             	Unit Test                    	Mod
+04/22/2023 greddyda 	Behavior-changed        	                             	N                            	Mod
+04/22/2023 greddyda 	Original-resolved-on    	                             	2023-04-23 04:06:26.000+0000 	Mod
+04/22/2023 greddyda 	Documents-changed       	                             	none                         	Mod
+04/22/2023 greddyda 	More-on                 	                             	2023-04-23 04:06:26.000+0000 	Mod
+04/22/2023 greddyda 	Opened-on               	                             	2023-04-23 04:06:26.000+0000 	Mod
+04/22/2023 greddyda 	Resolved-on             	                             	2023-04-23 04:06:26.000+0000 	Mod
+04/22/2023 greddyda 	statusStates            	                             	[status=A, startDate=Fri Apr 	New
+04/22/2023 greddyda 	statusStates            	[status=A, startDate=Fri Apr 	                             	Del
+04/22/2023 greddyda 	Age-status              	1                            	3                            	Mod
+04/22/2023 greddyda 	Mean-time-to-resolved   	                             	2                            	Mod
+04/21/2023 greddyda 	File Name               	                             	Diffs-release-irvine         	New
+04/21/2023 greddyda 	Multi-commit-flag       	                             	Y                            	Mod
+04/21/2023 greddyda 	File Name               	                             	Diffs-commit-irvine          	New
+04/21/2023 cdetsbtk 	Not-customer-visible-rea	AutoDeferred-Defect deferred 	                             	Mod
+04/21/2023 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+04/21/2023 cdetsbtk 	Security-screening-times	2023-04-21 00:20:42.000+0000 	2023-04-21 21:22:11.000+0000 	Mod
+04/21/2023 baas     	File Name               	                             	ccwarnings-irvine            	New
+04/21/2023 baas     	File Name               	                             	static-analysis-irvine       	New
+04/21/2023 prrqengg 	Code-reviewer           	                             	vasagraw                     	New
+04/21/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+04/21/2023 prrqengg 	FileSize                	944                          	946                          	Mod
+04/21/2023 root     	File Name               	                             	uls_sanity_report            	New
+04/21/2023 root     	File Name               	                             	uls_sanity_baseline_compare  	New
+04/21/2023 cms      	Note Title              	                             	Scrubnote                    	New
+04/21/2023 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+04/21/2023 prrqengg 	FileSize                	947                          	944                          	Mod
+04/21/2023 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/21/2023 greddyda 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/21/2023 greddyda 	Status                  	N                            	A                            	Mod
+04/21/2023 greddyda 	Engineer                	                             	greddyda                     	Mod
+04/21/2023 greddyda 	Assigner                	misemank                     	greddyda                     	Mod
+04/21/2023 greddyda 	Assigned Date           	2023-04-20 17:33:36.000+0000 	2023-04-21 07:56:01.000+0000 	Mod
+04/21/2023 greddyda 	statusStates            	                             	[status=N, startDate=Fri Apr 	New
+04/21/2023 greddyda 	statusStates            	[status=N, startDate=Fri Apr 	                             	Del
+04/21/2023 greddyda 	Note Title              	                             	Unit-test                    	New
+04/20/2023 baas     	File Name               	                             	ccwarnings-main              	New
+04/20/2023 baas     	File Name               	                             	static-analysis-main         	New
+04/20/2023 misemank 	Note Title              	                             	N-comments                   	New
+04/20/2023 misemank 	Status-desc             	A-Assigned                   	N-New                        	Mod
+04/20/2023 misemank 	Status                  	A                            	N                            	Mod
+04/20/2023 misemank 	Engineer                	anikunna                     	                             	Mod
+04/20/2023 misemank 	New-on                  	2023-04-20 17:20:42.310+0000 	2023-04-21 00:04:24.000+0000 	Mod
+04/20/2023 misemank 	statusStates            	                             	[status=A, startDate=Thu Apr 	New
+04/20/2023 misemank 	statusStates            	[status=A, startDate=Thu Apr 	                             	Del
+04/20/2023 misemank 	Age-status              	0                            	1                            	Mod
+04/20/2023 misemank 	Engineer                	misemank                     	anikunna                     	Mod
+04/20/2023 misemank 	File Name               	code-review-nx-dev           	                             	Del
+04/20/2023 misemank 	Note Title              	Unit-test                    	                             	Del
+04/20/2023 misemank 	contents                	                             	code-review-nx-dev           	Mod
+04/20/2023 misemank 	Code-reviewer           	                             	hongli                       	New
+04/20/2023 misemank 	Note Title              	                             	Unit-test                    	New
+04/20/2023 misemank 	File Name               	                             	code-review-nx-dev           	New
+04/20/2023 misemank 	Code-reviewer           	                             	tjw                          	New
+04/20/2023 misemank 	Note Title              	                             	A-comments                   	New
+04/20/2023 misemank 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/20/2023 misemank 	Status                  	N                            	A                            	Mod
+04/20/2023 misemank 	Engineer                	                             	misemank                     	Mod
+04/20/2023 misemank 	Assigner                	                             	misemank                     	Mod
+04/20/2023 misemank 	Assigned Date           	                             	2023-04-20 17:33:36.000+0000 	Mod
+04/20/2023 misemank 	statusStates            	                             	[status=N, startDate=Thu Apr 	New
+04/20/2023 misemank 	statusStates            	[status=N, startDate=Thu Apr 	                             	Del
+04/20/2023 misemank 	Mean-time-to-assigned   	                             	0                            	Mod
+04/20/2023 misemank 	Note                    	Release-note                 	Release-note                 	Mod
+04/20/2023 misemank 	File Name               	                             	Release-note-diff            	New
+04/20/2023 misemank 	Note                    	Release-note                 	Release-note                 	Mod
+04/20/2023 misemank 	contents                	                             	Release-note-diff            	Mod
+04/20/2023 misemank 	Related-bugs            	                             	BadCodeFix/CSCuu18568        	New
+04/20/2023 misemank 	Breakage                	                             	Yes, caused by CDETS commit  	Mod
+04/20/2023 misemank 	Regression              	                             	Y                            	Mod
+04/20/2023 misemank 	By-previous-commit-value	                             	Caused-by-CDETS-commit       	Mod
+04/20/2023 misemank 	BadcodefixId            	                             	CSCuu18568                   	Mod
+04/20/2023 misemank 	Bug-origin              	                             	Code / Implementation        	Mod
+04/20/2023 misemank 	Origin                  	                             	base code                    	Mod
+04/20/2023 misemank 	Conditions              	Upgrading from an older versi	Upgrading from an older versi	Mod
+04/20/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/20/2023 cdetsbtk 	Not-customer-visible-rea	                             	AutoDeferred-Defect deferred 	Mod
+04/20/2023 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/20/2023 cdetsbtk 	Security-screening-times	                             	2023-04-21 00:20:42.000+0000 	Mod
+04/20/2023 misemank 	Note Title              	                             	Release-note                 	New
+04/20/2023 misemank 	Headline                	                             	Seeing error logs on upgrade:	Mod
+04/20/2023 misemank 	Summary                 	                             	The following error log is se	Mod
+04/20/2023 misemank 	Project                 	                             	CSC.datacenter               	Mod
+04/20/2023 misemank 	Product                 	                             	n9k-standalone-sw            	Mod
+04/20/2023 misemank 	Component               	                             	aaa                          	Mod
+04/20/2023 misemank 	Status-desc             	                             	N-New                        	Mod
+04/20/2023 misemank 	Status                  	                             	N                            	Mod
+04/20/2023 misemank 	Found                   	                             	customer-use                 	Mod
+04/20/2023 misemank 	Hardening               	                             	N                            	Mod
+04/20/2023 misemank 	Original-found          	                             	customer-use                 	Mod
+04/20/2023 misemank 	Hardware                	                             	Nexus 9000                   	Mod
+04/20/2023 misemank 	Feature                 	                             	fix                          	Mod
+04/20/2023 misemank 	Urgency-desc            	                             	NA                           	Mod
+04/20/2023 misemank 	Severity-desc           	                             	minor                        	Mod
+04/20/2023 misemank 	Severity                	                             	4                            	Mod
+04/20/2023 misemank 	DE Priority Desc        	                             	medium                       	Mod
+04/20/2023 misemank 	DE-priority             	                             	3                            	Mod
+04/20/2023 misemank 	Impact                  	                             	Integrity / Security,Ease-of-	New
+04/20/2023 misemank 	Submitter               	                             	misemank                     	Mod
+04/20/2023 misemank 	Submitter-manager       	                             	pkatti                       	Mod
+04/20/2023 misemank 	DE-manager              	                             	anikunna                     	Mod
+04/20/2023 misemank 	DTPT-manager            	                             	mukamath                     	Mod
+04/20/2023 misemank 	Version                 	                             	10.2(4)                      	New
+04/20/2023 misemank 	Original-version        	                             	10.2(4)                      	Mod
+04/20/2023 misemank 	Found-during            	                             	Customer                     	Mod
+04/20/2023 misemank 	Activity-when-found     	                             	Customer-Use                 	Mod
+04/20/2023 misemank 	Automated-test          	                             	N                            	Mod
+04/20/2023 misemank 	Test-escape             	                             	N                            	Mod
+04/20/2023 misemank 	PSIRT                   	                             	N                            	Mod
+04/20/2023 misemank 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+04/20/2023 misemank 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/20/2023 misemank 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/20/2023 misemank 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/20/2023 misemank 	MDF-edited              	                             	N                            	Mod
+04/20/2023 misemank 	Attribute2              	                             	n/a                          	Mod
+04/20/2023 misemank 	Care-Update             	                             	Y                            	Mod
+04/20/2023 misemank 	Doc-manager             	                             	anikunna                     	Mod
+04/20/2023 misemank 	Document                	                             	nexus                        	Mod
+04/20/2023 misemank 	Documentation-resolution	                             	Undefined                    	Mod
+04/20/2023 misemank 	Original-activity-when-f	                             	Customer-Use                 	Mod
+04/20/2023 misemank 	Original-found-during   	                             	Customer                     	Mod
+04/20/2023 misemank 	Submitter-org-bug       	                             	DCN-Switching-US             	Mod
+04/20/2023 misemank 	Component-scenarios     	                             	N                            	Mod
+04/20/2023 misemank 	Submitted-on            	                             	2023-04-20 17:20:42.310+0000 	Mod
+04/20/2023 misemank 	IFD-CFD-Conv-date       	                             	2023-04-20 12:17:39.000+0000 	Mod
+04/20/2023 misemank 	New-on                  	                             	2023-04-20 17:20:42.310+0000 	Mod
+04/20/2023 misemank 	statusStates            	                             	[status=S, startDate=Thu Apr 	New
+04/20/2023 misemank 	Transition-day          	0                            	2460055                      	Mod
+04/20/2023 misemank 	Release-note-status     	                             	have                         	Mod
+04/20/2023 misemank 	Reported By             	                             	misemank                     	Mod
+04/20/2023 misemank 	Known-affected-releases 	                             	10.2(4)                      	New
+04/20/2023 misemank 	RNE-Type                	                             	NONE                         	Mod
+04/20/2023 misemank 	Symptoms                	                             	Error log during bootup
+
+inva	Mod
+04/20/2023 misemank 	Conditions              	                             	Upgrading from an older versi	Mod
+04/20/2023 misemank 	Workarounds             	                             	None needed.                 	Mod
+04/20/2023 misemank 	Tickets-count           	                             	0                            	Mod
+04/20/2023 misemank 	Class                   	                             	CSC.datacenter               	Mod
+04/20/2023 misemank 	Reti-bug                	                             	Y                            	Mod
+04/20/2023 misemank 	Defect Created          	                             	                             	New

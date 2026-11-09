@@ -1,0 +1,937 @@
+*******************************************************************************
+
+Bug ID   : CSCwj68462         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : AAA: Process AAA crashed during x509 based authentication with multiple groups in aaa authorization
+PrimaryPV : 
+Version :10.4(3) 10.5(0)IPR9(0.72) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: palshanm           Submitted: 04/11/2024 11:58:03     Last Updtd : 08/24/2026 02:11:23  
+RNE-Type: NONE                New-on : 04/11/2024 11:58:03      
+Root-cause-analysis:                                                  
+Interest : omiersen
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:mukamath                                            
+Known-affected-releases:10.4(3) 
+
+Known-fixed-releases:10.4(4) 10.5(1) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(5) 10.3(6) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(15)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(11) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 8.4(9) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/24/2024 03:17:25                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 12                                             
+Mean-time-to-verified: 47     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 10/02/2024 07:18:31            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Confidential                               
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 04/11/2024 20:04:00 
+Code-reviewer: vasagraw       
+Opened-on: 04/24/2024 03:17:25Opener: pradepan              
+Engineer : pradepan           DE-manager  : anikunna        Est Time/Attribute : gnosis pr1f noauto_porting baseline pr1
+Est. completion date: 04/23/2024 00:00:00  
+Script-version:                         
+
+More-by : pradepan            More-on: 04/24/2024 03:17:25  
+
+Documents Changed: none       Resolved: 04/24/2024 03:17:25 Resolver: pradepan       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 05/29/2024 11:40:17      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  System Test
+Test-EDP-activity :               Regression Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            
+Trouble-tickets :              
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 10/17/2024 10:37:00
+Document :    nexus
+
+Summary:
+Refer attached file for details:
+
+Steps and Test Logs - AAA_crash_PR1F_test_Logs.txt
+Core file - 1712947138_0x1b01_aaa_log.15444.tar
+Core backtrace - BT.txt
+show-tech - sh_tech_aaa.txt
+
+
+******************* Related Service Requests (0 of 0)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-169120                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              omiersen      09/19/2024 12:46:58    CSCwm60135      CSC.datacenter  D            
+
+
+********************* Listing of Notes (12 of 12 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 02/17/2026 01:16:42 Added 02/17/2026 01:16:42 by icd-auto.gen)---
+https://gnosis.cisco.com/signature/bug/6994319bf644cd1f4cfefcb2/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 02/17/2026 01:14:49 Added 02/17/2026 01:14:49 by icd-auto.gen)---
+--- Update 2026-02-17T09:14:48.590819+00:00 icd-auto.gen (via 700437479)
+DetectionLogic generated by Crash Bug IC Automation: 
+
+Complete evaluation of all the decodes from all the linked TAC SRs is @ https://scripts.cisco.com/app/Crash_Bug_IC_Automation_Dashboard/#/viewlog/CSCwj68462
+
+Rule1:
+
+File : 697704402 / 1723557372_0x1b01_aaa_log.14986.tar.gz 
+Decodes reference : https://smartdecoder.cisco.com/history/1100768
+
+Removed Generic functions from the Original decodes : __GI_abort, main, __GI_raise
+
+Decoded Stack Trace :
+ref_payload_get
+mts_send
+aaa_send_client_response
+prot_daemon_reponse_handler
+mts_message_response_handler
+mts_callback
+aaa_process_fd_set
+mts_loop 
+
+TopicSearch URL :
+ https://topic.cisco.com/results?queryText=ref_payload_get%20mts_send%20aaa_send_client_response%20prot_daemon_reponse_handler%20mts_message_response_handler%20mts_callback%20aaa_process_fd_set%20mts_loop&repos=cdets&isliteralsearch=true&userIdBoost=false&checkedds=cdets&uncheckedds=c3&uncheckedds=news&uncheckedds=techzone&uncheckedds=tstraining&uncheckedds=bdb&uncheckedds=psirtext&uncheckedds=fieldnotice&uncheckedds=cx_catalog&semanticSearch=true&hotWarm=true
+
+Logic : Rule1
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: Original_rne (Created 10/02/2024 00:18:33 Added 10/02/2024 00:18:33 by pradepan)---
+$$IGNORE
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Original_rne---
+
+
+---Start of Note Titled: V-comments.p2 (Created 09/01/2024 10:13:38 Added 09/01/2024 10:13:38 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.4(3.35)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+N9K-C9336C-FX2
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+No
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Test Log attached. Please refer (CSCwj68462_OR4M_test_logs.txt)
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled:  Scrubnote (Created 06/12/2024 20:54:26 Modified 06/13/2024 16:46:09 by cms)---
+{240423 pradepan S G} PR raised. Build phase passed. Sanity in progress.
+{240417 anikunna S B} In triage
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: V-comments (Created 05/29/2024 11:40:18 Added 05/29/2024 11:40:18 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.5(0)IMG9(0.41)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+N9K-C9348GC-FXP
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+No
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Test Log attached. Please refer (CSCwj68462_PR1F_Test_Logs.txt)
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: Code-review (Created 05/09/2024 16:51:40 Added 05/09/2024 16:51:40 by synchub.gen)---
+Code Review Enclosure: Added [dd-mmm-yyyy] by [userid]
+
+*** Start of CDETS attachment for CR Information ***
+++Status: [Open, Closed]
+++Review type: [Formal Review, Basic Review]
+Code review requestor / Point of contact: [Name] ([userid])
+
+To access all feedback for this code review:
+[link or text for code review comments, e.g., link to search of newsgroup for this CDETS# OR link to Meeting Minutes in EDCS OR text for actual comments]
+
+To see summary data for this review:
+[link or text for code review summary (setup info such as date, reviewers, etc.), e.g. link to Meeting Minutes in EDCS or text showing date, reviewers, etc.]
+*** End of CDETS attachment for CR Information ***
+
+*** Start of CDETS attachment for CR Measures ***
+Code Review Results (leave blank till review is closed) 
+Measures available for metrics Dashboard:
+++High/Medium Issues: 
+++Low Issues: 
+++Issues: [total of High, Medium, & Low]
+++Person Hours: [estimate of total person-hours spent for CR prep and meeting]
+++Participants: 
+*** End of CDETS attachment for CR Measures ***
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: Unit-test (Created 05/09/2024 16:51:40 Added 05/09/2024 16:51:40 by synchub.gen)---
+Unit Test Enclosure: Added [dd-mmm-yyyy] by [userid]
+
+*** Start of CDETS Attachment for UT Measures ***
+
+Unit Test Plan Metrics
+++Test Plan review completed: [Yes or No] on [dd-mmm-yyyy]  {If Yes, then provide date}
+++# of test cases reviewed: 
+ 
+***
+Unit Test Results Metrics
+++Test Results review completed: [Yes or No] on [dd-mmm-yyyy]  {If Yes, then provide date}
+++# of test cases executed:
+++# of test cases passed: 
+++High/Medium Issues:
+++Low Issues: 
+*** End of CDETS Attachment for UT Measures ***
+
+*** Start of CDETS Attachment for UT Documentation ***
+--Plan: < link to EDCS doc OR other link OR Unit Test Plan text >
+
+***
+--Results: < link to EDCS doc OR other link OR Unit Test Results text >
+*** End of CDETS Attachment for UT Documentation ***
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  R-comments (Created 04/24/2024 03:17:25 Modified 05/09/2024 16:51:40 by synchub.gen)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+>>>
+There was a AAA-crash happening while x509 based ssh-request was tried. 
+=====================================================
+
+
+2. Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+>>>
+The handling for invalid-server-case was the reason. Now it has been handled properly with stricter checks.
+=====================================================
+
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted and whether this needs to be backported to previous long-lived releases.
+>>>
+(a) Is the fix taken care of for TOR platforms? Yes
+(b) Is the fix taken care of for EOR platforms? Yes 
+(c) Is the fix taken care of for HAL platforms? Yes 
+(d) Is the fix taken care of for non-HAL platforms? Yes 
+(e) Is the fix taken care of for both 32bit and 64bit images? Yes
+(f) Releases - Specify what other releases are impacted and whether this needs to be backported to previous long-lived releases?
+Committed in PR1F_dev.
+(g) Platform / ASIC families - Specify the platform/ASIC families where this problem is applicable. N9k/PR1F_dev
+=====================================================
+
+
+
+4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+>>>
+YES
+sw1(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Apr 19 16:38:02 2024
+!Time: Fri Apr 19 16:43:01 2024
+
+version 10.5(1) Bios:version 05.51
+aaa authorization ssh-certificate default group tac2 tac1
+
+
+sw1(config)# no aaa authorization ssh-certificate default group tac2 tac1
+sw1(config)# aaa authorization ssh-certificate default group dummyserver tac1
+sw1(config)#
+sw1(config)#
+sw1(config)#
+sw1(config)#
+sw1(config)#
+sw1(config)# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Apr 19 16:43:15 2024
+!Time: Fri Apr 19 16:43:18 2024
+
+version 10.5(1) Bios:version 05.51
+aaa authorization ssh-certificate default group dummyserver tac1
+
+sw1(config)#
+sw1(config)# sh users
+NAME LINE TIME IDLE PID COMMENT
+admin pts/3 Apr 19 16:36 . 16188 (10.30.221.132) session=ssh *
+emailupnuser@cisco.com pts/4 Apr 19 16:43 . 20976 (10.77.143.28)
+sw1(config)#
+=====================================================
+
+
+
+5. Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+>>>
+sw1(config)# show run aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Fri Apr 19 16:36:24 2024
+
+version 10.5(1) Bios:version 05.51 
+aaa authorization ssh-certificate default group tac1 tac2 
+
+
+sw1(config)# show run tacacs
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Fri Apr 19 16:36:27 2024
+
+version 10.5(1) Bios:version 05.51 
+feature tacacs+
+
+tacacs-server key 7(\[^\"])"+fewh([^\"\])"+
+tacacs-server host  key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host  key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host 31.31.31.31 key 7(\[^\"])"+fewh([^\"\])"+ 
+aaa group server tacacs+ tac1 
+ server  
+ use-vrf management
+ source-interface mgmt0
+aaa group server tacacs+ tac2 
+ server  
+ use-vrf management
+ source-interface mgmt0
+aaa group server tacacs+ dummyserver 
+ server 31.31.31.31 
+ use-vrf management
+ source-interface mgmt0
+
+sw1(config)# sh users
+NAME LINE TIME IDLE PID COMMENT
+admin pts/3 Apr 19 16:36 . 16188 (10.30.221.132) session=ssh *
+emailupnuser@cisco.com pts/4 Apr 19 16:36 . 16919 (1.1.1.1)
+sw1(config)# 
+sw1(config)# 
+=====================================================
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  static-analysis (Created 04/21/2024 23:41:01 Modified 05/09/2024 16:51:40 by synchub.gen)---
+$ ./tools/blast/bin/bat 2>/dev/null
+Codenet data collect: off
+Starting up bat...
+WSROOT: /witspace/pradepan/space_pradepan_pr1f_10_5_0_90_aaa_hap_fix_ws/standalone
+Pure git workspace found.
+Detected n9k workspace.
+
+Checking pkg cache.. running cmd make -s -f pkg_cache/Makefile pkg_cache/check_n_build
+..Done
+BAT: Build and Test (final)
+Please refer to https://wiki.cisco.com/display/N9KINFDEV/BAT+Commands for usage.
+
+?k:standalone?\"
+
+Getting dut data from history file.
+
+?k:standalone?\"
+[build] bat>> sa
+Autocompleted sa to static_analysis
+Pure git workspace found.
+Doing static analysis using command: '/auto/ses/bin/run_sa -os nx -use_git'
+SA Info: Calling Coverity
+SA Info: Starting build
+SA Info: Starting static analysis
+SA Info: Retrieving compiled files
+INFO - stream_name-> nx_main-pradepan
+WARN - security tag -> https
+SA Info: Static analysis completed
+Retrieving workspace information ...
+
+SA Info: Following files are to be analysed
+ standalone/feature/security/aaa/aaa.c
+
+
+################ Summary of combined results #####################
+
+Total active warnings : 0
+Total noise warnings : 5
+Total parent warnings : 9
+
+SA Info: All files are analysed.
+
+SA Info: Summary file is available at /witspace/pradepan/space_pradepan_pr1f_10_5_0_90_aaa_hap_fix_ws/.SA.SUMMARY
+
+Static analysis executed. Return code: 0
+[build] bat>> quit
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: A-comments (Created 04/11/2024 20:04:00 Added 04/11/2024 20:04:00 by samekama)---
+Please check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 04/11/2024 11:58:03 Modified 10/12/2024 03:59:24 by pradepan)---
+A similar issue has been observed at a customer-site and has been marked as a duplicate of this one. 
+
+<B>Symptom:</B>
+When adding "tacacs-server host x.x.x.x key 7 XXXXXXXXX" configuration after connection is already established, the "All servers failed to respond" errors will print for around a minute before the "AAA Daemon" process crashes and saves a core file.
+
+<B>Conditions:</B>
+- Nexus 9k running NXOS 10.4(3)
+- Already have connection established to tacacs server before configuring "tacacs-server host x.x.x.x key 7 XXXXXXXXX"
+
+<B>Workaround:</B>
+None. 10.4.4+ releases have the fix.
+
+<B>Further Problem Description:</B>
+When adding "tacacs-server host x.x.x.x key 7 XXXXXXXXX" configuration after connection is already established, the "All servers failed to respond" errors will print for around a minute before the "AAA Daemon" process crashes and saves a core file.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (28 of 28)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     1077           pradepan       10/12/2024 03:59:24      
+CSCwj68462_OR4M_test_logs.txt                     ascii text     9709           palshanm       09/01/2024 10:10:07      
+Diffs-commit-olympia_rel                          ascii text     5406           pradepan       07/29/2024 10:55:23      
+code-review-olympia_rel.p2                        ascii text     1146           pradepan       07/29/2024 10:51:22      
+PR-Description-40665                              ascii text     551            pradepan       07/29/2024 10:51:24      
+code-review-olympia_rel                           ascii text     1142           pradepan       07/29/2024 06:55:01      
+unit-test-OR4M                                    ascii text     735759         pradepan       07/29/2024 03:42:29      
+ccwarnings-olympia_rel                            ascii text     174            baas           07/17/2024 02:37:05      
+static-analysis-olympia_rel                       ascii text     29847          baas           07/17/2024 02:36:28      
+CSCwj68462_PR1F_Test_Logs.txt                     ascii text     11435          palshanm       05/29/2024 11:40:42      
+Diffs-commit-pr1f_dev                             ascii text     5306           pradepan       04/24/2024 02:32:16      
+uls_sanity_baseline_compare                       ascii text     219            root           04/24/2024 01:45:37      
+uls_sanity_report                                 ascii text     4554           root           04/24/2024 01:45:37      
+ccwarnings-pr1f_dev.p3                            ascii text     174            baas           04/23/2024 04:34:20      
+static-analysis-pr1f_dev.p3                       ascii text     24376          baas           04/23/2024 04:33:45      
+ccwarnings-pr1f_dev.p2                            ascii text     174            baas           04/22/2024 09:39:57      
+static-analysis-pr1f_dev.p2                       ascii text     24378          baas           04/22/2024 09:39:22      
+ccwarnings-pr1f_dev                               ascii text     174            baas           04/22/2024 09:09:46      
+static-analysis-pr1f_dev                          ascii text     24377          baas           04/22/2024 09:09:11      
+code-review-pr1f_dev.p2                           ascii text     831            pradepan       04/22/2024 04:53:17      
+PR-Description-35187                              ascii text     407            pradepan       04/22/2024 04:53:18      
+code-review-pr1f_dev                              ascii text     831            pradepan       04/22/2024 04:46:58      
+unit-test                                         ascii text     358973         pradepan       04/22/2024 04:07:21      
+unit-test-CSCwj68462                              ascii text     85437          pradepan       04/21/2024 23:36:32      
+sh_tech_aaa.txt                                   ascii text     341277         palshanm       04/11/2024 11:59:07      
+1712947138_0x1b01_aaa_log.15444.tar.gz            binary         5914231        palshanm       04/11/2024 11:58:03      
+AAA_crash_PR1F_test_Logs.txt                      ascii text     4200           palshanm       04/11/2024 11:58:03      
+BT.txt                                            binary         5533           palshanm       04/11/2024 11:58:03      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/24/2026 satdr    	Attribute               	gnosis pr1f noauto_porting ba	gnosis pr1f noauto_porting ba	Mod
+04/28/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+04/28/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/28/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/28/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+03/16/2026 buildins 	Attribute               	gnosis pr1f noauto_porting ba	gnosis pr1f noauto_porting ba	Mod
+02/17/2026 icd-auto.	Note Title              	                             	KnowledgeSignature           	New
+02/17/2026 icd-auto.	Attribute               	pr1f noauto_porting baseline 	gnosis pr1f noauto_porting ba	Mod
+02/17/2026 icd-auto.	Note Title              	                             	DetectionLogic               	New
+09/04/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+07/22/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+06/19/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+06/19/2025 pisces   	VF-unpatched            	NX-OS:4.2(1)SV1(4),NX-OS:4.2(	                             	Del
+06/19/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+06/19/2025 pisces   	Potentially-affected-rel	4.2(1)SV1(4),4.2(1)SV1(4a),4.	                             	Del
+06/05/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+05/20/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+05/08/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+04/23/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+04/08/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+04/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/26/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+03/13/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+02/27/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+02/13/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+01/30/2025 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+12/20/2024 divvenka 	Integrated-releases     	                             	10.5(1)                      	New
+12/10/2024 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+11/19/2024 buildins 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+10/24/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/24/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/24/2024 pisces   	Known-fixed-releases    	                             	10.4(4)                      	New
+10/17/2024 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+10/17/2024 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+10/17/2024 cdetsbtk 	Security-screening-times	2024-09-13 11:44:48.000+0000 	2024-10-17 17:37:00.000+0000 	Mod
+10/15/2024 mukamath 	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+10/15/2024 mukamath 	Known-fixed-releases    	8.4(10)                      	                             	Del
+10/15/2024 mukamath 	Known-fixed-releases-del	                             	8.4(10)                      	New
+10/12/2024 pradepan 	Note                    	Release-note                 	Release-note                 	Mod
+10/12/2024 pradepan 	contents                	                             	Release-note-diff            	Mod
+10/12/2024 pradepan 	FileSize                	550                          	1077                         	Mod
+10/12/2024 pradepan 	Justification           	                             	A similar issue has been obse	Mod
+10/12/2024 pradepan 	Workarounds             	None                         	None. 10.4.4+ releases have t	Mod
+10/12/2024 pradepan 	Further-Problem-Descript	                             	When adding "tacacs-server ho	Mod
+10/09/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0)               	New
+10/09/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0.56)            	New
+10/09/2024 nxbld    	Apply-to                	                             	10.5(3)IPE9(0.56)            	New
+10/02/2024 pradepan 	File Name               	                             	Release-note-diff            	New
+10/02/2024 pradepan 	Note Title              	                             	Original_rne                 	New
+10/02/2024 pradepan 	Note                    	Release-note                 	Release-note                 	Mod
+10/02/2024 pradepan 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+10/02/2024 pradepan 	Related-bugs            	                             	Duplicate/CSCwm60135         	New
+10/02/2024 pradepan 	Found                   	func-test                    	customer-use                 	Mod
+10/02/2024 pradepan 	Other-mail              	                             	omiersen                     	Mod
+10/02/2024 pradepan 	Version                 	                             	10.4(3)                      	New
+10/02/2024 pradepan 	Found-during            	Feature Test                 	Customer                     	Mod
+10/02/2024 pradepan 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+10/02/2024 pradepan 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/02/2024 pradepan 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/02/2024 pradepan 	IFD-CFD-Conv-date       	                             	2024-10-02 14:18:31.000+0000 	Mod
+10/02/2024 pradepan 	Known-affected-releases 	                             	10.4(3)                      	New
+10/02/2024 pradepan 	Symptoms                	                             	When adding "tacacs-server ho	Mod
+10/02/2024 pradepan 	Conditions              	                             	- Nexus 9k running NXOS 10.4(	Mod
+10/02/2024 pradepan 	Workarounds             	                             	None                         	Mod
+10/02/2024 pradepan 	Tickets-count           	0                            	1                            	Mod
+10/02/2024 pradepan 	Trouble-tickets         	                             	697704402                    	New
+10/02/2024 pradepan 	Trouble-tickets-indirect	                             	C3/697704402                 	New
+09/12/2024 cdetsbtk 	Security-screening-times	2024-09-02 00:13:39.000+0000 	2024-09-13 11:44:48.000+0000 	Mod
+09/12/2024 pisces   	VF-patched              	                             	NX-OS:10.5(1),NX-OS:8.4(10)  	New
+09/12/2024 pisces   	VF-unpatched            	                             	NX-OS:10.2(7),NX-OS:10.2(8),N	New
+09/12/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+09/12/2024 pisces   	Potentially-affected-rel	                             	10.2(7),10.2(8),10.3(4g),10.3	New
+09/12/2024 pisces   	Known-fixed-releases    	                             	10.5(1),8.4(10)              	New
+09/12/2024 pisces   	VF-unpatched            	                             	NX-OS:10.3(3r)               	New
+09/12/2024 pisces   	Potentially-affected-rel	                             	10.3(3r)                     	New
+09/01/2024 cdetsbtk 	Security-screening-times	2024-09-02 00:10:08.000+0000 	2024-09-02 00:13:39.000+0000 	Mod
+09/01/2024 palshanm 	Note Title              	                             	V-comments.p2                	New
+09/01/2024 cdetsbtk 	Security-screening-times	2024-07-30 00:55:24.000+0000 	2024-09-02 00:10:08.000+0000 	Mod
+09/01/2024 palshanm 	File Name               	                             	CSCwj68462_OR4M_test_logs.txt	New
+09/01/2024 palshanm 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+09/01/2024 palshanm 	Verified-release        	                             	10.4(3.35)                   	New
+08/15/2024 cspgre   	Apply-to                	                             	UCSM-6.0.100.240076.A        	New
+08/02/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0)               	New
+08/02/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0.342)           	New
+08/02/2024 divvenka 	Apply-to                	                             	10.4(1)IUM9(0.342)           	New
+07/30/2024 pisces   	VF-unpatched            	NX-OS:10.2(7)                	                             	Del
+07/30/2024 pisces   	Potentially-affected-rel	10.2(7)                      	                             	Del
+07/29/2024 divvenka 	Integrated-releases     	                             	10.4(4)                      	New
+07/29/2024 divvenka 	Integrated-releases     	                             	10.4(3.27)                   	New
+07/29/2024 divvenka 	Apply-to                	                             	10.4(3.27)                   	New
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-30 00:51:25.000+0000 	2024-07-30 00:55:24.000+0000 	Mod
+07/29/2024 pradepan 	File Name               	                             	Diffs-commit-olympia_rel     	New
+07/29/2024 pradepan 	Multi-commit-flag       	                             	Y                            	Mod
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-30 00:51:23.000+0000 	2024-07-30 00:51:25.000+0000 	Mod
+07/29/2024 pradepan 	contents                	                             	PR-Description-40665         	Mod
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-29 20:55:04.000+0000 	2024-07-30 00:51:23.000+0000 	Mod
+07/29/2024 pradepan 	File Name               	                             	code-review-olympia_rel.p2   	New
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-29 20:55:02.000+0000 	2024-07-29 20:55:04.000+0000 	Mod
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-29 17:42:30.000+0000 	2024-07-29 20:55:02.000+0000 	Mod
+07/29/2024 pradepan 	File Name               	                             	PR-Description-40665         	New
+07/29/2024 pradepan 	File Name               	                             	code-review-olympia_rel      	New
+07/29/2024 cdetsbtk 	Security-screening-times	2024-07-17 16:37:06.000+0000 	2024-07-29 17:42:30.000+0000 	Mod
+07/29/2024 pradepan 	File Name               	                             	unit-test-OR4M               	New
+07/17/2024 cdetsbtk 	Security-screening-times	2024-07-17 16:36:29.000+0000 	2024-07-17 16:37:06.000+0000 	Mod
+07/17/2024 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+07/17/2024 cdetsbtk 	Security-screening-times	2024-06-14 06:46:10.000+0000 	2024-07-17 16:36:29.000+0000 	Mod
+07/17/2024 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+07/07/2024 mukamath 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+06/25/2024 pradepan 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+06/13/2024 cdetsbtk 	Security-screening-times	2024-06-13 10:54:26.000+0000 	2024-06-14 06:46:10.000+0000 	Mod
+06/13/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/12/2024 cdetsbtk 	Security-screening-times	2024-05-30 01:40:43.000+0000 	2024-06-13 10:54:26.000+0000 	Mod
+06/12/2024 cms      	Note Title              	                             	Scrubnote                    	New
+05/29/2024 cdetsbtk 	Security-screening-times	2024-05-30 01:40:19.000+0000 	2024-05-30 01:40:43.000+0000 	Mod
+05/29/2024 palshanm 	File Name               	                             	CSCwj68462_PR1F_Test_Logs.txt	New
+05/29/2024 palshanm 	Attribute               	pr1f noauto_porting baseline 	pr1f noauto_porting baseline 	Mod
+05/29/2024 cdetsbtk 	Security-screening-times	2024-05-10 11:42:57.000+0000 	2024-05-30 01:40:19.000+0000 	Mod
+05/29/2024 palshanm 	Note Title              	                             	V-comments                   	New
+05/29/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+05/29/2024 palshanm 	Status                  	R                            	V                            	Mod
+05/29/2024 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+05/29/2024 palshanm 	Verified-release        	                             	10.5(0)IMG9(0.41)            	New
+05/29/2024 palshanm 	Verified-confidence     	                             	tested                       	Mod
+05/29/2024 palshanm 	Verified-on             	                             	2024-05-29 18:40:17.000+0000 	Mod
+05/29/2024 palshanm 	statusStates            	                             	[status=R, startDate=Wed Apr 	New
+05/29/2024 palshanm 	statusStates            	[status=R, startDate=Wed Apr 	                             	Del
+05/29/2024 palshanm 	Age-status              	13                           	48                           	Mod
+05/29/2024 palshanm 	Mean-time-to-verified   	                             	47                           	Mod
+05/29/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPF9(0.5)             	New
+05/29/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+05/29/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+05/13/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0)               	New
+05/13/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0.25)            	New
+05/13/2024 divvenka 	Apply-to                	                             	10.4(2)IEH9(0.25)            	New
+05/09/2024 cdetsbtk 	Security-screening-times	2024-05-10 06:51:41.000+0000 	2024-05-10 11:42:57.000+0000 	Mod
+05/09/2024 cdetsbtk 	Security-screening-times	2024-04-24 17:17:25.000+0000 	2024-05-10 06:51:41.000+0000 	Mod
+05/09/2024 synchub.g	Note Title              	                             	Code-review                  	New
+05/09/2024 synchub.g	Note Type               	R-comments                   	Other                        	Mod
+05/09/2024 synchub.g	Note                    	R-comments                   	R-comments                   	Mod
+05/09/2024 synchub.g	Note Title              	                             	Unit-test                    	New
+05/09/2024 synchub.g	Note Type               	Static-analysis              	Other                        	Mod
+05/09/2024 synchub.g	Note                    	static-analysis              	static-analysis              	Mod
+05/09/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-169120       	New
+04/29/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0)               	New
+04/29/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0.6)             	New
+04/29/2024 divvenka 	Apply-to                	                             	10.5(0)IMG9(0.6)             	New
+04/24/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPR9(0)               	New
+04/24/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPR9(0.101)           	New
+04/24/2024 divvenka 	Apply-to                	                             	10.5(0)IPR9(0.101)           	New
+04/24/2024 cdetsbtk 	Security-screening-times	2024-04-24 16:32:17.000+0000 	2024-04-24 17:17:25.000+0000 	Mod
+04/24/2024 pradepan 	Note Title              	                             	R-comments                   	New
+04/24/2024 pradepan 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/24/2024 pradepan 	Status                  	A                            	R                            	Mod
+04/24/2024 pradepan 	Dev-escape-resolver-opin	                             	N                            	Mod
+04/24/2024 pradepan 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/24/2024 pradepan 	More-by                 	                             	pradepan                     	Mod
+04/24/2024 pradepan 	Opener                  	                             	pradepan                     	Mod
+04/24/2024 pradepan 	Resolver                	                             	pradepan                     	Mod
+04/24/2024 pradepan 	Breakage                	                             	No                           	Mod
+04/24/2024 pradepan 	Regression              	                             	N                            	Mod
+04/24/2024 pradepan 	By-previous-commit-value	                             	No                           	Mod
+04/24/2024 pradepan 	Bug-origin              	                             	Code / Implementation        	Mod
+04/24/2024 pradepan 	Released-code           	                             	N                            	Mod
+04/24/2024 pradepan 	Origin                  	                             	base code                    	Mod
+04/24/2024 pradepan 	Test-EDP-phase          	                             	System Test                  	Mod
+04/24/2024 pradepan 	Test-EDP-activity       	                             	Regression Testing           	Mod
+04/24/2024 pradepan 	TPS_issue               	                             	N                            	Mod
+04/24/2024 pradepan 	TPS_flag                	                             	N                            	Mod
+04/24/2024 pradepan 	Behavior-changed        	                             	N                            	Mod
+04/24/2024 pradepan 	Original-resolved-on    	                             	2024-04-24 10:17:25.000+0000 	Mod
+04/24/2024 pradepan 	Documents-changed       	                             	none                         	Mod
+04/24/2024 pradepan 	More-on                 	                             	2024-04-24 10:17:25.000+0000 	Mod
+04/24/2024 pradepan 	Opened-on               	                             	2024-04-24 10:17:25.000+0000 	Mod
+04/24/2024 pradepan 	Resolved-on             	                             	2024-04-24 10:17:25.000+0000 	Mod
+04/24/2024 pradepan 	statusStates            	                             	[status=A, startDate=Fri Apr 	New
+04/24/2024 pradepan 	statusStates            	[status=A, startDate=Fri Apr 	                             	Del
+04/24/2024 pradepan 	Age-status              	1                            	13                           	Mod
+04/24/2024 pradepan 	Mean-time-to-resolved   	                             	12                           	Mod
+04/24/2024 cdetsbtk 	Security-screening-times	2024-04-24 15:45:38.000+0000 	2024-04-24 16:32:17.000+0000 	Mod
+04/24/2024 pradepan 	File Name               	                             	Diffs-commit-pr1f_dev        	New
+04/24/2024 cdetsbtk 	Security-screening-times	2024-04-23 18:34:20.000+0000 	2024-04-24 15:45:38.000+0000 	Mod
+04/24/2024 root     	File Name               	                             	uls_sanity_baseline_compare  	New
+04/24/2024 root     	File Name               	                             	uls_sanity_report            	New
+04/23/2024 cdetsbtk 	Security-screening-times	2024-04-23 18:33:45.000+0000 	2024-04-23 18:34:20.000+0000 	Mod
+04/23/2024 baas     	File Name               	                             	ccwarnings-pr1f_dev.p3       	New
+04/23/2024 cdetsbtk 	Security-screening-times	2024-04-22 23:39:58.000+0000 	2024-04-23 18:33:45.000+0000 	Mod
+04/23/2024 baas     	File Name               	                             	static-analysis-pr1f_dev.p3  	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 23:39:22.000+0000 	2024-04-22 23:39:58.000+0000 	Mod
+04/22/2024 baas     	File Name               	                             	ccwarnings-pr1f_dev.p2       	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 23:09:47.000+0000 	2024-04-22 23:39:22.000+0000 	Mod
+04/22/2024 baas     	File Name               	                             	static-analysis-pr1f_dev.p2  	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 23:09:12.000+0000 	2024-04-22 23:09:47.000+0000 	Mod
+04/22/2024 baas     	File Name               	                             	ccwarnings-pr1f_dev          	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:53:19.000+0000 	2024-04-22 23:09:12.000+0000 	Mod
+04/22/2024 baas     	File Name               	                             	static-analysis-pr1f_dev     	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:53:18.000+0000 	2024-04-22 18:53:19.000+0000 	Mod
+04/22/2024 pradepan 	contents                	                             	PR-Description-35187         	Mod
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:46:59.000+0000 	2024-04-22 18:53:18.000+0000 	Mod
+04/22/2024 pradepan 	File Name               	                             	code-review-pr1f_dev.p2      	New
+04/22/2024 pradepan 	Code-reviewer           	                             	vasagraw                     	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:46:58.000+0000 	2024-04-22 18:46:59.000+0000 	Mod
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:07:22.000+0000 	2024-04-22 18:46:58.000+0000 	Mod
+04/22/2024 pradepan 	File Name               	                             	PR-Description-35187         	New
+04/22/2024 pradepan 	File Name               	                             	code-review-pr1f_dev         	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:07:08.000+0000 	2024-04-22 18:07:22.000+0000 	Mod
+04/22/2024 pradepan 	File Name               	                             	unit-test                    	New
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 18:06:56.000+0000 	2024-04-22 18:07:08.000+0000 	Mod
+04/22/2024 pradepan 	File Name               	unit-test.p2                 	                             	Del
+04/22/2024 cdetsbtk 	Security-screening-times	2024-04-22 13:41:01.000+0000 	2024-04-22 18:06:56.000+0000 	Mod
+04/22/2024 pradepan 	File Name               	unit-test.txt                	                             	Del
+04/21/2024 cdetsbtk 	Security-screening-times	2024-04-22 13:38:31.000+0000 	2024-04-22 13:41:01.000+0000 	Mod
+04/21/2024 pradepan 	Note Title              	                             	static-analysis              	New
+04/21/2024 cdetsbtk 	Security-screening-times	2024-04-22 13:37:39.000+0000 	2024-04-22 13:38:31.000+0000 	Mod
+04/21/2024 pradepan 	File Name               	                             	unit-test.p2                 	New
+04/21/2024 cdetsbtk 	Security-screening-times	2024-04-22 13:36:33.000+0000 	2024-04-22 13:37:39.000+0000 	Mod
+04/21/2024 pradepan 	File Name               	                             	unit-test.txt                	New
+04/21/2024 cdetsbtk 	Security-screening-times	2024-04-12 16:26:31.000+0000 	2024-04-22 13:36:33.000+0000 	Mod
+04/21/2024 pradepan 	File Name               	                             	unit-test-CSCwj68462         	New
+04/16/2024 cms      	Est-fix-date            	2024-04-19 07:00:00.000+0000 	2024-04-23 07:00:00.000+0000 	Mod
+04/12/2024 cms      	Est-fix-date            	                             	2024-04-19 07:00:00.000+0000 	Mod
+04/12/2024 cdetsbtk 	Security-screening-times	2024-04-12 10:04:01.000+0000 	2024-04-12 16:26:31.000+0000 	Mod
+04/12/2024 samekama 	Engineer                	vasagraw                     	pradepan                     	Mod
+04/11/2024 cdetsbtk 	Security-screening-times	2024-04-12 01:59:08.000+0000 	2024-04-12 10:04:01.000+0000 	Mod
+04/11/2024 samekama 	Note Title              	                             	A-comments                   	New
+04/11/2024 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/11/2024 samekama 	Status                  	N                            	A                            	Mod
+04/11/2024 samekama 	Engineer                	                             	vasagraw                     	Mod
+04/11/2024 samekama 	Assigner                	                             	samekama                     	Mod
+04/11/2024 samekama 	Assigned Date           	                             	2024-04-12 03:04:00.000+0000 	Mod
+04/11/2024 samekama 	statusStates            	                             	[status=N, startDate=Thu Apr 	New
+04/11/2024 samekama 	statusStates            	[status=N, startDate=Thu Apr 	                             	Del
+04/11/2024 samekama 	Age-status              	0                            	1                            	Mod
+04/11/2024 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+04/11/2024 cdetsbtk 	Security-screening-times	2024-04-12 01:58:06.000+0000 	2024-04-12 01:59:08.000+0000 	Mod
+04/11/2024 palshanm 	File Name               	                             	sh_tech_aaa.txt              	New
+04/11/2024 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/11/2024 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+04/11/2024 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/11/2024 cdetsbtk 	Security-screening-times	                             	2024-04-12 01:58:06.000+0000 	Mod
+04/11/2024 palshanm 	File Name               	                             	AAA_crash_PR1F_test_Logs.txt 	New
+04/11/2024 palshanm 	File Name               	                             	1712947138_0x1b01_aaa_log.154	New
+04/11/2024 palshanm 	Note Title              	                             	Release-note                 	New
+04/11/2024 palshanm 	File Name               	                             	BT.txt                       	New
+04/11/2024 palshanm 	Headline                	                             	AAA: Process AAA crashed duri	Mod
+04/11/2024 palshanm 	Summary                 	                             	Refer attached file for detai	Mod
+04/11/2024 palshanm 	Project                 	                             	CSC.datacenter               	Mod
+04/11/2024 palshanm 	Product                 	                             	n9k-standalone-sw            	Mod
+04/11/2024 palshanm 	Component               	                             	aaa                          	Mod
+04/11/2024 palshanm 	Status-desc             	                             	N-New                        	Mod
+04/11/2024 palshanm 	Status                  	                             	N                            	Mod
+04/11/2024 palshanm 	Found                   	                             	func-test                    	Mod
+04/11/2024 palshanm 	Hardening               	                             	N                            	Mod
+04/11/2024 palshanm 	Original-found          	                             	func-test                    	Mod
+04/11/2024 palshanm 	Hardware                	                             	Nexus 9000                   	New
+04/11/2024 palshanm 	Feature                 	                             	fix                          	Mod
+04/11/2024 palshanm 	Attribute               	                             	pr1f noauto_porting baseline 	Mod
+04/11/2024 palshanm 	Urgency-desc            	                             	NA                           	Mod
+04/11/2024 palshanm 	Severity-desc           	                             	severe                       	Mod
+04/11/2024 palshanm 	Severity                	                             	2                            	Mod
+04/11/2024 palshanm 	DE Priority Desc        	                             	medium                       	Mod
+04/11/2024 palshanm 	DE-priority             	                             	3                            	Mod
+04/11/2024 palshanm 	Impact                  	                             	Features/Functionality       	New
+04/11/2024 palshanm 	Submitter               	                             	palshanm                     	Mod
+04/11/2024 palshanm 	Submitter-manager       	                             	mukamath                     	Mod
+04/11/2024 palshanm 	DE-manager              	                             	anikunna                     	Mod
+04/11/2024 palshanm 	DTPT-manager            	                             	mukamath                     	Mod
+04/11/2024 palshanm 	Version                 	                             	10.5(0)IPR9(0.72)            	New
+04/11/2024 palshanm 	Original-version        	                             	10.5(0)IPR9(0.72)            	Mod
+04/11/2024 palshanm 	Found-during            	                             	Feature Test                 	Mod
+04/11/2024 palshanm 	Activity-when-found     	                             	Feature/ Functionality Testin	Mod
+04/11/2024 palshanm 	Test-escape             	                             	N                            	Mod
+04/11/2024 palshanm 	PSIRT                   	                             	N                            	Mod
+04/11/2024 palshanm 	Data-classification     	                             	Cisco Confidential           	Mod
+04/11/2024 palshanm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/11/2024 palshanm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/11/2024 palshanm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/11/2024 palshanm 	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/11/2024 palshanm 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/11/2024 palshanm 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/11/2024 palshanm 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/11/2024 palshanm 	MDF-edited              	                             	N                            	Mod
+04/11/2024 palshanm 	Attribute2              	                             	n/a                          	Mod
+04/11/2024 palshanm 	Doc-manager             	                             	anikunna                     	Mod
+04/11/2024 palshanm 	Document                	                             	nexus                        	Mod
+04/11/2024 palshanm 	Documentation-resolution	                             	Undefined                    	Mod
+04/11/2024 palshanm 	Original-activity-when-f	                             	Feature/ Functionality Testin	Mod
+04/11/2024 palshanm 	Original-found-during   	                             	Feature Test                 	Mod
+04/11/2024 palshanm 	Submitter-org-bug       	                             	DCN-Switching-India          	Mod
+04/11/2024 palshanm 	Component-scenarios     	                             	N                            	Mod
+04/11/2024 palshanm 	Submitted-on            	                             	2024-04-11 18:58:03.632+0000 	Mod
+04/11/2024 palshanm 	New-on                  	                             	2024-04-11 18:58:03.632+0000 	Mod
+04/11/2024 palshanm 	statusStates            	                             	[status=S, startDate=Thu Apr 	New
+04/11/2024 palshanm 	Transition-day          	0                            	2460412                      	Mod
+04/11/2024 palshanm 	Release-note-status     	                             	ignore                       	Mod
+04/11/2024 palshanm 	Reported By             	                             	palshanm                     	Mod
+04/11/2024 palshanm 	RNE-Type                	                             	$$IGNORE                     	Mod
+04/11/2024 palshanm 	Tickets-count           	                             	0                            	Mod
+04/11/2024 palshanm 	Class                   	                             	CSC.datacenter               	Mod
+04/11/2024 palshanm 	Reti-bug                	                             	Y                            	Mod
+04/11/2024 palshanm 	Defect Created          	                             	                             	New

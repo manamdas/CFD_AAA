@@ -1,0 +1,1991 @@
+*******************************************************************************
+
+Bug ID   : CSCwm40879         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: ldap               Severity: 3 (moderate)   
+Headline : N9K: LDAP Public Key Auth: SSH login fails with ldap authentication
+PrimaryPV : 
+Version :10.5(1) 9.3(13.50) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: mahimura           Submitted: 09/03/2024 00:53:41     Last Updtd : 11/04/2026 17:59:25  
+RNE-Type: NONE                New-on : 09/03/2024 00:53:41      
+Root-cause-analysis:                                                  
+Interest : hrifi
+Doc-manager: akudur                                         
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:anikunna                                            
+Known-affected-releases:10.5(1) 
+
+Known-fixed-releases:10.4(4) 10.5(2) 9.3(14) 
+
+
+
+Potentially-affected-releases:10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.3(5) 10.3(6) 10.4(3) 10.5(1) 7.3(15)N1(1) 8.4(10) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 09/03/2024 19:53:19                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 17                                             
+Mean-time-to-verified: 21     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: Y                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type: OpenSource                                                                                                                                                                                    
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 12/12/2024 10:04:48            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Confidential                               
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : mahimura           Priority : medium        Assigned: 09/03/2024 19:52:41 
+Code-reviewer: anok           
+Opened-on: 09/03/2024 19:53:19Opener: mahimura              
+Engineer : vinuhire           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn gnosis kerry-done kr9m-mf 
+Est. completion date: 09/13/2024 00:00:00  
+Script-version:                         
+
+More-by : mahimura            More-on: 09/05/2024 23:04:52  
+
+Documents Changed: none       Resolved: 09/20/2024 22:21:17 Resolver: mahimura       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 09/24/2024 12:05:18      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature Interaction Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Third-party code
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Usability Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            
+Trouble-tickets :              
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 12/12/2024 14:46:01
+Document :    nexus
+
+Summary:
+LDAP Public Key Auth: SSH login fails with ldap authentication after OpenSSH upgrade from 9.1 to 9.6
+
+******************* Related Service Requests (0 of 0)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-218872                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              hrifi         12/11/2024 20:22:51    CSCwn50099      CSC.datacenter  D            
+
+
+********************* Listing of Notes (22 of 22 ) ***********************
+
+---Start of Note Titled: Testplan (Created 01/07/2025 21:00:26 Added 01/07/2025 21:00:26 by prachakr)---
+Automated using https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CSCwm40879-3&type=code&queueName=N39K-QA-CFD-Script-Reviews
+
+pass logs in pr3f 
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2Fucs-f1-team%2Fprachakr%2FPYATS%2Fusers%2Fprachakr%2Farchive%2F25-01%2Fldap_cfd_CSCwm40879_job.2025Jan07_22:24:05.570309.zip&atstype=ATS
+
+
+fail logs in pr1f :
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fauto%2Fucs-f1-team%2Fprachakr%2FPYATS%2Fusers%2Fprachakr%2Farchive%2F25-01%2Fldap_cfd_CSCwm40879_job.2025Jan07_22:55:29.367151.zip&atstype=ATS
+---End of Note Titled: Testplan---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 12/16/2024 01:02:40 Added 12/16/2024 01:02:40 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/675fced2ed80a3589a1cf4cf/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 12/15/2024 09:46:12 Added 12/15/2024 09:46:12 by seshea)---
+--- Update 2024-12-15 17:46:10.785509 seshea (via 698421808)
+0. nexus 9000
+
+
+
+
+1. code fixed : 9.3.14   10.4.4   10.5.2
+   possible code impacted: 10.5.1  9.3.13   
+
+  based on bug found cu case + wiki - https://wiki.cisco.com/pages/viewpage.action?pageId=158471263
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.51
+  NXOS: version 10.5(1) [Feature Release]
+  Host NXOS: version 10.5(1)
+  BIOS compile time:  11/29/2023
+  NXOS image file is: bootflash:///nxos64-cs.10.5.1.F.bin
+  NXOS compile time:  7/31/2024 12:00:00 [07/26/2024 02:00:41]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis 
+  Intel(R) Xeon(R) CPU D-1528 @ 1.90GHz with 24544564 kB of memory.
+  Processor Board ID FDO23410DF9
+  Device name: ipeswrack3
+  bootflash:  115805708 kB
+
+Kernel uptime is 15 day(s), 17 hour(s), 36 minute(s), 16 second(s)
+
+Last reset at 592298 usecs after Thu Aug  8 00:30:56 2024
+  Reason: Reset due to upgrade
+  System version: 10.4(1)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+
+
+2. LDAP configured and following items present:
+
+ - ldap-server host <string> enable-ssl
+ - aaa authorization ssh-publickey default group <string>
+ - under ldap search-map <string>
+   --	user-pubkey-match attribute-name <string> search-filter <string>
+
+`show running-config`
+
+username admin password 5 <removed>  role network-admin
+username tsa_scanner password 5 <removed>  role network-operator
+username tsa_scanner role network-admin
+username tsa_scanner passphrase  lifetime 99999 warntime 14 gracetime 3
+ssh key rsa 2048 
+
+ldap-server host jidm-1-07-145.ipe.local rootDN "cn=Directory Manager"  password 7 <removed> port 636 
+ldap-server host jidm-1-07-145.ipe.local enable-ssl                                                        <<< match
+ldap search-map Map24
+  userprofile attribute-name "ou" search-filter "uid=$userid" base-DN "cn=users,cn=accounts,dc=ipe,dc=local"
+  user-pubkey-match attribute-name "ipaSshPubKey" search-filter "uid=$userid" base-DN "cn=users,cn=accounts,dc=ipe,dc=local"
+aaa group server ldap LDAPServer
+  server jidm-1-07-145.ipe.local
+  use-vrf management
+  ldap-search-map Map24
+
+aaa authorization ssh-publickey default group LDAPServer
+
+
+LOGIC TYPE : Symptomatic
+
+LOGIC : 0 & 1 & 2
+
+BORG severity - warning
+
+positive File : 697816286/tech_support_230824.txt
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: Original_rne (Created 12/12/2024 02:04:50 Added 12/12/2024 02:04:50 by anok)---
+$$IGNORE
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Original_rne---
+
+
+---Start of Note Titled: Unit-test-kerry (Created 11/21/2024 01:03:41 Added 11/21/2024 01:03:41 by amanmis)---
+SSH Client: 
+
+root@administrator-virtual-machine-new:~# ssh palani@10.77.143.163 -i /root/palshanm/ldap/pub_key/ldap_pub_key_test
+The authenticity of host '10.77.143.163 (10.77.143.163)' can't be established.
+RSA key fingerprint is SHA256:iaU0qquk4TkrIjlA04X6JMZbuzBawn4QSvslSw4zc+c.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.77.143.163' (RSA) to the list of known hosts.
+User Access Verification
+Enter passphrase for key '/root/palshanm/ldap/pub_key/ldap_pub_key_test': 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch#
+
+
+SSH Server :
+
+switch(config)# sh run ldap 
+
+!Command: show running-config ldap
+!No configuration change since last restart
+!Time: Thu Nov 21 08:50:32 2024
+
+version 10.2(9) Bios:version 05.51 
+feature ldap
+
+ldap-server host 10.105.194.215 rootDN "CN=ucsadmin1,CN=Users,DC=PI-Sec-DT1,DC=com"  password 7 Fewh0123 
+ldap search-map map1
+  userprofile attribute-name "memberOf" search-filter "(cn=$userid)" base-DN "DC=PI-Sec-DT1,DC=com"
+ldap search-map ldappubkey_searchmap
+  userprofile attribute-name "description" search-filter "(cn=$userid)" base-DN "DC=PI-Sec-DT1,DC=com"
+  user-pubkey-match attribute-name "departmentnumber" search-filter "(cn=$userid)" base-DN "DC=PI-Sec-DT1,DC=com"
+aaa group server ldap ldap1
+  server 10.105.194.215
+  use-vrf management
+  ldap-search-map ldappubkey_searchmap
+
+switch(config)# sh run aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Thu Nov 21 09:00:55 2024
+
+version 10.2(9) Bios:version 05.51 
+aaa authorization ssh-publickey default group ldap1
+
+
+switch(config)# sh run | in boot 
+boot nxos bootflash:/nxos64-cs.10.2.8.4.M.bin
+---End of Note Titled: Unit-test-kerry---
+
+
+---Start of Note Titled: V-comments.p2 (Created 09/24/2024 12:05:18 Added 09/24/2024 12:05:18 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.4(3.44)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+FX2
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+No
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Test Logs Attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: L2_uls_sanity_pr2f_dev (Created 09/23/2024 23:05:52 Added 09/23/2024 23:05:52 by vinuhire)---
+#################################################################
+####################### CDT Job Report ##########################
+#################################################################
+
+
+NXOS ASIC Testbed   : hw sanity82
+Sanity UI view      : <a href=https://nxossanity.cisco.com/job-history/877561>877561</a>
+Total Test cases    : 3
+Passed test cases   : 3
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log Path            : /auto/nxos-sanity/logs/mahimura/877561
+Code Diff           : /ws/mahimura-sjc/CSCwm58190.diff
+CDET ID             : <a href=https://cdetsng.cisco.com/summary/#/defect/CSCwm40879>CSCwm40879</a>
+CDT Max Coverage    : 0
+Pass Rate           : NA
+
+TestCases Report Summary
+------------------------
+TestSuite                       TestCase                        Result    Baseline Reference
+---------                       --------                        ------    -------------------
+l2_uls                          testL2SanityMacLearning         pass      pass in nx_main_82 l2_uls 860905
+l2_uls                          testL2SanityUnconfig            pass      pass in nx_main_82 l2_uls 860905
+l2_uls                          testCores                       pass      pass in nx_main_82 l2_uls 860905
+---End of Note Titled: L2_uls_sanity_pr2f_dev---
+
+
+---Start of Note Titled: R-comments.p2 (Created 09/20/2024 22:21:18 Added 09/20/2024 22:21:18 by mahimura)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CSCwm40879
+key_to_blob is openssh  changed definition to sshkey_to_blob
+
+2. Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+start using sshkey_to_blob and key_to_blob is not supported in Openssh anymore
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+NA
+
+4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Refer UT
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+debug ldap all
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: Unit-test - LDAP Public Key Auth-pr2f_dev (Created 09/18/2024 02:25:28 Added 09/18/2024 02:25:28 by vinuhire)---
+switch# sh version | i build
+  NXOS: version 10.5(2) [build 10.5(1)IMG9(0.82)] [Feature Release]
+  Host NXOS: version 10.5(2) [build 10.5(1)IMG9(0.82)]
+switch# 
+switch# 
+switch# sh run aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Wed Sep 18 09:22:49 2024
+
+version 10.5(2) Bios:version 05.51 
+aaa authorization ssh-publickey default group lg 
+aaa authorization ssh-certificate default group lg 
+
+
+switch# 
+switch# 
+switch# sh run ldap
+
+!Command: show running-config ldap
+!No configuration change since last restart
+!Time: Wed Sep 18 09:23:10 2024
+
+version 10.5(2) Bios:version 05.51 
+feature ldap
+
+ldap-server host DCNM123.mdsqa.test.com rootDN "cn=rootldap,cn=Users,dc=mdsqa,dc=test,dc=com"  pass
+word 7 qxz_12345 timeout 30 
+ldap-server host DCNM123.mdsqa.test.com test rootDN "cn=rootldap,cn=Users,dc=mdsqa,dc=test,dc=com" 
+password 7 qxz_12345 
+ldap-server host WIN-T51F5CS7FUU.PI-Sec-DT.com rootDN "CN=secdev,CN=Users,DC=NX-PI-Sec,DC=com"  pas
+sword 7 Fewh0123 timeout 30 
+ldap search-map Map1
+  userprofile attribute-name "memberOf" search-filter "(cn=$userid)" base-DN "DC=mdsqa,DC=test,DC=c
+om"
+  user-certdn-match attribute-name "url" search-filter "(cn=$userid)" base-DN "DC=mdsqa,DC=test,DC=
+com"
+  user-pubkey-match attribute-name "sshPublicKeys" search-filter "(cn=$userid)" base-DN "DC=mdsqa,D
+C=test,DC=com"
+ldap search-map ssh-pubkey
+aaa group server ldap lg
+  server DCNM123.mdsqa.test.com
+  use-vrf management
+  ldap-search-map Map1
+aaa group server ldap ldap1
+  server WIN-T51F5CS7FUU.PI-Sec-DT.com
+  use-vrf management
+  ldap-search-map Map1
+aaa group server ldap ldap_group
+  server WIN-T51F5CS7FUU.PI-Sec-DT.com
+  enable Cert-DN-match
+  use-vrf management
+  ldap-search-map Map1
+
+
+switch# 
+
+CLIENT:
+
+root@secdev-lnx:/etc/pki# 
+root@secdev-lnx:/etc/pki# ssh ldapuser@10.126.67.44 -i ldap_pub_key_test2
+User Access Verification
+Enter passphrase for key 'ldap_pub_key_test2': 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch#
+---End of Note Titled: Unit-test - LDAP Public Key Auth-pr2f_dev---
+
+
+---Start of Note Titled: Unit-test_pr2f_dev.p2 (Created 09/16/2024 21:14:38 Added 09/16/2024 21:14:38 by vinuhire)---
+2024-09-16T07:27:19: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-16T07:27:19: %AETEST-INFO:  SECTIONS/TESTCASES                                                      RESULT   
+2024-09-16T07:27:19: %AETEST-INFO: --------------------------------------------------------------------------------
+2024-09-16T07:27:19: %AETEST-INFO: .
+2024-09-16T07:27:19: %AETEST-INFO: |-- common_setup                                                          PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup_devices                                                     PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- setup_scp_server                                                  PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc1CheckSSHFeature                                                    PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- test_cli_feature_ssh_enable                                       PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- test_cli_feature_ssh_disable                                      PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc2SshPublicKeyBasedLogin                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- test_ssh_publickey_login_from_ucs_to_switch_CSCvx69774            PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- test_check_lastlogOpenSeek_CSCwh67764                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc3SftpServerLoginFromUCS                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- test_validate_feature_sftp_negative_CSCwe47138                    PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc4RemoteAuthViaTacacs                                                PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- test_validate_remote_auth_via_tacacs_CSCvy92201                   PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc5SshServerAndClientBinValidation                                    PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- test_validate_ssh_server_and_client_binaries_CSCwf26507           PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc6SshShowUsers                                                       PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- validate_show_users_ipaddress_CSCwk02240                          PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc7_unable_to_open_btmp_file_CSCwh93455                               PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- validate_unable_to_open_btmp_file_CSCwh93455                      PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc8_feature_sftp_CSCwe47138                                           PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- validate_feature_sftp_CSCwe47138                                  PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc9_validate_linux_ssh                                                PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- Tc9_feature_host_key_load                                         PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |-- Tc10_feature_netconf_CSCwm39183                                       PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-16T07:27:19: %AETEST-INFO: |   `-- validate_feature_netconf_CSCwm39183                               PASSED
+2024-09-16T07:27:19: %AETEST-INFO: `-- common_cleanup                                                        PASSED
+2024-09-16T07:27:19: %AETEST-INFO:     `-- disconnect_from_device                                            PASSED
+2024-09-16T07:27:19: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-16T07:27:19: %AETEST-INFO: |                                   Summary                                    |
+2024-09-16T07:27:19: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-16T07:27:19: %AETEST-INFO:  Number of ABORTED                                                            0 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of BLOCKED                                                            0 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of ERRORED                                                            0 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of FAILED                                                             0 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of PASSED                                                            12 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of PASSX                                                              0 
+2024-09-16T07:27:19: %AETEST-INFO:  Number of SKIPPED                                                            0 
+2024-09-16T07:27:19: %AETEST-INFO:  Total Number                                                                12 
+2024-09-16T07:27:19: %AETEST-INFO:  Success Rate                                                            100.0% 
+2024-09-16T07:27:19: %AETEST-INFO: --------------------------------------------------------------------------------
+---End of Note Titled: Unit-test_pr2f_dev.p2---
+
+
+---Start of Note Titled: Olympia Sanity (Created 09/08/2024 20:54:05 Added 09/08/2024 20:54:05 by mahimura)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanireg04
+Testbed  name       : sanireg04-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases   : 63
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/mahimura/864288
+Report file         : /auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls-sanireg04.report
+logfile             : /auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls-sanireg04.log
+Test start time     : 2024_09_06_22_01_01
+Test End time       : 2024_09_07_03_42_09
+Test Duration       : 5:41:08.221436
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '864288', '-cdet', 'CSCwm40879', '-build', '/auto/paw-sjc-scratch/paw-logs/38844984-6c4a-11ef-9054-005056a40ab2/images/nxos64-cs', '-testsuite', '/auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls.yml', '-testbed', 'sanireg04-testbed.yml', '-asic', 'hv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'mahimura', '-logfile', '/auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls-sanireg04.log', '-reportfile', '/auto/nxos-sanity/logs/mahimura/864288/base_sanity_uls-sanireg04.report', '-pr_id', '43980', '-external_id', '38844984-6c4a-11ef-9054-005056a40ab2', '-jobid', 'HV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:HV Passed:63/63  Failed:0/63  Aborted:0/63  Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:34   
+testBootTime                                                              pass      0:01:09   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:41   
+testL3DhcpRelayv4                                                         pass      0:03:33   
+testL3DhcpRelayv6                                                         pass      0:02:42   
+testSviDhcpRelayv4                                                        pass      0:03:56   
+testSviDhcpRelayv6                                                        pass      0:03:04   
+testPTPMulticast                                                          pass      0:07:36   
+testPTPChangeL3ToL2AccessNonDefaultVlan                                   pass      0:15:42   
+testPTPMulticastSVIAccess                                                 pass      0:07:52   
+testStaticRoute                                                           pass      0:00:49   
+testLacpShutNoshut                                                        pass      0:04:51   
+testSubPortChannelShutNoshut                                              pass      0:03:06   
+testL2BridgingTrunk                                                       pass      0:02:00   
+testBgpv4                                                                 pass      0:04:00   
+testCdp                                                                   pass      0:01:47   
+testLLDP                                                                  pass      0:01:08   
+testSviVrf                                                                pass      0:03:56   
+testIpv6Interface                                                         pass      0:01:03   
+testStpLacpPcAccessWithTraffic                                            pass      0:14:04   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:13:24   
+testL2SanityMacLearning                                                   pass      0:11:44   
+testL2SanityPortModeChange                                                pass      0:10:20   
+testL2SanityUnconfig                                                      pass      0:00:40   
+testDynamicL2MulticastPC                                                  pass      0:05:21   
+testPimv4                                                                 pass      0:09:01   
+GleanL3toL3V4V6                                                           pass      0:04:58   
+testCopp                                                                  pass      0:15:46   
+testRaclIPv4                                                              pass      0:05:48   
+testSpan                                                                  pass      0:02:50   
+configVxLANVPCEvpn40G                                                     pass      0:18:56   
+testVxLANPeerLearnAccessVPCEvpn40G                                        pass      0:01:08   
+testVxLANBCAccessVPCEvpn40G                                               pass      0:00:20   
+testVxLANL2MCAccessVPCEvpn40G                                             pass      0:00:21   
+testVxLANUUCAccessVPCEvpn40G                                              pass      0:00:21   
+testVxLANUCAccessVPCEvpn40G                                               pass      0:01:05   
+testVxLANUCIPv6AccessVPCEvpn40G                                           pass      0:00:35   
+testVxLANUCNonIPAccessVPCEvpn40G                                          pass      0:00:36   
+testVxLANPeerLearnTrunkVPCEvpn40G                                         pass      0:01:08   
+testVxLANBCTrunkVPCEvpn40G                                                pass      0:00:20   
+testVxLANL2MCTrunkVPCEvpn40G                                              pass      0:00:21   
+testVxLANUUCTrunkVPCEvpn40G                                               pass      0:00:21   
+testVxLANUCTrunkVPCEvpn40G                                                pass      0:01:05   
+testVxLANUCIPv6TrunkVPCEvpn40G                                            pass      0:00:35   
+testVxLANUCNonIPTrunkVPCEvpn40G                                           pass      0:00:36   
+testNestedVxLANBCTrunkVPCEvpnL240G_1                                      pass      0:00:21   
+testNestedVxLANMCTrunkVPCEvpnL240G_1                                      pass      0:00:21   
+testNestedVxLANUCBCVPCEvpnL240G_1                                         pass      0:00:21   
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G                                     pass      0:01:28   
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G                                     pass      0:01:28   
+testVxLANL3IPv4L3VnidVPCEvpn40G                                           pass      0:01:28   
+testVxLANL3IPv6L3VnidVPCEvpn40G                                           pass      0:01:28   
+testNestedVxLANVPCEvpnL3IPv440G_1                                         pass      0:01:28   
+testNestedVxLANVPCEvpnL3IPv640G_1                                         pass      0:01:28   
+testVxLANSnoopMCTrunkVPCsEvpn40G                                          pass      0:03:42   
+testVxLANChangeNveVniTrunkVPCEvpn40G                                      pass      0:13:46   
+testVxLANFlapNveVPCEvpn40G                                                pass      0:17:01   
+testVxLANPeerLinkFlapStimuliVPCEvpn40G                                    pass      0:07:42   
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G                             pass      0:17:00   
+unconfigVxLANVPCEvpn40G                                                   pass      0:11:48   
+testGoldDiagnostic                                                        pass      0:00:34   
+testCores                                                                 pass      0:00:07   
+
+
+
+BOOT TIME LOGS:
+================
+
+
++--------+----------------+------------+---------------------+---------------------+-----------+--------+
+| node   | switch name    | build      | system uptime       | system reset-reason | ~ <5 mins | result |
++--------+----------------+------------+---------------------+---------------------+-----------+--------+
+| node01 | sanireg04-tor1 | 10.4(3.38) | 2024-09-06 22:27:55 | 2024-09-06 22:24:48 |  0:03:07  | PASS   |
++--------+----------------+------------+---------------------+---------------------+-----------+--------+
+
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kernel                       4.0  03:26:02.50  03:26:06.50 
+bootscripts                 46.0  22:26:19.00  22:27:05.00 
+sysmgr_bootup                4.8  22:27:05.00  22:27:09.88 
+pfm_init                     3.0  22:27:10.00  22:27:13.00 
+lcm_init                     6.3  22:27:13.00  22:27:19.38 
+module_insert               34.4  22:27:19.38  22:27:53.86 
+sup_online                   1.5  22:27:53.87  22:27:55.40 
+lc_online                   84.5  22:27:58.87  22:29:23.45 
+pss_acfg                     4.4  22:29:23.45  22:29:27.87 
+----------------------------------------------------------
+full_boot                  205.8  22:26:02.00  22:29:27.87 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            14.95 |            4.0 | PASS   |
+| bootscripts   |            42.55 |           46.0 | SKIP   |
+| sysmgr_bootup |             4.14 |            4.8 | SKIP   |
+| pfm_init      |             3.45 |            3.0 | PASS   |
+| sup_online    |            0.115 |            1.5 | SKIP   |
+| lcm_init      |             6.21 |            6.3 | SKIP   |
+| module_insert |            30.59 |           34.4 | SKIP   |
+| lc_online     |           103.27 |           84.5 | PASS   |
+| pss_acfg      |            0.575 |            4.4 | SKIP   |
+| full_boot     |          216.775 |          205.8 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: Olympia Sanity---
+
+
+---Start of Note Titled:  Unit-test - automation results - or4m (Created 09/06/2024 05:09:04 Modified 09/08/2024 22:11:57 by amanmis)---
+2024-09-06T04:36:42: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:42: %AETEST-INFO: |                           Starting common cleanup                            |
+2024-09-06T04:36:42: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:42: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:42: %AETEST-INFO: |                  Starting subsection disconnect_from_device                  |
+2024-09-06T04:36:42: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:53: %AETEST-INFO: The result of subsection disconnect_from_device is => PASSED
+2024-09-06T04:36:53: %AETEST-INFO: The result of common cleanup is => PASSED
+2024-09-06T04:36:53: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:53: %AETEST-INFO: |                               Detailed Results                               |
+2024-09-06T04:36:53: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:53: %AETEST-INFO:  SECTIONS/TESTCASES                                                      RESULT   
+2024-09-06T04:36:53: %AETEST-INFO: --------------------------------------------------------------------------------
+2024-09-06T04:36:53: %AETEST-INFO: .
+2024-09-06T04:36:53: %AETEST-INFO: |-- common_setup                                                          PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup_devices                                                     PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- setup_scp_server                                                  PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc1CheckSSHFeature                                                    PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- test_cli_feature_ssh_enable                                       PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- test_cli_feature_ssh_disable                                      PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc2SshPublicKeyBasedLogin                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- test_ssh_publickey_login_from_ucs_to_switch_CSCvx69774            PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- test_check_lastlogOpenSeek_CSCwh67764                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc4RemoteAuthViaTacacs                                                PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- test_validate_remote_auth_via_tacacs_CSCvy92201                   PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc5SshServerAndClientBinValidation                                    PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- test_validate_ssh_server_and_client_binaries_CSCwf26507           PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc6SshShowUsers                                                       PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- validate_show_users_ipaddress_CSCwk02240                          PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc7_unable_to_open_btmp_file_CSCwh93455                               PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- validate_unable_to_open_btmp_file_CSCwh93455                      PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |-- Tc8_feature_netconf_CSCwm39183                                        PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-06T04:36:53: %AETEST-INFO: |   `-- validate_feature_netconf_CSCwm39183                               PASSED
+2024-09-06T04:36:53: %AETEST-INFO: `-- common_cleanup                                                        PASSED
+2024-09-06T04:36:53: %AETEST-INFO:     `-- disconnect_from_device                                            PASSED
+2024-09-06T04:36:53: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:53: %AETEST-INFO: |                                   Summary                                    |
+2024-09-06T04:36:53: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-06T04:36:53: %AETEST-INFO:  Number of ABORTED                                                            0 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of BLOCKED                                                            0 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of ERRORED                                                            0 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of FAILED                                                             0 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of PASSED                                                             9 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of PASSX                                                              0 
+2024-09-06T04:36:53: %AETEST-INFO:  Number of SKIPPED                                                            0 
+2024-09-06T04:36:53: %AETEST-INFO:  Total Number                                                                 9 
+2024-09-06T04:36:53: %AETEST-INFO:  Success Rate                                                            100.0% 
+2024-09-06T04:36:53: %AETEST-INFO: --------------------------------------------------------------------------------
+---End of Note Titled: Unit-test - automation results - or4m---
+
+
+---Start of Note Titled: M-comments (Created 09/05/2024 23:04:52 Added 09/05/2024 23:04:52 by mahimura)---
+to be evaluated for pr2f, or4m, niles_rel and kerry
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: V-comments (Created 09/05/2024 11:15:32 Added 09/05/2024 11:15:32 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+9.3(13.50)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+FX2
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+No
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Test Logs Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: Unit-test - Or4m - 10.4_4 (Created 09/04/2024 22:41:02 Added 09/04/2024 22:41:02 by mahimura)---
+// Public Key Based LDAP
+root@secdev-lnx:/etc/pki# ssh ldapuser@10.77.143.192 -i ldap_pub_key_test2 
+User Access Verification
+Enter passphrase for key 'ldap_pub_key_test2': 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# sh run | in boot
+% Permission denied for the role
+switch# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.51
+  NXOS: version 10.4(4) [build 10.4(3.38)] [Maintenance Release]
+  Host NXOS: version  - error in extracting host version
+  BIOS compile time:  11/29/2023
+  NXOS image file is: bootflash:///nxos64-cs.10.4.3.38.M.bin
+  NXOS compile time:  10/31/2024 12:00:00 [08/30/2024 04:57:32]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis 
+  Intel(R) Xeon(R) CPU D-1528 @ 1.90GHz with 32802100 kB of memory.
+  Processor Board ID FDO24510X1S
+  Device name: switch
+  bootflash:  115805708 kB
+
+Kernel uptime is 0 day(s), 1 hour(s), 9 minute(s), 1 second(s)
+
+Last reset at 177523 usecs after Thu Sep  5 04:20:16 2024
+  Reason: Reset Requested by CLI command reload
+  System version: 9.3(13)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+switch#
+switch# exit
+Connection to 10.77.143.192 closed.
+
+// Cert Based LDAP
+root@secdev-lnx:/etc/pki# ssh ldapuser@10.77.143.192 -i client.pem
+User Access Verification
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# sh version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.51
+  NXOS: version 10.4(4) [build 10.4(3.38)] [Maintenance Release]
+  Host NXOS: version  - error in extracting host version
+  BIOS compile time:  11/29/2023
+  NXOS image file is: bootflash:///nxos64-cs.10.4.3.38.M.bin
+  NXOS compile time:  10/31/2024 12:00:00 [08/30/2024 04:57:32]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis 
+  Intel(R) Xeon(R) CPU D-1528 @ 1.90GHz with 32802100 kB of memory.
+  Processor Board ID FDO24510X1S
+  Device name: switch
+  bootflash:  115805708 kB
+switch# 
+switch# 
+switch# exit
+Connection to 10.77.143.192 closed.
+root@secdev-lnx:/etc/pki#
+---End of Note Titled: Unit-test - Or4m - 10.4_4---
+
+
+---Start of Note Titled:  Release-note (Created 09/03/2024 23:03:04 Modified 12/12/2024 02:04:50 by anok)---
+<B>Symptom:</B>
+During the initial stage of the authentication process, LDAP SSH Key-Based authentication fails to authenticate the client, causing it to revert to the next method. The following observations can be noted during the negotiation phase:
+
+debug1: kex_input_ext_info: server-sig-algs=<x509v3-sign-rsa,x509v3-sign-dss,ssh-ed25519,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,rsa-sha2-256,rsa-sha2-512>
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+User Access Verification
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Next authentication method: publickey
+debug1: Offering public key: id_rsa RSA SHA256:Eh5Tk9CZmparwKgpek84MDCn4YJF8msms/FlJFgTNPs explicit
+debug2: we sent a publickey packet, wait for reply
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug2: we did not send a packet, disable method
+debug1: Next authentication method: keyboard-interactive
+debug2: userauth_kbdint
+debug2: we sent a keyboard-interactive packet, wait for reply
+debug2: input_userauth_info_req: entering
+debug2: input_userauth_info_req: num_prompts 1
+(test@10.66.51.68) Password: 
+debug2: input_userauth_info_req: entering
+debug2: input_userauth_info_req: num_prompts 0
+Authenticated to 10.66.51.68 ([10.66.51.68]:22) using "keyboard-interactive".
+debug1: channel 0: new [client-session]
+debug2: channel 0: send open
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: filesystem
+
+<B>Conditions:</B>
+Nexus N9k running version 10.5(1) is affected, and other versions could be impacted as well. 
+LDAP can operate on port 389 or over SSL/TLS. 
+SSH is configured with key-based authentication.
+
+<B>Workaround:</B>
+Use password-based authentication
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled:  R-comments (Created 09/03/2024 19:53:20 Modified 09/03/2024 19:56:49 by mahimura)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CSCwm40879
+key_to_blob is openssh  changed definition to sshkey_to_blob
+
+2. Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+start using sshkey_to_blob and key_to_blob is not supported in Openssh anymore
+
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+NA
+
+4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+Refer UT
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+debug ldap all
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis (Created 09/03/2024 08:47:56 Added 09/03/2024 08:47:56 by mahimura)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCwm40879).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-6993
+#     View name: UNKNOWN 
+#     Working directory: /ws/wit2-sjck/users/mahimura/space_mahimura_irvine_ldap_50 
+# Generated at
+#     Tue Sep  3 15:47:53 2024 UTC by mahimura
+# Enclosure contains contents of the following files:
+#     /ws/wit2-sjck/users/mahimura/space_mahimura_irvine_ldap_50/build/pctmp/sa_attachments/na_sa_attachment.1725378473
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/ws/wit2-sjck/users/mahimura/space_mahimura_irvine_ldap_50/build/pctmp/sa_attachments/na_sa_attachment.1725378473':
+/ws/wit2-sjck/users/mahimura/space_mahimura_irvine_ldap_50/build/pctmp/sa_attachments/na_sa_attachment.1725378473
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: Unit-test (Created 09/03/2024 08:02:18 Added 09/03/2024 08:02:18 by mahimura)---
+LDAP Log is added separately
+
+
+2024-09-03T07:25:31: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-03T07:25:31: %AETEST-INFO: |                               Detailed Results                               |
+2024-09-03T07:25:31: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-03T07:25:31: %AETEST-INFO:  SECTIONS/TESTCASES                                                      RESULT   
+2024-09-03T07:25:31: %AETEST-INFO: --------------------------------------------------------------------------------
+2024-09-03T07:25:31: %AETEST-INFO: .
+2024-09-03T07:25:31: %AETEST-INFO: |-- common_setup                                                          PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup_devices                                                     PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- setup_scp_server                                                  PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc1CheckSSHFeature                                                    PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- test_cli_feature_ssh_enable                                       PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- test_cli_feature_ssh_disable                                      PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc2SshPublicKeyBasedLogin                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- test_ssh_publickey_login_from_ucs_to_switch_CSCvx69774            PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- test_check_lastlogOpenSeek_CSCwh67764                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc3SftpServerLoginFromUCS                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- test_validate_feature_scp_CSCwe47138                              PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc4RemoteAuthViaTacacs                                                PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- test_validate_remote_auth_via_tacacs_CSCvy92201                   PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc5SshServerAndClientBinValidation                                    PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- test_validate_ssh_server_and_client_binaries_CSCwf26507           PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc5SshLdapInteration                                                 ERRORED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                            ERRORED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- validate_cert_based_ldap_CSCvy93899                              BLOCKED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc5SshCertificateAuthorizationBinValidation                           PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- validate_cert_based_authorization_CSCwk02240                      PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |-- Tc6SshShowUsers                                                       PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   |-- setup                                                             PASSED
+2024-09-03T07:25:31: %AETEST-INFO: |   `-- validate_show_users_ipaddress_CSCwk02240                          PASSED
+2024-09-03T07:25:31: %AETEST-INFO: `-- common_cleanup                                                        PASSED
+2024-09-03T07:25:31: %AETEST-INFO:     `-- disconnect_from_device                                            PASSED
+2024-09-03T07:25:31: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-03T07:25:31: %AETEST-INFO: |                                   Summary                                    |
+2024-09-03T07:25:31: %AETEST-INFO: +------------------------------------------------------------------------------+
+2024-09-03T07:25:31: %AETEST-INFO:  Number of ABORTED                                                            0 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of BLOCKED                                                            0 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of ERRORED                                                            1 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of FAILED                                                             0 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of PASSED                                                             9 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of PASSX                                                              0 
+2024-09-03T07:25:31: %AETEST-INFO:  Number of SKIPPED                                                            0 
+2024-09-03T07:25:31: %AETEST-INFO:  Total Number                                                                10 
+2024-09-03T07:25:31: %AETEST-INFO:  Success Rate                                                             90.0% 
+2024-09-03T07:25:31: %AETEST-INFO: --------------------------------------------------------------------------------
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: Unit-test - LDAP Cert based Auth (Created 09/03/2024 06:34:21 Added 09/03/2024 06:34:21 by mahimura)---
+switch(config)# sh user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run | i boot
+boot nxos bootflash:/nxos.9.3.14.bin 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run  aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Tue Sep  3 13:09:13 2024
+
+version 9.3(14) Bios:version 05.51 
+aaa authorization ssh-publickey default group lg 
+aaa authorization ssh-certificate default group lg 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# sh run ldap
+
+!Command: show running-config ldap
+!No configuration change since last restart
+!Time: Tue Sep  3 13:09:17 2024
+
+version 9.3(14) Bios:version 05.51 
+feature ldap
+
+ldap-server host DCNM123.mdsqa.test.com rootDN "cn=rootldap,cn=Users,dc=mdsqa,dc
+=test,dc=com"  password 7 qxz_12345 timeout 30 
+ldap search-map Map1
+  userprofile attribute-name "memberOf" search-filter "(cn=$userid)" base-DN "DC
+=mdsqa,DC=test,DC=com"
+  user-certdn-match attribute-name "url" search-filter "(cn=$userid)" base-DN "D
+C=mdsqa,DC=test,DC=com"
+  user-pubkey-match attribute-name "sshPublicKeys" search-filter "(cn=$userid)" 
+base-DN "DC=mdsqa,DC=test,DC=com"
+aaa group server ldap lg
+  server DCNM123.mdsqa.test.com
+  use-vrf management
+  ldap-search-map Map1
+
+switch(config)# sh crypto ca trustpoints 
+trustpoint: trust; key-pair: trust
+revokation methods:  crl
+
+trustpoint: cert-pki; key-pair: 
+revokation methods:  crl
+
+switch(config)# 
+switch(config)# 
+switch(config)# sh crypto ca cert
+certificates   certstore      
+switch(config)# sh crypto ca certificates 
+Trustpoint: trust
+certificate:
+subject= /CN=switch/serialNumber=FOC223660Z7
+issuer= /C=IN/ST=Kar/L=Ban/O=Cisco/OU=Dcbg/CN=Root/emailAddress=root@cisco.com
+serial=CFBD72349C103CAB
+notBefore=Jun 29 09:21:04 2021 GMT
+notAfter=Jun 24 09:21:04 2022 GMT
+SHA1 Fingerprint=18:A8:D9:1C:A4:19:E2:77:49:DD:6F:76:2D:B7:47:18:FD:B2:40:14
+purposes: sslserver sslclient 
+
+CA certificate 0:
+subject= /C=IN/ST=Kar/L=Ban/O=Cisco/OU=Dcbg/CN=Root/emailAddress=root@cisco.com
+issuer= /C=IN/ST=Kar/L=Ban/O=Cisco/OU=Dcbg/CN=Root/emailAddress=root@cisco.com
+serial=AD816AB8E5F72EEF
+notBefore=Aug  8 06:12:46 2019 GMT
+notAfter=Aug  5 06:12:46 2029 GMT
+SHA1 Fingerprint=33:FF:29:66:44:01:EE:F2:94:C6:40:CB:DD:B6:87:E8:41:1A:C1:3E
+purposes: sslserver sslclient 
+
+CA certificate 1:
+subject= /C=IN/ST=Kar/L=Ban/O=Cisco/OU=Dcbg/CN=Root/emailAddress=root@cisco.com
+issuer= /C=IN/ST=Kar/L=Ban/O=Cisco/OU=Dcbg/CN=Root/emailAddress=root@cisco.com
+serial=AD816AB8E5F72EEF
+notBefore=Aug  8 06:12:46 2019 GMT
+notAfter=Aug  5 06:12:46 2029 GMT
+SHA1 Fingerprint=33:FF:29:66:44:01:EE:F2:94:C6:40:CB:DD:B6:87:E8:41:1A:C1:3E
+purposes: sslserver sslclient 
+
+Trustpoint: cert-pki
+CA certificate 0:
+subject= /C=IN/ST=KARNATAKA/L=BENGALURU/O=CISCO/OU=MDSQA/CN=rootca/emailAddress=
+amsethi@cisco.com
+issuer= /C=IN/ST=KARNATAKA/L=BENGALURU/O=CISCO/OU=MDSQA/CN=rootca/emailAddress=a
+msethi@cisco.com
+serial=838EC35CEF3F34B8
+notBefore=Apr 27 04:55:34 2023 GMT
+notAfter=Apr 24 04:55:34 2033 GMT
+SHA1 Fingerprint=C6:43:1E:D0:28:5D:93:CD:2B:79:0F:D3:0B:60:5D:88:FC:E1:A7:35
+purposes: sslserver sslclient 
+
+switch(config)#   
+
+
+
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    ttyS0        Sep  3 12:40   .         26866 *
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.3# 
+bash-4.3# 
+bash-4.3# ps -ef | grep ldapd
+root      6064  6055  0 13:09 ttyS0    00:00:00 grep ldapd
+root     21625 11937  0 12:39 ?        00:00:00 /isan/bin/ldapd -t
+bash-4.3# 
+bash-4.3# 
+bash-4.3# 
+bash-4.3# kill -9 21625
+bash-4.3# 2024 Sep  3 13:09:52 switch %$ VDC-1 %$ %SYSMGR-2-SERVICE_CRASHED: Service "Ldap Daemon" (PID 21625) hasn't caught signal 9 (no core).
+
+bash-4.3# 
+bash-4.3# 
+bash-4.3# exit
+exit
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+
+
+
+
+root@secdev-lnx:/etc/pki# ssh ldapuser@10.77.143.192 -i client.pem
+User Access Verification
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# 
+switch# 
+switch# 
+switch# exit
+Connection to 10.77.143.192 closed.
+root@secdev-lnx:/etc/pki#
+---End of Note Titled: Unit-test - LDAP Cert based Auth---
+
+
+---Start of Note Titled: Unit-test - LDAP Public Key Auth (Created 09/03/2024 06:31:09 Added 09/03/2024 06:31:09 by mahimura)---
+SERVER:
+
+switch(config)# sh user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run | i boot
+boot nxos bootflash:/nxos.9.3.14.bin 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run  aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Tue Sep  3 13:09:13 2024
+
+version 9.3(14) Bios:version 05.51 
+aaa authorization ssh-publickey default group lg 
+aaa authorization ssh-certificate default group lg 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# sh run ldap
+
+!Command: show running-config ldap
+!No configuration change since last restart
+!Time: Tue Sep  3 13:09:17 2024
+
+version 9.3(14) Bios:version 05.51 
+feature ldap
+
+ldap-server host DCNM123.mdsqa.test.com rootDN "cn=rootldap,cn=Users,dc=mdsqa,dc
+=test,dc=com"  password 7 qxz_12345 timeout 30 
+ldap search-map Map1
+  userprofile attribute-name "memberOf" search-filter "(cn=$userid)" base-DN "DC
+=mdsqa,DC=test,DC=com"
+  user-certdn-match attribute-name "url" search-filter "(cn=$userid)" base-DN "D
+C=mdsqa,DC=test,DC=com"
+  user-pubkey-match attribute-name "sshPublicKeys" search-filter "(cn=$userid)" 
+base-DN "DC=mdsqa,DC=test,DC=com"
+aaa group server ldap lg
+  server DCNM123.mdsqa.test.com
+  use-vrf management
+  ldap-search-map Map1
+
+
+
+
+
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    ttyS0        Sep  3 12:40   .         26866 *
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# run bash sudo su
+bash-4.3# 
+bash-4.3# 
+bash-4.3# ps -ef | grep ldapd
+root      6064  6055  0 13:09 ttyS0    00:00:00 grep ldapd
+root     21625 11937  0 12:39 ?        00:00:00 /isan/bin/ldapd -t
+bash-4.3# 
+bash-4.3# 
+bash-4.3# 
+bash-4.3# kill -9 21625
+bash-4.3# 2024 Sep  3 13:09:52 switch %$ VDC-1 %$ %SYSMGR-2-SERVICE_CRASHED: Service "Ldap Daemon" (PID 21625) hasn't caught signal 9 (no core).
+
+bash-4.3# 
+bash-4.3# 
+bash-4.3# exit
+exit
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+
+
+
+CLIENT:
+root@secdev-lnx:/etc/pki# 
+root@secdev-lnx:/etc/pki# ssh ldapuser@10.77.143.192 -i ldap_pub_key_test2 
+User Access Verification
+Enter passphrase for key 'ldap_pub_key_test2': 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# exit
+Connection to 10.77.143.192 closed.
+root@secdev-lnx:/etc/pki#
+---End of Note Titled: Unit-test - LDAP Public Key Auth---
+
+
+---Start of Note Titled:  Scrubnote (Created 09/03/2024 01:37:10 Modified 01/07/2025 00:28:10 by cms)---
+{250107 palshanm S B} Zero touch suite covers this scenario. Will raise seperate PRRQ for this CFD
+{240920 anikunna S B} Waiting for SA bypass - third party commit
+{240917 anikunna S B} Commit initiated for PR2F
+{240912 mahimura S B} to be committed to kerry and niles
+{240910 mahimura S B} IN PR
+{240906 anikunna S B} Olympia - regression runs in progress (Mahima)
+{240903 pbhavesh S G} fix is committed; will be avaialble in build-52
+{240903 mahimura S B} third-party API changed from OpenSSH 9.1 to 9.6. Change in API resulted in LDAP auth failure.
+{240903 mahimura D B} PRRQ modified
+{240903 atayal S B} possible pamplona-na. Anil will check and add
+---End of Note Titled: Scrubnote---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (38 of 38)
+------------------------------------------------------------------------------------------------------------------
+N39K-QA-CFD-Script-Reviews-code-review-3          ascii text     945            prrqengg       01/07/2025 20:59:59      
+Release-note-diff                                 ascii text     1981           anok           12/12/2024 02:04:50      
+nxos-pi-common-security-code-review-2             ascii text     935            prrqengg       11/14/2024 00:09:15      
+CSCwm40879_OR4M_Test_Logs.txt                     ascii text     97214          palshanm       09/24/2024 12:05:57      
+Diffs-commit-nx_main                              ascii text     60979          vinuhire       09/20/2024 09:53:29      
+ccwarnings-nx_main                                ascii text     1602           baas           09/19/2024 02:28:30      
+static-analysis-nx_main.p3                        ascii text     5015           baas           09/19/2024 02:27:53      
+static-analysis-nx_main.p2                        ascii text     5015           baas           09/19/2024 02:27:42      
+static-analysis-nx_main                           ascii text     5015           baas           09/19/2024 02:27:31      
+code-review-nx_main.p9                            binary         1259           vinuhire       09/18/2024 22:59:14      
+code-review-nx_main.p8                            binary         1259           vinuhire       09/18/2024 22:46:20      
+code-review-nx_main.p7                            binary         1259           vinuhire       09/18/2024 22:41:42      
+code-review-nx_main.p6                            binary         1227           vinuhire       09/18/2024 22:36:59      
+code-review-nx_main.p5                            binary         1227           vinuhire       09/18/2024 22:31:21      
+code-review-nx_main.p4                            binary         1227           vinuhire       09/18/2024 22:16:20      
+code-review-nx_main.p3                            binary         1227           vinuhire       09/18/2024 22:15:05      
+code-review-nx_main.p2                            binary         1227           vinuhire       09/18/2024 22:13:15      
+PR-Description-44587                              ascii text     793            vinuhire       09/18/2024 22:59:16      
+code-review-nx_main                               binary         1227           vinuhire       09/18/2024 22:10:59      
+Diffs-commit-olympia_rel                          ascii text     12216          mahimura       09/11/2024 09:36:08      
+code-review-olympia_rel.p3                        ascii text     1062           mahimura       09/09/2024 21:27:39      
+code-review-olympia_rel.p2                        ascii text     1062           mahimura       09/08/2024 22:17:55      
+PR-Description-43980                              ascii text     625            mahimura       09/09/2024 21:27:40      
+code-review-olympia_rel                           ascii text     1062           mahimura       09/08/2024 21:06:49      
+base_sanity_uls_sanity_baseline_compare           ascii text     9085           root           09/07/2024 01:43:26      
+base_sanity_uls_sanity_report                     ascii text     10215          root           09/07/2024 01:43:26      
+ccwarnings-olympia_rel.p2                         ascii text     1525           baas           09/06/2024 08:34:15      
+static-analysis-olympia_rel.p6                    ascii text     5047           baas           09/06/2024 08:33:38      
+static-analysis-olympia_rel.p5                    ascii text     5047           baas           09/06/2024 08:33:28      
+static-analysis-olympia_rel.p4                    ascii text     5047           baas           09/06/2024 08:33:17      
+ccwarnings-olympia_rel                            ascii text     1525           baas           09/06/2024 08:32:42      
+static-analysis-olympia_rel.p3                    ascii text     5047           baas           09/06/2024 08:32:05      
+static-analysis-olympia_rel.p2                    ascii text     5047           baas           09/06/2024 08:31:54      
+static-analysis-olympia_rel                       ascii text     5047           baas           09/06/2024 08:31:43      
+CSCwm40879_IMR13_Test_Logs.txt                    ascii text     51467          palshanm       09/05/2024 11:19:46      
+Diffs-release-irvine                              ascii text     2091           mahimura       09/03/2024 08:48:27      
+Diffs-commit-irvine                               ascii text     13495          mahimura       09/03/2024 08:48:24      
+nxos-pi-common-security-code-review               ascii text     942            prrqengg       09/04/2024 02:52:57      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/04/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/04/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/02/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/02/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/30/2026 satdr    	Attribute               	cfd-mukamath gnosis kerry-don	cfd-manojohn gnosis kerry-don	Mod
+04/07/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/07/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/23/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/23/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+11/12/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/12/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+05/20/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+05/08/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+05/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/08/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/23/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+04/08/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/29/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/26/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+03/07/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/07/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/01/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/01/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+02/22/2025 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/22/2025 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/13/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+01/30/2025 buildins 	Attribute               	cfd-mukamath gnosis kerry-don	cfd-mukamath gnosis kerry-don	Mod
+01/07/2025 prachakr 	Note Title              	                             	Testplan                     	New
+01/07/2025 prachakr 	Automated-test          	N                            	Y                            	Mod
+01/07/2025 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+01/07/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/19/2024 divvenka 	Integrated-releases     	                             	10.5(2)                      	New
+12/19/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/19/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/19/2024 divvenka 	Known-fixed-releases    	                             	10.5(2)                      	New
+12/16/2024 sachinj  	Attribute               	gnosis kerry-done kr9m-mf pr2	cfd-mukamath gnosis kerry-don	Mod
+12/16/2024 ksnehala 	Note Title              	                             	KnowledgeSignature           	New
+12/15/2024 ksnehala 	Attribute               	kerry-done kr9m-mf pr2f-verif	gnosis kerry-done kr9m-mf pr2	Mod
+12/15/2024 seshea   	Note Title              	                             	DetectionLogic               	New
+12/12/2024 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+12/12/2024 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+12/12/2024 cdetsbtk 	Security-screening-times	2024-11-21 17:03:42.000+0000 	2024-12-12 22:46:01.000+0000 	Mod
+12/12/2024 anok     	File Name               	                             	Release-note-diff            	New
+12/12/2024 anok     	Note Title              	                             	Original_rne                 	New
+12/12/2024 anok     	Note                    	Release-note                 	Release-note                 	Mod
+12/12/2024 anok     	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+12/12/2024 anok     	Related-bugs            	                             	Duplicate/CSCwn50099         	New
+12/12/2024 anok     	Found                   	development                  	customer-use                 	Mod
+12/12/2024 anok     	Other-mail              	                             	hrifi                        	Mod
+12/12/2024 anok     	Version                 	                             	10.5(1)                      	New
+12/12/2024 anok     	Found-during            	Development                  	Customer                     	Mod
+12/12/2024 anok     	Activity-when-found     	Unit Test                    	Customer-Use                 	Mod
+12/12/2024 anok     	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/12/2024 anok     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/12/2024 anok     	IFD-CFD-Conv-date       	                             	2024-12-12 18:04:48.000+0000 	Mod
+12/12/2024 anok     	Known-affected-releases 	                             	10.5(1)                      	New
+12/12/2024 anok     	Symptoms                	                             	During the initial stage of t	Mod
+12/12/2024 anok     	Conditions              	                             	Nexus N9k running version 10.	Mod
+12/12/2024 anok     	Workarounds             	                             	Use password-based authentica	Mod
+12/12/2024 anok     	Tickets-count           	0                            	1                            	Mod
+12/12/2024 anok     	Trouble-tickets         	                             	697816286                    	New
+12/12/2024 anok     	Trouble-tickets-indirect	                             	C3/697816286                 	New
+11/21/2024 amanmis  	Attribute               	kr9m-mf pr2f-verified imr13-m	kerry-done kr9m-mf pr2f-verif	Mod
+11/21/2024 cdetsbtk 	Security-screening-times	2024-11-14 16:09:16.000+0000 	2024-11-21 17:03:42.000+0000 	Mod
+11/21/2024 amanmis  	Note Title              	                             	Unit-test-kerry              	New
+11/14/2024 cdetsbtk 	Security-screening-times	2024-10-21 17:43:25.000+0000 	2024-11-14 16:09:16.000+0000 	Mod
+11/14/2024 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/01/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/01/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/26/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0)               	New
+10/26/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0.90)            	New
+10/26/2024 nxbld    	Apply-to                	                             	10.5(3)IPE9(0.90)            	New
+10/21/2024 cdetsbtk 	Security-screening-times	2024-09-25 02:05:58.000+0000 	2024-10-21 17:43:25.000+0000 	Mod
+10/21/2024 mahimura 	Attribute               	pr2f-verified imr13-mf imr13-	kr9m-mf pr2f-verified imr13-m	Mod
+10/21/2024 mahimura 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/21/2024 mahimura 	Known-fixed-releases    	                             	10.4(4)                      	New
+09/30/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/30/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/27/2024 mahimura 	Attribute               	imr13-mf imr13-verified or4m-	pr2f-verified imr13-mf imr13-	Mod
+09/27/2024 mahimura 	Verified-release        	                             	10.5(1)IMG9(0.127)           	New
+09/26/2024 mahimura 	Attribute               	imr13-mf imr13-verified or4m-	imr13-mf imr13-verified or4m-	Mod
+09/24/2024 cdetsbtk 	Security-screening-times	2024-09-25 02:05:19.000+0000 	2024-09-25 02:05:58.000+0000 	Mod
+09/24/2024 palshanm 	File Name               	                             	CSCwm40879_OR4M_Test_Logs.txt	New
+09/24/2024 palshanm 	Attribute               	imr13-mf imr13-verified or4m-	imr13-mf imr13-verified or4m-	Mod
+09/24/2024 cdetsbtk 	Security-screening-times	2024-09-24 13:05:52.000+0000 	2024-09-25 02:05:19.000+0000 	Mod
+09/24/2024 palshanm 	Note Title              	                             	V-comments.p2                	New
+09/24/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+09/24/2024 palshanm 	Status                  	R                            	V                            	Mod
+09/24/2024 palshanm 	Verified-release        	                             	10.4(3.44)                   	New
+09/24/2024 palshanm 	Verified-on             	2024-09-05 18:15:32.000+0000 	2024-09-24 19:05:18.000+0000 	Mod
+09/24/2024 palshanm 	statusStates            	                             	[status=R, startDate=Sat Sep 	New
+09/24/2024 palshanm 	statusStates            	[status=R, startDate=Sat Sep 	                             	Del
+09/24/2024 palshanm 	Age-status              	18                           	21                           	Mod
+09/24/2024 palshanm 	Mean-time-to-verified   	2                            	21                           	Mod
+09/23/2024 cdetsbtk 	Security-screening-times	2024-09-21 12:21:18.000+0000 	2024-09-24 13:05:52.000+0000 	Mod
+09/23/2024 vinuhire 	Note Title              	                             	L2_uls_sanity_pr2f_dev       	New
+09/23/2024 mahimura 	Attribute               	imr13-mf imr13-verified or4m-	imr13-mf imr13-verified or4m-	Mod
+09/21/2024 pisces   	VF-patched              	                             	NX-OS:9.3(14)                	New
+09/20/2024 cdetsbtk 	Security-screening-times	2024-09-20 23:53:30.000+0000 	2024-09-21 12:21:18.000+0000 	Mod
+09/20/2024 mahimura 	Note Title              	                             	R-comments.p2                	New
+09/20/2024 mahimura 	Status-desc             	M-More                       	R-Resolved                   	Mod
+09/20/2024 mahimura 	Status                  	M                            	R                            	Mod
+09/20/2024 mahimura 	Resolved-on             	2024-09-04 02:53:19.000+0000 	2024-09-21 05:21:17.000+0000 	Mod
+09/20/2024 mahimura 	statusStates            	                             	[status=M, startDate=Fri Sep 	New
+09/20/2024 mahimura 	statusStates            	[status=M, startDate=Fri Sep 	                             	Del
+09/20/2024 mahimura 	Age-status              	3                            	18                           	Mod
+09/20/2024 mahimura 	Mean-time-to-resolved   	0                            	17                           	Mod
+09/20/2024 nxbld    	Integrated-releases     	                             	10.5(1)IMG9(0)               	New
+09/20/2024 nxbld    	Integrated-releases     	                             	10.5(1)IMG9(0.118)           	New
+09/20/2024 nxbld    	Apply-to                	                             	10.5(1)IMG9(0.118)           	New
+09/20/2024 cdetsbtk 	Security-screening-times	2024-09-20 16:09:05.000+0000 	2024-09-20 23:53:30.000+0000 	Mod
+09/20/2024 vinuhire 	File Name               	                             	Diffs-commit-nx_main         	New
+09/20/2024 cdetsbtk 	Security-screening-times	2024-09-19 16:28:31.000+0000 	2024-09-20 16:09:05.000+0000 	Mod
+09/20/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/19/2024 cdetsbtk 	Security-screening-times	2024-09-19 16:27:54.000+0000 	2024-09-19 16:28:31.000+0000 	Mod
+09/19/2024 baas     	File Name               	                             	ccwarnings-nx_main           	New
+09/19/2024 cdetsbtk 	Security-screening-times	2024-09-19 16:27:44.000+0000 	2024-09-19 16:27:54.000+0000 	Mod
+09/19/2024 baas     	File Name               	                             	static-analysis-nx_main.p3   	New
+09/19/2024 cdetsbtk 	Security-screening-times	2024-09-19 16:27:32.000+0000 	2024-09-19 16:27:44.000+0000 	Mod
+09/19/2024 baas     	File Name               	                             	static-analysis-nx_main.p2   	New
+09/19/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:59:17.000+0000 	2024-09-19 16:27:32.000+0000 	Mod
+09/19/2024 baas     	File Name               	                             	static-analysis-nx_main      	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:59:15.000+0000 	2024-09-19 12:59:17.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:46:23.000+0000 	2024-09-19 12:59:15.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p9       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:46:21.000+0000 	2024-09-19 12:46:23.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:45:49.000+0000 	2024-09-19 12:46:21.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p8       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:41:43.000+0000 	2024-09-19 12:45:49.000+0000 	Mod
+09/18/2024 vinuhire 	Engineer                	mahimura                     	vinuhire                     	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:38:41.000+0000 	2024-09-19 12:41:43.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	FileSize                	760                          	793                          	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p7       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:37:02.000+0000 	2024-09-19 12:38:41.000+0000 	Mod
+09/18/2024 vinuhire 	Engineer                	vinuhire                     	mahimura                     	Mod
+09/18/2024 vinuhire 	Code-reviewer           	                             	mahimura                     	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:37:00.000+0000 	2024-09-19 12:37:02.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:35:11.000+0000 	2024-09-19 12:37:00.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p6       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:31:23.000+0000 	2024-09-19 12:35:11.000+0000 	Mod
+09/18/2024 vinuhire 	Engineer                	mahimura                     	vinuhire                     	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:31:22.000+0000 	2024-09-19 12:31:23.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:16:23.000+0000 	2024-09-19 12:31:22.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p5       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:16:21.000+0000 	2024-09-19 12:16:23.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:15:06.000+0000 	2024-09-19 12:16:21.000+0000 	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p4       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:13:17.000+0000 	2024-09-19 12:15:06.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p3       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:13:16.000+0000 	2024-09-19 12:13:17.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:11:01.000+0000 	2024-09-19 12:13:16.000+0000 	Mod
+09/18/2024 vinuhire 	contents                	                             	PR-Description-44587         	Mod
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main.p2       	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-19 12:11:00.000+0000 	2024-09-19 12:11:01.000+0000 	Mod
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-18 16:25:28.000+0000 	2024-09-19 12:11:00.000+0000 	Mod
+09/18/2024 vinuhire 	File Name               	                             	PR-Description-44587         	New
+09/18/2024 vinuhire 	File Name               	                             	code-review-nx_main          	New
+09/18/2024 cdetsbtk 	Security-screening-times	2024-09-17 14:13:08.000+0000 	2024-09-18 16:25:28.000+0000 	Mod
+09/18/2024 vinuhire 	Note Title              	                             	Unit-test - LDAP Public Key A	New
+09/18/2024 vinuhire 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/18/2024 vinuhire 	Known-fixed-releases    	                             	9.3(14)                      	New
+09/17/2024 cdetsbtk 	Security-screening-times	2024-09-17 11:14:39.000+0000 	2024-09-17 14:13:08.000+0000 	Mod
+09/17/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/16/2024 cdetsbtk 	Security-screening-times	2024-09-12 16:10:08.000+0000 	2024-09-17 11:14:39.000+0000 	Mod
+09/16/2024 vinuhire 	Note Title              	                             	Unit-test_pr2f_dev.p2        	New
+09/14/2024 nxbld    	Integrated-releases     	                             	10.4(4)                      	New
+09/14/2024 nxbld    	Integrated-releases     	                             	10.4(3.43)                   	New
+09/14/2024 nxbld    	Apply-to                	                             	10.4(3.43)                   	New
+09/12/2024 pisces   	VF-unpatched            	NX-OS:10.3(1),NX-OS:10.3(2),N	                             	Del
+09/12/2024 pisces   	Potentially-affected-rel	10.3(1),10.3(2),10.3(3),10.3(	                             	Del
+09/12/2024 cdetsbtk 	Security-screening-times	2024-09-11 23:36:09.000+0000 	2024-09-12 16:10:08.000+0000 	Mod
+09/12/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/11/2024 mahimura 	Attribute               	imr13-mf imr13-verified      	imr13-mf imr13-verified or4m-	Mod
+09/11/2024 cdetsbtk 	Security-screening-times	2024-09-10 11:27:41.000+0000 	2024-09-11 23:36:09.000+0000 	Mod
+09/11/2024 mahimura 	File Name               	                             	Diffs-commit-olympia_rel     	New
+09/11/2024 cms      	Est-fix-date            	                             	2024-09-13 07:00:00.000+0000 	Mod
+09/09/2024 cdetsbtk 	Security-screening-times	2024-09-10 11:27:40.000+0000 	2024-09-10 11:27:41.000+0000 	Mod
+09/09/2024 mahimura 	contents                	                             	PR-Description-43980         	Mod
+09/09/2024 cdetsbtk 	Security-screening-times	2024-09-10 11:09:04.000+0000 	2024-09-10 11:27:40.000+0000 	Mod
+09/09/2024 mahimura 	File Name               	                             	code-review-olympia_rel.p3   	New
+09/09/2024 cdetsbtk 	Security-screening-times	2024-09-09 12:17:57.000+0000 	2024-09-10 11:09:04.000+0000 	Mod
+09/09/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/08/2024 cdetsbtk 	Security-screening-times	2024-09-09 12:17:55.000+0000 	2024-09-09 12:17:57.000+0000 	Mod
+09/08/2024 mahimura 	contents                	                             	PR-Description-43980         	Mod
+09/08/2024 cdetsbtk 	Security-screening-times	2024-09-09 11:06:51.000+0000 	2024-09-09 12:17:55.000+0000 	Mod
+09/08/2024 mahimura 	File Name               	                             	code-review-olympia_rel.p2   	New
+09/08/2024 cdetsbtk 	Security-screening-times	2024-09-09 11:06:49.000+0000 	2024-09-09 11:06:51.000+0000 	Mod
+09/08/2024 cdetsbtk 	Security-screening-times	2024-09-09 10:54:05.000+0000 	2024-09-09 11:06:49.000+0000 	Mod
+09/08/2024 mahimura 	File Name               	                             	PR-Description-43980         	New
+09/08/2024 mahimura 	File Name               	                             	code-review-olympia_rel      	New
+09/08/2024 cdetsbtk 	Security-screening-times	2024-09-07 15:43:26.000+0000 	2024-09-09 10:54:05.000+0000 	Mod
+09/08/2024 mahimura 	Note Title              	                             	Olympia Sanity               	New
+09/08/2024 mahimura 	Breakage                	Yes, unknown source          	No                           	Mod
+09/08/2024 mahimura 	Regression              	Y                            	N                            	Mod
+09/08/2024 mahimura 	By-previous-commit-value	Unknown                      	No                           	Mod
+09/07/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:34:15.000+0000 	2024-09-07 15:43:26.000+0000 	Mod
+09/07/2024 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+09/07/2024 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:33:39.000+0000 	2024-09-06 22:34:15.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	ccwarnings-olympia_rel.p2    	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:33:29.000+0000 	2024-09-06 22:33:39.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:33:18.000+0000 	2024-09-06 22:33:29.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:32:42.000+0000 	2024-09-06 22:33:18.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:32:05.000+0000 	2024-09-06 22:32:42.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:31:54.000+0000 	2024-09-06 22:32:05.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 22:31:44.000+0000 	2024-09-06 22:31:54.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 19:09:05.000+0000 	2024-09-06 22:31:44.000+0000 	Mod
+09/06/2024 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+09/06/2024 cdetsbtk 	Security-screening-times	2024-09-06 13:04:52.000+0000 	2024-09-06 19:09:05.000+0000 	Mod
+09/06/2024 mahimura 	Note Title              	                             	Unit-test - automation result	New
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 13:04:09.000+0000 	2024-09-06 13:04:52.000+0000 	Mod
+09/05/2024 mahimura 	Note Title              	                             	M-comments                   	New
+09/05/2024 mahimura 	Status-desc             	V-Verified                   	M-More                       	Mod
+09/05/2024 mahimura 	Status                  	V                            	M                            	Mod
+09/05/2024 mahimura 	More-on                 	2024-09-04 02:53:19.000+0000 	2024-09-06 06:04:52.000+0000 	Mod
+09/05/2024 mahimura 	statusStates            	                             	[status=V, startDate=Thu Sep 	New
+09/05/2024 mahimura 	statusStates            	[status=V, startDate=Thu Sep 	                             	Del
+09/05/2024 mahimura 	Age-status              	2                            	3                            	Mod
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 13:02:27.000+0000 	2024-09-06 13:04:09.000+0000 	Mod
+09/05/2024 mahimura 	Headline                	Irvine : LDAP Public Key Auth	N9K: LDAP Public Key Auth: SS	Mod
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 01:19:47.000+0000 	2024-09-06 13:02:27.000+0000 	Mod
+09/05/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 01:19:36.000+0000 	2024-09-06 01:19:47.000+0000 	Mod
+09/05/2024 palshanm 	File Name               	                             	CSCwm40879_IMR13_Test_Logs.tx	New
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 01:16:09.000+0000 	2024-09-06 01:19:36.000+0000 	Mod
+09/05/2024 palshanm 	File Name               	CSCwm40879_IMR13_Test_Logs.tx	                             	Del
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-06 01:15:33.000+0000 	2024-09-06 01:16:09.000+0000 	Mod
+09/05/2024 palshanm 	File Name               	                             	CSCwm40879_IMR13_Test_Logs.tx	New
+09/05/2024 palshanm 	Attribute               	imr13-mf                     	imr13-mf imr13-verified      	Mod
+09/05/2024 cdetsbtk 	Security-screening-times	2024-09-05 12:41:03.000+0000 	2024-09-06 01:15:33.000+0000 	Mod
+09/05/2024 palshanm 	Note Title              	                             	V-comments                   	New
+09/05/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+09/05/2024 palshanm 	Status                  	R                            	V                            	Mod
+09/05/2024 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+09/05/2024 palshanm 	Verified-release        	                             	9.3(13.55)                   	New
+09/05/2024 palshanm 	Verified-confidence     	                             	tested                       	Mod
+09/05/2024 palshanm 	Verified-on             	                             	2024-09-05 18:15:32.000+0000 	Mod
+09/05/2024 palshanm 	statusStates            	                             	[status=R, startDate=Wed Sep 	New
+09/05/2024 palshanm 	statusStates            	[status=R, startDate=Wed Sep 	                             	Del
+09/05/2024 palshanm 	Age-status              	1                            	2                            	Mod
+09/05/2024 palshanm 	Mean-time-to-verified   	                             	2                            	Mod
+09/04/2024 cdetsbtk 	Security-screening-times	2024-09-04 16:52:58.000+0000 	2024-09-05 12:41:03.000+0000 	Mod
+09/04/2024 mahimura 	Note Title              	                             	Unit-test - Or4m - 10.4_4    	New
+09/04/2024 pisces   	VF-unpatched            	                             	NX-OS:10.2(1),NX-OS:10.2(1q),	New
+09/04/2024 pisces   	Potentially-affected-rel	                             	10.2(1),10.2(1q),10.2(2),10.2	New
+09/04/2024 cdetsbtk 	Security-screening-times	2024-09-04 13:03:04.000+0000 	2024-09-04 16:52:58.000+0000 	Mod
+09/04/2024 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+09/04/2024 prrqengg 	FileSize                	940                          	942                          	Mod
+09/04/2024 prrqengg 	Code-reviewer           	                             	sarchand,anok                	New
+09/03/2024 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-04 09:56:50.000+0000 	2024-09-04 13:03:04.000+0000 	Mod
+09/03/2024 divvenka 	Note Title              	                             	Release-note                 	New
+09/03/2024 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-04 09:53:20.000+0000 	2024-09-04 09:56:50.000+0000 	Mod
+09/03/2024 mahimura 	Note                    	R-comments                   	R-comments                   	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-04 09:52:42.000+0000 	2024-09-04 09:53:20.000+0000 	Mod
+09/03/2024 mahimura 	Note Title              	                             	R-comments                   	New
+09/03/2024 mahimura 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+09/03/2024 mahimura 	Status                  	A                            	R                            	Mod
+09/03/2024 mahimura 	Dev-escape-resolver-opin	                             	N                            	Mod
+09/03/2024 mahimura 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+09/03/2024 mahimura 	More-by                 	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Opener                  	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Resolver                	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Breakage                	                             	Yes, unknown source          	Mod
+09/03/2024 mahimura 	Regression              	                             	Y                            	Mod
+09/03/2024 mahimura 	By-previous-commit-value	                             	Unknown                      	Mod
+09/03/2024 mahimura 	Bug-origin              	Code / Implementation        	Third-party code             	Mod
+09/03/2024 mahimura 	Released-code           	                             	N                            	Mod
+09/03/2024 mahimura 	Origin                  	base code                    	outsourced code              	Mod
+09/03/2024 mahimura 	TPS_issue               	                             	Y                            	Mod
+09/03/2024 mahimura 	TPS_flag                	                             	Y                            	Mod
+09/03/2024 mahimura 	TPS_type                	                             	OpenSource                   	Mod
+09/03/2024 mahimura 	Behavior-changed        	                             	N                            	Mod
+09/03/2024 mahimura 	Original-resolved-on    	                             	2024-09-04 02:53:19.000+0000 	Mod
+09/03/2024 mahimura 	Documents-changed       	                             	none                         	Mod
+09/03/2024 mahimura 	More-on                 	                             	2024-09-04 02:53:19.000+0000 	Mod
+09/03/2024 mahimura 	Opened-on               	                             	2024-09-04 02:53:19.000+0000 	Mod
+09/03/2024 mahimura 	Resolved-on             	                             	2024-09-04 02:53:19.000+0000 	Mod
+09/03/2024 mahimura 	statusStates            	                             	[status=A, startDate=Wed Sep 	New
+09/03/2024 mahimura 	statusStates            	[status=A, startDate=Wed Sep 	                             	Del
+09/03/2024 mahimura 	Mean-time-to-resolved   	                             	0                            	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-04 00:20:04.000+0000 	2024-09-04 09:52:42.000+0000 	Mod
+09/03/2024 mahimura 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/03/2024 mahimura 	Status                  	N                            	A                            	Mod
+09/03/2024 mahimura 	Engineer                	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Assigner                	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Assigned Date           	                             	2024-09-04 02:52:41.000+0000 	Mod
+09/03/2024 mahimura 	statusStates            	                             	[status=N, startDate=Tue Sep 	New
+09/03/2024 mahimura 	statusStates            	[status=N, startDate=Tue Sep 	                             	Del
+09/03/2024 mahimura 	Age-status              	0                            	1                            	Mod
+09/03/2024 mahimura 	Mean-time-to-assigned   	                             	0                            	Mod
+09/03/2024 divvenka 	Integrated-releases     	                             	9.3(14)                      	New
+09/03/2024 divvenka 	Integrated-releases     	                             	9.3(13.52)                   	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 22:48:28.000+0000 	2024-09-04 00:20:04.000+0000 	Mod
+09/03/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 22:48:25.000+0000 	2024-09-03 22:48:28.000+0000 	Mod
+09/03/2024 mahimura 	File Name               	                             	Diffs-release-irvine         	New
+09/03/2024 mahimura 	Multi-commit-flag       	                             	Y                            	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 22:47:57.000+0000 	2024-09-03 22:48:25.000+0000 	Mod
+09/03/2024 mahimura 	File Name               	                             	Diffs-commit-irvine          	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 22:11:04.000+0000 	2024-09-03 22:47:57.000+0000 	Mod
+09/03/2024 mahimura 	Note Title              	                             	static-analysis              	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 22:02:19.000+0000 	2024-09-03 22:11:04.000+0000 	Mod
+09/03/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 20:37:18.000+0000 	2024-09-03 22:02:19.000+0000 	Mod
+09/03/2024 mahimura 	Note Title              	                             	Unit-test                    	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 20:36:54.000+0000 	2024-09-03 20:37:18.000+0000 	Mod
+09/03/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 20:34:21.000+0000 	2024-09-03 20:36:54.000+0000 	Mod
+09/03/2024 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+09/03/2024 prrqengg 	FileSize                	941                          	940                          	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 20:31:09.000+0000 	2024-09-03 20:34:21.000+0000 	Mod
+09/03/2024 mahimura 	Note Title              	                             	Unit-test - LDAP Cert based A	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 20:30:01.000+0000 	2024-09-03 20:31:09.000+0000 	Mod
+09/03/2024 mahimura 	Note Title              	                             	Unit-test - LDAP Public Key A	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 15:37:11.000+0000 	2024-09-03 20:30:01.000+0000 	Mod
+09/03/2024 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+09/03/2024 pbhavesh 	Attribute               	                             	imr13-mf                     	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 14:55:16.000+0000 	2024-09-03 15:37:11.000+0000 	Mod
+09/03/2024 cms      	Note Title              	                             	Scrubnote                    	New
+09/03/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-218872       	New
+09/03/2024 cdetsbtk 	Security-screening-times	2024-09-03 14:53:41.000+0000 	2024-09-03 14:55:16.000+0000 	Mod
+09/03/2024 mahimura 	Found                   	func-test                    	development                  	Mod
+09/03/2024 mahimura 	Found-during            	Feature Test                 	Development                  	Mod
+09/03/2024 mahimura 	Activity-when-found     	Feature Interaction Testing  	Unit Test                    	Mod
+09/03/2024 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/03/2024 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+09/03/2024 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+09/03/2024 cdetsbtk 	Security-screening-times	                             	2024-09-03 14:53:41.000+0000 	Mod
+09/03/2024 mahimura 	Headline                	                             	Irvine : LDAP Public Key Auth	Mod
+09/03/2024 mahimura 	Summary                 	                             	LDAP Public Key Auth: SSH log	Mod
+09/03/2024 mahimura 	Project                 	                             	CSC.datacenter               	Mod
+09/03/2024 mahimura 	Product                 	                             	n9k-standalone-sw            	Mod
+09/03/2024 mahimura 	Component               	                             	ldap                         	Mod
+09/03/2024 mahimura 	Status-desc             	                             	N-New                        	Mod
+09/03/2024 mahimura 	Status                  	                             	N                            	Mod
+09/03/2024 mahimura 	Found                   	                             	func-test                    	Mod
+09/03/2024 mahimura 	Hardening               	                             	N                            	Mod
+09/03/2024 mahimura 	Original-found          	                             	func-test                    	Mod
+09/03/2024 mahimura 	Hardware                	                             	Nexus 9000                   	New
+09/03/2024 mahimura 	Feature                 	                             	fix                          	Mod
+09/03/2024 mahimura 	Urgency-desc            	                             	NA                           	Mod
+09/03/2024 mahimura 	Severity-desc           	                             	moderate                     	Mod
+09/03/2024 mahimura 	Severity                	                             	3                            	Mod
+09/03/2024 mahimura 	DE Priority Desc        	                             	medium                       	Mod
+09/03/2024 mahimura 	DE-priority             	                             	3                            	Mod
+09/03/2024 mahimura 	Impact                  	                             	Integrity / Security         	New
+09/03/2024 mahimura 	Submitter               	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Submitter-manager       	                             	anikunna                     	Mod
+09/03/2024 mahimura 	DE-manager              	                             	anikunna                     	Mod
+09/03/2024 mahimura 	DTPT-manager            	                             	mukamath                     	Mod
+09/03/2024 mahimura 	Version                 	                             	9.3(13.50)                   	New
+09/03/2024 mahimura 	Original-version        	                             	9.3(13.50)                   	Mod
+09/03/2024 mahimura 	Found-during            	                             	Feature Test                 	Mod
+09/03/2024 mahimura 	Activity-when-found     	                             	Feature Interaction Testing  	Mod
+09/03/2024 mahimura 	Automated-test          	                             	N                            	Mod
+09/03/2024 mahimura 	Automated-test-reason   	                             	NA                           	Mod
+09/03/2024 mahimura 	Bug-origin              	                             	Code / Implementation        	Mod
+09/03/2024 mahimura 	Origin                  	                             	base code                    	Mod
+09/03/2024 mahimura 	Test-escape             	                             	N                            	Mod
+09/03/2024 mahimura 	Test-EDP-phase          	                             	Regression Test              	Mod
+09/03/2024 mahimura 	Test-EDP-activity       	                             	Usability Testing            	Mod
+09/03/2024 mahimura 	PSIRT                   	                             	N                            	Mod
+09/03/2024 mahimura 	Data-classification     	                             	Cisco Confidential           	Mod
+09/03/2024 mahimura 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+09/03/2024 mahimura 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+09/03/2024 mahimura 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+09/03/2024 mahimura 	Software-type-ids       	                             	282253564,286280105,286321149	New
+09/03/2024 mahimura 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+09/03/2024 mahimura 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+09/03/2024 mahimura 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+09/03/2024 mahimura 	MDF-edited              	                             	N                            	Mod
+09/03/2024 mahimura 	Attribute2              	                             	n/a                          	Mod
+09/03/2024 mahimura 	Doc-manager             	                             	akudur                       	Mod
+09/03/2024 mahimura 	Document                	                             	nexus                        	Mod
+09/03/2024 mahimura 	Documentation-resolution	                             	Undefined                    	Mod
+09/03/2024 mahimura 	Original-activity-when-f	                             	Feature Interaction Testing  	Mod
+09/03/2024 mahimura 	Original-found-during   	                             	Feature Test                 	Mod
+09/03/2024 mahimura 	Submitter-org-bug       	                             	DCN-Switching-India          	Mod
+09/03/2024 mahimura 	Component-scenarios     	                             	N                            	Mod
+09/03/2024 mahimura 	Submitted-on            	                             	2024-09-03 07:53:41.408+0000 	Mod
+09/03/2024 mahimura 	New-on                  	                             	2024-09-03 07:53:41.408+0000 	Mod
+09/03/2024 mahimura 	statusStates            	                             	[status=S, startDate=Tue Sep 	New
+09/03/2024 mahimura 	Transition-day          	0                            	2460557                      	Mod
+09/03/2024 mahimura 	Release-note-status     	                             	none                         	Mod
+09/03/2024 mahimura 	Reported By             	                             	mahimura                     	Mod
+09/03/2024 mahimura 	Tickets-count           	                             	0                            	Mod
+09/03/2024 mahimura 	Class                   	                             	CSC.datacenter               	Mod
+09/03/2024 mahimura 	Nextgen-copy            	                             	Defect copied from CSCvy92201	Mod
+09/03/2024 mahimura 	Reti-bug                	                             	Y                            	Mod
+09/03/2024 mahimura 	Defect Created          	                             	                             	New

@@ -1,0 +1,74 @@
+{
+  "bugid": "CSCvp62539",
+  "testcase_id": "TC_CSCvp62539_QUIET_MODE_PERMITTED_LOCAL_LOGIN",
+  "title": "Permit local Telnet login from the quiet-mode ACL source",
+  "status": "proposed",
+  "source": {
+    "dumpcr_file": "bug_info/bug_CSCvp62539.txt",
+    "bug_summary": "A correct local login to the switch management IP fails from an ACL-permitted host after login quiet-mode is triggered.",
+    "reproduction_transport": "Telnet",
+    "block_parameters": {
+      "block_for_seconds": 100,
+      "failed_attempts": 3,
+      "within_seconds": 60
+    }
+  },
+  "suite": {
+    "job": "src/services/nxpi/security/AAA/aaa_suite/aaa_suite_job.py",
+    "related_trigger_uid": "TriggerSystemLoginBlockQuietModeAccessClass",
+    "related_pyats_class": "SystemLoginBlockQuietModeTest",
+    "integration_note": "The suite already checks quiet-mode ACL behavior over SSH. This testcase captures the bug's specific Telnet-to-management-IP repro and requires the trigger to support that transport and permitted-source sequence."
+  },
+  "objective": "After three failed local authentication attempts trigger quiet-mode, confirm that the same source permitted by the quiet-mode ACL can still authenticate with the correct local password to the DUT management IP.",
+  "preconditions": [
+    "Use an isolated AAA test DUT with Telnet enabled for the test, and restore its configuration after the case.",
+    "The testbed provides a client with a stable source IP that can reach the DUT management IP.",
+    "The client source is included in the quiet-mode ACL; keep the ACL rule scoped to the DUT management address.",
+    "Create or use a dedicated local test user. Obtain its password from the suite secret mechanism, not from this JSON file."
+  ],
+  "configuration_template": [
+    "ip access-list <QUIET_ACL>",
+    "  10 permit ip <PERMITTED_SOURCE_IP> <SOURCE_WILDCARD> <DUT_MGMT_IP> <DUT_MGMT_WILDCARD>",
+    "username <TEST_USER> password <SECRET> role <TEST_ROLE>",
+    "system login block-for 100 attempts 3 within 60",
+    "system login quiet-mode access-class <QUIET_ACL>"
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "action": "Save the DUT's existing AAA, login-block, ACL, and test-user state so cleanup can restore it.",
+      "expected": "The test can remove only the configuration it added and restore prior settings."
+    },
+    {
+      "step": 2,
+      "action": "Apply the scoped ACL, dedicated local test user, block-for threshold (100 seconds, 3 failures within 60 seconds), and quiet-mode access-class.",
+      "expected": "The DUT accepts the configuration and show running-config contains the intended settings."
+    },
+    {
+      "step": 3,
+      "action": "From the ACL-permitted client, make three Telnet login attempts to the DUT management IP using the test username and an incorrect password, completing each prompt exchange within 60 seconds.",
+      "expected": "All three attempts are rejected and the DUT enters quiet-mode."
+    },
+    {
+      "step": 4,
+      "action": "Verify quiet-mode with show system login; record the mode and failure count or show system login failures output.",
+      "expected": "Quiet-mode is active and the failed-attempt threshold was reached."
+    },
+    {
+      "step": 5,
+      "action": "From that same ACL-permitted client, Telnet to the DUT management IP and enter the correct local test-user password.",
+      "expected": "Authentication succeeds and the user reaches the expected NX-OS prompt while quiet-mode remains active. A 'Login incorrect' response is a failure for CSCvp62539."
+    },
+    {
+      "step": 6,
+      "action": "Remove test configuration and restore the saved DUT state, including login-block settings, ACL entries, and test user.",
+      "expected": "The DUT is returned to its pre-test state even if an earlier step failed."
+    }
+  ],
+  "pass_criteria": [
+    "The three invalid attempts trigger quiet-mode.",
+    "The correct local credentials from the ACL-permitted source authenticate to the DUT management IP during quiet-mode.",
+    "Cleanup completes and restores the pre-test configuration."
+  ],
+  "safety": "Run only on an isolated test DUT. The scenario intentionally generates failed logins and changes login-block/ACL configuration."
+}

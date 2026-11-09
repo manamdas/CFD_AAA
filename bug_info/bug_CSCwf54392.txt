@@ -1,0 +1,2182 @@
+*******************************************************************************
+
+Bug ID   : CSCwf54392         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 2 (severe)     
+Headline : N9K: "radius-server key <>" missing after ND ISSU
+PrimaryPV : 
+Version :10.2(4.100) 10.3(3) 10.3(3q) 10.4(0)IMG9(0.265) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: prachakr           Submitted: 06/05/2023 06:04:33     Last Updtd : 11/06/2026 19:28:04  
+RNE-Type: NONE                New-on : 06/05/2023 06:04:33      
+Root-cause-analysis:                                                  
+Interest : prachakr armdsouz ag2@cisco.com
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:mukamath                                            
+Known-affected-releases:10.3(3) 9.3(13) 
+
+Known-fixed-releases:10.2(6) 10.3(4a) 10.4(2) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.3(1) 10.3(2) 10.3(3) 10.3(99w) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 06/22/2023 04:34:34                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 1                                              
+Mean-time-to-resolved: 51                                             
+Mean-time-to-verified: 84     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 07/13/2023 07:09:36            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : prachakr           Priority : medium        Assigned: 06/06/2023 22:30:47 
+Code-reviewer: vasagraw       
+Opened-on: 06/22/2023 04:34:34Opener: anok                  
+Engineer : anok               DE-manager  : anikunna        Est Time/Attribute : gnosis ic-bu-review or1f or1f-issu or1f
+Est. completion date: 06/21/2023 00:00:00  
+Script-version:                         
+
+More-by : masaxena            More-on: 07/13/2023 09:22:12  
+
+Documents Changed: none       Resolved: 07/26/2023 22:54:10 Resolver: anok           
+
+Origin  :                     Category :                    Reason :                                
+Verifier: prachakr            Verified Confidence: tested                       
+Verified Date: 08/28/2023 23:45:22      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-India
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Requirements
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   15
+Tickets-count-direct :            11
+Trouble-tickets :              695896599;696209407;697019169;697110170;697135525;697316802;698521518;698587075;698798411;699682619;700426585
+Trouble-tickets-direct :C3695896599 
+Trouble-tickets-direct :C3697316802 
+Trouble-tickets-direct :C3699682619 
+Trouble-tickets-direct :C3698798411 
+Trouble-tickets-direct :C3697110170 
+Trouble-tickets-direct :C3698587075 
+Trouble-tickets-direct :C3696209407 
+Trouble-tickets-direct :C3697019169 
+Trouble-tickets-direct :C3697135525 
+Trouble-tickets-direct :C3698521518 
+Trouble-tickets-direct :C3700426585 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/03/2024 17:21:49
+Document :    nexus
+
+Summary:
+In NR2F :
+
+radius-server key 7 "ToIkLhPpG"
+radius-server host 10.10.1.1 key 7 "ShMoMhTl" authentication accounting
+radius-server host 3001:1::1 key 7 "fewhg" authentication accounting
+radius-server host server1 authentication accounting timeout 10 retransmit 3
+aaa group server radius RadServer
+ server 10.10.1.1
+ deadtime 30
+
+did a ND ISSU to OR1F :
+Southlake-3# install all nxos bootflash:nxos64-cs.10.4.0.IMG9.0.265.F.bin non-disruptive non-interruptive 
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.4.0.IMG9.0.265.F.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+
+
+Preparing "nxos" version info using image bootflash:/nxos64-cs.10.4.0.IMG9.0.265.F.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image boo
+
+: 
+Once ISSU is complete radius sever key is missing
+radius-server host 10.10.1.1 key 7 "ShMoMhTl" authentication accounting 
+radius-server host 3001:1::1 key 7 "fewhg" authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.10.1.1 
+ deadtime 30
+
+ip radius source-interface mgmt0
+
+MISSING CONFIG : radius-server key 7 "ToIkLhPpG"
+
+Southlake-3# show consistency-checker dme running-config enhanced
+
+
+======================================================
+Config Mo(s) with mismatched property values:
+DN Property Running Config DME DB 
+----------------------------------------------------------------------------------------------
+
+sys/userext/radiusext key " ToIkLhPpG 
+ip radius source-interface mgmt0
+
+sys/userext/radiusext keyEnc 0 7 
+ip radius source-interface mgmt0
+
+******************* Related Service Requests (11 of 11)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         695896599       null                                     
+C3         696209407       NHN                                      
+C3         697019169       NHN                                      
+C3         697110170       NHN                                      
+C3         697135525       NHN                                      
+C3         697316802       TELEKOM DEUTSCHLAND GMBH PG 10           
+C3         698521518       TELEKOM DEUTSCHLAND GMBH PG 10           
+C3         698587075       TELEKOM DEUTSCHLAND GMBH PG 10           
+C3         698798411       TELEKOM DEUTSCHLAND GMBH PG 10           
+C3         699682619       TELEKOM DEUTSCHLAND GMBH PG 10           
+C3         700426585       TELEKOM DEUTSCHLAND GMBH PG 10           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-164491                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (3 of 3)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              prachakr      06/05/2023 06:12:34    CSCwf54405      CSC.datacenter  D            
+Duplicate              armdsouz      07/12/2023 01:15:40    CSCwf92218      CSC.datacenter  D            
+Duplicate              prachakr      11/24/2023 23:17:08    CSCwi30469      CSC.datacenter  D            
+
+
+********************* Listing of Notes (22 of 22 ) ***********************
+
+---Start of Note Titled: Code-review (Created 05/02/2024 13:57:15 Added 05/02/2024 13:57:15 by synchub.gen)---
+Code Review Enclosure: Added [dd-mmm-yyyy] by [userid]
+
+*** Start of CDETS attachment for CR Information ***
+++Status: [Open, Closed]
+++Review type: [Formal Review, Basic Review]
+Code review requestor / Point of contact: [Name] ([userid])
+
+To access all feedback for this code review:
+[link or text for code review comments, e.g., link to search of newsgroup for this CDETS# OR link to Meeting Minutes in EDCS OR text for actual comments]
+
+To see summary data for this review:
+[link or text for code review summary (setup info such as date, reviewers, etc.), e.g. link to Meeting Minutes in EDCS or text showing date, reviewers, etc.]
+*** End of CDETS attachment for CR Information ***
+
+*** Start of CDETS attachment for CR Measures ***
+Code Review Results (leave blank till review is closed) 
+Measures available for metrics Dashboard:
+++High/Medium Issues: 
+++Low Issues: 
+++Issues: [total of High, Medium, & Low]
+++Person Hours: [estimate of total person-hours spent for CR prep and meeting]
+++Participants: 
+*** End of CDETS attachment for CR Measures ***
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: Unit-test (Created 05/02/2024 13:57:15 Added 05/02/2024 13:57:15 by synchub.gen)---
+Unit Test Enclosure: Added [dd-mmm-yyyy] by [userid]
+
+*** Start of CDETS Attachment for UT Measures ***
+
+Unit Test Plan Metrics
+++Test Plan review completed: [Yes or No] on [dd-mmm-yyyy]  {If Yes, then provide date}
+++# of test cases reviewed: 
+ 
+***
+Unit Test Results Metrics
+++Test Results review completed: [Yes or No] on [dd-mmm-yyyy]  {If Yes, then provide date}
+++# of test cases executed:
+++# of test cases passed: 
+++High/Medium Issues:
+++Low Issues: 
+*** End of CDETS Attachment for UT Measures ***
+
+*** Start of CDETS Attachment for UT Documentation ***
+--Plan: < link to EDCS doc OR other link OR Unit Test Plan text >
+
+***
+--Results: < link to EDCS doc OR other link OR Unit Test Results text >
+*** End of CDETS Attachment for UT Documentation ***
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Eng-notes-TAMissue (Created 04/26/2024 05:13:34 Modified 05/02/2024 13:57:15 by synchub.gen)---
+There is another instance of radius/tacacs keys lost on upgrade within Native mode. Here keys are stored in software TAM before and after the upgrade. Here the keys are lost or wrong key values are read in the running-config from TAM, because of the stale TAM directory present in the bootflash, here also DME will have proper key values restored. One way this stale TAM directory can come is due to cold reboot (copy r s & reload) instead of doing ISSU in the history of upgrades performed in the box, in earlier releases different versions of TAM coexist and ISSU will make sure only one TAM directory is present at a time. Stale TAM directories can lead to undefined behaviours in reading the keys.
+
+The workarounds for recovering the issue are discussed below.
+1. Remove the TAM directory as a whole, and do a reload and configure the keys again. This time stale TAM directory that got carried over from previous history of upgrades will get deleted, and doing a proper ISSU further ensure only one TAM directory is present in further upgrades , thus preventing the issue. Steps are given below :-
+a. Run bash -> sudo rm -rf /bootflash/.swtam
+b. reload
+c. reconfigure radius key
+d. copy r s
+e. Reload
+
+2. Another workaround is to configure keys on a per server basis instead of configuring it globally for radius/tacacs. Per server keys are not stored in TAM, thus the issue can be prevented. For instance , the configuration would be like :-
+ tacacs-server host  key 7(\[^\"])"+*****([^\"\])"+
+
+
+This issue will be hit only in releases before 10.4.2 , because even though the fix of this bug is present in the releases such as 10.2.x and 10.3.x, due to stale TAM directory the fix is not taking into effect . Upgrading to releases above 10.4.2 prevent the user from hitting this keys getting lost issue during upgrade also, since the fix of this bug will take into effect properly because the TAM is disabled in releases above 10.4.2. This will ensure the issue not getting hit in releases above 10.4.2.en
+---End of Note Titled: Eng-notes-TAMissue---
+
+
+---Start of Note Titled:  Email-in.p3 (Created 01/14/2024 10:01:39 Modified 05/02/2024 13:57:15 by synchub.gen)---
+From:(\[^\"\])"+Anoop K (anok(\[^\"\])"+ 
+Date: Sunday, January 14, 2024 at 5:53 PM 
+To:(\[^\"\])"+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Cc:(\[^\"\])"+agilis-new-ic-team-nxos(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ ,(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ 
+Subject: Re: CSCwf54392
+
+Hi Abhishek,
+This is applicable to N9k/N3k from or1f release onwards where lxc mode is enabled by default.
+Thanks,
+Anoop
+ 
+From:
+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco) 
+Date: Friday, 12 January 2024 at 4:22?PM
+To: Anoop K (anok) 
+Cc: agilis-new-ic-team-nxos(mailer list) , maildediscussion(mailer list) , bug-attach(mailer list) , ca-defect-feedback(mailer list) 
+Subject: RE: CSCwf54392
+
+
+Hi Anoop,
+ 
+Can you please help me with the below query?
+ 
+Regards,
+Abhishek
+
+
+From: Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)
+
+Sent: Thursday, December 14, 2023 10:13 AM
+To: Anoop K (anok) 
+Cc: agilis-new-ic-team-nxos(mailer list) ; maildediscussion(mailer list) ; bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: CSCwf54392
+
+
+ 
+Hi Anoop,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwf54392) the following is my observation:
+ 
+As per DetectionLogic: nexus 9000 switch
+ 
+Does this imply that the issue is specific to the N9k platform?
+ 
+And these two SRs (695819306, 696209407) are tagged in this bug CSCwf54392.
+ 
+Could you please confirm whether this SR is genuine or not, if not can I ignore this SR (695819306, 696209407) for this bug (CSCwf54392)?
+ 
+Currently, I am evaluating CSCwf54392 for a software recommendation of 9.3(x)
+ 
+Could you please confirm if it affects N3k, N3.5k and N9k running 9.3.x and their successor releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p3---
+
+
+---Start of Note Titled:  Email-in.p2 (Created 01/12/2024 03:01:46 Modified 05/02/2024 13:57:15 by synchub.gen)---
+From:(\[^\"\])"+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Date: Friday, January 12, 2024 at 10:52 AM 
+To:(\[^\"\])"+Anoop K (anok(\[^\"\])"+ 
+Cc:(\[^\"\])"+agilis-new-ic-team-nxos(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ ,(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ 
+Subject: RE: CSCwf54392
+
+Hi Anoop,
+ 
+Can you please help me with the below query?
+ 
+Regards,
+Abhishek
+
+
+From: Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco)
+
+Sent: Thursday, December 14, 2023 10:13 AM
+To: Anoop K (anok) 
+Cc: agilis-new-ic-team-nxos(mailer list) ; maildediscussion(mailer list) ; bug-attach(mailer list) ; ca-defect-feedback(mailer list) 
+Subject: CSCwf54392
+
+
+ 
+Hi Anoop,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwf54392) the following is my observation:
+ 
+As per DetectionLogic: nexus 9000 switch
+ 
+Does this imply that the issue is specific to the N9k platform?
+ 
+And these two SRs (695819306, 696209407) are tagged in this bug CSCwf54392.
+ 
+Could you please confirm whether this SR is genuine or not, if not can I ignore this SR (695819306, 696209407) for this bug (CSCwf54392)?
+ 
+Currently, I am evaluating CSCwf54392 for a software recommendation of 9.3(x)
+ 
+Could you please confirm if it affects N3k, N3.5k and N9k running 9.3.x and their successor releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+# 
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled:  Email-in (Created 12/13/2023 22:03:47 Modified 05/02/2024 13:57:15 by synchub.gen)---
+From:(\[^\"\])"+Abhishek Gupta -X (abhigup7 - TATA CONSULTANCY SERVICES LIMITED at Cisco(\[^\"\])"+ 
+Date: Thursday, December 14, 2023 at 4:43 AM 
+To:(\[^\"\])"+Anoop K (anok(\[^\"\])"+ 
+Cc:(\[^\"\])"+agilis-new-ic-team-nxos(mailer list(\[^\"\])"+ ,(\[^\"\])"+maildediscussion(mailer list(\[^\"\])"+ ,(\[^\"\])"+bug-attach(mailer list(\[^\"\])"+ ,(\[^\"\])"+ca-defect-feedback(mailer list(\[^\"\])"+ 
+Subject: CSCwf54392
+
+Hi Anoop,
+ 
+Sorry for bothering you. Your reply would be very helpful.
+ 
+Going through the bug enclosures(https://cdetsng.cisco.com/summary/#/defect/CSCwf54392) the following is my observation:
+ 
+As per DetectionLogic: nexus 9000 switch
+ 
+Does this imply that the issue is specific to the N9k platform?
+ 
+And these two SRs (695819306, 696209407) are tagged in this bug CSCwf54392.
+ 
+Could you please confirm whether this SR is genuine or not, if not can I ignore this SR (695819306, 696209407) for this bug (CSCwf54392)?
+ 
+Currently, I am evaluating CSCwf54392 for a software recommendation of 9.3(x)
+ 
+Could you please confirm if it affects N3k, N3.5k and N9k running 9.3.x and their successor releases?
+ 
+Thank you for your help,
+Abhishek Gupta
+
+
+############################ MESSAGE IDS ############################
+# 
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled:  V-comments.p2 (Created 08/28/2023 23:45:22 Modified 05/02/2024 13:57:15 by synchub.gen)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.4(0)IMG9(0.315)
+10.3(3.72)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+PI Issue
+3. Automation Suite: If found by automation, copy the automation testcase result summary. Otherwise evaluate further as below:
+4. Steps to reproduce and Verify: Verify description and needed enclosures are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Southlake-3# sh running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jul 3 09:18:53 2023
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+tacacs-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.10.2.2 key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host cisco.com port 10 timeout 10 
+tacacs-server host 2001:1::1 key 7(\[^\"])"+Fewh([^\"\])"+ 
+aaa group server tacacs+ TacServer 
+ server 10.10.2.2 
+ server 2001:1::1 
+
+
+Southlake-3# sh running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Mon Jul 3 09:18:57 2023
+
+version 10.3(2) Bios:version 05.47 
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+radius-server host 10.105.222.161 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.105.222.161 
+ deadtime 30
+
+ip radius source-interface mgmt0
+
+
+Southlake-3# install all nxos bootflash:nxos64-cs.10.4.0.IMG9.0.315.F.bin non-disruptive non-interruptive 
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin for boot variable(\[^\"])"+nxo([^\"\])"+.
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing(\[^\"])"+nxo([^\"\])"+ version info using image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin.
+[####################] 100% -- SUCCESS
+
+Preparing(\[^\"])"+bio([^\"\])"+ version info using image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module bootable Impact Install-type Reason
+------ -------- -------------- ------------ ------
+ 1 yes non-disruptive reset 
+
+
+
+Images will be upgraded according to following table:
+Module Image Running-Version(pri:alt) New-Version Upg-Required
+------ ---------- ---------------------------------------- -------------------- ------------
+ 1 nxos 10.3(2) 10.4(1) yes
+ 1 bios v05.47(04/28/2022):v05.33(09/08/2018) v05.47(04/28/2022) no
+
+
+Additional info for this installation:
+--------------------------------------
+
+Service(\[^\"])"+pt([^\"\])"+ in vdc 1: During ISSU PTP protocol state and time synchronization will be disturbed. Time synchronization will resume after ISSU
+
+
+
+:
+:
+:
+Southlake-3(config)# sh running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jul 3 09:24:45 2023
+!Time: Mon Jul 3 09:31:06 2023
+
+version 10.4(1) Bios:version 05.47 
+feature tacacs+
+
+tacacs-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.10.2.2 key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host cisco.com port 10 timeout 10 
+tacacs-server host 2001:1::1 key 7(\[^\"])"+Fewh([^\"\])"+ 
+aaa group server tacacs+ TacServer 
+ server 10.10.2.2 
+ server 2001:1::1 
+
+
+Southlake-3(config)# sh running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Jul 3 09:24:45 2023
+!Time: Mon Jul 3 09:31:11 2023
+
+version 10.4(1) Bios:version 05.47 
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+radius-server host 10.105.222.161 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.105.222.161 
+ deadtime 30
+
+ip radius source-interface mgmt0
+
+
+Southlake-3(config)# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress ## [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress ###################### [ 80%] 
+generate consistency check report....
+Consistency Checking In Progress ########################## [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN Property Running Config DME DB 
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: PASSED
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled:  R-comments.p2 (Created 07/26/2023 22:54:10 Modified 05/02/2024 13:57:15 by synchub.gen)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached. - Upto OR1F release, tacacs-server global key is saved in software TAM(swtam) and during 'show run' also is retrieved from swtam. But in OR1F release , as lxc mode is enabled by default and as swtam is not supported on lxc mode , when upgraded from other releases to OR1F release, since swtam is disabled the tacacs keys will not be retrievable in the backend, whereas in dme db it will still be present, thus causing the inconsistency issue.
+2. Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing? - Complete fix. As a fix for this, during process startup, if swtam is not enabled and if the pss value of tacacs key is empty, any incosistency with non-empty key in dme db is checked and if inconsistency is there the key from dme db is saved into backend PSS also. Testing need to cover upgrades and downgrades from OR1F release with keys configured.
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted and whether this needs to be backported to previous long-lived releases. - Applicable only to OR1f release
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? -Yes, after upgrade to or1f release from nr2f release with key configured, the key configuration will be missing from(\[^\"\])"+show run radiu(\[^\"\])"+ or(\[^\"\])"+show run tacac(\[^\"\])"+
+Southlake-3# show run radius
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+
+Southlake-3# install all nxos bootflash:nxos64-cs.10.4.0.IMG9.0.265.F.bin non-disruptive non-interruptive 
+Southlake-3# show run radius
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately. -(\[^\"\])"+show run radiu(\[^\"\])"+ &(\[^\"\])"+show run tacac(\[^\"\])"+ ,(\[^\"\])"+debug radius al(\[^\"\])"+ ,(\[^\"\])"+debug tacacs al(\[^\"\])"+
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: KnowledgeSignature.p3 (Created 07/26/2023 09:55:02 Added 07/26/2023 09:55:02 by ajitchan)---
+https://gnosis.cisco.com/signature/bug/64c0c10e59d3f614380e2439/finish?summary
+---End of Note Titled: KnowledgeSignature.p3---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 07/26/2023 04:19:11 Added 07/26/2023 04:19:11 by ajitchan)---
+https://gnosis.cisco.com/signature/bug/64c0c10e59d3f614380e2439/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 07/26/2023 00:55:31 Added 07/26/2023 00:55:31 by ajitchan)---
+https://gnosis.cisco.com/signature/bug/64c0c10e59d3f614380e2439/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled:  DetectionLogic (Created 07/25/2023 13:34:52 Modified 05/02/2024 13:57:15 by synchub.gen)---
+--- Update 2023-07-25 20:34:51.406133 seshea via 695838265)
+0. nexus 9000 switch
+
+
+
+
+
+1. check for current code of 10.3.3 and lxc mode in(\[^\"\])"+show modul(\[^\"\])"+ - this is determined by finding VSUP in the module list - lxc mode uses virtual supervisor
+
+
+
+
+`show module`
+Mod Ports Module-Type Model Status
+--- ----- ------------------------------------------------ --------------------- --------
+1 54 48x10GT + 6x40/100G Ethernet Module N9K-C93108TC-FX3P ok 
+27 0 Virtual Supervisor Module N9K-C93108TC-FX3P active * 
+
+Mod Sw Hw Slot
+--- ----------------------- ------ ----
+1 10.3(3) 5.0 NA 
+27 10.3(3) 5.0 VSUP <<< code is 10.3(3) and VSUP
+
+
+Mod MAC-Address(es) Serial-Num
+--- -------------------------------------- ----------
+1 f0-4a-02-b1-4d-f0 to f0-4a-02-b1-4e-3f FDO252407U6
+27 f0-4a-02-b1-4d-f0 to f0-4a-02-b1-4e-3f FDO252407U6
+
+Mod Online Diag Status
+--- ------------------
+1 Pass
+27 Pass
+
+* this terminal session 
+
+
+
+2. under(\[^\"\])"+show versio(\[^\"\])"+ upgrade was due to upgrade - and code is before 10.3.3 / 10.4.1
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+ BIOS: version 05.47
+ NXOS: version 10.3(3) [Feature Release]
+ Host NXOS: version 10.3(3)
+ BIOS compile time: 04/28/2022
+ NXOS image file is: bootflash:///nxos64-cs.10.3.3.F.bin
+ NXOS compile time: 4/30/2023 12:00:00 [05/03/2023 12:18:42]
+ NXOS boot mode: LXC
+
+Hardware
+ cisco Nexus9000 C93108TC-FX3P Chassis 
+ Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 32803164 kB of memory.
+ Processor Board ID FDO252407U6
+ Device name: nc-cic-fcsc09-lab
+ bootflash: 115343360 kB
+
+Kernel uptime is 0 day(s), 1 hour(s), 41 minute(s), 11 second(s)
+
+Last reset at 703038 usecs after Wed Jul 12 02:44:52 2023
+ Reason: Reset due to upgrade <<<< 
+ System version: 10.2(4) <<<< pre 10.3.3 / 10.4.1 version
+ Service: 
+
+plugin
+ Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+
+
+3. feature tacacs+ enabled in show run
+
+
+
+
+`show running-config`
+
+feature tacacs+
+
+
+
+
+4. missing configuration of(\[^\"\])"+radius-server key 7 
+
+
+check in(\[^\"\])"+show running-confi(\[^\"\])"+
+
+
+failed scenario:
+radius-server host 10.10.1.1 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.10.1.1 
+ deadtime 30
+ 
+ 
+ 
+working scenario:
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+ <<<< this is absent above
+radius-server host 10.10.1.1 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting
+radius-server host server1 authentication accounting timeout 10 retransmit 3
+aaa group server radius RadServer
+ server 10.10.1.1
+ deadtime 30
+ 
+ 
+Detection Logic : 0 & 1 & 2 & 3 & 4
+
+BORG severity - warning - missing config from DME
+
+Positive File - CSCwf54392-positive.txt attached to IC SR 695838265
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled:  M-comments (Created 07/13/2023 09:22:12 Modified 07/13/2023 09:22:47 by masaxena)---
+Moving to M for KR6m and NR4M LXC mode exposure on CFD CSCwf92218
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled:  V-comments (Created 07/02/2023 23:58:23 Modified 05/02/2024 13:57:15 by synchub.gen)---
+1. S/W Version : Should mentioned where this fix is verified.
+10.4(0)IMG9(0.315)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+PI Issue
+3. Automation Suite: If found by automation, copy the automation testcase result summary. Otherwise evaluate further as below:
+4. Steps to reproduce and Verify: Verify description and needed enclosures are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Southlake-3# sh running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jul 3 09:18:53 2023
+
+version 10.3(2) Bios:version 05.47 
+feature tacacs+
+
+tacacs-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.10.2.2 key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host cisco.com port 10 timeout 10 
+tacacs-server host 2001:1::1 key 7(\[^\"])"+Fewh([^\"\])"+ 
+aaa group server tacacs+ TacServer 
+ server 10.10.2.2 
+ server 2001:1::1 
+
+
+Southlake-3# sh running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Mon Jul 3 09:18:57 2023
+
+version 10.3(2) Bios:version 05.47 
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+radius-server host 10.105.222.161 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.105.222.161 
+ deadtime 30
+
+ip radius source-interface mgmt0
+
+
+Southlake-3# install all nxos bootflash:nxos64-cs.10.4.0.IMG9.0.315.F.bin non-disruptive non-interruptive 
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin for boot variable(\[^\"])"+nxo([^\"\])"+.
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing(\[^\"])"+nxo([^\"\])"+ version info using image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin.
+[####################] 100% -- SUCCESS
+
+Preparing(\[^\"])"+bio([^\"\])"+ version info using image bootflash:/nxos64-cs.10.4.0.IMG9.0.315.F.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module bootable Impact Install-type Reason
+------ -------- -------------- ------------ ------
+ 1 yes non-disruptive reset 
+
+
+
+Images will be upgraded according to following table:
+Module Image Running-Version(pri:alt) New-Version Upg-Required
+------ ---------- ---------------------------------------- -------------------- ------------
+ 1 nxos 10.3(2) 10.4(1) yes
+ 1 bios v05.47(04/28/2022):v05.33(09/08/2018) v05.47(04/28/2022) no
+
+
+Additional info for this installation:
+--------------------------------------
+
+Service(\[^\"])"+pt([^\"\])"+ in vdc 1: During ISSU PTP protocol state and time synchronization will be disturbed. Time synchronization will resume after ISSU
+
+
+
+:
+:
+:
+Southlake-3(config)# sh running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jul 3 09:24:45 2023
+!Time: Mon Jul 3 09:31:06 2023
+
+version 10.4(1) Bios:version 05.47 
+feature tacacs+
+
+tacacs-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.10.2.2 key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host cisco.com port 10 timeout 10 
+tacacs-server host 2001:1::1 key 7(\[^\"])"+Fewh([^\"\])"+ 
+aaa group server tacacs+ TacServer 
+ server 10.10.2.2 
+ server 2001:1::1 
+
+
+Southlake-3(config)# sh running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Jul 3 09:24:45 2023
+!Time: Mon Jul 3 09:31:11 2023
+
+version 10.4(1) Bios:version 05.47 
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+radius-server host 10.105.222.161 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.105.222.161 
+ deadtime 30
+
+ip radius source-interface mgmt0
+
+
+Southlake-3(config)# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress ## [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress ###################### [ 80%] 
+generate consistency check report....
+Consistency Checking In Progress ########################## [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN Property Running Config DME DB 
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: PASSED
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  R-comments (Created 06/22/2023 04:34:34 Modified 05/02/2024 13:57:15 by synchub.gen)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached. - Upto OR1F release, tacacs-server global key is saved in software TAM(swtam) and during 'show run' also is retrieved from swtam. But in OR1F release , as lxc mode is enabled by default and as swtam is not supported on lxc mode , when upgraded from other releases to OR1F release, since swtam is disabled the tacacs keys will not be retrievable in the backend, whereas in dme db it will still be present, thus causing the inconsistency issue.
+2. Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing? - Complete fix. As a fix for this, during process startup, if swtam is not enabled and if the pss value of tacacs key is empty, any incosistency with non-empty key in dme db is checked and if inconsistency is there the key from dme db is saved into backend PSS also. Testing need to cover upgrades and downgrades from OR1F release with keys configured.
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted and whether this needs to be backported to previous long-lived releases. - Applicable only to OR1f release
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? -Yes, after upgrade to or1f release from nr2f release with key configured, the key configuration will be missing from(\[^\"\])"+show run radiu(\[^\"\])"+ or(\[^\"\])"+show run tacac(\[^\"\])"+
+Southlake-3# show run radius
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+
+Southlake-3# install all nxos bootflash:nxos64-cs.10.4.0.IMG9.0.265.F.bin non-disruptive non-interruptive 
+Southlake-3# show run radius
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately. -(\[^\"\])"+show run radiu(\[^\"\])"+ &(\[^\"\])"+show run tacac(\[^\"\])"+ ,(\[^\"\])"+debug radius al(\[^\"\])"+ ,(\[^\"\])"+debug tacacs al(\[^\"\])"+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Eng-notes (Created 06/19/2023 09:28:06 Added 06/19/2023 09:28:06 by anok)---
+Upto OR1F release, tacacs-server global key is saved in software TAM(swtam) and during 'show run' also is retrieved from swtam. But in OR1F release , as lxc mode is enabled by default and as swtam is not supported on lxc mode , when upgraded from other releases to OR1F release, since swtam is disabled the tacacs keys will not be retrievable in the backend, whereas in dme db it will still be present, thus causing the inconsistency issue.
+
+As a fix for this, during process startup, if swtam is not enabled and if the pss value of tacacs key is empty, any incosistency with non-empty key in dme db is checked and if inconsistency is there the key from dme db is saved into backend PSS also.
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled:  Scrubnote (Created 06/08/2023 09:13:03 Modified 12/07/2023 03:03:13 by cms)---
+{231207 manoshuk S B} added imr12-doc att
+{231207 manoshuk S B} Will be addrssed via docimentation; less soaking time and no customer waiting for it in I release
+{231206 pbhavesh S B} plan is to release-note in open ddts list  IMR12; DE need release-note update.
+{231206 pbhavesh S B} just got added in imr12-mf ; discussing which customer will be imapcted etc.
+{230818 pbhavesh S B} Fix in PI area; found in 10.3; platform supported in KMR/NMR; not planning to take fix in IMR
+{230725 masaxena S G} Committed to Kerry
+{230724 anok S B} initiated codenet process for kerry release
+{230723 anok S B} testing in progress
+{230717 masaxena S R} missing Kerry and Niles 
+{230621 anikunna S B} Started commit process
+{230614 anikunna S B} Tried a potential fix that didnt work. Making changes to pick the config from DME and update Backend
+{230608 anikunna S B} Debugging from TAM side as tam api is returning error
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments.p2 (Created 06/06/2023 22:30:47 Added 06/06/2023 22:30:47 by prachakr)---
+Type 6 password /encryption is not used in this config , its plain old radius configs
+---End of Note Titled: A-comments.p2---
+
+
+---Start of Note Titled:  D-comments (Created 06/06/2023 06:16:06 Modified 05/02/2024 13:57:15 by synchub.gen)---
+RCA same as that of CSCwf52198:
+---End of Note Titled: D-comments---
+
+
+---Start of Note Titled: A-comments (Created 06/05/2023 20:43:52 Added 06/05/2023 20:43:52 by anikunna)---
+Pls investigate if the 3 Master key issues reported on same setup are related and have same RCA.
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 06/05/2023 15:09:21 Modified 05/02/2024 13:57:15 by synchub.gen)---
+<B>Symptom:</B>
+When upgrading a Nexus 9000 switch from a code where LXC boot mode is not the default mode, to one where it is, using non-disruptive ISSU, the "radius-server key 7 " configuration can go missing. This is due to to the change in default boot mode.
+
+<B>Conditions:</B>
+Upgrade from earlier N9K release on applicable platforms to later code (10.3.3+ or 10.4.1+) where LXC boot mode is the default. To confirm the boot mode, run "show boot mode", or check for VSUP for TOR switch in the "show module" output.
+
+<B>Workaround:</B>
+Remove and reapply the missing CLI string to reconfigure and ensure it is consistent between configuration and DME.
+
+<B>Further Problem Description:</B>
+There is another instance of radius/tacacs keys lost on upgrade within Native mode. Here keys are stored in software TAM before and after the upgrade. Here the keys are lost or wrong key values are read in the running-config from TAM, because of the stale TAM directory present in the bootflash, here also DME will have proper key values restored. One way this stale TAM directory can come is due to cold reboot (copy r s & reload) instead of doing ISSU in the history of upgrades performed in the box, in earlier releases different versions of TAM coexist and ISSU will make sure only one TAM directory is present at a time. Stale TAM directories can lead to undefined behaviours in reading the keys.
+
+The workarounds for recovering the issue are discussed below.
+1. Remove the TAM directory as a whole, and do a reload and configure the keys again. This time stale TAM directory that got carried over from previous history of upgrades will get deleted, and doing a proper ISSU further ensure only one TAM directory is present in further upgrades , thus preventing the issue. Steps are given below :-
+a. Run bash -> sudo rm -rf /bootflash/.swtam
+b. reload
+c. reconfigure radius key
+d. copy r s
+e. Reload
+
+2. Another workaround is to configure keys on a per server basis instead of configuring it globally for radius/tacacs. Per server keys are not stored in TAM, thus the issue can be prevented. For instance , the configuration would be like :-
+ tacacs-server host  key 7 "******"
+
+
+This issue will be hit only in releases before 10.4.2 , because even though the fix of this bug is present in the releases such as 10.2.x and 10.3.x, due to stale TAM directory the fix is not taking into effect . Upgrading to releases above 10.4.2 prevent the user from hitting this keys getting lost issue during upgrade also, since the fix of this bug will take into effect properly because the TAM is disabled in releases above 10.4.2. This will ensure the issue not getting hit in releases above 10.4.2
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled:  Configuration (Created 06/05/2023 07:30:04 Modified 05/02/2024 13:57:15 by synchub.gen)---
+Southlake-3# sh file bootflash:nxpi_cfg_new
+
+!Command: show running-config
+!Running configuration last done at: Mon Oct 25 11:32:25 2021
+!Time: Mon Oct 25 11:33:24 2021
+
+version 10.2(2) Bios:version 05.45 
+hostname Southlake-3
+vdc Southlake-3 id 1
+ limit-resource vlan minimum 16 maximum 4094
+ limit-resource vrf minimum 2 maximum 4096
+ limit-resource port-channel minimum 0 maximum 511
+ limit-resource m4route-mem minimum 58 maximum 58
+ limit-resource m6route-mem minimum 8 maximum 8
+
+feature tacacs+
+feature netconf
+feature interface-vlan
+feature dot1x
+feature ptp
+feature nat
+
+logging level aaa 2
+username admin password 5 $5$AMDBNJ$r2MWQueWXtNgq.ZFbVoZ3elR8NddhunyosG8Kc6ivX5 
+ role network-admin
+ip domain-lookup
+tacacs-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.10.2.2 key 7(\[^\"])"+fewh([^\"\])"+ 
+tacacs-server host cisco.com port 10 timeout 10 
+tacacs-server host 2001:1::1 key 7(\[^\"])"+Fewh([^\"\])"+ 
+aaa group server tacacs+ TacServer 
+ server 10.10.2.2 
+ server 2001:1::1 
+radius-server key 7(\[^\"])"+ToIkLhPp([^\"\])"+
+radius-server host 10.10.1.1 key 7(\[^\"])"+ShMoMhT([^\"\])"+ authentication accounting 
+radius-server host 3001:1::1 key 7(\[^\"])"+fewh([^\"\])"+ authentication accounting 
+radius-server host server1 authentication accounting timeout 10 retransmit 3 
+aaa group server radius RadServer 
+ server 10.10.1.1 
+ deadtime 30
+copp profile strict
+snmp-server aaa-user cache-timeout 1200
+snmp-server source-interface traps Ethernet1/2
+snmp-server user admin network-admin auth md5 164A317DDF5F7736DEB2EE3D21D4081CEE
+00 priv aes-128 367F6A369D082C799BB9E33E79DD5B4FBD0C localizedV2key
+snmp-server host 10.64.251.65 traps version 3 auth Cisc0123
+snmp-server host 10.64.251.65 use-vrf management
+snmp-server host 10.64.251.66 traps version 3 auth Cisc0123
+snmp-server host 10.64.251.66 use-vrf management
+snmp-server host 10.115.131.90 traps version 3 auth Cisc0123
+snmp-server host 10.115.131.90 use-vrf management
+snmp-server host 10.115.104.241 traps version 3 auth Cisc0123
+snmp-server host 10.115.104.241 use-vrf management
+snmp-server host 192.0.2.1 informs version 3 auth NMS
+snmp-server host 192.0.2.1 use-vrf BLUE
+snmp-server host 192.0.2.1 source-interface Ethernet1/1
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+snmp-server enable traps callhome event-notify
+snmp-server enable traps callhome smtp-send-fail
+snmp-server enable traps cfs state-change-notif
+snmp-server enable traps cfs merge-failure
+snmp-server enable traps aaa server-state-change
+snmp-server enable traps feature-control FeatureOpStatusChange
+snmp-server enable traps sysmgr cseFailSwCoreNotifyExtended
+snmp-server enable traps config ccmCLIRunningConfigChanged
+snmp-server enable traps snmp authentication
+snmp-server enable traps link cisco-xcvr-mon-status-chg
+snmp-server enable traps vtp notifs
+snmp-server enable traps vtp vlancreate
+snmp-server enable traps vtp vlandelete
+snmp-server enable traps bridge newroot
+snmp-server enable traps bridge topologychange
+snmp-server enable traps stpx inconsistency
+snmp-server enable traps stpx root-inconsistency
+snmp-server enable traps stpx loop-inconsistency
+snmp-server enable traps system Clock-change-notification
+snmp-server enable traps feature-control ciscoFeatOpStatusChange
+snmp-server enable traps mmode cseNormalModeChangeNotify
+snmp-server enable traps mmode cseMaintModeChangeNotify
+snmp-server context public1 vrf RED
+snmp-server community public group network-operator
+snmp-server mib community-map public context public1
+snmp-server community public use-ipv4acl myacl
+callhome
+ email-contact admin@Mycompany.com
+ phone-contact +1-800-123-4567
+ streetaddress 123 Anystreet st. Anytown,AnyWhere
+ destination-profile Noc101
+ destination-profile Noc101 format full-txt
+ destination-profile full-text-destination
+ destination-profile full-text-destination format XML
+ destination-profile full-text-destination message-level 5
+ destination-profile Noc101 alert-group configuration
+ transport email from person@company.com
+ transport email reply-to person@company.com
+ transport email smtp-server 10.1.1.174 port 25 use-vrf default
+ transport email mail-server 172.21.34.193 port 25 priority 50 use-vrf default
+ transport email mail-server 192.0.2.10 port 25 priority 4 use-vrf default
+ transport email mail-server 64.72.101.213 port 25 priority 60 use-vrf default
+ transport http use-vrf BLUE
+ enable
+ntp peer 10.1.1.1 use-vrf default
+ntp peer 10.7.7.7 use-vrf default
+ntp server 192.0.2.1 use-vrf default key 1001
+ntp server 192.0.2.10 use-vrf default
+ntp peer 2001:db8::4101 use-vrf default
+ntp source-interface Ethernet1/1
+ntp authenticate
+ntp authentication-key 42 md5 dJmhwKzd 7
+ntp trusted-key 42
+ntp logging
+ntp access-group peer peer-acl
+ntp access-group serve serve-acl
+ntp access-group serve-only serve-only-acl
+ntp access-group query-only query-only-acl
+ntp master 8
+aaa authentication login default group radius 
+aaa authentication login console group radius 
+aaa authorization config-commands default group TacServer 
+aaa authorization commands default group TacServer 
+aaa accounting default group radius 
+radius-server directed-request 
+tacacs-server directed-request 
+logging message interface type ethernet description
+
+vlan 1,10
+
+key chain bgp-keys
+ key 0
+ key-string 7 075e
+ accept-lifetime 00:00:00 Jun 20 2021 duration 1000000
+ send-lifetime 00:00:00 Jun 20 2021 infinite
+ key 1
+ key-string 7 070c285f4d0648
+ accept-lifetime local 12:11:30 Jul 20 2021 infinite
+vrf context BLUE
+ ipv6 route 3001:1::1/128 2:2::2 vrf default
+ ipv6 route 3001:1::1/128 2:2::4 vrf default
+ ipv6 route 3001:1::1/128 5:5::2 vrf default
+ ipv6 route 3002:1::/64 2:2::2 vrf default
+ ipv6 route 3002:1::/64 2:2::4 vrf default
+vrf context GREEN
+ ip route 1.1.1.1/32 Ethernet1/1 2.2.2.4
+ ip route 3.3.3.0/24 Ethernet1/1 2.2.2.2
+ ip route 4.4.4.4/32 port-channel10 6.6.6.2
+ ipv6 route 3002:1::/64 2:2::1
+vrf context RED
+ ipv6 route 1000:1::/64 1100:1::1
+ ipv6 route 100:1::1/128 200:1::1
+ ipv6 route 1100:1::/64 1200:1::1
+ ipv6 route 1200:1::/64 1300:1::1
+ ipv6 route 1300:1::/64 1400:1::1
+ ipv6 route 1400:1::/64 2:2::2
+ ipv6 route 1400:1::1/128 2:2::4
+ ipv6 route 200:1::1/128 300:1::1
+ ipv6 route 3001:1::1/128 2:2::2
+ ipv6 route 3001:1::1/128 2:2::4
+ ipv6 route 3001:1::1/128 5:5::2
+ ipv6 route 3002:1::/64 2:2::2
+ ipv6 route 3002:1::/64 2:2::4
+ ipv6 route 300:1::1/128 400:1::1
+ ipv6 route 3:3::1/128 Vlan10
+ ipv6 route 400:1::1/128 500:1::1
+ ipv6 route 500:1::1/128 600:1::1
+ ipv6 route 600:1::1/128 700:1::1
+ ipv6 route 700:1::1/128 2:2::2
+ ipv6 route 700:1::1/128 2:2::4
+ ipv6 route 800:1::/64 900:1::1
+ ipv6 route 900:1::/64 1000:1::1
+vrf context T1
+ ip route 1.1.1.1/32 Ethernet1/1 2.2.2.2 vrf default
+ ip route 1.1.1.1/32 Ethernet1/1 2.2.2.4 vrf default
+ ip route 3.3.3.0/24 Ethernet1/1 2.2.2.2 vrf default
+ ipv6 route 3001:1::1/128 2:2::1
+ ipv6 route 3002:1::/64 2:2::1
+vrf context main
+ ip route 1.1.1.1/32 2.2.2.2 vrf default
+ ip route 1.1.1.1/32 2.2.2.4 vrf default
+ ip route 3.3.3.0/24 2.2.2.2 vrf default
+ ip route 3.3.3.0/24 2.2.2.4 vrf default
+ ipv6 route 2:2::1/128 Vlan10
+ ipv6 route 3001:1::1/128 2:2::1
+ ipv6 route 3001:1::1/128 Ethernet1/1 2:2::2
+ ipv6 route 3001:1::1/128 5:5::2
+ ipv6 route 3002:1::/64 2:2::1
+ ipv6 route 3002:1::/64 Ethernet1/1 2:2::2
+ ipv6 route 3:3::1/128 Vlan10 vrf default
+vrf context management
+ ip route 0.0.0.0/0 10.77.143.1
+ptp source 1.1.1.1
+
+
+interface Vlan1
+
+interface Vlan10
+ vrf member RED
+ ip address 11.1.1.1/24
+ ipv6 address 201:1::1/64
+
+interface Vlan15
+ ip address dhcp
+
+interface Vlan2001
+ ip unnumbered Vlan2003
+
+interface Ethernet1/1
+ ip address 192.0.2.1/8
+ ipv6 address 2001:db8::1/8
+
+interface Ethernet1/1.1
+ encapsulation dot1q 33
+ ip address 191.0.2.1/8
+ ipv6 address 3001:db8::1/8
+
+interface Ethernet1/2
+ ptp
+ ptp transmission unicast
+ ptp role master
+ ptp slave 1.2.3.1
+ ptp slave 1.2.3.2
+ ptp slave 1.2.3.3
+ ptp slave 1.2.3.4
+
+interface Ethernet1/3
+ ptp
+ ptp transmission unicast
+ ptp role slave
+ ptp master 4.4.4.1
+ ptp master 4.4.4.2
+ ptp master 4.4.4.3
+ ptp ucast-source 9.9.9.9
+
+interface Ethernet1/4
+
+interface Ethernet1/5
+
+interface Ethernet1/6
+
+interface Ethernet1/7
+
+interface Ethernet1/8
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+ switchport
+ switchport mode trunk
+ dot1x pae authenticator
+ dot1x port-control auto
+ dot1x max-req 1
+ dot1x host-mode multi-host
+ dot1x timeout tx-period 1
+ dot1x mac-auth-bypass 
+
+interface Ethernet1/33
+ switchport
+ switchport mode trunk
+ dot1x pae authenticator
+ dot1x port-control auto
+ dot1x max-req 1
+ dot1x host-mode multi-host
+ dot1x timeout tx-period 1
+ dot1x mac-auth-bypass 
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface Ethernet1/49
+
+interface Ethernet1/50
+
+interface Ethernet1/51
+
+interface Ethernet1/52
+
+interface Ethernet1/53
+
+interface Ethernet1/54
+
+interface Ethernet1/55
+
+interface Ethernet1/56
+
+interface Ethernet1/57
+
+interface Ethernet1/58
+
+interface Ethernet1/59
+
+interface Ethernet1/60
+
+interface loopback1
+ ip address 11.1.1.1/32
+icam monitor scale
+
+line console
+line vty
+ip radius source-interface mgmt0
+event manager environment emailto(\[^\"])"+prachakr@cisco.co([^\"\])"+
+event manager applet T2
+ event syslog period 20 priority critical pattern(\[^\"])"+dow([^\"\])"+
+ action 1.0 syslog priority alerts msg hightemp
+ action 2.0 counter name mycounter value 20 op inc
+event manager applet TEST1 override __ethpm_link_flap
+ event policy-default count 100 time 200
+ action 1 forceshut module 1 reset-reason(\[^\"])"+tes([^\"\])"+
+event manager applet arp_script
+ event syslog pattern(\[^\"])"+.*SYSMGR-2-HASWITCHOVER_START.([^\"\])"+
+ action 1.0 cli command(\[^\"\])"+source arp_script_bkp.p(\[^\"\])"+
+ action 2 event-default
+event manager applet eem-correlate
+ event syslog tag one pattern(\[^\"\])"+copy bootflash:.* running-config.(\[^\"\])"+
+ event syslog tag two pattern(\[^\"\])"+copy run star(\[^\"\])"+
+ event syslog tag three pattern(\[^\"])"+hell([^\"\])"+
+ tag one or two or three happens 1 in 120
+event manager applet example2 override __lcm_module_failure
+ event module-failure type hitless-upgrade-failure module 1 count 2
+ action 1 syslog priority errors msg module 1 test
+ action 2 policy-default
+event manager applet monitorPoweroff
+ description(\[^\"\])"+Modules power dow(\[^\"\])"+
+ event cli match(\[^\"\])"+conf t ; poweroff (\[^\"\])"+
+ action 1.0 cli show module
+event manager applet myappletname override __pfm_tempev_major
+event manager applet myoir
+ event oir module remove
+ action 1 syslog priority critical msg mod is removed
+event manager applet restore_vpc
+ action 1.0 cli copy bootflash:eem/user_script_policies/vpc_saved.cfg running-c
+ action 2.0 syslog msg severity alert VPC PEER DETECTED. VPC CONFIG RESTORED
+ action 3.0 cli configure terminal
+ action 4.0 cli copy bootflash:eem/user_script_policies/unload_schedules runnin
+ action 5.0 cli no event manager applet restore_vpc
+ action 6.0 cli end
+event manager applet rollbackTrigger
+ description(\[^\"\])"+ Rollback Trigge(\[^\"\])"+
+ event cli match(\[^\"\])"+rollback (\[^\"\])"+
+ action 1.0 cli copy running-config bootflash:last_config
+event manager applet test
+ event syslog pattern(\[^\"])"+SYSMGR-2-SWITCHOVER_OVE([^\"\])"+
+ action 1.0 cli command(\[^\"\])"+source arp_script_bkp.p(\[^\"\])"+
+ action 2 event-default
+event manager applet test_policy
+ action 1.1 snmp-trap intdata1 100 intdata2 300 strdata(\[^\"\])"+Port Failure eth9/(\[^\"\])"+
+event manager applet vpc_check_peer_at_startup
+ action 1.0 cli copy bootflash:eem/user_script_policies/load_schedules running-
+
+logging logfile my_log 6
+logging server 192.0.2.253
+logging server 2001:1::1
+logging server nestack.com
+logging module 1
+logging timestamp milliseconds
+logging monitor 3
+logging console 1
+
+interface mgmt0
+ vrf member management
+ ip address 10.77.143.155/24
+---End of Note Titled: Configuration---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (26 of 26)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-niles_rel                            ascii text     12094          anok           07/26/2023 10:08:46      
+Release-note-diff                                 ascii text     4640           synchub.gen    05/02/2024 13:57:15      
+ccwarnings-niles_rel                              ascii text     456            baas           07/26/2023 03:42:51      
+static-analysis-niles_rel                         ascii text     9311           baas           07/26/2023 03:42:36      
+gnosis_neg_CSCwf54392_negative.txt                ascii text     6248           ajitchan       07/26/2023 00:55:33      
+gnosis_pos_CSCwf54392_positive.txt                ascii text     6220           ajitchan       07/26/2023 00:55:32      
+code-review-niles_rel                             ascii text     513            anok           07/26/2023 00:26:39      
+unit-test-niles                                   ascii text     16165          anok           07/26/2023 00:13:08      
+Diffs-commit-kerry                                ascii text     13659          anok           07/24/2023 18:09:07      
+Diffs-release-kerry                               ascii text     1335           anok           07/24/2023 18:09:05      
+ccwarnings-kerry                                  ascii text     353            baas           07/24/2023 11:07:42      
+static-analysis-kerry                             ascii text     14341          baas           07/24/2023 11:07:15      
+unit-test-kerry                                   ascii text     21167          anok           07/24/2023 02:22:12      
+Diffs-commit-main                                 ascii text     12995          anok           06/22/2023 04:10:31      
+unit-test                                         ascii text     19346          anok           06/21/2023 23:18:47      
+ccwarnings-main.p3                                ascii text     456            baas           06/21/2023 06:56:21      
+static-analysis-main.p3                           ascii text     9262           baas           06/21/2023 06:56:07      
+code-review-nx-dev                                ascii text     10089          anok           06/21/2023 04:25:21      
+ccwarnings-main.p2                                ascii text     456            baas           06/21/2023 03:54:19      
+static-analysis-main.p2                           ascii text     9263           baas           06/21/2023 03:54:04      
+base_sanity_uls_sanity_baseline_compare           ascii text     219            root           07/26/2023 06:10:58      
+base_sanity_uls_sanity_report                     ascii text     9536           root           07/26/2023 05:34:29      
+ccwarnings-main                                   ascii text     293            baas           06/19/2023 12:49:50      
+static-analysis-main                              ascii text     8685           baas           06/19/2023 12:49:36      
+show_tech_sup_radius                              ascii text     320698         prachakr       06/05/2023 07:47:35      
+Step to repro.txt                                 ascii text     5161           prachakr       06/05/2023 07:29:20      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/06/2026 veselvam 	Tickets-count           	14                           	15                           	Mod
+11/06/2026 veselvam 	Trouble-tickets         	                             	701673700                    	New
+11/06/2026 veselvam 	Trouble-tickets-indirect	                             	C3/701673700                 	New
+11/06/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/06/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/04/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/04/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/23/2026 satdr    	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+04/21/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/21/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/22/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+02/17/2026 igranick 	serviceRequests/C3/70042	                             	                             	Mod
+02/17/2026 igranick 	SR-associated           	                             	2026-02-17T20:01:20+0000     	New
+02/17/2026 igranick 	serviceRequests/C3/70042	                             	C3/700426585                 	New
+02/17/2026 igranick 	Tickets-count           	13                           	14                           	Mod
+02/17/2026 igranick 	TACSR-count             	10                           	11                           	Mod
+02/17/2026 igranick 	Tickets-count-direct    	10                           	11                           	Mod
+02/17/2026 igranick 	Trouble-tickets         	                             	700426585                    	New
+02/17/2026 igranick 	Trouble-tickets-direct  	                             	C3700426585                  	New
+11/04/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/04/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/27/2025 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/27/2025 fas      	Known-affected-releases 	                             	9.3(13)                      	New
+10/27/2025 fas      	Known-affected-releases-	                             	9.3(13)                      	New
+10/26/2025 fas      	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+10/26/2025 fas      	Known-affected-releases 	"9.3(13)"                    	                             	Del
+10/26/2025 fas      	Known-affected-releases-	                             	"9.3(13)"                    	New
+10/24/2025 fas      	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+10/24/2025 fas      	Known-affected-releases 	                             	"9.3(13)"                    	New
+10/24/2025 fas      	Known-affected-releases-	                             	"9.3(13)"                    	New
+09/10/2025 anenkov  	serviceRequests/C3/69968	                             	                             	Mod
+09/10/2025 anenkov  	SR-associated           	                             	2025-03-13T14:46:28+0000,2025	New
+09/10/2025 anenkov  	serviceRequests/C3/69968	                             	C3/699682619                 	New
+09/10/2025 anenkov  	TACSR-count             	9                            	10                           	Mod
+09/10/2025 anenkov  	Tickets-count-direct    	9                            	10                           	Mod
+09/10/2025 anenkov  	Trouble-tickets-direct  	                             	C3699682619                  	New
+09/10/2025 anenkov  	Tickets-count           	12                           	13                           	Mod
+09/10/2025 anenkov  	Trouble-tickets         	                             	699682619                    	New
+09/10/2025 anenkov  	Trouble-tickets-indirect	                             	C3/699682619                 	New
+06/01/2025 samekama 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/28/2025 ykaboyi  	serviceRequests/C3/69852	                             	                             	Mod
+03/28/2025 ykaboyi  	serviceRequests/C3/69852	                             	                             	Mod
+03/28/2025 ykaboyi  	serviceRequests/C3/69852	                             	C3/698521518                 	New
+03/28/2025 ykaboyi  	Tickets-count           	11                           	12                           	Mod
+03/28/2025 ykaboyi  	TACSR-count             	8                            	9                            	Mod
+03/28/2025 ykaboyi  	Tickets-count-direct    	8                            	9                            	Mod
+03/28/2025 ykaboyi  	Trouble-tickets         	                             	698521518                    	New
+03/28/2025 ykaboyi  	Trouble-tickets-direct  	                             	C3698521518                  	New
+03/13/2025 leidmend 	serviceRequests/C3/69879	                             	C3/698798411                 	New
+03/13/2025 leidmend 	Urgency-desc            	CL3                          	NA                           	Mod
+03/13/2025 leidmend 	Urgency                 	6                            	9                            	Mod
+03/13/2025 leidmend 	Tickets-count           	10                           	11                           	Mod
+03/13/2025 leidmend 	TACSR-count             	7                            	8                            	Mod
+03/13/2025 leidmend 	Tickets-count-direct    	7                            	8                            	Mod
+03/13/2025 leidmend 	Trouble-tickets         	                             	698798411                    	New
+03/13/2025 leidmend 	Trouble-tickets-direct  	                             	C3698798411                  	New
+02/04/2025 nmaiorel 	serviceRequests/C3/69858	                             	                             	Mod
+02/04/2025 nmaiorel 	Urgency-desc            	NA                           	CL3                          	Mod
+02/04/2025 nmaiorel 	Urgency                 	9                            	6                            	Mod
+01/24/2025 nmaiorel 	serviceRequests/C3/69858	                             	C3/698587075                 	New
+01/24/2025 nmaiorel 	Urgency-desc            	CL3                          	NA                           	Mod
+01/24/2025 nmaiorel 	Urgency                 	6                            	9                            	Mod
+01/24/2025 nmaiorel 	Tickets-count           	9                            	10                           	Mod
+01/24/2025 nmaiorel 	TACSR-count             	6                            	7                            	Mod
+01/24/2025 nmaiorel 	Tickets-count-direct    	6                            	7                            	Mod
+01/24/2025 nmaiorel 	Trouble-tickets         	                             	698587075                    	New
+01/24/2025 nmaiorel 	Trouble-tickets-direct  	                             	C3698587075                  	New
+10/28/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/28/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/19/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/19/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/24/2024 masv     	serviceRequests/C3/69731	                             	                             	Mod
+05/24/2024 masv     	Urgency-desc            	P3                           	CL3                          	Mod
+05/24/2024 masv     	serviceRequests/C3/69731	                             	C3/697316802                 	New
+05/24/2024 masv     	Urgency-desc            	CL3                          	P3                           	Mod
+05/24/2024 masv     	Tickets-count           	8                            	9                            	Mod
+05/24/2024 masv     	TACSR-count             	5                            	6                            	Mod
+05/24/2024 masv     	Tickets-count-direct    	5                            	6                            	Mod
+05/24/2024 masv     	Trouble-tickets         	                             	697316802                    	New
+05/24/2024 masv     	Trouble-tickets-direct  	                             	C3697316802                  	New
+05/06/2024 nalzibde 	serviceRequests/C3/69701	                             	                             	Mod
+05/06/2024 nalzibde 	Urgency-desc            	NA                           	CL3                          	Mod
+05/06/2024 nalzibde 	Urgency                 	9                            	6                            	Mod
+05/06/2024 radotodo 	serviceRequests/C3/69711	                             	                             	Mod
+05/06/2024 radotodo 	Urgency-desc            	P3                           	NA                           	Mod
+05/06/2024 radotodo 	Urgency                 	6                            	9                            	Mod
+05/03/2024 cdetsbtk 	Security-screening-times	2024-04-27 10:40:08.000+0000 	2024-05-04 00:21:49.000+0000 	Mod
+05/02/2024 synchub.g	Note Type               	R-comments                   	Other                        	Mod
+05/02/2024 synchub.g	Note                    	R-comments                   	R-comments                   	Mod
+05/02/2024 synchub.g	Note Type               	V-comments                   	Other                        	Mod
+05/02/2024 synchub.g	Note                    	V-comments                   	V-comments                   	Mod
+05/02/2024 synchub.g	Note                    	DetectionLogic               	DetectionLogic               	Mod
+05/02/2024 synchub.g	Note Title              	                             	Code-review                  	New
+05/02/2024 synchub.g	Note Title              	                             	Unit-test                    	New
+05/02/2024 synchub.g	Note Type               	D-comments                   	Other                        	Mod
+05/02/2024 synchub.g	Note                    	D-comments                   	D-comments                   	Mod
+05/02/2024 synchub.g	Note Type               	Configuration                	Other                        	Mod
+05/02/2024 synchub.g	Note                    	Configuration                	Configuration                	Mod
+05/02/2024 synchub.g	Note                    	Release-note                 	Release-note                 	Mod
+05/02/2024 synchub.g	Note                    	Email-in.p3                  	Email-in.p3                  	Mod
+05/02/2024 synchub.g	Note Type               	Eng-notes                    	Other                        	Mod
+05/02/2024 synchub.g	Note                    	Eng-notes-TAMissue           	Eng-notes-TAMissue           	Mod
+05/02/2024 synchub.g	Note                    	R-comments.p2                	R-comments.p2                	Mod
+05/02/2024 synchub.g	Note                    	V-comments.p2                	V-comments.p2                	Mod
+05/02/2024 synchub.g	Note                    	Email-in                     	Email-in                     	Mod
+05/02/2024 synchub.g	Note                    	Email-in.p2                  	Email-in.p2                  	Mod
+05/02/2024 synchub.g	contents                	                             	Release-note-diff            	Mod
+05/02/2024 synchub.g	FileSize                	2892                         	4640                         	Mod
+05/02/2024 synchub.g	Summary                 	In NR2F :
+
+radius-server key 	In NR2F :
+
+radius-server key 	Mod
+05/02/2024 synchub.g	Symptoms                	When upgrading a Nexus 9000 s	When upgrading a Nexus 9000 s	Mod
+05/02/2024 synchub.g	Further-Problem-Descript	There is another instance of 	There is another instance of 	Mod
+05/02/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-164491       	New
+05/02/2024 radotodo 	serviceRequests/C3/69711	                             	                             	Mod
+05/02/2024 radotodo 	Urgency-desc            	NA                           	P3                           	Mod
+05/02/2024 radotodo 	Urgency                 	9                            	6                            	Mod
+04/26/2024 cdetsbtk 	Security-screening-times	2023-07-27 19:49:02.000+0000 	2024-04-27 10:40:08.000+0000 	Mod
+04/26/2024 anok     	Note                    	Release-note                 	Release-note                 	Mod
+04/26/2024 anok     	contents                	                             	Release-note-diff            	Mod
+04/26/2024 anok     	FileSize                	748                          	2892                         	Mod
+04/26/2024 anok     	Further-Problem-Descript	                             	There is another instance of 	Mod
+04/26/2024 anok     	Note Title              	                             	Eng-notes-TAMissue           	New
+04/26/2024 anok     	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/26/2024 anok     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/12/2024 mihaange 	serviceRequests/C3/69711	                             	C3/697110170                 	New
+04/12/2024 mihaange 	Tickets-count           	7                            	8                            	Mod
+04/12/2024 mihaange 	TACSR-count             	4                            	5                            	Mod
+04/12/2024 mihaange 	Tickets-count-direct    	4                            	5                            	Mod
+04/12/2024 mihaange 	Trouble-tickets         	                             	697110170                    	New
+04/12/2024 mihaange 	Trouble-tickets-direct  	                             	C3697110170                  	New
+04/09/2024 swathaga 	serviceRequests/C3/69713	                             	                             	Mod
+04/09/2024 swathaga 	serviceRequests/C3/69713	                             	C3/697135525                 	New
+04/09/2024 swathaga 	Tickets-count           	6                            	7                            	Mod
+04/09/2024 swathaga 	TACSR-count             	3                            	4                            	Mod
+04/09/2024 swathaga 	Tickets-count-direct    	3                            	4                            	Mod
+04/09/2024 swathaga 	Trouble-tickets         	                             	697135525                    	New
+04/09/2024 swathaga 	Trouble-tickets-direct  	                             	C3697135525                  	New
+04/02/2024 nalzibde 	serviceRequests/C3/69701	                             	C3/697019169                 	New
+04/02/2024 nalzibde 	Urgency-desc            	P3                           	NA                           	Mod
+04/02/2024 nalzibde 	Urgency                 	6                            	9                            	Mod
+04/02/2024 nalzibde 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2024 nalzibde 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/02/2024 nalzibde 	Tickets-count           	5                            	6                            	Mod
+04/02/2024 nalzibde 	TACSR-count             	2                            	3                            	Mod
+04/02/2024 nalzibde 	Tickets-count-direct    	2                            	3                            	Mod
+04/02/2024 nalzibde 	Trouble-tickets         	                             	697019169                    	New
+04/02/2024 nalzibde 	Trouble-tickets-direct  	                             	C3697019169                  	New
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(2)                      	New
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+03/11/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+03/11/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/11/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/11/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+02/29/2024 fas      	Integrated-releases     	                             	10.3(4a)                     	New
+02/29/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+02/29/2024 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/29/2024 fas      	Known-fixed-releases    	                             	10.3(4a)                     	New
+01/14/2024 anok     	Note Title              	                             	Email-in.p3                  	New
+01/12/2024 abhigup7 	Note Title              	                             	Email-in.p2                  	New
+12/13/2023 abhigup7 	Note Title              	                             	Email-in                     	New
+12/07/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/07/2023 manoshuk 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+12/07/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/06/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/06/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/05/2023 manoshuk 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+12/01/2023 pdharmam 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+11/27/2023 vasagraw 	Related-bugs            	                             	Duplicate/CSCwi30469         	New
+11/27/2023 vasagraw 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+11/27/2023 vasagraw 	Severity-desc           	moderate                     	severe                       	Mod
+11/27/2023 vasagraw 	Severity                	3                            	2                            	Mod
+11/27/2023 vasagraw 	Version                 	                             	10.3(3q)                     	New
+11/15/2023 mudagarw 	serviceRequests/C3/69620	                             	C3/696209407                 	New
+11/15/2023 mudagarw 	Urgency-desc            	CL3                          	P3                           	Mod
+11/15/2023 mudagarw 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/15/2023 mudagarw 	TACSR-count             	1                            	2                            	Mod
+11/15/2023 mudagarw 	Tickets-count-direct    	1                            	2                            	Mod
+11/15/2023 mudagarw 	Trouble-tickets-direct  	                             	C3696209407                  	New
+11/15/2023 mudagarw 	Tickets-count           	4                            	5                            	Mod
+11/15/2023 mudagarw 	Trouble-tickets         	                             	696209407                    	New
+11/15/2023 mudagarw 	Trouble-tickets-indirect	                             	C3/696209407                 	New
+09/28/2023 lakshygu 	serviceRequests/C3/69589	                             	                             	Mod
+09/28/2023 lakshygu 	Urgency-desc            	P3                           	CL3                          	Mod
+09/22/2023 divvenka 	Integrated-releases     	                             	10.4(0)IOM9(0)               	New
+09/22/2023 divvenka 	Integrated-releases     	                             	10.4(0)IOM9(0.28)            	New
+09/22/2023 divvenka 	Apply-to                	                             	10.4(0)IOM9(0.28)            	New
+09/22/2023 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/22/2023 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/06/2023 lakshygu 	serviceRequests/C3/69589	                             	                             	Mod
+09/06/2023 lakshygu 	Urgency-desc            	NA                           	P3                           	Mod
+09/06/2023 lakshygu 	Urgency                 	9                            	6                            	Mod
+09/06/2023 lakshygu 	Known-fixed-releases    	                             	10.2(6)                      	New
+08/28/2023 prachakr 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+08/28/2023 prachakr 	Note Title              	                             	V-comments.p2                	New
+08/28/2023 prachakr 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+08/28/2023 prachakr 	Status                  	R                            	V                            	Mod
+08/28/2023 prachakr 	Verified-release        	                             	10.3(3.72)                   	New
+08/28/2023 prachakr 	Verified-on             	2023-07-03 06:58:23.000+0000 	2023-08-29 06:45:22.000+0000 	Mod
+08/28/2023 prachakr 	statusStates            	                             	[status=R, startDate=Thu Jul 	New
+08/28/2023 prachakr 	statusStates            	[status=R, startDate=Thu Jul 	                             	Del
+08/28/2023 prachakr 	Age-status              	52                           	85                           	Mod
+08/28/2023 prachakr 	Mean-time-to-verified   	27                           	84                           	Mod
+08/17/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/10/2023 srkatti  	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+08/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOM9(0)               	New
+08/07/2023 divvenka 	Integrated-releases     	                             	10.3(2)IOM9(0.16)            	New
+08/07/2023 divvenka 	Apply-to                	                             	10.3(2)IOM9(0.16)            	New
+08/07/2023 anok     	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+08/03/2023 lakshygu 	serviceRequests/C3/69589	                             	C3/695896599                 	New
+08/03/2023 lakshygu 	Urgency                 	                             	9                            	Mod
+08/03/2023 lakshygu 	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+08/03/2023 lakshygu 	Data-classification-reas	                             	Default value of Data-classif	Mod
+08/03/2023 lakshygu 	Care-Update             	                             	Y                            	Mod
+08/03/2023 lakshygu 	Tickets-count           	3                            	4                            	Mod
+08/03/2023 lakshygu 	TACSR-count             	                             	1                            	Mod
+08/03/2023 lakshygu 	Tickets-count-direct    	                             	1                            	Mod
+08/03/2023 lakshygu 	Trouble-tickets         	                             	695896599                    	New
+08/03/2023 lakshygu 	Trouble-tickets-direct  	                             	C3695896599                  	New
+07/27/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+07/27/2023 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+07/27/2023 cdetsbtk 	Security-screening-times	2023-07-26 20:10:59.000+0000 	2023-07-27 19:49:02.000+0000 	Mod
+07/27/2023 divvenka 	Integrated-releases     	                             	10.3(4)                      	New
+07/27/2023 divvenka 	Integrated-releases     	                             	10.3(3.37)                   	New
+07/27/2023 divvenka 	Apply-to                	                             	10.3(3.37)                   	New
+07/27/2023 prachakr 	Attribute               	gnosis ic-bu-review or1f or1f	gnosis ic-bu-review or1f or1f	Mod
+07/27/2023 prachakr 	Verified-release        	                             	10.2(5.86)                   	New
+07/27/2023 prachakr 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/27/2023 prachakr 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/27/2023 prachakr 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/27/2023 prachakr 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/26/2023 anok     	Note Title              	                             	R-comments.p2                	New
+07/26/2023 anok     	Status-desc             	M-More                       	R-Resolved                   	Mod
+07/26/2023 anok     	Status                  	M                            	R                            	Mod
+07/26/2023 anok     	Resolved-on             	2023-06-22 11:34:34.000+0000 	2023-07-27 05:54:10.000+0000 	Mod
+07/26/2023 anok     	statusStates            	                             	[status=M, startDate=Thu Jul 	New
+07/26/2023 anok     	statusStates            	[status=M, startDate=Thu Jul 	                             	Del
+07/26/2023 anok     	Age-status              	38                           	52                           	Mod
+07/26/2023 anok     	Mean-time-to-resolved   	16                           	51                           	Mod
+07/26/2023 anok     	File Name               	                             	Diffs-commit-niles_rel       	New
+07/26/2023 anok     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/26/2023 anok     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+07/26/2023 anok     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+07/26/2023 anok     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+07/26/2023 ajitchan 	Note Title              	                             	KnowledgeSignature.p3        	New
+07/26/2023 seshea   	Note                    	Release-note                 	Release-note                 	Mod
+07/26/2023 seshea   	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+07/26/2023 seshea   	File Name               	                             	Release-note-diff            	New
+07/26/2023 seshea   	Headline                	radius server key missing aft	N9K: "radius-server key <>" m	Mod
+07/26/2023 seshea   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/26/2023 seshea   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/26/2023 seshea   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/26/2023 seshea   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/26/2023 seshea   	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+07/26/2023 seshea   	Symptoms                	                             	When upgrading a Nexus 9000 s	Mod
+07/26/2023 seshea   	Conditions              	                             	Upgrade from earlier N9K rele	Mod
+07/26/2023 seshea   	Workarounds             	                             	Remove and reapply the missin	Mod
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 19:34:30.000+0000 	2023-07-26 20:10:59.000+0000 	Mod
+07/26/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 18:19:12.000+0000 	2023-07-26 19:34:30.000+0000 	Mod
+07/26/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+07/26/2023 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+07/26/2023 root     	FileSize                	9529                         	9536                         	Mod
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 17:42:51.000+0000 	2023-07-26 18:19:12.000+0000 	Mod
+07/26/2023 ajitchan 	Note Title              	                             	KnowledgeSignature.p2        	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 17:42:37.000+0000 	2023-07-26 17:42:51.000+0000 	Mod
+07/26/2023 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 14:55:33.000+0000 	2023-07-26 17:42:37.000+0000 	Mod
+07/26/2023 baas     	File Name               	                             	static-analysis-niles_rel    	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 14:55:32.000+0000 	2023-07-26 14:55:33.000+0000 	Mod
+07/26/2023 ajitchan 	File Name               	                             	gnosis_neg_CSCwf54392_negativ	New
+07/26/2023 ajitchan 	File Name               	                             	gnosis_pos_CSCwf54392_positiv	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 14:26:40.000+0000 	2023-07-26 14:55:32.000+0000 	Mod
+07/26/2023 ajitchan 	Note Title              	                             	KnowledgeSignature           	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 14:13:08.000+0000 	2023-07-26 14:26:40.000+0000 	Mod
+07/26/2023 anok     	File Name               	                             	code-review-niles_rel        	New
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 14:12:51.000+0000 	2023-07-26 14:13:08.000+0000 	Mod
+07/26/2023 anok     	contents                	                             	unit-test.p2                 	Mod
+07/26/2023 anok     	File Name               	unit-test.p2                 	unit-test-niles              	Mod
+07/26/2023 anok     	ActivityFileName        	unit-test.p2                 	unit-test-niles              	Mod
+07/26/2023 cdetsbtk 	Security-screening-times	2023-07-26 03:34:52.000+0000 	2023-07-26 14:12:51.000+0000 	Mod
+07/26/2023 anok     	File Name               	                             	unit-test.p2                 	New
+07/25/2023 ajitchan 	Attribute               	ic-bu-review or1f or1f-issu o	gnosis ic-bu-review or1f or1f	Mod
+07/25/2023 ajitchan 	Attribute               	gnosis ic-bu-review or1f or1f	ic-bu-review or1f or1f-issu o	Mod
+07/25/2023 ajitchan 	Attribute               	ic-bu-review or1f or1f-issu o	gnosis ic-bu-review or1f or1f	Mod
+07/25/2023 cdetsbtk 	Security-screening-times	2023-07-25 12:32:07.000+0000 	2023-07-26 03:34:52.000+0000 	Mod
+07/25/2023 seshea   	Note Title              	                             	DetectionLogic               	New
+07/25/2023 divvenka 	Integrated-releases     	                             	10.2(5.86),10.2(6)           	New
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-25 08:09:08.000+0000 	2023-07-25 12:32:07.000+0000 	Mod
+07/24/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-25 08:09:06.000+0000 	2023-07-25 08:09:08.000+0000 	Mod
+07/24/2023 anok     	File Name               	                             	Diffs-commit-kerry           	New
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-25 01:07:42.000+0000 	2023-07-25 08:09:06.000+0000 	Mod
+07/24/2023 anok     	File Name               	                             	Diffs-release-kerry          	New
+07/24/2023 anok     	Multi-commit-flag       	                             	Y                            	Mod
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-25 01:07:16.000+0000 	2023-07-25 01:07:42.000+0000 	Mod
+07/24/2023 baas     	File Name               	                             	ccwarnings-kerry             	New
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-24 21:55:43.000+0000 	2023-07-25 01:07:16.000+0000 	Mod
+07/24/2023 baas     	File Name               	                             	static-analysis-kerry        	New
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-24 16:32:05.000+0000 	2023-07-24 21:55:43.000+0000 	Mod
+07/24/2023 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+07/24/2023 root     	FileSize                	9538                         	9529                         	Mod
+07/24/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+07/24/2023 root     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/24/2023 root     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+07/24/2023 root     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+07/24/2023 root     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-24 16:22:12.000+0000 	2023-07-24 16:32:05.000+0000 	Mod
+07/24/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-24 16:21:42.000+0000 	2023-07-24 16:22:12.000+0000 	Mod
+07/24/2023 anok     	contents                	                             	unit-test.p2                 	Mod
+07/24/2023 anok     	File Name               	unit-test.p2                 	unit-test-kerry              	Mod
+07/24/2023 anok     	ActivityFileName        	unit-test.p2                 	unit-test-kerry              	Mod
+07/24/2023 cdetsbtk 	Security-screening-times	2023-07-23 11:33:04.000+0000 	2023-07-24 16:21:42.000+0000 	Mod
+07/24/2023 anok     	File Name               	                             	unit-test.p2                 	New
+07/22/2023 cdetsbtk 	Security-screening-times	2023-07-18 00:21:05.000+0000 	2023-07-23 11:33:04.000+0000 	Mod
+07/22/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/18/2023 mgiardin 	Attribute               	or1f or1f-issu or1f-verified 	ic-bu-review or1f or1f-issu o	Mod
+07/17/2023 cdetsbtk 	Security-screening-times	2023-07-14 12:54:16.000+0000 	2023-07-18 00:21:05.000+0000 	Mod
+07/17/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/17/2023 divvenka 	Integrated-releases     	                             	16.1(1)                      	New
+07/17/2023 divvenka 	Integrated-releases     	                             	16.1(1)ICN9(0.5)             	New
+07/17/2023 divvenka 	Apply-to                	                             	16.1(1)ICN9(0.5)             	New
+07/14/2023 divvenka 	Integrated-releases     	                             	10.4(0)IOP9(0)               	New
+07/14/2023 divvenka 	Integrated-releases     	                             	10.4(0)IOP9(0.15)            	New
+07/14/2023 divvenka 	Apply-to                	                             	10.4(0)IOP9(0.15)            	New
+07/14/2023 prachakr 	Attribute               	or1f or1f-issu or1f-verified 	or1f or1f-issu or1f-verified 	Mod
+07/13/2023 cdetsbtk 	Security-screening-times	2023-07-14 11:57:56.000+0000 	2023-07-14 12:54:16.000+0000 	Mod
+07/13/2023 armdsouz 	Tickets-count           	2                            	3                            	Mod
+07/13/2023 armdsouz 	Trouble-tickets         	                             	695827081                    	New
+07/13/2023 armdsouz 	Trouble-tickets-indirect	                             	C3/695827081                 	New
+07/13/2023 cdetsbtk 	Security-screening-times	2023-07-13 23:22:48.000+0000 	2023-07-14 11:57:56.000+0000 	Mod
+07/13/2023 armdsouz 	Tickets-count           	1                            	2                            	Mod
+07/13/2023 armdsouz 	Trouble-tickets         	                             	695835714                    	New
+07/13/2023 armdsouz 	Trouble-tickets-indirect	                             	C3/695835714                 	New
+07/13/2023 masaxena 	Version                 	                             	10.2(4.100)                  	New
+07/13/2023 cdetsbtk 	Security-screening-times	2023-07-13 23:22:13.000+0000 	2023-07-13 23:22:48.000+0000 	Mod
+07/13/2023 masaxena 	Note                    	M-comments                   	M-comments                   	Mod
+07/13/2023 masaxena 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/13/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0)               	New
+07/13/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0.13)            	New
+07/13/2023 divvenka 	Apply-to                	                             	10.4(1)IMG9(0.13)            	New
+07/13/2023 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+07/13/2023 masaxena 	Attribute               	or1f or1f-issu or1f-verified 	or1f or1f-issu or1f-verified 	Mod
+07/13/2023 masaxena 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/13/2023 cdetsbtk 	Security-screening-times	2023-07-13 14:09:37.000+0000 	2023-07-13 23:22:13.000+0000 	Mod
+07/13/2023 masaxena 	Note Title              	                             	M-comments                   	New
+07/13/2023 masaxena 	Status-desc             	V-Verified                   	M-More                       	Mod
+07/13/2023 masaxena 	Status                  	V                            	M                            	Mod
+07/13/2023 masaxena 	More-by                 	anok                         	masaxena                     	Mod
+07/13/2023 masaxena 	More-on                 	2023-06-22 11:34:34.000+0000 	2023-07-13 16:22:12.000+0000 	Mod
+07/13/2023 masaxena 	statusStates            	                             	[status=V, startDate=Mon Jul 	New
+07/13/2023 masaxena 	statusStates            	[status=V, startDate=Mon Jul 	                             	Del
+07/13/2023 masaxena 	Age-status              	28                           	38                           	Mod
+07/13/2023 cdetsbtk 	Security-screening-times	2023-07-03 13:58:23.000+0000 	2023-07-13 14:09:37.000+0000 	Mod
+07/13/2023 vasagraw 	Related-bugs            	                             	Duplicate/CSCwf92218         	New
+07/13/2023 vasagraw 	Found                   	func-test                    	customer-use                 	Mod
+07/13/2023 vasagraw 	Attribute               	or1f or1f-issu or1f-verified 	or1f or1f-issu or1f-verified 	Mod
+07/13/2023 vasagraw 	Other-mail              	prachakr                     	prachakr armdsouz ag2@cisco.c	Mod
+07/13/2023 vasagraw 	Version                 	                             	10.3(3)                      	New
+07/13/2023 vasagraw 	Found-during            	Feature Test                 	Customer                     	Mod
+07/13/2023 vasagraw 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+07/13/2023 vasagraw 	IFD-CFD-Conv-date       	                             	2023-07-13 14:09:36.000+0000 	Mod
+07/13/2023 vasagraw 	Known-affected-releases 	                             	10.3(3)                      	New
+07/13/2023 vasagraw 	Tickets-count           	0                            	1                            	Mod
+07/13/2023 vasagraw 	Trouble-tickets         	                             	695819306                    	New
+07/13/2023 vasagraw 	Trouble-tickets-indirect	                             	C3/695819306                 	New
+07/06/2023 susomasu 	Integrated-releases     	                             	10.4(0)IMG9(0.298)           	New
+07/02/2023 cdetsbtk 	Security-screening-times	2023-06-28 20:14:25.000+0000 	2023-07-03 13:58:23.000+0000 	Mod
+07/02/2023 prachakr 	Note Title              	                             	V-comments                   	New
+07/02/2023 prachakr 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/02/2023 prachakr 	Status                  	R                            	V                            	Mod
+07/02/2023 prachakr 	Attribute               	or1f or1f-issu               	or1f or1f-issu or1f-verified 	Mod
+07/02/2023 prachakr 	Verified By Employee    	                             	prachakr                     	Mod
+07/02/2023 prachakr 	Verified-release        	                             	10.4(0)IMG9(0.315)           	New
+07/02/2023 prachakr 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/02/2023 prachakr 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/02/2023 prachakr 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/02/2023 prachakr 	Verified-confidence     	                             	tested                       	Mod
+07/02/2023 prachakr 	Verified-on             	                             	2023-07-03 06:58:23.000+0000 	Mod
+07/02/2023 prachakr 	statusStates            	                             	[status=R, startDate=Thu Jun 	New
+07/02/2023 prachakr 	statusStates            	[status=R, startDate=Thu Jun 	                             	Del
+07/02/2023 prachakr 	Age-status              	17                           	28                           	Mod
+07/02/2023 prachakr 	Mean-time-to-verified   	                             	27                           	Mod
+06/28/2023 cdetsbtk 	Security-screening-times	2023-06-28 05:47:33.000+0000 	2023-06-28 20:14:25.000+0000 	Mod
+06/28/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/28/2023 divvenka 	Integrated-releases     	                             	16.0(3)                      	New
+06/28/2023 divvenka 	Integrated-releases     	                             	16.0(3)ICN9(0.2)             	New
+06/28/2023 divvenka 	Apply-to                	                             	16.0(3)ICN9(0.2)             	New
+06/27/2023 cdetsbtk 	Security-screening-times	2023-06-22 18:34:35.000+0000 	2023-06-28 05:47:33.000+0000 	Mod
+06/27/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/27/2023 cms      	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/27/2023 cms      	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+06/22/2023 cdetsbtk 	Security-screening-times	2023-06-22 18:10:32.000+0000 	2023-06-22 18:34:35.000+0000 	Mod
+06/22/2023 anok     	Note Title              	                             	R-comments                   	New
+06/22/2023 anok     	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+06/22/2023 anok     	Status                  	A                            	R                            	Mod
+06/22/2023 anok     	Dev-escape-resolver-opin	                             	N                            	Mod
+06/22/2023 anok     	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+06/22/2023 anok     	More-by                 	                             	anok                         	Mod
+06/22/2023 anok     	Opener                  	                             	anok                         	Mod
+06/22/2023 anok     	Resolver                	                             	anok                         	Mod
+06/22/2023 anok     	Breakage                	                             	No                           	Mod
+06/22/2023 anok     	Regression              	                             	N                            	Mod
+06/22/2023 anok     	By-previous-commit-value	                             	No                           	Mod
+06/22/2023 anok     	Bug-origin              	                             	Requirements                 	Mod
+06/22/2023 anok     	Released-code           	                             	N                            	Mod
+06/22/2023 anok     	Origin                  	                             	requirements                 	Mod
+06/22/2023 anok     	Test-EDP-phase          	                             	Feature Test                 	Mod
+06/22/2023 anok     	Test-EDP-activity       	                             	Acceptance Testing           	Mod
+06/22/2023 anok     	TPS_issue               	                             	N                            	Mod
+06/22/2023 anok     	TPS_flag                	                             	N                            	Mod
+06/22/2023 anok     	Behavior-changed        	                             	N                            	Mod
+06/22/2023 anok     	Original-resolved-on    	                             	2023-06-22 11:34:34.000+0000 	Mod
+06/22/2023 anok     	Documents-changed       	                             	none                         	Mod
+06/22/2023 anok     	More-on                 	                             	2023-06-22 11:34:34.000+0000 	Mod
+06/22/2023 anok     	Opened-on               	                             	2023-06-22 11:34:34.000+0000 	Mod
+06/22/2023 anok     	Resolved-on             	                             	2023-06-22 11:34:34.000+0000 	Mod
+06/22/2023 anok     	statusStates            	                             	[status=A, startDate=Wed Jun 	New
+06/22/2023 anok     	statusStates            	[status=A, startDate=Wed Jun 	                             	Del
+06/22/2023 anok     	Age-status              	2                            	17                           	Mod
+06/22/2023 anok     	Mean-time-to-resolved   	                             	16                           	Mod
+06/22/2023 cdetsbtk 	Security-screening-times	2023-06-22 13:18:48.000+0000 	2023-06-22 18:10:32.000+0000 	Mod
+06/22/2023 anok     	File Name               	                             	Diffs-commit-main            	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-22 13:18:08.000+0000 	2023-06-22 13:18:48.000+0000 	Mod
+06/21/2023 anok     	File Name               	                             	unit-test                    	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-21 20:56:22.000+0000 	2023-06-22 13:18:08.000+0000 	Mod
+06/21/2023 anok     	File Name               	unit-test                    	                             	Del
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-21 20:56:08.000+0000 	2023-06-21 20:56:22.000+0000 	Mod
+06/21/2023 baas     	File Name               	                             	ccwarnings-main.p3           	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-21 18:25:22.000+0000 	2023-06-21 20:56:08.000+0000 	Mod
+06/21/2023 baas     	File Name               	                             	static-analysis-main.p3      	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-21 17:54:19.000+0000 	2023-06-21 18:25:22.000+0000 	Mod
+06/21/2023 anok     	Code-reviewer           	                             	vasagraw                     	New
+06/21/2023 anok     	File Name               	                             	code-review-nx-dev           	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-21 17:54:05.000+0000 	2023-06-21 17:54:19.000+0000 	Mod
+06/21/2023 baas     	File Name               	                             	ccwarnings-main.p2           	New
+06/21/2023 cdetsbtk 	Security-screening-times	2023-06-20 05:13:42.000+0000 	2023-06-21 17:54:05.000+0000 	Mod
+06/21/2023 baas     	File Name               	                             	static-analysis-main.p2      	New
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-20 04:53:10.000+0000 	2023-06-20 05:13:42.000+0000 	Mod
+06/19/2023 root     	contents                	                             	base_sanity_uls_sanity_report	Mod
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-20 02:49:51.000+0000 	2023-06-20 04:53:10.000+0000 	Mod
+06/19/2023 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+06/19/2023 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-20 02:49:37.000+0000 	2023-06-20 02:49:51.000+0000 	Mod
+06/19/2023 baas     	File Name               	                             	ccwarnings-main              	New
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-19 23:28:06.000+0000 	2023-06-20 02:49:37.000+0000 	Mod
+06/19/2023 baas     	File Name               	                             	static-analysis-main         	New
+06/19/2023 baas     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+06/19/2023 baas     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+06/19/2023 baas     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-19 23:20:53.000+0000 	2023-06-19 23:28:06.000+0000 	Mod
+06/19/2023 anok     	Note Title              	                             	Eng-notes                    	New
+06/19/2023 cdetsbtk 	Security-screening-times	2023-06-14 13:41:58.000+0000 	2023-06-19 23:20:53.000+0000 	Mod
+06/19/2023 anok     	File Name               	                             	unit-test                    	New
+06/14/2023 cms      	Est-fix-date            	                             	2023-06-21 07:00:00.000+0000 	Mod
+06/13/2023 cdetsbtk 	Security-screening-times	2023-06-09 11:52:17.000+0000 	2023-06-14 13:41:58.000+0000 	Mod
+06/13/2023 anikunna 	Engineer                	asmurali                     	anok                         	Mod
+06/08/2023 cdetsbtk 	Security-screening-times	2023-06-08 23:13:03.000+0000 	2023-06-09 11:52:17.000+0000 	Mod
+06/08/2023 anikunna 	Engineer                	pradepan                     	asmurali                     	Mod
+06/08/2023 cdetsbtk 	Security-screening-times	2023-06-07 12:30:47.000+0000 	2023-06-08 23:13:03.000+0000 	Mod
+06/08/2023 cms      	Note Title              	                             	Scrubnote                    	New
+06/06/2023 prachakr 	Related-bugs            	                             	Duplicate/CSCwf54405         	New
+06/06/2023 prachakr 	Other-mail              	                             	prachakr                     	Mod
+06/06/2023 cdetsbtk 	Security-screening-times	2023-06-06 20:16:06.000+0000 	2023-06-07 12:30:47.000+0000 	Mod
+06/06/2023 prachakr 	Note Title              	                             	A-comments.p2                	New
+06/06/2023 prachakr 	Related-bugs            	Duplicate-of/CSCwf52198      	                             	Del
+06/06/2023 prachakr 	Status-desc             	D-Duplicate                  	A-Assigned                   	Mod
+06/06/2023 prachakr 	Status                  	D                            	A                            	Mod
+06/06/2023 prachakr 	Duplicate-of            	CSCwf52198                   	                             	Mod
+06/06/2023 prachakr 	Assigner                	anikunna                     	prachakr                     	Mod
+06/06/2023 prachakr 	Assigned Date           	2023-06-06 03:43:52.000+0000 	2023-06-07 05:30:47.000+0000 	Mod
+06/06/2023 prachakr 	Duplicate-on            	2023-06-06 13:16:05.000+0000 	                             	Mod
+06/06/2023 prachakr 	statusStates            	                             	[status=D, startDate=Tue Jun 	New
+06/06/2023 prachakr 	statusStates            	[status=D, startDate=Tue Jun 	                             	Del
+06/06/2023 prachakr 	Age-status              	1                            	2                            	Mod
+06/06/2023 prachakr 	Mean-time-to-assigned   	0                            	1                            	Mod
+06/06/2023 cdetsbtk 	Security-screening-times	2023-06-06 10:43:52.000+0000 	2023-06-06 20:16:06.000+0000 	Mod
+06/06/2023 pradepan 	Note Title              	                             	D-comments                   	New
+06/06/2023 pradepan 	Related-bugs            	                             	Duplicate-of/CSCwf52198      	New
+06/06/2023 pradepan 	Status-desc             	A-Assigned                   	D-Duplicate                  	Mod
+06/06/2023 pradepan 	Status                  	A                            	D                            	Mod
+06/06/2023 pradepan 	Duplicate-of            	                             	CSCwf52198                   	Mod
+06/06/2023 pradepan 	Duplicate-on            	                             	2023-06-06 13:16:05.000+0000 	Mod
+06/06/2023 pradepan 	statusStates            	                             	[status=A, startDate=Tue Jun 	New
+06/06/2023 pradepan 	statusStates            	[status=A, startDate=Tue Jun 	                             	Del
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-06 05:09:23.000+0000 	2023-06-06 10:43:52.000+0000 	Mod
+06/05/2023 anikunna 	Note Title              	                             	A-comments                   	New
+06/05/2023 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+06/05/2023 anikunna 	Status                  	N                            	A                            	Mod
+06/05/2023 anikunna 	Engineer                	                             	pradepan                     	Mod
+06/05/2023 anikunna 	Assigner                	                             	anikunna                     	Mod
+06/05/2023 anikunna 	Assigned Date           	                             	2023-06-06 03:43:52.000+0000 	Mod
+06/05/2023 anikunna 	statusStates            	                             	[status=N, startDate=Mon Jun 	New
+06/05/2023 anikunna 	statusStates            	[status=N, startDate=Mon Jun 	                             	Del
+06/05/2023 anikunna 	Age-status              	0                            	1                            	Mod
+06/05/2023 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+06/05/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-05 21:47:36.000+0000 	2023-06-06 05:09:23.000+0000 	Mod
+06/05/2023 divvenka 	Note Title              	                             	Release-note                 	New
+06/05/2023 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-05 21:30:04.000+0000 	2023-06-05 21:47:36.000+0000 	Mod
+06/05/2023 prachakr 	File Name               	                             	show_tech_sup_radius         	New
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-05 21:29:20.000+0000 	2023-06-05 21:30:04.000+0000 	Mod
+06/05/2023 prachakr 	Note Title              	                             	Configuration                	New
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-05 20:06:24.000+0000 	2023-06-05 21:29:20.000+0000 	Mod
+06/05/2023 prachakr 	File Name               	                             	Step to repro.txt            	New
+06/05/2023 cdetsbtk 	Security-screening-times	2023-06-05 20:04:33.000+0000 	2023-06-05 20:06:24.000+0000 	Mod
+06/05/2023 prachakr 	Summary                 	In NR2F :
+
+radius-server key 	In NR2F :
+
+radius-server key 	Mod
+06/05/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+06/05/2023 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+06/05/2023 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+06/05/2023 cdetsbtk 	Security-screening-times	                             	2023-06-05 20:04:33.000+0000 	Mod
+06/05/2023 prachakr 	Headline                	                             	radius server key missing aft	Mod
+06/05/2023 prachakr 	Summary                 	                             	In NR2F :
+
+radius-server key 	Mod
+06/05/2023 prachakr 	Project                 	                             	CSC.datacenter               	Mod
+06/05/2023 prachakr 	Product                 	                             	n9k-standalone-sw            	Mod
+06/05/2023 prachakr 	Component               	                             	radius                       	Mod
+06/05/2023 prachakr 	Status-desc             	                             	N-New                        	Mod
+06/05/2023 prachakr 	Status                  	                             	N                            	Mod
+06/05/2023 prachakr 	Found                   	                             	func-test                    	Mod
+06/05/2023 prachakr 	Hardening               	                             	N                            	Mod
+06/05/2023 prachakr 	Product-owner           	                             	gsheehan                     	Mod
+06/05/2023 prachakr 	Original-found          	                             	func-test                    	Mod
+06/05/2023 prachakr 	Hardware                	                             	Nexus 9000                   	Mod
+06/05/2023 prachakr 	Feature                 	                             	fix                          	Mod
+06/05/2023 prachakr 	Attribute               	                             	or1f or1f-issu               	Mod
+06/05/2023 prachakr 	Urgency-desc            	                             	NA                           	Mod
+06/05/2023 prachakr 	Severity-desc           	                             	moderate                     	Mod
+06/05/2023 prachakr 	Severity                	                             	3                            	Mod
+06/05/2023 prachakr 	DE Priority Desc        	                             	medium                       	Mod
+06/05/2023 prachakr 	DE-priority             	                             	3                            	Mod
+06/05/2023 prachakr 	Impact                  	                             	Integrity / Security         	New
+06/05/2023 prachakr 	Submitter               	                             	prachakr                     	Mod
+06/05/2023 prachakr 	Submitter-manager       	                             	mukamath                     	Mod
+06/05/2023 prachakr 	DE-manager              	                             	anikunna                     	Mod
+06/05/2023 prachakr 	DTPT-manager            	                             	mukamath                     	Mod
+06/05/2023 prachakr 	Version                 	                             	10.4(0)IMG9(0.265)           	New
+06/05/2023 prachakr 	Original-version        	                             	10.4(0)IMG9(0.265)           	Mod
+06/05/2023 prachakr 	Found-during            	                             	Feature Test                 	Mod
+06/05/2023 prachakr 	Activity-when-found     	                             	Feature/ Functionality Testin	Mod
+06/05/2023 prachakr 	Test-escape             	                             	N                            	Mod
+06/05/2023 prachakr 	PSIRT                   	                             	N                            	Mod
+06/05/2023 prachakr 	Data-classification     	                             	Cisco Public                 	Mod
+06/05/2023 prachakr 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+06/05/2023 prachakr 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+06/05/2023 prachakr 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+06/05/2023 prachakr 	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+06/05/2023 prachakr 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+06/05/2023 prachakr 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+06/05/2023 prachakr 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+06/05/2023 prachakr 	MDF-edited              	                             	N                            	Mod
+06/05/2023 prachakr 	Attribute2              	                             	n/a                          	Mod
+06/05/2023 prachakr 	Doc-manager             	                             	anikunna                     	Mod
+06/05/2023 prachakr 	Document                	                             	nexus                        	Mod
+06/05/2023 prachakr 	Documentation-resolution	                             	Undefined                    	Mod
+06/05/2023 prachakr 	Original-activity-when-f	                             	Feature/ Functionality Testin	Mod
+06/05/2023 prachakr 	Original-found-during   	                             	Feature Test                 	Mod
+06/05/2023 prachakr 	Submitter-org-bug       	                             	DCN-Switching-India          	Mod
+06/05/2023 prachakr 	Component-scenarios     	                             	N                            	Mod
+06/05/2023 prachakr 	Submitted-on            	                             	2023-06-05 13:04:33.173+0000 	Mod
+06/05/2023 prachakr 	New-on                  	                             	2023-06-05 13:04:33.173+0000 	Mod
+06/05/2023 prachakr 	statusStates            	                             	[status=S, startDate=Mon Jun 	New
+06/05/2023 prachakr 	Transition-day          	0                            	2460101                      	Mod
+06/05/2023 prachakr 	Release-note-status     	                             	none                         	Mod
+06/05/2023 prachakr 	Reported By             	                             	prachakr                     	Mod
+06/05/2023 prachakr 	Tickets-count           	                             	0                            	Mod
+06/05/2023 prachakr 	Class                   	                             	CSC.datacenter               	Mod
+06/05/2023 prachakr 	Reti-bug                	                             	Y                            	Mod
+06/05/2023 prachakr 	Defect Created          	                             	                             	New

@@ -1,0 +1,1220 @@
+*******************************************************************************
+
+Bug ID   : CSCvz55570         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 2 (severe)     
+Headline : Nexus 9k not sending authorization request
+PrimaryPV : 
+Version :9.3(2) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : Y                 
+Software :                    Hardware : Nexus 9000         
+Submitter: ellopeza           Submitted: 09/02/2021 10:59:10     Last Updtd : 07/29/2026 08:10:31  
+RNE-Type: NONE                New-on : 09/02/2021 10:59:10      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:lepinto                                             
+Known-affected-releases:9.3(2) 
+
+Known-fixed-releases:10.2(4) 9.3(9) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.2(1) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 10/03/2021 23:04:34                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 31                                             
+Mean-time-to-resolved: 47                                             
+Mean-time-to-verified: 101    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 09/02/2021 05:56:05            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Cisco bug.                                
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Interoperability Performance Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : vasagraw           Priority : high          Assigned: 10/03/2021 22:37:41 
+Code-reviewer:                
+Opened-on: 10/03/2021 23:04:34Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis dsig_no_notapplicable ed_ic_dc_r
+Est. completion date:                      
+Script-version:                         
+
+More-by : ananshar            More-on: 10/19/2021 06:52:45  
+
+Documents Changed: none       Resolved: 10/19/2021 22:40:10 Resolver: ananshar       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 12/13/2021 08:48:25      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-SEC-AAA-MEX
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              691757132
+Trouble-tickets-direct :C3691757132 
+
+Is-customer-visible :                 Y
+DE-Priority: high (2)    
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 10/04/2021 04:07:55
+Document :    nexus
+
+Summary:
+Nexus 9348 is being administered with ISE under TACACS+ device administration. 
+It never sends authorization request back to ISE. 
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         691757132       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-438804                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 vasagraw      10/03/2021 23:04:34    CSCvz84858      CSC.tea         R            
+
+
+********************* Listing of Notes (15 of 15 ) ***********************
+
+---Start of Note Titled: V-comments (Created 12/13/2021 08:48:25 Added 12/13/2021 08:48:25 by palshanm)---
+1. S/W Version : 9.3(8.75)
+2. Platform : PI Fix
+3. Automation Suite: yes
+4. Steps to reproduce and Verify: 
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F21-12%2Fsecurity_cfd_job.2021Dec13_22:03:48.393531.zip&atstype=ATS
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: O-comments (Created 10/23/2021 12:01:14 Added 10/23/2021 12:01:14 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F21-10%2Fsecurity_cfd_job.2021Oct24_00:03:39.271051.zip&atstype=ATS
+---End of Note Titled: O-comments---
+
+
+---Start of Note Titled: R-comments.p2 (Created 10/19/2021 22:40:10 Added 10/19/2021 22:40:10 by ananshar)---
+committed code fix.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: M-comments (Created 10/19/2021 06:52:45 Added 10/19/2021 06:52:45 by ananshar)---
+Moving to M to port the changes to KR2F
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: unit-test_kerry (Created 10/19/2021 06:45:08 Added 10/19/2021 06:45:08 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Tue Oct 19 12:04:26 2021
+!Time: Tue Oct 19 12:05:17 2021
+
+version 10.2(2) Bios:version 05.45 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    source-interface Vlan150     <<<<<<<<
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Oct 19 12:04:26 2021
+!Time: Tue Oct 19 12:05:20 2021
+
+version 10.2(2) Bios:version 05.45 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+
+
+<<<<<<<< SSH login worked with tacacs credentials tom/tom12345
+---End of Note Titled: unit-test_kerry---
+
+
+---Start of Note Titled: L2_ULS_Kerry (Created 10/19/2021 06:38:28 Added 10/19/2021 06:38:28 by vasagraw)---
+Test server name    : nxosv-sanity08
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : eor_n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/204818
+Report file         : /auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.log
+Test start time     : 2021_10_18_07_50_55
+Test End time       : 2021_10_18_11_19_07
+Test Duration       : 3:28:11.906962
+Arguments passed: ['./basic_sanity.py', '-infra_id', '204818', '-cdet', 'CSCvz86703', '-build', '/ws/vasagraw-sjc/nxos64.10.2.1.130.F.bin_AS', '-testsuite', 'eor_n9kv_l2_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:10:04   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:12   
+testConfigMgmtPort                                                        pass      0:00:32   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:25   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:07   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:58   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:55   
+testStaticMac                                                             pass      0:01:51   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:47   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:04:10   
+testL2BridgingLacpPortChannelAccess                                       fail      0:05:33   
+testL2SanityMacLearning                                                   pass      0:05:27   
+testL2SanityPortFlap                                                      pass      0:04:47   
+testL2SanityClearMac                                                      pass      0:03:20   
+testL2SanityMacAging                                                      pass      0:09:23   
+testL2SanityMacMove                                                       pass      0:03:16   
+testL2SanityPortModeChange                                                pass      0:03:59   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:12   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:24   
+testL2SanityAllowedVlanAdd                                                pass      0:03:52   
+testL2SanityAllowedVlanRemove                                             pass      0:03:15   
+testL2SanityUnconfig                                                      pass      0:00:47   
+testVpcConfig                                                             pass      0:07:26   
+testVpcPeerLink                                                           pass      0:00:57   
+testVpcPeerKeepAlive                                                      pass      0:00:32   
+testVpcPortChannels                                                       pass      0:01:37   
+testVpcStpStates                                                          pass      0:00:34   
+testVpcConsistencies                                                      pass      0:03:30   
+testVpcUnknownUnicastFlooding                                             pass      0:08:40   
+testVpcUnconfig                                                           pass      0:05:24   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:04   
+
+********************************
+
+
+Test server name    : nxosv-sanity606
+Testbed  name       : n9kv606-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/204756
+Report file         : /auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.log
+Test start time     : 2021_10_18_03_42_46
+Test End time       : 2021_10_18_06_56_31
+Test Duration       : 3:13:44.736976
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '204756', '-cdet', 'CSCvz55570', '-build', '/ws/vasagraw-sjc/nxos64.10.2.1.130.F.bin_AS', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv606-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:16:16   
+testBoxOnline                                                             pass      0:00:00   
+testModuleStatus                                                          pass      0:00:08   
+testConfigMgmtPort                                                        fail      0:01:45   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:09   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:21   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:20   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:21   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:38   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:51   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:40   
+testL2SanityMacLearning                                                   pass      0:05:11   
+testL2SanityPortFlap                                                      pass      0:04:40   
+testL2SanityClearMac                                                      pass      0:03:13   
+testL2SanityMacAging                                                      pass      0:09:16   
+testL2SanityMacMove                                                       pass      0:03:09   
+testL2SanityPortModeChange                                                pass      0:03:51   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:06   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:17   
+testL2SanityAllowedVlanAdd                                                pass      0:03:44   
+testL2SanityAllowedVlanRemove                                             pass      0:03:08   
+testL2SanityUnconfig                                                      pass      0:00:38   
+testVpcConfig                                                             pass      0:05:54   
+testVpcPeerLink                                                           pass      0:00:52   
+testVpcPeerKeepAlive                                                      pass      0:00:28   
+testVpcPortChannels                                                       pass      0:01:32   
+testVpcStpStates                                                          pass      0:00:30   
+testVpcConsistencies                                                      pass      0:03:25   
+testVpcUnknownUnicastFlooding                                             pass      0:08:32   
+testVpcUnconfig                                                           pass      0:04:53   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: L2_ULS_Kerry---
+
+
+---Start of Note Titled: Scrubnote (Created 10/18/2021 20:52:04 Added 10/18/2021 20:52:04 by cms)---
+{211018 ananshar D B} PRRQ modified
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 10/06/2021 05:37:32 Added 10/06/2021 05:37:32 by fermorei)---
+https://gnosis.cisco.com/signature/bug/615d9887cd1399eefd0b3aed/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 10/06/2021 05:37:26 Added 10/06/2021 05:37:26 by fermorei)---
+BUG unreproducible on Cisco LAB. The BUG was opened for case 691757132, and issue was fixed via configuration change on Nexus.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: R-comments (Created 10/03/2021 23:04:34 Added 10/03/2021 23:04:34 by vasagraw)---
+committed code fix.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: L2_ULS (Created 10/01/2021 05:30:50 Added 10/01/2021 05:30:50 by vasagraw)---
+Test server name    : nxosv-sanity08
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : eor_n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/199560
+Report file         : /auto/nxos-sanity/logs/vasagraw/199560/l2_uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/199560/l2_uls-n9kv08.log
+Test start time     : 2021_09_28_22_58_01
+Test End time       : 2021_09_29_02_11_00
+Test Duration       : 3:12:59.349777
+Arguments passed: ['./basic_sanity.py', '-infra_id', '199560', '-cdet', 'CSCvz55570', '-build', '/ws/vasagraw-sjc/nxos.9.3.8.bin_PVT', '-testsuite', 'eor_n9kv_l2_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/199560/l2_uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/199560/l2_uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:26   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:10   
+testConfigMgmtPort                                                        pass      0:00:31   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:23   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:05   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:54   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:51   
+testStaticMac                                                             pass      0:01:50   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:46   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:04:10   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:48   
+testL2SanityMacLearning                                                   pass      0:05:31   
+testL2SanityPortFlap                                                      pass      0:04:45   
+testL2SanityClearMac                                                      pass      0:03:18   
+testL2SanityMacAging                                                      pass      0:09:21   
+testL2SanityMacMove                                                       pass      0:03:13   
+testL2SanityPortModeChange                                                pass      0:03:56   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:11   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:23   
+testL2SanityAllowedVlanAdd                                                pass      0:03:49   
+testL2SanityAllowedVlanRemove                                             pass      0:03:14   
+testL2SanityUnconfig                                                      pass      0:00:46   
+testVpcConfig                                                             pass      0:07:29   
+testVpcPeerLink                                                           pass      0:00:55   
+testVpcPeerKeepAlive                                                      pass      0:00:30   
+testVpcPortChannels                                                       pass      0:01:35   
+testVpcStpStates                                                          pass      0:00:33   
+testVpcConsistencies                                                      pass      0:03:28   
+testVpcUnknownUnicastFlooding                                             pass      0:08:33   
+testVpcUnconfig                                                           pass      0:05:17   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: L2_ULS---
+
+
+---Start of Note Titled:  Unit-test (Created 09/30/2021 02:29:43 Modified 10/01/2021 00:00:30 by vasagraw)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Sep 29 05:55:44 2021
+!Time: Wed Sep 29 06:10:34 2021
+
+version 9.3(8) Bios:version 07.68 
+feature tacacs+
+	
+ip tacacs source-interface mgmt0						<<<<<<< global interface				
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    source-interface Vlan150							<<<<<<< group interface					
+
+switch(config)#
+switch(config)#
+switch(config)#
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Sep 29 05:55:48 2021
+!Time: Wed Sep 29 06:12:34 2021
+
+version 9.3(8) Bios:version 07.68 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show int mgmt0 br
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           down   --                                      --       1500
+    
+switch(config)# 
+switch(config)# 
+switch(config)# show int vlan150 br
+
+-------------------------------------------------------------------------------
+Interface Secondary VLAN(Type)                    Status Reason                 
+-------------------------------------------------------------------------------
+Vlan150   --                                      up     --        
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account tom
+user:tom does not exist
+switch(config)# 
+switch(config)# 
+switch(config)# 
+					<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<.   TELNET LOGIN VIA SVI/INBAND IP 10.126.67.43 tom/tom12345 (which is a tacacs user)
+
+switch(config)# 
+switch(config)# show user-account tom
+user:tom
+
+        roles:network-admin vdc-admin priv-1 				   <<<<<<<< authorization packet was sent successfully, which fetched correct roles for the user
+
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+switch(config)# 
+switch(config)# 
+
+switch(config)# 
+switch(config-if)# 
+switch(config-if)# show int vlan150 br
+
+-------------------------------------------------------------------------------
+Interface Secondary VLAN(Type)                    Status Reason                 
+-------------------------------------------------------------------------------
+Vlan150   --                                      up     --        
+switch(config-if)# 
+switch(config-if)# 
+switch(config-if)# show int e1/1 br
+
+--------------------------------------------------------------------------------
+Ethernet        VLAN    Type Mode   Status  Reason                 Speed     Port
+Interface                                                                    Ch 
+#
+--------------------------------------------------------------------------------
+Eth1/1          150     eth  access up      none                     1000(D) --
+switch(config-if)# 
+switch(config)# show int mgmt0 br
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           up     10.126.67.84                            1000    1500 
+   
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  1 06:05:21 2021
+!Time: Fri Oct  1 06:05:24 2021
+
+version 9.3(8) Bios:version 07.68 
+feature tacacs+
+
+ip tacacs source-interface mgmt0
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct  1 06:05:21 2021
+!Time: Fri Oct  1 06:05:28 2021
+
+version 9.3(8) Bios:version 07.68 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account tom
+user:tom does not exist
+switch(config)# 
+
+					<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   TELNET LOGIN VIA SVI/INBAND IP 10.126.67.43 tom/tom12345 (which is a tacacs user)
+
+
+switch(config)# show user-account tom
+user:tom
+        roles:network-admin vdc-admin priv-1 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+switch(config)# 
+
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  1 06:16:54 2021
+!Time: Fri Oct  1 06:16:59 2021
+
+version 9.3(8) Bios:version 07.68 
+feature tacacs+
+
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct  1 06:16:54 2021
+!Time: Fri Oct  1 06:17:02 2021
+
+version 9.3(8) Bios:version 07.68 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account tom
+user:tom does not exist
+switch(config)# 
+
+									<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   TELNET LOGIN VIA SVI/INBAND IP 10.126.67.43 tom/tom12345 (which is a tacacs user)
+
+switch(config)# show user-account tom
+user:tom
+        roles:network-admin vdc-admin priv-1 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+switch(config)# 
+
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  1 06:19:39 2021
+!Time: Fri Oct  1 06:19:42 2021
+
+version 9.3(8) Bios:version 07.68 
+feature tacacs+
+
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+    source-interface mgmt0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct  1 06:19:39 2021
+!Time: Fri Oct  1 06:19:46 2021
+
+version 9.3(8) Bios:version 07.68 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account tom
+user:tom does not exist
+switch(config)# 
+
+					<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   TELNET LOGIN VIA SVI/INBAND IP 10.126.67.43 tom/tom12345 (which is a tacacs user)
+
+
+switch(config)# show user-account tom
+user:tom
+        roles:network-admin vdc-admin priv-1 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+switch(config)#
+
+
+switch(config)# 
+switch(config)# show int vlan150 br
+
+-------------------------------------------------------------------------------
+Interface Secondary VLAN(Type)                    Status Reason                 
+-------------------------------------------------------------------------------
+Vlan150   --                                      up     --        
+switch(config)# 
+switch(config)# show int mgmt0 br
+
+--------------------------------------------------------------------------------
+Port   VRF          Status IP Address                              Speed    MTU
+--------------------------------------------------------------------------------
+mgmt0  --           down   10.126.67.84                            --       1500         <<<<<<<<<<<<<<<<< MGMT0 is down
+    
+switch(config)# 
+switch(config)# show int e1/1 br
+
+--------------------------------------------------------------------------------
+Ethernet        VLAN    Type Mode   Status  Reason                 Speed     Por
+t
+Interface                                                                    Ch 
+#
+--------------------------------------------------------------------------------
+Eth1/1          150     eth  access up      none                     1000(D) --
+switch(config)# 
+ 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri Oct  1 06:23:37 2021
+!Time: Fri Oct  1 06:23:40 2021
+
+version 9.3(8) Bios:version 07.68 
+feature tacacs+
+
+ip tacacs source-interface Vlan150
+tacacs-server host 10.77.143.170 key 7 "wawyanb123" 
+aaa group server tacacs+ tac1 
+    server 10.77.143.170 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Fri Oct  1 06:23:37 2021
+!Time: Fri Oct  1 06:23:43 2021
+
+version 9.3(8) Bios:version 07.68 
+aaa authentication login default group tac1 
+aaa authentication login console local 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account tom
+user:tom does not exist
+switch(config)# 
+switch(config)# 
+
+						<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   TELNET LOGIN VIA SVI/INBAND IP 10.126.67.43 tom/tom12345 (which is a tacacs user)
+
+
+switch(config)# 
+switch(config)# show user-account tom
+user:tom
+        roles:network-admin vdc-admin priv-1 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+switch(config)# 
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: U-comments (Created 09/03/2021 07:46:13 Added 09/03/2021 07:46:13 by vasagraw)---
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Friday, 3 September 2021 at 8:08 PM
+To: "Elayne Lopez Alfaro (ellopeza)" <ellopeza@cisco.com>
+Cc: "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "email-in@cisco.com" <email-in@cisco.com>, "Scott Hoppmann (shoppman)" <shoppman@cisco.com>
+Subject: Re: CSCvz55570 - SR 691757132 - Nexus 9k not sending authorization request
+
+Hi Elayne,
+
+As you confirmed over chat, the issue is NOT reproducible locally in cisco lab. So, as of now we are marking it U ? You can re-open it if you have the repro. We can track and troubleshoot the issue with the help of SR in the meantime.
+
+As a next step to troubleshoot the customer issue, please collect ?debug tacacs all? logs along with packet captures on the switch. We would look into them.
+
+Regards,
+
+Vasu
+
+From: "Elayne Lopez Alfaro (ellopeza)" <ellopeza@cisco.com>
+Date: Friday, 3 September 2021 at 7:14 PM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "email-in@cisco.com" <email-in@cisco.com>, "Scott Hoppmann (shoppman)" <shoppman@cisco.com>
+Subject: RE: CSCvz55570 - SR 691757132 - Nexus 9k not sending authorization request
+
+Hi Vasu,
+
+Please don?t U the bug. Customer has been patient to work towards resolution and this seems to be specific to the NX9k. 
+Please check the pcaps of my last email and let us know the next steps
+
+Best regards, 
+.:|:.:|:.
+c i s c o
+Lourdes Elayne López Alfaro
+Global CX Centers ? Security Support Services | AAA
+Phone: +1 919 574 0477
+Standard business hours: 7:30 ? 15:30 hours (CT)
+Email: ellopeza@cisco.com
+
+Team Lead: Jonathan Casillas
+Phone: 919-574-8044
+Email: joncasil@cisco.com
+ 
+Direct Manager: Lester Pinto 
+Phone: 919-574-6291
+Email:  lepinto@cisco.com
+
+To update your case (requires a support contract):  https://mycase.cloudapps.cisco.com/
+Cisco Worldwide Contact:  http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+To upload files to your case:  https://cway.cisco.com/csc/
+
+From: Elayne Lopez Alfaro (ellopeza) 
+Sent: viernes, 3 de septiembre de 2021 08:42 a. m.
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: Anil Kunnath (anikunna) <anikunna@cisco.com>
+Subject: RE: CSCvz55570 - SR 691757132 - Nexus 9k not sending authorization request
+
+Hi Vasu, 
+
+We have a lab repro in the lab. I am sending the pcap attached in this email. 
+
+AS-02-capfilter.pcap is the pcap is the customer?s working switch, which is a NX3k. The encryption key is: 1902daa720389b78515d1cf161b31a08
+nrfk-ise-002p_GigabitEthernet_0 is the pcap of the non-working switch, which is a NX9k. The encryption key: 8JL33@w143!y
+
+Link to the non-working switch pcap: https://cae-largefile-prod.cisco.com/web-ui?appId=CSOne&srId=691757132&fileName=nrfk-ise-002p_GigabitEthernet_0.zip
+
+Best regards, 
+.:|:.:|:.
+c i s c o
+Lourdes Elayne López Alfaro
+Global CX Centers ? Security Support Services | AAA
+Phone: +1 919 574 0477
+Standard business hours: 7:30 ? 15:30 hours (CT)
+Email: ellopeza@cisco.com
+
+Team Lead: Jonathan Casillas
+Phone: 919-574-8044
+Email: joncasil@cisco.com
+ 
+Direct Manager: Lester Pinto 
+Phone: 919-574-6291
+Email:  lepinto@cisco.com
+
+To update your case (requires a support contract):  https://mycase.cloudapps.cisco.com/
+Cisco Worldwide Contact:  http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+To upload files to your case:  https://cway.cisco.com/csc/
+
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com> 
+Sent: viernes, 3 de septiembre de 2021 05:30 a. m.
+To: Elayne Lopez Alfaro (ellopeza) <ellopeza@cisco.com>
+Cc: Anil Kunnath (anikunna) <anikunna@cisco.com>
+Subject: CSCvz55570 - SR 691757132 - Nexus 9k not sending authorization request
+
+Hi Elayne,
+
+Looking at the traces from AS-02-capfilter.pcap, I understand that 192.168.150.102 is the server IP ? no response coming from there? 
+
+Also, I see the issue is not reproducible in lab; so we would like to U the bug for now. You can re-open the bug once repro is available. As for making progress and for further communication, we can continue the SR ID -
+
+**********************
+No.          Time        Source     Destination             Protocol  Length     Info
+28            10.045901               192.168.150.27       192.168.150.102     TCP          74            58389 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=14932903 TSecr=0
+29            10.046500               192.168.150.27       192.168.150.102     TCP          66            58389 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=14932903 TSecr=2382811780
+30            10.046950               192.168.150.27       192.168.150.102     TACACS+ 156          Q: Authorization     <<<<<<<<< No response packets, right?
+
+31            10.068350               192.168.150.27       192.168.150.102     TCP          66            58389 ? 49 [FIN, ACK] Seq=91 Ack=105 Win=17376 Len=0 TSval=14932903 TSecr=2382811801
+32            10.068992               192.168.150.27       192.168.150.102     TCP          66            [TCP Retransmission] 58389 ? 49 [FIN, ACK] Seq=91 Ack=106 Win=17376 Len=0 TSval=14932903 TSecr=2382811801
+
+------------------------------------------
+
+No.          Time        Source     Destination             Protocol  Length     Info
+23            10.000902               192.168.150.27       192.168.150.102     TCP          74            58374 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=14932902 TSecr=0
+24            10.001605               192.168.150.27       192.168.150.102     TCP          66            58374 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=14932902 TSecr=2382811735
+25            10.002023               192.168.150.27       192.168.150.102     TACACS+ 124          Q: Authentication
+26            10.022818               192.168.150.27       192.168.150.102     TCP          66            58374 ? 49 [ACK] Seq=59 Ack=20 Win=17376 Len=0 TSval=14932902 TSecr=2382811756
+27            10.023278               192.168.150.27       192.168.150.102     TCP          66            58374 ? 49 [FIN, ACK] Seq=59 Ack=20 Win=17376 Len=0 TSval=14932902 TSecr=2382811756
+28            10.045901               192.168.150.27       192.168.150.102     TCP          74            58389 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=14932903 TSecr=0
+29            10.046500               192.168.150.27       192.168.150.102     TCP          66            58389 ? 49 [ACK] Seq=1 Ack=1 Win=17376 Len=0 TSval=14932903 TSecr=2382811780
+30            10.046950               192.168.150.27       192.168.150.102     TACACS+ 156          Q: Authorization
+31            10.068350               192.168.150.27       192.168.150.102     TCP          66            58389 ? 49 [FIN, ACK] Seq=91 Ack=105 Win=17376 Len=0 TSval=14932903 TSecr=2382811801
+32            10.068992               192.168.150.27       192.168.150.102     TCP          66            [TCP Retransmission] 58389 ? 49 [FIN, ACK] Seq=91 Ack=106 Win=17376 Len=0 TSval=14932903 TSecr=2382811801
+**********************
+
+Regards,
+
+Vasu
+---End of Note Titled: U-comments---
+
+
+---Start of Note Titled: A-comments (Created 09/02/2021 23:19:48 Added 09/02/2021 23:19:48 by anikunna)---
+Pls check & update
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 09/02/2021 10:59:10 Modified 12/13/2021 08:48:25 by palshanm)---
+<B>Symptom:</B>
+Nexus 9348 is being administered with ISE device administration feature which uses TACACS+
+When going through the aaa flow, we see authentication and accounting queries being send back to ISE. 
+But authorization request are never send by the NX
+
+
+From ISE perspective, we always hit the correct policy. But authorization request never reaches ISE.
+
+In lab testing, we can see that this is not reproduceable
+
+<B>Conditions:</B>
+ISE 3.0 no patch
+Nexus 9348 version 9.3(2) Bios:version 05.39
+
+MGMT0 port (on switch) is down. The route (to TACACS server) is provided via an INBAND channel.
+
+--------------
+tacacs-server host <X.X.X.X key> 7 <xyz> 
+aaa group server tacacs+ tac_group 
+    server <X.X.X.X>
+    source-interface <Vlan123>           <<<<< Inband interface to TACACS server via SVI
+--------------
+
+<B>Workaround:</B>
+Configure Inband interface as global TACACS interface.
+
+--------------
+ip tacacs source-interface <Vlan123>    <<<<< the inband channel as global TACACS interface
+
+tacacs-server host <X.X.X.X key> 7 <xyz> 
+aaa group server tacacs+ tac_group 
+    server <X.X.X.X>
+    source-interface <Vlan123>           
+--------------
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (14 of 14)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-kerry                                ascii text     1901           ananshar       10/19/2021 22:11:08      
+Diffs-release-kerry                               ascii text     1170           ananshar       10/19/2021 22:11:05      
+ccwarnings-kerry                                  ascii text     234            baas           10/19/2021 07:39:11      
+static-analysis-kerry                             binary         7094           baas           10/19/2021 07:38:58      
+l2_uls_sanity_report                              ascii text     4880           root           10/18/2021 06:56:47      
+nxos-pi-common-security-code-review-2             ascii text     935            prrqengg       10/18/2021 20:51:46      
+Release-note-diff                                 ascii text     811            vasagraw       10/04/2021 00:02:40      
+Diffs-release-irvine                              ascii text     572            vasagraw       10/03/2021 23:02:54      
+Diffs-commit-irvine                               ascii text     1907           vasagraw       10/03/2021 23:02:52      
+ccwarnings-irvine.p2                              ascii text     235            baas           10/03/2021 08:46:40      
+static-analysis-irvine.p2                         binary         7332           baas           10/03/2021 08:46:14      
+ccwarnings-irvine                                 ascii text     235            baas           10/01/2021 08:48:59      
+static-analysis-irvine                            binary         7181           baas           10/01/2021 08:48:33      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       09/30/2021 01:38:50      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/29/2026 satdr    	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/16/2025 pisces   	Software-type-ids       	286278844                    	                             	Del
+09/16/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/09/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/09/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/09/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/09/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/09/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/23/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-438804       	New
+03/23/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+03/23/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/23/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/23/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.2(1),7.0(3	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Known-fixed-releases    	                             	10.2(4)                      	New
+11/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1)                    	New
+10/31/2022 fas      	Integrated-releases     	                             	10.2(4)                      	New
+08/16/2022 fas      	Integrated-releases     	10.2(3.1)                    	                             	Del
+08/16/2022 fas      	Integrated-releases     	10.2(4)                      	                             	Del
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+07/15/2022 divvenka 	Known-fixed-releases    	10.2(4),9.3(8.23),10.2(3.1),1	                             	Del
+05/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1),10.2(4)            	New
+05/04/2022 divvenka 	Known-fixed-releases    	                             	10.2(4),10.2(3.1)            	New
+12/13/2021 palshanm 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+12/13/2021 palshanm 	Note Title              	                             	V-comments                   	New
+12/13/2021 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+12/13/2021 palshanm 	Status                  	R                            	V                            	Mod
+12/13/2021 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+12/13/2021 palshanm 	Verified-release        	                             	9.3(8.75)                    	New
+12/13/2021 palshanm 	Verified-confidence     	                             	tested                       	Mod
+12/13/2021 palshanm 	Verified-on             	                             	2021-12-13 16:48:25.000+0000 	Mod
+12/13/2021 palshanm 	statusStates            	                             	[status=R, startDate=Wed Oct 	New
+12/13/2021 palshanm 	statusStates            	[status=R, startDate=Wed Oct 	                             	Del
+12/13/2021 palshanm 	Age-status              	48                           	102                          	Mod
+12/13/2021 palshanm 	Mean-time-to-verified   	                             	101                          	Mod
+12/12/2021 divvenka 	Integrated-releases     	                             	10.2(1.149)                  	New
+12/12/2021 divvenka 	Known-fixed-releases    	                             	10.2(1.149)                  	New
+12/09/2021 clsulliv 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+10/26/2021 cdetsadm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/26/2021 cdetsadm 	MDF-edited              	                             	N                            	Mod
+10/26/2021 cdetsadm 	Known-affected-releases 	                             	9.3(2)                       	New
+10/26/2021 cdetsadm 	Known-fixed-releases    	                             	9.3(8.23),9.3(9)             	New
+10/25/2021 kratnam  	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+10/23/2021 palshanm 	Note Title              	                             	O-comments                   	New
+10/23/2021 palshanm 	Automated-test          	N                            	Y                            	Mod
+10/19/2021 ananshar 	Note Title              	                             	R-comments.p2                	New
+10/19/2021 ananshar 	Status-desc             	M-More                       	R-Resolved                   	Mod
+10/19/2021 ananshar 	Status                  	M                            	R                            	Mod
+10/19/2021 ananshar 	Resolver                	vasagraw                     	ananshar                     	Mod
+10/19/2021 ananshar 	Resolved-on             	2021-10-04 06:04:34.000+0000 	2021-10-20 05:40:10.000+0000 	Mod
+10/19/2021 ananshar 	statusStates            	                             	[status=M, startDate=Tue Oct 	New
+10/19/2021 ananshar 	statusStates            	[status=M, startDate=Tue Oct 	                             	Del
+10/19/2021 ananshar 	Age-status              	47                           	48                           	Mod
+10/19/2021 ananshar 	Mean-time-to-resolved   	31                           	47                           	Mod
+10/19/2021 ananshar 	File Name               	                             	Diffs-commit-kerry           	New
+10/19/2021 ananshar 	File Name               	                             	Diffs-release-kerry          	New
+10/19/2021 baas     	File Name               	                             	ccwarnings-kerry             	New
+10/19/2021 baas     	File Name               	                             	static-analysis-kerry        	New
+10/19/2021 ananshar 	Note Title              	                             	M-comments                   	New
+10/19/2021 ananshar 	Status-desc             	R-Resolved                   	M-More                       	Mod
+10/19/2021 ananshar 	Status                  	R                            	M                            	Mod
+10/19/2021 ananshar 	More-by                 	vasagraw                     	ananshar                     	Mod
+10/19/2021 ananshar 	More-on                 	2021-10-04 06:04:34.000+0000 	2021-10-19 13:52:45.000+0000 	Mod
+10/19/2021 ananshar 	statusStates            	                             	[status=R, startDate=Mon Oct 	New
+10/19/2021 ananshar 	statusStates            	[status=R, startDate=Mon Oct 	                             	Del
+10/19/2021 ananshar 	Age-status              	32                           	47                           	Mod
+10/19/2021 vasagraw 	Note Title              	                             	unit-test_kerry              	New
+10/19/2021 vasagraw 	Note Title              	                             	L2_ULS_Kerry                 	New
+10/18/2021 cms      	Note Title              	                             	Scrubnote                    	New
+10/18/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+10/18/2021 root     	File Name               	                             	l2_uls_sanity_report         	New
+10/18/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+10/11/2021 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+10/11/2021 jdasgupt 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+10/08/2021 shoppman 	serviceRequests/C3/69175	                             	                             	Mod
+10/08/2021 shoppman 	Urgency-desc            	CL4                          	CL3                          	Mod
+10/08/2021 shoppman 	Urgency                 	8                            	6                            	Mod
+10/06/2021 divvenka 	Integrated-releases     	                             	9.3(8.23),9.3(9)             	New
+10/06/2021 fermorei 	Note Title              	                             	KnowledgeSignature           	New
+10/06/2021 fermorei 	Attribute               	ed_ic_dc_rs                  	gnosis dsig_no_notapplicable 	Mod
+10/06/2021 fermorei 	Note Title              	                             	DetectionUnsuitable          	New
+10/04/2021 cdetsbtk 	Security-screening-times	2021-09-03 07:26:20.000+0000 	2021-10-04 11:07:55.000+0000 	Mod
+10/04/2021 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+10/04/2021 vasagraw 	File Name               	                             	Release-note-diff            	New
+10/04/2021 vasagraw 	Conditions              	ISE 3.0 no patch
+Nexus 9348 v	ISE 3.0 no patch
+Nexus 9348 v	Mod
+10/04/2021 vasagraw 	Workarounds             	N/A                          	Configure Inband interface as	Mod
+10/03/2021 vasagraw 	Note Title              	                             	R-comments                   	New
+10/03/2021 vasagraw 	Related-bugs            	                             	Teacat/CSCvz84858            	New
+10/03/2021 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+10/03/2021 vasagraw 	Status                  	A                            	R                            	Mod
+10/03/2021 vasagraw 	Teabugid                	                             	CSCvz84858                   	Mod
+10/03/2021 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+10/03/2021 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+10/03/2021 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+10/03/2021 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+10/03/2021 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+10/03/2021 vasagraw 	Breakage                	                             	No                           	Mod
+10/03/2021 vasagraw 	Regression              	                             	N                            	Mod
+10/03/2021 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+10/03/2021 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+10/03/2021 vasagraw 	Released-code           	                             	Y                            	Mod
+10/03/2021 vasagraw 	Origin                  	                             	base code                    	Mod
+10/03/2021 vasagraw 	Test-escape             	N                            	Y                            	Mod
+10/03/2021 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+10/03/2021 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+10/03/2021 vasagraw 	TPS_issue               	                             	N                            	Mod
+10/03/2021 vasagraw 	TPS_flag                	                             	N                            	Mod
+10/03/2021 vasagraw 	Behavior-changed        	                             	N                            	Mod
+10/03/2021 vasagraw 	Original-resolved-on    	                             	2021-10-04 06:04:34.000+0000 	Mod
+10/03/2021 vasagraw 	Documents-changed       	                             	none                         	Mod
+10/03/2021 vasagraw 	More-on                 	                             	2021-10-04 06:04:34.000+0000 	Mod
+10/03/2021 vasagraw 	Opened-on               	                             	2021-10-04 06:04:34.000+0000 	Mod
+10/03/2021 vasagraw 	Resolved-on             	                             	2021-10-04 06:04:34.000+0000 	Mod
+10/03/2021 vasagraw 	Submitted-on            	2021-09-02 17:59:10.847+0000 	2021-09-02 17:59:10.000+0000 	Mod
+10/03/2021 vasagraw 	New-on                  	2021-09-02 17:59:10.847+0000 	2021-09-02 17:59:10.000+0000 	Mod
+10/03/2021 vasagraw 	statusStates            	                             	[status=A, startDate=Mon Oct 	New
+10/03/2021 vasagraw 	statusStates            	[status=A, startDate=Mon Oct 	                             	Del
+10/03/2021 vasagraw 	Mean-time-to-resolved   	                             	31                           	Mod
+10/03/2021 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+10/03/2021 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+10/03/2021 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+10/03/2021 vasagraw 	Status-desc             	U-Unreproducible             	A-Assigned                   	Mod
+10/03/2021 vasagraw 	Status                  	U                            	A                            	Mod
+10/03/2021 vasagraw 	Assigner                	anikunna                     	vasagraw                     	Mod
+10/03/2021 vasagraw 	Assigned Date           	2021-09-03 06:19:48.000+0000 	2021-10-04 05:37:41.000+0000 	Mod
+10/03/2021 vasagraw 	statusStates            	                             	[status=U, startDate=Fri Sep 	New
+10/03/2021 vasagraw 	statusStates            	[status=U, startDate=Fri Sep 	                             	Del
+10/03/2021 vasagraw 	Age-status              	1                            	32                           	Mod
+10/03/2021 vasagraw 	Mean-time-to-assigned   	0                            	31                           	Mod
+10/03/2021 baas     	File Name               	                             	ccwarnings-irvine.p2         	New
+10/03/2021 baas     	File Name               	                             	static-analysis-irvine.p2    	New
+10/01/2021 baas     	File Name               	                             	ccwarnings-irvine            	New
+10/01/2021 baas     	File Name               	                             	static-analysis-irvine       	New
+10/01/2021 vasagraw 	Note Title              	                             	L2_ULS                       	New
+10/01/2021 vasagraw 	Note                    	Unit-test                    	Unit-test                    	Mod
+09/30/2021 vasagraw 	Note                    	Unit-test                    	Unit-test                    	Mod
+09/30/2021 vasagraw 	Note Title              	                             	Unit-test                    	New
+09/30/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+09/03/2021 vasagraw 	Note Title              	                             	U-comments                   	New
+09/03/2021 vasagraw 	Status-desc             	A-Assigned                   	U-Unreproducible             	Mod
+09/03/2021 vasagraw 	Status                  	A                            	U                            	Mod
+09/03/2021 vasagraw 	Unreproducible          	                             	2021-09-03 14:46:13.000+0000 	Mod
+09/03/2021 vasagraw 	statusStates            	                             	[status=A, startDate=Fri Sep 	New
+09/03/2021 vasagraw 	statusStates            	[status=A, startDate=Fri Sep 	                             	Del
+09/02/2021 anikunna 	Note Title              	                             	A-comments                   	New
+09/02/2021 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/02/2021 anikunna 	Status                  	N                            	A                            	Mod
+09/02/2021 anikunna 	Engineer                	                             	vasagraw                     	Mod
+09/02/2021 anikunna 	Assigner                	                             	anikunna                     	Mod
+09/02/2021 anikunna 	Assigned Date           	                             	2021-09-03 06:19:48.000+0000 	Mod
+09/02/2021 anikunna 	statusStates            	                             	[status=N, startDate=Thu Sep 	New
+09/02/2021 anikunna 	statusStates            	[status=N, startDate=Thu Sep 	                             	Del
+09/02/2021 anikunna 	Age-status              	0                            	1                            	Mod
+09/02/2021 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+09/02/2021 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/02/2021 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+09/02/2021 cdetsbtk 	Security-screening-times	                             	2021-09-03 07:26:20.000+0000 	Mod
+09/02/2021 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+09/02/2021 ellopeza 	serviceRequests/C3/69175	                             	C3/691757132                 	New
+09/02/2021 ellopeza 	Urgency-desc            	NA                           	CL4                          	Mod
+09/02/2021 ellopeza 	Urgency                 	                             	8                            	Mod
+09/02/2021 ellopeza 	Tickets-count           	0                            	1                            	Mod
+09/02/2021 ellopeza 	TACSR-count             	                             	1                            	Mod
+09/02/2021 ellopeza 	Tickets-count-direct    	                             	1                            	Mod
+09/02/2021 ellopeza 	Trouble-tickets         	                             	691757132                    	New
+09/02/2021 ellopeza 	Trouble-tickets-direct  	                             	C3691757132                  	New
+09/02/2021 ellopeza 	Note Title              	                             	Release-note                 	New
+09/02/2021 ellopeza 	Version                 	                             	9.3(2)                       	New
+09/02/2021 ellopeza 	Defect Created          	                             	                             	New

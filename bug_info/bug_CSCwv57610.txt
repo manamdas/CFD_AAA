@@ -1,0 +1,755 @@
+*******************************************************************************
+
+Bug ID   : CSCwv57610         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : Invalid Config rrplace Patch Generated for Username config
+PrimaryPV : 
+Version :10.5(5) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: clsulliv           Submitted: 07/19/2026 18:19:22     Last Updtd : 11/04/2026 02:42:25  
+RNE-Type: NONE                New-on : 07/19/2026 18:19:22      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:jredclif                                            
+Known-affected-releases:10.5(5) 
+
+Known-fixed-releases:10.6(4) 
+
+
+
+Potentially-affected-releases:10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 10.4(6) 10.4(7) 10.5(1) 10.5(2) 10.5(3) 10.5(3e) 10.5(3o) 10.5(3p) 10.5(3s) 10.5(3t) 10.5(4) 10.5(5) 10.5(6) 10.6(1) 10.6(1s) 10.6(2) 10.6(2n) 10.6(2s) 10.6(3) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 07/30/2026 08:31:44                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 10                                             
+Mean-time-to-verified: 11     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 07/19/2026 18:19:22            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Public                                     
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Configuring 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 07/19/2026 23:50:22 
+Code-reviewer: nih            
+Opened-on: 07/23/2026 22:10:26Opener: anok                  
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : qr4m-mf qr4m-manojohn qr4m-verified cfd
+Est. completion date: 07/22/2026 00:00:00  
+Script-version:                         
+
+More-by : anok                More-on: 07/23/2026 22:10:26  
+
+Documents Changed: none       Resolved: 07/30/2026 08:31:44 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 07/31/2026 11:35:17      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Preproduction
+Original-activity-when-found :   Customer-Preproduction
+Detailed-activity :              
+Summitter-org :                  DCN-Customer Success-US
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              BEMS02005133
+Trouble-tickets-direct :BEMSBEMS02005133 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 08/06/2026 04:32:20
+Document :    nexus
+
+Summary:
+Google escalation, invalid patch genrated for Username no op change
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS02005133    GOOGLE                                   
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1234461               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (7 of 7 ) ***********************
+
+---Start of Note Titled: nx_main-sanity (Created 08/06/2026 04:42:16 Added 08/06/2026 04:42:16 by rishabr2)---
+#################################################################
+####################### CDT Job Report ##########################
+#################################################################
+
+
+NXOS ASIC Testbed   : hv sanity95
+Sanity UI view      : <a href=https://nxtaas.cisco.com/job-history/1663411>1663411</a>
+Total Test cases    : 23
+Passed test cases   : 22
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log Path            : /auto/nxos-sanity/logs/rishabr2/1663411
+Code Diff           : /auto/paw-sjc-scratch/paw-logs/99d05da0-8fc4-11f1-972d-005056a4c2b5/diff.txt
+CDET ID             : <a href=https://cdetsng.cisco.com/summary/#/defect/CSCwv57610>CSCwv57610</a>
+CDT Max Coverage    : 0
+Pass Rate           : NA
+
+TestCases Report Summary
+------------------------
+TestSuite                       TestCase                        Result    Baseline Reference
+---------                       --------                        ------    -------------------
+erspan_term_uls                 testErspanTerminationDstSessionDeleteRecreatepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcErspanSourcePortFlappass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcErspanDestPortFlappass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationDestPortChangepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationWithEcmpandDestPortChangepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationwithTerminationIPChangepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationHeaderType3pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationPortTypeChangepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationJumbo      pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanUDFacl                fail      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationConfigReplacepass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationConfigRollbackpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanIPV4acl               pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanIPV6acl               pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationV4V6bothsrcdstpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchContinuousReloadpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadFMpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchSupSwitchoverpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadLCpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanTerminationMulSrcDstProcessRestartpass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanSourceAccess          pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testErspanUDFterm_def           pass      pass in nx_main_260 erspan_term_uls 1658083
+erspan_term_uls                 testCores                       pass      pass in nx_main_260 erspan_term_uls 1658083
+
+
+Current nx_main Sanity Outstanding Bugs
+-------------------------------------------
+CSCwt80707                  please re-spine sanity vNX and eor_vNX testbed using proper required threads/memory
+CSCwt95949                  RazorCrest: Env Power : Total Power Allocated is greater than Total Power Capacity 
+CSCwu09206                  vNX :: SPACEDUST module is not coming up in vNX, job id: 1507823
+CSCwu39604                  RR1F : 67 : The "show system internal mfwd" CLIs errors out in show tech support multicast serial mode even though PIM feature is not enabled.
+CSCwu41580                  budlightnning ::  g200 :: Diag Test Failed list ['ACT2'] for the module 27 on node01
+CSCwu44055                  GAMUT :: eth1/46/1, eth1/51/1 ports are  down, but eth1/46/2, eth1/51/2 ports are up 
+CSCwu50945                  RR1F In igmp script some issue in reserved value and max value via gnmi in delete and remove
+CSCwu65292                  RR1F Gamut: GOLD component tests delayed on Gamut P2 boards
+CSCwu67768                  RR1F#87: l2_non_vpc_sas_vlan_redirection_sanity:  verify_l2_redirection_for_default_untagged_packet_trunk_port_to_trunk_port Traffic Failed
+CSCwu78574                  RR1F[nx_main#113]:Observed an increase in memory consumption in the "pim6 and pim" process in FX3H pid.
+CSCwu83113                  RR1F : 101 : "show tech bgp" CLI errors out in show tech support platform-sdk output
+CSCwv09954                  rr1f(169): % Invalid command at '^' marker for interface Vlan10
+CSCwv20097                  RR1F#170:Observing bootup time increase by ~7sec to ~18 sec across all the pids
+CSCwv29568                  10.7(0)IMG9(0.194): Service-Port-Channel4 consistency check fails with SW/HW mismatch
+CSCwv31161                  RR1F[203]: Boutup Errors chown: cannot access '/opt/mtx/bin/netconf-proxy': No such file or directory in Blackbird Platform.
+CSCwv49799                  RR1F : 101, 209 : show tech-support netflow br command takes more time in parallel mode than serial mode.
+CSCwv50319                  RR1F#221: show tech-support all not executing successfully post ND ISSU from qr4m-rr1f
+CSCwv54816                  RR1F_234: clear hardware internal interface-all asic counters module 1 CLI throws python error
+CSCwv54907                  RR1F[233]: Bootup fine but seen unxpected Reload Errors /etc/rc.d/rcS.d/S35iptables command not found in Blackbird Platform.
+CSCwv66670                  RR1F #242: TRM Traffic Loss â?? Packets Punted to SUP by PIM Registration ACL
+CSCwv69325                  RR1F#254: optimatorX l3_ext_sanity_pyats: Physical Interfaces : Eth1/5/1 is not up
+CSCwv76266                  [System22] : After TenantRemoveAddAllLeaves destination mac is not present, duplicate traffic loss seen 
+CSCwv82657                  RR1F #272: feature bfd configuration hangs followed by repeated OSPF crashes on eor_j2_fretta
+CSCwv82800                  RR1F[build#272]:Ntpd repeatedly exits with "Bind failed, errno=4" causing fex_bringup_uls testModuleStatus failure on sundowm platform.
+CSCwv83177                  NX_MAIN#272 : OSPFv3 Repeatedly Crashes with Signal 6 on Standby Supervisor After Enabling OSPFv3 Process on eor_wolfridge and eor_homewood.
+CSCwv84974                  RR1F:260 NBM core not generated during memory leak verification
+CSCwv85051                  nx_main_260 qos_sanity_base QOS_L3PO node01 precedence egress counters outside expected range
+CSCwv85250                  RR1F #278: IPv6 BFD session over Vlan23 fails to establish due to ICMPv6 Port Unreachable response on eor_fretta
+CSCwv85301                  nx_main: l2_sanity ospfv3 SIGABRT assertion failure during router ospfv3 100 config
+CSCwv85668                  RR1F#273: [System22]: After removing and recreating multicast configuration across the switches, the traffic item v4-PBR-A5-L5ACC-To-L6E-SERVICE-TARGET-HTTP was observed with traffic failure
+CSCwv90912                  RR1F#283: High Memory Consumption by tahusd, urib, and swtele Processes on L6-KS causing traffic loss in initiliaze traffic for system-sanity sundown pid
+---End of Note Titled: nx_main-sanity---
+
+
+---Start of Note Titled: V-comments (Created 07/31/2026 11:35:18 Added 07/31/2026 11:35:18 by palshanm)---
+1. S/W Version : 10.6(3.56)
+
+2. Platform : N9K-C93180YC-FX3S
+
+3. Automation Suite: No
+
+4. Steps to reproduce and Verify: Testlog attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 07/30/2026 08:31:44 Added 07/30/2026 08:31:44 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: ULS (Created 07/29/2026 09:46:55 Added 07/29/2026 09:46:55 by qddts)---
+#################################################################
+####################### CDT Job Report ##########################
+#################################################################
+
+
+NXOS ASIC Testbed   : hv sanity122
+Sanity UI view      : <a href=https://nxtaas.cisco.com/job-history/1651406>1651406</a>
+Total Test cases    : 23
+Passed test cases   : 22
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log Path            : /auto/nxos-sanity/logs/vasagraw/1651406
+Code Diff           : /ws/sjap/astro/diffs/sanos-quezon_rel/9cfb01d8-8a42-11f1-a789-005056a40ab2/diff.txt
+CDET ID             : <a href=https://cdetsng.cisco.com/summary/#/defect/CSCwv57610>CSCwv57610</a>
+CDT Max Coverage    : 0
+Pass Rate           : NA
+
+TestCases Report Summary
+------------------------
+TestSuite                       TestCase                        Result    Baseline Reference
+---------                       --------                        ------    -------------------
+erspan_term_uls                 testErspanTerminationDstSessionDeleteRecreatepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcErspanSourcePortFlappass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcErspanDestPortFlappass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationDestPortChangepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationWithEcmpandDestPortChangepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationwithTerminationIPChangepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationHeaderType3pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationPortTypeChangepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationJumbo      pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanUDFacl                fail      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationConfigReplacepass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationConfigRollbackpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanIPV4acl               pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanIPV6acl               pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationV4V6bothsrcdstpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchContinuousReloadpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadFMpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchSupSwitchoverpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadLCpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanTerminationMulSrcDstProcessRestartpass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanSourceAccess          pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testErspanUDFterm_def           pass      pass in quezon_rel_32 erspan_term_uls 1604704
+erspan_term_uls                 testCores                       pass      pass in quezon_rel_32 erspan_term_uls 1604704
+---End of Note Titled: ULS---
+
+
+---Start of Note Titled:  Scrubnote (Created 07/24/2026 15:19:03 Modified 09/06/2026 22:43:30 by cms)---
+{260906 amitg7 S B} optx-spl-done
+{260831 amitg7 S B} optx-spl PR  : https://gh-nx.scm.engit.cisco.com/nx/nx/pull/101472
+{260804 samekama S B} nx_main double commit - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/98720
+{260730 kaarthik S G} Merged to QR4M
+{260729 samekama S B} Qr4m PR -https://gh-nx.scm.engit.cisco.com/nx/nx/pull/97998
+{260727 kaarthik S R} No QR4M PR yet
+{260724 kaarthik S R} PR to be raised in QR4M
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: M-comments (Created 07/23/2026 22:10:26 Added 07/23/2026 22:10:26 by anok)---
+Committed to SMU_REL_10_5_6 branch
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled:  Release-note (Created 07/19/2026 18:19:22 Modified 08/05/2026 03:05:02 by vasagraw)---
+<B>Symptom:</B>
+An unwarranted {"no username <>" + "username <>"} diff might be generated in Configure-Replace patch for a <username> CLI. If any active session is present for that user, "no username <>" from CR-patch would not get through. This will result into failure of the overall Configure-Replace operation.
+
+<B>Conditions:</B>
+The <username> CLI is functionally the same in both running-config and the CR-file. However, the two may be different syntax-wise.
+
+EXAMPLE: On execution, the CR-FILE config would turn into the currently present RUNNING-CONFIG config. Since they both are same, no diff should be generated against this config in the CR-patch. 
+RUNNING-CONFIG: username user9 password 5 ! expire 2027-01-07 role priv-2
+CR-FILE: username user9 role priv-2 expire 2027-01-07
+
+<B>Workaround:</B>
+If we do not intend to change a "username <>" configuration as part of CR-operation, the CR-file should have the same configuration as is present in running-config. The two functionally same "username <>"entries should be same syntactically as well. 
+
+<B>Further Problem Description:</B>
+The issue is not easily reproducible. It was observed sporadically.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (37 of 37)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-optimator_x_spl                      ascii text     25952          rishabr2       09/05/2026 22:54:23      
+ccwarnings-optimator_x_spl.p7                     ascii text     201            baas           09/04/2026 10:58:36      
+static-analysis-optimator_x_spl.p7                ascii text     2365           baas           09/04/2026 10:57:59      
+ccwarnings-optimator_x_spl.p6                     ascii text     201            baas           09/03/2026 21:58:29      
+static-analysis-optimator_x_spl.p6                ascii text     2365           baas           09/03/2026 21:56:50      
+ccwarnings-optimator_x_spl.p5                     ascii text     201            baas           09/01/2026 08:11:50      
+static-analysis-optimator_x_spl.p5                ascii text     2365           baas           09/01/2026 08:11:12      
+ccwarnings-optimator_x_spl.p4                     ascii text     201            baas           09/01/2026 04:46:05      
+static-analysis-optimator_x_spl.p4                ascii text     2365           baas           09/01/2026 04:45:27      
+ccwarnings-optimator_x_spl.p3                     ascii text     201            baas           08/31/2026 20:50:09      
+static-analysis-optimator_x_spl.p3                ascii text     2365           baas           08/31/2026 20:49:25      
+ccwarnings-optimator_x_spl.p2                     ascii text     201            baas           08/31/2026 11:30:01      
+static-analysis-optimator_x_spl.p2                ascii text     2365           baas           08/31/2026 11:29:23      
+code-review-optimator_x_spl.p2                    ascii text     1990           rishabr2       08/31/2026 07:12:24      
+PR-Description-101472                             ascii text     1497           rishabr2       08/31/2026 07:12:25      
+code-review-optimator_x_spl                       ascii text     1990           rishabr2       08/31/2026 06:08:31      
+ccwarnings-optimator_x_spl                        ascii text     201            baas           08/31/2026 03:16:27      
+static-analysis-optimator_x_spl                   ascii text     2365           baas           08/31/2026 03:15:51      
+Diffs-commit-smu_rel_10_5_6.p2                    ascii text     24969          nxbld          08/14/2026 09:21:28      
+Diffs-commit-smu_rel_10_5_6                       ascii text     955            nxbld          08/14/2026 09:21:21      
+Diffs-commit-nx_main                              ascii text     25916          vasagraw       08/06/2026 22:45:01      
+Release-note-diff                                 binary         2053           vasagraw       08/05/2026 03:05:02      
+code-review-nx_main.p2                            ascii text     1974           vasagraw       08/05/2026 00:56:40      
+UnitTest_nx_main                                  ascii text     92998          rishabr2       08/04/2026 06:06:24      
+PR-Description-98720                              ascii text     1498           vasagraw       08/05/2026 00:56:41      
+code-review-nx_main                               ascii text     1974           vasagraw       08/04/2026 02:33:22      
+ccwarnings-nx_main                                ascii text     201            baas           08/03/2026 23:33:51      
+static-analysis-nx_main                           ascii text     2148           baas           08/03/2026 23:33:14      
+CSCwv57610_QR4M_Test_Logs                         ascii text     79942          palshanm       07/31/2026 11:35:54      
+Diffs-commit-quezon_rel                           ascii text     26150          vasagraw       07/29/2026 21:48:06      
+Unit-test.p2                                      ascii text     16562          qddts          07/29/2026 09:51:28      
+code-review-quezon_rel.p2                         ascii text     1856           vasagraw       07/29/2026 09:25:36      
+PR-Description-97998                              ascii text     1402           vasagraw       07/29/2026 09:25:37      
+code-review-quezon_rel                            ascii text     1856           vasagraw       07/29/2026 09:18:43      
+ccwarnings-quezon_rel                             ascii text     201            baas           07/28/2026 02:26:49      
+static-analysis-quezon_rel                        ascii text     2148           baas           07/28/2026 02:26:12      
+Unit-test                                         ascii text     20546          qddts          07/21/2026 06:59:33      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/04/2026 spaule   	Attribute               	qr4m-mf qr4m-manojohn qr4m-ve	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+11/02/2026 vasagraw 	Attribute               	qr4m-mf qr4m-manojohn qr4m-ve	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+10/21/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/21/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/15/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/07/2026 amitg7   	Attribute               	qr4m-mf qr4m-manojohn qr4m-ve	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+09/06/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/05/2026 nxbld    	Integrated-releases     	                             	10.6(3)IOX9(0)               	New
+09/05/2026 nxbld    	Integrated-releases     	                             	10.6(3)IOX9(0.21)            	New
+09/05/2026 nxbld    	Apply-to                	                             	10.6(3)IOX9(0.21)            	New
+09/05/2026 rishabr2 	File Name               	                             	Diffs-commit-optimator_x_spl 	New
+09/04/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p7	New
+09/04/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+09/03/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p6	New
+09/03/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+09/01/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p5	New
+09/01/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+09/01/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p4	New
+09/01/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+08/31/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p3	New
+08/31/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+08/31/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl.p2	New
+08/31/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+08/31/2026 rishabr2 	contents                	                             	PR-Description-101472        	Mod
+08/31/2026 rishabr2 	File Name               	                             	code-review-optimator_x_spl.p	New
+08/31/2026 rishabr2 	File Name               	                             	PR-Description-101472        	New
+08/31/2026 rishabr2 	File Name               	                             	code-review-optimator_x_spl  	New
+08/31/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/31/2026 baas     	File Name               	                             	ccwarnings-optimator_x_spl   	New
+08/31/2026 baas     	File Name               	                             	static-analysis-optimator_x_s	New
+08/31/2026 vasagraw 	Attribute               	optx-spl cfd-manojohn        	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+08/30/2026 manojohn 	Attribute               	optx-spl                     	optx-spl cfd-manojohn        	Mod
+08/28/2026 vasagraw 	Attribute               	qr4m-mf qr4m-manojohn qr4m-ve	optx-spl                     	Mod
+08/25/2026 nxbld    	Integrated-releases     	                             	10.6(3s)ISQ9(1)              	New
+08/25/2026 nxbld    	Integrated-releases     	                             	10.6(3s)ISQ9(1.6)            	New
+08/25/2026 nxbld    	Apply-to                	                             	10.6(3s)ISQ9(1.6)            	New
+08/18/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/18/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/18/2026 pisces   	Known-fixed-releases    	                             	10.6(4)                      	New
+08/14/2026 nxbld    	Integrated-releases     	                             	10.5(6)SMU(2)                	New
+08/14/2026 nxbld    	Apply-to                	                             	10.5(6)SMU(2)                	New
+08/14/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_5_6.p	New
+08/14/2026 nxbld    	File Name               	                             	Diffs-commit-smu_rel_10_5_6  	New
+08/07/2026 nxbld    	Integrated-releases     	                             	10.7(1)IMG9(0)               	New
+08/07/2026 nxbld    	Integrated-releases     	                             	10.7(0)IMG9(0.293)           	New
+08/07/2026 nxbld    	Apply-to                	                             	10.7(0)IMG9(0.293)           	New
+08/06/2026 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+08/06/2026 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+08/06/2026 rishabr2 	Note Title              	                             	nx_main-sanity               	New
+08/05/2026 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+08/05/2026 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+08/05/2026 cdetsbtk 	Security-screening-times	2026-08-05 17:01:24.000+0000 	2026-08-06 11:32:20.000+0000 	Mod
+08/05/2026 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+08/05/2026 vasagraw 	contents                	                             	Release-note-diff            	Mod
+08/05/2026 vasagraw 	FileSize                	1341                         	2053                         	Mod
+08/05/2026 vasagraw 	Symptoms                	An unwarranted {"no username 	An unwarranted {"no username 	Mod
+08/05/2026 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+08/05/2026 vasagraw 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+08/05/2026 vasagraw 	contents                	                             	Release-note-diff            	Mod
+08/05/2026 vasagraw 	FileSize                	1218                         	1341                         	Mod
+08/05/2026 vasagraw 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+08/05/2026 cdetsbtk 	Security-screening-times	2026-08-05 14:56:41.000+0000 	2026-08-05 17:01:24.000+0000 	Mod
+08/05/2026 vasagraw 	Note                    	Release-note                 	Release-note                 	Mod
+08/05/2026 vasagraw 	File Name               	                             	Release-note-diff            	New
+08/05/2026 vasagraw 	Symptoms                	                             	An unwarranted {"no username 	Mod
+08/05/2026 vasagraw 	Conditions              	                             	The <username> CLI is functio	Mod
+08/05/2026 vasagraw 	Workarounds             	                             	If we do not intend to change	Mod
+08/05/2026 vasagraw 	Further-Problem-Descript	                             	The issue is not easily repro	Mod
+08/05/2026 vasagraw 	contents                	                             	PR-Description-98720         	Mod
+08/05/2026 cdetsbtk 	Security-screening-times	2026-08-05 11:39:17.000+0000 	2026-08-05 14:56:41.000+0000 	Mod
+08/05/2026 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+08/04/2026 cdetsbtk 	Security-screening-times	2026-08-04 20:06:25.000+0000 	2026-08-05 11:39:17.000+0000 	Mod
+08/04/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/04/2026 cdetsbtk 	Security-screening-times	2026-08-04 16:33:24.000+0000 	2026-08-04 20:06:25.000+0000 	Mod
+08/04/2026 rishabr2 	File Name               	                             	UnitTest_nx_main             	New
+08/04/2026 cdetsbtk 	Security-screening-times	2026-08-04 16:33:23.000+0000 	2026-08-04 16:33:24.000+0000 	Mod
+08/04/2026 cdetsbtk 	Security-screening-times	2026-08-04 13:33:52.000+0000 	2026-08-04 16:33:23.000+0000 	Mod
+08/04/2026 vasagraw 	File Name               	                             	PR-Description-98720         	New
+08/04/2026 vasagraw 	File Name               	                             	code-review-nx_main          	New
+08/03/2026 cdetsbtk 	Security-screening-times	2026-08-04 13:33:15.000+0000 	2026-08-04 13:33:52.000+0000 	Mod
+08/03/2026 baas     	File Name               	                             	ccwarnings-nx_main           	New
+08/03/2026 cdetsbtk 	Security-screening-times	2026-08-01 01:35:55.000+0000 	2026-08-04 13:33:15.000+0000 	Mod
+08/03/2026 baas     	File Name               	                             	static-analysis-nx_main      	New
+08/02/2026 manojohn 	Attribute               	qr4m-mf qr4m-manojohn qr4m-ve	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+07/31/2026 palshanm 	Attribute               	qr4m-mf qr4m-manojohn        	qr4m-mf qr4m-manojohn qr4m-ve	Mod
+07/31/2026 cdetsbtk 	Security-screening-times	2026-08-01 01:35:18.000+0000 	2026-08-01 01:35:55.000+0000 	Mod
+07/31/2026 palshanm 	File Name               	                             	CSCwv57610_QR4M_Test_Logs    	New
+07/31/2026 cdetsbtk 	Security-screening-times	2026-07-30 22:31:45.000+0000 	2026-08-01 01:35:18.000+0000 	Mod
+07/31/2026 palshanm 	Note Title              	                             	V-comments                   	New
+07/31/2026 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+07/31/2026 palshanm 	Status                  	R                            	V                            	Mod
+07/31/2026 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+07/31/2026 palshanm 	Verified-release        	                             	10.6(3.56)                   	New
+07/31/2026 palshanm 	Breakage                	                             	No                           	Mod
+07/31/2026 palshanm 	Regression              	                             	N                            	Mod
+07/31/2026 palshanm 	By-previous-commit-value	                             	No                           	Mod
+07/31/2026 palshanm 	Bug-origin              	Requirements                 	Code / Implementation        	Mod
+07/31/2026 palshanm 	Origin                  	requirements                 	base code                    	Mod
+07/31/2026 palshanm 	Verified-confidence     	                             	tested                       	Mod
+07/31/2026 palshanm 	Verified-on             	                             	2026-07-31 18:35:17.000+0000 	Mod
+07/31/2026 palshanm 	statusStates            	                             	[status=R, startDate=Thu Jul 	New
+07/31/2026 palshanm 	statusStates            	[status=R, startDate=Thu Jul 	                             	Del
+07/31/2026 palshanm 	Age-status              	10                           	11                           	Mod
+07/31/2026 palshanm 	Mean-time-to-verified   	                             	11                           	Mod
+07/30/2026 pisces   	VF-unpatched            	                             	NX-OS:10.4(2),NX-OS:10.4(3),N	New
+07/30/2026 pisces   	Potentially-affected-rel	                             	10.4(2),10.4(3),10.4(4),10.4(	New
+07/30/2026 nxbld    	Integrated-releases     	                             	10.6(4)                      	New
+07/30/2026 nxbld    	Integrated-releases     	                             	10.6(3.56)                   	New
+07/30/2026 nxbld    	Apply-to                	                             	10.6(3.56)                   	New
+07/30/2026 cdetsbtk 	Security-screening-times	2026-07-30 22:07:06.000+0000 	2026-07-30 22:31:45.000+0000 	Mod
+07/30/2026 vasagraw 	Note Title              	                             	R-comments                   	New
+07/30/2026 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+07/30/2026 vasagraw 	Status                  	M                            	R                            	Mod
+07/30/2026 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+07/30/2026 vasagraw 	Original-resolved-on    	                             	2026-07-30 15:31:44.000+0000 	Mod
+07/30/2026 vasagraw 	Resolved-on             	                             	2026-07-30 15:31:44.000+0000 	Mod
+07/30/2026 vasagraw 	statusStates            	                             	[status=M, startDate=Fri Jul 	New
+07/30/2026 vasagraw 	statusStates            	[status=M, startDate=Fri Jul 	                             	Del
+07/30/2026 vasagraw 	Age-status              	4                            	10                           	Mod
+07/30/2026 vasagraw 	Mean-time-to-resolved   	                             	10                           	Mod
+07/30/2026 cdetsbtk 	Security-screening-times	2026-07-30 11:48:06.000+0000 	2026-07-30 22:07:06.000+0000 	Mod
+07/30/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:51:29.000+0000 	2026-07-30 11:48:06.000+0000 	Mod
+07/29/2026 vasagraw 	File Name               	                             	Diffs-commit-quezon_rel      	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:46:56.000+0000 	2026-07-29 23:51:29.000+0000 	Mod
+07/29/2026 qddts    	File Name               	                             	Unit-test.p2                 	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:25:38.000+0000 	2026-07-29 23:46:56.000+0000 	Mod
+07/29/2026 qddts    	Note Title              	                             	ULS                          	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:25:37.000+0000 	2026-07-29 23:25:38.000+0000 	Mod
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:18:45.000+0000 	2026-07-29 23:25:37.000+0000 	Mod
+07/29/2026 vasagraw 	contents                	                             	PR-Description-97998         	Mod
+07/29/2026 vasagraw 	File Name               	                             	code-review-quezon_rel.p2    	New
+07/29/2026 vasagraw 	Code-reviewer           	                             	nih,samekama                 	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 23:18:44.000+0000 	2026-07-29 23:18:45.000+0000 	Mod
+07/29/2026 vasagraw 	File Name               	                             	PR-Description-97998         	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-29 22:33:07.000+0000 	2026-07-29 23:18:44.000+0000 	Mod
+07/29/2026 vasagraw 	File Name               	                             	code-review-quezon_rel       	New
+07/29/2026 cdetsbtk 	Security-screening-times	2026-07-28 23:07:53.000+0000 	2026-07-29 22:33:07.000+0000 	Mod
+07/29/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/28/2026 cdetsbtk 	Security-screening-times	2026-07-28 16:26:49.000+0000 	2026-07-28 23:07:53.000+0000 	Mod
+07/28/2026 clsulliv 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS02005133            	New
+07/28/2026 clsulliv 	Urgency                 	                             	9                            	Mod
+07/28/2026 clsulliv 	Tickets-count           	0                            	1                            	Mod
+07/28/2026 clsulliv 	Tickets-count-direct    	                             	1                            	Mod
+07/28/2026 clsulliv 	Trouble-tickets         	                             	BEMS02005133                 	New
+07/28/2026 clsulliv 	Trouble-tickets-direct  	                             	BEMSBEMS02005133             	New
+07/28/2026 cdetsbtk 	Security-screening-times	2026-07-28 16:26:13.000+0000 	2026-07-28 16:26:49.000+0000 	Mod
+07/28/2026 baas     	File Name               	                             	ccwarnings-quezon_rel        	New
+07/28/2026 cdetsbtk 	Security-screening-times	2026-07-28 00:11:44.000+0000 	2026-07-28 16:26:13.000+0000 	Mod
+07/28/2026 baas     	File Name               	                             	static-analysis-quezon_rel   	New
+07/28/2026 ppegada  	Attribute               	qr4m-mf                      	qr4m-mf qr4m-manojohn        	Mod
+07/27/2026 cdetsbtk 	Security-screening-times	2026-07-25 05:19:03.000+0000 	2026-07-28 00:11:44.000+0000 	Mod
+07/27/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/24/2026 cdetsbtk 	Security-screening-times	2026-07-24 14:43:16.000+0000 	2026-07-25 05:19:03.000+0000 	Mod
+07/24/2026 cms      	Note Title              	                             	Scrubnote                    	New
+07/24/2026 cdetsbtk 	Security-screening-times	2026-07-24 12:10:26.000+0000 	2026-07-24 14:43:16.000+0000 	Mod
+07/24/2026 samekama 	Component               	ascii-cfg                    	aaa                          	Mod
+07/24/2026 samekama 	DE-manager              	magesh                       	anikunna                     	Mod
+07/24/2026 samekama 	Doc-manager             	magesh                       	anikunna                     	Mod
+07/24/2026 samekama 	Component-hops-count    	0                            	1                            	Mod
+07/23/2026 cdetsbtk 	Security-screening-times	2026-07-24 11:32:02.000+0000 	2026-07-24 12:10:26.000+0000 	Mod
+07/23/2026 anok     	Note Title              	                             	M-comments                   	New
+07/23/2026 anok     	Status-desc             	A-Assigned                   	M-More                       	Mod
+07/23/2026 anok     	Status                  	A                            	M                            	Mod
+07/23/2026 anok     	Dev-escape-resolver-opin	                             	N                            	Mod
+07/23/2026 anok     	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+07/23/2026 anok     	More-by                 	                             	anok                         	Mod
+07/23/2026 anok     	Opener                  	                             	anok                         	Mod
+07/23/2026 anok     	Bug-origin              	                             	Requirements                 	Mod
+07/23/2026 anok     	Released-code           	                             	N                            	Mod
+07/23/2026 anok     	Origin                  	                             	requirements                 	Mod
+07/23/2026 anok     	Test-escape             	N                            	Y                            	Mod
+07/23/2026 anok     	Test-EDP-phase          	                             	Feature Test                 	Mod
+07/23/2026 anok     	Test-EDP-activity       	                             	Acceptance Testing           	Mod
+07/23/2026 anok     	TPS_issue               	                             	N                            	Mod
+07/23/2026 anok     	TPS_flag                	                             	N                            	Mod
+07/23/2026 anok     	Behavior-changed        	                             	N                            	Mod
+07/23/2026 anok     	Documents-changed       	                             	none                         	Mod
+07/23/2026 anok     	More-on                 	                             	2026-07-24 05:10:26.000+0000 	Mod
+07/23/2026 anok     	Opened-on               	                             	2026-07-24 05:10:26.000+0000 	Mod
+07/23/2026 anok     	statusStates            	                             	[status=A, startDate=Mon Jul 	New
+07/23/2026 anok     	statusStates            	[status=A, startDate=Mon Jul 	                             	Del
+07/23/2026 anok     	Age-status              	0                            	4                            	Mod
+07/23/2026 shrpande 	Attribute               	                             	qr4m-mf                      	Mod
+07/23/2026 cdetsbtk 	Security-screening-times	2026-07-21 20:59:34.000+0000 	2026-07-24 11:32:02.000+0000 	Mod
+07/23/2026 anok     	Engineer                	anok                         	vasagraw                     	Mod
+07/21/2026 cdetsbtk 	Security-screening-times	2026-07-20 13:50:23.000+0000 	2026-07-21 20:59:34.000+0000 	Mod
+07/21/2026 qddts    	File Name               	                             	Unit-test                    	New
+07/20/2026 cms      	Est-fix-date            	                             	2026-07-22 07:00:00.000+0000 	Mod
+07/19/2026 cdetsbtk 	Security-screening-times	2026-07-20 08:19:22.000+0000 	2026-07-20 13:50:23.000+0000 	Mod
+07/19/2026 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+07/19/2026 samekama 	Status                  	N                            	A                            	Mod
+07/19/2026 samekama 	Engineer                	                             	anok                         	Mod
+07/19/2026 samekama 	Assigner                	                             	samekama                     	Mod
+07/19/2026 samekama 	Assigned Date           	                             	2026-07-20 06:50:22.000+0000 	Mod
+07/19/2026 samekama 	statusStates            	                             	[status=N, startDate=Mon Jul 	New
+07/19/2026 samekama 	statusStates            	[status=N, startDate=Mon Jul 	                             	Del
+07/19/2026 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+07/19/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1234461      	New
+07/19/2026 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+07/19/2026 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+07/19/2026 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+07/19/2026 cdetsbtk 	Security-screening-times	                             	2026-07-20 08:19:22.000+0000 	Mod
+07/19/2026 clsulliv 	Note Title              	                             	Release-note                 	New
+07/19/2026 clsulliv 	Headline                	                             	Invalid Config rrplace Patch 	Mod
+07/19/2026 clsulliv 	Summary                 	                             	Google escalation, invalid pa	Mod
+07/19/2026 clsulliv 	Project                 	                             	CSC.datacenter               	Mod
+07/19/2026 clsulliv 	Product                 	                             	n9k-standalone-sw            	Mod
+07/19/2026 clsulliv 	Component               	                             	ascii-cfg                    	Mod
+07/19/2026 clsulliv 	Status-desc             	                             	N-New                        	Mod
+07/19/2026 clsulliv 	Status                  	                             	N                            	Mod
+07/19/2026 clsulliv 	Found                   	                             	customer-use                 	Mod
+07/19/2026 clsulliv 	Hardening               	                             	N                            	Mod
+07/19/2026 clsulliv 	Original-found          	                             	customer-use                 	Mod
+07/19/2026 clsulliv 	Hardware                	                             	Nexus 9000                   	New
+07/19/2026 clsulliv 	Feature                 	                             	fix                          	Mod
+07/19/2026 clsulliv 	Urgency-desc            	                             	NA                           	Mod
+07/19/2026 clsulliv 	Severity-desc           	                             	moderate                     	Mod
+07/19/2026 clsulliv 	Severity                	                             	3                            	Mod
+07/19/2026 clsulliv 	DE Priority Desc        	                             	medium                       	Mod
+07/19/2026 clsulliv 	DE-priority             	                             	3                            	Mod
+07/19/2026 clsulliv 	Impact                  	                             	Ease-of-Configuring          	New
+07/19/2026 clsulliv 	Submitter               	                             	clsulliv                     	Mod
+07/19/2026 clsulliv 	Submitter-manager       	                             	jredclif                     	Mod
+07/19/2026 clsulliv 	DE-manager              	                             	magesh                       	Mod
+07/19/2026 clsulliv 	DTPT-manager            	                             	manojohn                     	Mod
+07/19/2026 clsulliv 	Version                 	                             	10.5(5)                      	New
+07/19/2026 clsulliv 	Original-version        	                             	10.5(5)                      	Mod
+07/19/2026 clsulliv 	Found-during            	                             	Customer                     	Mod
+07/19/2026 clsulliv 	Activity-when-found     	                             	Customer-Preproduction       	Mod
+07/19/2026 clsulliv 	Automated-test          	                             	N                            	Mod
+07/19/2026 clsulliv 	Test-escape             	                             	N                            	Mod
+07/19/2026 clsulliv 	PSIRT                   	                             	N                            	Mod
+07/19/2026 clsulliv 	Data-classification     	                             	Cisco Public                 	Mod
+07/19/2026 clsulliv 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+07/19/2026 clsulliv 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+07/19/2026 clsulliv 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+07/19/2026 clsulliv 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/19/2026 clsulliv 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+07/19/2026 clsulliv 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+07/19/2026 clsulliv 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+07/19/2026 clsulliv 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+07/19/2026 clsulliv 	MDF-edited              	                             	N                            	Mod
+07/19/2026 clsulliv 	Attribute2              	                             	n/a                          	Mod
+07/19/2026 clsulliv 	Care-Update             	                             	Y                            	Mod
+07/19/2026 clsulliv 	Doc-manager             	                             	magesh                       	Mod
+07/19/2026 clsulliv 	Document                	                             	nexus                        	Mod
+07/19/2026 clsulliv 	Documentation-resolution	                             	Undefined                    	Mod
+07/19/2026 clsulliv 	Original-activity-when-f	                             	Customer-Preproduction       	Mod
+07/19/2026 clsulliv 	Original-found-during   	                             	Customer                     	Mod
+07/19/2026 clsulliv 	Submitter-org-bug       	                             	DCN-Customer Success-US      	Mod
+07/19/2026 clsulliv 	Component-scenarios     	                             	N                            	Mod
+07/19/2026 clsulliv 	Submitted-on            	                             	2026-07-20 01:19:22.350+0000 	Mod
+07/19/2026 clsulliv 	IFD-CFD-Conv-date       	                             	2026-07-20 01:19:22.350+0000 	Mod
+07/19/2026 clsulliv 	New-on                  	                             	2026-07-20 01:19:22.350+0000 	Mod
+07/19/2026 clsulliv 	statusStates            	                             	[status=S, startDate=Mon Jul 	New
+07/19/2026 clsulliv 	Transition-day          	0                            	2461242                      	Mod
+07/19/2026 clsulliv 	Release-note-status     	                             	ignore                       	Mod
+07/19/2026 clsulliv 	Reported By             	                             	clsulliv                     	Mod
+07/19/2026 clsulliv 	Known-affected-releases 	                             	10.5(5)                      	New
+07/19/2026 clsulliv 	RNE-Type                	                             	$$IGNORE                     	Mod
+07/19/2026 clsulliv 	Tickets-count           	                             	0                            	Mod
+07/19/2026 clsulliv 	Class                   	                             	CSC.datacenter               	Mod
+07/19/2026 clsulliv 	Reti-bug                	                             	Y                            	Mod
+07/19/2026 clsulliv 	Defect Created          	                             	                             	New

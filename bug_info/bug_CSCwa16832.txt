@@ -1,0 +1,934 @@
+*******************************************************************************
+
+Bug ID   : CSCwa16832         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 2 (severe)     
+Headline : Nexus 9000: No RADIUS packets sent after an OIR or switchover event on the active supervisor
+PrimaryPV : 
+Version :9.3(8) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: ramonmor           Submitted: 11/08/2021 16:38:11     Last Updtd : 07/29/2026 09:52:53  
+RNE-Type: NONE                New-on : 11/08/2021 16:38:11      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:rseptien                                            
+Known-affected-releases:9.3(8) 
+
+Known-fixed-releases:10.2(2) 10.2(4) 9.3(9) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 11/17/2021 11:01:28                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 8                                              
+Mean-time-to-verified: 14     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 11/09/2021 12:36:56            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 11/08/2021 20:06:23 
+Code-reviewer:                
+Opened-on: 11/17/2021 06:17:27Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : imr8-hkatakam kr2f-hkatakam cfd-manojoh
+Est. completion date: 11/17/2021 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 11/17/2021 06:17:27  
+
+Documents Changed: none       Resolved: 11/17/2021 11:01:28 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 11/23/2021 09:50:28      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-TL-MEX
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   3
+Tickets-count-direct :            3
+Trouble-tickets :              692120011;692487941;694369604
+Trouble-tickets-direct :C3692120011 
+Trouble-tickets-direct :C3692487941 
+Trouble-tickets-direct :C3694369604 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 04/21/2022 13:14:35
+Document :    nexus
+
+Summary:
+Radius packets might not be sent off of an EOR N9K running 9.3.8 post an OIR event on the active sup
+
+Ethanalyzer will not see any packet going off that switch
+SPAN capture will not see the radius PAP REQ packets on the next-hop
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         692120011       null                                     
+C3         692487941       null                                     
+C3         694369604       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-231672                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 vasagraw      11/17/2021 11:01:28    CSCwa25251      CSC.tea         R            
+
+
+********************* Listing of Notes (13 of 13 ) ***********************
+
+---Start of Note Titled: Automation Log (Created 01/27/2022 06:01:16 Added 01/27/2022 06:01:16 by palshanm)---
+Issue submitted for both OIR and Sup Switchover. Since OIR trigger is not possible to automate, covered sup switchover case. 
+Issue submitted for radius protocol. But covered both radius and tacacs protocols.
+
+Logs -https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F22-01%2FCFD_CSCwa16832_job.2022Jan27_19:06:10.223730.zip&atstype=ATS
+---End of Note Titled: Automation Log---
+
+
+---Start of Note Titled:  DetectionLogic (Created 01/25/2022 18:46:27 Modified 01/25/2022 18:47:53 by skumarth)---
+--- Update 2022-01-26 02:47:53.166320 (skumarth via 692566747)
+Logic : Condition 1 AND Condition 2 AND Condition 3 AND Condition 4 AND Condition 5
+
+--- Update 2022-01-26 02:46:25.937667 (skumarth via 692566747)
+Condition 1 : Platform 
+
+Issue affects Nexus 9000 swicthes << Nexus 3k ?????
+
+'show module' or 'show inventory'
+
+Condition 2 : NXOS version 
+
+'show version'
+
+Affected version : 9.3(8)    >>>>>>>> Version below this are affected or not ??
+Fixed version : 9.3(9) and 10.2(2)
+
+
+Condition 3 : Radius authentication failure logged on the switch
+
+'show logging log'
+
+2021 Nov  8 16:25:41.268 MTR-2A-32-Core1 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for RADIUS server 10.197.241.192
+
+Condition 4 : Radius should be configured on the switches
+
+'show running-config'
+
+radius-server timeout 10
+radius-server retransmit 3
+radius-server deadtime 5
+radius-server host 10.197.241.192 key 7 "Fewhg123" authentication accounting  <<< Search for "radius-server host"
+
+Condition 5 : SUP module is switchover or OIR  (Online Insertion or Removal)
+
+Switchover : 
+
+'show logging nvram'
+2021 Nov  3 09:30:48.955 MTR-2A-32-Core1 %$ VDC-1 %$ %KERN-2-SYSTEM_MSG: [ 4548.229679] Switchover started by redundancy driver - kernel
+2021 Nov  3 09:30:48.955 MTR-2A-32-Core1 %$ VDC-1 %$ %SYSMGR-2-HASWITCHOVER_PRE_START: This supervisor is becoming active (pre-start phase).
+2021 Nov  3 09:30:48.955 MTR-2A-32-Core1 %$ VDC-1 %$ %SYSMGR-2-HASWITCHOVER_START: Supervisor 27 is becoming active.
+2021 Nov  3 09:30:49.539 MTR-2A-32-Core1 %$ VDC-1 %$ %SYSMGR-2-SWITCHOVER_OVER: Switchover completed.
+
+OIR :
+
+'show logging nvram'
+
+2021 Nov  3 07:43:29.180 MTR-2A-32-Core1 %PLATFORM-2-MODULE_EJECTOR_POLICY_ENABLED: All Ejectors closed for module 1. Ejector based shutdown enabled
+2021 Nov  3 07:43:29.183 MTR-2A-32-Core1 %PLATFORM-2-MODULE_EJECTOR_POLICY_ENABLED: All Ejectors closed for module 2. Ejector based shutdown enabled
+2021 Nov  3 07:43:30.409 MTR-2A-32-Core1 %PLATFORM-2-MOD_REMOVE: Module 27 removed (Serial number )
+2021 Nov  3 08:14:06.285 MTR-2A-32-Core1 %PLATFORM-2-MOD_REMOVE: Module 27 removed (Serial number )
+
+Logic : Condition 1 AND Condition 2 AND Condition 3 AND Condition 4 AND Condition 5
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: V-comments (Created 11/23/2021 09:50:28 Added 11/23/2021 09:50:28 by palshanm)---
+1. S/W Version : 10.2(1.234)
+2. Platform : PI Fix
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Refer attached test logs
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 11/17/2021 11:01:29 Added 11/17/2021 11:01:29 by vasagraw)---
+fix ported to kerry as well.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: L2_ULS_kerry (Created 11/17/2021 10:59:46 Added 11/17/2021 10:59:46 by vasagraw)---
+Test server name    : nxosv-sanity606
+Testbed  name       : n9kv606-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/213606
+Report file         : /auto/nxos-sanity/logs/vasagraw/213606/l2_uls-n9kv606.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/213606/l2_uls-n9kv606.log
+Test start time     : 2021_11_17_04_59_11
+Test End time       : 2021_11_17_08_12_22
+Test Duration       : 3:13:10.603674
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '213606', '-cdet', 'CSCwa16832', '-build', '/ws/vasagraw-sjc/nxos64.10.2.1.199.F.bin', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv606-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/213606/l2_uls-n9kv606.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/213606/l2_uls-n9kv606.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:16:14   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+testConfigMgmtPort                                                        pass      0:00:29   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:10   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:22   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:19   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:19   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:37   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:51   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:39   
+testL2SanityMacLearning                                                   pass      0:05:10   
+testL2SanityPortFlap                                                      pass      0:04:39   
+testL2SanityClearMac                                                      pass      0:03:13   
+testL2SanityMacAging                                                      pass      0:09:16   
+testL2SanityMacMove                                                       pass      0:03:09   
+testL2SanityPortModeChange                                                pass      0:03:51   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:06   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:17   
+testL2SanityAllowedVlanAdd                                                pass      0:03:44   
+testL2SanityAllowedVlanRemove                                             pass      0:03:08   
+testL2SanityUnconfig                                                      pass      0:00:36   
+testVpcConfig                                                             pass      0:05:55   
+testVpcPeerLink                                                           pass      0:00:52   
+testVpcPeerKeepAlive                                                      pass      0:00:28   
+testVpcPortChannels                                                       pass      0:01:33   
+testVpcStpStates                                                          pass      0:00:30   
+testVpcConsistencies                                                      pass      0:03:24   
+testVpcUnknownUnicastFlooding                                             pass      0:08:31   
+testVpcUnconfig                                                           pass      0:04:49   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: L2_ULS_kerry---
+
+
+---Start of Note Titled: unit-test_kerry (Created 11/17/2021 10:59:13 Added 11/17/2021 10:59:13 by vasagraw)---
+switch(standby)# 
+switch(standby)# <<<<<<<<< SUP SWITCHOVER
+switch# 
+
+switch(config)# 
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Wed Nov 17 17:54:17 2021
+
+version 10.2(2) Bios:version 08.39 
+radius-server host 10.77.143.170 key 7 "fewhg123" authentication accounting 
+aaa group server radius rad1 
+    server 10.77.143.170 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+switch(config)# 
+switch(config)#  test aaa group rad1 bob bob12345
+user has been authenticated
+switch(config)#
+---End of Note Titled: unit-test_kerry---
+
+
+---Start of Note Titled: M-comments (Created 11/17/2021 06:17:28 Added 11/17/2021 06:17:28 by vasagraw)---
+Fix committed to Irvine (9.3.x) -
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: L2_ULS (Created 11/17/2021 02:00:55 Added 11/17/2021 02:00:55 by vasagraw)---
+Test server name    : nxosv-sanity601
+Testbed  name       : n9kv601-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/213440
+Report file         : /auto/nxos-sanity/logs/vasagraw/213440/l2_uls-n9kv601.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/213440/l2_uls-n9kv601.log
+Test start time     : 2021_11_16_22_46_01
+Test End time       : 2021_11_17_01_59_11
+Test Duration       : 3:13:09.631516
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '213440', '-cdet', 'CSCwa16832', '-build', '/ws/vasagraw-sjc/nxos.9.3.8.bin', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv601-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/213440/l2_uls-n9kv601.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/213440/l2_uls-n9kv601.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:15:58   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:07   
+testConfigMgmtPort                                                        pass      0:00:30   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:09   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:20   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:19   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:19   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:36   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:51   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:39   
+testL2SanityMacLearning                                                   pass      0:05:20   
+testL2SanityPortFlap                                                      pass      0:04:38   
+testL2SanityClearMac                                                      pass      0:03:11   
+testL2SanityMacAging                                                      pass      0:09:15   
+testL2SanityMacMove                                                       pass      0:03:08   
+testL2SanityPortModeChange                                                pass      0:03:50   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:05   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:16   
+testL2SanityAllowedVlanAdd                                                pass      0:03:43   
+testL2SanityAllowedVlanRemove                                             pass      0:03:06   
+testL2SanityUnconfig                                                      pass      0:00:36   
+testVpcConfig                                                             pass      0:05:57   
+testVpcPeerLink                                                           pass      0:00:51   
+testVpcPeerKeepAlive                                                      pass      0:00:27   
+testVpcPortChannels                                                       pass      0:01:32   
+testVpcStpStates                                                          pass      0:00:29   
+testVpcConsistencies                                                      pass      0:03:23   
+testVpcUnknownUnicastFlooding                                             pass      0:08:32   
+testVpcUnconfig                                                           pass      0:04:52   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: L2_ULS---
+
+
+---Start of Note Titled: Unit-test (Created 11/16/2021 20:34:51 Added 11/16/2021 20:34:51 by vasagraw)---
+MTR-2A-32-Core1(standby)# 
+MTR-2A-32-Core1(standby)# <<<<<<<=== system switchover on the other SUP
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1(config)# 
+MTR-2A-32-Core1(config)# show running-config | i i test
+cli alias name test2 test aaa group radius Ramon Cisco123
+cli alias name test3 test aaa group Microsoft-NPSs Ramon Cisco123
+MTR-2A-32-Core1(config)# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# test2
+user has been authenticated
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# test3
+user has been authenticated
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# show running-config | i i test
+cli alias name testaaa test aaa group Microsoft-NPSs cisco cisco
+cli alias name test2 test aaa group radius Ramon Cisco123
+cli alias name test3 test aaa group Microsoft-NPSs Ramon Cisco123
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Mon Nov 15 06:32:15 2021
+!Time: Mon Nov 15 06:34:48 2021
+
+version 9.3(8) Bios:version 05.45 
+radius-server timeout 10
+radius-server retransmit 3
+radius-server host 10.197.241.192 key 7 "Fewhg123" authentication accounting 
+aaa group server radius Microsoft-NPSs 
+    server 10.197.241.192 
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1# 
+MTR-2A-32-Core1(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 05.45
+ NXOS: version 9.3(8)
+  System version: 9.3(8)
+MTR-2A-32-Core1(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 11/08/2021 23:34:07 Modified 11/16/2021 20:15:04 by cms)---
+{211117 vasagraw S B} in prrq
+{211116 anikunna S B} Issue root caused and fix ready. Testing in progress.
+{211114 vasagraw S B} provided workaround to TAC to unblock customer 
+{211111 anikunna S B} Analysing logs currently
+{211110 anikunna S B} Issue seen only with physical OIR, not soft switchover. No root cause yet.
+{211108 anikunna S B} Config looks fine. Pkts are not send out post switchover. Came in today.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 11/08/2021 20:06:23 Added 11/08/2021 20:06:23 by anikunna)---
+Pls check & update
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: reproduction-steps (Created 11/08/2021 16:42:17 Added 11/08/2021 16:42:17 by ramonmor)---
+The repro is as easy as habing radius working and then OIRing the active sup, that's it
+
+LAB access:10.122.163.172
+
+1) Radius configuration
+
+radius-server timeout 10
+radius-server retransmit 3
+radius-server deadtime 5
+radius-server host 10.197.241.192 key 7 "Fewhg123" authentication accounting
+aaa group server radius Microsoft-NPSs
+    server 10.197.241.192
+    use-vrf management
+    source-interface mgmt0
+
+ip radius source-interface mgmt0
+
+2) Radius is working as expected - we can authenticate against our radius server
+
+test2 is only an alias
+MTR-2A-32-Core1(config)# sh run | i i test2
+cli alias name test2 test aaa group radius Ramon Cisco123
+
+MTR-2A-32-Core1(config-radius)# test2
+user has been authenticated 
+
+3) OIR the active supervisor - Someone physically pulled off the active super (slot 27) out of the switch
+
+4) Radius will fail after this event
+
+MTR-2A-32-Core1(config)# test2
+error authenticating to server, status=7
+
+5) At this stage neither ethanalyzer nor a span on the next-hop sees any radius packet going off the nexus
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 11/08/2021 16:38:11 Modified 04/21/2022 06:04:14 by francinf)---
+<B>Symptom:</B>
+Radius authentication failure and the following logs are displayed:
+
+MTR-2A-32-Core1# sh logg log | last 10
+2021 Nov  8 16:25:41.268 MTR-2A-32-Core1 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for RADIUS server 10.197.241.192
+2021 Nov  8 16:25:41.268 MTR-2A-32-Core1 %RADIUS-3-RADIUS_ERROR_MESSAGE: All RADIUS servers failed to respond after retries.
+2021 Nov  8 16:25:42.465 MTR-2A-32-Core1 %RADIUS-3-RADIUS_ERROR_MESSAGE: Failed looking up IP address for RADIUS server 10.197.241.192
+
+Ethanalyzer does not display the RADIUS PAP REQ packets and the next-hop will not see anything coming in
+
+<B>Conditions:</B>
+Radius configured
+OIR the active supervisor or perform a supervisor switchover (Seen via standard ISSU and Enhanced ISSU) 
+Switch running impacted code
+
+<B>Workaround:</B>
+reload the switch
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (18 of 18)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     629            francinf       04/21/2022 06:04:14      
+N39K-QA-CFD-Script-Reviews-code-review-3          ascii text     942            prrqengg       01/27/2022 06:47:50      
+CSCwa16832_imr8_test_logs.txt                     ascii text     51734          palshanm       12/06/2021 03:39:38      
+CSCwa16832_kr2f_oir_test_logs.txt                 binary         31121          palshanm       11/26/2021 03:35:53      
+CSCwa16832_kr2f_test_logs.txt                     binary         64264          palshanm       11/23/2021 09:50:45      
+Diffs-commit-kerry                                ascii text     1417           vasagraw       11/17/2021 07:02:38      
+Diffs-release-kerry                               ascii text     1217           vasagraw       11/17/2021 07:02:36      
+ccwarnings-kerry                                  ascii text     234            baas           11/17/2021 05:22:44      
+static-analysis-kerry                             binary         7391           baas           11/17/2021 05:22:31      
+nxos-pi-common-security-code-review-2             ascii text     935            prrqengg       11/17/2021 03:58:24      
+l2_uls_sanity_report                              ascii text     4689           root           11/17/2021 08:13:12      
+l2_uls_sanity_baseline_compare                    ascii text     200            root           11/17/2021 08:13:12      
+Diffs-release-irvine                              ascii text     1226           vasagraw       11/16/2021 23:03:12      
+Diffs-commit-irvine                               ascii text     1782           vasagraw       11/16/2021 23:03:09      
+ccwarnings-irvine                                 ascii text     235            baas           11/16/2021 22:17:45      
+static-analysis-irvine                            ascii text     9285           baas           11/16/2021 22:17:31      
+nxos-pi-common-security-code-review               ascii text     933            prrqengg       11/16/2021 07:17:47      
+MTR-2A-32-Core1-debug_oir2                        ascii text     281811         ramonmor       11/08/2021 16:38:36      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/29/2026 satdr    	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+04/16/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+04/16/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/16/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/16/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+03/16/2026 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+03/16/2026 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/16/2026 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/04/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+09/04/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/22/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+06/05/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+05/20/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+05/20/2025 buildins 	Software-type-ids       	286278844                    	                             	Del
+05/09/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/09/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/09/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/09/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+05/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/08/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/23/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+04/08/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+04/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/08/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/08/2025 buildins 	Known-fixed-releases    	10.2(2a),10.2(3),9.3(10)     	                             	Del
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+04/01/2025 pisces   	VF-unpatched            	NX-OS:5.2(1)SK3(1.1),NX-OS:5.	                             	Del
+04/01/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+04/01/2025 pisces   	Potentially-affected-rel	5.2(1)SK3(1.1),5.2(1)SK3(2.1)	                             	Del
+03/26/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+03/13/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+03/13/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/13/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+02/27/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/27/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/12/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+01/30/2025 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+12/10/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/19/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/19/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/19/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/21/2024 pisces   	VF-patched              	                             	NX-OS:10.2(2),NX-OS:10.2(2a),	New
+10/21/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+10/21/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+10/21/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/21/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+10/21/2024 pisces   	Known-fixed-releases    	                             	10.2(2a),10.2(3),9.3(10)     	New
+10/10/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/10/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/09/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/09/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/09/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/03/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-231672       	New
+10/03/2024 buildins 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+10/03/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/03/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/29/2024 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+11/13/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+05/09/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+05/03/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+05/03/2023 candid   	Known-fixed-releases    	                             	10.2(4)                      	New
+03/24/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+03/14/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+02/17/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+02/17/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+02/16/2023 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+12/12/2022 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/23/2022 asimitch 	serviceRequests/C3/69436	                             	                             	Mod
+11/23/2022 asimitch 	Urgency-desc            	P3                           	CL3                          	Mod
+11/17/2022 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/08/2022 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+11/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1)                    	New
+10/31/2022 fas      	Integrated-releases     	                             	10.2(4)                      	New
+10/20/2022 asimitch 	serviceRequests/C3/69436	                             	                             	Mod
+10/20/2022 asimitch 	Urgency-desc            	CL3                          	P3                           	Mod
+10/10/2022 asimitch 	serviceRequests/C3/69436	                             	                             	Mod
+10/10/2022 asimitch 	Urgency-desc            	CL4                          	CL3                          	Mod
+10/10/2022 asimitch 	Urgency                 	8                            	6                            	Mod
+10/03/2022 asimitch 	serviceRequests/C3/69436	                             	C3/694369604                 	New
+10/03/2022 asimitch 	Urgency-desc            	CL3                          	CL4                          	Mod
+10/03/2022 asimitch 	Urgency                 	6                            	8                            	Mod
+10/03/2022 asimitch 	Tickets-count           	2                            	3                            	Mod
+10/03/2022 asimitch 	TACSR-count             	2                            	3                            	Mod
+10/03/2022 asimitch 	Tickets-count-direct    	2                            	3                            	Mod
+10/03/2022 asimitch 	Trouble-tickets         	                             	694369604                    	New
+10/03/2022 asimitch 	Trouble-tickets-direct  	                             	C3694369604                  	New
+08/24/2022 fas      	Integrated-releases     	10.2(3.1)                    	                             	Del
+08/24/2022 fas      	Integrated-releases     	10.2(4)                      	                             	Del
+07/25/2022 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+06/30/2022 candid   	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+06/30/2022 candid   	Known-fixed-releases    	10.2(1.222),10.2(1.221),10.2(	                             	Del
+05/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1),10.2(4)            	New
+05/04/2022 divvenka 	Known-fixed-releases    	                             	10.2(4),10.2(3.1)            	New
+04/26/2022 subisai  	serviceRequests/C3/69212	                             	                             	Mod
+04/26/2022 subisai  	Urgency-desc            	CL4                          	CL3                          	Mod
+04/26/2022 subisai  	Urgency                 	8                            	6                            	Mod
+04/21/2022 cdetsbtk 	Security-screening-times	2022-04-20 14:18:12.000+0000 	2022-04-21 20:14:35.000+0000 	Mod
+04/21/2022 francinf 	Note                    	Release-note                 	Release-note                 	Mod
+04/21/2022 francinf 	contents                	                             	Release-note-diff            	Mod
+04/21/2022 francinf 	FileSize                	328                          	629                          	Mod
+04/21/2022 francinf 	Headline                	Nexus 9500: No RADIUS packets	Nexus 9000: No RADIUS packets	Mod
+04/21/2022 francinf 	Conditions              	Radius configured
+OIR the act	Radius configured
+OIR the act	Mod
+04/21/2022 francinf 	serviceRequests/C3/69212	                             	C3/692120011                 	New
+04/21/2022 francinf 	Urgency-desc            	CL3                          	CL4                          	Mod
+04/21/2022 francinf 	Urgency                 	6                            	8                            	Mod
+04/21/2022 francinf 	Tickets-count           	1                            	2                            	Mod
+04/21/2022 francinf 	TACSR-count             	1                            	2                            	Mod
+04/21/2022 francinf 	Tickets-count-direct    	1                            	2                            	Mod
+04/21/2022 francinf 	Trouble-tickets         	                             	692120011                    	New
+04/21/2022 francinf 	Trouble-tickets-direct  	                             	C3692120011                  	New
+04/20/2022 cdetsbtk 	Not-customer-visible-rea	Defect release Reason:  Comme	                             	Mod
+04/20/2022 cdetsbtk 	Security-screening-times	2021-11-11 16:25:30.000+0000 	2022-04-20 14:18:12.000+0000 	Mod
+04/18/2022 seshea   	Note                    	Release-note                 	Release-note                 	Mod
+04/18/2022 seshea   	contents                	                             	Release-note-diff            	Mod
+04/18/2022 seshea   	FileSize                	190                          	328                          	Mod
+04/18/2022 seshea   	Workarounds             	None                         	reload the switch            	Mod
+04/18/2022 seshea   	Note                    	Release-note                 	Release-note                 	Mod
+04/18/2022 seshea   	File Name               	                             	Release-note-diff            	New
+04/18/2022 seshea   	Conditions              	Radius configured
+OIR the act	Radius configured
+OIR the act	Mod
+04/18/2022 seshea   	Headline                	Nexus 9500: No RADIUS packets	Nexus 9500: No RADIUS packets	Mod
+04/18/2022 seshea   	Headline                	No radius pacets after an OIR	Nexus 9500: No RADIUS packets	Mod
+02/17/2022 ramonmor 	serviceRequests/C3/69248	                             	                             	Mod
+02/17/2022 ramonmor 	Urgency-desc            	P3                           	CL3                          	Mod
+01/27/2022 hayinala 	Attribute               	gnosis imr8-hkatakam kr2f-hka	imr8-hkatakam kr2f-hkatakam c	Mod
+01/27/2022 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+01/27/2022 palshanm 	Note Title              	                             	Automation Log               	New
+01/27/2022 palshanm 	Automated-test          	N                            	Y                            	Mod
+01/26/2022 hayinala 	Attribute               	imr8-hkatakam kr2f-hkatakam c	gnosis imr8-hkatakam kr2f-hka	Mod
+01/25/2022 skumarth 	Note                    	DetectionLogic               	DetectionLogic               	Mod
+01/25/2022 skumarth 	Note Title              	                             	DetectionLogic               	New
+12/06/2021 palshanm 	File Name               	                             	CSCwa16832_imr8_test_logs.txt	New
+12/06/2021 palshanm 	Attribute               	imr8-hkatakam kr2f-hkatakam c	imr8-hkatakam kr2f-hkatakam c	Mod
+12/06/2021 palshanm 	Verified-release        	                             	9.3(8.75)                    	New
+11/26/2021 palshanm 	File Name               	                             	CSCwa16832_kr2f_oir_test_logs	New
+11/23/2021 palshanm 	File Name               	                             	CSCwa16832_kr2f_test_logs.txt	New
+11/23/2021 palshanm 	Note Title              	                             	V-comments                   	New
+11/23/2021 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+11/23/2021 palshanm 	Status                  	R                            	V                            	Mod
+11/23/2021 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+11/23/2021 palshanm 	Verified-release        	                             	10.2(1.234)                  	New
+11/23/2021 palshanm 	Verified-confidence     	                             	tested                       	Mod
+11/23/2021 palshanm 	Verified-on             	                             	2021-11-23 17:50:28.000+0000 	Mod
+11/23/2021 palshanm 	statusStates            	                             	[status=R, startDate=Wed Nov 	New
+11/23/2021 palshanm 	statusStates            	[status=R, startDate=Wed Nov 	                             	Del
+11/23/2021 palshanm 	Age-status              	8                            	14                           	Mod
+11/23/2021 palshanm 	Mean-time-to-verified   	                             	14                           	Mod
+11/21/2021 jdasgupt 	Attribute               	imr8-hkatakam kr2f-hkatakam  	imr8-hkatakam kr2f-hkatakam c	Mod
+11/19/2021 ramonmor 	serviceRequests/C3/69248	                             	                             	Mod
+11/19/2021 ramonmor 	Urgency-desc            	CL4                          	P3                           	Mod
+11/19/2021 ramonmor 	Urgency                 	8                            	6                            	Mod
+11/19/2021 laagrawa 	Attribute               	imr8-hkatakam                	imr8-hkatakam kr2f-hkatakam  	Mod
+11/18/2021 divvenka 	Integrated-releases     	                             	10.2(1.221)                  	New
+11/18/2021 divvenka 	Known-fixed-releases    	                             	10.2(1.221)                  	New
+11/17/2021 vasagraw 	Note Title              	                             	R-comments                   	New
+11/17/2021 vasagraw 	Related-bugs            	                             	Teacat/CSCwa25251            	New
+11/17/2021 vasagraw 	Status-desc             	M-More                       	R-Resolved                   	Mod
+11/17/2021 vasagraw 	Status                  	M                            	R                            	Mod
+11/17/2021 vasagraw 	Teabugid                	                             	CSCwa25251                   	Mod
+11/17/2021 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+11/17/2021 vasagraw 	Original-resolved-on    	                             	2021-11-17 19:01:28.000+0000 	Mod
+11/17/2021 vasagraw 	Resolved-on             	                             	2021-11-17 19:01:28.000+0000 	Mod
+11/17/2021 vasagraw 	Submitted-on            	2021-11-09 00:38:11.807+0000 	2021-11-09 00:38:11.000+0000 	Mod
+11/17/2021 vasagraw 	New-on                  	2021-11-09 00:38:11.807+0000 	2021-11-09 00:38:11.000+0000 	Mod
+11/17/2021 vasagraw 	statusStates            	                             	[status=M, startDate=Wed Nov 	New
+11/17/2021 vasagraw 	statusStates            	[status=M, startDate=Wed Nov 	                             	Del
+11/17/2021 vasagraw 	Mean-time-to-resolved   	                             	8                            	Mod
+11/17/2021 vasagraw 	Note Title              	                             	L2_ULS_kerry                 	New
+11/17/2021 vasagraw 	Note Title              	                             	unit-test_kerry              	New
+11/17/2021 divvenka 	Integrated-releases     	                             	10.2(1.222),10.2(2)          	New
+11/17/2021 divvenka 	Known-fixed-releases    	                             	10.2(1.222),10.2(2)          	New
+11/17/2021 kratnam  	Attribute               	                             	imr8-hkatakam                	Mod
+11/17/2021 root     	contents                	                             	l2_uls_sanity_report         	Mod
+11/17/2021 root     	FileSize                	4680                         	4689                         	Mod
+11/17/2021 root     	contents                	                             	l2_uls_sanity_baseline_compar	Mod
+11/17/2021 vasagraw 	File Name               	                             	Diffs-commit-kerry           	New
+11/17/2021 vasagraw 	File Name               	                             	Diffs-release-kerry          	New
+11/17/2021 vasagraw 	Note Title              	                             	M-comments                   	New
+11/17/2021 vasagraw 	Status-desc             	A-Assigned                   	M-More                       	Mod
+11/17/2021 vasagraw 	Status                  	A                            	M                            	Mod
+11/17/2021 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+11/17/2021 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+11/17/2021 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+11/17/2021 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+11/17/2021 vasagraw 	Breakage                	                             	No                           	Mod
+11/17/2021 vasagraw 	Regression              	                             	N                            	Mod
+11/17/2021 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+11/17/2021 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+11/17/2021 vasagraw 	Released-code           	                             	Y                            	Mod
+11/17/2021 vasagraw 	Origin                  	                             	base code                    	Mod
+11/17/2021 vasagraw 	Test-escape             	N                            	Y                            	Mod
+11/17/2021 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+11/17/2021 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+11/17/2021 vasagraw 	TPS_issue               	                             	N                            	Mod
+11/17/2021 vasagraw 	TPS_flag                	                             	N                            	Mod
+11/17/2021 vasagraw 	Behavior-changed        	                             	N                            	Mod
+11/17/2021 vasagraw 	Documents-changed       	                             	none                         	Mod
+11/17/2021 vasagraw 	More-on                 	                             	2021-11-17 14:17:27.000+0000 	Mod
+11/17/2021 vasagraw 	Opened-on               	                             	2021-11-17 14:17:27.000+0000 	Mod
+11/17/2021 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Nov 	New
+11/17/2021 vasagraw 	statusStates            	[status=A, startDate=Tue Nov 	                             	Del
+11/17/2021 vasagraw 	Age-status              	0                            	8                            	Mod
+11/17/2021 baas     	File Name               	                             	ccwarnings-kerry             	New
+11/17/2021 baas     	File Name               	                             	static-analysis-kerry        	New
+11/17/2021 divvenka 	Integrated-releases     	                             	9.3(8.57),9.3(9)             	New
+11/17/2021 divvenka 	Known-fixed-releases    	                             	9.3(8.57),9.3(9)             	New
+11/17/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/17/2021 vasagraw 	Note Title              	                             	L2_ULS                       	New
+11/17/2021 root     	File Name               	                             	l2_uls_sanity_report         	New
+11/17/2021 root     	File Name               	                             	l2_uls_sanity_baseline_compar	New
+11/16/2021 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+11/16/2021 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+11/16/2021 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+11/16/2021 baas     	File Name               	                             	ccwarnings-irvine            	New
+11/16/2021 baas     	File Name               	                             	static-analysis-irvine       	New
+11/16/2021 vasagraw 	Note Title              	                             	Unit-test                    	New
+11/16/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/16/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+11/16/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/14/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/11/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/11/2021 cms      	Est-fix-date            	                             	2021-11-17 08:00:00.000+0000 	Mod
+11/11/2021 cdetsbtk 	Security-screening-times	2021-11-09 13:21:29.000+0000 	2021-11-11 16:25:30.000+0000 	Mod
+11/10/2021 ramonmor 	Headline                	No radius pacets after an OIR	No radius pacets after an OIR	Mod
+11/10/2021 ramonmor 	serviceRequests/C3/69248	                             	C3/692487941                 	New
+11/10/2021 ramonmor 	Urgency-desc            	NA                           	CL4                          	Mod
+11/10/2021 ramonmor 	Urgency                 	                             	8                            	Mod
+11/10/2021 ramonmor 	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+11/10/2021 ramonmor 	Data-classification-reas	public bug - Radius          	Default value of Data-classif	Mod
+11/10/2021 ramonmor 	Tickets-count           	0                            	1                            	Mod
+11/10/2021 ramonmor 	TACSR-count             	                             	1                            	Mod
+11/10/2021 ramonmor 	Tickets-count-direct    	                             	1                            	Mod
+11/10/2021 ramonmor 	Trouble-tickets         	                             	692487941                    	New
+11/10/2021 ramonmor 	Trouble-tickets-direct  	                             	C3692487941                  	New
+11/10/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/08/2021 cms      	Note Title              	                             	Scrubnote                    	New
+11/08/2021 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+11/08/2021 cdetsbtk 	Not-customer-visible-rea	                             	Defect release Reason:  Comme	Mod
+11/08/2021 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+11/08/2021 cdetsbtk 	Security-screening-times	                             	2021-11-09 13:21:29.000+0000 	Mod
+11/08/2021 anikunna 	Note Title              	                             	A-comments                   	New
+11/08/2021 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+11/08/2021 anikunna 	Status                  	N                            	A                            	Mod
+11/08/2021 anikunna 	Engineer                	                             	vasagraw                     	Mod
+11/08/2021 anikunna 	Assigner                	                             	anikunna                     	Mod
+11/08/2021 anikunna 	Assigned Date           	                             	2021-11-09 04:06:23.000+0000 	Mod
+11/08/2021 anikunna 	statusStates            	                             	[status=N, startDate=Tue Nov 	New
+11/08/2021 anikunna 	statusStates            	[status=N, startDate=Tue Nov 	                             	Del
+11/08/2021 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+11/08/2021 ramonmor 	Note Title              	                             	reproduction-steps           	New
+11/08/2021 ramonmor 	File Name               	                             	MTR-2A-32-Core1-debug_oir2   	New
+11/08/2021 ramonmor 	Note Title              	                             	Release-note                 	New
+11/08/2021 ramonmor 	Version                 	                             	9.3(8)                       	New
+11/08/2021 ramonmor 	Known-affected-releases 	                             	9.3(8)                       	New
+11/08/2021 ramonmor 	Defect Created          	                             	                             	New

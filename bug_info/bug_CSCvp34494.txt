@@ -1,0 +1,1528 @@
+*******************************************************************************
+
+Bug ID   : CSCvp34494         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : N9K: shows incorrect privilege level after change radius config
+PrimaryPV : 
+Version :9.2(3) 7.0(3)I7(6) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: qichan             Submitted: 04/15/2019 22:24:59     Last Updtd : 08/05/2026 06:17:45  
+RNE-Type: NONE                New-on : 04/15/2019 22:25:00      
+Root-cause-analysis:                                                  
+Interest : aeguiart nvasilye
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:                                                    
+Known-affected-releases:7.0(3)I7(6) 9.2(3) 
+
+Known-fixed-releases:7.0(3)I7(7) 9.2(4) 9.3(1) 
+
+
+
+Potentially-affected-releases:5.2(1)SV5(1.2) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.3(1) 8.3(2) 8.4(1) 9.2(1) 9.2(2) 9.2(2t) 9.2(3) 9.2(3y) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/17/2019 09:54:01                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 291                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/16/2019 05:24:59            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name: signedup-rsivatha                                          
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 04/15/2019 22:57:09 
+Code-reviewer: sarchand       
+Opened-on: 04/17/2019 09:54:01Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : girshank        Est Time/Attribute : gnosis dsig_no_notapplicable n3kn9k_cfd
+Est. completion date: 05/10/2019 00:00:00  
+Script-version:                         
+
+More-by : pomamath            More-on: 05/03/2019 00:55:54  
+
+Documents Changed: none       Resolved: 02/01/2020 02:41:21 Resolver: girshank       
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support ENT-Japan-APAC-SNTC
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   3
+Tickets-count-direct :            3
+Trouble-tickets :              685131738;687653970;688403174
+Trouble-tickets-direct :C3685131738 
+Trouble-tickets-direct :C3687653970 
+Trouble-tickets-direct :C3688403174 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 07/09/2019 04:52:43
+Document :    nexus
+
+Summary:
+change the privilege level on radius server, n9k shows incorrect privilege level, the issue happen in 9.x train not see in 7.x train
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         685131738       NET ONE SYSTEMS CO.,LTD.                 
+C3         687653970       LIMITED LIABILITY COMPANY T2 M           
+C3         688403174       SATEC                                    
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1263609               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              nvasilye      03/09/2020 08:15:29    CSCvt34993      CSC.datacenter  D            
+
+
+********************* Listing of Notes (17 of 17 ) ***********************
+
+---Start of Note Titled: Automation - NA (Created 11/14/2021 00:12:26 Added 11/14/2021 00:12:26 by palshanm)---
+This feature does not support in current releases.
+
+show privilege - command not supported now.
+
+This is the bug id for removing - https://cdetsng.cisco.com/summary/#/defect/CSCvt84275
+---End of Note Titled: Automation - NA---
+
+
+---Start of Note Titled: Not-Required-In-Davis (Created 01/23/2020 07:04:39 Added 01/23/2020 07:04:39 by samekama)---
+Not-Required-In-Davis
+---End of Note Titled: Not-Required-In-Davis---
+
+
+---Start of Note Titled:  GMR6-79 N9k verified (Created 07/30/2019 11:32:46 Modified 07/30/2019 11:32:47 by jesgeorg)---
+Verified on gmr6 - 79
+
+Sever setting for the user : 10.77.143.70
+/etc/freeradius/users . >>> users added here 
+
+
+user_13 Cleartext-Password := "user_13"
+       Service-Type=Administrative-User,
+       Cisco-AVPair="shell:roles=network-admin",
+       Cisco-AVPair += "shell:priv-lvl=15"
+
+#        Service-Type = NAS-Prompt-User,
+#        Cisco-AVPair = "shell:roles=network-operator",
+#       Cisco-AVPair += "shell:priv-lvl=1"
+# for CSCvp34494
+
+
+Initially logging in as user_13 in admin  role...
+
+bash-4.2$ ssh user_13@172.31.144.186
+The authenticity of host '172.31.144.186 (172.31.144.186)' can't be established.
+RSA key fingerprint is SHA256:SlkzV5bdlMjLdHOnjNcBtEqVSk32YFZx+mprZlK3m58.
+RSA key fingerprint is MD5:44:a2:33:b7:c7:8f:43:ff:0a:73:cb:40:22:d3:4b:1f.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.31.144.186' (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+DD13-Seoul-93180YC-EX# 
+DD13-Seoul-93180YC-EX# run bash whoami
+user_13
+DD13-Seoul-93180YC-EX# show privilege 
+User name: user_13
+Current privilege level: 15 .  >>>>>>>. admin role
+Feature privilege: Disabled
+DD13-Seoul-93180YC-EX# 
+DD13-Seoul-93180YC-EX# 
+         
+DD13-Seoul-93180YC-EX# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:nxopeuser
+        this user account has no expiry date
+        roles:priv-15 
+user:example.orgjdoe
+        this user account has no expiry date
+        roles:network-operator 
+no password set. Local login not allowed
+Remote login through RADIUS/TACACS+ is possible
+user:user_13
+        roles:network-admin    >>>>>>>>>>>>>>>. admin role
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+DD13-Seoul-93180YC-EX# 
+
+
+============= After toggling the role to operator  user and restarting the server =============
+
+
+bash-4.2$ ssh user_13@172.31.144.186
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+DD13-Seoul-93180YC-EX# run bash whoami
+% Permission denied for the role
+DD13-Seoul-93180YC-EX# show privilege 
+User name: user_13
+Current privilege level: -1 .  >>>>>>> operator role
+Feature privilege: Disabled
+DD13-Seoul-93180YC-EX# 
+DD13-Seoul-93180YC-EX# 
+
+
+Switch configs:
+
+DD13-Seoul-93180YC-EX(config)# show run radius
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Jul 30 18:15:31 2019
+!Time: Tue Jul 30 18:30:52 2019
+
+version 7.0(3)I7(7) Bios:version 07.66 
+radius-server host 10.77.143.170 key 7 "fewhg123" authentication accounting timeout 5 retransmit 1 
+aaa group server radius test 
+    server 10.77.143.170 
+    use-vrf management
+
+
+DD13-Seoul-93180YC-EX(config)# show aaa auth
+authentication   authorization    
+DD13-Seoul-93180YC-EX(config)# show aaa authentication 
+         default: group test 
+         console: group test 
+DD13-Seoul-93180YC-EX(config)#
+---End of Note Titled: GMR6-79 N9k verified---
+
+
+---Start of Note Titled: N9K- Irvine build 311 verified (Created 05/22/2019 09:42:01 Added 05/22/2019 09:42:01 by jesgeorg)---
+Verified on build Irvine - 311
+
+Sever setting for the user :
+
+user_13 Cleartext-Password := "user_13"
+       Service-Type=Administrative-User,
+       Cisco-AVPair="shell:roles=network-admin",
+       Cisco-AVPair += "shell:priv-lvl=15"
+
+#        Service-Type = NAS-Prompt-User,
+#        Cisco-AVPair = "shell:roles=network-operator",
+#        Cisco-AVPair += "shell:priv-lvl=1"
+# for CSCvp34494
+
+
+Initially logging in as user_13 in operator  role...
+
+DD13-Seoul-93180YC-EX login: user_13
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+DD13-Seoul-93180YC-EX# run bash whoami
+% Permission denied for the role
+DD13-Seoul-93180YC-EX# show privilege 
+User name: user_13
+Current privilege level: -1
+Feature privilege: Disabled
+DD13-Seoul-93180YC-EX# show user-account 
+user:admin
+        this user account has no expiry date
+        roles:network-admin 
+user:nxopeuser
+        this user account has no expiry date
+        roles:priv-15 
+user:user_12
+        this user account has no expiry date
+        roles:priv-8 network-admin 
+user:user_13
+        roles:network-operator 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user
+ account
+Local login not possible
+DD13-Seoul-93180YC-EX# exit
+
+User Access Verification
+DD13-Seoul-93180YC-EX login: 
+User Access Verification
+
+============= After toggling the role to admin user and restarting the server =============
+
+
+DD13-Seoul-93180YC-EX login: user_13
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+DD13-Seoul-93180YC-EX# show privilege 
+User name: user_13
+Current privilege level: 15
+Feature privilege: Disabled
+DD13-Seoul-93180YC-EX# run bash whoami
+user_13
+DD13-Seoul-93180YC-EX# 
+DD13-Seoul-93180YC-EX#
+---End of Note Titled: N9K- Irvine build 311 verified---
+
+
+---Start of Note Titled: neptune-sanity-hmr3 (Created 05/13/2019 21:55:17 Added 05/13/2019 21:55:17 by pomamath)---
+-----Original Message-----
+From: g2kconc@cisco.com <g2kconc@cisco.com> 
+Sent: Thursday, May 9, 2019 5:41 PM
+To: Polisetty Mamatha -X (pomamath - WIPRO LIMITED at Cisco) <pomamath@cisco.com>; Polisetty Mamatha -X (pomamath - WIPRO LIMITED at Cisco) <pomamath@cisco.com>; nxos-golden(mailer list) <nxos-golden@cisco.com>
+Subject: hamilton_neptune_bootup/0000244671 for nxos.9.2.3.18.bin on gd702, pass: 92, fail: 2, never ran: 0, abort: 0, cores: 0, totalcases expected : 94
+
+--------------------------AUTOMATED TEST RESULTS----------------------------
+
+Passed              : 92
+Failed              : 2
+Aborted             : 0
+Never ran           : 0
+Total               : 94
+Num Corefiles       : 0
+Num Coveragefiles   : 0
+Num DebugLogfiles   : 0
+Submitter           : pomamath
+Test Host           : sjc-golden-srv3.cisco.com
+Testbed             : gd702
+Isantesting         : hamilton.test
+Submit Time         : May-09-19 01:58:06 (PDT) (1557392286)
+Start Time          : May-09-19 03:35:39 (1557398139) (PDT)
+End Time            : May-09-19 05:04:06 (1557403446) (PDT)
+Elapsed Time        : 1 hours 28 mins (5307)
+Logs Archive        : /auto/nxos-golden/runlog/0224729.tgz
+si Commandline      :  -b hamilton -t neptune_bootup -baseline hamilton.test -n9kimage /nobackup/pomamath/hmr/34494/build/images/final/nxos.9.2.3.18.bin -mail pomamath@cisco.com 
+
+Please compare your results with Known issues:  https://wiki.cisco.com/display/NXOSGOLDEN/Known+And+Intermittent+issues+-+N3xK+Sanities
+
+Sanity/Regression Dashboard   : https://wiki.cisco.com/display/NXOSGOLDEN/N3K+Sanity+and+Regression+Dashboard
+
+To get the status of sanity   : https://wiki.cisco.com/display/NXOSGOLDEN/Check+n3k+sanity+submission+status
+
+Submission hang Issue Wiki    : https://wiki.cisco.com/display/NXOSGOLDEN/Unable+to+submit+or+the+submission+is+Hung
+
+
+----------------------------------DIAGNOSTICS----------------------------------
+Test : failed
+	Test name: IssuNxosUpgradeDowngradeWithCompact-n3k1_upgrade
+	Suitefile line number (test number): 3.40
+	Diagnostics:
+		Failed: 40.1.2.11:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+Test : failed
+	Test name: IssuNxosUpgradeDowngradeWithCompact-n3k2_upgrade
+	Suitefile line number (test number): 3.54
+	Diagnostics:
+		Failed: 40.1.2.12:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+
+-----End of Results Summary-----
+---End of Note Titled: neptune-sanity-hmr3---
+
+
+---Start of Note Titled: uls-sanity-hmr3 (Created 05/13/2019 21:53:25 Added 05/13/2019 21:53:25 by pomamath)---
+From: pomamath@cisco.com <pomamath@cisco.com> 
+Sent: Friday, May 10, 2019 11:25 AM
+To: Polisetty Mamatha -X (pomamath - WIPRO LIMITED at Cisco) <pomamath@cisco.com>
+Subject: T2 TOR uls Report: Job-id:POMAMATH-1557391354 Passed:27/27 Failed:0/27 Aborted:0/27 Never-Run:0/27
+
+#################################################################
+################### T2 TOR uls Report ###########################
+#################################################################
+
+
+Test server name    : ins-eorsanity-12
+Testbed  name       : /vol/eor-qa/sanity/logs/pomamath/1557391354/sanity12-testbed.yml
+Total Test cases Run: 27
+Passed test cases   : 27
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /vol/eor-qa/sanity/logs/pomamath/1557391354
+Report file         : /vol/eor-qa/sanity/logs/pomamath/1557391354/uls-sanity12.report
+logfile             : /vol/eor-qa/sanity/logs/pomamath/1557391354/uls-sanity12.log
+Test start time     : 2019_05_09_21_12_20
+Test End time       : 2019_05_09_22_54_43
+Test Duration       : 1:42:22.377567
+Comments: %%% /nobackup/pomamath/hmr/34494/build/images/final 
+Arguments passed: ['/vol/eor-qa/sanity/golden/basic_sanity.py', '-build', 'tftp://172.31.146.95/sanity-image/pomamath-1557391354-nxos.9.2.3.18.bin', '-testsuite', '/vol/eor-qa/sanity/logs/pomamath/1557391354/uls.yml', '-logicaldict', '/vol/eor-qa/sanity/logs/pomamath/1557391354/logical_dict.yml', '-testbed', '/vol/eor-qa/sanity/logs/pomamath/1557391354/sanity12-testbed.yml', '-logfile', '/vol/eor-qa/sanity/logs/pomamath/1557391354/uls-sanity12.log', '-reportfile', '/vol/eor-qa/sanity/logs/pomamath/1557391354/uls-sanity12.report', '-email', 'pomamath@cisco.com', '-jobid', 'POMAMATH-1557391354', '-stoponfail', 'False', '-pauseonfail', 'False', '-basemode', 'False', '-collectlogs', 'False', '-containermode', 'False', '-dockermode', 'False', '-oc', 'False', '-yang', 'False', '-INTTransitDefault', 'False', '-INTTransitL3Heavy', 'False', '-issu_build', 'skip', '-ctrl_plugin_image', 'skip', '-issu_cases', 'testReloadSwitch', '-patch', 'skip', '-cflow', 'skip', '-reportsubject', 'T2'
+ , 'TOR', 'uls', '-comments', ' %%% /nobackup/pomamath/hmr/34494/build/images/final'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:11   
+testBoxOnline                                                             pass      0:00:02   
+testModuleStatus                                                          pass      0:00:22   
+testStaticRoute                                                           pass      0:01:43   
+testLacpShutNoshut                                                        pass      0:04:19   
+testSubPortChannelShutNoshut                                              pass      0:02:49   
+testL2BridgingTrunk                                                       pass      0:02:05   
+testBgpv4                                                                 pass      0:04:10   
+testCdp                                                                   pass      0:01:39   
+testLLDP                                                                  pass      0:00:59   
+testSviVrf                                                                pass      0:03:40   
+testDynamicL2MulticastPC                                                  pass      0:03:44   
+testPimv4SVI                                                              pass      0:09:22   
+testL2SanityMacLearning                                                   pass      0:03:28   
+testL2SanityUnconfig                                                      pass      0:00:43   
+testVpcConfig                                                             pass      0:09:01   
+testVpcPeerLink                                                           pass      0:00:19   
+testVpcPeerKeepAlive                                                      pass      0:00:14   
+testVpcPortChannels                                                       pass      0:00:18   
+testVpcStpStates                                                          pass      0:00:17   
+testVpcConsistencies                                                      pass      0:01:50   
+testVpcUnconfig                                                           pass      0:04:35   
+testCopp                                                                  pass      0:17:56   
+testCopyRunnStart                                                         pass      0:07:23   
+testTahDiagnostic                                                         pass      0:00:04   
+testCheckInstalledPkgsSigned                                              pass      0:00:47   
+testCores                                                                 pass      0:00:05
+---End of Note Titled: uls-sanity-hmr3---
+
+
+---Start of Note Titled:  Unit-test.gmr6 (Created 05/03/2019 05:02:03 Modified 05/03/2019 05:04:42 by pomamath)---
+switch(config)# show version 
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.33
+  NXOS: version 7.0(3)I7(7) [build 7.0(3)I7(6.7)]
+
+REMOTE ADMIN USER
+ssh palshanm1@10.105.194.178
+switch# show user-ac palshanm1
+user:palshanm1
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch# show privilege 
+User name: palshanm1
+Current privilege level: 15
+Feature privilege: Disabled
+switch# 
+switch# 
+switch# 
+switch# 
+switch# 
+switch# run bash id palshanm1
+uid=2003(palshanm1) gid=503(network-admin) groups=503(network-admin),504(network-operator)
+switch# 
+switch#
+MODIFIED USER TO OPERATOR ON RADIUS SERVER
+ssh palshanm1@10.105.194.178
+switch# show ver
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.33
+  NXOS: version 7.0(3)I7(7) [build 7.0(3)I7(6.7)]
+  BIOS compile time:  09/08/2018
+  NXOS image file is: bootflash:///nxos.7.0.3.I7.6.7.bin
+  NXOS compile time:  4/24/2019 9:00:00 [04/28/2019 06:40:07]
+
+switch# 
+switch# 
+switch# 
+switch# show user-ac palshanm1
+user:palshanm1
+        roles:network-operator 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch# 
+switch#      
+switch# show privilege 
+User name: palshanm1
+Current privilege level: -1
+Feature privilege: Disabled
+switch#
+---End of Note Titled: Unit-test.gmr6---
+
+
+---Start of Note Titled:  neptune_sanity_gmr6 (Created 05/02/2019 22:58:42 Modified 05/02/2019 22:58:43 by pomamath)---
+-----Original Message-----
+From: g2kconc@cisco.com <g2kconc@cisco.com> 
+Sent: Thursday, May 2, 2019 8:57 PM
+To: Polisetty Mamatha -X (pomamath - WIPRO LIMITED at Cisco) <pomamath@cisco.com>; Polisetty Mamatha -X (pomamath - WIPRO LIMITED at Cisco) <pomamath@cisco.com>; nxos-golden(mailer list) <nxos-golden@cisco.com>
+Subject: udb_neptune_bootup/0000244388 for nxos.7.0.3.I7.6.7.bin on gd705, pass: 88, fail: 6, never ran: 0, abort: 0, cores: 0, totalcases expected : 94
+
+--------------------------AUTOMATED TEST RESULTS----------------------------
+
+Passed              : 88
+Failed              : 6
+Aborted             : 0
+Never ran           : 0
+Total               : 94
+Num Corefiles       : 0
+Num Coveragefiles   : 0
+Num DebugLogfiles   : 0
+Submitter           : pomamath
+Test Host           : savbu-golden-srv2.cisco.com
+Testbed             : gd705
+Isantesting         : hamilton.test
+Submit Time         : May-02-19 06:24:16 (PDT) (1556803456)
+Start Time          : May-02-19 06:55:12 (1556805312) (PDT)
+End Time            : May-02-19 08:24:08 (1556810648) (PDT)
+Elapsed Time        : 1 hours 28 mins (5336)
+Logs Archive        : /auto/nxos-golden/runlog/0224411.tgz
+si Commandline      :  -b udb -t neptune_bootup -baseline hamilton.test -n9kimage /nobackup/pomamath/greensboro/90382/build/images/final/nxos.7.0.3.I7.6.7.bin -mail pomamath@cisco.com 
+
+Please compare your results with Known issues:  https://wiki.cisco.com/display/NXOSGOLDEN/Known+And+Intermittent+issues+-+N3xK+Sanities
+
+Sanity/Regression Dashboard   : https://wiki.cisco.com/display/NXOSGOLDEN/N3K+Sanity+and+Regression+Dashboard
+
+To get the status of sanity   : https://wiki.cisco.com/display/NXOSGOLDEN/Check+n3k+sanity+submission+status
+
+Submission hang Issue Wiki    : https://wiki.cisco.com/display/NXOSGOLDEN/Unable+to+submit+or+the+submission+is+Hung
+
+
+----------------------------------DIAGNOSTICS----------------------------------
+Test : failed
+	Test name: IssuNxosUpgradeDowngradeWithCompact-n3k1_upgrade
+	Suitefile line number (test number): 3.40
+	Diagnostics:
+		Failed: 40.1.5.11:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+Test : failed
+	Test name: VerifyControlPlaneDowntimeDuringIssuVerify_Control_Plane_Downtime_Box1-Upgrade-FullConnect
+	Suitefile line number (test number): 3.41
+	Diagnostics:
+		Failed: In Switch : sw1-gd705-nep :- 40.1.5.11 , CP dowmtime data not available due to ISSU failure
+
+
+Test : failed
+	Test name: CopyingInstallerlogCopyingInstallerlog_in_Box1-FullConnect
+	Suitefile line number (test number): 3.52
+	Diagnostics:
+		Failed: Installer log not found in 40.1.5.11 as ISSU didn't go through due to absence of up image or ISSU failed
+
+
+Test : failed
+	Test name: IssuNxosUpgradeDowngradeWithCompact-n3k2_upgrade
+	Suitefile line number (test number): 3.54
+	Diagnostics:
+		Failed: 40.1.5.12:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+Test : failed
+	Test name: VerifyControlPlaneDowntimeDuringIssuVerify_Control_Plane_Downtime_Box2-Upgrade-FullConnect
+	Suitefile line number (test number): 3.55
+	Diagnostics:
+		Failed: In Switch : sw2-gd705-qi2 :- 40.1.5.12 , CP dowmtime data not available due to ISSU failure
+
+
+Test : failed
+	Test name: CopyingInstallerlogCopyingInstallerlog_in_Box2-FullConnect
+	Suitefile line number (test number): 3.66
+	Diagnostics:
+		Failed: Installer log not found in 40.1.5.12 as ISSU didn't go through due to absence of up image or ISSU failed
+
+
+
+-----End of Results Summary-----
+---End of Note Titled: neptune_sanity_gmr6---
+
+
+---Start of Note Titled: uls_sanity_gmr6 (Created 05/02/2019 22:57:43 Added 05/02/2019 22:57:43 by pomamath)---
+Subject: T2 TOR uls Report: Job-id:POMAMATH-1556791331 Passed:27/27 Failed:0/27 Aborted:0/27 Never-Run:0/27
+
+#################################################################
+################### T2 TOR uls Report ###########################
+#################################################################
+
+
+Test server name    : ins-eorsanity-19
+Testbed  name       : /vol/eor-qa/sanity/logs/pomamath/1556791331/sanity19-testbed.yml
+Total Test cases Run: 27
+Passed test cases   : 27
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /vol/eor-qa/sanity/logs/pomamath/1556791331
+Report file         : /vol/eor-qa/sanity/logs/pomamath/1556791331/uls-sanity19.report
+logfile             : /vol/eor-qa/sanity/logs/pomamath/1556791331/uls-sanity19.log
+Test start time     : 2019_05_02_06_55_12
+Test End time       : 2019_05_02_08_36_25
+Test Duration       : 1:41:13.525618
+Comments: %%% /nobackup/pomamath/greensboro/90382/build/images/final 
+Arguments passed: ['/vol/eor-qa/sanity/golden/basic_sanity.py', '-build', 'tftp://172.31.146.95/sanity-image/pomamath-1556791331-nxos.7.0.3.I7.6.7.bin', '-testsuite', '/vol/eor-qa/sanity/logs/pomamath/1556791331/uls.yml', '-logicaldict', '/vol/eor-qa/sanity/logs/pomamath/1556791331/logical_dict.yml', '-testbed', '/vol/eor-qa/sanity/logs/pomamath/1556791331/sanity19-testbed.yml', '-logfile', '/vol/eor-qa/sanity/logs/pomamath/1556791331/uls-sanity19.log', '-reportfile', '/vol/eor-qa/sanity/logs/pomamath/1556791331/uls-sanity19.report', '-email', 'antoroy@cisco.com', '-jobid', 'POMAMATH-1556791331', '-stoponfail', 'False', '-pauseonfail', 'False', '-basemode', 'False', '-collectlogs', 'False', '-containermode', 'False', '-dockermode', 'False', '-issu_build', 'skip', '-ctrl_plugin_image', 'skip', '-issu_cases', 'testReloadSwitch', '-patch', 'skip', '-cflow', 'skip', '-reportsubject', 'T2', 'TOR', 'uls', '-comments', ' %%% /nobackup/pomamath/greensboro/90382/build/images/final'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:11   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:18   
+testStaticRoute                                                           pass      0:00:36   
+testLacpShutNoshut                                                        pass      0:04:15   
+testSubPortChannelShutNoshut                                              pass      0:02:51   
+testL2BridgingTrunk                                                       pass      0:02:15   
+testBgpv4                                                                 pass      0:04:06   
+testCdp                                                                   pass      0:01:19   
+testLLDP                                                                  pass      0:00:59   
+testSviVrf                                                                pass      0:03:41   
+testDynamicL2MulticastPC                                                  pass      0:04:00   
+testPimv4SVI                                                              pass      0:08:39   
+testL2SanityMacLearning                                                   pass      0:03:37   
+testL2SanityUnconfig                                                      pass      0:00:32   
+testVpcConfig                                                             pass      0:07:50   
+testVpcPeerLink                                                           pass      0:00:24   
+testVpcPeerKeepAlive                                                      pass      0:00:19   
+testVpcPortChannels                                                       pass      0:00:23   
+testVpcStpStates                                                          pass      0:00:22   
+testVpcConsistencies                                                      pass      0:01:55   
+testVpcUnconfig                                                           pass      0:05:26   
+testCopp                                                                  pass      0:19:18   
+testCopyRunnStart                                                         pass      0:06:09   
+testTahDiagnostic                                                         pass      0:00:03   
+testCheckInstalledPkgsSigned                                              pass      0:00:15   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: uls_sanity_gmr6---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 04/25/2019 20:10:26 Added 04/25/2019 20:10:26 by manjanga)---
+https://gnosis.cisco.com/#!/signature/bug/5cc2769c8c681db6d0fc5f96/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: ds-sprint-na (Created 04/25/2019 07:19:48 Added 04/25/2019 07:19:48 by aeguiart)---
+ds-sprint-na
+
+The detection of this SR would require the comparison of the RADIUS server config for a user with the output of `show privilege` after logging in with that user to verify if the privilege levels match.
+---End of Note Titled: ds-sprint-na---
+
+
+---Start of Note Titled: R-comments (Created 04/17/2019 09:54:01 Added 04/17/2019 09:54:01 by vasagraw)---
+committed fix to irvine.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: UDB_NEPTUNE_BOOTUP (Created 04/17/2019 09:08:38 Added 04/17/2019 09:08:38 by vasagraw)---
+--------------------------AUTOMATED TEST RESULTS----------------------------
+
+Passed              : 87
+Failed              : 7
+Aborted             : 0
+Never ran           : 0
+Total               : 94
+Num Corefiles       : 0
+Num Coveragefiles   : 0
+Num DebugLogfiles   : 0
+Submitter           : vasagraw
+Test Host           : savbu-golden-srv2.cisco.com
+Testbed             : gd708
+Isantesting         : hamilton.test
+Submit Time         : Apr-17-19 01:35:08 (PDT) (1555490108)
+Start Time          : Apr-17-19 01:38:46 (1555490326) (PDT)
+End Time            : Apr-17-19 03:03:30 (1555495410) (PDT)
+Elapsed Time        : 1 hours 24 mins (5084)
+Logs Archive        : /auto/nxos-golden/runlog/0223855.tgz
+si Commandline      :  -b udb -t neptune_bootup -baseline hamilton.test -n9kimage nxos.9.3.0.148.bin 
+
+Please compare your results with Known issues:  https://wiki.cisco.com/display/NXOSGOLDEN/Known+And+Intermittent+issues+-+N3xK+Sanities
+
+Sanity/Regression Dashboard   : https://wiki.cisco.com/display/NXOSGOLDEN/N3K+Sanity+and+Regression+Dashboard
+
+To get the status of sanity   : https://wiki.cisco.com/display/NXOSGOLDEN/Check+n3k+sanity+submission+status
+
+Submission hang Issue Wiki    : https://wiki.cisco.com/display/NXOSGOLDEN/Unable+to+submit+or+the+submission+is+Hung
+
+
+----------------------------------DIAGNOSTICS----------------------------------
+Test VerifyFreeMemoryCheck-FullConnect: failed
+Test name: VerifyFreeMemoryCheck-
+Suitefile line number (test number): 3.4
+Diagnostics:
+Failed: In Switch: sw1-gd708-nepcr,IP : 40.1.8.11,Free Memory (MemAvailable) is below the Minimum threshold value 
+         Total Memory : "4030052" KB  
+         Expected free mem (MemAvailable) is : "1550000 " KB  (Range :1500000 -1550000) 
+         Available Free Memory (MemAvailable) is : "1261740 " KB 
+Failed: In Switch: sw2-gd708-qi2cr,IP : 40.1.8.12,Free Memory (MemAvailable) is below the Minimum threshold value 
+         Total Memory : "4030048" KB  
+         Expected free mem (MemAvailable) is : "1550000 " KB  (Range :1500000 -1550000) 
+         Available Free Memory (MemAvailable) is : "1235364 " KB 
+Failed: In Switch: sw5-gd708-nep,IP : 40.1.8.15,Free Memory (MemAvailable) is below the Minimum threshold value 
+         Total Memory : "4030344" KB  
+         Expected free mem (MemAvailable) is : "1550000 " KB  (Range :1500000 -1550000) 
+         Available Free Memory (MemAvailable) is : "1321492 " KB 
+
+
+Test : failed
+Test name: IssuNxosUpgradeDowngradeWithCompact-n3k1_upgrade
+Suitefile line number (test number): 3.40
+Diagnostics:
+Failed: 40.1.8.11:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+Test : failed
+Test name: VerifyControlPlaneDowntimeDuringIssuVerify_Control_Plane_Downtime_Box1-Upgrade-FullConnect
+Suitefile line number (test number): 3.41
+Diagnostics:
+Failed: In Switch : sw1-gd708-nepcr :- 40.1.8.11 , CP dowmtime data not available due to ISSU failure
+
+
+Test : failed
+Test name: CopyingInstallerlogCopyingInstallerlog_in_Box1-FullConnect
+Suitefile line number (test number): 3.52
+Diagnostics:
+Failed: Installer log not found in 40.1.8.11 as ISSU didn't go through due to absence of up image or ISSU failed
+
+
+Test : failed
+Test name: IssuNxosUpgradeDowngradeWithCompact-n3k2_upgrade
+Suitefile line number (test number): 3.54
+Diagnostics:
+Failed: 40.1.8.12:Upg image is not provided during submission,So ISSU TC is skipped, if changes are not related to ISSU ignore these failures
+
+
+Test : failed
+Test name: VerifyControlPlaneDowntimeDuringIssuVerify_Control_Plane_Downtime_Box2-Upgrade-FullConnect
+Suitefile line number (test number): 3.55
+Diagnostics:
+Failed: In Switch : sw2-gd708-qi2cr :- 40.1.8.12 , CP dowmtime data not available due to ISSU failure
+
+
+Test : failed
+Test name: CopyingInstallerlogCopyingInstallerlog_in_Box2-FullConnect
+Suitefile line number (test number): 3.66
+Diagnostics:
+Failed: Installer log not found in 40.1.8.12 as ISSU didn't go through due to absence of up image or ISSU failed
+
+
+
+-----End of Results Summary-----
+---End of Note Titled: UDB_NEPTUNE_BOOTUP---
+
+
+---Start of Note Titled: ULS_sanity (Created 04/17/2019 09:06:36 Added 04/17/2019 09:06:36 by vasagraw)---
+#################################################################
+################### T2 TOR uls Report ###########################
+#################################################################
+
+
+Test server name    : ins-eorsanity-19
+Testbed  name       : /vol/eor-qa/sanity/logs/vasagraw/1555489802/sanity19-testbed.yml
+Total Test cases Run: 26
+Passed test cases   : 26
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /vol/eor-qa/sanity/logs/vasagraw/1555489802
+Report file         : /vol/eor-qa/sanity/logs/vasagraw/1555489802/uls-sanity19.report
+logfile             : /vol/eor-qa/sanity/logs/vasagraw/1555489802/uls-sanity19.log
+Test start time     : 2019_04_17_02_19_13
+Test End time       : 2019_04_17_03_58_30
+Test Duration       : 1:39:17.046404
+Comments: for CSCvp34494 %%% /nobackup/vasagraw/irvine_REL_9_3_0_148/build/images/final 
+Arguments passed: ['/vol/eor-qa/sanity/golden/basic_sanity.py', '-build', 'tftp://172.31.146.95/sanity-image/vasagraw-1555489802-nxos.9.3.0.148.bin', '-testsuite', '/vol/eor-qa/sanity/logs/vasagraw/1555489802/uls.yml', '-logicaldict', '/vol/eor-qa/sanity/logs/vasagraw/1555489802/logical_dict.yml', '-testbed', '/vol/eor-qa/sanity/logs/vasagraw/1555489802/sanity19-testbed.yml', '-logfile', '/vol/eor-qa/sanity/logs/vasagraw/1555489802/uls-sanity19.log', '-reportfile', '/vol/eor-qa/sanity/logs/vasagraw/1555489802/uls-sanity19.report', '-email', 'vasagraw@cisco.com', '-jobid', 'VASAGRAW-1555489802', '-stoponfail', 'False', '-pauseonfail', 'False', '-basemode', 'False', '-collectlogs', 'False', '-containermode', 'False', '-dockermode', 'False', '-issu_build', 'skip', '-ctrl_plugin_image', 'skip', '-issu_cases', 'testReloadSwitch', '-patch', 'skip', '-reportsubject', 'T2', 'TOR', 'uls', '-comments', 'for CSCvp34494 %%% /nobackup/vasagraw/irvine_REL_9_3_0_148/build/images/final'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:12   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:20   
+testStaticRoute                                                           pass      0:00:37   
+testLacpShutNoshut                                                        pass      0:04:16   
+testSubPortChannelShutNoshut                                              pass      0:02:51   
+testL2BridgingTrunk                                                       pass      0:02:05   
+testBgpv4                                                                 pass      0:04:08   
+testCdp                                                                   pass      0:01:20   
+testLLDP                                                                  pass      0:00:50   
+testSviVrf                                                                pass      0:03:42   
+testDynamicL2MulticastPC                                                  pass      0:03:18   
+testPimv4SVI                                                              pass      0:08:44   
+testL2SanityMacLearning                                                   pass      0:03:27   
+testL2SanityUnconfig                                                      pass      0:00:38   
+testVpcConfig                                                             pass      0:07:47   
+testVpcPeerLink                                                           pass      0:00:25   
+testVpcPeerKeepAlive                                                      pass      0:00:20   
+testVpcPortChannels                                                       pass      0:00:25   
+testVpcStpStates                                                          pass      0:00:23   
+testVpcConsistencies                                                      pass      0:01:57   
+testVpcUnconfig                                                           pass      0:04:54   
+testCopp                                                                  pass      0:18:58   
+testCopyRunnStart                                                         pass      0:05:58   
+testCheckInstalledPkgsSigned                                              pass      0:00:50   
+testCores                                                                 pass      0:00:05
+---End of Note Titled: ULS_sanity---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/17/2019 01:14:07 Modified 05/13/2019 10:58:30 by cms)---
+{190513 nachen S B} Per Sameer, it's not a double commit to hamilton.  Some code difference in HMR train. It will have to be fixed as a new bug fix for HMR3. ETA: wk of 5/13.
+{190430 swvenkat S B} hmr3, needs to be fixed
+{190417 girshank S B} RCA identified. Coding in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Unit-test (Created 04/17/2019 00:55:57 Modified 04/17/2019 00:55:58 by vasagraw)---
+REMOTE ADMIN USER
+
+bash-4.2$ 
+bash-4.2$ 
+bash-4.2$ ssh nxopeuser@10.77.143.108
+Warning: Permanently added '10.77.143.108' (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account nxopeuser
+user:nxopeuser
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show privilege 
+User name: nxopeuser
+Current privilege level: 15
+Feature privilege: Disabled
+switch(config)# 
+switch(config)# 
+
+----------
+
+switch(config)# 
+switch(config)# run bash id nxopeuser
+uid=2003(nxopeuser) gid=503(network-admin) groups=503(network-admin),504(network-operator)
+switch(config)# 
+
+
+
+*****************************************************
+
+MODIFIED USER TO OPERATOR ON RADIUS SERVER
+
+bash-4.2$ 
+bash-4.2$ ssh nxopeuser@10.77.143.108
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account nxopeuser
+user:nxopeuser
+        roles:network-operator 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show privilege 
+User name: nxopeuser
+Current privilege level: -1
+Feature privilege: Disabled
+switch(config)# 
+
+-----------
+
+switch(config)# 
+switch(config)# run bash id nxopeuser
+uid=2003(nxopeuser) gid=504(network-operator) groups=504(network-operator)
+switch(config)# 
+
+
+**********************************************
+
+RE-MODIFIED USER TO ADMIN ON RADIUS SERVER
+
+bash-4.2$ 
+bash-4.2$ ssh nxopeuser@10.77.143.108
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# show user-account nxopeuser
+user:nxopeuser
+        roles:network-admin 
+account created through REMOTE authentication
+Credentials such as ssh server key will be cached temporarily only for this user account
+Local login not possible
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show privilege 
+User name: nxopeuser
+Current privilege level: 15
+Feature privilege: Disabled
+switch(config)# 
+switch(config)# 
+
+---------------------
+
+switch(config)# 
+switch(config)# run bash id nxopeuser
+uid=2003(nxopeuser) gid=503(network-admin) groups=503(network-admin),504(network-operator)
+switch(config)# 
+
+---------------------
+
+switch(config)# show ver | inc version
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+  BIOS: version 07.59
+ NXOS: version 9.3(1) [build 9.3(0.148)]
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Release-note (Created 04/15/2019 22:25:00 Modified 07/08/2019 22:03:56 by qichan)---
+<B>Symptom:</B>
+the n9k shows incorrect privilege level when change the privilege level config on radius server
+
+<B>Conditions:</B>
+change the privilege level config on radius server
+
+<B>Workaround:</B>
+reload the switch
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (17 of 17)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     121            qichan         07/08/2019 22:03:57      
+HMR3_build_30_verified.txt                        ascii text     3010           amitku6        05/23/2019 01:47:22      
+v_comments_logs_irvine_293.txt                    ascii text     3099           amitku6        05/22/2019 05:11:16      
+Issue_recreated_HMR2.txt                          ascii text     4202           amitku6        05/22/2019 05:11:00      
+Diffs-commit-hamilton                             ascii text     20680          pomamath       05/13/2019 22:54:13      
+static-analysis.p3                                ascii text     133710         pomamath       05/13/2019 22:54:11      
+Diffs-release-hamilton                            ascii text     2656           pomamath       05/13/2019 22:54:05      
+unit-test.txt                                     ascii text     22541          pomamath       05/13/2019 22:07:35      
+Diffs-commit-greensboro                           ascii text     20395          pomamath       05/03/2019 05:51:27      
+static-analysis.p2                                ascii text     126231         pomamath       05/03/2019 05:51:24      
+Diffs-release-greensboro                          ascii text     2672           pomamath       05/03/2019 05:51:19      
+nxos-pi-common-security-code-review-2             ascii text     407            prrqengg       05/03/2019 01:15:11      
+Diffs-release-irvine                              ascii text     2696           vasagraw       04/17/2019 09:52:08      
+static-analysis                                   ascii text     25302          vasagraw       04/17/2019 09:52:05      
+Diffs-commit-irvine                               ascii text     3638           vasagraw       04/17/2019 09:52:01      
+nxos-pi-common-security-code-review               ascii text     914            prrqengg       04/17/2019 09:11:34      
+tac repro.txt                                     ascii text     867            qichan         04/15/2019 22:25:32      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/05/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1263609      	New
+08/05/2026 pisces   	VF-patched              	                             	NX-OS:9.3(1),NX-OS:9.3(6)    	New
+08/05/2026 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV5(1.2),NX-OS:6.	New
+08/05/2026 pisces   	Software-type-ids       	                             	282253564,286280105,286321149	New
+08/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/05/2026 pisces   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/05/2026 pisces   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/05/2026 pisces   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/05/2026 pisces   	Potentially-affected-rel	                             	5.2(1)SV5(1.2),6.0(2)A8(1),6.	New
+08/05/2026 pisces   	Known-fixed-releases    	7.0(3)I7(6.10),9.2(3.30),9.3(	                             	Del
+11/14/2021 cdetsadm 	Known-affected-releases 	                             	7.0(3)I7(6),9.2(3)           	New
+11/14/2021 cdetsadm 	Known-fixed-releases    	                             	7.0(3)I7(6.10),9.2(3.30),9.3(	New
+11/14/2021 palshanm 	Note Title              	                             	Automation - NA              	New
+11/14/2021 palshanm 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+11/14/2021 palshanm 	MDF-series              	                             	Cisco Nexus 9000 Series Switc	New
+11/14/2021 palshanm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+11/14/2021 palshanm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+11/14/2021 palshanm 	MDF-edited              	                             	N                            	Mod
+12/10/2020 jdasgupt 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+07/15/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIU9(0)                	New
+07/15/2020 cdetsadm 	Original-version        	                             	9.2(3)                       	Mod
+07/15/2020 cdetsadm 	Integrated-releases     	                             	9.3(2)IIU9(0.50)             	New
+04/14/2020 nvasilye 	serviceRequests/C3/68840	                             	                             	Mod
+04/14/2020 nvasilye 	Urgency-desc            	P3                           	CL3                          	Mod
+03/13/2020 nvasilye 	serviceRequests/C3/68840	                             	C3/688403174                 	New
+03/13/2020 nvasilye 	Urgency-desc            	CL3                          	P3                           	Mod
+03/13/2020 nvasilye 	TACSR-count             	2                            	3                            	Mod
+03/13/2020 nvasilye 	Tickets-count-direct    	2                            	3                            	Mod
+03/13/2020 nvasilye 	Trouble-tickets-direct  	                             	C3688403174                  	New
+03/13/2020 vasagraw 	Related-bugs            	                             	Duplicate/CSCvt34993         	New
+03/13/2020 vasagraw 	Other-mail              	aeguiart                     	aeguiart nvasilye            	Mod
+03/13/2020 vasagraw 	Version                 	                             	7.0(3)I7(6)                  	New
+03/13/2020 vasagraw 	Tickets-count           	2                            	3                            	Mod
+03/13/2020 vasagraw 	Trouble-tickets         	                             	688403174                    	New
+03/13/2020 vasagraw 	Trouble-tickets-indirect	                             	C3/688403174                 	New
+02/01/2020 girshank 	Mean-time-to-resolved   	1                            	291                          	Mod
+02/01/2020 girshank 	Resolved-on             	04/17/2019 09:54:01          	02/01/2020 02:41:20          	Mod
+02/01/2020 girshank 	Status                  	M                            	R                            	Mod
+02/01/2020 girshank 	Age-status              	0                            	291                          	Mod
+02/01/2020 girshank 	statusStates            	                             	[status=M, startDate=Fri May 	New
+02/01/2020 girshank 	statusStates            	[status=M, startDate=Fri May 	                             	Del
+01/23/2020 samekama 	Note Title              	                             	Not-Required-In-Davis        	New
+01/23/2020 samekama 	RNE-Approval-Flg        	N                            	                             	New
+12/03/2019 cdetsadm 	Integrated-releases     	7.0(3)I7(7.1)                	                             	Del
+10/30/2019 vdaniliu 	serviceRequests/C3/68765	                             	                             	Mod
+10/30/2019 vdaniliu 	Urgency-desc            	P3                           	CL3                          	Mod
+10/30/2019 vdaniliu 	serviceRequests/C3/68765	                             	C3/687653970                 	New
+10/30/2019 vdaniliu 	TACSR-count             	1                            	2                            	Mod
+10/30/2019 vdaniliu 	Tickets-count           	1                            	2                            	Mod
+10/30/2019 vdaniliu 	Tickets-count-direct    	1                            	2                            	Mod
+10/30/2019 vdaniliu 	Trouble-tickets         	                             	687653970                    	New
+10/30/2019 vdaniliu 	Trouble-tickets-direct  	                             	C3687653970                  	New
+10/30/2019 vdaniliu 	Urgency-desc            	CL3                          	P3                           	Mod
+09/23/2019 cdetsadm 	Known-fixed-releases    	                             	7.0(3)I7(7)                  	New
+09/15/2019 cdetssup.	IFD-CFD-Conv-date       	04/04/2020 05:24:59          	04/16/2019 05:24:59          	Mod
+09/06/2019 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(7.1)                	New
+08/27/2019 cdetsadm 	Known-fixed-releases    	                             	9.2(4)                       	New
+08/13/2019 cdetssup.	IFD-CFD-Conv-date       	                             	04/04/2020 05:24:59          	Mod
+07/30/2019 jesgeorg 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+07/30/2019 jesgeorg 	Note Title              	                             	GMR6-79 N9k verified         	New
+07/30/2019 jesgeorg 	RNE-Approval-Flg        	N                            	                             	New
+07/29/2019 cdetsadm 	Known-fixed-releases    	                             	9.3(1)                       	New
+07/09/2019 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+07/09/2019 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	                             	Mod
+07/09/2019 cdetsbtk 	Security-screening-times	04/16/2019 02:39:11          	07/09/2019 04:52:43          	Mod
+07/08/2019 qichan   	File Name               	                             	Release-note-diff            	New
+07/08/2019 qichan   	Note                    	Release-note                 	Release-note                 	Mod
+07/08/2019 qichan   	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+06/20/2019 cdetsadm 	Integrated-releases     	                             	9.3(1)                       	New
+06/20/2019 ansurti  	Integrated-releases     	9.3(0)                       	                             	Del
+05/23/2019 amitku6  	File Name               	                             	HMR3_build_30_verified.txt   	New
+05/23/2019 amitku6  	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+05/23/2019 amitku6  	Verified-release        	                             	9.2(3.30)                    	New
+05/22/2019 jesgeorg 	Note Title              	                             	N9K- Irvine build 311 verifie	New
+05/22/2019 jesgeorg 	RNE-Approval-Flg        	N                            	                             	New
+05/22/2019 amitku6  	File Name               	                             	v_comments_logs_irvine_293.tx	New
+05/22/2019 amitku6  	File Name               	                             	Issue_recreated_HMR2.txt     	New
+05/22/2019 amitku6  	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+05/22/2019 amitku6  	Verified-release        	                             	9.3(0.293)                   	New
+05/15/2019 ssoppann 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+05/14/2019 qichan   	serviceRequests/C3/68513	                             	                             	Mod
+05/14/2019 qichan   	Urgency-desc            	P3                           	CL3                          	Mod
+05/14/2019 cdetsadm 	Integrated-releases     	                             	9.2(4)                       	New
+05/14/2019 cdetsadm 	Integrated-releases     	                             	9.2(3.30)                    	New
+05/13/2019 pomamath 	File Name               	                             	Diffs-commit-hamilton        	New
+05/13/2019 pomamath 	File Name               	                             	static-analysis.p3           	New
+05/13/2019 pomamath 	File Name               	                             	Diffs-release-hamilton       	New
+05/13/2019 pomamath 	File Name               	                             	unit-test.txt                	New
+05/13/2019 pomamath 	Note Title              	                             	neptune-sanity-hmr3          	New
+05/13/2019 pomamath 	RNE-Approval-Flg        	N                            	                             	New
+05/13/2019 pomamath 	Note Title              	                             	uls-sanity-hmr3              	New
+05/13/2019 pomamath 	RNE-Approval-Flg        	N                            	                             	New
+05/13/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/09/2019 cms      	Est-fix-date            	                             	05/10/2019 00:00:00          	Mod
+05/06/2019 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(7)                  	New
+05/06/2019 cdetsadm 	Integrated-releases     	                             	7.0(3)I7(6.10)               	New
+05/03/2019 pomamath 	File Name               	                             	Diffs-commit-greensboro      	New
+05/03/2019 pomamath 	File Name               	                             	static-analysis.p2           	New
+05/03/2019 pomamath 	File Name               	                             	Diffs-release-greensboro     	New
+05/03/2019 pomamath 	Note                    	Unit-test.gmr6               	Unit-test.gmr6               	Mod
+05/03/2019 pomamath 	Note Title              	                             	Unit-test.gmr6               	New
+05/03/2019 pomamath 	RNE-Approval-Flg        	N                            	                             	New
+05/03/2019 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/03/2019 pomamath 	Status                  	R                            	M                            	Mod
+05/03/2019 pomamath 	Age-status              	0                            	17                           	Mod
+05/03/2019 pomamath 	statusStates            	                             	[status=R, startDate=Wed Apr 	New
+05/03/2019 pomamath 	statusStates            	[status=R, startDate=Wed Apr 	                             	Del
+05/02/2019 pomamath 	Note Title              	                             	neptune_sanity_gmr6          	New
+05/02/2019 pomamath 	RNE-Approval-Flg        	N                            	                             	New
+05/02/2019 pomamath 	Note Title              	                             	uls_sanity_gmr6              	New
+05/02/2019 pomamath 	RNE-Approval-Flg        	N                            	                             	New
+05/02/2019 swvenkat 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+05/02/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/25/2019 manjanga 	Note Title              	                             	KnowledgeSignature           	New
+04/25/2019 manjanga 	RNE-Approval-Flg        	N                            	                             	New
+04/25/2019 manjanga 	Attribute               	n3kn9k_cfd i-kasrini2 amitku6	gnosis dsig_no_notapplicable 	Mod
+04/25/2019 aeguiart 	Attribute               	n3kn9k_cfd i-kasrini2 amitku6	n3kn9k_cfd i-kasrini2 amitku6	Mod
+04/25/2019 aeguiart 	Note Title              	                             	ds-sprint-na                 	New
+04/25/2019 aeguiart 	Other-mail              	                             	aeguiart                     	Mod
+04/25/2019 aeguiart 	RNE-Approval-Flg        	N                            	                             	New
+04/24/2019 babgeorg 	Attribute               	                             	n3kn9k_cfd i-kasrini2 amitku6	Mod
+04/21/2019 rsivatha 	Test-name               	                             	signedup-rsivatha            	Mod
+04/17/2019 cdetsadm 	Integrated-releases     	                             	9.3(0)                       	New
+04/17/2019 cdetsadm 	Integrated-releases     	                             	9.3(0.158)                   	New
+04/17/2019 vasagraw 	TPS_flag                	                             	N                            	Mod
+04/17/2019 vasagraw 	Behavior-changed        	                             	N                            	Mod
+04/17/2019 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+04/17/2019 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/17/2019 vasagraw 	Documents-changed       	                             	none                         	Mod
+04/17/2019 vasagraw 	Mean-time-to-resolved   	                             	1                            	Mod
+04/17/2019 vasagraw 	Note Title              	                             	R-comments                   	New
+04/17/2019 vasagraw 	Opened-on               	                             	04/17/2019 09:54:01          	Mod
+04/17/2019 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+04/17/2019 vasagraw 	Origin                  	                             	base code                    	Mod
+04/17/2019 vasagraw 	Original-resolved-on    	                             	04/17/2019 09:54:01          	Mod
+04/17/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+04/17/2019 vasagraw 	Released-code           	                             	Y                            	Mod
+04/17/2019 vasagraw 	Resolved-on             	                             	04/17/2019 09:54:01          	Mod
+04/17/2019 vasagraw 	Status                  	A                            	R                            	Mod
+04/17/2019 vasagraw 	Age-status              	0                            	1                            	Mod
+04/17/2019 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Apr 	New
+04/17/2019 vasagraw 	statusStates            	[status=A, startDate=Tue Apr 	                             	Del
+04/17/2019 vasagraw 	Test-EDP-activity       	                             	Acceptance Testing           	Mod
+04/17/2019 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+04/17/2019 vasagraw 	Test-escape             	                             	Y                            	Mod
+04/17/2019 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+04/17/2019 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+04/17/2019 vasagraw 	File Name               	                             	static-analysis              	New
+04/17/2019 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+04/17/2019 vasagraw 	File Name               	                             	static-analysis              	New
+04/17/2019 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+04/17/2019 prrqengg 	Code-reviewer           	                             	sarchand                     	New
+04/17/2019 vasagraw 	Note Title              	                             	UDB_NEPTUNE_BOOTUP           	New
+04/17/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+04/17/2019 vasagraw 	Note Title              	                             	ULS_sanity                   	New
+04/17/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+04/17/2019 cms      	Note Title              	                             	Scrubnote                    	New
+04/17/2019 cms      	RNE-Approval-Flg        	N                            	                             	New
+04/17/2019 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/17/2019 vasagraw 	Note Title              	                             	Unit-test                    	New
+04/17/2019 vasagraw 	RNE-Approval-Flg        	N                            	                             	New
+04/16/2019 qichan   	serviceRequests/C3/68513	                             	C3/685131738                 	New
+04/16/2019 qichan   	TACSR-count             	                             	1                            	Mod
+04/16/2019 qichan   	Tickets-count           	0                            	1                            	Mod
+04/16/2019 qichan   	Tickets-count-direct    	                             	1                            	Mod
+04/16/2019 qichan   	Trouble-tickets         	                             	685131738                    	New
+04/16/2019 qichan   	Trouble-tickets-direct  	                             	C3685131738                  	New
+04/16/2019 qichan   	Urgency-desc            	NA                           	P3                           	Mod
+04/16/2019 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/16/2019 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+04/16/2019 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+04/16/2019 cdetsbtk 	Security-screening-times	                             	04/16/2019 02:39:11          	Mod
+04/15/2019 girshank 	Assigned Date           	                             	04/15/2019 22:57:09          	Mod
+04/15/2019 girshank 	Assigner                	                             	girshank                     	Mod
+04/15/2019 girshank 	Engineer                	                             	vasagraw                     	Mod
+04/15/2019 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+04/15/2019 girshank 	Status                  	N                            	A                            	Mod
+04/15/2019 girshank 	statusStates            	                             	[status=N, startDate=Tue Apr 	New
+04/15/2019 girshank 	statusStates            	[status=N, startDate=Tue Apr 	                             	Del
+04/15/2019 qichan   	File Name               	                             	tac repro.txt                	New
+04/15/2019 qichan   	Defect Created          	                             	                             	New
+04/15/2019 qichan   	Note Title              	                             	Release-note                 	New
+04/15/2019 qichan   	Version                 	                             	9.2(3)                       	New

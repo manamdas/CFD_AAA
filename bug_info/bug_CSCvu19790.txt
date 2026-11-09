@@ -1,0 +1,728 @@
+*******************************************************************************
+
+Bug ID   : CSCvu19790         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 5 (cosmetic)   
+Headline : 'login on-success log' not see it in 'show run'&'show run all'
+PrimaryPV : 
+Version :9.3(3) 9.3(4)IIL9(0.735) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: zihanwan           Submitted: 05/10/2020 20:31:30     Last Updtd : 07/28/2026 09:58:00  
+RNE-Type: NONE                New-on : 05/10/2020 20:31:30      
+Root-cause-analysis:                                                  
+Interest : pchennur hanl2 aeguiart
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:chuling                                             
+Known-affected-releases:9.3(3) 
+
+Known-fixed-releases:9.3(5) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/14/2020 19:43:35                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 3                                              
+Mean-time-to-verified: 38     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 05/11/2020 03:22:02            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 05/11/2020 00:42:18 
+Code-reviewer: shabansa       
+Opened-on: 05/14/2020 19:43:35Opener: girshank              
+Engineer : greddyda           DE-manager  : girshank        Est Time/Attribute : gnosis dsig_no_notapplicable iplusb-hka
+Est. completion date: 05/14/2020 00:00:00  
+Script-version:                         
+
+More-by : girshank            More-on: 05/14/2020 19:43:35  
+
+Documents Changed: none       Resolved: 05/14/2020 19:43:35 Resolver: girshank       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 06/18/2020 06:36:28      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Preproduction
+Detailed-activity :              
+Summitter-org :                  TS GCHINA FTS - ENT (Beijing)
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              689038285;689356108
+Trouble-tickets-direct :C3689038285 
+Trouble-tickets-direct :C3689356108 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/11/2020 20:31:59
+Document :    nexus
+
+Summary:
+Wed May  6 08:39:17 2020:type=update:id=10.212.134.57@pts/0:user=admin:cmd=configure terminal ; login on-success log (SUCCESS)
+Wed May  6 08:40:47 2020:type=update:id=10.212.134.57@pts/0:user=admin:cmd=configure terminal ; login on-success log (SUCCESS)
+
+The cli was executed successfully, but from below output, it was shown disabled.
+show run  | i 'on-success'    
+(No information output)    
+show run all | i 'on-success'  
+no login on-success log                          <<<<<<<<<<<<<
+
+pek1-sw-leaf-001#  show login on-success log
+aaa authentication login on-successful log is disabled  <<<<<<
+
+
+but from the dme running-config, I can see it was enabled.
+"aaaLoginStatusLogging": {
+                      "attributes": {
+                        "childAction": "",
+                        "dn": "sys/userext/authrealm/loginstatuslogging",
+                        "enableLoginFailureLogging": "no",
+                        "enableLoginSuccessLogging": "yes",  <<<<<<<<<<<
+                        "modTs": "2020-04-27T14:01:38.316+00:00",
+                        "status": ""
+
+Besides, We tested and found 'login on-success log' worked actually, we can see the login success logs after enable below config(which was listed in this bug CSCvh58592)
+logging level daemon 7
+logging level auth 7
+logging level authpriv 7
+
+%AUTHPRIV-6-SYSTEM_MSG: pam_aaa:Authentication success for user admin from 10.79.109.117 - dcos_sshd[18814]  <<<<<<<<<<<it worked
+
+So, this issue actually is a display issue.it worked as expected even though we can not see it in 'show run'.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         689038285       PayPal Network Information Ser           
+C3         689356108       PayPal Network Information Ser           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1250112               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              pchennur      05/11/2020 05:17:23    CSCvu20452      CSC.datacenter  D            
+
+
+********************* Listing of Notes (9 of 9 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 07/28/2020 04:49:25 Added 07/28/2020 04:49:25 by aeguiart)---
+https://gnosis.cisco.com/#!/signature/bug/5f2010c30f96b9d5fb893062/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 07/28/2020 04:49:20 Added 07/28/2020 04:49:20 by aeguiart)---
+This bug addresses a cosmetic problem where 'login on-success log' will be shown as being disabled as per 'show running-config all' but the feature is actually enabled and working as expected. 
+
+Will not be automating the detection of this bug as it does not affect overall operation of the Nexus switch.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: V-comments (Created 06/18/2020 06:36:28 Added 06/18/2020 06:36:28 by palshanm)---
+Bug fix is verified in iplus-b release using  9.3(4.182.
+
+some clarification required on funcationality and checking with DE team over mail.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 05/14/2020 19:43:35 Added 05/14/2020 19:43:35 by girshank)---
+Committed to I+B.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: ULS-sanity (Created 05/12/2020 23:16:55 Added 05/12/2020 23:16:55 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Wednesday, May 13, 2020 10:02 AM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : n9kv01-iTgen
+Testbed  name       : n9kv601-testbed.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/15438
+Report file         : /auto/nxos-sanity/logs/greddyda/15438/uls-n9kv601.report None
+logfile             : /auto/nxos-sanity/logs/greddyda/15438/uls-n9kv601.log
+Test start time     : 2020_05_12_20_13_14
+Test End time       : 2020_05_12_21_32_00
+Test Duration       : 1:18:45.598134
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.97/sanity-image/greddyda-15438-nxos.9.3.4.2.bin', '-testsuite', 'n9kv_uls.yml', '-testbed', 'n9kv601-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/15438/uls-n9kv601.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/15438/uls-n9kv601.report', 'None'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+testStaticRoute                                                           pass      0:00:34   
+testLacpShutNoshut                                                        pass      0:05:42   
+testToggleSwitchport                                                      pass      0:01:46   
+testL2BridgingAccess                                                      pass      0:01:41   
+testHierarchicalRouting                                                   pass      0:04:56   
+testIpv6Interface                                                         pass      0:00:49   
+testOspfv3                                                                pass      0:03:38   
+testBgpv4                                                                 pass      0:03:55   
+testBgpv6                                                                 pass      0:02:40   
+testEigrpv4                                                               pass      0:02:18   
+testRip                                                                   pass      0:01:52   
+testCdp                                                                   pass      0:01:13   
+testLLDP                                                                  pass      0:00:59   
+testSvi                                                                   pass      0:03:46   
+testSviVrf                                                                pass      0:03:43   
+testVrfRouteLeak                                                          pass      0:04:44   
+testL2SanityMacLearning                                                   pass      0:02:19   
+testL2SanityUnconfig                                                      pass      0:00:25   
+testSpanningTreeAccess                                                    pass      0:01:59   
+testSpanningTreeTrunk                                                     pass      0:01:45   
+testL3DhcpRelayv4                                                         pass      0:03:19   
+testL3DhcpRelayv6                                                         pass      0:02:32   
+testCopyRunnStart                                                         pass      0:06:12   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: ULS-sanity---
+
+
+---Start of Note Titled: Neptune-sanity (Created 05/12/2020 23:16:04 Added 05/12/2020 23:16:04 by greddyda)---
+-----Original Message-----
+From: earms-notify@cisco.com <earms-notify@cisco.com> 
+Sent: Wednesday, May 13, 2020 11:35 AM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>; n39k-sanity(mailer list) <n39k-sanity@cisco.com>
+Subject: EARMS Request 001259073085672-1 has completed. Results: P42/F1/A0/E0 (eARMS v2)
+
+Originator: greddyda
+Description: NA
+Submit Time: Tue May 12 20:14:34 PDT 2020 Test Suite: DC3/N3K/N3K-SANITY//udb_neptune_bootup_issu.job
+Status: COMPLETED,  Results: P42/F1/A0/E0
+
+TRADe Link: https://earms-trade.cisco.com/tradeui/logs/details?reqseq=001259073085672-1
+
+ATS Report:
+---End of Note Titled: Neptune-sanity---
+
+
+---Start of Note Titled: Unit-test (Created 05/12/2020 02:43:07 Added 05/12/2020 02:43:07 by greddyda)---
+switch# sh system internal dme running-config dn sys/userext/authrealm/loginstatuslogging
+switch# 
+switch# 
+switch# 
+switch# sh run all | inc "login on-"
+login on-failure log 
+no login on-success log 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# log
+logging   login     
+switch(config)# login on
+on-failure   on-success   
+switch(config)# login on-success log 
+switch(config)# 
+switch(config)# sh run | inc "login on-"
+login on-success log 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "enableLoginSuccessLogging": "yes"
+    }
+  }
+}
+switch(config)# sh system internal dme running-config all dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "childAction": "",
+      "dn": "sys/userext/authrealm/loginstatuslogging",
+      "enableLoginFailureLogging": "yes",
+      "enableLoginSuccessLogging": "yes",
+      "modTs": "2020-05-12T02:35:31.309+00:00",
+      "status": ""
+    }
+  }
+}
+switch(config)# 
+switch(config)# no login on-failure log 
+switch(config)# sh run | inc "login on-"
+no login on-failure log 
+login on-success log 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "enableLoginFailureLogging": "no",
+      "enableLoginSuccessLogging": "yes"
+    }
+  }
+}
+switch(config)# sh system internal dme running-config all dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "childAction": "",
+      "dn": "sys/userext/authrealm/loginstatuslogging",
+      "enableLoginFailureLogging": "no",
+      "enableLoginSuccessLogging": "yes",
+      "modTs": "2020-05-12T02:36:07.109+00:00",
+      "status": ""
+    }
+  }
+}
+switch(config)# 
+switch(config)# 
+switch(config)# log
+logging   login     
+switch(config)# login on-failure log 
+switch(config)# sh run | inc "login on-"
+login on-success log 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "enableLoginSuccessLogging": "yes"
+    }
+  }
+}
+switch(config)# sh system internal dme running-config all dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "childAction": "",
+      "dn": "sys/userext/authrealm/loginstatuslogging",
+      "enableLoginFailureLogging": "yes",
+      "enableLoginSuccessLogging": "yes",
+      "modTs": "2020-05-12T02:36:39.632+00:00",
+      "status": ""
+    }
+  }
+}
+switch(config)# no login on-success log 
+switch(config)# 
+switch(config)# sh run | inc "login on-"
+switch(config)# 
+switch(config)# 
+switch(config)# sh run all | inc "login on-"
+login on-failure log 
+no login on-success log 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config all dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+      "childAction": "",
+      "dn": "sys/userext/authrealm/loginstatuslogging",
+      "enableLoginFailureLogging": "yes",
+      "enableLoginSuccessLogging": "no",
+      "modTs": "2020-05-12T02:37:03.789+00:00",
+      "status": ""
+    }
+  }
+}
+switch(config)# sh system internal dme running-config dn sys/userext/authrealm/loginstatuslogging
+
+{
+  "aaaLoginStatusLogging": {
+    "attributes": {
+
+    }
+  }
+}
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 05/11/2020 21:06:04 Modified 05/13/2020 22:00:18 by cms)---
+{200513 girshank S B} BAT commit ran into issues. Working on its resolution. 
+{200513 girshank S G} In BAT Commit.
+{200513 girshank S B} Submitted for BAT commit. 
+{200512 girshank S B} In PRRQ.
+{200511 girshank S B} RCA identified. Fix in progress.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 05/10/2020 20:31:30 Modified 06/18/2020 06:36:28 by palshanm)---
+<B>Symptom:</B>
+can not see 'login on-success log" in show run after enabling it
+
+<B>Conditions:</B>
+none
+
+<B>Workaround:</B>
+none
+
+<B>Further Problem Description:</B>
+none
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (11 of 11)
+------------------------------------------------------------------------------------------------------------------
+N39K-QA-CFD-Script-Reviews-code-review-2          ascii text     932            prrqengg       04/28/2022 13:12:07      
+CSCvu19790_iplus_b_test_logs_9.3.4.182.txt        ascii text     30653          palshanm       06/18/2020 06:36:43      
+Diffs-release-irvine                              ascii text     3381           greddyda       05/14/2020 19:08:30      
+Diffs-commit-irvine                               ascii text     4537           greddyda       05/14/2020 19:07:56      
+static-analysis-irvine.p3                         binary         7712           cdetsadm       05/14/2020 17:01:09      
+ccwarnings-irvine.p3                              ascii text     405            baas           05/14/2020 17:01:06      
+ccwarnings-irvine.p2                              ascii text     405            baas           05/14/2020 14:18:30      
+static-analysis-irvine.p2                         binary         7678           cdetsadm       05/14/2020 14:18:18      
+ccwarnings-irvine                                 ascii text     405            baas           05/13/2020 15:57:25      
+static-analysis-irvine                            binary         7656           cdetsadm       05/13/2020 15:56:59      
+nxos-pi-common-security-code-review               ascii text     947            prrqengg       01/21/2021 05:37:46      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/28/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1250112      	New
+07/28/2026 satdr    	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+07/28/2026 satdr    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/28/2026 satdr    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/28/2026 satdr    	Report-input-workflows  	KFR - VF Patched             	                             	Del
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/21/2022 fas      	Integrated-releases     	9.3(11)                      	                             	Del
+07/21/2022 fas      	Integrated-releases     	9.3(10.1)                    	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+07/15/2022 divvenka 	Known-affected-releases 	9.3(4)IIL9(0.735)            	                             	Del
+07/15/2022 divvenka 	Known-fixed-releases    	9.3(4.18)                    	                             	Del
+04/28/2022 sivrg    	Automated-test          	N                            	Y                            	Mod
+04/28/2022 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+04/07/2022 palshanm 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+04/07/2022 palshanm 	Test-escape             	                             	Y                            	Mod
+04/07/2022 palshanm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+04/07/2022 palshanm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/07/2022 palshanm 	MDF-edited              	                             	N                            	Mod
+04/07/2022 palshanm 	Known-affected-releases 	                             	9.3(3),9.3(4)IIL9(0.735)     	New
+04/07/2022 palshanm 	Known-fixed-releases    	                             	9.3(4.18),9.3(5)             	New
+01/21/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/21/2021 prrqengg 	FileSize                	411                          	947                          	Mod
+01/21/2021 prrqengg 	Code-reviewer           	                             	shabansa,anok                	New
+12/10/2020 jdasgupt 	Attribute               	gnosis dsig_no_notapplicable 	gnosis dsig_no_notapplicable 	Mod
+07/28/2020 aeguiart 	serviceRequests/C3/68935	                             	C3/689356108                 	New
+07/28/2020 aeguiart 	Urgency-desc            	CL3                          	CL4                          	Mod
+07/28/2020 aeguiart 	Urgency                 	6                            	8                            	Mod
+07/28/2020 aeguiart 	Tickets-count           	1                            	2                            	Mod
+07/28/2020 aeguiart 	TACSR-count             	1                            	2                            	Mod
+07/28/2020 aeguiart 	Tickets-count-direct    	1                            	2                            	Mod
+07/28/2020 aeguiart 	Trouble-tickets         	                             	689356108                    	New
+07/28/2020 aeguiart 	Trouble-tickets-direct  	                             	C3689356108                  	New
+07/28/2020 aeguiart 	Note Title              	                             	KnowledgeSignature           	New
+07/28/2020 aeguiart 	Attribute               	iplusb-hkatakam iplusb iplus-	gnosis dsig_no_notapplicable 	Mod
+07/28/2020 aeguiart 	Note Title              	                             	DetectionUnsuitable          	New
+07/28/2020 aeguiart 	Other-mail              	hanl2 pchennur               	pchennur hanl2 aeguiart      	Mod
+06/24/2020 hanl2    	serviceRequests/C3/68903	                             	                             	Mod
+06/24/2020 hanl2    	Urgency-desc            	P3                           	CL3                          	Mod
+06/24/2020 hanl2    	serviceRequests/C3/68903	                             	C3/689038285                 	New
+06/24/2020 hanl2    	Urgency-desc            	NA                           	P3                           	Mod
+06/24/2020 hanl2    	Urgency                 	                             	6                            	Mod
+06/24/2020 hanl2    	Activity-when-found     	Customer-Preproduction       	Customer-Use                 	Mod
+06/24/2020 hanl2    	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+06/24/2020 hanl2    	Data-classification-reas	none                         	Default value of Data-classif	Mod
+06/24/2020 hanl2    	Tickets-count           	0                            	1                            	Mod
+06/24/2020 hanl2    	TACSR-count             	                             	1                            	Mod
+06/24/2020 hanl2    	Tickets-count-direct    	                             	1                            	Mod
+06/24/2020 hanl2    	Trouble-tickets         	                             	689038285                    	New
+06/24/2020 hanl2    	Trouble-tickets-direct  	                             	C3689038285                  	New
+06/18/2020 palshanm 	Attribute               	iplusb-hkatakam iplusb iplus-	iplusb-hkatakam iplusb iplus-	Mod
+06/18/2020 palshanm 	File Name               	                             	CSCvu19790_iplus_b_test_logs_	New
+06/18/2020 palshanm 	Note Title              	                             	V-comments                   	New
+06/18/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/18/2020 palshanm 	Status                  	R                            	V                            	Mod
+06/18/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+06/18/2020 palshanm 	Original-version        	                             	9.3(3)                       	Mod
+06/18/2020 palshanm 	Verified-release        	                             	9.3(4.182)                   	New
+06/18/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+06/18/2020 palshanm 	Verified-on             	                             	2020-06-18 13:36:28.000+0000 	Mod
+06/18/2020 palshanm 	statusStates            	                             	[status=R, startDate=Fri May 	New
+06/18/2020 palshanm 	statusStates            	[status=R, startDate=Fri May 	                             	Del
+06/18/2020 palshanm 	Age-status              	4                            	38                           	Mod
+06/18/2020 palshanm 	Mean-time-to-verified   	                             	38                           	Mod
+06/08/2020 rdhanase 	Attribute               	iplusb-agurkha iplusb iplus-b	iplusb-hkatakam iplusb iplus-	Mod
+05/25/2020 dsaraf   	Attribute               	 iplusb iplus-b              	iplusb-agurkha iplusb iplus-b	Mod
+05/14/2020 cdetsadm 	Integrated-releases     	                             	9.3(5)                       	New
+05/14/2020 cdetsadm 	Integrated-releases     	                             	9.3(4.18)                    	New
+05/14/2020 girshank 	Note Title              	                             	R-comments                   	New
+05/14/2020 girshank 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+05/14/2020 girshank 	Status                  	A                            	R                            	Mod
+05/14/2020 girshank 	Dev-escape-resolver-opin	                             	N                            	Mod
+05/14/2020 girshank 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/14/2020 girshank 	More-by                 	                             	girshank                     	Mod
+05/14/2020 girshank 	Opener                  	                             	girshank                     	Mod
+05/14/2020 girshank 	Resolver                	                             	girshank                     	Mod
+05/14/2020 girshank 	Breakage                	                             	No                           	Mod
+05/14/2020 girshank 	Regression              	                             	N                            	Mod
+05/14/2020 girshank 	By-previous-commit-value	                             	No                           	Mod
+05/14/2020 girshank 	Bug-origin              	                             	Code / Implementation        	Mod
+05/14/2020 girshank 	Released-code           	                             	N                            	Mod
+05/14/2020 girshank 	Origin                  	                             	base code                    	Mod
+05/14/2020 girshank 	Test-EDP-phase          	                             	Feature Test                 	Mod
+05/14/2020 girshank 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+05/14/2020 girshank 	TPS_issue               	                             	N                            	Mod
+05/14/2020 girshank 	TPS_flag                	                             	N                            	Mod
+05/14/2020 girshank 	Behavior-changed        	                             	N                            	Mod
+05/14/2020 girshank 	Original-resolved-on    	                             	2020-05-15 02:43:35.000+0000 	Mod
+05/14/2020 girshank 	Documents-changed       	                             	none                         	Mod
+05/14/2020 girshank 	More-on                 	                             	2020-05-15 02:43:35.000+0000 	Mod
+05/14/2020 girshank 	Opened-on               	                             	2020-05-15 02:43:35.000+0000 	Mod
+05/14/2020 girshank 	Resolved-on             	                             	2020-05-15 02:43:35.000+0000 	Mod
+05/14/2020 girshank 	statusStates            	                             	[status=A, startDate=Mon May 	New
+05/14/2020 girshank 	statusStates            	[status=A, startDate=Mon May 	                             	Del
+05/14/2020 girshank 	Age-status              	0                            	4                            	Mod
+05/14/2020 girshank 	Mean-time-to-resolved   	                             	3                            	Mod
+05/14/2020 greddyda 	File Name               	                             	Diffs-release-irvine         	New
+05/14/2020 greddyda 	Multi-commit-flag       	                             	Y                            	Mod
+05/14/2020 greddyda 	File Name               	                             	Diffs-commit-irvine          	New
+05/14/2020 cdetsadm 	File Name               	                             	static-analysis-irvine.p3    	New
+05/14/2020 baas     	File Name               	                             	ccwarnings-irvine.p3         	New
+05/14/2020 baas     	File Name               	                             	ccwarnings-irvine.p2         	New
+05/14/2020 cdetsadm 	File Name               	                             	static-analysis-irvine.p2    	New
+05/13/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2020 baas     	File Name               	                             	ccwarnings-irvine            	New
+05/13/2020 cdetsadm 	File Name               	                             	static-analysis-irvine       	New
+05/13/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/12/2020 greddyda 	Note Title              	                             	ULS-sanity                   	New
+05/12/2020 greddyda 	Note Title              	                             	Neptune-sanity               	New
+05/12/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/12/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/12/2020 greddyda 	Note Title              	                             	Unit-test                    	New
+05/11/2020 cms      	Est-fix-date            	                             	2020-05-14 07:00:00.000+0000 	Mod
+05/11/2020 cms      	Note Title              	                             	Scrubnote                    	New
+05/11/2020 greddyda 	Related-bugs            	                             	Duplicate/CSCvu20452         	New
+05/11/2020 greddyda 	Attribute               	                             	 iplusb iplus-b              	Mod
+05/11/2020 greddyda 	Other-mail              	hanl2                        	hanl2 pchennur               	Mod
+05/11/2020 greddyda 	Version                 	                             	9.3(4)IIL9(0.735)            	New
+05/11/2020 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+05/11/2020 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+05/11/2020 cdetsbtk 	Security-screening-times	                             	2020-05-12 03:31:59.000+0000 	Mod
+05/11/2020 asmurali 	Engineer                	asmurali                     	greddyda                     	Mod
+05/11/2020 girshank 	Status-desc             	N-New                        	A-Assigned                   	Mod
+05/11/2020 girshank 	Status                  	N                            	A                            	Mod
+05/11/2020 girshank 	Engineer                	                             	asmurali                     	Mod
+05/11/2020 girshank 	Assigner                	                             	girshank                     	Mod
+05/11/2020 girshank 	Assigned Date           	                             	2020-05-11 07:42:18.000+0000 	Mod
+05/11/2020 girshank 	statusStates            	                             	[status=N, startDate=Mon May 	New
+05/11/2020 girshank 	statusStates            	[status=N, startDate=Mon May 	                             	Del
+05/11/2020 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+05/10/2020 hanl2    	Summary                 	Wed May  6 08:39:17 2020:type	Wed May  6 08:39:17 2020:type	Mod
+05/10/2020 hanl2    	Summary                 	Wed May  6 08:39:17 2020:type	Wed May  6 08:39:17 2020:type	Mod
+05/10/2020 hanl2    	Headline                	'login on-success log' not se	'login on-success log' not se	Mod
+05/10/2020 hanl2    	Summary                 	Wed May  6 08:39:17 2020:type	Wed May  6 08:39:17 2020:type	Mod
+05/10/2020 zihanwan 	Note Title              	                             	Release-note                 	New
+05/10/2020 zihanwan 	Version                 	                             	9.3(3)                       	New
+05/10/2020 zihanwan 	Defect Created          	                             	                             	New

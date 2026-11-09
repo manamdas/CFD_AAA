@@ -1,0 +1,1955 @@
+*******************************************************************************
+
+Bug ID   : CSCwi01617         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : N9K Radius Authentication on 10.4.1 fails with passwords over 16 characters long
+PrimaryPV : 
+Version :10.4(1) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: hbrenesr           Submitted: 10/29/2023 10:39:25     Last Updtd : 08/23/2026 20:52:20  
+RNE-Type: NONE                New-on : 10/29/2023 10:39:25      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:chphilli                                            
+Known-affected-releases:10.4(1) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:10.3(99x) 10.4(1) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 11/02/2023 21:32:18                             
+Multi-commit-flag:                                                    
+Mean-time-to-assigned: 1                                              
+Mean-time-to-resolved: 4                                              
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 10/29/2023 10:37:37            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Integrity / Security Interoperability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 10/30/2023 20:59:18 
+Code-reviewer: sarchand       
+Opened-on: 11/02/2023 21:32:18Opener: asmurali              
+Engineer : asmurali           DE-manager  : anikunna        Est Time/Attribute : ed_ic_dc_rs  nr4m-no-rg kr7m-na kerry-n
+Est. completion date: 11/03/2023 00:00:00  
+Script-version:                         
+
+More-by : asmurali            More-on: 11/02/2023 21:32:18  
+
+Documents Changed: none       Resolved: 11/02/2023 21:32:18 Resolver: asmurali       
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCRS-EAST-US
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature Interaction Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   10
+Tickets-count-direct :            10
+Trouble-tickets :              696289095;696363369;696411894;696838866;697180884;697635551;697679459;700192305;700401573;700407745
+Trouble-tickets-direct :C3696411894 
+Trouble-tickets-direct :C3696289095 
+Trouble-tickets-direct :C3696838866 
+Trouble-tickets-direct :C3697180884 
+Trouble-tickets-direct :C3700401573 
+Trouble-tickets-direct :C3696363369 
+Trouble-tickets-direct :C3697635551 
+Trouble-tickets-direct :C3697679459 
+Trouble-tickets-direct :C3700192305 
+Trouble-tickets-direct :C3700407745 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 11/01/2023 15:13:05
+Document :    nexus
+
+Summary:
+Nexus Radius Authentication that was previously working on 10.2 and 10.3 codes fails on 10.4 if the user password is longer than 16 characters. 16 or less continue to work without issues.
+
+******************* Related Service Requests (10 of 10)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         696289095       null                                     
+C3         696363369       MC HENRY SAVINGS BANK (INC)              
+C3         696411894       MC HENRY SAVINGS BANK (INC)              
+C3         696838866       MC HENRY SAVINGS BANK (INC)              
+C3         697180884       MC HENRY SAVINGS BANK (INC)              
+C3         697635551       US  DEPT OF HOMELAND SECURITY            
+C3         697679459       US  DEPT OF HOMELAND SECURITY            
+C3         700192305       US  DEPT OF HOMELAND SECURITY            
+C3         700401573       US  DEPT OF HOMELAND SECURITY            
+C3         700407745       US  DEPT OF HOMELAND SECURITY            
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-238416                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 asmurali      11/02/2023 21:32:18    CSCwi07620      CSC.tea         R            
+
+
+********************* Listing of Notes (11 of 11 ) ***********************
+
+---Start of Note Titled: Automation Logs (Created 03/25/2024 22:29:58 Added 03/25/2024 22:29:58 by sachinj)---
+Pass Log:
+
+ https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-11/CSCwe72648_Job.2023Nov18_10:34:51.336586.zip&atstype=ATS
+
+Fail log:
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=/auto/dcbg-nx-pi/NEW_PYATS/users/sahmedr/archive/23-11/CSCwe72648_Job.2023Nov18_11:08:53.769126.zip&atstype=ATS
+---End of Note Titled: Automation Logs---
+
+
+---Start of Note Titled: Email-in (Created 12/12/2023 21:01:44 Added 12/12/2023 21:01:44 by shivkum5)---
+From: "Shiva Kumar -X (shivkum5 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <shivkum5@cisco.com>
+Date: Wednesday, December 13, 2023 at 4:33 AM 
+To: "agilis-new-ic-team-ios(mailer list)" <agilis-new-ic-team-ios@cisco.com>
+Cc: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>
+Subject: CSCwi01617
+
+As per DE chat..
+ 
+
+You 12/12/2023 3:17 PM ? Hi Ashwini
+Sorry to bother you , need help for the below bug please reply us once you available
+
+I am currently evaluating CSCwi01617 for a software recommendation
+of 10.3(1) for my customer N/A:
+
+http://wwwin-metrics.cisco.com/protected-cgi-bin/ddtsdisp.cgi?id=CSCwi01617
+----As per version found and integrated release this looks to be specific to 10.4 ?
+--Could you please confirm is this issue impact 10.3.x (Niles) ?
+
+Ashwini Muralidhar 12/12/2023 4:28 PM ? Not on niles
+ 
+ 
+Thanks & Regards,
+Shivakumar
+Email:shivkum5@cisco.com
+
+
+############################ MESSAGE IDS ############################
+# <CH3PR11MB7939A5388D1B63925D00F575828DA@CH3PR11MB7939.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: kerry-na (Created 12/11/2023 00:53:18 Added 12/11/2023 00:53:18 by asmurali)---
+this fix is not needed in kerry as it was a collateral from a bug in nx_main only
+---End of Note Titled: kerry-na---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 11/03/2023 10:25:07 Added 11/03/2023 10:25:07 by seshea)---
+--- Update 2023-11-03 17:25:06.477903 seshea via 696419498)
+Unsuitable - Conditions too Generic
+generic radius config, only thing is the password length itself, stored on server - we can only see this error in packet capture and error from server
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: R-comments (Created 11/02/2023 21:32:19 Added 11/02/2023 21:32:19 by asmurali)---
+1. RCA: when radius started using EVP related APis for hashing, this issue got introduced.
+2.  Proposed Fix and testing consideration: UT done
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Unit-test (Created 11/02/2023 20:51:00 Added 11/02/2023 20:51:00 by asmurali)---
+UT:
+
+Without fips mode:
+
+1 shorter password remote login
+Command: show running-config radius
+!Running configuration last done at: Thu Nov  2 08:48:57 2023
+!Time: Thu Nov  2 08:49:45 2023
+
+version 10.4(2) Bios:version 01.08 
+radius-server secure dtls
+radius-server host 10.105.222.153 key 7 "uwhnms/iloc" auth-port 2083 acct-port 2083 authentication accounting 
+radius-server host 10.105.222.153 dtls idle-timeout 400 client-trustpoint client_tp1 
+aaa group server radius rad1 
+    server 10.105.222.153 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch# show run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Nov  2 08:48:57 2023
+!Time: Thu Nov  2 08:49:48 2023
+
+version 10.4(2) Bios:version 01.08 
+aaa authentication login default group rad1 
+aaa authentication login console local 
+aaa accounting default group rad1 
+
+
+switch# test aaa group rad1 test1 Test@12345
+user has been authenticated
+switch# show run int mgmt0
+
+!Command: show running-config interface mgmt0
+!Running configuration last done at: Thu Nov  2 08:48:57 2023
+!Time: Thu Nov  2 08:50:02 2023
+
+version 10.4(2) Bios:version 01.08 
+
+interface mgmt0
+  vrf member management
+  ip address 10.105.222.175/26
+  ipv6 address 2001:420:5445:2021::218:21/119
+
+switch# show fips status 
+ FIPS Status: disabled
+Switch Mode: NON FIPS
+switch# 
+
+
+sjc-ads-1313:150> ssh test1@10.105.222.175.  >>>> remote auth using ssh
+Warning: Permanently added '10.105.222.175' (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch# 
+
+
+2 for longer password remote login:
+switch# ethanalyzer local interface mgmt display-filter "ip.addr == 10.105.222.153"  limit-captured-frames 0
+Capturing on 'eth1'
+  139 2023-11-02 08:52:36.593955340 10.105.222.175 ? 10.105.222.153 DTLSv1.2 157 Application Data
+  140 2023-11-02 08:52:36.663336201 10.105.222.153 ? 10.105.222.175 DTLSv1.2 235 Application Data
+2   158 2023-11-02 08:52:37.977004192 10.105.222.175 ? 10.105.222.153 DTLSv1.2 155 Application Data
+  159 2023-11-02 08:52:37.981258550 10.105.222.153 ? 10.105.222.175 DTLSv1.2 99 Application Data
+4 ^C
+switch# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch# 
+
+sjc-ads-1313:151> ssh ashwinilpw@10.105.222.175 -> remote auth using ssh
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch# 
+
+With fips enabled:
+
+
+Short pw:
+switch# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch# show run radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Thu Nov  2 08:59:19 2023
+
+version 10.4(2) Bios:version 01.08 
+radius-server secure dtls
+radius-server host 10.105.222.153 key 7 "uwhnms/iloc" auth-port 2083 acct-port 2
+083 authentication accounting 
+radius-server host 10.105.222.153 dtls idle-timeout 400 client-trustpoint client
+_tp1 
+aaa group server radius rad1 
+    server 10.105.222.153 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch# show run aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Thu Nov  2 08:59:21 2023
+
+version 10.4(2) Bios:version 01.08 
+aaa authentication login default group rad1 
+aaa authentication login console local 
+aaa accounting default group rad1 
+
+
+switch# show fips status 
+ FIPS Status: enabled
+Switch Mode: FIPS
+----------------------
+LC          STATUS
+----------------------
+switch# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch# 
+
+sjc-ads-1313:155> ssh test1@10.105.222.175
+Warning: Permanently added '10.105.222.175' (RSA) to the list of known hosts.
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch# 
+
+With lögn password:
+switch# show fips status 
+ FIPS Status: enabled
+Switch Mode: FIPS
+----------------------
+LC          STATUS
+----------------------
+switch# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch# ethanalyzer local interface mgmt display-filter "ip.addr == 10.105.222.153" limit-captured-frames 0
+Capturing on 'eth1'
+    1 2023-11-02 09:01:32.468535496 10.105.222.175 ? 10.105.222.153 DTLS 251 Clie
+nt Hello
+    2 2023-11-02 09:01:32.469802699 10.105.222.153 ? 10.105.222.175 DTLSv1.0 102 
+Hello Verify Request
+    3 2023-11-02 09:01:32.470183229 10.105.222.175 ? 10.105.222.153 DTLSv1.0 270 
+Client Hello (Fragment)
+    4 2023-11-02 09:01:32.470265508 10.105.222.175 ? 10.105.222.153 DTLSv1.0 80 C
+lient Hello (Reassembled)
+    5 2023-11-02 09:01:32.500772188 10.105.222.153 ? 10.105.222.175 IPv4 1290 Fra
+gmented IP protocol (proto=UDP 17, off=0, ID=e879)
+    6 2023-11-02 09:01:32.500841141 10.105.222.153 ? 10.105.222.175 IPv4 1290 Fra
+gmented IP protocol (proto=UDP 17, off=1256, ID=e879)
+    7 2023-11-02 09:01:32.500841141 10.105.222.153 ? 10.105.222.175 IPv4 1290 Fra
+gmented IP protocol (proto=UDP 17, off=1256, ID=e879)
+    8 2023-11-02 09:01:32.500841294 10.105.222.153 ? 10.105.222.175 DTLSv1.2 178 
+Server Hello, Certificate (Fragment), Certificate (Fragment), Certificate (Fragm
+ent), Certificate (Fragment), Certificate (Fragment), Certificate (Fragment), Ce
+rtificate (Reassembled), Server Key Exchange (Fragment), Server Key Exchange (Fr
+agment), Server Key Exchange (Reassembled), Certificate Request (Fragment), Cert
+ificate Request (Reassembled), Server Hello Done
+    9 2023-11-02 09:01:32.500841294 10.105.222.153 ? 10.105.222.175 IPv4 178 Frag
+mented IP protocol (proto=UDP 17, off=2512, ID=e879)
+   10 2023-11-02 09:01:32.502776793 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   11 2023-11-02 09:01:32.502838622 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   12 2023-11-02 09:01:32.502890655 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   13 2023-11-02 09:01:32.502982098 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   14 2023-11-02 09:01:32.503059691 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   15 2023-11-02 09:01:32.503138482 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   16 2023-11-02 09:01:32.503231952 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   17 2023-11-02 09:01:32.503300782 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   18 2023-11-02 09:01:32.503380464 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate (Fragment)
+   20 2023-11-02 09:01:32.521512540 10.105.222.175 ? 10.105.222.153 DTLSv1.2 256 
+Certificate (Reassembled)
+   21 2023-11-02 09:01:32.523925324 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Client Key Exchange, Certificate Verify (Fragment)
+   22 2023-11-02 09:01:32.523996568 10.105.222.175 ? 10.105.222.153 DTLSv1.2 270 
+Certificate Verify (Fragment)
+   23 2023-11-02 09:01:32.524177418 10.105.222.175 ? 10.105.222.153 DTLSv1.2 155 
+Certificate Verify (Reassembled), Change Cipher Spec, Encrypted Handshake Messag
+e
+   24 2023-11-02 09:01:32.529528227 10.105.222.153 ? 10.105.222.175 DTLSv1.2 117 
+Change Cipher Spec, Encrypted Handshake Message
+   25 2023-11-02 09:01:32.529941008 10.105.222.175 ? 10.105.222.153 DTLSv1.2 212 
+Application Data
+   26 2023-11-02 09:01:32.531947949 10.105.222.153 ? 10.105.222.175 DTLSv1.2 99 A
+pplication Data
+  189 2023-11-02 09:01:54.090000258 10.105.222.175 ? 10.105.222.153 DTLSv1.2 157 
+Application Data
+  190 2023-11-02 09:01:54.155739296 10.105.222.153 ? 10.105.222.175 DTLSv1.2 235 
+Application Data
+  212 2023-11-02 09:01:55.475525123 10.105.222.175 ? 10.105.222.153 DTLSv1.2 155 
+Application Data
+  213 2023-11-02 09:01:55.481296991 10.105.222.153 ? 10.105.222.175 DTLSv1.2 99 A
+pplication Data
+29 ^C
+switch# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch# 
+
+
+sjc-ads-1313:156> ssh ashwinilpw@10.105.222.175
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch# 
+
+No dtls, no fips:
+
+Short pw:
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Nov  2 09:09:40 2023
+!Time: Thu Nov  2 09:11:50 2023
+
+version 10.4(2) Bios:version 01.08 
+aaa authentication login default group rad1 
+aaa authentication login console local 
+
+
+switch# radius-server host 10.105.222.153 key 7 "fewhg"
+         ^
+% Invalid command at '^' marker.
+switch# config t
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# radius-server host 10.105.222.153 key 7 "fewhg"
+switch(config)# show run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Nov  2 09:13:23 2023
+!Time: Thu Nov  2 09:13:26 2023
+
+version 10.4(2) Bios:version 01.08 
+radius-server host 10.105.222.153 key 7 "fewhg" authentication accounting 
+aaa group server radius rad1 
+    server 10.105.222.153 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# show cores
+VDC  Module  Instance  Process-name     PID       Date(Year-Month-Day Time)
+---  ------  --------  ---------------  --------  -------------------------
+switch(config)# 
+
+sjc-ads-1313:157> ssh test1@10.105.222.175
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch# 
+
+
+Long pw:
+sjc-ads-1313:158> ssh ashwinilpw@10.105.222.175
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+switch#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: Sanity_uls (Created 11/02/2023 20:49:49 Added 11/02/2023 20:49:49 by asmurali)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity121
+Testbed  name       : sanity121-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases   : 63
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/asmurali/591298
+Report file         : /auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls-sanity121.report
+logfile             : /auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls-sanity121.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time     : 2023_11_02_12_08_31
+Test End time       : 2023_11_02_17_19_16
+Test Duration       : 5:10:45.465372
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '591298', '-cdet', 'CSCwh54753', '-build', '/ws/asmurali-sjc/nxos64-cs.1type6dgex.bin', '-testsuite', '/auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls.yml', '-testbed', 'sanity121-testbed.yml', '-asic', 'qp', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'asmurali', '-logfile', '/auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls-sanity121.log', '-reportfile', '/auto/nxos-sanity/logs/asmurali/591298/base_sanity_uls-sanity121.report', '-jobid', 'QP'] 
+Job Info           : "Basic_Sanity" Report: Job-id:QP Passed:63/63  Failed:0/63  Aborted:0/63  Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:21   
+testBootTime                                                              pass      0:00:16   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:19   
+testL3DhcpRelayv4                                                         pass      0:03:16   
+testL3DhcpRelayv6                                                         pass      0:02:27   
+testSviDhcpRelayv4                                                        pass      0:03:40   
+testSviDhcpRelayv6                                                        pass      0:02:49   
+testPTPMulticast                                                          pass      0:09:31   
+testPTPChangeL3ToL2AccessNonDefaultVlan                                   pass      0:19:04   
+testPTPMulticastSVIAccess                                                 pass      0:09:50   
+testStaticRoute                                                           pass      0:00:38   
+testLacpShutNoshut                                                        pass      0:04:40   
+testSubPortChannelShutNoshut                                              pass      0:02:45   
+testL2BridgingTrunk                                                       pass      0:01:47   
+testBgpv4                                                                 pass      0:03:49   
+testCdp                                                                   pass      0:01:36   
+testLLDP                                                                  pass      0:00:56   
+testSviVrf                                                                pass      0:03:47   
+testIpv6Interface                                                         pass      0:00:51   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:32   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:38   
+testL2SanityMacLearning                                                   pass      0:11:35   
+testL2SanityPortModeChange                                                pass      0:10:30   
+testL2SanityUnconfig                                                      pass      0:00:51   
+testDynamicL2MulticastPC                                                  pass      0:04:57   
+testPimv4                                                                 pass      0:08:37   
+GleanL3toL3V4V6                                                           pass      0:05:07   
+testCopp                                                                  pass      0:16:22   
+testRaclIPv4                                                              pass      0:05:35   
+testSpan                                                                  pass      0:02:31   
+configVxLANVPCEvpn40G                                                     pass      0:17:46   
+testVxLANPeerLearnAccessVPCEvpn40G                                        pass      0:01:16   
+testVxLANBCAccessVPCEvpn40G                                               pass      0:00:28   
+testVxLANL2MCAccessVPCEvpn40G                                             pass      0:00:28   
+testVxLANUUCAccessVPCEvpn40G                                              pass      0:00:28   
+testVxLANUCAccessVPCEvpn40G                                               pass      0:01:12   
+testVxLANUCIPv6AccessVPCEvpn40G                                           pass      0:00:43   
+testVxLANUCNonIPAccessVPCEvpn40G                                          pass      0:00:43   
+testVxLANPeerLearnTrunkVPCEvpn40G                                         pass      0:01:16   
+testVxLANBCTrunkVPCEvpn40G                                                pass      0:00:28   
+testVxLANL2MCTrunkVPCEvpn40G                                              pass      0:00:29   
+testVxLANUUCTrunkVPCEvpn40G                                               pass      0:00:28   
+testVxLANUCTrunkVPCEvpn40G                                                pass      0:01:12   
+testVxLANUCIPv6TrunkVPCEvpn40G                                            pass      0:00:43   
+testVxLANUCNonIPTrunkVPCEvpn40G                                           pass      0:00:43   
+testNestedVxLANBCTrunkVPCEvpnL240G_1                                      pass      0:00:28   
+testNestedVxLANMCTrunkVPCEvpnL240G_1                                      pass      0:00:28   
+testNestedVxLANUCBCVPCEvpnL240G_1                                         pass      0:00:28   
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G                                     pass      0:01:36   
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G                                     pass      0:01:36   
+testVxLANL3IPv4L3VnidVPCEvpn40G                                           pass      0:01:36   
+testVxLANL3IPv6L3VnidVPCEvpn40G                                           pass      0:01:36   
+testNestedVxLANVPCEvpnL3IPv440G_1                                         pass      0:01:36   
+testNestedVxLANVPCEvpnL3IPv640G_1                                         pass      0:01:37   
+testVxLANSnoopMCTrunkVPCsEvpn40G                                          pass      0:03:58   
+testVxLANChangeNveVniTrunkVPCEvpn40G                                      pass      0:13:55   
+testVxLANFlapNveVPCEvpn40G                                                pass      0:17:23   
+testVxLANPeerLinkFlapStimuliVPCEvpn40G                                    pass      0:07:50   
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G                             pass      0:17:22   
+unconfigVxLANVPCEvpn40G                                                   pass      0:11:17   
+testGoldDiagnostic                                                        pass      0:00:08   
+testCores                                                                 pass      0:00:03   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+bootscripts                 32.0  12:19:00.00  12:19:32.00 
+sysmgr_bootup                3.4  12:19:32.00  12:19:35.47 
+pfm_init                     3.0  12:19:35.00  12:19:38.00 
+lcm_init                     4.1  12:19:38.00  12:19:42.01 
+module_insert               21.4  12:19:42.01  12:20:03.05 
+sup_online                   1.4  12:20:03.06  12:20:04.51 
+lc_online                   69.7  12:20:06.54  12:21:16.25 
+pss_acfg                     1.1  12:21:16.25  12:21:17.39 
+kernel                       3.0  19:18:47.50  19:18:50.50 
+----------------------------------------------------------
+full_boot                  149.3  12:18:48.00  12:21:17.39 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |             3.45 |            3.0 | PASS   |
+| bootscripts   |             32.2 |           32.0 | PASS   |
+| sysmgr_bootup |             4.37 |            3.4 | PASS   |
+| pfm_init      |             3.45 |            3.0 | PASS   |
+| sup_online    |             1.61 |            1.4 | PASS   |
+| lcm_init      |           13.455 |            4.1 | PASS   |
+| module_insert |            16.79 |           21.4 | SKIP   |
+| lc_online     |           80.615 |           69.7 | PASS   |
+| pss_acfg      |            0.115 |            1.1 | SKIP   |
+| full_boot     |           187.68 |          149.3 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: Sanity_uls---
+
+
+---Start of Note Titled: A-comments (Created 10/30/2023 20:59:18 Added 10/30/2023 20:59:18 by anikunna)---
+Pls address on priority
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 10/29/2023 20:53:03 Modified 12/11/2023 00:51:04 by cms)---
+{231211 anikunna S B} Kerry NA
+{231103 asmurali S B} commit is done
+{231103 sivadura S B} QA: Palani will look into it.
+{231102 shsreena S G} To Start commit process on Nov 3
+{231102 anikunna S B} Fix is under test on submitter setup
+{231031 anikunna S B} Working on a probable fix.
+{231030 anikunna S B} Just came in. Doing first level analysis
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  reproduction-steps (Created 10/29/2023 10:40:13 Modified 10/29/2023 10:51:15 by hbrenesr)---
+Parameters:
+
+Users:
+testlength
+Cisco!1234567890!
+(17 characters)
+
+testlength1
+Cisco!1234567890
+(16 characters)
+
+testlength2
+Cisco!1234567890!!!!!!!!!!@@@@@
+(31 characters)
+
+IMPORTANT NOTES:
++Test performed against an Identity Services Engine used strictly for Radius authentication
++Note, TACACS was not tested on this issue. Issue is similar to a bug filed for NDB CSCvx71388, which may or may not be related.
++General Radius configuration applied on test switch:
+
+F241.06.09.N9K-FX3-2# sh run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Sat Oct 28 06:18:01 2023
+!Time: Sat Oct 28 06:25:30 2023
+
+version 10.1(1) Bios:version 01.08 
+aaa authentication login default group length 
+aaa authentication login console local 
+
+F241.06.09.N9K-FX3-2# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Sat Oct 28 06:18:01 2023
+!Time: Sat Oct 28 06:25:32 2023
+
+version 10.1(1) Bios:version 01.08 
+radius-server host 10.207.166.234 key 7 "vdewwdnjuuoy" authentication 
+aaa group server radius length 
+    server 10.207.166.234 
+    use-vrf management
+
+
++FIRST TEST, performed on N9K-FX3 
++Tested with longest pass on 10.1.1, Cisco!1234567890!!!!!!!!!!@@@@@, no issues
+
+F241.06.09.N9K-FX3-2# sh mod
+Mod Ports             Module-Type                      Model           Status
+--- ----- ------------------------------------- --------------------- ---------
+1    54   48x10/25G + 6x40/100G Ethernet Module N9K-C93180YC-FX3      active *  
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    10.1(1)                  1.0    NA  
+
+
+Mod  MAC-Address(es)                         Serial-Num
+---  --------------------------------------  ----------
+1    04-bd-97-a9-c7-08 to 04-bd-97-a9-c7-6b  FDO261517GD
+
+Mod  Online Diag Status
+---  ------------------
+1    Pass
+
+* this terminal session 
+F241.06.09.N9K-FX3-2# 
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface inband display-f ip.addr==10.207.166.234  limit-c 0
+Capturing on 'ps-inb'
+
+
+F241.06.09.N9K-FX3-2# 
+F241.06.09.N9K-FX3-2# 
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgm display-f ip.addr==10.207.166.234  limit-c 0
+Capturing on 'eth1'
+   40 2023-10-28 06:25:21.840437464 10.122.187.139 â?? 10.207.166.234 RADIUS 127 Access-Request id=12
+   41 2023-10-28 06:25:21.871328630 10.207.166.234 â?? 10.122.187.139 RADIUS 155 Access-Accept id=12
+
+
++SECOND TEST, Upgraded to 10.2.5 and tested with longest pass, no issues
++THIRD TEST, No issues seen on FX2 box running on 10.3.2
+
+F241.06.09.N9K-FX3-2# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    ttyS0        Oct 28 06:36   .         22550 *
+testlength2 pts/0        Oct 28 06:37   .         23916 (10.82.237.111) session=
+ssh
+F241.06.09.N9K-FX3-2# sh mod | i i 10.2
+1    54   48x10/25G + 6x40/100G Ethernet Module N9K-C93180YC-FX3      active *  
+1    10.2(5)                  1.0    NA  
+F241.06.09.N9K-FX3-2# 
+
++FOURTH TEST, Upgraded to FX3 10.4.1, tested with longest pass, failed
++Same base config post upgrade:
+
+F241.06.09.N9K-FX3-2# sh run aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Sat Oct 28 06:50:23 2023
+
+version 10.4(1) Bios:version 01.08 <<<<
+aaa authentication login default group length 
+aaa authentication login console local 
+
+
+F241.06.09.N9K-FX3-2# sh run radius 
+
+!Command: show running-config radius
+!No configuration change since last restart
+!Time: Sat Oct 28 06:50:28 2023
+
+version 10.4(1) Bios:version 01.08 <<<<<
+radius-server host 10.207.166.234 key 7 "vdewwdnjuuoy" authentication 
+aaa group server radius length 
+    server 10.207.166.234 
+    use-vrf management
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0
+Capturing on 'eth1'
+    4 2023-10-28 06:52:27.654582842 10.122.187.139 â?? 10.207.166.234 RADIUS 127 Access-Request id=4
+    5 2023-10-28 06:52:27.657835338 10.207.166.234 â?? 10.122.187.139 RADIUS 62 Access-Reject id=4
+2 
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0 det
+Capturing on 'eth1'
+Frame 33: 127 bytes on wire (1016 bits), 127 bytes captured (1016 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:53:05.050533836 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698475985.050533836 seconds
+    [Time delta from previous captured frame: 0.001967591 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 15.815332508 seconds]
+    Frame Number: 33
+    Frame Length: 127 bytes (1016 bits)
+    Capture Length: 127 bytes (1016 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 04:bd:97:a9:c7:08, Dst: 00:6c:bc:f6:b0:c9
+    Destination: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.122.187.139, Dst: 10.207.166.234
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 113
+    Identification: 0xbd21 (48417)
+    Flags: 0x0000
+        0... .... .... .... = Reserved bit: Not set
+        .0.. .... .... .... = Don't fragment: Not set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 64
+    Protocol: UDP (17)
+    Header checksum: 0x459c [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.122.187.139
+    Destination: 10.207.166.234
+User Datagram Protocol, Src Port: 59315, Dst Port: 1812
+    Source Port: 59315
+    Destination Port: 1812
+    Length: 93
+    Checksum: 0x0deb [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.000000000 seconds]
+        [Time since previous frame: 0.000000000 seconds]
+RADIUS Protocol
+    Code: Access-Request (1)
+    Packet identifier: 0x5 (5)
+    Length: 85
+    Authenticator: 6264ec9b5074200db037c73ab5ddc6a3
+    Attribute Value Pairs
+        AVP: t=User-Name(1) l=13 val=testlength2
+            Type: 1
+            Length: 13
+            User-Name: testlength2
+        AVP: t=User-Password(2) l=34 val=Encrypted
+            Type: 2
+            Length: 34
+            User-Password (encrypted): 9421e5110a8e6bd41c58181eb2dfe0d598801d8d6c4892e6â?¦
+        AVP: t=NAS-Port-Type(61) l=6 val=Virtual(5)
+            Type: 61
+            Length: 6
+            NAS-Port-Type: Virtual (5)
+        AVP: t=NAS-Port(5) l=6 val=0
+            Type: 5
+            Length: 6
+            NAS-Port: 0
+        AVP: t=NAS-IP-Address(4) l=6 val=10.122.187.139
+            Type: 4
+            Length: 6
+            NAS-IP-Address: 10.122.187.139
+
+Frame 34: 62 bytes on wire (496 bits), 62 bytes captured (496 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:53:05.110249779 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698475985.110249779 seconds
+    [Time delta from previous captured frame: 0.059715943 seconds]
+    [Time delta from previous displayed frame: 0.059715943 seconds]
+    [Time since reference or first frame: 15.875048451 seconds]
+    Frame Number: 34
+    Frame Length: 62 bytes (496 bits)
+    Capture Length: 62 bytes (496 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 00:6c:bc:f6:b0:c9, Dst: 04:bd:97:a9:c7:08
+    Destination: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.207.166.234, Dst: 10.122.187.139
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 48
+    Identification: 0x8e17 (36375)
+    Flags: 0x4000, Don't fragment
+        0... .... .... .... = Reserved bit: Not set
+        .1.. .... .... .... = Don't fragment: Set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 60
+    Protocol: UDP (17)
+    Header checksum: 0x38e7 [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.207.166.234
+    Destination: 10.122.187.139
+User Datagram Protocol, Src Port: 1812, Dst Port: 59315
+    Source Port: 1812
+    Destination Port: 59315
+    Length: 28
+    Checksum: 0x01c8 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.059715943 seconds]
+        [Time since previous frame: 0.059715943 seconds]
+RADIUS Protocol
+    Code: Access-Reject (3)
+    Packet identifier: 0x5 (5)
+    Length: 20
+    Authenticator: ff704e6a2b2b1951a0990b1d9eb5b78a
+    [This is a response to a request in frame 33]
+    [Time from request: 0.059715943 seconds]
+
+2 ^C
+F241.06.09.N9K-FX3-2# 
+
++FIFTH TEST, Tested with Cisco!1234567890!, which is 17 characters long, also fails
+
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0
+Capturing on 'eth1'
+    4 2023-10-28 06:54:44.305035934 10.122.187.139 â?? 10.207.166.234 RADIUS 126 Access-Request id=6
+    5 2023-10-28 06:54:44.308861249 10.207.166.234 â?? 10.122.187.139 RADIUS 62 Access-Reject id=6
+2 
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0 det
+Capturing on 'eth1'
+Frame 7: 126 bytes on wire (1008 bits), 126 bytes captured (1008 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:55:30.299931043 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698476130.299931043 seconds
+    [Time delta from previous captured frame: 0.001875736 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 8.504183651 seconds]
+    Frame Number: 7
+    Frame Length: 126 bytes (1008 bits)
+    Capture Length: 126 bytes (1008 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 04:bd:97:a9:c7:08, Dst: 00:6c:bc:f6:b0:c9
+    Destination: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.122.187.139, Dst: 10.207.166.234
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 112
+    Identification: 0xbd23 (48419)
+    Flags: 0x0000
+        0... .... .... .... = Reserved bit: Not set
+        .0.. .... .... .... = Don't fragment: Not set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 64
+    Protocol: UDP (17)
+    Header checksum: 0x459b [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.122.187.139
+    Destination: 10.207.166.234
+User Datagram Protocol, Src Port: 59315, Dst Port: 1812
+    Source Port: 59315
+    Destination Port: 1812
+    Length: 92
+    Checksum: 0x3243 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.000000000 seconds]
+        [Time since previous frame: 0.000000000 seconds]
+RADIUS Protocol
+    Code: Access-Request (1)
+    Packet identifier: 0x7 (7)
+    Length: 84
+    Authenticator: da0c52fc76c07936ba792143a6277c9b
+    Attribute Value Pairs
+        AVP: t=User-Name(1) l=12 val=testlength
+            Type: 1
+            Length: 12
+            User-Name: testlength
+        AVP: t=User-Password(2) l=34 val=Encrypted
+            Type: 2
+            Length: 34
+            User-Password (encrypted): 2528bfe1c343cd2acb79ccf1a84a8086ae0c7feb2ebf5efbâ?¦
+        AVP: t=NAS-Port-Type(61) l=6 val=Virtual(5)
+            Type: 61
+            Length: 6
+            NAS-Port-Type: Virtual (5)
+        AVP: t=NAS-Port(5) l=6 val=0
+            Type: 5
+            Length: 6
+            NAS-Port: 0
+        AVP: t=NAS-IP-Address(4) l=6 val=10.122.187.139
+            Type: 4
+            Length: 6
+            NAS-IP-Address: 10.122.187.139
+
+Frame 8: 62 bytes on wire (496 bits), 62 bytes captured (496 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:55:30.303523582 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698476130.303523582 seconds
+    [Time delta from previous captured frame: 0.003592539 seconds]
+    [Time delta from previous displayed frame: 0.003592539 seconds]
+    [Time since reference or first frame: 8.507776190 seconds]
+    Frame Number: 8
+    Frame Length: 62 bytes (496 bits)
+    Capture Length: 62 bytes (496 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 00:6c:bc:f6:b0:c9, Dst: 04:bd:97:a9:c7:08
+    Destination: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.207.166.234, Dst: 10.122.187.139
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 48
+    Identification: 0x4c2f (19503)
+    Flags: 0x4000, Don't fragment
+        0... .... .... .... = Reserved bit: Not set
+        .1.. .... .... .... = Don't fragment: Set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 60
+    Protocol: UDP (17)
+    Header checksum: 0x7acf [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.207.166.234
+    Destination: 10.122.187.139
+User Datagram Protocol, Src Port: 1812, Dst Port: 59315
+    Source Port: 1812
+    Destination Port: 59315
+    Length: 28
+    Checksum: 0x2fe4 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.003592539 seconds]
+        [Time since previous frame: 0.003592539 seconds]
+RADIUS Protocol
+    Code: Access-Reject (3)
+    Packet identifier: 0x7 (7)
+    Length: 20
+    Authenticator: 364687e59368c75488618b2cec124da6
+    [This is a response to a request in frame 7]
+    [Time from request: 0.003592539 seconds]
+
+2 ^C
+F241.06.09.N9K-FX3-2# 
+
++SIXTH TEST, Tested with Cisco!1234567890, 16 character password, no issues seen:
+
+F241.06.09.N9K-FX3-2# show users
+NAME     LINE         TIME         IDLE          PID COMMENT
+admin    pts/0        Oct 28 06:50   .         21300 *
+testlength1 pts/3        Oct 28 06:56   .         25315 (10.82.237.111) session=ssh
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0
+Capturing on 'eth1'
+   41 2023-10-28 06:58:05.761126832 10.122.187.139 â?? 10.207.166.234 RADIUS 111 Access-Request id=9
+   42 2023-10-28 06:58:05.798265446 10.207.166.234 â?? 10.122.187.139 RADIUS 155 Access-Accept id=9
+2 
+
+
+F241.06.09.N9K-FX3-2# ethanalyzer local interface mgmt display-filter ip.addr==10.207.166.234 limit-captured-frames 0 det
+Capturing on 'eth1'
+1 Frame 63: 111 bytes on wire (888 bits), 111 bytes captured (888 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:58:41.622220317 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698476321.622220317 seconds
+    [Time delta from previous captured frame: 0.001978809 seconds]
+    [Time delta from previous displayed frame: 0.000000000 seconds]
+    [Time since reference or first frame: 24.147082059 seconds]
+    Frame Number: 63
+    Frame Length: 111 bytes (888 bits)
+    Capture Length: 111 bytes (888 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 04:bd:97:a9:c7:08, Dst: 00:6c:bc:f6:b0:c9
+    Destination: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.122.187.139, Dst: 10.207.166.234
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 97
+    Identification: 0xbd26 (48422)
+    Flags: 0x0000
+        0... .... .... .... = Reserved bit: Not set
+        .0.. .... .... .... = Don't fragment: Not set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 64
+    Protocol: UDP (17)
+    Header checksum: 0x45a7 [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.122.187.139
+    Destination: 10.207.166.234
+User Datagram Protocol, Src Port: 59315, Dst Port: 1812
+    Source Port: 59315
+    Destination Port: 1812
+    Length: 77
+    Checksum: 0x2ecb [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.000000000 seconds]
+        [Time since previous frame: 0.000000000 seconds]
+RADIUS Protocol
+    Code: Access-Request (1)
+    Packet identifier: 0xa (10)
+    Length: 69
+    Authenticator: c2eaa43d97cb618daaf5b3b8035981eb
+    Attribute Value Pairs
+        AVP: t=User-Name(1) l=13 val=testlength1
+            Type: 1
+            Length: 13
+            User-Name: testlength1
+        AVP: t=User-Password(2) l=18 val=Encrypted
+            Type: 2
+            Length: 18
+            User-Password (encrypted): 85f2b74c5b57600d44d109a4203ead34
+        AVP: t=NAS-Port-Type(61) l=6 val=Virtual(5)
+            Type: 61
+            Length: 6
+            NAS-Port-Type: Virtual (5)
+        AVP: t=NAS-Port(5) l=6 val=0
+            Type: 5
+            Length: 6
+            NAS-Port: 0
+        AVP: t=NAS-IP-Address(4) l=6 val=10.122.187.139
+            Type: 4
+            Length: 6
+            NAS-IP-Address: 10.122.187.139
+
+Frame 64: 155 bytes on wire (1240 bits), 155 bytes captured (1240 bits) on interface eth1, id 0
+    Interface id: 0 (eth1)
+        Interface name: eth1
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Oct 28, 2023 06:58:41.661494734 UTC
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1698476321.661494734 seconds
+    [Time delta from previous captured frame: 0.039274417 seconds]
+    [Time delta from previous displayed frame: 0.039274417 seconds]
+    [Time since reference or first frame: 24.186356476 seconds]
+    Frame Number: 64
+    Frame Length: 155 bytes (1240 bits)
+    Capture Length: 155 bytes (1240 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:udp:radius]
+Ethernet II, Src: 00:6c:bc:f6:b0:c9, Dst: 04:bd:97:a9:c7:08
+    Destination: 04:bd:97:a9:c7:08
+        Address: 04:bd:97:a9:c7:08
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: 00:6c:bc:f6:b0:c9
+        Address: 00:6c:bc:f6:b0:c9
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.207.166.234, Dst: 10.122.187.139
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 141
+    Identification: 0x785e (30814)
+    Flags: 0x4000, Don't fragment
+        0... .... .... .... = Reserved bit: Not set
+        .1.. .... .... .... = Don't fragment: Set
+        ..0. .... .... .... = More fragments: Not set
+    Fragment offset: 0
+    Time to live: 60
+    Protocol: UDP (17)
+    Header checksum: 0x4e43 [validation disabled]
+    [Header checksum status: Unverified]
+    Source: 10.207.166.234
+    Destination: 10.122.187.139
+User Datagram Protocol, Src Port: 1812, Dst Port: 59315
+    Source Port: 1812
+    Destination Port: 59315
+    Length: 121
+    Checksum: 0x1db0 [unverified]
+    [Checksum Status: Unverified]
+    [Stream index: 0]
+    [Timestamps]
+        [Time since first frame: 0.039274417 seconds]
+        [Time since previous frame: 0.039274417 seconds]
+RADIUS Protocol
+    Code: Access-Accept (2)
+    Packet identifier: 0xa (10)
+    Length: 113
+    Authenticator: c9f8f56c8b1f5718f073fc8c0b3c14b4
+    [This is a response to a request in frame 63]
+    [Time from request: 0.039274417 seconds]
+    Attribute Value Pairs
+        AVP: t=User-Name(1) l=13 val=testlength1
+            Type: 1
+            Length: 13
+            User-Name: testlength1
+        AVP: t=Class(25) l=80 val=434143533a30616366613665616436426566683550775756â?¦
+            Type: 25
+            Length: 80
+            Class: 434143533a30616366613665616436426566683550775756â?¦
+
+2 ^C
+F241.06.09.N9K-FX3-2#
+
+++ADDITIONAL PCAPS ATTACHED WERE TAKEN ON 10.2.5 SHOWING CORRECT AUTHENTICATION WITH 17 CHARACTERS, AND PCAP TAKEN ON 10.4.1 SHOWING FAILED AUTHENTICATION WITH THE SAME USERS USING 17 CHARACTER PASSWORD, AND ACCEPTED AUTHENTICATION WITH A 16 CHARACTER PASSWORD USER.
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 10/29/2023 10:39:25 Modified 11/02/2023 21:32:19 by asmurali)---
+<B>Symptom:</B>
+Users that were previously able to authenticate with longer passwords fail to authenticate after moving to 10.4 code.
+
+Issue does not appear to be present on tested codes 10.1.1, 10.2.5 or 10.3.2 codes
+
+<B>Conditions:</B>
++NXOS 10.4.1
+
+Software
+  BIOS: version 01.08
+  NXOS: version 10.4(1) [Feature Release]  <<<<<
+  Host NXOS: version 10.4(1)
+  BIOS compile time:  05/06/2022
+  NXOS image file is: bootflash:///nxos64-cs.10.4.1.F.bin
+  NXOS compile time:  7/31/2023 12:00:00 [08/16/2023 14:16:59]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX3 Chassis 
+
++Radius authentication configured:
+
+aaa authentication login default group length 
+aaa authentication login console local 
+radius-server host <radiusserver> key 7 <sharedsecret> authentication 
+aaa group server radius length 
+    server <radiusserver>
+    use-vrf management
+
++Password length larger than 16 characters
+
+<B>Workaround:</B>
+Authenticate with users whose password is less than or equal to 16 characters long or change the password to avoid the length issue
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (18 of 18)
+------------------------------------------------------------------------------------------------------------------
+base_sanity_uls_sanity_baseline_compare           ascii text     219            root           11/03/2023 18:31:28      
+base_sanity_uls_sanity_report                     ascii text     9079           root           11/03/2023 18:31:28      
+Diffs-commit-nx_main                              ascii text     2112           asmurali       11/02/2023 21:28:29      
+code-review-nx_main.p4                            ascii text     1712           asmurali       11/02/2023 21:17:38      
+code-review-nx_main.p3                            ascii text     1712           asmurali       11/02/2023 21:01:58      
+ccwarnings-nx_main.p3                             ascii text     187            baas           11/02/2023 10:39:48      
+static-analysis-nx_main.p5                        ascii text     8976           baas           11/02/2023 10:39:11      
+ccwarnings-nx_main.p2                             ascii text     187            baas           11/02/2023 10:06:23      
+static-analysis-nx_main.p4                        ascii text     8975           baas           11/02/2023 10:05:45      
+ccwarnings-nx_main                                ascii text     187            baas           11/02/2023 06:55:16      
+static-analysis-nx_main.p3                        ascii text     8408           baas           11/02/2023 06:54:08      
+static-analysis-nx_main.p2                        ascii text     8409           baas           11/02/2023 06:53:08      
+static-analysis-nx_main                           ascii text     8409           baas           11/02/2023 06:52:10      
+code-review-nx_main.p2                            ascii text     1669           asmurali       11/02/2023 05:03:45      
+code-review-nx_main                               ascii text     1669           asmurali       11/02/2023 04:44:50      
+1041 radius 17 characters failure and 16 success.pbinary         18524          hbrenesr       10/29/2023 10:43:21      
+1025 radius 17 characters success.pcap            binary         11224          hbrenesr       10/29/2023 10:41:11      
+Release-note-diff                                 ascii text     711            hbrenesr       10/29/2023 11:01:06      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/23/2026 satdr    	Attribute               	ed_ic_dc_rs  nr4m-no-rg kr7m-	ed_ic_dc_rs  nr4m-no-rg kr7m-	Mod
+08/20/2026 pisces   	VF-patched              	                             	NX-OS:10.4(7),NX-OS:10.5(3p),	New
+03/25/2026 digenov  	serviceRequests/C3/70040	                             	                             	Mod
+03/25/2026 digenov  	SR-associated           	                             	2026-03-25T15:43:34+0000     	New
+03/25/2026 digenov  	serviceRequests/C3/70040	                             	C3/700407745                 	New
+03/25/2026 digenov  	Tickets-count           	9                            	10                           	Mod
+03/25/2026 digenov  	TACSR-count             	9                            	10                           	Mod
+03/25/2026 digenov  	Tickets-count-direct    	9                            	10                           	Mod
+03/25/2026 digenov  	Trouble-tickets         	                             	700407745                    	New
+03/25/2026 digenov  	Trouble-tickets-direct  	                             	C3700407745                  	New
+03/20/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+02/27/2026 awalarab 	serviceRequests/C3/70040	                             	                             	Mod
+02/27/2026 awalarab 	SR-associated           	                             	2026-01-15T21:59:28+0000,2026	New
+02/27/2026 awalarab 	serviceRequests/C3/70040	                             	C3/700401573                 	New
+02/27/2026 awalarab 	Tickets-count           	8                            	9                            	Mod
+02/27/2026 awalarab 	TACSR-count             	8                            	9                            	Mod
+02/27/2026 awalarab 	Tickets-count-direct    	8                            	9                            	Mod
+02/27/2026 awalarab 	Trouble-tickets         	                             	700401573                    	New
+02/27/2026 awalarab 	Trouble-tickets-direct  	                             	C3700401573                  	New
+01/15/2026 jairgarc 	serviceRequests/C3/70019	                             	                             	Mod
+01/15/2026 jairgarc 	serviceRequests/C3/70019	                             	C3/700192305                 	New
+01/15/2026 jairgarc 	Tickets-count           	7                            	8                            	Mod
+01/15/2026 jairgarc 	TACSR-count             	7                            	8                            	Mod
+01/15/2026 jairgarc 	Tickets-count-direct    	7                            	8                            	Mod
+01/15/2026 jairgarc 	Trouble-tickets         	                             	700192305                    	New
+01/15/2026 jairgarc 	Trouble-tickets-direct  	                             	C3700192305                  	New
+10/03/2025 pisces   	VF-patched              	                             	NX-OS:10.4(4g),NX-OS:10.4(6),	New
+06/01/2025 samekama 	Attribute               	ed_ic_dc_rs  nr4m-no-rg kr7m-	ed_ic_dc_rs  nr4m-no-rg kr7m-	Mod
+04/09/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/09/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/09/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/09/2025 pisces   	Known-fixed-releases    	10.4(2),10.4(3),10.4(4),10.4(	                             	Del
+04/02/2025 pisces   	VF-patched              	                             	NX-OS:10.4(5)                	New
+04/02/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/02/2025 pisces   	Known-fixed-releases    	                             	10.4(5)                      	New
+03/31/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/11/2024 pisces   	VF-patched              	                             	NX-OS:10.4(4),NX-OS:10.5(1)  	New
+11/11/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/11/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+11/11/2024 pisces   	Known-fixed-releases    	                             	10.4(4),10.5(1)              	New
+10/16/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-238416       	New
+10/16/2024 synchub.g	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/16/2024 synchub.g	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/16/2024 shubhsh2 	serviceRequests/C3/69767	                             	                             	Mod
+08/16/2024 shubhsh2 	serviceRequests/C3/69767	                             	C3/697679459                 	New
+08/16/2024 shubhsh2 	Tickets-count           	6                            	7                            	Mod
+08/16/2024 shubhsh2 	TACSR-count             	6                            	7                            	Mod
+08/16/2024 shubhsh2 	Tickets-count-direct    	6                            	7                            	Mod
+08/16/2024 shubhsh2 	Trouble-tickets         	                             	697679459                    	New
+08/16/2024 shubhsh2 	Trouble-tickets-direct  	                             	C3697679459                  	New
+07/18/2024 sschwiet 	serviceRequests/C3/69763	                             	C3/697635551                 	New
+07/18/2024 sschwiet 	Urgency-desc            	CL3                          	P3                           	Mod
+07/18/2024 sschwiet 	Tickets-count           	5                            	6                            	Mod
+07/18/2024 sschwiet 	TACSR-count             	5                            	6                            	Mod
+07/18/2024 sschwiet 	Tickets-count-direct    	5                            	6                            	Mod
+07/18/2024 sschwiet 	Trouble-tickets         	                             	697635551                    	New
+07/18/2024 sschwiet 	Trouble-tickets-direct  	                             	C3697635551                  	New
+06/18/2024 pisces   	VF-patched              	                             	NX-OS:10.4(3)                	New
+06/18/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/18/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/18/2024 pisces   	Known-fixed-releases    	                             	10.4(3)                      	New
+06/18/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/18/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/25/2024 pisces   	VF-patched              	                             	NX-OS:10.4(2)                	New
+05/25/2024 pisces   	VF-unpatched            	                             	NX-OS:10.3(99x),NX-OS:10.4(1)	New
+05/25/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/25/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/25/2024 pisces   	Potentially-affected-rel	                             	10.3(99x),10.4(1)            	New
+05/25/2024 pisces   	Known-fixed-releases    	                             	10.4(2)                      	New
+04/26/2024 balqassa 	serviceRequests/C3/69718	                             	                             	Mod
+04/26/2024 balqassa 	Urgency-desc            	NA                           	CL3                          	Mod
+04/26/2024 balqassa 	Urgency                 	9                            	6                            	Mod
+04/24/2024 balqassa 	serviceRequests/C3/69718	                             	C3/697180884                 	New
+04/24/2024 balqassa 	Urgency-desc            	CL3                          	NA                           	Mod
+04/24/2024 balqassa 	Urgency                 	6                            	9                            	Mod
+04/24/2024 balqassa 	Tickets-count           	4                            	5                            	Mod
+04/24/2024 balqassa 	TACSR-count             	4                            	5                            	Mod
+04/24/2024 balqassa 	Tickets-count-direct    	4                            	5                            	Mod
+04/24/2024 balqassa 	Trouble-tickets         	                             	697180884                    	New
+04/24/2024 balqassa 	Trouble-tickets-direct  	                             	C3697180884                  	New
+03/25/2024 sachinj  	Note Title              	                             	Automation Logs              	New
+03/25/2024 sachinj  	Automated-test          	N                            	Y                            	Mod
+02/08/2024 swathaga 	serviceRequests/C3/69683	                             	                             	Mod
+02/08/2024 swathaga 	Urgency-desc            	NA                           	CL3                          	Mod
+02/08/2024 swathaga 	Urgency                 	9                            	6                            	Mod
+02/07/2024 swathaga 	serviceRequests/C3/69683	                             	C3/696838866                 	New
+02/07/2024 swathaga 	Urgency-desc            	CL3                          	NA                           	Mod
+02/07/2024 swathaga 	Urgency                 	6                            	9                            	Mod
+02/07/2024 swathaga 	Tickets-count           	3                            	4                            	Mod
+02/07/2024 swathaga 	TACSR-count             	3                            	4                            	Mod
+02/07/2024 swathaga 	Tickets-count-direct    	3                            	4                            	Mod
+02/07/2024 swathaga 	Trouble-tickets         	                             	696838866                    	New
+02/07/2024 swathaga 	Trouble-tickets-direct  	                             	C3696838866                  	New
+01/22/2024 asmurali 	Attribute               	ed_ic_dc_rs  nr4m-no-rg kr7m-	ed_ic_dc_rs  nr4m-no-rg kr7m-	Mod
+12/22/2023 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0)               	New
+12/22/2023 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0.52)            	New
+12/22/2023 divvenka 	Apply-to                	                             	10.4(1)IOZ9(0.52)            	New
+12/12/2023 shivkum5 	Note Title              	                             	Email-in                     	New
+12/11/2023 asmurali 	Note Title              	                             	kerry-na                     	New
+12/11/2023 asmurali 	Attribute               	ed_ic_dc_rs  nr4m-no-rg      	ed_ic_dc_rs  nr4m-no-rg kr7m-	Mod
+12/11/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+12/07/2023 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0)               	New
+12/07/2023 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0.150)           	New
+12/07/2023 divvenka 	Apply-to                	                             	10.4(1)IUM9(0.150)           	New
+11/23/2023 yoryorda 	serviceRequests/C3/69628	                             	                             	Mod
+11/23/2023 yoryorda 	Urgency-desc            	NA                           	CL3                          	Mod
+11/23/2023 yoryorda 	Urgency                 	9                            	6                            	Mod
+11/23/2023 yoryorda 	serviceRequests/C3/69628	                             	C3/696289095                 	New
+11/23/2023 yoryorda 	Urgency-desc            	CL3                          	NA                           	Mod
+11/23/2023 yoryorda 	Urgency                 	6                            	9                            	Mod
+11/23/2023 yoryorda 	Tickets-count           	2                            	3                            	Mod
+11/23/2023 yoryorda 	TACSR-count             	2                            	3                            	Mod
+11/23/2023 yoryorda 	Tickets-count-direct    	2                            	3                            	Mod
+11/23/2023 yoryorda 	Trouble-tickets         	                             	696289095                    	New
+11/23/2023 yoryorda 	Trouble-tickets-direct  	                             	C3696289095                  	New
+11/21/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0)               	New
+11/21/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0.78)            	New
+11/21/2023 divvenka 	Apply-to                	                             	10.4(2)IOD9(0.78)            	New
+11/20/2023 jmukamug 	serviceRequests/C3/69641	                             	                             	Mod
+11/20/2023 jmukamug 	Urgency-desc            	NA                           	CL3                          	Mod
+11/20/2023 jmukamug 	Urgency                 	9                            	6                            	Mod
+11/20/2023 jmukamug 	serviceRequests/C3/69641	                             	C3/696411894                 	New
+11/20/2023 jmukamug 	Urgency-desc            	CL3                          	NA                           	Mod
+11/20/2023 jmukamug 	Urgency                 	6                            	9                            	Mod
+11/20/2023 jmukamug 	Tickets-count           	1                            	2                            	Mod
+11/20/2023 jmukamug 	TACSR-count             	1                            	2                            	Mod
+11/20/2023 jmukamug 	Tickets-count-direct    	1                            	2                            	Mod
+11/20/2023 jmukamug 	Trouble-tickets         	                             	696411894                    	New
+11/20/2023 jmukamug 	Trouble-tickets-direct  	                             	C3696411894                  	New
+11/13/2023 rohkale  	serviceRequests/C3/69636	                             	                             	Mod
+11/13/2023 rohkale  	Urgency-desc            	P3                           	CL3                          	Mod
+11/03/2023 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+11/03/2023 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+11/03/2023 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+11/02/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/02/2023 asmurali 	Note Title              	                             	R-comments                   	New
+11/02/2023 asmurali 	Related-bugs            	                             	Teacat/CSCwi07620            	New
+11/02/2023 asmurali 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+11/02/2023 asmurali 	Status                  	A                            	R                            	Mod
+11/02/2023 asmurali 	Teabugid                	                             	CSCwi07620                   	Mod
+11/02/2023 asmurali 	Dev-escape-resolver-opin	                             	N                            	Mod
+11/02/2023 asmurali 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+11/02/2023 asmurali 	More-by                 	                             	asmurali                     	Mod
+11/02/2023 asmurali 	Opener                  	                             	asmurali                     	Mod
+11/02/2023 asmurali 	Resolver                	                             	asmurali                     	Mod
+11/02/2023 asmurali 	Breakage                	                             	No                           	Mod
+11/02/2023 asmurali 	Regression              	                             	N                            	Mod
+11/02/2023 asmurali 	By-previous-commit-value	                             	No                           	Mod
+11/02/2023 asmurali 	Bug-origin              	                             	Code / Implementation        	Mod
+11/02/2023 asmurali 	Released-code           	                             	N                            	Mod
+11/02/2023 asmurali 	Origin                  	                             	base code                    	Mod
+11/02/2023 asmurali 	Test-escape             	N                            	Y                            	Mod
+11/02/2023 asmurali 	Test-EDP-phase          	                             	Feature Test                 	Mod
+11/02/2023 asmurali 	Test-EDP-activity       	                             	Feature Interaction Testing  	Mod
+11/02/2023 asmurali 	TPS_issue               	                             	N                            	Mod
+11/02/2023 asmurali 	TPS_flag                	                             	N                            	Mod
+11/02/2023 asmurali 	Behavior-changed        	                             	N                            	Mod
+11/02/2023 asmurali 	Original-resolved-on    	                             	2023-11-03 04:32:18.000+0000 	Mod
+11/02/2023 asmurali 	Documents-changed       	                             	none                         	Mod
+11/02/2023 asmurali 	More-on                 	                             	2023-11-03 04:32:18.000+0000 	Mod
+11/02/2023 asmurali 	Opened-on               	                             	2023-11-03 04:32:18.000+0000 	Mod
+11/02/2023 asmurali 	Resolved-on             	                             	2023-11-03 04:32:18.000+0000 	Mod
+11/02/2023 asmurali 	Submitted-on            	2023-10-29 17:39:25.840+0000 	2023-10-29 17:39:25.000+0000 	Mod
+11/02/2023 asmurali 	New-on                  	2023-10-29 17:39:25.840+0000 	2023-10-29 17:39:25.000+0000 	Mod
+11/02/2023 asmurali 	statusStates            	                             	[status=A, startDate=Tue Oct 	New
+11/02/2023 asmurali 	statusStates            	[status=A, startDate=Tue Oct 	                             	Del
+11/02/2023 asmurali 	Age-status              	2                            	5                            	Mod
+11/02/2023 asmurali 	Mean-time-to-resolved   	                             	4                            	Mod
+11/02/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/02/2023 asmurali 	File Name               	                             	Diffs-commit-nx_main         	New
+11/02/2023 asmurali 	File Name               	                             	code-review-nx_main.p4       	New
+11/02/2023 asmurali 	Code-reviewer           	                             	sarchand                     	New
+11/02/2023 asmurali 	File Name               	                             	code-review-nx_main.p3       	New
+11/02/2023 asmurali 	Note Title              	                             	Unit-test                    	New
+11/02/2023 asmurali 	Note Title              	                             	Sanity_uls                   	New
+11/02/2023 baas     	File Name               	                             	ccwarnings-nx_main.p3        	New
+11/02/2023 baas     	File Name               	                             	static-analysis-nx_main.p5   	New
+11/02/2023 baas     	File Name               	                             	ccwarnings-nx_main.p2        	New
+11/02/2023 baas     	File Name               	                             	static-analysis-nx_main.p4   	New
+11/02/2023 baas     	File Name               	                             	ccwarnings-nx_main           	New
+11/02/2023 baas     	File Name               	                             	static-analysis-nx_main.p3   	New
+11/02/2023 baas     	File Name               	                             	static-analysis-nx_main.p2   	New
+11/02/2023 baas     	File Name               	                             	static-analysis-nx_main      	New
+11/02/2023 asmurali 	File Name               	                             	code-review-nx_main.p2       	New
+11/02/2023 asmurali 	Code-reviewer           	                             	vasagraw                     	New
+11/02/2023 asmurali 	File Name               	                             	code-review-nx_main          	New
+11/02/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/02/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/01/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+11/01/2023 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+11/01/2023 cdetsbtk 	Security-screening-times	                             	2023-11-01 22:13:05.000+0000 	Mod
+10/30/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/30/2023 cms      	Est-fix-date            	                             	2023-11-03 07:00:00.000+0000 	Mod
+10/30/2023 anikunna 	Note Title              	                             	A-comments                   	New
+10/30/2023 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+10/30/2023 anikunna 	Status                  	N                            	A                            	Mod
+10/30/2023 anikunna 	Engineer                	                             	asmurali                     	Mod
+10/30/2023 anikunna 	Assigner                	                             	anikunna                     	Mod
+10/30/2023 anikunna 	Assigned Date           	                             	2023-10-31 03:59:18.000+0000 	Mod
+10/30/2023 anikunna 	statusStates            	                             	[status=N, startDate=Sun Oct 	New
+10/30/2023 anikunna 	statusStates            	[status=N, startDate=Sun Oct 	                             	Del
+10/30/2023 anikunna 	Age-status              	0                            	2                            	Mod
+10/30/2023 anikunna 	Mean-time-to-assigned   	                             	1                            	Mod
+10/29/2023 cms      	Note Title              	                             	Scrubnote                    	New
+10/29/2023 dkhoo    	Attribute               	ed_ic_dc_rs                  	ed_ic_dc_rs  nr4m-no-rg      	Mod
+10/29/2023 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+10/29/2023 hbrenesr 	serviceRequests/C3/69636	                             	C3/696363369                 	New
+10/29/2023 hbrenesr 	Urgency-desc            	NA                           	P3                           	Mod
+10/29/2023 hbrenesr 	Urgency                 	                             	6                            	Mod
+10/29/2023 hbrenesr 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+10/29/2023 hbrenesr 	Data-classification-reas	                             	Default value of Data-classif	Mod
+10/29/2023 hbrenesr 	Tickets-count           	0                            	1                            	Mod
+10/29/2023 hbrenesr 	TACSR-count             	                             	1                            	Mod
+10/29/2023 hbrenesr 	Tickets-count-direct    	                             	1                            	Mod
+10/29/2023 hbrenesr 	Trouble-tickets         	                             	696363369                    	New
+10/29/2023 hbrenesr 	Trouble-tickets-direct  	                             	C3696363369                  	New
+10/29/2023 hbrenesr 	Note                    	Release-note                 	Release-note                 	Mod
+10/29/2023 hbrenesr 	contents                	                             	Release-note-diff            	Mod
+10/29/2023 hbrenesr 	FileSize                	541                          	711                          	Mod
+10/29/2023 hbrenesr 	Conditions              	+NXOS 10.4.1
+
+Software
+  BIOS	+NXOS 10.4.1
+
+Software
+  BIOS	Mod
+10/29/2023 hbrenesr 	Note                    	Release-note                 	Release-note                 	Mod
+10/29/2023 hbrenesr 	contents                	                             	Release-note-diff            	Mod
+10/29/2023 hbrenesr 	FileSize                	281                          	541                          	Mod
+10/29/2023 hbrenesr 	Conditions              	+NXOS 10.4.1
+
+Software
+  BIOS	+NXOS 10.4.1
+
+Software
+  BIOS	Mod
+10/29/2023 hbrenesr 	Note                    	reproduction-steps           	reproduction-steps           	Mod
+10/29/2023 hbrenesr 	File Name               	                             	1041 radius 17 characters fai	New
+10/29/2023 hbrenesr 	File Name               	                             	1025 radius 17 characters suc	New
+10/29/2023 hbrenesr 	Note                    	Release-note                 	Release-note                 	Mod
+10/29/2023 hbrenesr 	File Name               	                             	Release-note-diff            	New
+10/29/2023 hbrenesr 	Symptoms                	Users that were previously ab	Users that were previously ab	Mod
+10/29/2023 hbrenesr 	Note Title              	                             	reproduction-steps           	New
+10/29/2023 hbrenesr 	Note Title              	                             	Release-note                 	New
+10/29/2023 hbrenesr 	Headline                	                             	N9K Radius Authentication on 	Mod
+10/29/2023 hbrenesr 	Summary                 	                             	Nexus Radius Authentication t	Mod
+10/29/2023 hbrenesr 	Project                 	                             	CSC.datacenter               	Mod
+10/29/2023 hbrenesr 	Product                 	                             	n9k-standalone-sw            	Mod
+10/29/2023 hbrenesr 	Component               	                             	aaa                          	Mod
+10/29/2023 hbrenesr 	Status-desc             	                             	N-New                        	Mod
+10/29/2023 hbrenesr 	Status                  	                             	N                            	Mod
+10/29/2023 hbrenesr 	Found                   	                             	customer-use                 	Mod
+10/29/2023 hbrenesr 	Hardening               	                             	N                            	Mod
+10/29/2023 hbrenesr 	Original-found          	                             	customer-use                 	Mod
+10/29/2023 hbrenesr 	Hardware                	                             	Nexus 9000                   	Mod
+10/29/2023 hbrenesr 	Feature                 	                             	fix                          	Mod
+10/29/2023 hbrenesr 	Urgency-desc            	                             	NA                           	Mod
+10/29/2023 hbrenesr 	Severity-desc           	                             	severe                       	Mod
+10/29/2023 hbrenesr 	Severity                	                             	2                            	Mod
+10/29/2023 hbrenesr 	DE Priority Desc        	                             	medium                       	Mod
+10/29/2023 hbrenesr 	DE-priority             	                             	3                            	Mod
+10/29/2023 hbrenesr 	Impact                  	                             	Integrity / Security,Interope	New
+10/29/2023 hbrenesr 	Submitter               	                             	hbrenesr                     	Mod
+10/29/2023 hbrenesr 	Submitter-manager       	                             	chphilli                     	Mod
+10/29/2023 hbrenesr 	DE-manager              	                             	anikunna                     	Mod
+10/29/2023 hbrenesr 	DTPT-manager            	                             	mukamath                     	Mod
+10/29/2023 hbrenesr 	Version                 	                             	10.4(1)                      	New
+10/29/2023 hbrenesr 	Original-version        	                             	10.4(1)                      	Mod
+10/29/2023 hbrenesr 	Found-during            	                             	Customer                     	Mod
+10/29/2023 hbrenesr 	Activity-when-found     	                             	Customer-Use                 	Mod
+10/29/2023 hbrenesr 	Automated-test          	                             	N                            	Mod
+10/29/2023 hbrenesr 	Test-escape             	                             	N                            	Mod
+10/29/2023 hbrenesr 	PSIRT                   	                             	N                            	Mod
+10/29/2023 hbrenesr 	Data-classification     	                             	Cisco Confidential           	Mod
+10/29/2023 hbrenesr 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+10/29/2023 hbrenesr 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+10/29/2023 hbrenesr 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/29/2023 hbrenesr 	Software-type-ids       	                             	282253564,286280105,286321149	New
+10/29/2023 hbrenesr 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/29/2023 hbrenesr 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+10/29/2023 hbrenesr 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+10/29/2023 hbrenesr 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+10/29/2023 hbrenesr 	MDF-edited              	                             	N                            	Mod
+10/29/2023 hbrenesr 	Attribute2              	                             	n/a                          	Mod
+10/29/2023 hbrenesr 	Care-Update             	                             	Y                            	Mod
+10/29/2023 hbrenesr 	Doc-manager             	                             	anikunna                     	Mod
+10/29/2023 hbrenesr 	Document                	                             	nexus                        	Mod
+10/29/2023 hbrenesr 	Documentation-resolution	                             	Undefined                    	Mod
+10/29/2023 hbrenesr 	Original-activity-when-f	                             	Customer-Use                 	Mod
+10/29/2023 hbrenesr 	Original-found-during   	                             	Customer                     	Mod
+10/29/2023 hbrenesr 	Submitter-org-bug       	                             	CX-GC-AMER-DC-DCRS-EAST-US   	Mod
+10/29/2023 hbrenesr 	Component-scenarios     	                             	N                            	Mod
+10/29/2023 hbrenesr 	Submitted-on            	                             	2023-10-29 17:39:25.840+0000 	Mod
+10/29/2023 hbrenesr 	IFD-CFD-Conv-date       	                             	2023-10-29 17:37:37.000+0000 	Mod
+10/29/2023 hbrenesr 	New-on                  	                             	2023-10-29 17:39:25.840+0000 	Mod
+10/29/2023 hbrenesr 	statusStates            	                             	[status=S, startDate=Sun Oct 	New
+10/29/2023 hbrenesr 	Transition-day          	0                            	2460247                      	Mod
+10/29/2023 hbrenesr 	Release-note-status     	                             	have                         	Mod
+10/29/2023 hbrenesr 	Reported By             	                             	hbrenesr                     	Mod
+10/29/2023 hbrenesr 	Known-affected-releases 	                             	10.4(1)                      	New
+10/29/2023 hbrenesr 	RNE-Type                	                             	NONE                         	Mod
+10/29/2023 hbrenesr 	Symptoms                	                             	Users that were previously ab	Mod
+10/29/2023 hbrenesr 	Conditions              	                             	+NXOS 10.4.1
+
+Software
+  BIOS	Mod
+10/29/2023 hbrenesr 	Workarounds             	                             	Authenticate with users whose	Mod
+10/29/2023 hbrenesr 	Tickets-count           	                             	0                            	Mod
+10/29/2023 hbrenesr 	Class                   	                             	CSC.datacenter               	Mod
+10/29/2023 hbrenesr 	Reti-bug                	                             	Y                            	Mod
+10/29/2023 hbrenesr 	Defect Created          	                             	                             	New

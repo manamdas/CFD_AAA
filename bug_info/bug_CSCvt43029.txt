@@ -1,0 +1,2556 @@
+*******************************************************************************
+
+Bug ID   : CSCvt43029         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : DME: Tacacs type-6 key is not reflected on DME. Hence, config out-of-sync between CLI/DME
+PrimaryPV : 
+Version :10.2(1.35) 10.2(2.7) 10.3(0.27) 9.2(3) 9.2(4) 9.3(2) 9.3(4)IIL9(0.508) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: palshanm           Submitted: 03/16/2020 04:47:45     Last Updtd : 03/16/2026 12:01:01  
+RNE-Type: NONE                New-on : 03/16/2020 04:47:45      
+Root-cause-analysis:                                                  
+Interest : atisiddi,avalonso,amitku6
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:hkatakam                                            
+Known-affected-releases:9.2(3) 9.2(4) 9.3(2) 
+
+Known-fixed-releases:9.3(5) 
+
+
+
+Potentially-affected-releases:5.2(1)SV3(1.3) 5.2(1)SV5(1.1) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/02/2020 21:58:17                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 870                                            
+Mean-time-to-verified: 87     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 07/30/2021 01:45:06            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name: Automated-CRRaa91934-mamathak                              
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 03/16/2020 20:35:21 
+Code-reviewer: vasagraw       
+Opened-on: 05/02/2020 21:58:17Opener: greddyda              
+Engineer : greddyda           DE-manager  : anikunna        Est Time/Attribute : gnosis iplus-b cfd-kasrini2 kr2f kr3f n
+Est. completion date: 04/30/2020 00:00:00  
+Script-version:                         
+
+More-by : amitku6             More-on: 09/15/2021 01:14:52  
+
+Documents Changed: none       Resolved: 08/03/2022 21:09:14 Resolver: greddyda       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 06/11/2020 11:52:31      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DC-NXOS -PI-NX - India
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Design
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Development
+Test-EDP-activity :               Code Analysis
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              691861756;694082062
+Trouble-tickets-direct :C3691861756 
+Trouble-tickets-direct :C3694082062 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/03/2021 07:34:35
+Document :    nexus
+
+Summary:
+1. Enable "feature password encryption aes" and configure mkey.
+
+2. Create tacacs-server with shared secret key.
+       - Before DME implementation, tacacs shared-key is created with type-6 encryption.
+       - After DME implementation, tacacs shared-key is created with type-7 encryption in both DME/CLI
+
+3. Try to convert type-7 key to type-6 key using " encryption re-encrypt obfuscated" command,
+
+4. In CLI, tacacs shared key is converted from type-7 to type-6, which is expected. But, in DME still maintains tacacs shared key as "type-7. Hence, config out-of-sync between CLI/DME.
+
+Refer attached file for test logs.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         691861756       null                                     
+C3         694082062       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-231586                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (2 of 2)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              atisiddi      05/19/2020 12:08:50    CSCvu32191      CSC.datacenter  D            
+Duplicate              avalonso      07/29/2021 17:26:15    CSCvz18527      CSC.datacenter  D            
+
+
+********************* Listing of Notes (22 of 22 ) ***********************
+
+---Start of Note Titled: etl-duplicate-ifd-cfd (Created 06/09/2023 06:56:10 Added 06/09/2023 06:56:10 by cdetsadm)---
+Set IFD-CFD-Conv-date
+2023-06-09T13:56:10.380
+---End of Note Titled: etl-duplicate-ifd-cfd---
+
+
+---Start of Note Titled: etl-trouble-ticket-cfd (Created 05/10/2023 07:44:52 Added 05/10/2023 07:44:52 by cdetsadm)---
+Set Trouble-ticket-CFD if defect was made customer-found due to addition of a C3/CAP/CARE Service Request
+2023-05-10T14:44:52.860
+---End of Note Titled: etl-trouble-ticket-cfd---
+
+
+---Start of Note Titled: V-Comments-NR2F (Created 11/06/2022 23:01:48 Added 11/06/2022 23:01:48 by mamathak)---
+Attaching the automation logs 
+
+Subject: pyATS Report - job: tacacs_job by: mamathak, total: 12 (P:12, PX:0, F:0 ...)
+
++------------------------------------------------------------------------------+
+|                                   TaaS URL                                   |
++------------------------------------------------------------------------------+
+
+TaaS Log Viewer
+-------------
+    https://ngdevx.cisco.com/services/taas/results/95e22909-5a28-488f-9e44-4dde2c55006c
+
++------------------------------------------------------------------------------+
+|                                  TRADe URL                                   |
++------------------------------------------------------------------------------+
+
+Result Viewer
+-------------
+    https://earms-trade.cisco.com/tradeui/logs/details?archive=/ws/mamathak-bgl/PYATS4/users/mamathak/archive/22-11/tacacs_job.2022Nov07_12:18:27.048260.zip&atstype=ATS
+
++------------------------------------------------------------------------------+
+|                                Easypy Report                                 |
++------------------------------------------------------------------------------+
+pyATS Instance   : /ws/mamathak-bgl/PYATS4
+Python Version   : cpython-3.8.2 (64bit)
+CLI Arguments    : /ws/mamathak-bgl/PYATS4/bin/pyats run job tacacs_job.py --testbed-file PGBL-amitku6-tb.yaml
+User             : mamathak
+Host Server      : bgl-ads-4144
+Host OS Version  : Red Hat Enterprise Linux 8.4 Ootpa (x86_64)
+
+Job Information
+    Name         : tacacs_job
+    Start time   : 2022-11-07 12:22:46.263485
+    Stop time    : 2022-11-07 12:25:37.142136
+    Elapsed time : 170.878651
+    Archive      : /ws/mamathak-bgl/PYATS4/users/mamathak/archive/22-11/tacacs_job.2022Nov07_12:18:27.048260.zip
+
+Total Tasks    : 1 
+
+Overall Stats
+    Passed     : 12
+    Passx      : 0
+    Failed     : 0
+    Aborted    : 0
+    Blocked    : 0
+    Skipped    : 0
+    Errored    : 0
+
+    TOTAL      : 12
+
+Success Rate   : 100.00 %
+
++------------------------------------------------------------------------------+
+|                             Task Result Summary                              |
++------------------------------------------------------------------------------+
+Task-1: CSCvt43029.common_setup                                           PASSED
+Task-1: CSCvt43029.Configure_and_verify_tacacs                            PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=network-admin]                  PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=network-operator]               PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=priv-14]                        PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=priv-15]                        PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=vdc-operator]                   PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=vdc-admin]                      PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=priv-0]                         PASSED
+Task-1: CSCvt43029.Test_Local_Roles[roles=priv-1]                         PASSED
+Task-1: CSCvt43029.CFD_CSCvz18527_CSCvt43029                              PASSED
+Task-1: CSCvt43029.common_cleanup                                         PASSED
+
++------------------------------------------------------------------------------+
+|                             Task Result Details                              |
++------------------------------------------------------------------------------+
+Task-1: CSCvt43029
+|-- common_setup                                                          PASSED
+|   |-- Connect_DUT                                                       PASSED
+|   |-- Connect_to_linux_server                                           PASSED
+|   |-- enable_feature_tacacs                                             PASSED
+|   `-- Check_ACS_Server_Reachability                                     PASSED
+|-- Configure_and_verify_tacacs                                           PASSED
+|   |-- Configure_tacacs_host_and_group                                   PASSED
+|   |-- Verify_tacacs_host_and_group                                      PASSED
+|   `-- UnConfigure_tacacs_host_and_group_authentication                  PASSED
+|-- Test_Local_Roles[roles=network-admin]                                 PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=network-operator]                              PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=priv-14]                                       PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=priv-15]                                       PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=vdc-operator]                                  PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=vdc-admin]                                     PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=priv-0]                                        PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- Test_Local_Roles[roles=priv-1]                                        PASSED
+|   |-- Configure_user_with_local_role                                    PASSED
+|   |-- Verify_user_with_local_role[state=privilege_disabled]             PASSED
+|   `-- unconfigure_user_with_local_role                                  PASSED
+|-- CFD_CSCvz18527_CSCvt43029                                             PASSED
+|   |-- Setup                                                             PASSED
+|   |   |-- STEP 1: Enable feature tacacs+                                PASSED
+|   |   |-- STEP 2: Configuring Password Encryption (password type 6)     PASSED
+|   |   `-- STEP 3: Enable feature password encryption aes                PASSED
+|   |-- Test_1                                                            PASSED
+|   |   |-- STEP 1: Configure tacacs timeout                              PASSED
+|   |   `-- STEP 2: Validate with DME consistency                         PASSED
+|   |-- Test_2                                                            PASSED
+|   |   |-- STEP 1: Execute encryption re-encrypt obfuscated              PASSED
+|   |   `-- STEP 2: Validate with DME consistency                         PASSED
+|   `-- Cleanup                                                           PASSED
+`-- common_cleanup                                                        PASSED
+    |-- disable_AAA_Authentication                                        PASSED
+    `-- disconnect_from_device                                            PASSED
+---End of Note Titled: V-Comments-NR2F---
+
+
+---Start of Note Titled: R-comments.p3 (Created 08/03/2022 21:09:14 Added 08/03/2022 21:09:14 by greddyda)---
+Changes committed using my_system(), Should have implemented it with secondary chunk updation.
+---End of Note Titled: R-comments.p3---
+
+
+---Start of Note Titled: M-comments.p2 (Created 09/15/2021 01:14:52 Added 09/15/2021 01:14:52 by amitku6)---
+Fix needs to be ported to KR2F (kfmr1) release.
+Please refer M-comments.txt for logs
+
+---End of Note Titled: M-comments.p2---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 09/06/2021 04:58:29 Added 09/06/2021 04:58:29 by sananava)---
+https://gnosis.cisco.com/signature/bug/6135ac464cd635229c4aa157/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 09/06/2021 04:41:15 Added 09/06/2021 04:41:15 by sananava)---
+https://gnosis.cisco.com/signature/bug/6135ac464cd635229c4aa157/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 09/02/2021 11:35:14 Added 09/02/2021 11:35:14 by juvarona)---
+0.  Nexus 9000 switches running:
+ - 7.0(3)I7(x)
+ - 9.2(4) or below
+ - 9.3.4 or below
+
+
+1. "feature password encryption aes" and "tacacs-server key 6" are configured:
+
+{code}
+`show running-config`
+feature password encryption aes
+
+tacacs-server key 6 "JDYkpWI1E0cXGBgBEsmX/cKHryTAm+e7c+42Dkfp2u13Hsu8JJCLFFhLpCVsBkSX9b2WYQRzxfljAA=="
+tacacs-server host 10.106.69.225 key 6 "JDYkoKQZoIFEJAtuicTVVy/IoyQxreG0tfwCBUwwazvWZrmCJA1specUMKQ3ppPq7o+VgIdDApClAA==" 
+tacacs-server host 10.106.69.4 key 6 "JDYkQE2STplBH35CoYmczeZ7kCQYzxpWZUk4CfkbiWL0g/CVJB+1IhB5wO2uMTPV8Y1Bh8jXOSVRAA==" 
+{code}
+
+2. ""
+{code}
+
+`show system internal dme running-config all`
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "fewhg",
+      "keyEnc": "7" <<< SHOULD BE "6"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProviderGroup": {
+          "attributes": {
+            "name": "new",
+            "vrf": "management"
+          },
+          "children": [
+            {
+              "aaaProviderRef": {
+                "attributes": {
+                  "name": "10.106.69.225"
+                }
+              }
+            },
+            {
+              "aaaProviderRef": {
+                "attributes": {
+                  "name": "10.106.69.4"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "fewhg",
+            "keyEnc": "7", <<< SHOULD BE "6"
+            "name": "10.106.69.4"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "fewhg",
+            "keyEnc": "7", <<< SHOULD BE "6"
+            "name": "10.106.69.225"
+          }
+        }
+      }
+    ]
+  }
+}
+{code}
+
+
+BORG Alert
+IC title must included duplicate bug CSCvz18527
+
+Use file "CSCvt43029-ShowTech-Repro" attached to bug.
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: V-comments (Created 06/11/2020 11:52:31 Added 06/11/2020 11:52:31 by palshanm)---
+Bug fix is verified in iplus-b release using 9.3(4.146)
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments.p2 (Created 05/19/2020 03:24:24 Added 05/19/2020 03:24:24 by greddyda)---
+Reverted system() call related changes and added code changes to update to DME using oper.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: ULS-sanity-latest (Created 05/19/2020 02:56:00 Added 05/19/2020 02:56:00 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Saturday, May 16, 2020 7:56 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Job-id:N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : n9kv604-iTgen
+Testbed  name       : n9kv604-testbed.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/16605
+Report file         : /auto/nxos-sanity/logs/greddyda/16605/uls-n9kv604.report
+logfile             : /auto/nxos-sanity/logs/greddyda/16605/uls-n9kv604.log
+Test start time     : 2020_05_16_06_01_35
+Test End time       : 2020_05_16_07_26_15
+Test Duration       : 1:24:40.445637
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.31/sanity-image/greddyda-16605-nxos.9.3.4.10.bin', '-testsuite', 'n9kv_uls.yml', '-testbed', 'n9kv604-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/16605/uls-n9kv604.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/16605/uls-n9kv604.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:09   
+testStaticRoute                                                           pass      0:00:34   
+testLacpShutNoshut                                                        pass      0:05:42   
+testToggleSwitchport                                                      pass      0:01:46   
+testL2BridgingAccess                                                      pass      0:01:41   
+testHierarchicalRouting                                                   pass      0:04:55   
+testIpv6Interface                                                         pass      0:00:49   
+testOspfv3                                                                pass      0:03:39   
+testBgpv4                                                                 pass      0:03:56   
+testBgpv6                                                                 pass      0:02:40   
+testEigrpv4                                                               pass      0:02:19   
+testRip                                                                   pass      0:01:52   
+testCdp                                                                   pass      0:01:13   
+testLLDP                                                                  pass      0:00:59   
+testSvi                                                                   pass      0:03:46   
+testSviVrf                                                                pass      0:03:43   
+testVrfRouteLeak                                                          pass      0:04:44   
+testL2SanityMacLearning                                                   pass      0:02:20   
+testL2SanityUnconfig                                                      pass      0:00:25   
+testSpanningTreeAccess                                                    pass      0:01:59   
+testSpanningTreeTrunk                                                     pass      0:02:01   
+testL3DhcpRelayv4                                                         pass      0:03:20   
+testL3DhcpRelayv6                                                         pass      0:02:32   
+testCopyRunnStart                                                         pass      0:08:42   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: ULS-sanity-latest---
+
+
+---Start of Note Titled: L2-ULS-sanity (Created 05/19/2020 02:54:58 Added 05/19/2020 02:54:58 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Saturday, May 16, 2020 8:55 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Job-id:N9KV Passed:32/33 Failed:1/33 Aborted:0/33 Never-Run:0/33
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : n9kv605-iTgen
+Testbed  name       : n9kv605-testbed.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/16606
+Report file         : /auto/nxos-sanity/logs/greddyda/16606/l2_uls-n9kv605.report
+logfile             : /auto/nxos-sanity/logs/greddyda/16606/l2_uls-n9kv605.log
+Test start time     : 2020_05_16_06_01_44
+Test End time       : 2020_05_16_08_25_11
+Test Duration       : 2:23:26.766877
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.31/sanity-image/greddyda-16606-nxos.9.3.4.10.bin', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv605-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/16606/l2_uls-n9kv605.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/16606/l2_uls-n9kv605.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+testConfigMgmtPort                                                        pass      0:00:29   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:33   
+testStpLacpPcTrunkWithTraffic                                             pass      0:13:40   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:59   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:13:11   
+testStaticMac                                                             pass      0:01:39   
+testL2BridgingStaticPortChannelAccess                                     pass      0:05:43   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:06:00   
+testL2BridgingLacpPortChannelAccess                                       pass      0:06:08   
+testL2SanityMacLearning                                                   pass      0:02:16   
+testL2SanityPortFlap                                                      pass      0:02:48   
+testL2SanityClearMac                                                      pass      0:01:19   
+testL2SanityMacAging                                                      pass      0:07:24   
+testL2SanityMacMove                                                       pass      0:01:17   
+testL2SanityPortModeChange                                                pass      0:01:59   
+testL2SanityPortChannelMemberAdd                                          pass      0:01:18   
+testL2SanityPortChannelMemberRemove                                       pass      0:01:24   
+testL2SanityAllowedVlanAdd                                                pass      0:01:50   
+testL2SanityAllowedVlanRemove                                             pass      0:01:16   
+testL2SanityUnconfig                                                      pass      0:00:19   
+testVpcConfig                                                             pass      0:15:56   
+testVpcPeerLink                                                           pass      0:00:13   
+testVpcPeerKeepAlive                                                      pass      0:00:08   
+testVpcPortChannels                                                       pass      0:00:14   
+testVpcStpStates                                                          pass      0:00:11   
+testVpcConsistencies                                                      fail      0:01:53   
+testVpcUnknownUnicastFlooding                                             pass      0:01:34   
+testVpcUnconfig                                                           pass      0:05:32   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:03   
+
+
+Failed test case logs
+=====================
+
+Testcase: testVpcConsistencies 
+logs                                           
+	FAIL: FAIL - vPC conistency check for vlans not having success for Pass
+	FAIL: Vlan consistency check fail for n9kv605-tor2
+	FAIL: FAIL - vPC conistency check for vlans not having success for Pass
+	FAIL: Vlan consistency check fail for n9kv605-tor1
+	FAIL: Failed:vPC Consistency check
+---End of Note Titled: L2-ULS-sanity---
+
+
+---Start of Note Titled: L3-ULS-sanity (Created 05/19/2020 02:54:19 Added 05/19/2020 02:54:19 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Saturday, May 16, 2020 8:56 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Job-id:N9KV Passed:33/33 Failed:0/33 Aborted:0/33 Never-Run:0/33
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : n9kv01-iTgen
+Testbed  name       : n9kv601-testbed.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/16607
+Report file         : /auto/nxos-sanity/logs/greddyda/16607/l3_uls-n9kv601.report
+logfile             : /auto/nxos-sanity/logs/greddyda/16607/l3_uls-n9kv601.log
+Test start time     : 2020_05_16_06_01_56
+Test End time       : 2020_05_16_08_25_45
+Test Duration       : 2:23:48.908782
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.149.128/sanity-image/greddyda-16607-nxos.9.3.4.10.bin', '-testsuite', 'n9kv_l3_uls.yml', '-testbed', 'n9kv601-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/16607/l3_uls-n9kv601.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/16607/l3_uls-n9kv601.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+testISIS                                                                  pass      0:03:28   
+testStaticRoute                                                           pass      0:00:31   
+testToggleSwitchport                                                      pass      0:01:47   
+testPortChannelShutNoshut                                                 pass      0:05:04   
+testHierarchicalRouting                                                   pass      0:04:57   
+testSvi                                                                   pass      0:03:48   
+testSviVrf                                                                pass      0:03:43   
+testIpv6Interface                                                         pass      0:00:49   
+testOspfv3                                                                pass      0:03:38   
+testBgpv4                                                                 pass      0:03:58   
+testBgpv6                                                                 pass      0:02:40   
+testEigrpv4                                                               pass      0:02:19   
+testRip                                                                   pass      0:01:52   
+testVrfRouteLeak                                                          pass      0:04:43   
+testSviDhcpRelayv4                                                        pass      0:03:41   
+testSviDhcpRelayv6                                                        pass      0:02:52   
+testSviDhcpRelaySvrv4                                                     pass      0:03:51   
+testSviDhcpRelaySvrv6                                                     pass      0:03:04   
+testSyslogCheck                                                           pass      0:00:09   
+testCopyRunnStart                                                         pass      0:08:16   
+GreConfig                                                                 pass      0:00:32   
+GreStatic                                                                 pass      0:09:14   
+GreOspf                                                                   pass      0:09:28   
+GreBgp                                                                    pass      0:10:01   
+IPIPGreStatic                                                             pass      0:09:13   
+IPIPGreOspf                                                               pass      0:09:32   
+IPIPGreBgp                                                                pass      0:10:04   
+GreCleanup                                                                pass      0:00:40   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: L3-ULS-sanity---
+
+
+---Start of Note Titled: Unit-test.p2 (Created 05/18/2020 02:47:14 Added 05/18/2020 02:47:14 by greddyda)---
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:12:05 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 7 "Fewh01234"
+radius-server host 10.10.10.13 key 7 "Fewh01234567" authentication accounting 
+radius-server host 10.10.10.15 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.11 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.12 key 7 "Fewh0123" authentication accounting 
+aaa group server radius ISE_2.4 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:12:09 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 7 "Fewh0123"
+tacacs-server host 10.10.10.11 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.12 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.14 key 7 "Fewh0123" 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "Fewh01234",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "ISE_2.4",
+            "vrf": "management"
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh01234567",
+            "keyEnc": "7",
+            "name": "10.10.10.13"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)# 
+switch(config)# 
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:12:41 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 6 "JDYkxzjjPGQB3/T3e88uD86VByS01UnleH14bKdq7KuqnS1kJLzZ3qmj0cExLspoi5YFFnlEoBoIAA=="
+radius-server host 10.10.10.13 key 6 "JDYk0fpkDKhN4arCdybY6fMw7iQDIao2HCSiTMEo4kVD0+s1JJ7fE4svcMsr0KgD2PwCef9fTPPcAA==" authentication accounting 
+radius-server host 10.10.10.15 key 6 "JDYkedm6aMkSta1NzEa+eEyyXiQB4PWNpI0pyaPOzE9lYUrMJFnwPa9e8RBPhGKJjQc16FKJgsBnAA==" authentication accounting 
+radius-server host 10.10.10.11 key 6 "JDYk0+ecxhYrO2+SvdH9iXt8ayRKRM5DZMllt3uqz31f1Rh3JMUnc8b9p0NlY9vmxaAivs/ojhqjAA==" authentication accounting 
+radius-server host 10.10.10.12 key 6 "JDYklTecO3ZUaJKk/YbjqP1JWiTvf6pOuT7GQFrjOk50i71AJECWluyuTJrZEGuPAeWinXx8IHjNAA==" authentication accounting 
+aaa group server radius ISE_2.4 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:12:46 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 6 "JDYkMvnq4u+PfyUa6dPe6Nmg3CRPmM0mdR6LsjMBE7IATCmOJGvorxyTeeLwHZzNID9JN20DKKOTAA=="
+tacacs-server host 10.10.10.11 key 6 "JDYkKyi7Ih7SL6P5eWWoXZernCQ2H8rGkDFVhz+8rFbk2q1HJGSIYRSnxuOQAZOlRCycdmr1fWhLAA==" 
+tacacs-server host 10.10.10.12 key 6 "JDYkHUhTUit2o/G7hRm6ApaZUSSgnh16c/g0tzc7y5bJdjNGJL6Tauv9RhxzccRvEjFqeeIySYGEAA==" 
+tacacs-server host 10.10.10.14 key 6 "JDYkIHpYit9gp5MwMzZiFWstKCRGZB4ukUv0Q9//b00i76N8JMvMtbjOKjVL9fN7kYVSy9Ke8VHBAA==" 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "JDYkMvnq4u+PfyUa6dPe6Nmg3CRPmM0mdR6LsjMBE7IATCmOJGvorxyTeeLwHZzNID9JN20DKKOTAA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkIHpYit9gp5MwMzZiFWstKCRGZB4ukUv0Q9//b00i76N8JMvMtbjOKjVL9fN7kYVSy9Ke8VHBAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkHUhTUit2o/G7hRm6ApaZUSSgnh16c/g0tzc7y5bJdjNGJL6Tauv9RhxzccRvEjFqeeIySYGEAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkKyi7Ih7SL6P5eWWoXZernCQ2H8rGkDFVhz+8rFbk2q1HJGSIYRSnxuOQAZOlRCycdmr1fWhLAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "JDYkxzjjPGQB3/T3e88uD86VByS01UnleH14bKdq7KuqnS1kJLzZ3qmj0cExLspoi5YFFnlEoBoIAA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "ISE_2.4",
+            "vrf": "management"
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYklTecO3ZUaJKk/YbjqP1JWiTvf6pOuT7GQFrjOk50i71AJECWluyuTJrZEGuPAeWinXx8IHjNAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYk0+ecxhYrO2+SvdH9iXt8ayRKRM5DZMllt3uqz31f1Rh3JMUnc8b9p0NlY9vmxaAivs/ojhqjAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkedm6aMkSta1NzEa+eEyyXiQB4PWNpI0pyaPOzE9lYUrMJFnwPa9e8RBPhGKJjQc16FKJgsBnAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.15"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYk0fpkDKhN4arCdybY6fMw7iQDIao2HCSiTMEo4kVD0+s1JJ7fE4svcMsr0KgD2PwCef9fTPPcAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.13"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# encryption de
+decrypt   delete    
+switch(config)# encryption decrypt type6 
+Please enter current Master Key: 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:13:27 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 7 "Fewh01234"
+radius-server host 10.10.10.13 key 7 "Fewh01234567" authentication accounting 
+radius-server host 10.10.10.15 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.11 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.12 key 7 "Fewh0123" authentication accounting 
+aaa group server radius ISE_2.4 
+    use-vrf management
+
+
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Sat May 16 06:11:58 2020
+!Time: Sat May 16 06:13:31 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 7 "Fewh0123"
+tacacs-server host 10.10.10.11 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.12 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.14 key 7 "Fewh0123" 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "Fewh01234",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "ISE_2.4",
+            "vrf": "management"
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh01234567",
+            "keyEnc": "7",
+            "name": "10.10.10.13"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# 
+switch(config)# show system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#
+---End of Note Titled: Unit-test.p2---
+
+
+---Start of Note Titled: M-comments (Created 05/18/2020 02:46:34 Added 05/18/2020 02:46:34 by greddyda)---
+To commit changes by reverting system calls and then using secondary chunk update method.
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: R-comments (Created 05/02/2020 21:58:17 Added 05/02/2020 21:58:17 by greddyda)---
+Changes committed using my_system(), Should have implemented it with secondary chunk updation.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: checkin-l3-uls-sanity (Created 05/02/2020 09:57:47 Added 05/02/2020 09:57:47 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Friday, May 1, 2020 10:26 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Passed:11/11 Failed:0/11 Aborted:0/11 Never-Run:0/11
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity98
+Testbed  name       : sanity98-testbed.yml
+Total Test cases Run: 11
+Passed test cases   : 11
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/12173
+Report file         : /auto/nxos-sanity/logs/greddyda/12173/checkin_l3_uls-sanity98.report None
+logfile             : /auto/nxos-sanity/logs/greddyda/12173/checkin_l3_uls-sanity98.log
+Test start time     : 2020_05_01_07_59_52
+Test End time       : 2020_05_01_09_56_18
+Test Duration       : 1:56:26.022106
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.92/sanity-image/greddyda-12173-nxos.9.3.4.IIL9.0.802.bin', '-testsuite', 'checkin_l3_uls.yml', '-testbed', 'sanity98-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/12173/checkin_l3_uls-sanity98.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/12173/checkin_l3_uls-sanity98.report', 'None'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:08   
+testBoxOnline                                                             pass      0:00:01   
+AllRoutesL3toL3V4V6_LPM                                                   pass      0:22:15   
+AllRoutesL3toL3V4V6_ospf_IntfFlap                                         pass      0:13:11   
+AllRoutesL3toL3V4V6_isis_IntfFlap                                         pass      0:13:11   
+AllRoutesL3toL3V4V6_bgp_IntfFlap                                          pass      0:13:11   
+GreConfig                                                                 pass      0:00:39   
+GreStatic                                                                 pass      0:12:34   
+GreOspf                                                                   pass      0:12:28   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: checkin-l3-uls-sanity---
+
+
+---Start of Note Titled: ULS-sanity (Created 05/02/2020 09:55:48 Added 05/02/2020 09:55:48 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Friday, May 1, 2020 10:48 PM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Passed:21/21 Failed:0/21 Aborted:0/21 Never-Run:0/21
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity94
+Testbed  name       : sanity94-testbed.yml
+Total Test cases Run: 21
+Passed test cases   : 21
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/12172
+Report file         : /auto/nxos-sanity/logs/greddyda/12172/checkin_l2_uls-sanity94.report None
+logfile             : /auto/nxos-sanity/logs/greddyda/12172/checkin_l2_uls-sanity94.log
+Test start time     : 2020_05_01_10_59_28
+Test End time       : 2020_05_01_13_17_33
+Test Duration       : 2:18:05.460593
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.31/sanity-image/greddyda-12172-nxos.9.3.4.IIL9.0.802.bin', '-testsuite', 'checkin_l2_uls.yml', '-testbed', 'sanity94-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/12172/checkin_l2_uls-sanity94.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/12172/checkin_l2_uls-sanity94.report', 'None'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:10   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:15:08   
+testL2SanityMacLearning                                                   pass      0:03:29   
+testL2SanityMacAging                                                      pass      0:08:30   
+testL2SanityMacMove                                                       pass      0:02:20   
+testDynamicL2MulticastPC                                                  pass      0:05:31   
+testVpcConfig                                                             pass      0:19:59   
+testVpcPeerLink                                                           pass      0:00:16   
+testVpcPeerKeepAlive                                                      pass      0:00:11   
+testVpcPortChannels                                                       pass      0:00:17   
+testVpcStpStates                                                          pass      0:00:14   
+testVpcConsistencies                                                      pass      0:01:50   
+testVpcPeerGateway                                                        pass      0:04:56   
+testVrrp                                                                  pass      0:04:03   
+testHsrp                                                                  pass      0:04:30   
+testHsrpv6                                                                pass      0:02:56   
+testVpcMacLearningAndSync                                                 pass      0:10:01   
+testVpcDoNotLearnPeerLink                                                 pass      0:00:27   
+testVpcLegDown                                                            pass      0:30:37   
+testGoldDiagnostic                                                        pass      0:00:11   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: ULS-sanity---
+
+
+---Start of Note Titled: Unit-test-latest (Created 05/01/2020 07:06:29 Added 05/01/2020 07:06:29 by greddyda)---
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri May  1 06:51:11 2020
+!Time: Fri May  1 06:51:15 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 7 "Fewh0123"
+radius-server host 10.10.10.11 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.12 key 7 "Fewh0123" authentication 
+radius-server host 10.10.10.13 key 7 "Fewh0123" accounting 
+radius-server host 10.10.10.14 key 7 "Fewh0123" auth-port 33 authentication accounting 
+radius-server host 10.10.10.15 key 7 "Fewh0123" auth-port 34 accounting 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12",
+            "useType": "Auth"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "33",
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "34",
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15",
+            "useType": "Acc"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.13",
+            "useType": "Acc"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "JDYkxnw2IluSBmcl6PTvKAGqXSTkNo/Ksdzjwep1zg2nHSEHJIRqhZlwO/jE/b7+TqJb63QHHUVUAA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkJSCTNcsrubve942cX3IhUSRDUXyhbzSYTyGdT2NN3/isJLJVJ9gu8Y3xuNmDw0DRdKKwyfjnAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkC8vJupQiKDbmDU88RdU+dSRzUaHfqtZcSLPyuV2zwjczJG+RbjwbI0jUOSvOwnRhEon7pG97AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12",
+            "useType": "Auth"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "33",
+            "key": "JDYkIPH+QjdQAfvPAbZ4Vu7WKSROgq8+JLOBWEeceEv/zaWiJCNlIURZN2y/Mi8uBxcqAVx8isfcAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "34",
+            "key": "JDYk+0Lk+gvy9MK2ozO7GlK68iSeHJIoSAA2JGH1mxERwBCyJAJcRWZKgDBz5i2HfUuqUPq+3R4hAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.15",
+            "useType": "Acc"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkNAKhnqNPIYlvAQ1dMbzbYSThVlMJzg5QGIFt4ubuPHLGJMjqU//1noDNXmnBUtbyXSIRpkU9AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.13",
+            "useType": "Acc"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri May  1 06:52:00 2020
+!Time: Fri May  1 06:53:46 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 6 "JDYkxnw2IluSBmcl6PTvKAGqXSTkNo/Ksdzjwep1zg2nHSEHJIRqhZlwO/jE/b7+TqJb63QHHUVUAA=="
+radius-server host 10.10.10.11 key 6 "JDYkJSCTNcsrubve942cX3IhUSRDUXyhbzSYTyGdT2NN3/isJLJVJ9gu8Y3xuNmDw0DRdKKwyfjnAA==" authentication accounting 
+radius-server host 10.10.10.12 key 6 "JDYkC8vJupQiKDbmDU88RdU+dSRzUaHfqtZcSLPyuV2zwjczJG+RbjwbI0jUOSvOwnRhEon7pG97AA==" authentication 
+radius-server host 10.10.10.13 key 6 "JDYkNAKhnqNPIYlvAQ1dMbzbYSThVlMJzg5QGIFt4ubuPHLGJMjqU//1noDNXmnBUtbyXSIRpkU9AA==" accounting 
+radius-server host 10.10.10.14 key 6 "JDYkIPH+QjdQAfvPAbZ4Vu7WKSROgq8+JLOBWEeceEv/zaWiJCNlIURZN2y/Mi8uBxcqAVx8isfcAA==" auth-port 33 authentication accounting 
+radius-server host 10.10.10.15 key 6 "JDYk+0Lk+gvy9MK2ozO7GlK68iSeHJIoSAA2JGH1mxERwBCyJAJcRWZKgDBz5i2HfUuqUPq+3R4hAA==" auth-port 34 accounting 
+
+
+switch(config)# 
+
+
+switch(config)# feature password encryption aes 
+switch(config)# show encryption service status 
+Encryption service enabled
+Master Encryption Key configured
+Type-6 encryption is  being used
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  1 14:02:38 2020
+!Time: Fri May  1 14:02:49 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 7 "Fewh0123"
+tacacs-server host 10.10.10.11 key 7 "Fewh0123" port 889 timeout 29 single-connection 
+tacacs-server host 10.10.10.12 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.13 key 7 "Fewh0123" port 87 timeout 23 
+tacacs-server host 10.10.10.14 key 7 "Fewh0123" port 85 
+tacacs-server host 10.10.10.15 key 7 "Fewh0123" timeout 21 
+
+
+switch(config)# sh system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15",
+            "timeout": "21"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.13",
+            "port": "87",
+            "timeout": "23"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11",
+            "port": "889",
+            "singleConnection": "yes",
+            "timeout": "29"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14",
+            "port": "85"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Fri May  1 14:03:11 2020
+!Time: Fri May  1 14:03:35 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 6 "JDYkwoQUsgk9ui3ICxqnmO0FmyQl2cQt72G6UWjemLmEN/rpJKGxNWrLRxa+q/Oa/mi3Z+V6Vzs4AA=="
+tacacs-server host 10.10.10.11 key 6 "JDYkvWPCC6Zz2a61yUu/MlIXYCSsFxZKkFV+/jjX77lSeOKZJIhgEArtXPMghnYWbe1N0J0KpDeVAA==" port 889 timeout 29 single-connection 
+tacacs-server host 10.10.10.12 key 6 "JDYkjGDT1pQqmXKS7qWAzCgfUCRu0LNL6uR0Vp2/egBPn6EXJBg0VZGqisoFs/T+oF9worfX5pI6AA==" 
+tacacs-server host 10.10.10.13 key 6 "JDYkn0rfl4dywQjfzQBQVzxB4SRff6oiB6WlRIiCfC32JaWDJC8ojO5HLyExFrdctWBDx9H4Fgm3AA==" port 87 timeout 23 
+tacacs-server host 10.10.10.14 key 6 "JDYkNk2D7FpBXq19e+zMSfU3/iTqX5u7TqGm+a/hoVShruVuJDwejjkbQqsTY7qBVzWbA3BhlvIuAA==" port 85 
+tacacs-server host 10.10.10.15 key 6 "JDYkiUIPQyaNpaUT76iIzi0L2CRTjkmaAjt8N7Ivl7bJGJ03JGhsOzH6ef6x3RASRVC6qOTXgcbJAA==" timeout 21 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "JDYkwoQUsgk9ui3ICxqnmO0FmyQl2cQt72G6UWjemLmEN/rpJKGxNWrLRxa+q/Oa/mi3Z+V6Vzs4AA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkiUIPQyaNpaUT76iIzi0L2CRTjkmaAjt8N7Ivl7bJGJ03JGhsOzH6ef6x3RASRVC6qOTXgcbJAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.15",
+            "timeout": "21"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkn0rfl4dywQjfzQBQVzxB4SRff6oiB6WlRIiCfC32JaWDJC8ojO5HLyExFrdctWBDx9H4Fgm3AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.13",
+            "port": "87",
+            "timeout": "23"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkjGDT1pQqmXKS7qWAzCgfUCRu0LNL6uR0Vp2/egBPn6EXJBg0VZGqisoFs/T+oF9worfX5pI6AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkvWPCC6Zz2a61yUu/MlIXYCSsFxZKkFV+/jjX77lSeOKZJIhgEArtXPMghnYWbe1N0J0KpDeVAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11",
+            "port": "889",
+            "singleConnection": "yes",
+            "timeout": "29"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkNk2D7FpBXq19e+zMSfU3/iTqX5u7TqGm+a/hoVShruVuJDwejjkbQqsTY7qBVzWbA3BhlvIuAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.14",
+            "port": "85"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#
+---End of Note Titled: Unit-test-latest---
+
+
+---Start of Note Titled: Unit-test (Created 04/29/2020 09:27:26 Added 04/29/2020 09:27:26 by greddyda)---
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Apr 29 09:18:13 2020
+!Time: Wed Apr 29 09:18:17 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 7 "Fewh0123"
+tacacs-server host 10.10.10.11 key 7 "Fewh0123" port 889 timeout 29 single-connection 
+tacacs-server host 10.10.10.12 key 7 "Fewh0123" 
+tacacs-server host 10.10.10.13 key 7 "Fewh0123" port 87 timeout 23 
+tacacs-server host 10.10.10.14 key 7 "Fewh0123" port 85 
+tacacs-server host 10.10.10.15 key 7 "Fewh0123" timeout 21 
+
+
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Apr 29 09:18:13 2020
+!Time: Wed Apr 29 09:18:21 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 7 "Fewh0123"
+radius-server host 10.10.10.11 key 7 "Fewh0123" authentication accounting 
+radius-server host 10.10.10.12 key 7 "Fewh0123" authentication 
+radius-server host 10.10.10.13 key 7 "Fewh0123" accounting 
+radius-server host 10.10.10.14 key 7 "Fewh0123" auth-port 33 authentication accounting 
+radius-server host 10.10.10.15 key 7 "Fewh0123" auth-port 34 accounting 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12",
+            "useType": "Auth"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "33",
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "34",
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15",
+            "useType": "Acc"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.13",
+            "useType": "Acc"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#  
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "Fewh0123",
+      "keyEnc": "7"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.15",
+            "timeout": "21"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.13",
+            "port": "87",
+            "timeout": "23"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.11",
+            "port": "889",
+            "singleConnection": "yes",
+            "timeout": "29"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "Fewh0123",
+            "keyEnc": "7",
+            "name": "10.10.10.14",
+            "port": "85"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)# 
+
+
+switch(config)# encryption re-encrypt obfuscated 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Apr 29 09:19:31 2020
+!Time: Wed Apr 29 09:19:37 2020
+
+version 9.3(5) Bios:version 05.39 
+radius-server key 6 "JDYkPQ6v502okUm84QwGQjappiShDjyeajT1fbBjOuQmYt0LJLDco5aDXY7GJboPyHyy6eWIXpojAA=="
+radius-server host 10.10.10.11 key 6 "JDYkylTV65hKZr8pY/ujX52AuCSxAxohbs/SCCyFblJy8BZMJLwiXvIKaAH+yzCsqFjshdwCVPh4AA==" authentication accounting 
+radius-server host 10.10.10.12 key 6 "JDYkL9TMHfKlUXxYiZyhp7E5eiRn0kBDFTHpQqRShLwY66GdJCR7Bl8n7IDjPwwngoNL1fTu7PRSAA==" authentication 
+radius-server host 10.10.10.13 key 6 "JDYkfDs3iQjwzcsO9BBxrjAIyCRmvsuYyMS21lG20SdI9TWgJNKgBS4VsCCWAHO6lx8U/vqH7Bb3AA==" accounting 
+radius-server host 10.10.10.14 key 6 "JDYkn2WXUOwAmavZ6HWTuUWp0iScsb2ojE9PESkG5GYTjUuDJKDGfvh+fvSinDxNfhQOMRr5RPsDAA==" auth-port 33 authentication accounting 
+radius-server host 10.10.10.15 key 6 "JDYks7Krb5Sua3lkw8d4efqo2yQsuVAcOw1ZUBh4byinHrZNJHPAcuVwF0uVLvN7qPVQpbBvFF9iAA==" auth-port 34 accounting 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Apr 29 09:19:45 2020
+!Time: Wed Apr 29 09:19:46 2020
+
+version 9.3(5) Bios:version 05.39 
+feature tacacs+
+
+tacacs-server key 6 "JDYk8ysFsswfCsMkEsl7Tr0fkSQlL9uCL0BLuBEqa5MA45fVJCr7iFxLgrz7HsvZn35bQGewe441AA=="
+tacacs-server host 10.10.10.11 key 6 "JDYk2KjBzBnMpGeU2xCLWpo49iQU7Ja+g+9zMjlWqXwB5GK0JP8V8jBIhsYQ7YFg7atuKbfXG+epAA==" port 889 timeout 29 single-connection 
+tacacs-server host 10.10.10.12 key 6 "JDYkb8cTJAQkpMTJ/rI7LFtwRySEP1BpY5W+r8qji08I6H7bJH+69wM45svRd5RK8UsPdlpvhO84AA==" 
+tacacs-server host 10.10.10.13 key 6 "JDYk6GsAoQ5jCS8CP2aj7cctXSQ6Ize4VA/NO8rkc6Mjmh4SJGw2n2421fpSzJ8wWukq4pcVUGR2AA==" port 87 timeout 23 
+tacacs-server host 10.10.10.14 key 6 "JDYk01S1LXyuAVUkdcESao546iRbaUuZ5XedUXm2mtGH1LL0JEfZRCS5BL0YNjzEwS2wo38e8Ks8AA==" port 85 
+tacacs-server host 10.10.10.15 key 6 "JDYk2TmG9AVD9Ji4IrlxoqZgBSTxzmMZPsguhq+qk0pvRrPSJPEd2+KZwQuUSPs4vfq4Nh1mss8jAA==" timeout 21 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/tacacsext
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "JDYk8ysFsswfCsMkEsl7Tr0fkSQlL9uCL0BLuBEqa5MA45fVJCr7iFxLgrz7HsvZn35bQGewe441AA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaTacacsServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYk2TmG9AVD9Ji4IrlxoqZgBSTxzmMZPsguhq+qk0pvRrPSJPEd2+KZwQuUSPs4vfq4Nh1mss8jAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.15",
+            "timeout": "21"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYk6GsAoQ5jCS8CP2aj7cctXSQ6Ize4VA/NO8rkc6Mjmh4SJGw2n2421fpSzJ8wWukq4pcVUGR2AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.13",
+            "port": "87",
+            "timeout": "23"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYkb8cTJAQkpMTJ/rI7LFtwRySEP1BpY5W+r8qji08I6H7bJH+69wM45svRd5RK8UsPdlpvhO84AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYk2KjBzBnMpGeU2xCLWpo49iQU7Ja+g+9zMjlWqXwB5GK0JP8V8jBIhsYQ7YFg7atuKbfXG+epAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11",
+            "port": "889",
+            "singleConnection": "yes",
+            "timeout": "29"
+          }
+        }
+      },
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "JDYk01S1LXyuAVUkdcESao546iRbaUuZ5XedUXm2mtGH1LL0JEfZRCS5BL0YNjzEwS2wo38e8Ks8AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.14",
+            "port": "85"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# sh system internal dme running-config dn sys/userext/radiusext
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+      "key": "JDYkPQ6v502okUm84QwGQjappiShDjyeajT1fbBjOuQmYt0LJLDco5aDXY7GJboPyHyy6eWIXpojAA==",
+      "keyEnc": "6"
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkylTV65hKZr8pY/ujX52AuCSxAxohbs/SCCyFblJy8BZMJLwiXvIKaAH+yzCsqFjshdwCVPh4AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.11"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkL9TMHfKlUXxYiZyhp7E5eiRn0kBDFTHpQqRShLwY66GdJCR7Bl8n7IDjPwwngoNL1fTu7PRSAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.12",
+            "useType": "Auth"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "33",
+            "key": "JDYkn2WXUOwAmavZ6HWTuUWp0iScsb2ojE9PESkG5GYTjUuDJKDGfvh+fvSinDxNfhQOMRr5RPsDAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.14"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "authPort": "34",
+            "key": "JDYks7Krb5Sua3lkw8d4efqo2yQsuVAcOw1ZUBh4byinHrZNJHPAcuVwF0uVLvN7qPVQpbBvFF9iAA==",
+            "keyEnc": "6",
+            "name": "10.10.10.15",
+            "useType": "Acc"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "JDYkfDs3iQjwzcsO9BBxrjAIyCRmvsuYyMS21lG20SdI9TWgJNKgBS4VsCCWAHO6lx8U/vqH7Bb3AA==",
+            "keyEnc": "6",
+            "name": "10.10.10.13",
+            "useType": "Acc"
+          }
+        }
+      }
+    ]
+  }
+}
+switch(config)#     
+switch(config)# show consistency-checker dme running-config enhanced
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  #######################      [ 83%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 94%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+sys/intf/phys-[eth1/1]/priorflowctrlwd
+sys/intf/phys-[eth1/2]/priorflowctrlwd
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-class-default/setGrp
+policy-map type qos default-mpls-in-policy;class class-default;set qos-group 0
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp4/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp4;set qos-group 4
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp5/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp5;set qos-group 5
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp1/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp1;set qos-group 1
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp2/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp2;set qos-group 2
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp3/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp3;set qos-group 3
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp7/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp7;set qos-group 7
+
+sys/ipqos/dflt/p/name-default-mpls-in-policy/cmap-c-dflt-mpls-qosgrp6/setGrp
+policy-map type qos default-mpls-in-policy;class c-dflt-mpls-qosgrp6;set qos-group 6
+
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+2020 Apr 29 09:21:48 switch %$ VDC-1 %$ vshd: CC_DME_RUNNING: Consistency Check: FAILED
+
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 03/20/2020 07:16:24 Modified 09/29/2022 03:25:03 by cms)---
+{220929 kasrini2 S B} Karthik.P to validate it
+{200429 girshank S B} Testing completed for TACACS/RADIUS.
+{200428 girshank S B} Testing in progress. 
+{200428 girshank S B} Was seeing RPM crash with the baseline image. Migrating to the latest release for testing. 
+{200427 girshank S B} TACACS changes are completed - need to be tested. RADIUS changes will be taken up after this.
+{200419 girshank S B} OC changes may be required too... Investigating the same. 
+{200416 girshank S B} Backend changes completed. 
+{200416 girshank S B} BI changes completed. Backend changes are in progress.
+{200415 girshank S B} Model changes in progress.
+{200329 girshank S B} Coding started.
+{200326 girshank S B} No RCA yet on this. Still being investigated. 
+{200325 greddyda S B} Was looking into other issues.
+{200319 sarchand S B} Work on this to start next week
+{200317 girshank S B} Need to handle this for RADIUS/LDAP as well.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Release-note (Created 03/16/2020 04:47:45 Modified 08/03/2022 21:09:14 by greddyda)---
+<B>Symptom:</B>
+In CLI, tacacs shared key is converted from type-7 to type-6, which is expected. But, in DME still maintains tacacs shared key as "type-7. Hence, config out-of-sync between CLI/DME. Example:
+
+show runn tacacs :
+
+feature tacacs+
+
+tacacs-server key 6 "JDYkz+qjT0r4+uiYYu7L96fflyTLmjI9iEYnxJwmboEeRpVWJIduWV2R43VIRf9sadSL4eLCgOfkAA=="
+tacacs-server host 10.77.143.40 key 6 "JDYkuiJAyu2Yf5/CkeZPS95phyRdY+SrMeLSjOh1WgJIKx5iJGKh6w0GBwI8KUE2+9cjxLkystssAA=="
+
+show system internal dme running-config dn sys/userext/tacacsext : 
+
+{
+  "aaaTacacsPlusEp": {
+    "attributes": {
+      "key": "fewhg123",
+      "keyEnc": "7"
+    },
+.
+.
+.
+      {
+        "aaaTacacsPlusProvider": {
+          "attributes": {
+            "key": "fewhg",
+            "keyEnc": "7",
+            "name": "10.77.143.40"
+          }
+
+<B>Conditions:</B>
+Tried to convert type-7 key to type-6 key using " encryption re-encrypt obfuscated" command.
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (19 of 19)
+------------------------------------------------------------------------------------------------------------------
+nr1f_failed_logs.txt                              ascii text     9941           amitku6        05/16/2022 00:12:40      
+kr3f_failed.txt                                   ascii text     4736           amitku6        01/21/2022 01:57:58      
+M-comments.txt                                    ascii text     8974           amitku6        09/15/2021 01:15:11      
+Release-note-diff                                 ascii text     1085           juvarona       09/03/2021 03:40:21      
+CSCvt43029-ShowTech-Repro.rar                     binary         35549593       juvarona       09/02/2021 11:38:46      
+CSCvt43029_iplus_b_test_logs_9.3.4.146            ascii text     120984         palshanm       06/11/2020 11:52:53      
+Diffs-release-irvine                              ascii text     3503           greddyda       05/19/2020 03:20:08      
+Diffs-commit-irvine                               ascii text     55982          greddyda       05/19/2020 03:20:04      
+ccwarnings-irvine                                 ascii text     3318           baas           05/19/2020 02:27:32      
+static-analysis-irvine                            binary         37513          cdetsadm       05/19/2020 02:26:32      
+nxos-pi-common-security-code-review-2             ascii text     950            prrqengg       01/21/2021 05:29:06      
+Diffs-release-iplus_b                             ascii text     2956           greddyda       05/02/2020 10:15:26      
+Diffs-commit-iplus_b                              ascii text     15653          greddyda       05/02/2020 10:15:04      
+ccwarnings-iplus_b.p2                             ascii text     568            baas           05/01/2020 23:45:28      
+static-analysis-iplus_b.p2                        binary         12184          cdetsadm       05/01/2020 23:45:15      
+ccwarnings-iplus_b                                ascii text     568            baas           05/01/2020 23:27:11      
+static-analysis-iplus_b                           binary         12187          cdetsadm       05/01/2020 23:26:31      
+nxos-pi-common-security-code-review               ascii text     948            prrqengg       01/21/2021 05:37:06      
+tacacs_key_mismatch.txt                           ascii text     3975           palshanm       03/16/2020 04:48:00      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+03/16/2026 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+03/16/2026 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/16/2026 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/04/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+09/04/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/22/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+06/05/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/20/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/08/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/07/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	VF-patched              	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+04/26/2025 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	New
+04/26/2025 pisces   	Potentially-affected-rel	                             	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	New
+04/23/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+04/08/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/26/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+03/26/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/26/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+02/27/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+02/27/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/13/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+01/30/2025 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+12/10/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/19/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/19/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/19/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/10/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/10/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/09/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/09/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/09/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/03/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-231586       	New
+10/03/2024 buildins 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/03/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/03/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/29/2024 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/20/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+11/13/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312  	                             	Del
+06/09/2023 cdetsadm 	Note Title              	                             	etl-duplicate-ifd-cfd        	New
+06/09/2023 cdetsadm 	IFD-CFD-Conv-date       	2021-08-13 20:25:50.000+0000 	2021-07-30 08:45:06.000+0000 	Mod
+05/10/2023 cdetsadm 	Note Title              	                             	etl-trouble-ticket-cfd       	New
+05/10/2023 cdetsadm 	Trouble-ticket-CFD      	                             	Y                            	Mod
+05/09/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/03/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312  	New
+03/24/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+03/14/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+02/17/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+02/16/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+02/16/2023 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+12/12/2022 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/17/2022 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/08/2022 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/06/2022 mamathak 	Product-owner           	                             	gsheehan                     	Mod
+11/06/2022 mamathak 	DE-manager              	girshank                     	anikunna                     	Mod
+11/06/2022 mamathak 	DTPT-manager            	hkatakam                     	mukamath                     	Mod
+11/06/2022 mamathak 	Software-types          	NX-OS System Software-ACI    	                             	Del
+11/06/2022 mamathak 	Doc-manager             	girshank                     	anikunna                     	Mod
+11/06/2022 mamathak 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/06/2022 mamathak 	Note Title              	                             	V-Comments-NR2F              	New
+11/04/2022 palshanm 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+11/04/2022 palshanm 	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+10/14/2022 mamathak 	Automated-test          	N                            	Y                            	Mod
+10/14/2022 mamathak 	Test-name               	                             	Automated-CRRaa91934-mamathak	Mod
+09/29/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/17/2022 aleonpal 	serviceRequests/C3/69408	                             	C3/694082062                 	New
+08/17/2022 aleonpal 	TACSR-count             	1                            	2                            	Mod
+08/17/2022 aleonpal 	Tickets-count-direct    	1                            	2                            	Mod
+08/17/2022 aleonpal 	Trouble-tickets-direct  	                             	C3694082062                  	New
+08/17/2022 aleonpal 	Tickets-count           	1                            	2                            	Mod
+08/17/2022 aleonpal 	Trouble-tickets         	                             	694082062                    	New
+08/17/2022 aleonpal 	Trouble-tickets-indirect	                             	C3/694082062                 	New
+08/03/2022 greddyda 	Summary                 	1. Enable "feature password e	1. Enable "feature password e	Mod
+08/03/2022 greddyda 	Note Title              	                             	R-comments.p3                	New
+08/03/2022 greddyda 	Status-desc             	M-More                       	R-Resolved                   	Mod
+08/03/2022 greddyda 	Status                  	M                            	R                            	Mod
+08/03/2022 greddyda 	Resolved-on             	2020-05-19 10:24:24.000+0000 	2022-08-04 04:09:14.000+0000 	Mod
+08/03/2022 greddyda 	statusStates            	                             	[status=M, startDate=Wed Sep 	New
+08/03/2022 greddyda 	statusStates            	[status=M, startDate=Wed Sep 	                             	Del
+08/03/2022 greddyda 	Age-status              	548                          	871                          	Mod
+08/03/2022 greddyda 	Mean-time-to-resolved   	63                           	870                          	Mod
+07/25/2022 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+07/21/2022 fas      	Integrated-releases     	9.3(11)                      	                             	Del
+07/21/2022 fas      	Integrated-releases     	9.3(10.1)                    	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+06/30/2022 candid   	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+06/30/2022 candid   	Known-affected-releases 	10.2(1.35),10.2(2.7),10.3(0.2	                             	Del
+06/30/2022 candid   	Known-fixed-releases    	9.3(4)IIL9(0),9.3(4)IIL9(0.82	                             	Del
+05/16/2022 amitku6  	File Name               	                             	nr1f_failed_logs.txt         	New
+05/16/2022 amitku6  	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+05/16/2022 amitku6  	Version                 	                             	10.3(0.27)                   	New
+05/16/2022 amitku6  	Known-affected-releases 	                             	10.3(0.27)                   	New
+01/21/2022 amitku6  	File Name               	                             	kr3f_failed.txt              	New
+01/21/2022 amitku6  	Attribute               	gnosis iplus-b cfd-kasrini2 k	gnosis iplus-b cfd-kasrini2 k	Mod
+01/21/2022 amitku6  	Version                 	                             	10.2(2.7)                    	New
+01/21/2022 amitku6  	Known-affected-releases 	                             	10.2(2.7)                    	New
+10/26/2021 cdetsadm 	Known-affected-releases 	                             	10.2(1.35),9.2(3),9.2(4),9.3(	New
+10/26/2021 cdetsadm 	Known-fixed-releases    	                             	9.3(4)IIL9(0),9.3(4)IIL9(0.82	New
+10/26/2021 cdetsadm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/26/2021 cdetsadm 	MDF-edited              	                             	N                            	Mod
+10/20/2021 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+10/20/2021 amitku6  	Other-mail              	atisiddi avalonso            	atisiddi,avalonso,amitku6    	Mod
+09/15/2021 amitku6  	File Name               	                             	M-comments.txt               	New
+09/15/2021 amitku6  	Attribute               	gnosis iplus-b cfd-kasrini2  	gnosis iplus-b cfd-kasrini2 k	Mod
+09/15/2021 amitku6  	Note Title              	                             	M-comments.p2                	New
+09/15/2021 amitku6  	Status-desc             	V-Verified                   	M-More                       	Mod
+09/15/2021 amitku6  	Status                  	V                            	M                            	Mod
+09/15/2021 amitku6  	More-by                 	greddyda                     	amitku6                      	Mod
+09/15/2021 amitku6  	Version                 	                             	10.2(1.35)                   	New
+09/15/2021 amitku6  	More-on                 	2020-05-18 09:46:34.000+0000 	2021-09-15 08:14:52.000+0000 	Mod
+09/15/2021 amitku6  	statusStates            	                             	[status=V, startDate=Thu Jun 	New
+09/15/2021 amitku6  	statusStates            	[status=V, startDate=Thu Jun 	                             	Del
+09/15/2021 amitku6  	Age-status              	87                           	548                          	Mod
+09/10/2021 divvenka 	Integrated-releases     	                             	9.3(4.50)                    	New
+09/08/2021 jdasgupt 	Attribute               	gnosis iplus-b               	gnosis iplus-b cfd-kasrini2  	Mod
+09/06/2021 sananava 	Note Title              	                             	KnowledgeSignature.p2        	New
+09/06/2021 sananava 	Note Title              	                             	KnowledgeSignature           	New
+09/05/2021 sananava 	Attribute               	iplus-b                      	gnosis iplus-b               	Mod
+09/03/2021 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	                             	Mod
+09/03/2021 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+09/03/2021 cdetsbtk 	Security-screening-times	2020-03-16 15:26:45.000+0000 	2021-09-03 14:34:35.000+0000 	Mod
+09/03/2021 juvarona 	Note                    	Release-note                 	Release-note                 	Mod
+09/03/2021 juvarona 	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+09/03/2021 juvarona 	File Name               	                             	Release-note-diff            	New
+09/03/2021 juvarona 	Symptoms                	                             	In CLI, tacacs shared key is 	Mod
+09/03/2021 juvarona 	Conditions              	                             	Tried to convert type-7 key t	Mod
+09/02/2021 juvarona 	File Name               	                             	CSCvt43029-ShowTech-Repro.rar	New
+09/02/2021 juvarona 	Note Title              	                             	DetectionLogic               	New
+08/13/2021 avalonso 	serviceRequests/C3/69186	                             	C3/691861756                 	New
+08/13/2021 avalonso 	Urgency-desc            	NA                           	CL4                          	Mod
+08/13/2021 avalonso 	Urgency                 	                             	8                            	Mod
+08/13/2021 avalonso 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+08/13/2021 avalonso 	Data-classification-reas	Internal Bug                 	Default value of Data-classif	Mod
+08/13/2021 avalonso 	Care-Update             	                             	Y                            	Mod
+08/13/2021 avalonso 	IFD-CFD-Conv-date       	                             	2021-08-13 20:25:50.000+0000 	Mod
+08/13/2021 avalonso 	TACSR-count             	                             	1                            	Mod
+08/13/2021 avalonso 	Tickets-count-direct    	                             	1                            	Mod
+08/13/2021 avalonso 	Trouble-tickets-direct  	                             	C3691861756                  	New
+07/30/2021 vasagraw 	Related-bugs            	                             	Duplicate/CSCvz18527         	New
+07/30/2021 vasagraw 	Found                   	func-test                    	customer-use                 	Mod
+07/30/2021 vasagraw 	Other-mail              	atisiddi                     	atisiddi avalonso            	Mod
+07/30/2021 vasagraw 	Version                 	                             	9.2(3),9.3(2)                	New
+07/30/2021 vasagraw 	Found-during            	Feature Test                 	Customer                     	Mod
+07/30/2021 vasagraw 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+07/30/2021 vasagraw 	Tickets-count           	0                            	1                            	Mod
+07/30/2021 vasagraw 	Trouble-tickets         	                             	691861756                    	New
+07/30/2021 vasagraw 	Trouble-tickets-indirect	                             	C3/691861756                 	New
+01/21/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/21/2021 prrqengg 	FileSize                	411                          	948                          	Mod
+01/21/2021 prrqengg 	Code-reviewer           	                             	anok                         	New
+01/21/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+01/21/2021 prrqengg 	FileSize                	413                          	950                          	Mod
+01/21/2021 prrqengg 	Code-reviewer           	                             	vasagraw,shabansa,sarchand   	New
+07/14/2020 cdetsadm 	Original-version        	                             	9.3(4)IIL9(0.508)            	Mod
+07/14/2020 cdetsadm 	Integrated-releases     	                             	9.3(5)                       	New
+06/11/2020 palshanm 	File Name               	                             	CSCvt43029_iplus_b_test_logs_	New
+06/11/2020 palshanm 	Note Title              	                             	V-comments                   	New
+06/11/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+06/11/2020 palshanm 	Status                  	R                            	V                            	Mod
+06/11/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+06/11/2020 palshanm 	Verified-release        	                             	9.3(4.146)                   	New
+06/11/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+06/11/2020 palshanm 	Verified-on             	                             	2020-06-11 18:52:31.000+0000 	Mod
+06/11/2020 palshanm 	statusStates            	                             	[status=R, startDate=Tue May 	New
+06/11/2020 palshanm 	statusStates            	[status=R, startDate=Tue May 	                             	Del
+06/11/2020 palshanm 	Age-status              	64                           	87                           	Mod
+06/11/2020 palshanm 	Mean-time-to-verified   	                             	87                           	Mod
+05/20/2020 greddyda 	Related-bugs            	                             	Duplicate/CSCvu32191         	New
+05/20/2020 greddyda 	Other-mail              	                             	atisiddi                     	Mod
+05/20/2020 greddyda 	Version                 	                             	9.2(4)                       	New
+05/19/2020 greddyda 	Note Title              	                             	R-comments.p2                	New
+05/19/2020 greddyda 	Status-desc             	M-More                       	R-Resolved                   	Mod
+05/19/2020 greddyda 	Status                  	M                            	R                            	Mod
+05/19/2020 greddyda 	Resolved-on             	2020-05-03 04:58:17.000+0000 	2020-05-19 10:24:24.000+0000 	Mod
+05/19/2020 greddyda 	statusStates            	                             	[status=M, startDate=Mon May 	New
+05/19/2020 greddyda 	statusStates            	[status=M, startDate=Mon May 	                             	Del
+05/19/2020 greddyda 	Age-status              	63                           	64                           	Mod
+05/19/2020 greddyda 	Mean-time-to-resolved   	47                           	63                           	Mod
+05/19/2020 greddyda 	File Name               	                             	Diffs-release-irvine         	New
+05/19/2020 greddyda 	File Name               	                             	Diffs-commit-irvine          	New
+05/19/2020 greddyda 	Note Title              	                             	ULS-sanity-latest            	New
+05/19/2020 greddyda 	Note Title              	                             	L2-ULS-sanity                	New
+05/19/2020 greddyda 	Note Title              	                             	L3-ULS-sanity                	New
+05/19/2020 baas     	File Name               	                             	ccwarnings-irvine            	New
+05/19/2020 cdetsadm 	File Name               	                             	static-analysis-irvine       	New
+05/18/2020 greddyda 	Note Title              	                             	Unit-test.p2                 	New
+05/18/2020 greddyda 	Note Title              	                             	M-comments                   	New
+05/18/2020 greddyda 	Status-desc             	R-Resolved                   	M-More                       	Mod
+05/18/2020 greddyda 	Status                  	R                            	M                            	Mod
+05/18/2020 greddyda 	More-on                 	2020-05-03 04:58:17.000+0000 	2020-05-18 09:46:34.000+0000 	Mod
+05/18/2020 greddyda 	statusStates            	                             	[status=R, startDate=Sun May 	New
+05/18/2020 greddyda 	statusStates            	[status=R, startDate=Sun May 	                             	Del
+05/18/2020 greddyda 	Age-status              	48                           	63                           	Mod
+05/16/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/02/2020 greddyda 	Note Title              	                             	R-comments                   	New
+05/02/2020 greddyda 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+05/02/2020 greddyda 	Status                  	A                            	R                            	Mod
+05/02/2020 greddyda 	Dev-escape-resolver-opin	                             	N                            	Mod
+05/02/2020 greddyda 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/02/2020 greddyda 	More-by                 	                             	greddyda                     	Mod
+05/02/2020 greddyda 	Opener                  	                             	greddyda                     	Mod
+05/02/2020 greddyda 	Resolver                	                             	greddyda                     	Mod
+05/02/2020 greddyda 	Breakage                	                             	No                           	Mod
+05/02/2020 greddyda 	Regression              	                             	N                            	Mod
+05/02/2020 greddyda 	By-previous-commit-value	                             	No                           	Mod
+05/02/2020 greddyda 	Bug-origin              	                             	Design                       	Mod
+05/02/2020 greddyda 	Released-code           	                             	N                            	Mod
+05/02/2020 greddyda 	Origin                  	                             	design                       	Mod
+05/02/2020 greddyda 	Test-EDP-phase          	                             	Development                  	Mod
+05/02/2020 greddyda 	Test-EDP-activity       	                             	Code Analysis                	Mod
+05/02/2020 greddyda 	TPS_issue               	                             	N                            	Mod
+05/02/2020 greddyda 	TPS_flag                	                             	N                            	Mod
+05/02/2020 greddyda 	Behavior-changed        	                             	N                            	Mod
+05/02/2020 greddyda 	Original-resolved-on    	                             	2020-05-03 04:58:17.000+0000 	Mod
+05/02/2020 greddyda 	Documents-changed       	                             	none                         	Mod
+05/02/2020 greddyda 	More-on                 	                             	2020-05-03 04:58:17.000+0000 	Mod
+05/02/2020 greddyda 	Opened-on               	                             	2020-05-03 04:58:17.000+0000 	Mod
+05/02/2020 greddyda 	Resolved-on             	                             	2020-05-03 04:58:17.000+0000 	Mod
+05/02/2020 greddyda 	statusStates            	                             	[status=A, startDate=Tue Mar 	New
+05/02/2020 greddyda 	statusStates            	[status=A, startDate=Tue Mar 	                             	Del
+05/02/2020 greddyda 	Age-status              	1                            	48                           	Mod
+05/02/2020 greddyda 	Mean-time-to-resolved   	                             	47                           	Mod
+05/02/2020 cdetsadm 	Integrated-releases     	                             	9.3(4)IIL9(0)                	New
+05/02/2020 cdetsadm 	Integrated-releases     	                             	9.3(4)IIL9(0.826)            	New
+05/02/2020 greddyda 	File Name               	                             	Diffs-release-iplus_b        	New
+05/02/2020 greddyda 	File Name               	                             	Diffs-commit-iplus_b         	New
+05/02/2020 greddyda 	Multi-commit-flag       	                             	Y                            	Mod
+05/02/2020 greddyda 	Note Title              	                             	checkin-l3-uls-sanity        	New
+05/02/2020 greddyda 	Note Title              	                             	ULS-sanity                   	New
+05/01/2020 baas     	File Name               	                             	ccwarnings-iplus_b.p2        	New
+05/01/2020 cdetsadm 	File Name               	                             	static-analysis-iplus_b.p2   	New
+05/01/2020 baas     	File Name               	                             	ccwarnings-iplus_b           	New
+05/01/2020 cdetsadm 	File Name               	                             	static-analysis-iplus_b      	New
+05/01/2020 greddyda 	Note Title              	                             	Unit-test-latest             	New
+04/29/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/29/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+04/29/2020 greddyda 	Note Title              	                             	Unit-test                    	New
+04/28/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/28/2020 cms      	Est-fix-date            	2020-04-29 07:00:00.000+0000 	2020-04-30 07:00:00.000+0000 	Mod
+04/28/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/27/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/27/2020 cms      	Est-fix-date            	2020-04-21 07:00:00.000+0000 	2020-04-29 07:00:00.000+0000 	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/19/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/17/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/17/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/17/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/16/2020 cms      	Est-fix-date            	                             	2020-04-21 07:00:00.000+0000 	Mod
+04/15/2020 cms      	Est-fix-date            	2020-04-03 07:00:00.000+0000 	                             	Mod
+03/29/2020 cms      	Est-fix-date            	2020-03-27 07:00:00.000+0000 	2020-04-03 07:00:00.000+0000 	Mod
+03/22/2020 cms      	Est-fix-date            	2020-03-24 07:00:00.000+0000 	2020-03-27 07:00:00.000+0000 	Mod
+03/20/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/20/2020 cms      	Note Title              	                             	Scrubnote                    	New
+03/17/2020 cms      	Est-fix-date            	                             	2020-03-24 07:00:00.000+0000 	Mod
+03/16/2020 girshank 	Status-desc             	N-New                        	A-Assigned                   	Mod
+03/16/2020 girshank 	Status                  	N                            	A                            	Mod
+03/16/2020 girshank 	Engineer                	                             	greddyda                     	Mod
+03/16/2020 girshank 	Assigner                	                             	girshank                     	Mod
+03/16/2020 girshank 	Assigned Date           	                             	2020-03-17 03:35:21.000+0000 	Mod
+03/16/2020 girshank 	statusStates            	                             	[status=N, startDate=Mon Mar 	New
+03/16/2020 girshank 	statusStates            	[status=N, startDate=Mon Mar 	                             	Del
+03/16/2020 girshank 	Age-status              	0                            	1                            	Mod
+03/16/2020 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+03/16/2020 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+03/16/2020 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+03/16/2020 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+03/16/2020 cdetsbtk 	Security-screening-times	                             	2020-03-16 15:26:45.000+0000 	Mod
+03/16/2020 palshanm 	Summary                 	1. Enable feature "feature pa	1. Enable "feature password e	Mod
+03/16/2020 palshanm 	File Name               	                             	tacacs_key_mismatch.txt      	New
+03/16/2020 palshanm 	Note Title              	                             	Release-note                 	New
+03/16/2020 palshanm 	Version                 	                             	9.3(4)IIL9(0.508)            	New
+03/16/2020 palshanm 	Defect Created          	                             	                             	New

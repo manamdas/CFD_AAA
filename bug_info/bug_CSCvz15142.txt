@@ -1,0 +1,585 @@
+*******************************************************************************
+
+Bug ID   : CSCvz15142         Project  : CSC.datacenter     Status  : R              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 4 (minor)      
+Headline : n9k-standalone: "tacacs-server key" may missing after PoAP. 
+PrimaryPV : 
+Version :10.1(1) 9.2(1) 9.3(1) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : N                 
+Software :                    Hardware : Nexus 9000         
+Submitter: dawzhou            Submitted: 07/27/2021 20:01:49     Last Updtd : 07/29/2026 08:26:25  
+RNE-Type: NONE                New-on : 07/27/2021 20:01:49      
+Root-cause-analysis:                                                  
+Interest : hancai
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:jaroyu                                              
+Known-affected-releases:10.1(1) 9.2(1) 9.3(1) 
+
+Known-fixed-releases:10.2(2) 
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 08/08/2021 11:15:07                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 11                                             
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 07/28/2021 03:00:11            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name: Automated-5137959-spaule                                   
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality Ease-of-Configuring 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 07/27/2021 20:27:48 
+Code-reviewer:                
+Opened-on: 08/08/2021 11:15:07Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : cfd-manojohn metadata-v26 metadata-v31 
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 08/08/2021 11:15:07  
+
+Documents Changed: none       Resolved: 08/08/2021 11:15:07 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier:                     Verified Confidence:                              
+Verified Date:                          
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-Beijing-APAC-HTTS
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Regression Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              BEMS01320129;691798511
+Trouble-tickets-direct :C3691798511 
+Trouble-tickets-direct :BEMSBEMS01320129 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 09/07/2021 01:28:46
+Document :    nexus
+
+Summary:
+Aafter deployed multiple switches with PoAP from DCNM, customer found that one switch could not log in via AAA account. After compared the running configuration, customer found that the command tacacs-server key 7 xxxx was missing.
+
+
+Wed Jun 30 16:45:55 2021:type=update:id=vsh.bin.3181:user=admin:cmd=configure terminal ; tacacs-server key 7 ******** (SUCCESS)
+ 
+The accounting log shows the command is success, but it not in show running.
+
+The issue can be recreated the issue in TAC LAB as well after many attempts.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+BEMS       BEMS01320129    TAIWAN SEMICONDUCTOR MANUFACTU           
+C3         691798511       Taiwan Semiconductor Manufactu           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-1251735               https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Needs-fix-from         sivrg         05/28/2021 06:18:12    CSCvy49655      CSC.datacenter  V            
+
+
+********************* Listing of Notes (7 of 7 ) ***********************
+
+---Start of Note Titled: DetectionLogic (Created 09/06/2021 08:40:16 Added 09/06/2021 08:40:16 by aeguiart)---
+--- Update 2021-09-06 15:40:15.642673 (aeguiart via 692104854)
+0. Issue affects N9K running NX-OS 9.2(1), 9.3(x), 10.1(x), 10.2(1)
+
+
+1. Check if the Nexus switch has been reloaded in the past 20 days:
+
+`show clock`
+08:02:16.753 Taiwan Sat Jul 24 2021
+
+`show version`
+
+<snip>
+
+Last reset at 78425 usecs after Sat Jul 24 04:01:57 2021
+  Reason: Reset Requested by CLI command reload <---- reset by reload
+  System version: 9.3(7)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+	
+
+
+2. Check if the 'tacacs-server key' global configuration command has been entered within 5 minutes after the reload time from condition 1 (this is about the time it takes for the switch to boot up and if using POAP, run the script to configure the switch).
+
+`show accounting log`
+Sat Jul 24 04:05:36 2021:type=update:id=vsh.bin.26405:user=admin:cmd=configure terminal ; tacacs-server key 7 ******** (SUCCESS)
+
+3. Verify that the 'tacacs-server key' global configuration command IS missing
+
+`show running-config`
+feature tacacs+
+
+tacacs-server deadtime 60
+tacacs-server host 10.68.172.46 
+tacacs-server host 10.68.172.47 
+tacacs-server host 10.68.172.46 test username healthcheck idle-time 5 
+tacacs-server host 10.68.172.47 test username healthcheck idle-time 5 
+aaa group server tacacs+ TacServer 
+    server 10.68.172.46 
+    server 10.68.172.47 
+    source-interface mgmt0
+  <--- the 'tacacs-server key' CLI is not here!!
+
+
+3. BORG Alert
+Use attachment in SR 691798511:
+https://cae-largefile-prod.cisco.com/web-ui?appId=CSOne&srId=691798511&fileName=tac_pac.tar.gz
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: R-comments (Created 08/08/2021 11:15:07 Added 08/08/2021 11:15:07 by vasagraw)---
+committed fix.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: L2_ULS_Sanity (Created 08/08/2021 00:24:30 Added 08/08/2021 00:24:30 by vasagraw)---
+Test server name    : nxosv-sanity602
+Testbed  name       : n9kv602-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 33
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/182377
+Report file         : /auto/nxos-sanity/logs/vasagraw/182377/l2_uls-n9kv602.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/182377/l2_uls-n9kv602.log
+Test start time     : 2021_08_06_02_39_56
+Test End time       : 2021_08_06_05_47_32
+Test Duration       : 3:07:35.221349
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '182377', '-build', 'tftp://172.31.144.31/sanity-image/vasagraw-182377-nxos.10.2.2.IKF9.0.92.bin_PVT', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv602-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/182377/l2_uls-n9kv602.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/182377/l2_uls-n9kv602.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:08:34   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+testConfigMgmtPort                                                        pass      0:00:28   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:10   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:21   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:20   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:21   
+testStaticMac                                                             pass      0:01:49   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:37   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:52   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:39   
+testL2SanityMacLearning                                                   pass      0:05:11   
+testL2SanityPortFlap                                                      pass      0:04:40   
+testL2SanityClearMac                                                      pass      0:03:13   
+testL2SanityMacAging                                                      pass      0:09:16   
+testL2SanityMacMove                                                       pass      0:03:09   
+testL2SanityPortModeChange                                                pass      0:03:51   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:05   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:17   
+testL2SanityAllowedVlanAdd                                                pass      0:03:44   
+testL2SanityAllowedVlanRemove                                             pass      0:03:08   
+testL2SanityUnconfig                                                      pass      0:00:36   
+testVpcConfig                                                             pass      0:05:56   
+testVpcPeerLink                                                           pass      0:00:52   
+testVpcPeerKeepAlive                                                      pass      0:00:28   
+testVpcPortChannels                                                       pass      0:01:33   
+testVpcStpStates                                                          pass      0:00:30   
+testVpcConsistencies                                                      pass      0:03:24   
+testVpcUnknownUnicastFlooding                                             pass      0:08:31   
+testVpcUnconfig                                                           pass      0:04:50   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: L2_ULS_Sanity---
+
+
+---Start of Note Titled: Unit-test (Created 08/08/2021 00:20:54 Added 08/08/2021 00:20:54 by vasagraw)---
+From: "Dawei Zhou (dawzhou)" <dawzhou@cisco.com>
+Date: Friday, 6 August 2021 at 6:57 AM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "Humphrey Hanfeng Cai (hancai)" <hancai@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "Kyuhwan Kim (kyukim)" <kyukim@cisco.com>, "Phantasy Chang (phachang)" <phachang@cisco.com>, "Sharry Wang (huanwa2)" <huanwa2@cisco.com>, "Qian Luo (qianlu)" <qianlu@cisco.com>
+Subject: Re: CSCvz15142: n9k-standalone: "tacacs-server key" may missing after PoAP.
+
+Vasu,
+
+After we load nxos.9.3.7.bin_PVT2, the script ran for about 34 hours, repeated 136 times, and did not see the key loss issue again.
+
+Best Regards,
+Technical Consulting Engineer
+Dawei Zhou
+
+
+************************
+
+Use Case: POAP replay via <write er ; copy ASCII_FILE scheduled-config ; reload> - The ASCII_FILE has the following tacacs config.
+
+feature tacacs+ 
+tacacs-server deadtime 60
+tacacs-server host 10.68.172.46 
+tacacs-server host 10.68.172.47 
+tacacs-server host 10.68.172.46 test username healthcheck idle-time 5 
+tacacs-server host 10.68.172.47 test username healthcheck idle-time 5 
+aaa group server tacacs+ TacServer 
+    server 10.68.172.46 
+    server 10.68.172.47 
+    source-interface mgmt0
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 07/27/2021 21:35:10 Modified 08/01/2021 21:52:02 by cms)---
+{210801 anikunna S B} Reached out to POAP team to check on missing config after POAP replay
+{210729 anikunna S B} Debug image under test. Will share with submitter shortly for repro
+{210728 vasagraw S B} sporadically seen.. TAC had ~50 iterations of switch reload to hit it.. due to wr+reload use case, limited debug logs from bootup phase
+{210727 anikunna S B} Came in today. Will check & update
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 07/27/2021 20:27:48 Added 07/27/2021 20:27:48 by anikunna)---
+Pls check and update
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Release-note (Created 07/27/2021 20:01:49 Modified 09/06/2021 08:38:13 by aeguiart)---
+<B>Symptom:</B>
+After deployed switches with PoAP, "tacacs-server key 7 xxxx " may missing even we can see it sucess from accouting log.
+
+<B>Conditions:</B>
+PoAP deployed9.2( the switch and  the command "tacacs-server key 7 xxxx " in PoAP configure file.
+
+<B>Workaround:</B>
+Manually add the command back.
+
+<B>Further Problem Description:</B>
+The issue is random.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (9 of 9)
+------------------------------------------------------------------------------------------------------------------
+Release-note-diff                                 ascii text     306            aeguiart       09/06/2021 08:38:13      
+Diffs-release-kfmr1                               ascii text     591            vasagraw       08/08/2021 09:39:39      
+Diffs-commit-kfmr1                                ascii text     2426           vasagraw       08/08/2021 09:39:37      
+ccwarnings-kfmr1                                  ascii text     239            baas           08/08/2021 01:21:21      
+static-analysis-kfmr1                             binary         6838           baas           08/08/2021 01:21:09      
+nxos-pi-common-security-code-review               ascii text     934            prrqengg       08/05/2021 23:28:28      
+tac_pac.tar.gz.p2                                 binary         19496420       dawzhou        07/28/2021 19:59:57      
+tacacs.txt                                        ascii text     79226          dawzhou        07/28/2021 19:55:30      
+tac_pac.tar.gz                                    binary         59269267       dawzhou        07/27/2021 20:43:39      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+07/29/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-1251735      	New
+07/29/2026 satdr    	Attribute               	cfd-hkatakam metadata-v26 met	cfd-manojohn metadata-v26 met	Mod
+07/29/2026 satdr    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/29/2026 satdr    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/29/2026 satdr    	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/21/2024 cdetsadm 	Component-hops-count    	0                            	1                            	Mod
+11/13/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+11/13/2023 candid   	Software-type-ids       	                             	282253564,286280105,286321149	New
+11/13/2023 candid   	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+11/13/2023 candid   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/13/2023 candid   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/13/2023 candid   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/13/2023 candid   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+05/09/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+05/03/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+03/24/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+03/14/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+02/17/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+02/16/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+02/16/2023 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+12/12/2022 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+11/17/2022 candid   	Attribute               	cfd-hkatakam metadata-v26 met	cfd-hkatakam metadata-v26 met	Mod
+11/08/2022 candid   	Attribute               	cfd-hkatakam metadata-v26    	cfd-hkatakam metadata-v26 met	Mod
+07/25/2022 candid   	Attribute               	cfd-hkatakam                 	cfd-hkatakam metadata-v26    	Mod
+07/25/2022 candid   	Known-fixed-releases    	10.2(1.3),10.2(1.9),10.2(2)IK	                             	Del
+01/27/2022 spaule   	Automated-test          	N                            	Y                            	Mod
+01/27/2022 spaule   	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+01/27/2022 spaule   	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+01/27/2022 spaule   	MDF-edited              	                             	N                            	Mod
+01/27/2022 spaule   	Test-name               	                             	Automated-5137959-spaule     	Mod
+01/27/2022 spaule   	Known-affected-releases 	                             	10.1(1),9.2(1),9.3(1)        	New
+01/27/2022 spaule   	Known-fixed-releases    	                             	10.2(1.3),10.2(1.9),10.2(2),1	New
+09/14/2021 rimichae 	serviceRequests/BEMS/BEM	                             	BEMS/BEMS01320129            	New
+09/14/2021 rimichae 	Tickets-count           	1                            	2                            	Mod
+09/14/2021 rimichae 	Tickets-count-direct    	1                            	2                            	Mod
+09/14/2021 rimichae 	Trouble-tickets         	                             	BEMS01320129                 	New
+09/14/2021 rimichae 	Trouble-tickets-direct  	                             	BEMSBEMS01320129             	New
+09/11/2021 divvenka 	Integrated-releases     	                             	10.2(2)IKF9(0.111)           	New
+09/08/2021 jdasgupt 	Attribute               	                             	cfd-hkatakam                 	Mod
+09/06/2021 cdetsbtk 	Security-screening-times	2021-07-28 15:39:19.000+0000 	2021-09-07 08:28:46.000+0000 	Mod
+09/06/2021 aeguiart 	Note Title              	                             	DetectionLogic               	New
+09/06/2021 aeguiart 	Note                    	Release-note                 	Release-note                 	Mod
+09/06/2021 aeguiart 	File Name               	                             	Release-note-diff            	New
+09/06/2021 aeguiart 	Version                 	                             	10.1(1),9.2(1),9.3(1)        	New
+09/06/2021 aeguiart 	Version                 	9.3(7)                       	                             	Del
+09/06/2021 aeguiart 	Conditions              	PoAP deploye the switch and  	PoAP deployed9.2( the switch 	Mod
+09/04/2021 divvenka 	Integrated-releases     	                             	10.2(1.9)                    	New
+09/01/2021 divvenka 	Integrated-releases     	                             	10.2(1.3),10.2(2)            	New
+08/17/2021 huanwa2  	serviceRequests/C3/69179	                             	                             	Mod
+08/17/2021 huanwa2  	Urgency-desc            	P3                           	CL3                          	Mod
+08/08/2021 vasagraw 	Note Title              	                             	R-comments                   	New
+08/08/2021 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+08/08/2021 vasagraw 	Status                  	A                            	R                            	Mod
+08/08/2021 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+08/08/2021 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+08/08/2021 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+08/08/2021 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+08/08/2021 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+08/08/2021 vasagraw 	Breakage                	                             	No                           	Mod
+08/08/2021 vasagraw 	Regression              	                             	N                            	Mod
+08/08/2021 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+08/08/2021 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+08/08/2021 vasagraw 	Released-code           	                             	Y                            	Mod
+08/08/2021 vasagraw 	Origin                  	                             	base code                    	Mod
+08/08/2021 vasagraw 	Test-escape             	N                            	Y                            	Mod
+08/08/2021 vasagraw 	Test-EDP-phase          	                             	Regression Test              	Mod
+08/08/2021 vasagraw 	Test-EDP-activity       	                             	Regression Testing           	Mod
+08/08/2021 vasagraw 	TPS_issue               	                             	N                            	Mod
+08/08/2021 vasagraw 	TPS_flag                	                             	N                            	Mod
+08/08/2021 vasagraw 	Behavior-changed        	                             	N                            	Mod
+08/08/2021 vasagraw 	Original-resolved-on    	                             	2021-08-08 18:15:07.000+0000 	Mod
+08/08/2021 vasagraw 	Documents-changed       	                             	none                         	Mod
+08/08/2021 vasagraw 	More-on                 	                             	2021-08-08 18:15:07.000+0000 	Mod
+08/08/2021 vasagraw 	Opened-on               	                             	2021-08-08 18:15:07.000+0000 	Mod
+08/08/2021 vasagraw 	Resolved-on             	                             	2021-08-08 18:15:07.000+0000 	Mod
+08/08/2021 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Jul 	New
+08/08/2021 vasagraw 	statusStates            	[status=A, startDate=Wed Jul 	                             	Del
+08/08/2021 vasagraw 	Age-status              	0                            	11                           	Mod
+08/08/2021 vasagraw 	Mean-time-to-resolved   	                             	11                           	Mod
+08/08/2021 vasagraw 	File Name               	                             	Diffs-release-kfmr1          	New
+08/08/2021 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+08/08/2021 vasagraw 	File Name               	                             	Diffs-commit-kfmr1           	New
+08/08/2021 baas     	File Name               	                             	ccwarnings-kfmr1             	New
+08/08/2021 baas     	File Name               	                             	static-analysis-kfmr1        	New
+08/08/2021 vasagraw 	Note Title              	                             	L2_ULS_Sanity                	New
+08/08/2021 vasagraw 	Note Title              	                             	Unit-test                    	New
+08/05/2021 vasagraw 	Related-bugs            	                             	Needs-fix-from/CSCvy49655    	New
+08/05/2021 vasagraw 	Fix-group-key           	                             	CSCvy49655                   	Mod
+08/05/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+08/03/2021 dawzhou  	Severity-desc           	moderate                     	minor                        	Mod
+08/03/2021 dawzhou  	Severity                	3                            	4                            	Mod
+08/01/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/29/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/29/2021 hancai   	Other-mail              	                             	hancai                       	Mod
+07/28/2021 dawzhou  	serviceRequests/C3/69179	                             	C3/691798511                 	New
+07/28/2021 dawzhou  	Urgency-desc            	NA                           	P3                           	Mod
+07/28/2021 dawzhou  	Urgency                 	                             	6                            	Mod
+07/28/2021 dawzhou  	Tickets-count           	0                            	1                            	Mod
+07/28/2021 dawzhou  	TACSR-count             	                             	1                            	Mod
+07/28/2021 dawzhou  	Tickets-count-direct    	                             	1                            	Mod
+07/28/2021 dawzhou  	Trouble-tickets         	                             	691798511                    	New
+07/28/2021 dawzhou  	Trouble-tickets-direct  	                             	C3691798511                  	New
+07/28/2021 dawzhou  	File Name               	                             	tac_pac.tar.gz.p2            	New
+07/28/2021 dawzhou  	File Name               	                             	tacacs.txt                   	New
+07/28/2021 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+07/28/2021 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+07/28/2021 cdetsbtk 	Security-screening-times	                             	2021-07-28 15:39:19.000+0000 	Mod
+07/28/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/27/2021 cms      	Note Title              	                             	Scrubnote                    	New
+07/27/2021 dawzhou  	File Name               	                             	tac_pac.tar.gz               	New
+07/27/2021 anikunna 	Note Title              	                             	A-comments                   	New
+07/27/2021 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+07/27/2021 anikunna 	Status                  	N                            	A                            	Mod
+07/27/2021 anikunna 	Engineer                	                             	vasagraw                     	Mod
+07/27/2021 anikunna 	Assigner                	                             	anikunna                     	Mod
+07/27/2021 anikunna 	Assigned Date           	                             	2021-07-28 03:27:48.000+0000 	Mod
+07/27/2021 anikunna 	statusStates            	                             	[status=N, startDate=Wed Jul 	New
+07/27/2021 anikunna 	statusStates            	[status=N, startDate=Wed Jul 	                             	Del
+07/27/2021 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+07/27/2021 dawzhou  	Component               	parser                       	aaa                          	Mod
+07/27/2021 dawzhou  	DE-manager              	magesh                       	anikunna                     	Mod
+07/27/2021 dawzhou  	Doc-manager             	magesh                       	anikunna                     	Mod
+07/27/2021 dawzhou  	Note Title              	                             	Release-note                 	New
+07/27/2021 dawzhou  	Version                 	                             	9.3(7)                       	New
+07/27/2021 dawzhou  	Defect Created          	                             	                             	New

@@ -1,0 +1,1062 @@
+*******************************************************************************
+
+Bug ID   : CSCwo66923         Project  : CSC.datacenter     Status  : C              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : Radius server configuration missing after reload or upgrade
+PrimaryPV : 
+Version :10.4(4) 10.4(5) 10.5(2) 9.3(14) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: jhvelasq           Submitted: 04/02/2025 01:36:50     Last Updtd : 11/01/2026 00:13:01  
+RNE-Type: NONE                New-on : 04/02/2025 01:36:50      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: uds                                            
+Technical-writer: akanoo                                    
+Behavior-changed : Y          
+Behaviour-change-resolution: Documentation A                          
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:mwilczak                                            
+Known-affected-releases:10.4(4) 10.4(5) 10.5(2) 10.6(1) 9.3(14) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 04/14/2025 21:03:41                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 63                                             
+Mean-time-to-resolved: 12                                             
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 04/02/2025 01:36:50            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: n/a                                       
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Maintainability Ease-of-Use 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Closed-on : 06/08/2025 10:05:53  
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  GC_EMEA_DC_DCRS_PL
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Development
+Test-EDP-activity :               Code Review
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		akanoo
+Behavior-changed :		Y
+Behaviour-change-resolution :  Documentation A
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              698798226;699937403
+Trouble-tickets-direct :C3698798226 
+Trouble-tickets-direct :C3699937403 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/22/2025 07:23:01
+Document :    nexus
+
+Summary:
+Radius server key configuration will not be loaded in the running configuration after going through internal ascii-replay. As a result, the configuration that depends on the radius server key configuration will fail to load.
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         698798226       null                                     
+C3         699937403       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-444394                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Related-bugs           shgedam       04/21/2025 23:14:27    CSCwo87011      CSC.datacenter  R            
+
+
+********************* Listing of Notes (16 of 16 ) ***********************
+
+---Start of Note Titled: CFD-Automation (Created 07/10/2025 21:46:09 Added 07/10/2025 21:46:09 by palshanm)---
+As this bug moved to C state, we are not uplifting any suites. To cover this scenario, we've added test case in to EDCS-11504615
+---End of Note Titled: CFD-Automation---
+
+
+---Start of Note Titled:  C-comments (Created 06/08/2025 10:05:53 Modified 06/09/2025 02:40:33 by vasagraw)---
+Earlier, we committed a fix for the issue, but it introduced a behaviour change with respect to how <"> can be used in the key config. Based on inputs from the Escalation Team, we have reverted the fix. Closing the bug as apparently it is difficult to fix the issue without causing any seamless upgrade disruption.
+---End of Note Titled: C-comments---
+
+
+---Start of Note Titled: KnowledgeSignature.p3 (Created 04/25/2025 13:35:10 Added 04/25/2025 13:35:10 by vkalikay)---
+https://gnosis.cisco.com/signature/bug/680b40a4509cf1103babb1af/finish?summary
+---End of Note Titled: KnowledgeSignature.p3---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 04/25/2025 13:18:15 Added 04/25/2025 13:18:15 by vkalikay)---
+https://gnosis.cisco.com/signature/bug/680b40a4509cf1103babb1af/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 04/25/2025 02:17:11 Added 04/25/2025 02:17:11 by pjhade)---
+https://gnosis.cisco.com/signature/bug/680b40a4509cf1103babb1af/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 04/24/2025 21:25:49 Added 04/24/2025 21:25:49 by seshea)---
+--- Update 2025-04-25 04:25:47.918837 seshea (via 698971594)
+0. nexus 3000 or 9000
+
+
+
+
+1. code before 10.5.4
+
+
+
+
+
+
+2. startup-config log shows radius-server key with invalid command - the key itself has odd number of double quote characters ( " ) and at least one is not the first or last character
+radius supports " as first and last char but not in the middle 
+store the configuration that is failed from here and check for it in show running
+			
+`show startup-config log`
+[Thu Apr 24 20:55:50.993395 2025]
+root@382-Router(config)# username admin2 passphrase  lifetime 99999 warntime 14 gracetime 3
+ret=0
+[Thu Apr 24 20:55:50.996948 2025]
+root@382-Router(config)# ip domain-lookup
+ret=0
+[Thu Apr 24 20:55:51.11947 2025]
+root@382-Router(config)# radius-server key 7 "{{(tcLi[-dx/\,-@Lz\%["-pr"						<<< has odd number of " and one is not either first or last char
+                                                                    ^							<<< caret for marker of error
+% Invalid command at '^' marker.																<<< followed 1 lines later by invalid command at marker error
+ret=-16
+[Thu Apr 24 20:55:51.18378 2025]
+root@382-Router(config)# ipv6 access-list filter-icmp
+ret=0
+[Thu Apr 24 20:55:51.61329 2025]
+root@382-Router(config-ipv6-acl)# statistics per-entry
+ret=0
+[Thu Apr 24 20:55:51.93016 2025]
+root@382-Router(config-ipv6-acl)# 30 deny icmp 2001:250::/64 2704:1000::1/128 
+ret=0
+
+
+3. radius config missing - example of radius-server key 7 "{{(tcLi[-dx/\,-@Lz\%["-pr" from above missing in show running config
+
+`show running-config`
+
+!Command: show running-config
+!Running configuration last done at: Thu Apr 24 20:56:17 2025
+!Time: Thu Apr 24 21:03:23 2025
+
+version 9.3(10) Bios:version 07.69 
+hostname 382-Router
+vdc 382-Router id 1
+  limit-resource vlan minimum 16 maximum 4094
+  limit-resource vrf minimum 2 maximum 4096
+  limit-resource port-channel minimum 0 maximum 511
+  limit-resource u4route-mem minimum 248 maximum 248
+  limit-resource u6route-mem minimum 96 maximum 96
+  limit-resource m4route-mem minimum 58 maximum 58
+  limit-resource m6route-mem minimum 8 maximum 8
+
+feature bash-shell
+cfs eth distribute
+feature ospf
+feature ospfv3
+feature eigrp
+feature rip
+feature interface-vlan
+feature hsrp
+feature lacp
+feature vpc
+
+logging level l2fm 5
+no password strength-check
+username admin password 5 $5$BMMCCE$ocvrQabOGnYQF9nrFiZWdquiriVTlWCRnayTCS0Pqg4  role network-admin
+username venkata password 5 $5$LAFNFN$0oXPE01Qg3WK6EIRFnrf11aqtU2J4Frg40wcdmpaNd/  role network-operator
+username venkata shelltype bash
+username venkata passphrase  lifetime 99999 warntime 14 gracetime 3
+username admin2 password 5 $5$CNKNDF$EY3o8A2iyOfAwbB/hggdhNZgb6pM0aFOU6H98joNhQ4  role network-admin
+username admin2 shelltype bash
+username admin2 passphrase  lifetime 99999 warntime 14 gracetime 3
+ip domain-lookup
+ipv6 access-list filter-icmp
+  statistics per-entry
+  30 deny icmp 2001:250::/64 2704:1000::1/128 
+  40 permit ipv6 any any
+  
+aaa group server radius Radius_Grdf 																										<<< radius config missing
+    source-interface Vlan30
+copp profile strict
+snmp-server user admin network-admin auth md5 165B557B18CEF7A963420D312882CBFAD96B priv 2145394C04C49C845A53666174D39199DF74 
+localizedV2key
+snmp-server user admin2 network-admin auth md5 164B57254CC2AEAE6852503274D7968EC12E priv 3309572A63E998801C2D272170C8B29DD673
+ localizedV2key
+snmp-server user venkata network-operator auth md5 17690D5511B8E0F87F4A3D69209ACA88B00F priv 481F0A7D75FCD9CE122622277696BD90
+8A2D localizedV2key
+rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+
+LOGIC : symptomatic
+
+LOGIC : 0 & 1 & 2 & 3
+
+BORG severity - warning
+
+Positive file : 698971594-positive.txt
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: Behavior-changed (Created 04/14/2025 21:03:41 Added 04/14/2025 21:03:41 by shgedam)---
+Type of behavior change:
+
+Release introduced:
+
+Old behavior:
+The radius-server key field allowed the double quote (") character to appear within or at the end of the key string.
+New behavior:
+The double quote (") character is now disallowed as part of the key body.
+Impact on customer:
+
+FTS ID:
+
+Functional specification EDCS #:
+
+Other information:
+---End of Note Titled: Behavior-changed---
+
+
+---Start of Note Titled: R-comments (Created 04/14/2025 21:03:41 Added 04/14/2025 21:03:41 by shgedam)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Eng-notes.p2 (Created 04/09/2025 22:34:18 Added 04/09/2025 22:34:18 by shgedam)---
+The issue is also seen when a double quote is present anywhere in between the key string as well.
+
+switch(config)# radius-server host 1.1.1.1 key 7 a"a                      
+switch(config)#                                                                    
+switch(config)#                                                                    
+switch(config)# show running-config radius                                         
+                                                                                   
+!Command: show running-config radius                                               
+!Running configuration last done at: Wed Apr  9 05:48:15 2025                      
+!Time: Wed Apr  9 05:48:17 2025                                                    
+                                                                                   
+version 10.6(1) Bios:version 05.51                                                            
+radius-server host 1.1.1.1 key 7 "a"a" authentication accounting                   
+aaa group server radius rad3                                                       
+    server 10.76.80.252                                                            
+    use-vrf management
+
+
+switch(config)# reload
+!!!WARNING! there is unsaved configuration!!!                                     
+This command will reboot the system. (y/n)?  [n] y                                
+client_loop: send disconnect: Broken pipe    
+[shgedam@sjc-ads-20272 shgedam-bgl]$ ssh admin@10.77.143.163                    
+User Access Verification
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software                                     
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.                             
+All rights reserved.
+The copyrights to certain works contained in this software are                    
+owned by other third parties and used and distributed under their own             
+licenses, such as open source.  This software is provided "as is," and unless     
+otherwise stated, there is no warranty, express or implied, including but not     
+limited to warranties of merchantability and fitness for a particular purpose.    
+Certain components of this software are licensed under                            
+the GNU General Public License (GPL) version 2.0 or                               
+GNU General Public License (GPL) version 3.0  or the GNU                          
+Lesser General Public License (LGPL) Version 2.1 or                               
+Lesser General Public License (LGPL) Version 2.0.                                 
+A copy of each such license is available at                                       
+http://www.opensource.org/licenses/gpl-2.0.php and                                
+http://opensource.org/licenses/gpl-3.0.html and                                   
+http://www.opensource.org/licenses/lgpl-2.1.php and                               
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# show running-config radius                                        
+
+!Command: show running-config radius
+!Running configuration last done at: Wed Apr  9 05:52:34 2025                     
+!Time: Wed Apr  9 05:54:04 2025
+
+version 10.6(1) Bios:version 05.51  
+aaa group server radius rad3
+    server 10.76.80.252
+    use-vrf management
+
+
+switch(config)#
+
+By disallowing the presence of " altogether this issue will not be encountered.
+---End of Note Titled: Eng-notes.p2---
+
+
+---Start of Note Titled:  Unit-test (Created 04/08/2025 22:31:32 Modified 06/04/2025 00:11:58 by shgedam)---
+switch(config)# radius-server key a"
+                                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key "a""
+                                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key ""a"
+                                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key """
+                                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key "a"a"
+                                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key a"a
+                                  ^
+% Invalid command at '^' marker.
+switch(config)#
+switch(config)# radius-server key abc
+switch(config)# radius-server key 0 a"
+                                    ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key 6 a"
+                                    ^
+% Invalid command at '^' marker.
+switch(config)# radius-server key 7 a"
+                                    ^
+% Invalid command at '^' marker.                                                                                            
+switch(config)# radius-server host 1.2.1.2 key 
+0   6   7   
+switch(config)# radius-server host 1.2.1.2 key a"
+                                               ^
+% Invalid command at '^' marker.
+switch(config)# radius-server host 1.2.1.2 key 0 a"
+                                                 ^
+% Invalid command at '^' marker.
+switch(config)# radius-server host 1.2.1.2 key 6 a"
+                                                 ^
+% Invalid command at '^' marker.
+switch(config)# radius-server host 1.2.1.2 key 7 a"
+                                                 ^
+% Invalid command at '^' marker.
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: A-comments (Created 04/02/2025 23:36:18 Added 04/02/2025 23:36:18 by samekama)---
+Plz check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 04/02/2025 08:04:14 Modified 06/05/2025 22:37:32 by cms)---
+{250606 anikunna S B} Since behaviour change is not acceptable, plan to C the defect
+{250605 atayal S B} R->A due to behaviour change discussion
+{250603 palshanm S B} Palani to take a look on the issue and try to repro
+{250514 samekama S G} PR created for OR6M
+{250411 samekama S B} Waiting for qr1f branch to be opened for commits.
+{250408 samekama S G} PR raised. Review in progress - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/57186
+{250407 samekama S B} Fix being done. Review in progress.
+{250402 pchow S B} pr3f-no-rg
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled:  Eng-notes (Created 04/02/2025 07:20:30 Modified 04/02/2025 07:29:41 by anikunna)---
+The issue seems to be happening due to the key not being enclosed with pairing " (quotes). 
+Keys when configured need to having a starting and closing quotes (paired) or no quotes at all. 
+In this case, there is one starting quote and two ending quotes (as shown below)
+
+    radius-server key 7 "b""
+
+If this is properly delimited, this issue will not be encountered.
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled:  Release-note (Created 04/02/2025 01:36:50 Modified 06/08/2025 10:05:53 by shgedam)---
+<B>Symptom:</B>
+- The starting-configuration having radius configuration.
+
+switch# show start | inc rad next 2
+radius-server key 7 "b""
+radius-server host 10.10.10.1 key 7 "a"" authentication accounting 
+aaa group server radius Radius_Grdf 
+    server 10.10.10.1 
+    source-interface Vlan30
+switch# 
+
+- The running-configuration missing radius configuration.
+
+switch# show run | inc rad next 2
+aaa group server radius Radius_Grdf 
+    source-interface Vlan30
+copp profile strict
+
+<B>Conditions:</B>
+- Going through internal ascii-replay, which can be done after "reload ascii" or might be triggered by a normal upgrade.
+
+- The radius-server key configuration having a double-quotes character preceded by any character or more. Example:
+
+* radius-server host 10.10.10.1 key 7 a"
+* radius-server key 7 b"
+
+<B>Workaround:</B>
+- Re-apply the radius configuration.
+- Changing the key for another one that does not contain the double-quotes character.
+
+<B>Further Problem Description:</B>
+The starting-configuration log shows there is radius key configuration as invalid. As consequence, other radius configuration commands fail in chain.
+
+switch# show start log | inc rad next 2
+root@switch(config)# radius-server key 7 "b""	
+                                            ^	 <<<<<<<< radius key configuration failure
+% Invalid command at '^' marker.
+--
+root@switch(config)# radius-server host 10.10.10.1 key 7 "a"" authentication accounting 
+                                                            ^	 <<<<<<<< radius key configuration failure 
+% Invalid command at '^' marker.
+--
+root@switch(config)# aaa group server radius Radius_Grdf 
+ret=0
+[Mon Mar 31 11:28:43.672402 2025]
+root@switch(config-radius)# server 10.10.10.1 
+specified RADIUS server not found, first configure it using radius-server host ... and then retry <<<<<<<<  radius key dependent configuration failure 
+ret=-500
+[Mon Mar 31 11:28:43.730810 2025]
+root@switch(config-radius)# source-interface Vlan30
+ret=0
+[Mon Mar 31 11:28:43.746023 2025]
+root@switch(config-radius)# copp profile strict
+ret=0
+[Mon Mar 31 11:28:43.883239 2025]
+switch#
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: SS-Review (Created 04/02/2025 01:36:50 Added 04/02/2025 01:36:50 by jhvelasq)---
+$$NOOIB
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled: reproduction-steps (Created 04/02/2025 01:36:50 Added 04/02/2025 01:36:50 by jhvelasq)---
+Tested in NXOS 9.3(14), 10.4(4), and 10.5(2):
+
+switch(config)# radius-server host 10.10.10.1 key 7 a"
+switch(config)# radius-server key 7 b"
+switch(config)# aaa group server radius Radius_Grdf
+switch(config-radius)# server 10.10.10.1
+switch(config-radius)# source-interface Vlan30
+switch(config-radius)# copy run start
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+switch(config-radius)# reload ascii
+!!!WARNING! This command will erase binary configuration
+in this VDC and reboot the system with ascii configuration.
+Do you wish to proceed anyway? (y/n)  [n] y
+...
+switch# show run | inc rad next 2
+aaa group server radius Radius_Grdf  <<<<<<<< running-configuration is missing radius configuration.
+    source-interface Vlan30
+copp profile strict
+....
+switch# show start log | inc rad next 2
+root@switch(config)# radius-server key 7 "b""	
+                                            ^	 <<<<<<<< radius key configuration failure
+% Invalid command at '^' marker.
+--
+root@switch(config)# radius-server host 10.10.10.1 key 7 "a"" authentication accounting 
+                                                            ^	 <<<<<<<< radius key configuration failure 
+% Invalid command at '^' marker.
+--
+root@switch(config)# aaa group server radius Radius_Grdf 
+ret=0
+[Mon Mar 31 11:28:43.672402 2025]
+root@switch(config-radius)# server 10.10.10.1 
+specified RADIUS server not found, first configure it using radius-server host ... and then retry <<<<<<<<  radius key dependent configuration failure 
+ret=-500
+[Mon Mar 31 11:28:43.730810 2025]
+root@switch(config-radius)# source-interface Vlan30
+ret=0
+[Mon Mar 31 11:28:43.746023 2025]
+root@switch(config-radius)# copp profile strict
+ret=0
+[Mon Mar 31 11:28:43.883239 2025]
+switch# 
+
+
+Lab access:
+* Switch 1: NXOS 10.5(2), mgmt0 IP: 10.88.171.47
+* Switch 2: NXOS 9.3(14), mgmt0 IP: 10.88.171.48
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (50 of 50)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-qr2f_dev                             ascii text     5512           shgedam        06/08/2025 10:34:52      
+Diffs-commit-nx_main                              ascii text     5512           shgedam        06/07/2025 21:54:12      
+ccwarnings-nx_main                                ascii text     191            baas           06/05/2025 05:50:55      
+static-analysis-nx_main                           ascii text     2334           baas           06/05/2025 05:50:17      
+ccwarnings-qr2f_dev                               ascii text     191            baas           06/05/2025 05:34:46      
+static-analysis-qr2f_dev                          ascii text     2339           baas           06/05/2025 05:34:07      
+code-review-qr2f_dev.p2                           binary         1686           shgedam        06/05/2025 03:30:29      
+code-review-nx_main.p2                            binary         1685           shgedam        06/05/2025 03:30:17      
+PR-Description-61782                              ascii text     1240           shgedam        06/05/2025 03:30:30      
+code-review-qr2f_dev                              binary         1686           shgedam        06/05/2025 01:46:15      
+PR-Description-61777                              ascii text     1240           shgedam        06/05/2025 03:30:18      
+code-review-nx_main                               binary         1685           shgedam        06/05/2025 01:44:31      
+code-review-qr1f_dev.p9                           binary         2004           shgedam        06/04/2025 05:40:55      
+Diffs-commit-olympia_rel.p2                       ascii text     5511           shgedam        06/04/2025 04:49:40      
+code-review-olympia_rel.p4                        binary         1697           shgedam        06/04/2025 04:48:37      
+PR-Description-61660                              ascii text     1239           shgedam        06/04/2025 04:48:38      
+code-review-olympia_rel.p3                        binary         1697           shgedam        06/04/2025 04:30:50      
+PR-Description-61659                              ascii text     1239           shgedam        06/04/2025 05:40:56      
+code-review-qr1f_dev.p8                           binary         2004           shgedam        06/04/2025 04:28:43      
+Release-note-diff                                 ascii text     1457           jhvelasq       05/21/2025 05:51:41      
+Diffs-commit-olympia_rel                          ascii text     7809           shgedam        05/14/2025 05:59:40      
+code-review-olympia_rel.p2                        binary         4287           shgedam        05/14/2025 03:31:28      
+PR-Description-59749                              ascii text     3599           shgedam        05/14/2025 03:31:29      
+code-review-olympia_rel                           binary         4287           shgedam        05/14/2025 03:16:12      
+ccwarnings-olympia_rel                            ascii text     191            baas           05/13/2025 23:35:39      
+static-analysis-olympia_rel                       ascii text     2357           baas           05/13/2025 23:35:03      
+gnosis_neg_CSCwo66923_neg.txt                     ascii text     3295           pjhade         04/25/2025 02:17:13      
+Diffs-commit-qr1f_dev                             ascii text     7809           shgedam        04/14/2025 20:57:18      
+ccwarnings-qr1f_dev.p3                            ascii text     191            baas           04/14/2025 00:15:30      
+static-analysis-qr1f_dev.p3                       ascii text     2301           baas           04/14/2025 00:14:53      
+PR-Description-57540                              ascii text     3599           shgedam        04/13/2025 22:35:19      
+code-review-qr1f_dev.p7                           binary         3974           shgedam        04/13/2025 22:35:17      
+code-review-qr1f_dev.p6                           ascii text     3966           shgedam        04/13/2025 19:57:20      
+code-review-qr1f_dev.p5                           ascii text     3966           shgedam        04/13/2025 19:56:27      
+ccwarnings-qr1f_dev.p2                            ascii text     191            baas           04/10/2025 05:38:15      
+static-analysis-qr1f_dev.p2                       ascii text     2301           baas           04/10/2025 05:37:37      
+code-review-qr1f_dev.p4                           ascii text     3966           shgedam        04/10/2025 04:47:05      
+code-review-qr1f_dev.p3                           ascii text     3966           shgedam        04/10/2025 04:46:13      
+vxlan_sanity_sanity_baseline_compare              ascii text     11591          root           04/14/2025 10:00:08      
+vxlan_sanity_sanity_report                        ascii text     9370           root           04/14/2025 10:00:08      
+uls_sanity_report                                 ascii text     4471           root           04/09/2025 20:30:52      
+uls_sanity_baseline_compare                       ascii text     3886           root           04/09/2025 20:30:52      
+cdt_uls_sanity_baseline_compare                   ascii text     1009           root           04/10/2025 07:19:13      
+cdt_uls_sanity_report                             ascii text     1660           root           04/10/2025 07:19:13      
+ccwarnings-qr1f_dev                               ascii text     191            baas           04/08/2025 03:38:55      
+static-analysis-qr1f_dev                          ascii text     2301           baas           04/08/2025 03:38:19      
+code-review-qr1f_dev.p2                           binary         3976           shgedam        04/08/2025 00:30:06      
+PR-Description-57186                              ascii text     3599           shgedam        04/13/2025 19:57:21      
+code-review-qr1f_dev                              binary         3976           shgedam        04/07/2025 23:18:52      
+tacpac_snapshot_switch_2025-03-31-11.43.07.gz     binary         12291831       jhvelasq       04/02/2025 01:36:50      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/01/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/01/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/31/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/31/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+07/28/2026 satdr    	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+06/30/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/30/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/07/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/07/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/05/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/05/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/25/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/25/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+03/18/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+02/10/2026 havadhut 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+01/09/2026 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+01/09/2026 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+01/09/2026 fas      	Known-affected-releases 	                             	10.6(1)                      	New
+01/09/2026 fas      	Known-affected-releases-	                             	10.6(1)                      	New
+12/19/2025 sajxavie 	Integrated-releases     	                             	10.6(1)                      	New
+11/17/2025 maroesne 	Version                 	                             	10.4(5)                      	New
+11/17/2025 maroesne 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+11/17/2025 maroesne 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+11/17/2025 maroesne 	Known-affected-releases 	                             	10.4(5)                      	New
+11/10/2025 rfurr    	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+11/04/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+11/04/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/29/2025 maroesne 	serviceRequests/C3/69993	                             	                             	Mod
+10/29/2025 maroesne 	Urgency-desc            	NA                           	CL3                          	Mod
+10/29/2025 maroesne 	Urgency                 	9                            	6                            	Mod
+10/29/2025 maroesne 	serviceRequests/C3/69993	                             	C3/699937403                 	New
+10/29/2025 maroesne 	Urgency-desc            	CL3                          	NA                           	Mod
+10/29/2025 maroesne 	Urgency                 	6                            	9                            	Mod
+10/29/2025 maroesne 	Tickets-count           	1                            	2                            	Mod
+10/29/2025 maroesne 	TACSR-count             	1                            	2                            	Mod
+10/29/2025 maroesne 	Tickets-count-direct    	1                            	2                            	Mod
+10/29/2025 maroesne 	Trouble-tickets         	                             	699937403                    	New
+10/29/2025 maroesne 	Trouble-tickets-direct  	                             	C3699937403                  	New
+10/14/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0)               	New
+10/14/2025 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0.146)           	New
+10/14/2025 nxbld    	Apply-to                	                             	10.5(2)IMS9(0.146)           	New
+09/22/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0)               	New
+09/22/2025 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0.21)            	New
+09/22/2025 nxbld    	Apply-to                	                             	10.5(2)ICX9(0.21)            	New
+09/03/2025 nxbld    	Integrated-releases     	                             	10.6(0)IPQ9(0)               	New
+09/03/2025 nxbld    	Integrated-releases     	                             	10.6(0)IPQ9(0.10)            	New
+09/03/2025 nxbld    	Apply-to                	                             	10.6(0)IPQ9(0.10)            	New
+09/02/2025 nxbld    	Integrated-releases     	                             	10.5(2)INP9(0)               	New
+09/02/2025 nxbld    	Integrated-releases     	                             	10.5(2)INP9(0.61)            	New
+09/02/2025 nxbld    	Apply-to                	                             	10.5(2)INP9(0.61)            	New
+08/25/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0.52)            	New
+08/25/2025 nxbld    	Apply-to                	                             	10.5(2)IRH9(0.52)            	New
+08/08/2025 nxbld    	Integrated-releases     	                             	10.6(3)ICD9(0)               	New
+08/08/2025 nxbld    	Integrated-releases     	                             	10.6(3)ICD9(0.60)            	New
+08/08/2025 nxbld    	Apply-to                	                             	10.6(3)ICD9(0.60)            	New
+07/11/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0.35)            	New
+07/11/2025 nxbld    	Apply-to                	                             	10.5(2)IRH9(0.35)            	New
+07/10/2025 palshanm 	Note Title              	                             	CFD-Automation               	New
+07/10/2025 palshanm 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0)               	New
+06/30/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQZ9(0.17)            	New
+06/30/2025 nxbld    	Apply-to                	                             	10.6(1)IQZ9(0.17)            	New
+06/25/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0.33)            	New
+06/25/2025 nxbld    	Apply-to                	                             	10.6(1)IQD9(0.33)            	New
+06/12/2025 nxbld    	Integrated-releases     	                             	10.4(5.12)                   	New
+06/12/2025 nxbld    	Apply-to                	                             	10.4(5.12)                   	New
+06/09/2025 vasagraw 	Note                    	C-comments                   	C-comments                   	Mod
+06/08/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0)               	New
+06/08/2025 nxbld    	Integrated-releases     	                             	10.6(1)IQD9(0.22)            	New
+06/08/2025 nxbld    	Apply-to                	                             	10.6(1)IQD9(0.22)            	New
+06/08/2025 shgedam  	File Name               	                             	Diffs-commit-qr2f_dev        	New
+06/08/2025 shgedam  	Note Title              	                             	C-comments                   	New
+06/08/2025 shgedam  	Status-desc             	A-Assigned                   	C-Closed                     	Mod
+06/08/2025 shgedam  	Status                  	A                            	C                            	Mod
+06/08/2025 shgedam  	Closed-on               	                             	2025-06-08 17:05:53.000+0000 	Mod
+06/08/2025 shgedam  	statusStates            	                             	[status=A, startDate=Thu Jun 	New
+06/08/2025 shgedam  	statusStates            	[status=A, startDate=Thu Jun 	                             	Del
+06/08/2025 shgedam  	Age-status              	64                           	67                           	Mod
+06/07/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0.93)            	New
+06/07/2025 nxbld    	Apply-to                	                             	10.6(0)IMG9(0.93)            	New
+06/07/2025 shgedam  	File Name               	                             	Diffs-commit-nx_main         	New
+06/05/2025 cms      	Est-fix-date            	                             	2025-06-08 07:00:00.000+0000 	Mod
+06/05/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/05/2025 buildins 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+06/05/2025 baas     	File Name               	                             	ccwarnings-nx_main           	New
+06/05/2025 baas     	File Name               	                             	static-analysis-nx_main      	New
+06/05/2025 baas     	File Name               	                             	ccwarnings-qr2f_dev          	New
+06/05/2025 baas     	File Name               	                             	static-analysis-qr2f_dev     	New
+06/05/2025 shgedam  	contents                	                             	PR-Description-61782         	Mod
+06/05/2025 shgedam  	File Name               	                             	code-review-qr2f_dev.p2      	New
+06/05/2025 shgedam  	contents                	                             	PR-Description-61777         	Mod
+06/05/2025 shgedam  	File Name               	                             	code-review-nx_main.p2       	New
+06/05/2025 shgedam  	File Name               	                             	PR-Description-61782         	New
+06/05/2025 shgedam  	File Name               	                             	code-review-qr2f_dev         	New
+06/05/2025 shgedam  	File Name               	                             	PR-Description-61777         	New
+06/05/2025 shgedam  	File Name               	                             	code-review-nx_main          	New
+06/04/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/04/2025 cms      	Est-fix-date            	2025-04-10 07:00:00.000+0000 	                             	Mod
+06/04/2025 shgedam  	Status-desc             	R-Resolved                   	A-Assigned                   	Mod
+06/04/2025 shgedam  	Status                  	R                            	A                            	Mod
+06/04/2025 shgedam  	Assigner                	samekama                     	shgedam                      	Mod
+06/04/2025 shgedam  	Assigned Date           	2025-04-03 06:36:17.000+0000 	2025-06-05 06:06:47.000+0000 	Mod
+06/04/2025 shgedam  	statusStates            	                             	[status=R, startDate=Tue Apr 	New
+06/04/2025 shgedam  	statusStates            	[status=R, startDate=Tue Apr 	                             	Del
+06/04/2025 shgedam  	Age-status              	13                           	64                           	Mod
+06/04/2025 shgedam  	Mean-time-to-assigned   	0                            	63                           	Mod
+06/04/2025 samekama 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+06/04/2025 shgedam  	contents                	                             	PR-Description-61659         	Mod
+06/04/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p9      	New
+06/04/2025 shgedam  	File Name               	                             	Diffs-commit-olympia_rel.p2  	New
+06/04/2025 shgedam  	contents                	                             	PR-Description-61660         	Mod
+06/04/2025 shgedam  	File Name               	                             	code-review-olympia_rel.p4   	New
+06/04/2025 shgedam  	File Name               	                             	PR-Description-61660         	New
+06/04/2025 shgedam  	File Name               	                             	code-review-olympia_rel.p3   	New
+06/04/2025 shgedam  	File Name               	                             	PR-Description-61659         	New
+06/04/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p8      	New
+06/04/2025 shgedam  	Note                    	Unit-test                    	Unit-test                    	Mod
+06/02/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/01/2025 vdani    	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+05/29/2025 sealum   	Doc-manager             	anikunna                     	uds                          	Mod
+05/29/2025 sealum   	Documentation-resolution	Undefined                    	Documentation A              	Mod
+05/29/2025 sealum   	Technical-writer        	                             	akanoo                       	Mod
+05/22/2025 cdetsbtk 	Security-screening-times	2025-04-02 15:44:14.000+0000 	2025-05-22 14:23:01.000+0000 	Mod
+05/21/2025 jhvelasq 	Note                    	Release-note                 	Release-note                 	Mod
+05/21/2025 jhvelasq 	File Name               	                             	Release-note-diff            	New
+05/21/2025 jhvelasq 	Symptoms                	- The starting-configuration 	- The starting-configuration 	Mod
+05/21/2025 jhvelasq 	Further-Problem-Descript	                             	The starting-configuration lo	Mod
+05/20/2025 buildins 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+05/18/2025 nxbld    	Integrated-releases     	                             	10.4(6)                      	New
+05/18/2025 nxbld    	Integrated-releases     	                             	10.4(5.8)                    	New
+05/18/2025 nxbld    	Apply-to                	                             	10.4(5.8)                    	New
+05/14/2025 shgedam  	File Name               	                             	Diffs-commit-olympia_rel     	New
+05/14/2025 shgedam  	Multi-commit-flag       	                             	Y                            	Mod
+05/14/2025 shgedam  	contents                	                             	PR-Description-59749         	Mod
+05/14/2025 shgedam  	File Name               	                             	code-review-olympia_rel.p2   	New
+05/14/2025 shgedam  	File Name               	                             	PR-Description-59749         	New
+05/14/2025 shgedam  	File Name               	                             	code-review-olympia_rel      	New
+05/13/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2025 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+05/13/2025 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+05/08/2025 buildins 	Attribute               	gnosis logging2.0-cfd pr3f-no	gnosis logging2.0-cfd pr3f-no	Mod
+05/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+05/08/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/28/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0)               	New
+04/28/2025 nxbld    	Integrated-releases     	                             	10.5(2)IRH9(0.9)             	New
+04/28/2025 nxbld    	Apply-to                	                             	10.5(2)IRH9(0.9)             	New
+04/25/2025 vkalikay 	Note Title              	                             	KnowledgeSignature.p3        	New
+04/25/2025 vkalikay 	Note Title              	                             	KnowledgeSignature.p2        	New
+04/25/2025 pjhade   	File Name               	                             	gnosis_neg_CSCwo66923_neg.txt	New
+04/25/2025 pjhade   	Note Title              	                             	KnowledgeSignature           	New
+04/25/2025 pjhade   	Attribute               	logging2.0-cfd pr3f-no-rg cfd	gnosis logging2.0-cfd pr3f-no	Mod
+04/24/2025 seshea   	Note Title              	                             	DetectionLogic               	New
+04/22/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0)               	New
+04/22/2025 nxbld    	Integrated-releases     	                             	10.6(0)IMG9(0.5)             	New
+04/22/2025 nxbld    	Apply-to                	                             	10.6(0)IMG9(0.5)             	New
+04/22/2025 shgedam  	Related-bugs            	                             	Related-bugs/CSCwo87011      	New
+04/20/2025 sachinj  	Attribute               	logging2.0-cfd pr3f-no-rg    	logging2.0-cfd pr3f-no-rg cfd	Mod
+04/14/2025 nxbld    	Integrated-releases     	                             	10.5(3)IQA9(0)               	New
+04/14/2025 nxbld    	Integrated-releases     	                             	10.5(3)IQA9(0.71)            	New
+04/14/2025 nxbld    	Apply-to                	                             	10.5(3)IQA9(0.71)            	New
+04/14/2025 shgedam  	Note Title              	                             	R-comments                   	New
+04/14/2025 shgedam  	Note Title              	                             	Behavior-changed             	New
+04/14/2025 shgedam  	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+04/14/2025 shgedam  	Status                  	A                            	R                            	Mod
+04/14/2025 shgedam  	Dev-escape-resolver-opin	                             	N                            	Mod
+04/14/2025 shgedam  	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+04/14/2025 shgedam  	More-by                 	                             	shgedam                      	Mod
+04/14/2025 shgedam  	Opener                  	                             	shgedam                      	Mod
+04/14/2025 shgedam  	Resolver                	                             	shgedam                      	Mod
+04/14/2025 shgedam  	Breakage                	                             	No                           	Mod
+04/14/2025 shgedam  	Regression              	                             	N                            	Mod
+04/14/2025 shgedam  	By-previous-commit-value	                             	No                           	Mod
+04/14/2025 shgedam  	Bug-origin              	                             	Code / Implementation        	Mod
+04/14/2025 shgedam  	Released-code           	                             	N                            	Mod
+04/14/2025 shgedam  	Origin                  	                             	base code                    	Mod
+04/14/2025 shgedam  	Test-EDP-phase          	                             	Development                  	Mod
+04/14/2025 shgedam  	Test-EDP-activity       	                             	Code Review                  	Mod
+04/14/2025 shgedam  	TPS_issue               	                             	N                            	Mod
+04/14/2025 shgedam  	TPS_flag                	                             	N                            	Mod
+04/14/2025 shgedam  	Behavior-changed        	                             	Y                            	Mod
+04/14/2025 shgedam  	Original-resolved-on    	                             	2025-04-15 04:03:41.000+0000 	Mod
+04/14/2025 shgedam  	Documents-changed       	                             	none                         	Mod
+04/14/2025 shgedam  	More-on                 	                             	2025-04-15 04:03:41.000+0000 	Mod
+04/14/2025 shgedam  	Opened-on               	                             	2025-04-15 04:03:41.000+0000 	Mod
+04/14/2025 shgedam  	Resolved-on             	                             	2025-04-15 04:03:41.000+0000 	Mod
+04/14/2025 shgedam  	statusStates            	                             	[status=A, startDate=Thu Apr 	New
+04/14/2025 shgedam  	statusStates            	[status=A, startDate=Thu Apr 	                             	Del
+04/14/2025 shgedam  	Age-status              	1                            	13                           	Mod
+04/14/2025 shgedam  	Mean-time-to-resolved   	                             	12                           	Mod
+04/14/2025 shgedam  	File Name               	                             	Diffs-commit-qr1f_dev        	New
+04/14/2025 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+04/14/2025 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+04/14/2025 baas     	File Name               	                             	ccwarnings-qr1f_dev.p3       	New
+04/14/2025 baas     	File Name               	                             	static-analysis-qr1f_dev.p3  	New
+04/13/2025 shgedam  	File Name               	                             	PR-Description-57540         	New
+04/13/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p7      	New
+04/13/2025 shgedam  	contents                	                             	PR-Description-57186         	Mod
+04/13/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p6      	New
+04/13/2025 shgedam  	contents                	                             	PR-Description-57186         	Mod
+04/13/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p5      	New
+04/10/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/10/2025 root     	contents                	                             	cdt_uls_sanity_report        	Mod
+04/10/2025 root     	contents                	                             	cdt_uls_sanity_baseline_compa	Mod
+04/10/2025 baas     	File Name               	                             	ccwarnings-qr1f_dev.p2       	New
+04/10/2025 baas     	File Name               	                             	static-analysis-qr1f_dev.p2  	New
+04/10/2025 shgedam  	contents                	                             	PR-Description-57186         	Mod
+04/10/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p4      	New
+04/10/2025 shgedam  	contents                	                             	PR-Description-57186         	Mod
+04/10/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p3      	New
+04/10/2025 shgedam  	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/09/2025 shgedam  	Note Title              	                             	Eng-notes.p2                 	New
+04/09/2025 shgedam  	Report-input-workflows  	                             	KFR - VF Patched             	New
+04/09/2025 root     	File Name               	                             	vxlan_sanity_sanity_baseline_	New
+04/09/2025 root     	File Name               	                             	vxlan_sanity_sanity_report   	New
+04/09/2025 root     	File Name               	                             	uls_sanity_report            	New
+04/09/2025 root     	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/09/2025 root     	File Name               	                             	uls_sanity_baseline_compare  	New
+04/08/2025 shgedam  	Note Title              	                             	Unit-test                    	New
+04/08/2025 root     	File Name               	                             	cdt_uls_sanity_baseline_compa	New
+04/08/2025 root     	File Name               	                             	cdt_uls_sanity_report        	New
+04/08/2025 baas     	File Name               	                             	ccwarnings-qr1f_dev          	New
+04/08/2025 baas     	File Name               	                             	static-analysis-qr1f_dev     	New
+04/08/2025 shgedam  	contents                	                             	PR-Description-57186         	Mod
+04/08/2025 shgedam  	File Name               	                             	code-review-qr1f_dev.p2      	New
+04/07/2025 shgedam  	Code-reviewer           	                             	vasagraw                     	New
+04/07/2025 shgedam  	File Name               	                             	PR-Description-57186         	New
+04/07/2025 shgedam  	File Name               	                             	code-review-qr1f_dev         	New
+04/07/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/06/2025 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/06/2025 cms      	Est-fix-date            	                             	2025-04-10 07:00:00.000+0000 	Mod
+04/04/2025 jhvelasq 	serviceRequests/C3/69879	                             	                             	Mod
+04/04/2025 jhvelasq 	Urgency-desc            	NA                           	CL3                          	Mod
+04/04/2025 jhvelasq 	Urgency                 	9                            	6                            	Mod
+04/02/2025 samekama 	Note Title              	                             	A-comments                   	New
+04/02/2025 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+04/02/2025 samekama 	Status                  	N                            	A                            	Mod
+04/02/2025 samekama 	Engineer                	                             	shgedam                      	Mod
+04/02/2025 samekama 	Assigner                	                             	samekama                     	Mod
+04/02/2025 samekama 	Assigned Date           	                             	2025-04-03 06:36:17.000+0000 	Mod
+04/02/2025 samekama 	statusStates            	                             	[status=N, startDate=Wed Apr 	New
+04/02/2025 samekama 	statusStates            	[status=N, startDate=Wed Apr 	                             	Del
+04/02/2025 samekama 	Age-status              	0                            	1                            	Mod
+04/02/2025 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+04/02/2025 vishkri2 	Attribute               	logging2.0-cfd               	logging2.0-cfd pr3f-no-rg    	Mod
+04/02/2025 cms      	Note Title              	                             	Scrubnote                    	New
+04/02/2025 anikunna 	Note                    	Eng-notes                    	Eng-notes                    	Mod
+04/02/2025 anikunna 	Note Title              	                             	Eng-notes                    	New
+04/02/2025 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+04/02/2025 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+04/02/2025 cdetsbtk 	Security-screening-times	                             	2025-04-02 15:44:14.000+0000 	Mod
+04/02/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-444394       	New
+04/02/2025 jhvelasq 	serviceRequests/C3/69879	                             	C3/698798226                 	New
+04/02/2025 jhvelasq 	Urgency                 	                             	9                            	Mod
+04/02/2025 jhvelasq 	Tickets-count           	0                            	1                            	Mod
+04/02/2025 jhvelasq 	TACSR-count             	                             	1                            	Mod
+04/02/2025 jhvelasq 	Tickets-count-direct    	                             	1                            	Mod
+04/02/2025 jhvelasq 	Trouble-tickets         	                             	698798226                    	New
+04/02/2025 jhvelasq 	Trouble-tickets-direct  	                             	C3698798226                  	New
+04/02/2025 jhvelasq 	Note Title              	                             	Release-note                 	New
+04/02/2025 jhvelasq 	Note Title              	                             	SS-Review                    	New
+04/02/2025 jhvelasq 	Note Title              	                             	reproduction-steps           	New
+04/02/2025 jhvelasq 	File Name               	                             	tacpac_snapshot_switch_2025-0	New
+04/02/2025 jhvelasq 	Note                    	Release-note                 	Release-note                 	Mod
+04/02/2025 jhvelasq 	Headline                	                             	Radius server configuration m	Mod
+04/02/2025 jhvelasq 	Summary                 	                             	Radius server key configurati	Mod
+04/02/2025 jhvelasq 	Project                 	                             	CSC.datacenter               	Mod
+04/02/2025 jhvelasq 	Product                 	                             	n9k-standalone-sw            	Mod
+04/02/2025 jhvelasq 	Component               	                             	radius                       	Mod
+04/02/2025 jhvelasq 	Status-desc             	                             	N-New                        	Mod
+04/02/2025 jhvelasq 	Status                  	                             	N                            	Mod
+04/02/2025 jhvelasq 	Found                   	                             	customer-use                 	Mod
+04/02/2025 jhvelasq 	Hardening               	                             	N                            	Mod
+04/02/2025 jhvelasq 	Product-owner           	                             	gsheehan                     	Mod
+04/02/2025 jhvelasq 	Original-found          	                             	customer-use                 	Mod
+04/02/2025 jhvelasq 	Hardware                	                             	Nexus 9000                   	New
+04/02/2025 jhvelasq 	Feature                 	                             	fix                          	Mod
+04/02/2025 jhvelasq 	Attribute               	                             	logging2.0-cfd               	Mod
+04/02/2025 jhvelasq 	Urgency-desc            	                             	NA                           	Mod
+04/02/2025 jhvelasq 	Severity-desc           	                             	moderate                     	Mod
+04/02/2025 jhvelasq 	Severity                	                             	3                            	Mod
+04/02/2025 jhvelasq 	DE Priority Desc        	                             	medium                       	Mod
+04/02/2025 jhvelasq 	DE-priority             	                             	3                            	Mod
+04/02/2025 jhvelasq 	Impact                  	                             	Maintainability,Ease-of-Use  	New
+04/02/2025 jhvelasq 	Is-reproducible         	                             	Cisco Lab Reproduced         	Mod
+04/02/2025 jhvelasq 	Submitter               	                             	jhvelasq                     	Mod
+04/02/2025 jhvelasq 	Submitter-manager       	                             	mwilczak                     	Mod
+04/02/2025 jhvelasq 	DE-manager              	                             	anikunna                     	Mod
+04/02/2025 jhvelasq 	DTPT-manager            	                             	mukamath                     	Mod
+04/02/2025 jhvelasq 	Version                 	                             	10.4(4),10.5(2),9.3(14)      	New
+04/02/2025 jhvelasq 	Original-version        	                             	10.4(4)                      	Mod
+04/02/2025 jhvelasq 	Found-during            	                             	Customer                     	Mod
+04/02/2025 jhvelasq 	Activity-when-found     	                             	Customer-Use                 	Mod
+04/02/2025 jhvelasq 	Automated-test          	                             	N                            	Mod
+04/02/2025 jhvelasq 	Test-escape             	                             	N                            	Mod
+04/02/2025 jhvelasq 	PSIRT                   	                             	N                            	Mod
+04/02/2025 jhvelasq 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+04/02/2025 jhvelasq 	Data-classification-reas	                             	n/a                          	Mod
+04/02/2025 jhvelasq 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+04/02/2025 jhvelasq 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+04/02/2025 jhvelasq 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+04/02/2025 jhvelasq 	Software-type-ids       	                             	282253564,286280105,286321149	New
+04/02/2025 jhvelasq 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2025 jhvelasq 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+04/02/2025 jhvelasq 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+04/02/2025 jhvelasq 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+04/02/2025 jhvelasq 	MDF-edited              	                             	N                            	Mod
+04/02/2025 jhvelasq 	Attribute2              	                             	n/a                          	Mod
+04/02/2025 jhvelasq 	Care-Update             	                             	Y                            	Mod
+04/02/2025 jhvelasq 	Doc-manager             	                             	anikunna                     	Mod
+04/02/2025 jhvelasq 	Document                	                             	nexus                        	Mod
+04/02/2025 jhvelasq 	Documentation-resolution	                             	Undefined                    	Mod
+04/02/2025 jhvelasq 	Original-activity-when-f	                             	Customer-Use                 	Mod
+04/02/2025 jhvelasq 	Original-found-during   	                             	Customer                     	Mod
+04/02/2025 jhvelasq 	Submitter-org-bug       	                             	GC_EMEA_DC_DCRS_PL           	Mod
+04/02/2025 jhvelasq 	Component-scenarios     	                             	N                            	Mod
+04/02/2025 jhvelasq 	Submitted-on            	                             	2025-04-02 08:36:50.632+0000 	Mod
+04/02/2025 jhvelasq 	IFD-CFD-Conv-date       	                             	2025-04-02 08:36:50.632+0000 	Mod
+04/02/2025 jhvelasq 	New-on                  	                             	2025-04-02 08:36:50.632+0000 	Mod
+04/02/2025 jhvelasq 	statusStates            	                             	[status=S, startDate=Wed Apr 	New
+04/02/2025 jhvelasq 	Transition-day          	0                            	2460768                      	Mod
+04/02/2025 jhvelasq 	Release-note-status     	                             	have                         	Mod
+04/02/2025 jhvelasq 	Reported By             	                             	jhvelasq                     	Mod
+04/02/2025 jhvelasq 	Known-affected-releases 	                             	10.4(4),10.5(2),9.3(14)      	New
+04/02/2025 jhvelasq 	RNE-Type                	                             	NONE                         	Mod
+04/02/2025 jhvelasq 	Symptoms                	                             	- The starting-configuration 	Mod
+04/02/2025 jhvelasq 	Conditions              	                             	- The radius-server key confi	Mod
+04/02/2025 jhvelasq 	Workarounds             	                             	- Re-apply the radius configu	Mod
+04/02/2025 jhvelasq 	Tickets-count           	                             	0                            	Mod
+04/02/2025 jhvelasq 	Class                   	                             	CSC.datacenter               	Mod
+04/02/2025 jhvelasq 	Reti-bug                	                             	Y                            	Mod
+04/02/2025 jhvelasq 	Defect Created          	                             	                             	New

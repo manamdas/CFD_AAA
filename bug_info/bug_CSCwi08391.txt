@@ -1,0 +1,1457 @@
+*******************************************************************************
+
+Bug ID   : CSCwi08391         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 3 (moderate)   
+Headline : DME CC failure seen with radius accport
+PrimaryPV : 
+Version :10.4(2)IOD9(0.51) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: rnachimu           Submitted: 11/03/2023 08:36:41     Last Updtd : 08/24/2026 02:37:03  
+RNE-Type: $$IGNORE            New-on : 11/03/2023 08:36:41      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:spentala                                            
+Known-affected-releases:
+
+Known-fixed-releases:10.4(3) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(4) 10.3(4a) 10.3(99w) 10.3(99x) 10.4(1) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 12/01/2023 01:30:00                             
+Multi-commit-flag:                                                    
+Mean-time-to-assigned: 23                                             
+Mean-time-to-resolved: 27                                             
+Mean-time-to-verified: 115    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason: Need info from Submi
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 08/12/2025 05:50:18            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Configuring Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : rnachimu           Priority : medium        Assigned: 11/27/2023 04:32:00 
+Code-reviewer: vasagraw       
+Opened-on: 12/01/2023 01:30:00Opener: greddyda              
+Engineer : greddyda           DE-manager  : anikunna        Est Time/Attribute : or3f baseline-or3f random-cli.py cfd-ma
+Est. completion date: 11/30/2023 00:00:00  
+Script-version:                         
+
+More-by : greddyda            More-on: 12/01/2023 01:30:00  
+
+Documents Changed: none       Resolved: 12/01/2023 01:30:00 Resolver: greddyda       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: rnachimu            Verified Confidence: tested                       
+Verified Date: 02/26/2024 21:34:06      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Feature Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature/ Functionality Testing
+Detailed-activity :              
+Summitter-org :                  DSE NS NEXT PI Common Multi-OS NX India
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              699463563
+Trouble-tickets-direct :C3699463563 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$IGNORE flag is in the RNE
+Security-screening-timestamp :                 09/02/2025 19:09:47
+Document :    nexus
+
+Summary:
+During execution of random_cli.py with below modes, seen DME CC failures with "sys/userext/radiusext/radiusprovider"
+
+mode=router bgp 100
+mode=int nve1
+mode=
+
+nxpi2-bl21# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  ####################         [ 74%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+sys/sysmgr/config/systemcore
+sys/pltfm/pclb
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+sys/userext/radiusext/radiusprovider-[137.119.111.56] acctPort             1813                 0                   
+radius-server host 137.119.111.56 key 7 "uwrigm-xlussw" auth-port 350 authentication accounting
+
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: FAILED
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         699463563       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-213646                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (16 of 16 ) ***********************
+
+---Start of Note Titled: DetectionUnsuitable (Created 08/26/2025 10:40:05 Added 08/26/2025 10:40:05 by seshea)---
+--- Update 2025-08-26 17:40:02.445839 seshea (via 699591419)
+Unsuitable - Insufficient Data from Device
+two things:
+
+spoke to person who linked bug to their sr
+the issue didnt match and the cc failure was for diff reasons
+
+also, dme cc is not in show tech and wont be as is in future
+tried to repro in lab but acct port 0 and auth port 0 show up as 0 in dme and missing in running config
+
+not able to reproduce on my box so not able to identify sufficient info
+given show run hides 0 and dme cc is not there
+
+nfig)# sh system internal dme running-config dn sys/userext/radiusext/
+
+{
+  "aaaRadiusEp": {
+    "attributes": {
+
+    },
+    "children": [
+      {
+        "aaaRadiusServerMonitor": {
+          "attributes": {
+
+          }
+        }
+      },
+      {
+        "aaaRadiusProviderGroup": {
+          "attributes": {
+            "name": "radius"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "acctPort": "0",
+            "authPort": "0",
+            "key": "Cisco12345",
+            "keyEnc": "7",
+            "name": "1.2.3.6"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "key": "Cisco123",
+            "keyEnc": "7",
+            "name": "1.2.3.5"
+          }
+        }
+      },
+      {
+        "aaaRadiusProvider": {
+          "attributes": {
+            "acctPort": "13",
+            "authPort": "12",
+            "key": "Cisco234",
+            "keyEnc": "7",
+            "name": "1.2.3.4"
+          }
+        }
+      }
+    ]
+  }
+}
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: Email-in.p2 (Created 08/20/2025 12:00:06 Added 08/20/2025 12:00:06 by wmigdadi)---
+From: "WAFA HATIM MIGDADI -X (wmigdadi)" <wmigdadi@cisco.com>
+Date: Wednesday, August 20, 2025 at 6:52 PM 
+To: "Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco)" <greddyda@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "email-in@cisco.com" <email-in@cisco.com>
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+Hello,
+
+
+
+Any update
+
+
+From: wmigdadi@cisco.com
+Date: Thursday, August 14, 2025, 1:16 PM
+To: greddyda@cisco.com
+Cc: bug-attach@cisco.com,email-in@cisco.com
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+hi,
+
+Hope you are doing well.
+
+I am follow up with you regarding the bug.
+
+Have a good day!
+
+
+From: wmigdadi@cisco.com
+Date: Tuesday, August 12, 2025, 10:00 AM
+To: greddyda@cisco.com
+Cc: bug-attach@cisco.com,email-in@cisco.com
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+hello,
+
+Hope you are doing well 
+
+In this case my customer is unable to configure the key and the port on radius it show him the following log:
+" Radius command failed to apply"
+
+When I check the DME at show me it failed:
+[cid:80eb1e2b-6a04-499b-bd36-a0ac749b88ed]
+
+The switch is running this version 10.5(3)
+
+Can you please assist
+
+Wafa Migdadi
+
+Technical Consulting Engineer
+Cisco TAC ? Collaboration
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+Email:wmigdadi@cisco.com
+Phone:+31207217471
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+File Name:1755007237512_u01_image.png
+https://cxfiles-v2-ui.cxapps.cisco.com/v2/f[cut here for length]
+
+Wafa Migdadi
+
+ 
+
+Technical Consulting Engineer
+
+Cisco TAC ? Collaboration
+
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+
+Email:wmigdadi@cisco.com
+
+Phone:+31207217471
+
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB54545A22161E4206BD0F7513DC33A@DM4PR11MB5454.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p2---
+
+
+---Start of Note Titled: Email-in.p1 (Created 08/14/2025 10:45:48 Added 08/14/2025 10:45:48 by wmigdadi)---
+From: "WAFA HATIM MIGDADI -X (wmigdadi)" <wmigdadi@cisco.com>
+Date: Thursday, August 14, 2025 at 5:16 PM 
+To: "Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco)" <greddyda@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "'email-in@cisco.com'" <email-in@cisco.com>
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+hi,
+
+Hope you are doing well.
+
+I am follow up with you regarding the bug.
+
+Have a good day!
+
+
+From: wmigdadi@cisco.com
+Date: Tuesday, August 12, 2025, 10:00 AM
+To: greddyda@cisco.com
+Cc: bug-attach@cisco.com,email-in@cisco.com
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+hello,
+
+Hope you are doing well 
+
+In this case my customer is unable to configure the key and the port on radius it show him the following log:
+" Radius command failed to apply"
+
+When I check the DME at show me it failed:
+[cid:80eb1e2b-6a04-499b-bd36-a0ac749b88ed]
+
+The switch is running this version 10.5(3)
+
+Can you please assist
+
+Wafa Migdadi
+
+Technical Consulting Engineer
+Cisco TAC ? Collaboration
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+Email:wmigdadi@cisco.com
+Phone:+31207217471
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+File Name:1755007237512_u01_image.png
+https://cxfiles-v2-ui.cxapps.cisco.com/v2/files/download?appId=CSOne&forceText=1&id=699463563&fileName=1755007237512_u01_image.png
+
+Wafa Migdadi
+
+ 
+
+Technical Consulting Engineer
+
+Cisco TAC ? Collaboration
+
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+
+Email:wmigdadi@cisco.com
+
+Phone:+31207217471
+
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB545488347A7B70BA59CC4033DC35A@DM4PR11MB5454.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in.p1---
+
+
+---Start of Note Titled: Email-in (Created 08/13/2025 14:01:15 Added 08/13/2025 14:01:15 by wmigdadi)---
+From: "WAFA HATIM MIGDADI -X (wmigdadi)" <wmigdadi@cisco.com>
+Date: Tuesday, August 12, 2025 at 2:00 PM 
+To: "Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco)" <greddyda@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>, "'email-in@cisco.com'" <email-in@cisco.com>
+Subject: SR 699463563 : CSCwi08391: DME CC failure seen with radius accport
+
+hello,
+
+Hope you are doing well 
+
+In this case my customer is unable to configure the key and the port on radius it show him the following log:
+
+" Radius command failed to apply"
+
+When I check the DME at show me it failed:
+
+The switch is running this version 10.5(3)
+
+Can you please assist
+
+Wafa Migdadi
+
+ 
+
+Technical Consulting Engineer
+
+Cisco TAC ? Collaboration
+
+Business day hours: Mon ? Fri, 8am ? 4pm EST (GMT -5)
+
+Email:wmigdadi@cisco.com
+
+Phone:+31207217471
+
+To update your case (requires a support contract): https://mycase.cloudapps.cisco.com/case
+
+Cisco Worldwide Contact: http://www.cisco.com/c/en/us/support/web/tsd-cisco-worldwide-contacts.html
+
+
+############################ MESSAGE IDS ############################
+# <DM4PR11MB5454E7F28804BB35F1AD3FCEDC2BA@DM4PR11MB5454.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments (Created 02/26/2024 21:34:06 Added 02/26/2024 21:34:06 by rnachimu)---
+1. S/W Version : S10.4(2)IMG9(0.90)
+2. Platform : GX2B
+3. Automation Suite: random-cli.py
+4. Steps to reproduce and Verify: executed randon-cli.py with mode given in the bug. issue is not seen.
+
+snip of the random-cli.py logs:
+==================
+bgl-ads-2670:52> grep radius ste-time.log21
+14562484:Fri Feb 23 09:39:31 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 118.134.83.236 key 0 ******** pac auth-port 903 retransmit 4 (FAILURE)
+14562532:Fri Feb 23 09:49:38 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 121.253.66.180 key 0 ******** auth-port 189 acct-port 125 (FAILURE)
+14562676:Fri Feb 23 09:50:28 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 168.225.17.21 key 0 ******** pac auth-port 496 acct-port 251 accounting (FAILURE)
+14562723:Fri Feb 23 09:50:35 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 193.131.174.24 key 0 ******** pac auth-port 665 acct-port 855 authentication timeout 27 retransmit 0 (SUCCESS)
+14562784:Fri Feb 23 10:01:09 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 197.233.231.94 test username random-string password 0 ******** (FAILURE)
+14563051:Fri Feb 23 10:12:34 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 12.245.227.202 test password 0 ******** idle-time 903 (FAILURE)
+14563181:Fri Feb 23 10:23:20 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 34.62.241.19 key 0 ******** auth-port 15 acct-port 733 authentication timeout 31 (SUCCESS)
+14563230:Fri Feb 23 10:23:27 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server secure tls (SUCCESS)
+14563270:Fri Feb 23 10:23:32 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 250.92.164.33 key 0 ******** auth-port 243 acct-port 564 authentication timeout 0 (FAILURE)
+14563298:Fri Feb 23 10:23:36 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 72.140.173.175 key 0 ******** pac retransmit 2 (SUCCESS)
+14563320:Fri Feb 23 10:23:39 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server test username random-string password ******** idle-time 420 (SUCCESS)
+14563394:Fri Feb 23 10:23:49 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 128.215.176.65 key 0 ******** auth-port 392 authentication timeout 57 retransmit 0 (FAILURE)
+14563499:Fri Feb 23 10:24:02 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 130.38.192.50 test password ******** (FAILURE)
+14563541:Fri Feb 23 10:24:07 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 77.143.222.109 key 0 ******** auth-port 856 authentication timeout 11 (FAILURE)
+14563583:Fri Feb 23 10:24:13 2024:update:173.39.55.59@pts/7:admin:configure terminal ; aaa server radius dynamic-author (SUCCESS)
+14563664:Fri Feb 23 10:24:24 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 206.7.13.77 dtls client-trustpoint random-string idle-timeout 314 (SUCCESS)
+14563749:Fri Feb 23 10:24:34 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 192.21.139.239 key 0 ******** pac acct-port 238 authentication timeout 22 (SUCCESS)
+bgl-ads-2670:53> grep radius ste-time.log21
+14562484:Fri Feb 23 09:39:31 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 118.134.83.236 key 0 ******** pac auth-port 903 retransmit 4 (FAILURE)
+14562532:Fri Feb 23 09:49:38 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 121.253.66.180 key 0 ******** auth-port 189 acct-port 125 (FAILURE)
+14562676:Fri Feb 23 09:50:28 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 168.225.17.21 key 0 ******** pac auth-port 496 acct-port 251 accounting (FAILURE)
+14562723:Fri Feb 23 09:50:35 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 193.131.174.24 key 0 ******** pac auth-port 665 acct-port 855 authentication timeout 27 retransmit 0 (SUCCESS)
+14562784:Fri Feb 23 10:01:09 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 197.233.231.94 test username random-string password 0 ******** (FAILURE)
+14563051:Fri Feb 23 10:12:34 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 12.245.227.202 test password 0 ******** idle-time 903 (FAILURE)
+14563181:Fri Feb 23 10:23:20 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 34.62.241.19 key 0 ******** auth-port 15 acct-port 733 authentication timeout 31 (SUCCESS)
+14563230:Fri Feb 23 10:23:27 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server secure tls (SUCCESS)
+14563270:Fri Feb 23 10:23:32 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 250.92.164.33 key 0 ******** auth-port 243 acct-port 564 authentication timeout 0 (FAILURE)
+14563298:Fri Feb 23 10:23:36 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 72.140.173.175 key 0 ******** pac retransmit 2 (SUCCESS)
+14563320:Fri Feb 23 10:23:39 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server test username random-string password ******** idle-time 420 (SUCCESS)
+14563394:Fri Feb 23 10:23:49 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 128.215.176.65 key 0 ******** auth-port 392 authentication timeout 57 retransmit 0 (FAILURE)
+14563499:Fri Feb 23 10:24:02 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 130.38.192.50 test password ******** (FAILURE)
+14563541:Fri Feb 23 10:24:07 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 77.143.222.109 key 0 ******** auth-port 856 authentication timeout 11 (FAILURE)
+14563583:Fri Feb 23 10:24:13 2024:update:173.39.55.59@pts/7:admin:configure terminal ; aaa server radius dynamic-author (SUCCESS)
+14563664:Fri Feb 23 10:24:24 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 206.7.13.77 dtls client-trustpoint random-string idle-timeout 314 (SUCCESS)
+14563749:Fri Feb 23 10:24:34 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 192.21.139.239 key 0 ******** pac acct-port 238 authentication timeout 22 (SUCCESS)
+14564125:Fri Feb 23 10:46:19 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 243.141.237.246 key 0 ******** pac auth-port 953 authentication timeout 3 retransmit 5 (FAILURE)
+14564176:Fri Feb 23 10:46:27 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 111.109.71.206 key 0 ******** pac accounting retransmit 1 (SUCCESS)
+14564181:Fri Feb 23 10:46:27 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 209.240.155.81 test password 0 ******** (FAILURE)
+14564334:Fri Feb 23 10:46:52 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 45.111.39.102 key 0 ******** pac acct-port 395 timeout 21 retransmit 3 (SUCCESS)
+14564432:Fri Feb 23 10:57:06 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 142.41.113.135 key 0 ******** auth-port 595 acct-port 254 accounting retransmit 0 (SUCCESS)
+14564581:Fri Feb 23 10:57:57 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 122.8.162.69 test password ******** idle-time 1158 (FAILURE)
+14564664:Fri Feb 23 11:08:09 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 48.115.146.191 key 0 ******** auth-port 959 timeout 30 (FAILURE)
+14564753:Fri Feb 23 11:09:48 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 106.33.10.219 key 0 ******** auth-port 43 accounting retransmit 4 (SUCCESS)
+14564864:Fri Feb 23 11:20:27 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 25.128.211.61 test idle-time 45 (FAILURE)
+14564989:Fri Feb 23 11:31:11 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 81.17.190.200 key 0 ******** auth-port 30 acct-port 542 accounting timeout 32 (SUCCESS)
+14565081:Fri Feb 23 11:31:25 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 190.153.209.210 key 0 ******** auth-port 491 timeout 43 retransmit 2 (FAILURE)
+14565130:Fri Feb 23 11:31:31 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 136.163.136.71 key 0 ******** pac auth-port 606 timeout 40 (SUCCESS)
+14565176:Fri Feb 23 11:31:38 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 163.99.172.13 key 0 ******** pac auth-port 145 acct-port 892 authentication timeout 7 retransmit 4 (SUCCESS)
+14565387:Fri Feb 23 11:43:18 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 9.219.77.211 key 0 ******** auth-port 593 accounting timeout 34 retransmit 0 (SUCCESS)
+14565516:Fri Feb 23 11:54:11 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 15.148.71.51 key 0 ******** auth-port 209 timeout 23 (FAILURE)
+14565606:Fri Feb 23 11:54:24 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 1.155.152.0 key 0 ******** auth-port 982 acct-port 657 accounting (SUCCESS)
+14565617:Fri Feb 23 11:54:25 2024:update:173.39.55.59@pts/7:admin:radius global parameters have been modified 
+14565618:Fri Feb 23 11:54:25 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server retransmit 0 (SUCCESS)
+14565735:Fri Feb 23 11:54:46 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 178.5.20.253 key 0 ******** auth-port 0 authentication timeout 12 retransmit 1 (SUCCESS)
+14565772:Fri Feb 23 11:54:53 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 16.121.172.242 key 0 ******** auth-port 478 accounting (FAILURE)
+14565825:Fri Feb 23 11:55:00 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 252.166.133.15 key 0 ******** auth-port 409 authentication accounting retransmit 2 (FAILURE)
+14565882:Fri Feb 23 12:05:50 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 159.206.37.60 key 0 ******** pac auth-port 415 acct-port 286 authentication accounting timeout 32 retransmit 5 (FAILURE)
+14565967:Fri Feb 23 12:16:29 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 187.132.101.227 key 0 ******** pac authentication retransmit 0 (FAILURE)
+14565983:Fri Feb 23 12:16:32 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 209.214.232.66 key 0 ******** auth-port 62 accounting timeout 5 retransmit 0 (FAILURE)
+14566321:Fri Feb 23 12:27:13 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server test username random-string (SUCCESS)
+14566337:Fri Feb 23 12:27:15 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server test password 0 ******** idle-time 431 (SUCCESS)
+14566590:Fri Feb 23 12:28:14 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 104.152.175.70 key 0 ******** auth-port 838 authentication (FAILURE)
+14566602:Fri Feb 23 12:28:16 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 46.3.204.26 test username random-string password ******** (FAILURE)
+14566630:Fri Feb 23 12:28:19 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 77.242.63.14 key 0 ******** pac auth-port 368 acct-port 198 authentication accounting timeout 29 retransmit 1 (FAILURE)
+14566769:Fri Feb 23 12:28:37 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 33.114.55.92 key 0 ******** auth-port 160 (SUCCESS)
+14566805:Fri Feb 23 12:28:42 2024:update:173.39.55.59@pts/7:admin:configure terminal ; radius-server host 138.20.52.202 key 0 ******** pac acct-port 870 timeout 48 retransmit 2 (SUCCESS)
+14566842:Fri Feb 23 12:28:46 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 126.147.189.170 key 0 ******** auth-port 869 (FAILURE)
+14566922:Fri Feb 23 12:28:56 2024:update:173.39.55.59@pts/7:admin:configure terminal ; no radius-server host 21.76.35.204 key 0 ******** auth-port 278 authentication accounting timeout 30 (FAILURE)
+bgl-ads-2670:54>
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments (Created 12/01/2023 01:30:00 Added 12/01/2023 01:30:00 by greddyda)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+when acct-port and auth-port is set with value 0, DME consistency is seen as DME DB will have 0 as non-default value.
+
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+When acct-port and auth-port is set to 0, print the non-default value. Also fix the GET_REQ and GET_REQ in radius_new_server_config() to not return default auth-port 1812 and acct-port 1813 when the value saved in PSS and dns cache is 0.
+
+3. Platform and Applicable releases PI fix: 
+(a) Is the fix taken care of for TOR platforms? Yes, PI. PI fixes are not dependent on the platform type
+(b) Is the fix taken care of for EOR platforms? Yes, PI. PI fixes are not dependent on the platform type
+(c) Is the fix taken care of for HAL platforms  Yes, PI. PI fixes are not dependent on platform type
+(d) Is the fix taken care of for non-HAL platforms?  Yes, PI. PI fixes are not dependent on platform type
+(e) Is the fix taken care of for both 32bit and 64bit images?  Yes, PI. Both 32 bit and 64 bit architectures will have same BI code and will work for 32 and 64 bit.
+(f) Releases - Specify what other releases are impacted and whether this needs to be backported to previous long-lived releases? No - 
+(g) Platform / ASIC families - All - N9k and N3k platforms.
+
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+yes, check the unit-test logs. Attached all the required UT logs. Show consistency-checker dme running-config enhanced can be used to check if backend and DME are in sync or not.
+
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+Configure acct-port and auth-port with 0 and check "show consistency-checker dme running-config enhanced" command for any inconsistencies.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: ULS-sanity (Created 11/30/2023 22:08:35 Added 11/30/2023 22:08:35 by greddyda)---
+From: greddyda@cisco.com <greddyda@cisco.com> 
+Sent: Friday, December 1, 2023 10:40 AM
+To: Govardhana Reddy Dasari -X (greddyda - HCL TECHNOLOGIES LIMITED at Cisco) <greddyda@cisco.com>
+Subject: "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity09
+Testbed  name       : n9kv09-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/greddyda/624462/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases   : 28
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/greddyda/624462
+Report file         : /auto/nxos-sanity/logs/greddyda/624462/uls-n9kv09.report
+logfile             : /auto/nxos-sanity/logs/greddyda/624462/uls-n9kv09.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time     : 2023_12_01_03_24_12
+Test End time       : 2023_12_01_05_10_10
+Test Duration       : 1:45:57.200942
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '624462', '-cdet', 'CSCwi08391', '-build', '/ws/greddyda-sjc/Images/nxos64-cs.10.4.2.IOD9.0.86.F.bin', '-testsuite', '/auto/nxos-sanity/logs/greddyda/624462/eor_n9kv_uls.yml', '-testbed', 'n9kv09-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'greddyda', '-logfile', '/auto/nxos-sanity/logs/greddyda/624462/uls-n9kv09.log', '-reportfile', '/auto/nxos-sanity/logs/greddyda/624462/uls-n9kv09.report', '-jobid', 'EOR_N9KV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:EOR_N9KV Passed:28/28  Failed:0/28  Aborted:0/28  Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:34   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:22   
+testStaticRoute                                                           pass      0:00:33   
+testLacpShutNoshut                                                        pass      0:04:42   
+testToggleSwitchport                                                      pass      0:01:51   
+testL2BridgingAccess                                                      pass      0:01:34   
+testHierarchicalRouting                                                   pass      0:04:32   
+testIpv6Interface                                                         pass      0:00:56   
+testOspfv3                                                                pass      0:03:50   
+testBgpv4                                                                 pass      0:03:47   
+testBgpv6                                                                 pass      0:03:23   
+testEigrpv4                                                               pass      0:02:33   
+testRip                                                                   pass      0:01:50   
+testCdp                                                                   pass      0:01:18   
+testLLDP                                                                  pass      0:00:49   
+testSvi                                                                   pass      0:03:35   
+testSviVrf                                                                pass      0:03:30   
+testVrfRouteLeak                                                          pass      0:04:29   
+testL2SanityMacLearning                                                   pass      0:05:55   
+testL2SanityUnconfig                                                      pass      0:00:30   
+testSpanningTreeAccess                                                    pass      0:02:16   
+testSpanningTreeTrunk                                                     pass      0:02:03   
+testL3DhcpRelayv4                                                         pass      0:03:32   
+testL3DhcpRelayv6                                                         pass      0:02:39   
+testCopyRunnStart                                                         pass      0:09:20   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:03
+---End of Note Titled: ULS-sanity---
+
+
+---Start of Note Titled: Unit-test-CR (Created 11/30/2023 18:34:55 Added 11/30/2023 18:34:55 by greddyda)---
+switch# sh run radius
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Nov 30 15:20:36 2023
+!Time: Thu Nov 30 15:25:27 2023
+
+version 10.4(3) Bios:version 05.47 
+
+switch# 
+switch# show version internal build-identifier 
+nxos image file: bootflash:///radius-acct-port-cr-fix3.bin :  S0
+switch# 
+switch# show file bootflash:radius-cr-acct-auth-port.cfg | grep radius-server
+radius-server host 1.1.1.1 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 0 authentication accounting
+radius-server host 1.1.1.3 key 0 Cisc0123
+radius-server host 1.1.1.4 key 7 Cisc0123 acct-port 0 accounting
+radius-server host 1.1.1.5
+radius-server host 1.1.1.6 key Cisc0123 auth-port 0
+radius-server host 1.1.1.7 key Cisc0123 auth-port 33 acct-port 34
+radius-server host 1.1.1.8 key 7 Cisc0123 auth-port 1812 acct-port 1813
+switch# terminal width 511
+switch# configure replace bootflash:radius-cr-acct-auth-port.cfg verbose 
+
+Version match between user file and running configuration.
+Pre-check for User config PASSED
+ADVISORY: Config Replace operation started...
+Modifying running configuration from another VSH terminal in parallel
+is not recommended, as this may lead to Config Replace failure.
+
+Collecting Running-Config
+Generating Rollback patch for switch profile
+Rollback Patch is Empty
+Collecting Running-Config
+Generating Rollback Patch
+Executing Rollback Patch 
+During CR operation,will retain L3 configuration
+when vrf member change on interface
+========================================================
+
+`config t `
+
+`radius-server host 1.1.1.7 key 7 "Fewh0123" auth-port 33 acct-port 34 authentication accounting`
+
+`radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 0 authentication accounting`
+
+`radius-server host 1.1.1.1 key 7 "Fewh0123" authentication accounting`
+
+`radius-server host 1.1.1.5 authentication accounting`
+warning: no key is configured for the host
+
+`radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 0 authentication accounting`
+
+`radius-server host 1.1.1.8 key 7 "Cisc0123" authentication accounting`
+
+`radius-server host 1.1.1.3 key 7 "Fewh0123" authentication accounting`
+
+`radius-server host 1.1.1.4 key 7 "Cisc0123" acct-port 0 accounting`
+
+`exit`
+========================================================
+Generating Running-config for verification
+Generating Rollback Patch
+
+Configure replace completed successfully. Please run 'show config-replace log exec' to see if there is any configuration that requires reload to take effect.
+
+switch# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Nov 30 15:28:36 2023
+!Time: Thu Nov 30 15:29:06 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server host 1.1.1.7 key 7 "Fewh0123" auth-port 33 acct-port 34 authentication accounting 
+radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.1 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.5 authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.8 key 7 "Cisc0123" authentication accounting 
+radius-server host 1.1.1.3 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.4 key 7 "Cisc0123" acct-port 0 accounting 
+
+
+switch# 
+switch# show file bootflash:radius-cr-acct-auth-port.cfg | grep radius-server
+radius-server host 1.1.1.1 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.3 key 0 Cisc0123
+radius-server host 1.1.1.4 key 7 Cisc0123 acct-port 0 accounting
+radius-server host 1.1.1.5
+radius-server host 1.1.1.6 key Cisc0123 auth-port 0
+radius-server host 1.1.1.7 key Cisc0123 auth-port 33 acct-port 34
+radius-server host 1.1.1.8 key 7 Cisc0123 auth-port 1812 acct-port 1813
+switch# 
+switch# 
+switch# 
+switch# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  ###############              [ 55%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: PASSED
+switch# 
+switch# 
+switch#
+---End of Note Titled: Unit-test-CR---
+
+
+---Start of Note Titled:  Unit-test (Created 11/30/2023 18:34:00 Modified 11/30/2023 20:39:50 by greddyda)---
+switch# show version internal build-identifier 
+nxos image file: bootflash:///radius-acct-port-cr-fix3.bin :  S0
+switch# 
+switch# 
+switch# 
+switch# show run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Thu Nov 30 16:54:07 2023
+!Time: Fri Dec  1 02:20:57 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server host 1.1.1.7 key 7 "Fewh0123" auth-port 33 acct-port 34 authentication accounting 
+radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.1 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.5 authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.8 key 7 "Cisc0123" authentication accounting 
+radius-server host 1.1.1.3 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.4 key 7 "Cisc0123" acct-port 0 accounting 
+aaa group server radius rad1 
+
+
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# no radius-server host 1.1.1.1
+switch(config)# no radius-server host 1.1.1.2
+switch(config)# no radius-server host 1.1.1.3
+switch(config)# no radius-server host 1.1.1.4
+switch(config)# no radius-server host 1.1.1.5
+switch(config)# no radius-server host 1.1.1.6
+switch(config)# no radius-server host 1.1.1.7
+switch(config)# no radius-server host 1.1.1.8
+switch(config)# no aaa group server radius rad1
+switch(config)# 
+switch(config)# 
+switch(config)# sh runr adi
+                      ^
+% Invalid command at '^' marker.
+switch(config)# sh runr adi
+                      ^
+% Invalid command at '^' marker.
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Dec  1 02:21:24 2023
+!Time: Fri Dec  1 02:21:46 2023
+
+version 10.4(3) Bios:version 05.47 
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# radius-server host 1.1.1.1 
+warning: no key is configured for the host
+switch(config)# radius-server host 1.1.1.2 key Cisc0123
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Dec  1 02:22:09 2023
+!Time: Fri Dec  1 02:22:21 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server host 1.1.1.1 authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" authentication accounting 
+
+
+switch(config)# radius-server host 1.1.1.3 key 7 Cisc0123
+switch(config)# 
+switch(config)# 
+switch(config)# radius-server host 1.1.1.4 key Cisc0123 auth-port 1812
+switch(config)# 
+switch(config)# radius-server host 1.1.1.5 key Cisc0123 auth-port 0
+switch(config)# radius-server host 1.1.1.6 Cisc0123 auth-port 33 
+                                           ^
+% Invalid command at '^' marker.
+switch(config)# radius-server host 1.1.1.6 key Cisc0123 auth-port 33 authentication 
+switch(config)# 
+switch(config)# radius-server host 1.1.1.7 key 7 Cisc0123 auth-port 0 authentication
+switch(config)# 
+switch(config)# 
+switch(config)# sh run radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Dec  1 02:24:09 2023
+!Time: Fri Dec  1 02:24:12 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server host 1.1.1.1 authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.3 key 7 "Cisc0123" authentication accounting 
+radius-server host 1.1.1.4 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.5 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 33 authentication 
+radius-server host 1.1.1.7 key 7 "Cisc0123" auth-port 0 authentication 
+
+
+switch(config)# 
+switch(config)# radius-server 1.1.1.8 key 7 Cisc0123 acct-port 1813
+                  ^
+% Invalid command at '^' marker.
+switch(config)# radius-server host 1.1.1.8 key 7 Cisc0123 acct-port 1813
+switch(config)# radius-server host 1.1.1.9 key Cisc0123 acct-port 0 accounting
+switch(config)# 
+switch(config)# radius-server host 1.1.1.10 key 7 Cisc0123 acct-port 33 accounting 
+switch(config)# 
+switch(config)# radius-server host 1.1.1.11 key Cisc0123 auth-port 0 acct-port 0
+switch(config)# radius-server host 1.1.1.12 key Cisc0123 auth-port 1812 acct-port 1813
+switch(config)# 
+switch(config)# radius-server host 1.1.1.13 key Cisc0123 auth-port 86 acct-port 96
+switch(config)# 
+switch(config)# sh run radius
+
+!Command: show running-config radius
+!Running configuration last done at: Fri Dec  1 02:26:50 2023
+!Time: Fri Dec  1 02:26:54 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server host 1.1.1.1 authentication accounting 
+radius-server host 1.1.1.2 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.3 key 7 "Cisc0123" authentication accounting 
+radius-server host 1.1.1.4 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.5 key 7 "Fewh0123" auth-port 0 authentication accounting 
+radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 33 authentication 
+radius-server host 1.1.1.7 key 7 "Cisc0123" auth-port 0 authentication 
+radius-server host 1.1.1.8 key 7 "Cisc0123" authentication accounting 
+radius-server host 1.1.1.9 key 7 "Fewh0123" acct-port 0 accounting 
+radius-server host 1.1.1.10 key 7 "Cisc0123" acct-port 33 accounting 
+radius-server host 1.1.1.11 key 7 "Fewh0123" auth-port 0 acct-port 0 authentication accounting 
+radius-server host 1.1.1.12 key 7 "Fewh0123" authentication accounting 
+radius-server host 1.1.1.13 key 7 "Fewh0123" auth-port 86 acct-port 96 authentication accounting 
+
+
+switch(config)# 
+switch(config)# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  ################             [ 57%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: PASSED
+switch(config)# 
+switch(config)#
+switch(config)# sh run radius all
+
+!Command: show running-config radius all
+!Running configuration last done at: Fri Dec  1 04:09:53 2023
+!Time: Fri Dec  1 04:38:29 2023
+
+version 10.4(3) Bios:version 05.47 
+radius-server test username test password 7 wawy idle-time 0 
+radius-server timeout 5
+radius-server retransmit 1
+radius-server deadtime 0
+no radius-server secure
+radius-server host 1.1.1.1 auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.1 tls idle-timeout 600 
+radius-server host 1.1.1.1 dtls idle-timeout 600 
+radius-server host 1.1.1.2 key 7 "Fewh0123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.2 tls idle-timeout 600 
+radius-server host 1.1.1.2 dtls idle-timeout 600 
+radius-server host 1.1.1.3 key 7 "Cisc0123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.3 tls idle-timeout 600 
+radius-server host 1.1.1.3 dtls idle-timeout 600 
+radius-server host 1.1.1.4 key 7 "Fewh0123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.4 tls idle-timeout 600 
+radius-server host 1.1.1.4 dtls idle-timeout 600 
+radius-server host 1.1.1.5 key 7 "Fewh0123" auth-port 0 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.5 tls idle-timeout 600 
+radius-server host 1.1.1.5 dtls idle-timeout 600 
+radius-server host 1.1.1.6 key 7 "Fewh0123" auth-port 33 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.6 tls idle-timeout 600 
+radius-server host 1.1.1.6 dtls idle-timeout 600 
+radius-server host 1.1.1.7 key 7 "Cisc0123" auth-port 0 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.7 tls idle-timeout 600 
+radius-server host 1.1.1.7 dtls idle-timeout 600 
+radius-server host 1.1.1.8 key 7 "Cisc0123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.8 tls idle-timeout 600 
+radius-server host 1.1.1.8 dtls idle-timeout 600 
+radius-server host 1.1.1.9 key 7 "Fewh0123" auth-port 1812 acct-port 0 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.9 tls idle-timeout 600 
+radius-server host 1.1.1.9 dtls idle-timeout 600 
+radius-server host 1.1.1.10 key 7 "Cisc0123" auth-port 1812 acct-port 33 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.10 tls idle-timeout 600 
+radius-server host 1.1.1.10 dtls idle-timeout 600 
+radius-server host 1.1.1.11 key 7 "Fewh0123" auth-port 0 acct-port 0 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.11 tls idle-timeout 600 
+radius-server host 1.1.1.11 dtls idle-timeout 600 
+radius-server host 1.1.1.12 key 7 "Fewh0123" auth-port 1812 acct-port 1813 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.12 tls idle-timeout 600 
+radius-server host 1.1.1.12 dtls idle-timeout 600 
+radius-server host 1.1.1.13 key 7 "Fewh0123" auth-port 86 acct-port 96 authentication accounting timeout 5 retransmit 1 
+radius-server host 1.1.1.13 tls idle-timeout 600 
+radius-server host 1.1.1.13 dtls idle-timeout 600 
+radius-server host 1.1.1.1 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.2 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.3 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.4 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.5 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.6 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.7 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.8 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.9 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.10 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.11 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.12 test username test password 7 wawy idle-time 0 
+radius-server host 1.1.1.13 test username test password 7 wawy idle-time 0 
+aaa group server radius radius 
+    server 1.1.1.1 
+    server 1.1.1.2 
+    server 1.1.1.3 
+    server 1.1.1.4 
+    server 1.1.1.5 
+    server 1.1.1.6 
+    server 1.1.1.7 
+    server 1.1.1.8 
+    server 1.1.1.9 
+    server 1.1.1.10 
+    server 1.1.1.11 
+    server 1.1.1.12 
+    server 1.1.1.13 
+    deadtime 0
+    use-vrf default
+    no source-interface
+aaa group server radius rad1 
+    deadtime 0
+    use-vrf default
+    no source-interface
+aaa group server radius rad2 
+    deadtime 0
+    use-vrf default
+    no source-interface
+
+no ip radius source-interface
+
+
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: A-comments.p2 (Created 11/27/2023 04:32:00 Added 11/27/2023 04:32:00 by rnachimu)---
+moving to A state as the steps are identified.
+---End of Note Titled: A-comments.p2---
+
+
+---Start of Note Titled:  Scrubnote (Created 11/21/2023 03:08:03 Modified 11/27/2023 22:37:04 by cms)---
+{231128 anikunna S B} Fix ready. In UT.
+{231124 anikunna S B} Issue not observed locally.
+{231121 anikunna S B} Waiting for more information from submitter
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: I-comments (Created 11/21/2023 00:13:15 Added 11/21/2023 00:13:15 by greddyda)---
+Please provide repro steps on how we came to the state of inconsistency between DME DB and PSS.
+it would help us in debugging this issue further.
+---End of Note Titled: I-comments---
+
+
+---Start of Note Titled: A-comments (Created 11/20/2023 01:42:32 Added 11/20/2023 01:42:32 by anikunna)---
+Pls plan to address
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: Release-note (Created 11/03/2023 15:07:29 Added 11/03/2023 15:07:29 by divvenka)---
+$$IGNORE
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled:  Debug-output.p2 (Created 11/03/2023 08:46:40 Modified 11/03/2023 09:35:03 by rnachimu)---
+-rw-r--r--. 1 rnachimu eng    52038 Nov  3 20:40 172.25.2.158-random-log59-int_nve1
+-rw-r--r--. 1 rnachimu eng   730703 Nov  3 20:40 172.25.2.158-random-log99-
+-rw-r--r--. 1 rnachimu eng   747749 Nov  3 20:41 172.25.2.158-random-log57-router_bgp_100
+-rw-r--r--. 1 rnachimu eng  1162972 Nov  3 20:41 ste-time.log5
+bgl-ads-2670:262>pwd
+/ws/rnachimu-bgl/random_cli_test/dir10
+
+
+tech support:
+==========
+
+-rw-r--r--.  1 rnachimu eng     250861 Nov  3 21:47 show_tech_radius_Nov_3
+-rw-r--r--.  1 rnachimu eng   64821382 Nov  3 22:03 show_tech_dme_Nov_3
+-rw-r--r--.  1 rnachimu eng     928570 Nov  3 22:04 show_tech_dme_cc_Nov_3
+bgl-ads-2670:270> pwd
+/ws/rnachimu-bgl
+bgl-ads-2670:271>
+---End of Note Titled: Debug-output.p2---
+
+
+---Start of Note Titled: Debug-output (Created 11/03/2023 08:37:12 Added 11/03/2023 08:37:12 by rnachimu)---
+nxpi2-bl21# 
+nxpi2-bl21# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  ####################         [ 74%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+sys/sysmgr/config/systemcore
+sys/pltfm/pclb
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+sys/userext/radiusext/radiusprovider-[137.119.111.56] acctPort             1813                 0                   
+radius-server host 137.119.111.56 key 7 "uwrigm-xlussw" auth-port 350 authentication accounting
+
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: FAILED
+nxpi2-bl21# show run | inc platform
+nxpi2-bl21# show run | sec radius
+radius-server key 7 "uwrigm-xlussw"
+radius-server host 66.52.236.84 key 7 "uwrigm-xlussw" auth-port 722 authenticati
+on accounting 
+radius-server host 1.152.115.101 key 7 "uwrigm-xlussw" auth-port 55 authenticati
+on accounting timeout 15 retransmit 2 
+radius-server host 137.119.111.56 key 7 "uwrigm-xlussw" auth-port 350 authentica
+tion accounting 
+radius-server host 150.175.251.231 key 7 "uwrigm-xlussw" auth-port 997 acct-port
+ 920 authentication accounting timeout 34 retransmit 0 
+radius-server host 52.211.27.70 key 7 "uwrigm-xlussw" auth-port 97 authenticatio
+n 
+aaa group server radius random-string 
+nxpi2-bl21# 
+nxpi2-bl21# 
+nxpi2-bl21#
+---End of Note Titled: Debug-output---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (4 of 4)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-or3f_dev                             ascii text     6120           greddyda       12/01/2023 00:14:08      
+ccwarnings-or3f_dev                               ascii text     309            baas           11/30/2023 23:33:18      
+static-analysis-or3f_dev                          ascii text     22599          baas           11/30/2023 23:32:40      
+code-review-or3f_dev                              ascii text     1528           greddyda       11/30/2023 23:08:45      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/24/2026 satdr    	Attribute               	or3f baseline-or3f random-cli	or3f baseline-or3f random-cli	Mod
+07/31/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+07/31/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+09/02/2025 cdetsbtk 	Security-screening-times	2025-08-27 00:40:05.000+0000 	2025-09-03 02:09:47.000+0000 	Mod
+09/02/2025 wmigdadi 	serviceRequests/C3/69946	                             	                             	Mod
+09/02/2025 wmigdadi 	Urgency-desc            	NA                           	CL3                          	Mod
+09/02/2025 wmigdadi 	Urgency                 	9                            	6                            	Mod
+08/26/2025 cdetsbtk 	Security-screening-times	2025-08-21 02:00:06.000+0000 	2025-08-27 00:40:05.000+0000 	Mod
+08/26/2025 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+08/20/2025 cdetsbtk 	Security-screening-times	2025-08-15 00:45:48.000+0000 	2025-08-21 02:00:06.000+0000 	Mod
+08/20/2025 wmigdadi 	Note Title              	                             	Email-in.p2                  	New
+08/19/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+08/19/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+08/14/2025 cdetsbtk 	Security-screening-times	2024-04-03 01:58:48.000+0000 	2025-08-15 00:45:48.000+0000 	Mod
+08/14/2025 wmigdadi 	Note Title              	                             	Email-in.p1                  	New
+08/13/2025 wmigdadi 	Note Title              	                             	Email-in                     	New
+08/12/2025 wmigdadi 	serviceRequests/C3/69946	                             	C3/699463563                 	New
+08/12/2025 wmigdadi 	Found                   	func-test                    	customer-use                 	Mod
+08/12/2025 wmigdadi 	Urgency                 	                             	9                            	Mod
+08/12/2025 wmigdadi 	Found-during            	Feature Test                 	Customer                     	Mod
+08/12/2025 wmigdadi 	Activity-when-found     	Feature/ Functionality Testin	Customer-Use                 	Mod
+08/12/2025 wmigdadi 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+08/12/2025 wmigdadi 	Data-classification-reas	                             	Default value of Data-classif	Mod
+08/12/2025 wmigdadi 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/12/2025 wmigdadi 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+08/12/2025 wmigdadi 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+08/12/2025 wmigdadi 	Care-Update             	                             	Y                            	Mod
+08/12/2025 wmigdadi 	IFD-CFD-Conv-date       	                             	2025-08-12 12:50:18.000+0000 	Mod
+08/12/2025 wmigdadi 	Tickets-count           	0                            	1                            	Mod
+08/12/2025 wmigdadi 	TACSR-count             	                             	1                            	Mod
+08/12/2025 wmigdadi 	Tickets-count-direct    	                             	1                            	Mod
+08/12/2025 wmigdadi 	Trouble-tickets         	                             	699463563                    	New
+08/12/2025 wmigdadi 	Trouble-tickets-direct  	                             	C3699463563                  	New
+08/12/2025 wmigdadi 	Trouble-ticket-CFD      	                             	Y                            	Mod
+08/15/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-213646       	New
+08/15/2024 cspgre   	Apply-to                	                             	UCSM-6.0.100.240076.A        	New
+04/02/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/02/2024 cdetsbtk 	Security-screening-times	2024-02-27 13:34:06.000+0000 	2024-04-03 01:58:48.000+0000 	Mod
+04/02/2024 divvenka 	Integrated-releases     	                             	10.4(3)                      	New
+04/02/2024 divvenka 	Known-fixed-releases    	                             	10.4(3)                      	New
+02/26/2024 cdetsbtk 	Security-screening-times	2023-12-01 17:30:01.000+0000 	2024-02-27 13:34:06.000+0000 	Mod
+02/26/2024 rnachimu 	Note Title              	                             	V-comments                   	New
+02/26/2024 rnachimu 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+02/26/2024 rnachimu 	Status                  	R                            	V                            	Mod
+02/26/2024 rnachimu 	Verified By Employee    	                             	rnachimu                     	Mod
+02/26/2024 rnachimu 	Verified-release        	                             	10.4(2)IMG9(0.90)            	New
+02/26/2024 rnachimu 	Verified-confidence     	                             	tested                       	Mod
+02/26/2024 rnachimu 	Verified-on             	                             	2024-02-27 05:34:06.000+0000 	Mod
+02/26/2024 rnachimu 	statusStates            	                             	[status=R, startDate=Fri Dec 	New
+02/26/2024 rnachimu 	statusStates            	[status=R, startDate=Fri Dec 	                             	Del
+02/26/2024 rnachimu 	Age-status              	28                           	116                          	Mod
+02/26/2024 rnachimu 	Mean-time-to-verified   	                             	115                          	Mod
+02/14/2024 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0)               	New
+02/14/2024 divvenka 	Integrated-releases     	                             	10.4(1)IOZ9(0.69)            	New
+02/14/2024 divvenka 	Apply-to                	                             	10.4(1)IOZ9(0.69)            	New
+02/06/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0)               	New
+02/06/2024 divvenka 	Integrated-releases     	                             	10.4(1)IUM9(0.204)           	New
+02/06/2024 divvenka 	Apply-to                	                             	10.4(1)IUM9(0.204)           	New
+12/08/2023 divvenka 	Integrated-releases     	                             	10.4(2)IMG9(0)               	New
+12/08/2023 divvenka 	Integrated-releases     	                             	10.4(2)IMG9(0.2)             	New
+12/08/2023 divvenka 	Apply-to                	                             	10.4(2)IMG9(0.2)             	New
+12/01/2023 cdetsbtk 	Security-screening-times	2023-12-01 16:14:10.000+0000 	2023-12-01 17:30:01.000+0000 	Mod
+12/01/2023 greddyda 	Note Title              	                             	R-comments                   	New
+12/01/2023 greddyda 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+12/01/2023 greddyda 	Status                  	A                            	R                            	Mod
+12/01/2023 greddyda 	Dev-escape-resolver-opin	                             	N                            	Mod
+12/01/2023 greddyda 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+12/01/2023 greddyda 	More-by                 	                             	greddyda                     	Mod
+12/01/2023 greddyda 	Opener                  	                             	greddyda                     	Mod
+12/01/2023 greddyda 	Resolver                	                             	greddyda                     	Mod
+12/01/2023 greddyda 	Breakage                	                             	No                           	Mod
+12/01/2023 greddyda 	Regression              	                             	N                            	Mod
+12/01/2023 greddyda 	By-previous-commit-value	                             	No                           	Mod
+12/01/2023 greddyda 	Bug-origin              	                             	Code / Implementation        	Mod
+12/01/2023 greddyda 	Released-code           	                             	N                            	Mod
+12/01/2023 greddyda 	Origin                  	                             	base code                    	Mod
+12/01/2023 greddyda 	Test-EDP-phase          	                             	Feature Test                 	Mod
+12/01/2023 greddyda 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+12/01/2023 greddyda 	TPS_issue               	                             	N                            	Mod
+12/01/2023 greddyda 	TPS_flag                	                             	N                            	Mod
+12/01/2023 greddyda 	Behavior-changed        	                             	N                            	Mod
+12/01/2023 greddyda 	Original-resolved-on    	                             	2023-12-01 09:30:00.000+0000 	Mod
+12/01/2023 greddyda 	Documents-changed       	                             	none                         	Mod
+12/01/2023 greddyda 	More-on                 	                             	2023-12-01 09:30:00.000+0000 	Mod
+12/01/2023 greddyda 	Opened-on               	                             	2023-12-01 09:30:00.000+0000 	Mod
+12/01/2023 greddyda 	Resolved-on             	                             	2023-12-01 09:30:00.000+0000 	Mod
+12/01/2023 greddyda 	statusStates            	                             	[status=A, startDate=Mon Nov 	New
+12/01/2023 greddyda 	statusStates            	[status=A, startDate=Mon Nov 	                             	Del
+12/01/2023 greddyda 	Age-status              	24                           	28                           	Mod
+12/01/2023 greddyda 	Mean-time-to-resolved   	                             	27                           	Mod
+12/01/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0)               	New
+12/01/2023 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0.97)            	New
+12/01/2023 divvenka 	Apply-to                	                             	10.4(2)IOD9(0.97)            	New
+12/01/2023 cdetsbtk 	Security-screening-times	2023-12-01 15:33:19.000+0000 	2023-12-01 16:14:10.000+0000 	Mod
+12/01/2023 greddyda 	File Name               	                             	Diffs-commit-or3f_dev        	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 15:32:41.000+0000 	2023-12-01 15:33:19.000+0000 	Mod
+11/30/2023 baas     	File Name               	                             	ccwarnings-or3f_dev          	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 15:08:46.000+0000 	2023-12-01 15:32:41.000+0000 	Mod
+11/30/2023 baas     	File Name               	                             	static-analysis-or3f_dev     	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 14:08:35.000+0000 	2023-12-01 15:08:46.000+0000 	Mod
+11/30/2023 greddyda 	Code-reviewer           	                             	vasagraw                     	New
+11/30/2023 greddyda 	File Name               	                             	code-review-or3f_dev         	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 12:39:51.000+0000 	2023-12-01 14:08:35.000+0000 	Mod
+11/30/2023 greddyda 	Note Title              	                             	ULS-sanity                   	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 10:34:55.000+0000 	2023-12-01 12:39:51.000+0000 	Mod
+11/30/2023 greddyda 	Note                    	Unit-test                    	Unit-test                    	Mod
+11/30/2023 cdetsbtk 	Security-screening-times	2023-12-01 10:34:00.000+0000 	2023-12-01 10:34:55.000+0000 	Mod
+11/30/2023 greddyda 	Note Title              	                             	Unit-test-CR                 	New
+11/30/2023 cdetsbtk 	Security-screening-times	2023-11-28 14:37:05.000+0000 	2023-12-01 10:34:00.000+0000 	Mod
+11/30/2023 greddyda 	Note Title              	                             	Unit-test                    	New
+11/27/2023 cdetsbtk 	Security-screening-times	2023-11-27 20:32:00.000+0000 	2023-11-28 14:37:05.000+0000 	Mod
+11/27/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/27/2023 cms      	Est-fix-date            	                             	2023-11-30 08:00:00.000+0000 	Mod
+11/27/2023 cdetsbtk 	Security-screening-times	2023-11-24 13:15:19.000+0000 	2023-11-27 20:32:00.000+0000 	Mod
+11/27/2023 rnachimu 	Note Title              	                             	A-comments.p2                	New
+11/27/2023 rnachimu 	Status-desc             	I-Info_req                   	A-Assigned                   	Mod
+11/27/2023 rnachimu 	Status                  	I                            	A                            	Mod
+11/27/2023 rnachimu 	Info-awaiting           	rnachimu                     	                             	Mod
+11/27/2023 rnachimu 	Assigner                	anikunna                     	rnachimu                     	Mod
+11/27/2023 rnachimu 	Assigned Date           	2023-11-20 09:42:32.000+0000 	2023-11-27 12:32:00.000+0000 	Mod
+11/27/2023 rnachimu 	Info-req-on             	2023-11-21 08:13:15.000+0000 	                             	Mod
+11/27/2023 rnachimu 	statusStates            	                             	[status=I, startDate=Tue Nov 	New
+11/27/2023 rnachimu 	statusStates            	[status=I, startDate=Tue Nov 	                             	Del
+11/27/2023 rnachimu 	Age-status              	18                           	24                           	Mod
+11/27/2023 rnachimu 	Mean-time-to-assigned   	16                           	23                           	Mod
+11/23/2023 cdetsbtk 	Security-screening-times	2023-11-21 19:08:03.000+0000 	2023-11-24 13:15:19.000+0000 	Mod
+11/23/2023 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+11/21/2023 cdetsbtk 	Security-screening-times	2023-11-21 16:13:15.000+0000 	2023-11-21 19:08:03.000+0000 	Mod
+11/21/2023 cms      	Note Title              	                             	Scrubnote                    	New
+11/21/2023 cdetsbtk 	Security-screening-times	2023-11-20 17:42:33.000+0000 	2023-11-21 16:13:15.000+0000 	Mod
+11/21/2023 greddyda 	Note Title              	                             	I-comments                   	New
+11/21/2023 greddyda 	Status-desc             	A-Assigned                   	I-Info_req                   	Mod
+11/21/2023 greddyda 	Status                  	A                            	I                            	Mod
+11/21/2023 greddyda 	Info-awaiting           	                             	rnachimu                     	Mod
+11/21/2023 greddyda 	I-reason                	                             	Need info from Submitter     	Mod
+11/21/2023 greddyda 	Info-req-on             	                             	2023-11-21 08:13:15.000+0000 	Mod
+11/21/2023 greddyda 	statusStates            	                             	[status=A, startDate=Mon Nov 	New
+11/21/2023 greddyda 	statusStates            	[status=A, startDate=Mon Nov 	                             	Del
+11/21/2023 greddyda 	Age-status              	17                           	18                           	Mod
+11/20/2023 cdetsbtk 	Security-screening-times	2023-11-07 00:57:31.000+0000 	2023-11-20 17:42:33.000+0000 	Mod
+11/20/2023 anikunna 	Note Title              	                             	A-comments                   	New
+11/20/2023 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+11/20/2023 anikunna 	Status                  	N                            	A                            	Mod
+11/20/2023 anikunna 	Engineer                	                             	greddyda                     	Mod
+11/20/2023 anikunna 	Assigner                	                             	anikunna                     	Mod
+11/20/2023 anikunna 	Assigned Date           	                             	2023-11-20 09:42:32.000+0000 	Mod
+11/20/2023 anikunna 	statusStates            	                             	[status=N, startDate=Fri Nov 	New
+11/20/2023 anikunna 	statusStates            	[status=N, startDate=Fri Nov 	                             	Del
+11/20/2023 anikunna 	Age-status              	0                            	17                           	Mod
+11/20/2023 anikunna 	Mean-time-to-assigned   	                             	16                           	Mod
+11/06/2023 cdetsbtk 	Security-screening-times	2023-11-04 05:07:31.000+0000 	2023-11-07 00:57:31.000+0000 	Mod
+11/06/2023 rnachimu 	Headline                	DME CC failure seen with     	DME CC failure seen with radi	Mod
+11/03/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+11/03/2023 cdetsbtk 	Security-screening-times	2023-11-03 23:35:03.000+0000 	2023-11-04 05:07:31.000+0000 	Mod
+11/03/2023 divvenka 	Note Title              	                             	Release-note                 	New
+11/03/2023 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+11/03/2023 cdetsbtk 	Security-screening-times	2023-11-03 22:46:40.000+0000 	2023-11-03 23:35:03.000+0000 	Mod
+11/03/2023 rnachimu 	Note                    	Debug-output.p2              	Debug-output.p2              	Mod
+11/03/2023 cdetsbtk 	Security-screening-times	2023-11-03 22:37:13.000+0000 	2023-11-03 22:46:40.000+0000 	Mod
+11/03/2023 rnachimu 	Note Title              	                             	Debug-output.p2              	New
+11/03/2023 cdetsbtk 	Security-screening-times	2023-11-03 22:36:42.000+0000 	2023-11-03 22:37:13.000+0000 	Mod
+11/03/2023 rnachimu 	Note Title              	                             	Debug-output                 	New
+11/03/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+11/03/2023 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+11/03/2023 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+11/03/2023 cdetsbtk 	Security-screening-times	                             	2023-11-03 22:36:42.000+0000 	Mod
+11/03/2023 rnachimu 	Headline                	                             	DME CC failure seen with     	Mod
+11/03/2023 rnachimu 	Summary                 	                             	During execution of random_cl	Mod
+11/03/2023 rnachimu 	Project                 	                             	CSC.datacenter               	Mod
+11/03/2023 rnachimu 	Product                 	                             	n9k-standalone-sw            	Mod
+11/03/2023 rnachimu 	Component               	                             	radius                       	Mod
+11/03/2023 rnachimu 	Status-desc             	                             	N-New                        	Mod
+11/03/2023 rnachimu 	Status                  	                             	N                            	Mod
+11/03/2023 rnachimu 	Found                   	                             	func-test                    	Mod
+11/03/2023 rnachimu 	Hardening               	                             	N                            	Mod
+11/03/2023 rnachimu 	Product-owner           	                             	gsheehan                     	Mod
+11/03/2023 rnachimu 	Original-found          	                             	func-test                    	Mod
+11/03/2023 rnachimu 	Hardware                	                             	Nexus 9000                   	Mod
+11/03/2023 rnachimu 	Feature                 	                             	fix                          	Mod
+11/03/2023 rnachimu 	Attribute               	                             	or3f baseline-or3f random-cli	Mod
+11/03/2023 rnachimu 	Urgency-desc            	                             	NA                           	Mod
+11/03/2023 rnachimu 	Severity-desc           	                             	moderate                     	Mod
+11/03/2023 rnachimu 	Severity                	                             	3                            	Mod
+11/03/2023 rnachimu 	DE Priority Desc        	                             	medium                       	Mod
+11/03/2023 rnachimu 	DE-priority             	                             	3                            	Mod
+11/03/2023 rnachimu 	Impact                  	                             	Ease-of-Configuring,Reliabili	New
+11/03/2023 rnachimu 	Submitter               	                             	rnachimu                     	Mod
+11/03/2023 rnachimu 	Submitter-manager       	                             	spentala                     	Mod
+11/03/2023 rnachimu 	DE-manager              	                             	anikunna                     	Mod
+11/03/2023 rnachimu 	DTPT-manager            	                             	mukamath                     	Mod
+11/03/2023 rnachimu 	Version                 	                             	10.4(2)IOD9(0.51)            	New
+11/03/2023 rnachimu 	Original-version        	                             	10.4(2)IOD9(0.51)            	Mod
+11/03/2023 rnachimu 	Found-during            	                             	Feature Test                 	Mod
+11/03/2023 rnachimu 	Activity-when-found     	                             	Feature/ Functionality Testin	Mod
+11/03/2023 rnachimu 	Test-escape             	                             	N                            	Mod
+11/03/2023 rnachimu 	PSIRT                   	                             	N                            	Mod
+11/03/2023 rnachimu 	Data-classification     	                             	Cisco Confidential           	Mod
+11/03/2023 rnachimu 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+11/03/2023 rnachimu 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+11/03/2023 rnachimu 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+11/03/2023 rnachimu 	Software-type-ids       	                             	282253564,286280105,286321149	New
+11/03/2023 rnachimu 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+11/03/2023 rnachimu 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+11/03/2023 rnachimu 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+11/03/2023 rnachimu 	MDF-edited              	                             	N                            	Mod
+11/03/2023 rnachimu 	Attribute2              	                             	n/a                          	Mod
+11/03/2023 rnachimu 	Doc-manager             	                             	anikunna                     	Mod
+11/03/2023 rnachimu 	Document                	                             	nexus                        	Mod
+11/03/2023 rnachimu 	Documentation-resolution	                             	Undefined                    	Mod
+11/03/2023 rnachimu 	Original-activity-when-f	                             	Feature/ Functionality Testin	Mod
+11/03/2023 rnachimu 	Original-found-during   	                             	Feature Test                 	Mod
+11/03/2023 rnachimu 	Submitter-org-bug       	                             	DSE NS NEXT PI Common Multi-O	Mod
+11/03/2023 rnachimu 	Component-scenarios     	                             	N                            	Mod
+11/03/2023 rnachimu 	Submitted-on            	                             	2023-11-03 15:36:41.308+0000 	Mod
+11/03/2023 rnachimu 	New-on                  	                             	2023-11-03 15:36:41.308+0000 	Mod
+11/03/2023 rnachimu 	statusStates            	                             	[status=S, startDate=Fri Nov 	New
+11/03/2023 rnachimu 	Transition-day          	0                            	2460252                      	Mod
+11/03/2023 rnachimu 	Release-note-status     	                             	none                         	Mod
+11/03/2023 rnachimu 	Reported By             	                             	rnachimu                     	Mod
+11/03/2023 rnachimu 	Tickets-count           	                             	0                            	Mod
+11/03/2023 rnachimu 	Class                   	                             	CSC.datacenter               	Mod
+11/03/2023 rnachimu 	Reti-bug                	                             	Y                            	Mod
+11/03/2023 rnachimu 	Defect Created          	                             	                             	New

@@ -1,0 +1,842 @@
+*******************************************************************************
+
+Bug ID   : CSCwd79584         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 6 (enhancement)
+Headline : Enhancement to include last date and time masterkey update
+PrimaryPV : 
+Version :9.3(10) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: hherazon           Submitted: 12/05/2022 16:08:08     Last Updtd : 05/08/2025 03:09:12  
+RNE-Type: $$IGNORE            New-on : 12/05/2022 16:08:08      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:reesquiv                                            
+Known-affected-releases:9.3(10) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 11/26/2024 21:40:44                             
+Multi-commit-flag:                                                    
+Mean-time-to-assigned: 699                                            
+Mean-time-to-resolved: 722                                            
+Mean-time-to-verified: 790    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape:                                                          
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 12/06/2022 12:07:19            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:not-a-bug 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : pradepan           Priority : medium        Assigned: 11/03/2024 21:05:17 
+Code-reviewer: nih            
+Opened-on: 11/26/2024 21:40:44Opener: pradepan              
+Engineer : pradepan           DE-manager  : anikunna        Est Time/Attribute : ed_ic_dc_rs NXOS1-2258                 
+Est. completion date:                      
+Script-version:                         
+
+More-by : pradepan            More-on: 11/26/2024 21:40:44  
+
+Documents Changed: none       Resolved: 11/26/2024 21:40:44 Resolver: pradepan       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: pradepan            Verified Confidence: tested                       
+Verified Date: 02/03/2025 03:15:55      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-SRCSVC-CSE-US
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     
+Failure-type :                   
+By-previous-commit-value :       
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  
+Test-EDP-activity :               
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              694615256
+Trouble-tickets-direct :C3694615256 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$IGNORE flag is in the RNE
+Security-screening-timestamp :                 05/08/2025 10:09:11
+Document :    nexus
+
+Summary:
+Currently there is no show command to show when the last date or time masterkey was updated.
+
+In addition customer wants to have these outputs also shown as show command:
+
+ Show master key hash, or portion of it
+ What hash/protection is applied 
+ key length
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         694615256       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-289320                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (7 of 7 ) ***********************
+
+---Start of Note Titled: V-comments (Created 02/03/2025 03:15:56 Added 02/03/2025 03:15:56 by pradepan)---
+1. S/W Version : 10.5(2)IMG9(0.128)
+2. Platform : N9k
+3. Automation Suite: Manually tested
+4. Steps to reproduce and Verify: This is an enhancement DDTS in order to add a new CLI to get attributes about Tyep6-master-key, configured by admin-user. This will allow users to get good insight about current status of type6-master-key which is crucial in many apps which use smartcard-provided type6 services.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 12/05/2024 14:06:13 Added 12/05/2024 14:06:13 by seshea)---
+--- Update 2024-12-05 22:06:12.298976 seshea (via 698353861)
+Unsuitable - CDETS Content
+This is a pure enhancement bug. Unable to digitize:
+
+2.  Proposed Fix and testing consideration:
+>>>> Show CLI support has been added as per the requirement.
+
+
+3. Platform and Applicable releases: 
+>>>> 
+(a) Is the fix taken care of for TOR platforms? Yes
+(b) Is the fix taken care of for EOR platforms? Yes  
+(c) Is the fix taken care of for HAL platforms? Yes 
+(d) Is the fix taken care of for non-HAL platforms? Yes 
+(e) Is the fix taken care of for both 32bit and 64bit images? Yes
+(f) Releases - Specify what other releases are impacted and whether this needs to be backported to previous long-lived releases?
+Committed in PR3F_DEV.
+(g) Platform / ASIC families - Specify the platform/ASIC families where this problem is applicable. N9k/PR3F.
+
+
+4. Digitization?: Yes.
+>>>> 
+switch(config)# key config-key ascii 
+Current Master Key: 
+New Master Key: 
+Retype Master Key: 
+switch(config)# 
+switch(config)# show encryption mkey info all
+Master-Key : 1                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Startup (Inactive)  
+    Key-Hash(first 16 chars)    :       SHA512: bcnGZWyExi8DvJPd      
+    Proction-Type               :       Software            
+    Length                      :       20                  
+    Last updated                :       2024-11-25 17:57:47  UTC      
+-------------------------------- --------------------------------------------------
+
+Master-Key : 2                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Running (Active)    
+    Key-Hash(first 16 chars)    :       SHA512: GXP1eaji1CmVOmyn      
+    Proction-Type               :       Software            
+    Length                      :       23                  
+    Last updated                :       2024-11-25 17:59:01  UTC      
+-------------------------------- --------------------------------------------------
+
+switch(config)# 
+
+
+5. Debuggability:
+>>>> 
+switch(config)# show encryption service status 
+Encryption service disabled
+Master Encryption Key configured
+Type-6 encryption is  not being used
+switch(config)# 
+switch(config)# show encryption mkey info all
+Master-Key : 1                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Running & Startup (Active)  
+    Key-Hash(first 16 chars)    :       SHA512: bcnGZWyExi8DvJPd      
+    Proction-Type               :       Software            
+    Length                      :       20                  
+    Last updated                :       2024-11-25 17:57:47  UTC      
+-------------------------------- --------------------------------------------------
+
+switch(config)#
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: R-comments (Created 11/26/2024 21:40:44 Added 11/26/2024 21:40:44 by pradepan)---
+1. RCA: Root cause of the problem.
+>>>> There was a requirement to add a SHOW-cli to print various information about type6-masterkey. This fix handles that.
+
+
+2.  Proposed Fix and testing consideration:
+>>>> Show CLI support has been added as per the requirement.
+
+
+3. Platform and Applicable releases: 
+>>>> 
+(a) Is the fix taken care of for TOR platforms? Yes
+(b) Is the fix taken care of for EOR platforms? Yes  
+(c) Is the fix taken care of for HAL platforms? Yes 
+(d) Is the fix taken care of for non-HAL platforms? Yes 
+(e) Is the fix taken care of for both 32bit and 64bit images? Yes
+(f) Releases - Specify what other releases are impacted and whether this needs to be backported to previous long-lived releases?
+Committed in PR3F_DEV.
+(g) Platform / ASIC families - Specify the platform/ASIC families where this problem is applicable. N9k/PR3F.
+
+
+4. Digitization?: Yes.
+>>>> 
+switch(config)# key config-key ascii 
+Current Master Key: 
+New Master Key: 
+Retype Master Key: 
+switch(config)# 
+switch(config)# show encryption mkey info all
+Master-Key : 1                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Startup (Inactive)  
+    Key-Hash(first 16 chars)    :       SHA512: bcnGZWyExi8DvJPd      
+    Proction-Type               :       Software            
+    Length                      :       20                  
+    Last updated                :       2024-11-25 17:57:47  UTC      
+-------------------------------- --------------------------------------------------
+
+Master-Key : 2                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Running (Active)    
+    Key-Hash(first 16 chars)    :       SHA512: GXP1eaji1CmVOmyn      
+    Proction-Type               :       Software            
+    Length                      :       23                  
+    Last updated                :       2024-11-25 17:59:01  UTC      
+-------------------------------- --------------------------------------------------
+
+switch(config)# 
+
+
+5. Debuggability:
+>>>> 
+switch(config)# show encryption service status 
+Encryption service disabled
+Master Encryption Key configured
+Type-6 encryption is  not being used
+switch(config)# 
+switch(config)# show encryption mkey info all
+Master-Key : 1                   
+-------------------------------- --------------------------------------------------
+    Type                        :       Running & Startup (Active)  
+    Key-Hash(first 16 chars)    :       SHA512: bcnGZWyExi8DvJPd      
+    Proction-Type               :       Software            
+    Length                      :       20                  
+    Last updated                :       2024-11-25 17:57:47  UTC      
+-------------------------------- --------------------------------------------------
+
+switch(config)#
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis-latest-changes (Created 11/03/2024 10:57:36 Added 11/03/2024 10:57:36 by pradepan)---
+<</nobackup/pradepan/pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone>> sjc-ads-7596 $ ./tools/blast/bin/bat 2>/dev/null
+Codenet data collect: off
+Starting up bat...
+WSROOT: /witspace/pradepan/space_pradepan_pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone
+Pure git workspace found.
+Detected n9k workspace.
+
+Checking pkg cache.. running cmd make -s -f pkg_cache/Makefile pkg_cache/check_n_build
+..Done
+BAT: Build and Test (final)
+Please refer to https://wiki.cisco.com/display/N9KINFDEV/BAT+Commands for usage.
+
+?k:standalone?\
+
+Getting dut data from history file.
+
+?k:standalone?\
+[build] bat>> sa
+Autocompleted sa to static_analysis
+Pure git workspace found.
+Doing static analysis using command: '/auto/ses/bin/run_sa -os nx -use_git'
+SA Info: Calling Coverity
+SA Info: Starting build
+SA Info: Starting static analysis
+SA Info: Retrieving compiled files
+INFO - Created stream nx_main-pradepan-36508
+SA Info: Static analysis completed
+Deleting Stream as no active warnings were found: nx_main-pradepan-36508
+Retrieving workspace information ...
+
+SA Info: Following files are to be analysed
+	standalone/feature/smartcard/sksd/sksd_main.c
+	standalone/feature/smartcard/cli/sksd_cli.c
+	standalone/feature/smartcard/sksd/sksd_crypt_service.c
+	standalone/feature/smartcard/sksd/sksd_dme_handler.c
+	standalone/feature/smartcard/sksd/sksd_crypt_mts_handlers.c
+
+
+################ Summary of combined results #####################
+
+Total active warnings : 0
+Total noise warnings  : 39
+Total parent warnings : 26
+
+SA Info: All files are analysed.
+
+SA Info: Summary file is available at /witspace/pradepan/space_pradepan_pr3f_COV_10_5_3_92_show_mkey_cli_ws/.SA.SUMMARY
+
+Static analysis executed. Return code: 0
+[build] bat>> quit
+<</nobackup/pradepan/pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone>> sjc-ads-7596 $
+---End of Note Titled: static-analysis-latest-changes---
+
+
+---Start of Note Titled: static-analysis (Created 10/30/2024 01:16:25 Added 10/30/2024 01:16:25 by pradepan)---
+<</nobackup/pradepan/pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone>> sjc-ads-7596 $ ./tools/blast/bin/bat 2>/dev/null
+Codenet data collect: off
+Starting up bat...
+WSROOT: /witspace/pradepan/space_pradepan_pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone
+Pure git workspace found.
+Detected n9k workspace.
+
+Checking pkg cache.. running cmd make -s -f pkg_cache/Makefile pkg_cache/check_n_build
+..Done
+BAT: Build and Test (final)
+Please refer to https://wiki.cisco.com/display/N9KINFDEV/BAT+Commands for usage.
+
+?k:standalone?\
+
+Getting dut data from history file.
+
+?k:standalone?\
+[build] bat>> sa
+Autocompleted sa to static_analysis
+Pure git workspace found.
+Doing static analysis using command: '/auto/ses/bin/run_sa -os nx -use_git'
+SA Info: Calling Coverity
+SA Info: Starting build
+SA Info: Starting static analysis
+SA Info: Retrieving compiled files
+INFO - Created stream nx_main-pradepan-68020
+SA Info: Static analysis completed
+Deleting Stream as no active warnings were found: nx_main-pradepan-68020
+Retrieving workspace information ...
+
+SA Info: Following files are to be analysed
+	standalone/feature/smartcard/cli/sksd_cli.c
+	standalone/feature/smartcard/sksd/sksd_dme_handler.c
+	standalone/feature/smartcard/sksd/sksd_crypt_mts_handlers.c
+	standalone/feature/smartcard/sksd/sw_keystore.c
+	standalone/feature/smartcard/sksd/sksd_ha.c
+	standalone/feature/smartcard/sksd/sksd_crypt_service.c
+	standalone/feature/smartcard/sksd/sksd_main.c
+
+
+################ Summary of combined results #####################
+
+Total active warnings : 0
+Total noise warnings  : 54
+Total parent warnings : 45
+
+SA Info: All files are analysed.
+
+SA Info: Summary file is available at /witspace/pradepan/space_pradepan_pr3f_COV_10_5_3_92_show_mkey_cli_ws/.SA.SUMMARY
+
+Static analysis executed. Return code: 0
+[build] bat>> quit
+<</nobackup/pradepan/pr3f_COV_10_5_3_92_show_mkey_cli_ws/standalone>> sjc-ads-7596 $
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: cms-log (Created 04/18/2023 10:02:09 Added 04/18/2023 10:02:09 by cms)---
+dineshk2 : Tue Apr 18 2023-17:00:41 EST : Attribute(Delete) : 17661794-ccb-review
+---End of Note Titled: cms-log---
+
+
+---Start of Note Titled:  Release-note (Created 12/05/2022 16:08:08 Modified 03/08/2024 10:11:06 by atisiddi)---
+$$IGNORE
+
+<B>Symptom:</B>
+Currently there is no show command to show when the last date or time masterkey was updated.
+
+<B>Conditions:</B>
+Show master key hash, or portion of it:
+
+Configure the Encrypt Pre-shared Keys in a Router - Cisco
+The [primary key] is the password/key used to encrypt all other keys in the router configuration with the use of an Advance Encryption Standard (AES) symmetric cipher. The primary key is not stored in the router configuration and cannot be seen or obtained in any way while connected to the router.
+ 
+The request was to provide some visibility into AES master key to allow us to detect if it has changed or not.
+ 
+Even though the key is not stored in the config file it must be stored somewhere. 
+ 
+Let say we configure the AES master key as cisco123. Exposing this string would be a security issue so:
+?	Before it is exposed it should be protected somehow (so original cisco123 should be hashed or encrypted ? we would like to know what is done in the background here). 
+?	Then it still may be not secure enough to expose it so I am asking to expose first half of hashed/encrypted string (or any specific number of characters which is long enough to make sure every ? 99.99% - key chain updates will result in unique exposed string).
+
+
+What hash/protection is applied 
+ key length
+
+
+?	when the key was applied
+?	how it is protected
+?	key length
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (24 of 24)
+------------------------------------------------------------------------------------------------------------------
+ccwarnings-pr3f_dev.p9                            ascii text     1072           baas           11/04/2024 02:59:48      
+static-analysis-pr3f_dev.p6                       ascii text     137694         baas           11/04/2024 02:59:11      
+ccwarnings-pr3f_dev.p8                            ascii text     1072           baas           11/04/2024 01:51:01      
+static-analysis-pr3f_dev.p5                       ascii text     137699         baas           11/04/2024 01:50:24      
+Diffs-commit-pr3f_dev                             ascii text     147822         pradepan       11/04/2024 00:21:26      
+PR-Description-47238                              ascii text     2392           pradepan       11/03/2024 23:58:34      
+code-review-pr3f_dev                              ascii text     3862           pradepan       11/03/2024 23:58:32      
+ccwarnings-pr3f_dev.p7                            ascii text     1072           baas           11/03/2024 17:17:40      
+Unit-Test-nx_main                                 ascii text     208547         pradepan       11/03/2024 18:38:52      
+ccwarnings-pr3f_dev.p6                            ascii text     1072           baas           11/01/2024 00:17:10      
+ccwarnings-pr3f_dev.p5                            ascii text     1072           baas           11/01/2024 00:15:53      
+ccwarnings-pr3f_dev.p4                            ascii text     1072           baas           10/31/2024 22:43:35      
+static-analysis-pr3f_dev.p4                       ascii text     136904         baas           10/31/2024 22:42:58      
+ccwarnings-pr3f_dev.p3                            ascii text     1072           baas           10/31/2024 09:21:42      
+static-analysis-pr3f_dev.p3                       ascii text     136905         baas           10/31/2024 09:21:04      
+Unit-Test-pr3f_dev                                ascii text     90346          pradepan       11/03/2024 18:40:12      
+ccwarnings-pr3f_dev.p2                            ascii text     1072           baas           10/31/2024 07:28:51      
+static-analysis-pr3f_dev.p2                       ascii text     136905         baas           10/31/2024 07:28:13      
+vxlan_sanity_sanity_baseline_compare              ascii text     13490          root           11/04/2024 04:26:04      
+vxlan_sanity_sanity_report                        ascii text     9420           root           11/04/2024 04:26:04      
+ccwarnings-pr3f_dev                               ascii text     1072           baas           10/30/2024 17:07:02      
+static-analysis-pr3f_dev                          ascii text     135707         baas           10/30/2024 17:06:26      
+unit-test_with_debugs                             ascii text     189750         pradepan       10/31/2024 07:51:26      
+Release-note-diff                                 binary         1534           atisiddi       03/08/2024 10:11:06      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+05/08/2025 cdetsbtk 	Security-screening-times	2025-02-04 21:02:36.000+0000 	2025-05-08 17:09:11.000+0000 	Mod
+05/08/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/08/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/08/2025 cdetsadm 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+02/04/2025 cdetsbtk 	Security-screening-times	2024-12-06 06:06:13.000+0000 	2025-02-04 21:02:36.000+0000 	Mod
+02/03/2025 pradepan 	Note Title              	                             	V-comments                   	New
+02/03/2025 pradepan 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+02/03/2025 pradepan 	Status                  	R                            	V                            	Mod
+02/03/2025 pradepan 	Verified By Employee    	                             	pradepan                     	Mod
+02/03/2025 pradepan 	Verified-release        	                             	10.5(2)IMG9(0.128)           	New
+02/03/2025 pradepan 	Verified-confidence     	                             	tested                       	Mod
+02/03/2025 pradepan 	Verified-on             	                             	2025-02-03 11:15:55.000+0000 	Mod
+02/03/2025 pradepan 	statusStates            	                             	[status=R, startDate=Wed Nov 	New
+02/03/2025 pradepan 	statusStates            	[status=R, startDate=Wed Nov 	                             	Del
+02/03/2025 pradepan 	Age-status              	722                          	790                          	Mod
+02/03/2025 pradepan 	Mean-time-to-verified   	                             	790                          	Mod
+01/27/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-289320       	New
+01/27/2025 pradepan 	Attribute               	ed_ic_dc_rs                  	ed_ic_dc_rs NXOS1-2258       	Mod
+12/05/2024 cdetsbtk 	Security-screening-times	2024-11-27 13:40:45.000+0000 	2024-12-06 06:06:13.000+0000 	Mod
+12/05/2024 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+11/26/2024 cdetsbtk 	Security-screening-times	2024-11-04 20:26:05.000+0000 	2024-11-27 13:40:45.000+0000 	Mod
+11/26/2024 pradepan 	Note Title              	                             	R-comments                   	New
+11/26/2024 pradepan 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+11/26/2024 pradepan 	Status                  	A                            	R                            	Mod
+11/26/2024 pradepan 	Dev-escape-resolver-opin	                             	N                            	Mod
+11/26/2024 pradepan 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+11/26/2024 pradepan 	More-by                 	                             	pradepan                     	Mod
+11/26/2024 pradepan 	Opener                  	                             	pradepan                     	Mod
+11/26/2024 pradepan 	Resolver                	                             	pradepan                     	Mod
+11/26/2024 pradepan 	Behavior-changed        	                             	N                            	Mod
+11/26/2024 pradepan 	Original-resolved-on    	                             	2024-11-27 05:40:44.000+0000 	Mod
+11/26/2024 pradepan 	Documents-changed       	                             	none                         	Mod
+11/26/2024 pradepan 	More-on                 	                             	2024-11-27 05:40:44.000+0000 	Mod
+11/26/2024 pradepan 	Opened-on               	                             	2024-11-27 05:40:44.000+0000 	Mod
+11/26/2024 pradepan 	Resolved-on             	                             	2024-11-27 05:40:44.000+0000 	Mod
+11/26/2024 pradepan 	statusStates            	                             	[status=A, startDate=Mon Nov 	New
+11/26/2024 pradepan 	statusStates            	[status=A, startDate=Mon Nov 	                             	Del
+11/26/2024 pradepan 	Age-status              	699                          	722                          	Mod
+11/26/2024 pradepan 	Mean-time-to-resolved   	                             	722                          	Mod
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 18:59:48.000+0000 	2024-11-04 20:26:05.000+0000 	Mod
+11/04/2024 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+11/04/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 18:59:11.000+0000 	2024-11-04 18:59:48.000+0000 	Mod
+11/04/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p9       	New
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 17:51:01.000+0000 	2024-11-04 18:59:11.000+0000 	Mod
+11/04/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p6  	New
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 17:50:25.000+0000 	2024-11-04 17:51:01.000+0000 	Mod
+11/04/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p8       	New
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 16:21:27.000+0000 	2024-11-04 17:50:25.000+0000 	Mod
+11/04/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p5  	New
+11/04/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0)               	New
+11/04/2024 nxbld    	Integrated-releases     	                             	10.5(3)IPE9(0.110)           	New
+11/04/2024 nxbld    	Apply-to                	                             	10.5(3)IPE9(0.110)           	New
+11/04/2024 cdetsbtk 	Security-screening-times	2024-11-04 15:58:33.000+0000 	2024-11-04 16:21:27.000+0000 	Mod
+11/04/2024 pradepan 	File Name               	                             	Diffs-commit-pr3f_dev        	New
+11/03/2024 pradepan 	Code-reviewer           	                             	nih,tgreenla                 	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 13:05:18.000+0000 	2024-11-04 15:58:33.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	                             	PR-Description-47238         	New
+11/03/2024 pradepan 	File Name               	                             	code-review-pr3f_dev         	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 11:45:28.000+0000 	2024-11-04 13:05:18.000+0000 	Mod
+11/03/2024 pradepan 	Status-desc             	N-New                        	A-Assigned                   	Mod
+11/03/2024 pradepan 	Status                  	N                            	A                            	Mod
+11/03/2024 pradepan 	Engineer                	                             	pradepan                     	Mod
+11/03/2024 pradepan 	Assigner                	                             	pradepan                     	Mod
+11/03/2024 pradepan 	Assigned Date           	                             	2024-11-04 05:05:17.000+0000 	Mod
+11/03/2024 pradepan 	statusStates            	                             	[status=N, startDate=Tue Dec 	New
+11/03/2024 pradepan 	statusStates            	[status=N, startDate=Tue Dec 	                             	Del
+11/03/2024 pradepan 	Age-status              	0                            	699                          	Mod
+11/03/2024 pradepan 	Mean-time-to-assigned   	                             	699                          	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:49:57.000+0000 	2024-11-04 11:45:28.000+0000 	Mod
+11/03/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+11/03/2024 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:49:40.000+0000 	2024-11-04 10:49:57.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p5  	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:49:26.000+0000 	2024-11-04 10:49:40.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p6  	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:49:09.000+0000 	2024-11-04 10:49:26.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p7  	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:48:51.000+0000 	2024-11-04 10:49:09.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p8  	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:48:35.000+0000 	2024-11-04 10:48:51.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p9  	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:48:10.000+0000 	2024-11-04 10:48:35.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p10 	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:47:53.000+0000 	2024-11-04 10:48:10.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p11 	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:40:12.000+0000 	2024-11-04 10:47:53.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	static-analysis-pr3f_dev.p12 	                             	Del
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 10:38:52.000+0000 	2024-11-04 10:40:12.000+0000 	Mod
+11/03/2024 pradepan 	contents                	                             	unit_test                    	Mod
+11/03/2024 pradepan 	File Name               	unit_test                    	Unit-Test-pr3f_dev           	Mod
+11/03/2024 pradepan 	ActivityFileName        	unit_test                    	Unit-Test-pr3f_dev           	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 09:17:41.000+0000 	2024-11-04 10:38:52.000+0000 	Mod
+11/03/2024 pradepan 	contents                	                             	unit-test-switchover-cli-revi	Mod
+11/03/2024 pradepan 	File Name               	unit-test-switchover-cli-revi	Unit-Test-nx_main            	Mod
+11/03/2024 pradepan 	ActivityFileName        	unit-test-switchover-cli-revi	Unit-Test-nx_main            	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 09:17:05.000+0000 	2024-11-04 09:17:41.000+0000 	Mod
+11/03/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p7       	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 09:14:11.000+0000 	2024-11-04 09:17:05.000+0000 	Mod
+11/03/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p12 	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 09:11:18.000+0000 	2024-11-04 09:14:11.000+0000 	Mod
+11/03/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p11 	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 03:04:15.000+0000 	2024-11-04 09:11:18.000+0000 	Mod
+11/03/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p10 	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 02:57:36.000+0000 	2024-11-04 03:04:15.000+0000 	Mod
+11/03/2024 pradepan 	contents                	                             	switchover-unit-test         	Mod
+11/03/2024 pradepan 	File Name               	switchover-unit-test         	unit-test-switchover-cli-revi	Mod
+11/03/2024 pradepan 	ActivityFileName        	switchover-unit-test         	unit-test-switchover-cli-revi	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 02:47:35.000+0000 	2024-11-04 02:57:36.000+0000 	Mod
+11/03/2024 pradepan 	Note Title              	                             	static-analysis-latest-change	New
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-04 02:47:20.000+0000 	2024-11-04 02:47:35.000+0000 	Mod
+11/03/2024 pradepan 	contents                	                             	switchover_ut                	Mod
+11/03/2024 pradepan 	File Name               	switchover_ut                	switchover-unit-test         	Mod
+11/03/2024 pradepan 	ActivityFileName        	switchover_ut                	switchover-unit-test         	Mod
+11/03/2024 cdetsbtk 	Security-screening-times	2024-11-01 17:11:12.000+0000 	2024-11-04 02:47:20.000+0000 	Mod
+11/03/2024 pradepan 	File Name               	                             	switchover_ut                	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 15:14:50.000+0000 	2024-11-01 17:11:12.000+0000 	Mod
+11/01/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:17:10.000+0000 	2024-11-01 15:14:50.000+0000 	Mod
+11/01/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+11/01/2024 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+11/01/2024 root     	FileSize                	13411                        	13490                        	Mod
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:16:32.000+0000 	2024-11-01 14:17:10.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p6       	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:15:54.000+0000 	2024-11-01 14:16:32.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p9  	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:15:17.000+0000 	2024-11-01 14:15:54.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p5       	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:12:58.000+0000 	2024-11-01 14:15:17.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p8  	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:12:20.000+0000 	2024-11-01 14:12:58.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p7  	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 14:09:22.000+0000 	2024-11-01 14:12:20.000+0000 	Mod
+11/01/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p6  	New
+11/01/2024 cdetsbtk 	Security-screening-times	2024-11-01 12:43:36.000+0000 	2024-11-01 14:09:22.000+0000 	Mod
+11/01/2024 baas     	contents                	                             	static-analysis-pr3f_dev.p5  	Mod
+11/01/2024 baas     	FileSize                	137312                       	137319                       	Mod
+11/01/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p5  	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-11-01 12:42:59.000+0000 	2024-11-01 12:43:36.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p4       	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-11-01 01:46:08.000+0000 	2024-11-01 12:42:59.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p4  	New
+10/31/2024 baas     	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/31/2024 baas     	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+10/31/2024 cdetsbtk 	Security-screening-times	2024-11-01 00:06:22.000+0000 	2024-11-01 01:46:08.000+0000 	Mod
+10/31/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+10/31/2024 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 23:21:42.000+0000 	2024-11-01 00:06:22.000+0000 	Mod
+10/31/2024 root     	contents                	                             	vxlan_sanity_sanity_baseline_	Mod
+10/31/2024 root     	contents                	                             	vxlan_sanity_sanity_report   	Mod
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 23:21:05.000+0000 	2024-10-31 23:21:42.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p3       	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:51:37.000+0000 	2024-10-31 23:21:05.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p3  	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:51:26.000+0000 	2024-10-31 21:51:37.000+0000 	Mod
+10/31/2024 pradepan 	contents                	                             	unit_test_no_debugs          	Mod
+10/31/2024 pradepan 	File Name               	unit_test_no_debugs          	unit_test                    	Mod
+10/31/2024 pradepan 	ActivityFileName        	unit_test_no_debugs          	unit_test                    	Mod
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:50:53.000+0000 	2024-10-31 21:51:26.000+0000 	Mod
+10/31/2024 pradepan 	contents                	                             	unit-test                    	Mod
+10/31/2024 pradepan 	File Name               	unit-test                    	unit-test_with_debugs        	Mod
+10/31/2024 pradepan 	ActivityFileName        	unit-test                    	unit-test_with_debugs        	Mod
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:50:17.000+0000 	2024-10-31 21:50:53.000+0000 	Mod
+10/31/2024 pradepan 	contents                	                             	new_unit_test                	Mod
+10/31/2024 pradepan 	File Name               	new_unit_test                	unit_test_no_debugs          	Mod
+10/31/2024 pradepan 	ActivityFileName        	new_unit_test                	unit_test_no_debugs          	Mod
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:28:52.000+0000 	2024-10-31 21:50:17.000+0000 	Mod
+10/31/2024 pradepan 	File Name               	                             	new_unit_test                	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 21:28:14.000+0000 	2024-10-31 21:28:52.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev.p2       	New
+10/31/2024 cdetsbtk 	Security-screening-times	2024-10-31 09:31:50.000+0000 	2024-10-31 21:28:14.000+0000 	Mod
+10/31/2024 baas     	File Name               	                             	static-analysis-pr3f_dev.p2  	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 07:07:03.000+0000 	2024-10-31 09:31:50.000+0000 	Mod
+10/30/2024 root     	File Name               	                             	vxlan_sanity_sanity_report   	New
+10/30/2024 root     	File Name               	                             	vxlan_sanity_sanity_baseline_	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 07:06:26.000+0000 	2024-10-31 07:07:03.000+0000 	Mod
+10/30/2024 baas     	File Name               	                             	ccwarnings-pr3f_dev          	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:29:26.000+0000 	2024-10-31 07:06:26.000+0000 	Mod
+10/30/2024 baas     	File Name               	                             	static-analysis-pr3f_dev     	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:29:16.000+0000 	2024-10-31 02:29:26.000+0000 	Mod
+10/30/2024 pradepan 	contents                	                             	unit-test.txt                	Mod
+10/30/2024 pradepan 	File Name               	unit-test.txt                	unit-test                    	Mod
+10/30/2024 pradepan 	ActivityFileName        	unit-test.txt                	unit-test                    	Mod
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:28:57.000+0000 	2024-10-31 02:29:16.000+0000 	Mod
+10/30/2024 pradepan 	File Name               	                             	unit-test.txt                	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:28:03.000+0000 	2024-10-31 02:28:57.000+0000 	Mod
+10/30/2024 pradepan 	File Name               	unit-test                    	                             	Del
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:27:53.000+0000 	2024-10-31 02:28:03.000+0000 	Mod
+10/30/2024 pradepan 	contents                	                             	unit-test.txt                	Mod
+10/30/2024 pradepan 	File Name               	unit-test.txt                	unit-test                    	Mod
+10/30/2024 pradepan 	ActivityFileName        	unit-test.txt                	unit-test                    	Mod
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:27:45.000+0000 	2024-10-31 02:27:53.000+0000 	Mod
+10/30/2024 pradepan 	contents                	                             	unit-test.txt                	Mod
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-31 02:27:22.000+0000 	2024-10-31 02:27:45.000+0000 	Mod
+10/30/2024 pradepan 	File Name               	                             	unit-test.txt                	New
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-30 18:51:25.000+0000 	2024-10-31 02:27:22.000+0000 	Mod
+10/30/2024 pradepan 	File Name               	unit-test.txt                	                             	Del
+10/30/2024 cdetsbtk 	Security-screening-times	2024-10-30 18:51:20.000+0000 	2024-10-30 18:51:25.000+0000 	Mod
+10/30/2024 cdetsbtk 	Security-screening-times	2024-03-09 02:11:07.000+0000 	2024-10-30 18:51:20.000+0000 	Mod
+10/30/2024 pradepan 	File Name               	                             	unit-test.txt                	New
+10/30/2024 pradepan 	Note Title              	                             	static-analysis              	New
+03/08/2024 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+03/08/2024 cdetsbtk 	Is-customer-visible     	Y                            	N                            	Mod
+03/08/2024 cdetsbtk 	Security-screening-times	2022-12-06 14:06:44.000+0000 	2024-03-09 02:11:07.000+0000 	Mod
+03/08/2024 atisiddi 	Note                    	Release-note                 	Release-note                 	Mod
+03/08/2024 atisiddi 	RNE-Type                	NONE                         	$$IGNORE                     	Mod
+03/08/2024 atisiddi 	contents                	                             	Release-note-diff            	Mod
+03/08/2024 atisiddi 	FileSize                	1411                         	1534                         	Mod
+03/08/2024 atisiddi 	RNE-Type                	NONE                         	$$IGNORE                     	Mod
+03/08/2024 atisiddi 	Note                    	Release-note                 	Release-note                 	Mod
+03/08/2024 atisiddi 	File Name               	                             	Release-note-diff            	New
+03/08/2024 atisiddi 	Summary                 	Currently there is no show co	Currently there is no show co	Mod
+03/08/2024 atisiddi 	Software-type-ids       	                             	282253564,286280105,286321149	New
+03/08/2024 atisiddi 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/08/2024 atisiddi 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+03/08/2024 atisiddi 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+03/08/2024 atisiddi 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+03/08/2024 atisiddi 	Conditions              	                             	Show master key hash, or port	Mod
+04/18/2023 cms      	Note Title              	                             	cms-log                      	New
+04/18/2023 cms      	Attribute               	ed_ic_dc_rs 17661794-ccb-revi	ed_ic_dc_rs                  	Mod
+04/18/2023 dineshk2 	Attribute               	ed_ic_dc_rs                  	ed_ic_dc_rs 17661794-ccb-revi	Mod
+12/15/2022 ndimri   	serviceRequests/C3/69461	                             	                             	Mod
+12/15/2022 ndimri   	Urgency-desc            	NA                           	CL3                          	Mod
+12/15/2022 ndimri   	Urgency                 	9                            	6                            	Mod
+12/05/2022 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+12/05/2022 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+12/05/2022 cdetsbtk 	Security-screening-times	                             	2022-12-06 14:06:44.000+0000 	Mod
+12/05/2022 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+12/05/2022 hherazon 	serviceRequests/C3/69461	                             	C3/694615256                 	New
+12/05/2022 hherazon 	Urgency                 	                             	9                            	Mod
+12/05/2022 hherazon 	Activity-when-found     	                             	Customer-Use                 	Mod
+12/05/2022 hherazon 	Data-classification     	Cisco Public                 	Cisco Highly Confidential    	Mod
+12/05/2022 hherazon 	Data-classification-reas	                             	Default value of Data-classif	Mod
+12/05/2022 hherazon 	Original-activity-when-f	                             	Customer-Use                 	Mod
+12/05/2022 hherazon 	Tickets-count           	0                            	1                            	Mod
+12/05/2022 hherazon 	TACSR-count             	                             	1                            	Mod
+12/05/2022 hherazon 	Tickets-count-direct    	                             	1                            	Mod
+12/05/2022 hherazon 	Trouble-tickets         	                             	694615256                    	New
+12/05/2022 hherazon 	Trouble-tickets-direct  	                             	C3694615256                  	New
+12/05/2022 hherazon 	Note Title              	                             	Release-note                 	New
+12/05/2022 hherazon 	Impact                  	                             	not-a-bug                    	New
+12/05/2022 hherazon 	Version                 	                             	9.3(10)                      	New
+12/05/2022 hherazon 	Known-affected-releases 	                             	9.3(10)                      	New
+12/05/2022 hherazon 	Defect Created          	                             	                             	New

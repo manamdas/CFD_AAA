@@ -1,0 +1,1484 @@
+*******************************************************************************
+
+Bug ID   : CSCvz86703         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: radius             Severity: 2 (severe)     
+Headline : nxos 9.3(8) ip radius-source interface not working
+PrimaryPV : 
+Version :9.3(8.22) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: anpedro            Submitted: 10/05/2021 09:49:50     Last Updtd : 08/16/2026 05:26:58  
+RNE-Type: $$PREFCS            New-on : 10/05/2021 09:49:50      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:jenhua                                              
+Known-affected-releases:
+
+Known-fixed-releases:10.2(4) 9.3(9) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            Y
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 10/09/2021 23:21:38                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 152                                            
+Mean-time-to-verified: 211    
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats: No                                                   
+Upgrade-remarks: Code Fix                                             
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 10/05/2021 04:42:14            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Confidential                               
+Data-classification-reason: none                                      
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Diagnosis 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 10/05/2021 21:26:44 
+Code-reviewer: greddyda       
+Opened-on: 10/09/2021 23:21:38Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : fb_msw_cvt fb_msw_cvt_system-health fb_
+Est. completion date: 10/12/2021 00:00:00  
+Script-version:                         
+
+More-by : ananshar            More-on: 03/04/2022 06:17:15  
+
+Documents Changed: none       Resolved: 03/07/2022 06:53:20 Resolver: ananshar       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 05/05/2022 04:20:12      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  MIG Routing Deploy & Escalations - US
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Integration Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   0
+Tickets-count-direct :            
+Trouble-tickets :              
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$PREFCS flag is in the RNE
+Security-screening-timestamp :                 04/26/2025 15:22:14
+Document :    nexus
+
+Summary:
+A Nexus device configured to use dual stack loopback as source address for radius packets won't send the v6 address to the v6 radius server. It will always send the v4 address which the v6 radius server will drop and not consume.
+
+This is facebook use-case and must be fixed.
+
+version 9.3(8) Bios:version 08.39 
+
+interface loopback0
+  ip address 192.168.150.1/32 <-- this address will be always used 
+  ipv6 address 2001:192:168:150::1/128
+
+radius-server retransmit 5
+radius-server deadtime 5
+radius-server host 2001:10:80:80::3 key 7 "qtsx123" authentication
+
+ip radius source-interface loopback 0
+
+******************* Related Service Requests (0 of 0)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-443816                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 vasagraw      10/09/2021 23:21:38    CSCvz91187      CSC.tea         R            
+
+
+********************* Listing of Notes (20 of 20 ) ***********************
+
+---Start of Note Titled: V-comments.p2 (Created 05/05/2022 04:20:12 Added 05/05/2022 04:20:12 by palshanm)---
+1. S/W Version : 8.4(5.36)
+2. Platform : PI Fix
+3. Automation Suite: https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F22-05%2Fsecurity_cfd_job_n7k.2022May05_16:31:11.837150.zip&atstype=ATS
+
+Failure can be ignored due to difference in ethanalyzer output between N9k and N7k. Functionality is fine.
+
+4. Steps to reproduce and Verify: Automated and logs attached
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: R-comments.p3 (Created 03/07/2022 06:53:20 Added 03/07/2022 06:53:20 by ananshar)---
+Committed code fix.
+---End of Note Titled: R-comments.p3---
+
+
+---Start of Note Titled: static-analysis-davis (Created 03/04/2022 09:12:19 Added 03/04/2022 09:12:19 by ananshar)---
+@@Start processing of /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Active warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Noise warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Parent warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1755:none:STRING_NULL:Passing unterminated string "request_state->server.secret" to "add_password", which expects a null-terminated string. [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1309:dead_default_in_switch:DEADCODE:Execution cannot reach this statement: "default:". [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1499:none:SAFEC:Use safeC library.  Migrate from "strncpy(request_state->server.vrf_name, request_state->conf.servergroup.vrf_name, 32U)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1665:none:SAFEC:Use safeC library.  Migrate from "strncpy(request_state->server.secret, request_state->conf.secret, 64U)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-2.cisco.com:8446/query/defects.htm?stream=skywalker-ananshar&cid=664991&cid=35646&cid=493915
+Analysis archive: /auto/sa-html1/cov8/archive/skywalker/ananshar/skywalker-ananshar_20220304_165944/sa_summary.tar.gz
+---End of Note Titled: static-analysis-davis---
+
+
+---Start of Note Titled: static-analysis.p2 (Created 03/04/2022 09:04:07 Added 03/04/2022 09:04:07 by ananshar)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvz86703 CSCwa67594).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-3355
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/ananshar/davis_REL_8_4_5_12_S0 
+# Generated at
+#     Fri Mar  4 17:04:04 2022 UTC by ananshar
+# Enclosure contains contents of the following files:
+#     /nobackup/ananshar/davis_REL_8_4_5_12_S0/build/ses_static_analysis.log
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/ananshar/davis_REL_8_4_5_12_S0/build/ses_static_analysis.log':
+@@Start processing of /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Active warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Noise warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+**Parent warnings for /nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1755:none:STRING_NULL:Passing unterminated string "request_state->server.secret" to "add_password", which expects a null-terminated string. [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1309:dead_default_in_switch:DEADCODE:Execution cannot reach this statement: "default:". [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1499:none:SAFEC:Use safeC library.  Migrate from "strncpy(request_state->server.vrf_name, request_state->conf.servergroup.vrf_name, 32U)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/ananshar/davis_REL_8_4_5_12_S0/feature/security/radius/radius_client.c:1665:none:SAFEC:Use safeC library.  Migrate from "strncpy(request_state->server.secret, request_state->conf.secret, 64U)"to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf). Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 4
+
+STATIC-004-008I+Static analysis warnings can be viewed at: https://nxops-sa-2.cisco.com:8446/query/defects.htm?stream=skywalker-ananshar&cid=664991&cid=35646&cid=493915
+Analysis archive: /auto/sa-html1/cov8/archive/skywalker/ananshar/skywalker-ananshar_20220304_165944/sa_summary.tar.gz
+---End of Note Titled: static-analysis.p2---
+
+
+---Start of Note Titled: M-comments.p2 (Created 03/04/2022 06:17:15 Added 03/04/2022 06:17:15 by ananshar)---
+Moving to M to commit to 8.4(6)
+---End of Note Titled: M-comments.p2---
+
+
+---Start of Note Titled: V-comments (Created 12/06/2021 11:07:59 Added 12/06/2021 11:07:59 by palshanm)---
+1. S/W Version : 9.3(8.75)
+2. Platform : PI Fix
+3. Automation Suite: https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F21-12%2Fsecurity_cfd_job.2021Dec07_00:24:22.229424.zip&atstype=ATS
+
+4. Steps to reproduce and Verify: Automated and logs attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: Other (Created 10/29/2021 11:37:03 Added 10/29/2021 11:37:03 by palshanm)---
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F21-10%2Fsecurity_cfd_job.2021Oct29_23:29:35.952119.zip&atstype=ATS
+
+
+https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fnobackup%2Fpalshanm%2Fpyats%2Fusers%2Fpalshanm%2Farchive%2F21-10%2Fsecurity_cfd_job.2021Oct30_00:00:07.611537.zip&atstype=ATS
+---End of Note Titled: Other---
+
+
+---Start of Note Titled: Not-Required-In-beverlyhills (Created 10/27/2021 01:39:57 Added 10/27/2021 01:39:57 by vasagraw)---
+The base code (required for the CSCvz86703 fix) itself is missing from the 8.2.8 codebase. Since 8.2.8 code is different from N9K code (where original CSCvz86703 fix went in) in this area, the original patch would not be portable to 8.2.8 
+
+Additional bug fixes required (but not limited to) - CSCvo84018 -
+---End of Note Titled: Not-Required-In-beverlyhills---
+
+
+---Start of Note Titled: R-comments.p2 (Created 10/19/2021 22:38:58 Added 10/19/2021 22:38:58 by ananshar)---
+Committed code fix.
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: M-comments (Created 10/19/2021 06:54:39 Added 10/19/2021 06:54:39 by ananshar)---
+Moving to M to port the changes to KR2F
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: unit-test_kerry (Created 10/19/2021 06:47:37 Added 10/19/2021 06:47:37 by vasagraw)---
+switch(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Oct 19 09:21:08 2021
+!Time: Tue Oct 19 09:21:12 2021
+
+version 10.2(2) Bios:version 05.45 
+radius-server host 2001:10:80:80::3 key 7 "qtsx123" authentication accounting 
+
+ip radius source-interface loopback0
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Oct 19 09:21:08 2021
+!Time: Tue Oct 19 09:21:15 2021
+
+version 10.2(2) Bios:version 05.45 
+aaa authentication login default group radius 
+aaa authentication login console local 
+aaa authentication dot1x default group radius 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config int loopback0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Tue Oct 19 09:21:08 2021
+!Time: Tue Oct 19 09:21:21 2021
+
+version 10.2(2) Bios:version 05.45 
+
+interface loopback0
+  ip address 192.168.150.2/32
+  ipv6 address 2001:192:168:150::1/128
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+
+
+<<<<<<<<< tried SSH login via MGMT
+---End of Note Titled: unit-test_kerry---
+
+
+---Start of Note Titled: L2_ULS_Kerry (Created 10/19/2021 06:38:54 Added 10/19/2021 06:38:54 by vasagraw)---
+Test server name    : nxosv-sanity08
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : eor_n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/204818
+Report file         : /auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.log
+Test start time     : 2021_10_18_07_50_55
+Test End time       : 2021_10_18_11_19_07
+Test Duration       : 3:28:11.906962
+Arguments passed: ['./basic_sanity.py', '-infra_id', '204818', '-cdet', 'CSCvz86703', '-build', '/ws/vasagraw-sjc/nxos64.10.2.1.130.F.bin_AS', '-testsuite', 'eor_n9kv_l2_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/204818/l2_uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:10:04   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:12   
+testConfigMgmtPort                                                        pass      0:00:32   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:25   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:07   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:58   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:55   
+testStaticMac                                                             pass      0:01:51   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:47   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:04:10   
+testL2BridgingLacpPortChannelAccess                                       fail      0:05:33   
+testL2SanityMacLearning                                                   pass      0:05:27   
+testL2SanityPortFlap                                                      pass      0:04:47   
+testL2SanityClearMac                                                      pass      0:03:20   
+testL2SanityMacAging                                                      pass      0:09:23   
+testL2SanityMacMove                                                       pass      0:03:16   
+testL2SanityPortModeChange                                                pass      0:03:59   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:12   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:24   
+testL2SanityAllowedVlanAdd                                                pass      0:03:52   
+testL2SanityAllowedVlanRemove                                             pass      0:03:15   
+testL2SanityUnconfig                                                      pass      0:00:47   
+testVpcConfig                                                             pass      0:07:26   
+testVpcPeerLink                                                           pass      0:00:57   
+testVpcPeerKeepAlive                                                      pass      0:00:32   
+testVpcPortChannels                                                       pass      0:01:37   
+testVpcStpStates                                                          pass      0:00:34   
+testVpcConsistencies                                                      pass      0:03:30   
+testVpcUnknownUnicastFlooding                                             pass      0:08:40   
+testVpcUnconfig                                                           pass      0:05:24   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:04   
+
+********************************
+
+
+Test server name    : nxosv-sanity606
+Testbed  name       : n9kv606-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/204756
+Report file         : /auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.log
+Test start time     : 2021_10_18_03_42_46
+Test End time       : 2021_10_18_06_56_31
+Test Duration       : 3:13:44.736976
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '204756', '-cdet', 'CSCvz55570', '-build', '/ws/vasagraw-sjc/nxos64.10.2.1.130.F.bin_AS', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv606-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/204756/l2_uls-n9kv606.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:16:16   
+testBoxOnline                                                             pass      0:00:00   
+testModuleStatus                                                          pass      0:00:08   
+testConfigMgmtPort                                                        fail      0:01:45   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:09   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:21   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:20   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:21   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:38   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:51   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:40   
+testL2SanityMacLearning                                                   pass      0:05:11   
+testL2SanityPortFlap                                                      pass      0:04:40   
+testL2SanityClearMac                                                      pass      0:03:13   
+testL2SanityMacAging                                                      pass      0:09:16   
+testL2SanityMacMove                                                       pass      0:03:09   
+testL2SanityPortModeChange                                                pass      0:03:51   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:06   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:17   
+testL2SanityAllowedVlanAdd                                                pass      0:03:44   
+testL2SanityAllowedVlanRemove                                             pass      0:03:08   
+testL2SanityUnconfig                                                      pass      0:00:38   
+testVpcConfig                                                             pass      0:05:54   
+testVpcPeerLink                                                           pass      0:00:52   
+testVpcPeerKeepAlive                                                      pass      0:00:28   
+testVpcPortChannels                                                       pass      0:01:32   
+testVpcStpStates                                                          pass      0:00:30   
+testVpcConsistencies                                                      pass      0:03:25   
+testVpcUnknownUnicastFlooding                                             pass      0:08:32   
+testVpcUnconfig                                                           pass      0:04:53   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores                                                                 pass      0:00:02
+---End of Note Titled: L2_ULS_Kerry---
+
+
+---Start of Note Titled: R-comments (Created 10/09/2021 23:21:39 Added 10/09/2021 23:21:39 by vasagraw)---
+Committed code fix.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  L2_ULS (Created 10/08/2021 12:17:10 Modified 10/08/2021 12:19:05 by vasagraw)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity08
+Testbed  name       : n9kv08-testbed.yml
+TestSuite           : eor_n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/202089
+Report file         : /auto/nxos-sanity/logs/vasagraw/202089/l2_uls-n9kv08.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/202089/l2_uls-n9kv08.log
+Test start time     : 2021_10_08_01_53_35
+Test End time       : 2021_10_08_05_15_43
+Test Duration       : 3:22:07.318505
+Arguments passed: ['./basic_sanity.py', '-infra_id', '202089', '-cdet', 'CSCvz86703', '-build', '/ws/vasagraw-sjc/nxos.9.3.8.18.bin_PVT', '-testsuite', 'eor_n9kv_l2_uls.yml', '-testbed', 'n9kv08-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/202089/l2_uls-n9kv08.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/202089/l2_uls-n9kv08.report', '-jobid', 'EOR_N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:09:46   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:10   
+testConfigMgmtPort                                                        pass      0:00:31   
+testStpLacpPcAccessWithTraffic                                            pass      0:16:23   
+testStpLacpPcTrunkWithTraffic                                             pass      0:16:36   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:50   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:52   
+testStaticMac                                                             pass      0:01:51   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:46   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:04:11   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:49   
+testL2SanityMacLearning                                                   pass      0:05:30   
+testL2SanityPortFlap                                                      pass      0:04:45   
+testL2SanityClearMac                                                      pass      0:03:18   
+testL2SanityMacAging                                                      pass      0:09:22   
+testL2SanityMacMove                                                       pass      0:03:13   
+testL2SanityPortModeChange                                                pass      0:03:57   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:11   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:23   
+testL2SanityAllowedVlanAdd                                                pass      0:03:50   
+testL2SanityAllowedVlanRemove                                             pass      0:03:14   
+testL2SanityUnconfig                                                      pass      0:00:46   
+testVpcConfig                                                             pass      0:07:27   
+testVpcPeerLink                                                           fail      0:01:04   
+testVpcPeerKeepAlive                                                      pass      0:00:31   
+testVpcPortChannels                                                       pass      0:01:35   
+testVpcStpStates                                                          pass      0:00:33   
+testVpcConsistencies                                                      pass      0:03:30   
+testVpcUnknownUnicastFlooding                                             pass      0:08:34   
+testVpcUnconfig                                                           pass      0:05:17   
+testGoldDiagnostic                                                        pass      0:00:01   
+testCores                                                                 pass      0:00:03
+
+*********************************
+SECOND RUN:
+
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxosv-sanity601
+Testbed  name       : n9kv601-testbed.yml
+TestSuite           : n9kv_l2_uls.yml
+Total Test cases Run: 33
+Passed test cases   : 32
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/202270
+Report file         : /auto/nxos-sanity/logs/vasagraw/202270/l2_uls-n9kv601.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/202270/l2_uls-n9kv601.log
+Test start time     : 2021_10_08_09_05_20
+Test End time       : 2021_10_08_12_17_14
+Test Duration       : 3:11:54.171013
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '202270', '-cdet', 'CSCvz86703', '-build', '/ws/vasagraw-sjc/nxos.9.3.8.18.bin_PVT', '-testsuite', 'n9kv_l2_uls.yml', '-testbed', 'n9kv601-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/202270/l2_uls-n9kv601.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/202270/l2_uls-n9kv601.report', '-jobid', 'N9KV'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:15:56   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:07   
+testConfigMgmtPort                                                        fail      0:00:32   
+testStpLacpPcAccessWithTraffic                                            pass      0:17:08   
+testStpLacpPcTrunkWithTraffic                                             pass      0:17:22   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:16:20   
+testMStpMultiInstLacpPcTrunkWithTraffic                                   pass      0:16:20   
+testStaticMac                                                             pass      0:01:48   
+testL2BridgingStaticPortChannelAccess                                     pass      0:03:36   
+testL2BridgingStaticPortChannelTrunk                                      pass      0:03:51   
+testL2BridgingLacpPortChannelAccess                                       pass      0:03:39   
+testL2SanityMacLearning                                                   pass      0:05:11   
+testL2SanityPortFlap                                                      pass      0:04:38   
+testL2SanityClearMac                                                      pass      0:03:11   
+testL2SanityMacAging                                                      pass      0:09:15   
+testL2SanityMacMove                                                       pass      0:03:08   
+testL2SanityPortModeChange                                                pass      0:03:53   
+testL2SanityPortChannelMemberAdd                                          pass      0:03:05   
+testL2SanityPortChannelMemberRemove                                       pass      0:03:16   
+testL2SanityAllowedVlanAdd                                                pass      0:03:43   
+testL2SanityAllowedVlanRemove                                             pass      0:03:06   
+testL2SanityUnconfig                                                      pass      0:00:35   
+testVpcConfig                                                             pass      0:05:57   
+testVpcPeerLink                                                           pass      0:00:51   
+testVpcPeerKeepAlive                                                      pass      0:00:27   
+testVpcPortChannels                                                       pass      0:01:32   
+testVpcStpStates                                                          pass      0:00:29   
+testVpcConsistencies                                                      pass      0:03:23   
+testVpcUnknownUnicastFlooding                                             pass      0:08:31   
+testVpcUnconfig                                                           pass      0:04:52   
+testGoldDiagnostic                                                        pass      0:00:05   
+testCores
+---End of Note Titled: L2_ULS---
+
+
+---Start of Note Titled: Unit-test (Created 10/08/2021 03:15:51 Added 10/08/2021 03:15:51 by vasagraw)---
+From: "Andre Pedro (anpedro)" <anpedro@cisco.com>
+Date: Thursday, 7 October 2021 at 9:53 PM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>, "Sheshadri Sreenath (shsreena)" <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Folks, this 2nd issue was actually config , so we can call this fix good for commit.
+
+
+
+Thanks,
+Andre Pedro
+
+
+From: Andre Pedro (anpedro) <anpedro@cisco.com>
+Date: Thursday, October 7, 2021 at 8:09 AM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+VNC:
+rtp-ads-479:1
+guest
+
+
+Thanks,
+Andre Pedro
+
+
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Date: Thursday, October 7, 2021 at 8:08 AM
+To: Andre Pedro (anpedro) <anpedro@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+Hi Andre,
+
+Could you please share your setup? Would take a look.
+
+Regards,
+
+Vasu
+
+From: "Andre Pedro (anpedro)" <anpedro@cisco.com>
+Date: Thursday, 7 October 2021 at 5:22 PM
+To: "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>, "Sheshadri Sreenath (shsreena)" <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Hi folks,
+
+Looks like there is still a problem actually, if I bounce the radius server and try again, the authentication fails.. if I bounce for the second time.. it works.. 
+
+Let me know when you want to have a look at the router.
+
+Thanks,
+Andre Pedro
+
+
+From: Andre Pedro (anpedro) <anpedro@cisco.com>
+Date: Thursday, October 7, 2021 at 7:47 AM
+To: Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+The fix is loaded and seems to work correctly.
+
+Ping me if you need setup access.
+
+Thanks,
+Andre Pedro
+
+
+From: Anil Kunnath (anikunna) <anikunna@cisco.com>
+Date: Thursday, October 7, 2021 at 1:57 AM
+To: Richard Michaelraj (rimichae) <rimichae@cisco.com>, Andre Pedro (anpedro) <anpedro@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+Hi Andre,
+
+Hope you have been able to progress with booting the device with the shared image. 
+Please verify the fix and share the setup details as we would like to check a few things before we go ahead with commit.
+
+Regards,
+Anil
+
+.:|:.:|:. 
+CISCO
+
+From: "Richard Michaelraj (rimichae)" <rimichae@cisco.com>
+Date: Thursday, 7 October 2021 at 7:49 AM
+To: "Andre Pedro (anpedro)" <anpedro@cisco.com>, "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>, "Sheshadri Sreenath (shsreena)" <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Hi Andre,
+
+Just do a boot variable change and reload. Dont think this is a SMU package rather a pvt image.
+
+Conf t
+Boot nxos bootflash:nxos.9.3.8.18.bin_PVT
+Copy run start
+Reload
+
+Thank you!
+Richard 
+
+From: Andre Pedro (anpedro) <anpedro@cisco.com>
+Date: Wednesday, October 6, 2021 at 6:48 PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Looks like there is can you clarify?
+
+fb-nexus-MAB# install all package bootflash:nxos.9.3.8.18.bin_PVT 
+Installer will perform compatibility check first. Please wait. 
+Installer is forced disruptive
+
+"Target NXOS image is required to be mentioned with patch option".
+Pre-upgrade check failed. Return code 0x40930016 (Invalid request).
+
+
+
+Thanks,
+Andre Pedro
+
+
+From: Andre Pedro (anpedro) <anpedro@cisco.com>
+Date: Wednesday, October 6, 2021 at 3:40 PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+Ill test and let you know..  is there any tricks to load this image on nexus? Or just do like regular image like I did ?
+
+Thanks,
+Andre Pedro
+
+
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Date: Wednesday, October 6, 2021 at 3:08 PM
+To: Andre Pedro (anpedro) <anpedro@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>, Sheshadri Sreenath (shsreena) <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+Hi Andre,
+
+Please give this private image try.
+
+Path: /ws/vasagraw-sjc/nxos.9.3.8.18.bin_PVT
+
+And please share your setup after. Would be needing console as well since I might need to reload the switch with a new image.
+
+Regards,
+
+Vasu
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: SS-evaluation (Created 10/07/2021 00:41:34 Added 10/07/2021 00:41:34 by vasagraw)---
+Not a common use case. Easily workable with non-default radius group creation. Day-1 behaviour. Likely never was a working config.
+
+************************
+
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Tuesday, 5 October 2021 at 11:21 PM
+To: "Andre Pedro (anpedro)" <anpedro@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>, "Sheshadri Sreenath (shsreena)" <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Hi Andre,
+
+Agreed, there seems to be an issue (not a severe one though) when the interface (loopback0 here) being used as <radius global source-interface> has got both V4 and V6 address, and radius server has a V6 address. The issue is gone when the very interface is configured as <source-interface under a user-defined radius group> as well. And using user-defined radius groups is a common practise for radius config. It is not that V6 connectivity is not happening.
+
+This appears to be a day-1 behaviour. Did the same config work on their device with some earlier NXOS version? If not, we should provide them with the working config.
+
+So, we would fix the issue, preferably as an enhancement.
+
+Regards,
+
+Vasu
+
+From: "Andre Pedro (anpedro)" <anpedro@cisco.com>
+Date: Tuesday, 5 October 2021 at 10:21 PM
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>, "Sheshadri Sreenath (shsreena)" <shsreena@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Adding Sheshadri,
+
+Vasu,
+
+This is no-doubt a bug and It must be fixed. I understand your work around and it may work for now but we wont change this config on their devices because its a software problem that we need to fix.
+
+ip radius source-interface Loopback0
+
+CSCvz86703 nxos 9.3(8) ip radius-source interface not working
+
+Thanks,
+Andre Pedro
+
+
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Date: Tuesday, October 5, 2021 at 11:53 AM
+To: Andre Pedro (anpedro) <anpedro@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Richard Michaelraj (rimichae) <rimichae@cisco.com>, nxos-dot1x-dev(mailer list) <nxos-dot1x-dev@cisco.com>
+Cc: Chennakesava Reddy Gaddam (chgaddam) <chgaddam@cisco.com>, Jenhua (Stone) Shr (jenhua) <jenhua@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+Hi Andre,
+
+I tried a few more config changes on the switch. In place of using default radius group, configured a user-defined group radius rad1 - it seems to be working without having to lose the V4 address from loopback0 interface. Usage of such non-default groups is generally the norm.
+
+************
+b-nexus-MAB(config)# 
+fb-nexus-MAB(config)# show running-config radius 
+
+!Command: show running-config radius
+!Running configuration last done at: Tue Oct  5 15:35:44 2021
+!Time: Tue Oct  5 15:38:06 2021
+
+version 9.3(8) Bios:version 08.39 
+radius-server retransmit 5
+radius-server deadtime 5
+radius-server host 2001:10:80:80::3 key 7 "qtsx123" authentication 
+aaa group server radius rad1 
+    server 2001:10:80:80::3 
+    source-interface loopback0
+
+
+fb-nexus-MAB(config)# 
+fb-nexus-MAB(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Oct  5 15:35:44 2021
+!Time: Tue Oct  5 15:38:11 2021
+
+version 9.3(8) Bios:version 08.39 
+aaa authentication dot1x default group rad1 
+radius-server directed-request 
+
+
+fb-nexus-MAB(config)# 
+fb-nexus-MAB(config)# 
+fb-nexus-MAB(config)# show running-config int loopback 0
+
+!Command: show running-config interface loopback0
+!Running configuration last done at: Tue Oct  5 15:35:44 2021
+!Time: Tue Oct  5 15:38:24 2021
+
+version 9.3(8) Bios:version 08.39 
+
+interface loopback0
+  ip address 192.168.150.1/32
+  ipv6 address 2001:192:168:150::1/128
+
+fb-nexus-MAB(config)# 
+****************
+
+Regards,
+
+Vasu
+
+From: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Date: Tuesday, 5 October 2021 at 8:57 PM
+To: "Andre Pedro (anpedro)" <anpedro@cisco.com>, "Anil Kunnath (anikunna)" <anikunna@cisco.com>, "Richard Michaelraj (rimichae)" <rimichae@cisco.com>, "nxos-dot1x-dev(mailer list)" <nxos-dot1x-dev@cisco.com>
+Cc: "Chennakesava Reddy Gaddam (chgaddam)" <chgaddam@cisco.com>, "Jenhua (Stone) Shr (jenhua)" <jenhua@cisco.com>
+Subject: Re: NXOS: version 9.3(8) dot1x radius v6
+
+Hi Andre,
+
+Thank you for sharing the setup.
+
+It seems to be a radius daemons connectivity issue happening due to conflict in source IP (V4) and destination IP (V6) types - radius daemon is fetching IPV4 address from interface loopback0 and was using that to connect to the server which is V6 IP 
+ 
+The issue is gone once I removed IPV4 address from interface loopback0 - it seems to be a day-1 behaviour.
+
+
+interface loopback0
+  ip address 192.168.150.1/32                                     <<<<=== dot1x connectivity worked after removing it
+  ipv6 address 2001:192:168:150::1/128
+
+
+Regards,
+
+Vasu
+---End of Note Titled: SS-evaluation---
+
+
+---Start of Note Titled:  Scrubnote (Created 10/06/2021 21:40:14 Modified 03/23/2022 20:58:59 by cms)---
+{220304 ananshar D B} PRRQ modified
+{211019 ananshar D B} PRRQ modified
+{211018 ananshar D B} PRRQ modified
+{211008 vasagraw S B} in BAT commit
+{211007 anpedro S B} fix works, please commit.
+{211006 anikunna S B} Shared a PI with potential fix. Waiting for feedback from submitter.
+{211006 vasagraw S B} not a common use case - day1 behaviour - Working on fix
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: cms-log (Created 10/06/2021 03:12:49 Added 10/06/2021 03:12:49 by cms)---
+yatgandh : Wed Oct  6 2021-03:12:37 EST : Attribute(Add) : 733_cvt_fb
+---End of Note Titled: cms-log---
+
+
+---Start of Note Titled: A-comments (Created 10/05/2021 21:26:44 Added 10/05/2021 21:26:44 by anikunna)---
+Pls look into how this can be addressed
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: Release-note (Created 10/05/2021 09:49:50 Added 10/05/2021 09:49:50 by anpedro)---
+$$PREFCS
+
+<B>Symptom:</B>
+mab/dot1x will failed due to ip-source interface not crafting the correct source address
+
+<B>Conditions:</B>
+mab/dot1x being used/configured.
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (30 of 30)
+------------------------------------------------------------------------------------------------------------------
+Diffs-release-davis                               ascii text     1871           ananshar       03/07/2022 06:34:53      
+Diffs-commit-davis                                ascii text     18932          ananshar       03/07/2022 06:34:49      
+build-output-davis                                ascii text     1807347        ananshar       03/06/2022 23:24:31      
+SSR_report_for_n7f_m3_basic_n7000_NXOS_davis.p2   ascii text     6469           jabajaj        03/06/2022 23:19:00      
+SSR_report_for_n7k_m2_basic_ezc_n7000_NXOS_davis.pascii text     1184           jabajaj        03/06/2022 23:08:51      
+build-davis-Report                                ascii text     5899           ananshar       03/06/2022 22:18:20      
+SSR_report_for_n7k_m2_basic_ezc_n7000_NXOS_davis.pascii text     1184           jabajaj        03/06/2022 21:08:50      
+SSR_report_for_n7k_f3_basic_n7000_NXOS_davis.p2   ascii text     6249           jabajaj        03/06/2022 11:49:05      
+SSR_report_for_n77_f4_100_basic_ezc_n7000_NXOS_davascii text     2128           jabajaj        03/06/2022 10:48:24      
+SSR_report_for_n7k_m2_basic_ezc_n7000_NXOS_davis.pascii text     1041           jabajaj        03/06/2022 10:35:49      
+SSR_report_for_n7k_f3_basic_n7000_NXOS_davis      ascii text     6249           jabajaj        03/04/2022 13:55:56      
+SSR_report_for_n7f_m3_basic_n7000_NXOS_davis      ascii text     6469           jabajaj        03/04/2022 13:55:17      
+SSR_report_for_n77_f4_100_basic_ezc_n7000_NXOS_davascii text     2128           jabajaj        03/04/2022 12:49:24      
+SSR_report_for_n7k_m2_basic_ezc_n7000_NXOS_davis  ascii text     1041           jabajaj        03/04/2022 12:35:57      
+CCA-REPORT-davis                                  ascii text     9252           ananshar       03/04/2022 08:04:45      
+nxos-pi-common-security-code-review-4             ascii text     939            prrqengg       03/04/2022 09:21:24      
+N39K-QA-CFD-Script-Reviews-code-review-3          ascii text     942            prrqengg       11/14/2021 21:26:24      
+Diffs-commit-kerry                                ascii text     8958           ananshar       10/19/2021 22:13:36      
+Diffs-release-kerry                               ascii text     1183           ananshar       10/19/2021 22:13:34      
+ccwarnings-kerry.p2                               ascii text     237            baas           10/19/2021 18:56:22      
+static-analysis-kerry.p2                          binary         7290           baas           10/19/2021 18:56:09      
+ccwarnings-kerry                                  ascii text     238            baas           10/19/2021 07:56:04      
+static-analysis-kerry                             binary         7374           baas           10/19/2021 07:55:52      
+nxos-pi-common-security-code-review-2             ascii text     937            prrqengg       10/19/2021 08:47:04      
+Diffs-release-irvine                              ascii text     1193           vasagraw       10/09/2021 15:22:27      
+Diffs-commit-irvine                               ascii text     8851           vasagraw       10/09/2021 15:22:25      
+ccwarnings-irvine                                 ascii text     239            baas           10/09/2021 00:35:34      
+static-analysis-irvine                            binary         7441           baas           10/09/2021 00:35:05      
+l2_uls_sanity_report                              ascii text     4875           root           10/08/2021 12:17:42      
+nxos-pi-common-security-code-review               ascii text     935            prrqengg       10/08/2021 01:47:30      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/16/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+08/16/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+07/29/2026 satdr    	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+07/29/2026 satdr    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/29/2026 satdr    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/16/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+09/16/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 cdetsbtk 	Security-screening-times	2025-04-01 22:31:10.000+0000 	2025-04-26 22:22:14.000+0000 	Mod
+04/26/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/26/2025 pisces   	Known-fixed-releases    	10.2(2)                      	                             	Del
+04/01/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-443816       	New
+04/01/2025 cdetsbtk 	Security-screening-times	2024-01-20 12:54:12.000+0000 	2025-04-01 22:31:10.000+0000 	Mod
+04/01/2025 pisces   	VF-patched              	                             	NX-OS:10.2(2),NX-OS:9.3(9)   	New
+04/01/2025 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/01/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/01/2025 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+04/01/2025 pisces   	Known-fixed-releases    	                             	10.2(2)                      	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 cdetsbtk 	Security-screening-times	2023-07-29 09:09:58.000+0000 	2024-01-20 12:54:12.000+0000 	Mod
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 cdetsbtk 	Security-screening-times	2022-06-10 13:52:36.000+0000 	2023-07-29 09:09:58.000+0000 	Mod
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Known-fixed-releases    	                             	10.2(4)                      	New
+09/20/2022 swrai    	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+09/20/2022 swrai    	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+09/20/2022 swrai    	Software-types          	NX-OS System Software,NX-OS S	                             	Del
+07/22/2022 susomasu 	Integrated-releases     	9.3(10.1),9.3(11)            	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+06/09/2022 cdetsbtk 	Security-screening-times	2022-05-05 18:20:13.000+0000 	2022-06-10 13:52:36.000+0000 	Mod
+06/09/2022 nxbld    	Integrated-releases     	                             	8.4(6)                       	New
+06/09/2022 nxbld    	Known-affected-releases 	9.3(8.22)                    	                             	Del
+06/09/2022 nxbld    	Known-fixed-releases    	8.4(5.14)S0,10.2(4),10.2(3.1)	                             	Del
+05/05/2022 cdetsbtk 	Security-screening-times	2022-05-04 16:33:31.000+0000 	2022-05-05 18:20:13.000+0000 	Mod
+05/05/2022 palshanm 	Note Title              	                             	V-comments.p2                	New
+05/05/2022 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+05/05/2022 palshanm 	Status                  	R                            	V                            	Mod
+05/05/2022 palshanm 	Verified-release        	                             	8.4(5.30)S0                  	New
+05/05/2022 palshanm 	Verified-on             	2021-12-06 19:07:59.000+0000 	2022-05-05 11:20:12.000+0000 	Mod
+05/05/2022 palshanm 	statusStates            	                             	[status=R, startDate=Mon Mar 	New
+05/05/2022 palshanm 	statusStates            	[status=R, startDate=Mon Mar 	                             	Del
+05/05/2022 palshanm 	Age-status              	153                          	212                          	Mod
+05/05/2022 palshanm 	Mean-time-to-verified   	62                           	211                          	Mod
+05/04/2022 cdetsbtk 	Security-screening-times	2022-03-24 10:59:00.000+0000 	2022-05-04 16:33:31.000+0000 	Mod
+05/04/2022 divvenka 	Integrated-releases     	                             	10.2(3.1),10.2(4)            	New
+05/04/2022 divvenka 	Known-fixed-releases    	                             	10.2(4),10.2(3.1)            	New
+03/23/2022 cdetsbtk 	Security-screening-times	2022-03-09 00:34:52.000+0000 	2022-03-24 10:59:00.000+0000 	Mod
+03/23/2022 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+03/22/2022 sivadura 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+03/13/2022 sivadura 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+03/08/2022 cdetsbtk 	Security-screening-times	2022-03-07 22:53:20.000+0000 	2022-03-09 00:34:52.000+0000 	Mod
+03/08/2022 nxbld    	Integrated-releases     	                             	8.4(5.14)S0                  	New
+03/08/2022 nxbld    	Known-fixed-releases    	                             	8.4(5.14)S0                  	New
+03/07/2022 cdetsbtk 	Security-screening-times	2022-03-07 22:34:54.000+0000 	2022-03-07 22:53:20.000+0000 	Mod
+03/07/2022 ananshar 	Note Title              	                             	R-comments.p3                	New
+03/07/2022 ananshar 	Status-desc             	M-More                       	R-Resolved                   	Mod
+03/07/2022 ananshar 	Status                  	M                            	R                            	Mod
+03/07/2022 ananshar 	Resolved-on             	2021-10-20 05:38:58.000+0000 	2022-03-07 14:53:20.000+0000 	Mod
+03/07/2022 ananshar 	statusStates            	                             	[status=M, startDate=Fri Mar 	New
+03/07/2022 ananshar 	statusStates            	[status=M, startDate=Fri Mar 	                             	Del
+03/07/2022 ananshar 	Age-status              	150                          	153                          	Mod
+03/07/2022 ananshar 	Mean-time-to-resolved   	14                           	152                          	Mod
+03/07/2022 cdetsbtk 	Security-screening-times	2022-03-07 22:34:50.000+0000 	2022-03-07 22:34:54.000+0000 	Mod
+03/07/2022 ananshar 	File Name               	                             	Diffs-release-davis          	New
+03/07/2022 cdetsbtk 	Security-screening-times	2022-03-07 15:24:33.000+0000 	2022-03-07 22:34:50.000+0000 	Mod
+03/07/2022 ananshar 	File Name               	                             	Diffs-commit-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 15:24:30.000+0000 	2022-03-07 15:24:33.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 15:19:02.000+0000 	2022-03-07 15:24:30.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 15:08:52.000+0000 	2022-03-07 15:19:02.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n7f_m3_basic_n	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:48.000+0000 	2022-03-07 15:08:52.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_m2_basic_e	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:47.000+0000 	2022-03-07 14:26:48.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:45.000+0000 	2022-03-07 14:26:47.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:44.000+0000 	2022-03-07 14:26:45.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:30.000+0000 	2022-03-07 14:26:44.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:22.000+0000 	2022-03-07 14:26:30.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:06.000+0000 	2022-03-07 14:26:22.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:26:02.000+0000 	2022-03-07 14:26:06.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:25:57.000+0000 	2022-03-07 14:26:02.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:25:55.000+0000 	2022-03-07 14:25:57.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:24:01.000+0000 	2022-03-07 14:25:55.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:24:00.000+0000 	2022-03-07 14:24:01.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:01:00.000+0000 	2022-03-07 14:24:00.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 ananshar 	File Name               	                             	build-davis-Report           	New
+03/06/2022 ananshar 	File Name               	build-davis-Report           	                             	Del
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 14:00:53.000+0000 	2022-03-07 14:01:00.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:58:58.000+0000 	2022-03-07 14:00:53.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:58:56.000+0000 	2022-03-07 13:58:58.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:55:59.000+0000 	2022-03-07 13:58:56.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:55:56.000+0000 	2022-03-07 13:55:59.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:49:14.000+0000 	2022-03-07 13:55:56.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:49:10.000+0000 	2022-03-07 13:49:14.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:47:17.000+0000 	2022-03-07 13:49:10.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:47:14.000+0000 	2022-03-07 13:47:17.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:44:25.000+0000 	2022-03-07 13:47:14.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:44:24.000+0000 	2022-03-07 13:44:25.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:42:57.000+0000 	2022-03-07 13:44:24.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:42:54.000+0000 	2022-03-07 13:42:57.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 13:08:52.000+0000 	2022-03-07 13:42:54.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 03:49:06.000+0000 	2022-03-07 13:08:52.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_m2_basic_e	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 02:48:24.000+0000 	2022-03-07 03:49:06.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_f3_basic_n	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 02:35:50.000+0000 	2022-03-07 02:48:24.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n77_f4_100_bas	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:15:28.000+0000 	2022-03-07 02:35:50.000+0000 	Mod
+03/06/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_m2_basic_e	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:15:26.000+0000 	2022-03-07 01:15:28.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:12:26.000+0000 	2022-03-07 01:15:26.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:12:24.000+0000 	2022-03-07 01:12:26.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:11:25.000+0000 	2022-03-07 01:12:24.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-davis-Report           	New
+03/06/2022 ananshar 	File Name               	build-davis-Report           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:11:21.000+0000 	2022-03-07 01:11:25.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:09:22.000+0000 	2022-03-07 01:11:21.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:09:17.000+0000 	2022-03-07 01:09:22.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:08:20.000+0000 	2022-03-07 01:09:17.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:08:17.000+0000 	2022-03-07 01:08:20.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:08:06.000+0000 	2022-03-07 01:08:17.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:08:04.000+0000 	2022-03-07 01:08:06.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:05:35.000+0000 	2022-03-07 01:08:04.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 01:05:34.000+0000 	2022-03-07 01:05:35.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:51:47.000+0000 	2022-03-07 01:05:34.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:51:43.000+0000 	2022-03-07 00:51:47.000+0000 	Mod
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:44:38.000+0000 	2022-03-07 00:51:43.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:44:36.000+0000 	2022-03-07 00:44:38.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:43:32.000+0000 	2022-03-07 00:44:36.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:43:29.000+0000 	2022-03-07 00:43:32.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:38:41.000+0000 	2022-03-07 00:43:29.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:38:38.000+0000 	2022-03-07 00:38:41.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:35:51.000+0000 	2022-03-07 00:38:38.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:35:48.000+0000 	2022-03-07 00:35:51.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:34:07.000+0000 	2022-03-07 00:35:48.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:34:04.000+0000 	2022-03-07 00:34:07.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:33:36.000+0000 	2022-03-07 00:34:04.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-07 00:33:34.000+0000 	2022-03-07 00:33:36.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/06/2022 cdetsbtk 	Security-screening-times	2022-03-05 05:55:57.000+0000 	2022-03-07 00:33:34.000+0000 	Mod
+03/06/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 05:55:17.000+0000 	2022-03-05 05:55:57.000+0000 	Mod
+03/04/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_f3_basic_n	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 04:49:25.000+0000 	2022-03-05 05:55:17.000+0000 	Mod
+03/04/2022 jabajaj  	File Name               	                             	SSR_report_for_n7f_m3_basic_n	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 04:35:58.000+0000 	2022-03-05 04:49:25.000+0000 	Mod
+03/04/2022 jabajaj  	File Name               	                             	SSR_report_for_n77_f4_100_bas	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:14:57.000+0000 	2022-03-05 04:35:58.000+0000 	Mod
+03/04/2022 jabajaj  	File Name               	                             	SSR_report_for_n7k_m2_basic_e	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:11:19.000+0000 	2022-03-05 03:14:57.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-davis-Report           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:11:05.000+0000 	2022-03-05 03:11:19.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:06:19.000+0000 	2022-03-05 03:11:05.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:06:17.000+0000 	2022-03-05 03:06:19.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:06:14.000+0000 	2022-03-05 03:06:17.000+0000 	Mod
+03/04/2022 ananshar 	contents                	                             	build-output-davis           	Mod
+03/04/2022 ananshar 	FileSize                	1782862                      	1783738                      	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:03:51.000+0000 	2022-03-05 03:06:14.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 03:03:43.000+0000 	2022-03-05 03:03:51.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:59:33.000+0000 	2022-03-05 03:03:43.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:59:31.000+0000 	2022-03-05 02:59:33.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:58:18.000+0000 	2022-03-05 02:59:31.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:58:15.000+0000 	2022-03-05 02:58:18.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:51:28.000+0000 	2022-03-05 02:58:15.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:51:25.000+0000 	2022-03-05 02:51:28.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:41:51.000+0000 	2022-03-05 02:51:25.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:41:49.000+0000 	2022-03-05 02:41:51.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:40:38.000+0000 	2022-03-05 02:41:49.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:40:35.000+0000 	2022-03-05 02:40:38.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:32:45.000+0000 	2022-03-05 02:40:35.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:32:43.000+0000 	2022-03-05 02:32:45.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:30:10.000+0000 	2022-03-05 02:32:43.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:30:08.000+0000 	2022-03-05 02:30:10.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:29:44.000+0000 	2022-03-05 02:30:08.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:29:42.000+0000 	2022-03-05 02:29:44.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 02:28:17.000+0000 	2022-03-05 02:29:42.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 ananshar 	File Name               	build-output-davis           	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 01:21:25.000+0000 	2022-03-05 02:28:17.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	build-output-davis           	New
+03/04/2022 prrqengg 	Code-reviewer           	                             	greddyda                     	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 01:12:20.000+0000 	2022-03-05 01:21:25.000+0000 	Mod
+03/04/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+03/04/2022 prrqengg 	FileSize                	937                          	939                          	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 01:04:50.000+0000 	2022-03-05 01:12:20.000+0000 	Mod
+03/04/2022 ananshar 	Note Title              	                             	static-analysis-davis        	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 00:04:46.000+0000 	2022-03-05 01:04:50.000+0000 	Mod
+03/04/2022 ananshar 	Note Title              	                             	static-analysis.p2           	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-05 00:04:44.000+0000 	2022-03-05 00:04:46.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 23:52:58.000+0000 	2022-03-05 00:04:44.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	CCA-REPORT-davis             	New
+03/04/2022 ananshar 	File Name               	CCA-REPORT-davis             	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 23:52:52.000+0000 	2022-03-04 23:52:58.000+0000 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 23:25:00.000+0000 	2022-03-04 23:52:52.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	CCA-REPORT-davis             	New
+03/04/2022 ananshar 	File Name               	CCA-REPORT-davis             	                             	Del
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 22:17:16.000+0000 	2022-03-04 23:25:00.000+0000 	Mod
+03/04/2022 ananshar 	File Name               	                             	CCA-REPORT-davis             	New
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 21:43:25.000+0000 	2022-03-04 22:17:16.000+0000 	Mod
+03/04/2022 ananshar 	Note Title              	                             	M-comments.p2                	New
+03/04/2022 ananshar 	Status-desc             	V-Verified                   	M-More                       	Mod
+03/04/2022 ananshar 	Status                  	V                            	M                            	Mod
+03/04/2022 ananshar 	More-on                 	2021-10-19 13:54:39.000+0000 	2022-03-04 14:17:15.000+0000 	Mod
+03/04/2022 ananshar 	statusStates            	                             	[status=V, startDate=Mon Dec 	New
+03/04/2022 ananshar 	statusStates            	[status=V, startDate=Mon Dec 	                             	Del
+03/04/2022 ananshar 	Age-status              	62                           	150                          	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2022-03-04 16:46:48.000+0000 	2022-03-04 21:43:25.000+0000 	Mod
+03/04/2022 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+03/04/2022 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	AutoIgnored-Defect ignored - 	Mod
+03/04/2022 cdetsbtk 	Security-screening-times	2021-12-07 03:08:00.000+0000 	2022-03-04 16:46:48.000+0000 	Mod
+03/04/2022 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+12/06/2021 palshanm 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+12/06/2021 cdetsbtk 	Security-screening-times	2021-11-15 13:26:25.000+0000 	2021-12-07 03:08:00.000+0000 	Mod
+12/06/2021 palshanm 	Note Title              	                             	V-comments                   	New
+12/06/2021 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+12/06/2021 palshanm 	Status                  	R                            	V                            	Mod
+12/06/2021 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+12/06/2021 palshanm 	Verified-release        	                             	9.3(8.75)                    	New
+12/06/2021 palshanm 	Verified-confidence     	                             	tested                       	Mod
+12/06/2021 palshanm 	Verified-on             	                             	2021-12-06 19:07:59.000+0000 	Mod
+12/06/2021 palshanm 	statusStates            	                             	[status=R, startDate=Wed Oct 	New
+12/06/2021 palshanm 	statusStates            	[status=R, startDate=Wed Oct 	                             	Del
+12/06/2021 palshanm 	Age-status              	15                           	62                           	Mod
+12/06/2021 palshanm 	Mean-time-to-verified   	                             	62                           	Mod
+11/14/2021 cdetsbtk 	Security-screening-times	2021-11-07 02:06:45.000+0000 	2021-11-15 13:26:25.000+0000 	Mod
+11/14/2021 prrqengg 	File Name               	                             	N39K-QA-CFD-Script-Reviews-co	New
+11/06/2021 cdetsbtk 	Security-screening-times	2021-10-30 01:37:03.000+0000 	2021-11-07 02:06:45.000+0000 	Mod
+11/06/2021 cdetsadm 	Known-affected-releases 	                             	9.3(8.22)                    	New
+11/06/2021 cdetsadm 	Known-fixed-releases    	                             	10.2(1.149),9.3(8.25),9.3(9) 	New
+11/06/2021 divvenka 	Integrated-releases     	                             	10.2(1.149)                  	New
+10/29/2021 cdetsbtk 	Security-screening-times	2021-10-27 15:39:58.000+0000 	2021-10-30 01:37:03.000+0000 	Mod
+10/29/2021 palshanm 	Note Title              	                             	Other                        	New
+10/29/2021 palshanm 	Automated-test          	N                            	Y                            	Mod
+10/27/2021 cdetsbtk 	Security-screening-times	2021-10-20 12:38:58.000+0000 	2021-10-27 15:39:58.000+0000 	Mod
+10/27/2021 vasagraw 	Note Title              	                             	Not-Required-In-beverlyhills 	New
+10/25/2021 kratnam  	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-20 12:13:37.000+0000 	2021-10-20 12:38:58.000+0000 	Mod
+10/19/2021 ananshar 	Note Title              	                             	R-comments.p2                	New
+10/19/2021 ananshar 	Status-desc             	M-More                       	R-Resolved                   	Mod
+10/19/2021 ananshar 	Status                  	M                            	R                            	Mod
+10/19/2021 ananshar 	Resolver                	vasagraw                     	ananshar                     	Mod
+10/19/2021 ananshar 	Resolved-on             	2021-10-10 06:21:38.000+0000 	2021-10-20 05:38:58.000+0000 	Mod
+10/19/2021 ananshar 	statusStates            	                             	[status=M, startDate=Tue Oct 	New
+10/19/2021 ananshar 	statusStates            	[status=M, startDate=Tue Oct 	                             	Del
+10/19/2021 ananshar 	Age-status              	14                           	15                           	Mod
+10/19/2021 ananshar 	Mean-time-to-resolved   	4                            	14                           	Mod
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-20 12:13:35.000+0000 	2021-10-20 12:13:37.000+0000 	Mod
+10/19/2021 ananshar 	File Name               	                             	Diffs-commit-kerry           	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-20 08:56:23.000+0000 	2021-10-20 12:13:35.000+0000 	Mod
+10/19/2021 ananshar 	File Name               	                             	Diffs-release-kerry          	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-20 08:56:11.000+0000 	2021-10-20 08:56:23.000+0000 	Mod
+10/19/2021 baas     	File Name               	                             	ccwarnings-kerry.p2          	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 22:47:05.000+0000 	2021-10-20 08:56:11.000+0000 	Mod
+10/19/2021 baas     	File Name               	                             	static-analysis-kerry.p2     	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 22:47:02.000+0000 	2021-10-19 22:47:05.000+0000 	Mod
+10/19/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 21:56:05.000+0000 	2021-10-19 22:47:02.000+0000 	Mod
+10/19/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 21:55:53.000+0000 	2021-10-19 21:56:05.000+0000 	Mod
+10/19/2021 baas     	File Name               	                             	ccwarnings-kerry             	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 20:54:40.000+0000 	2021-10-19 21:55:53.000+0000 	Mod
+10/19/2021 baas     	File Name               	                             	static-analysis-kerry        	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 20:47:37.000+0000 	2021-10-19 20:54:40.000+0000 	Mod
+10/19/2021 ananshar 	Note Title              	                             	M-comments                   	New
+10/19/2021 ananshar 	Status-desc             	R-Resolved                   	M-More                       	Mod
+10/19/2021 ananshar 	Status                  	R                            	M                            	Mod
+10/19/2021 ananshar 	More-by                 	vasagraw                     	ananshar                     	Mod
+10/19/2021 ananshar 	More-on                 	2021-10-10 06:21:38.000+0000 	2021-10-19 13:54:39.000+0000 	Mod
+10/19/2021 ananshar 	statusStates            	                             	[status=R, startDate=Sun Oct 	New
+10/19/2021 ananshar 	statusStates            	[status=R, startDate=Sun Oct 	                             	Del
+10/19/2021 ananshar 	Age-status              	5                            	14                           	Mod
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-19 20:38:54.000+0000 	2021-10-19 20:47:37.000+0000 	Mod
+10/19/2021 vasagraw 	Note Title              	                             	unit-test_kerry              	New
+10/19/2021 cdetsbtk 	Security-screening-times	2021-10-18 18:36:06.000+0000 	2021-10-19 20:38:54.000+0000 	Mod
+10/19/2021 vasagraw 	Note Title              	                             	L2_ULS_Kerry                 	New
+10/18/2021 cdetsbtk 	Security-screening-times	2021-10-18 18:35:45.000+0000 	2021-10-18 18:36:06.000+0000 	Mod
+10/18/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/18/2021 cdetsbtk 	Security-screening-times	2021-10-18 17:07:05.000+0000 	2021-10-18 18:35:45.000+0000 	Mod
+10/18/2021 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+10/18/2021 prrqengg 	FileSize                	936                          	937                          	Mod
+10/18/2021 cdetsbtk 	Security-screening-times	2021-10-12 00:17:50.000+0000 	2021-10-18 17:07:05.000+0000 	Mod
+10/18/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+10/17/2021 jdasgupt 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+10/11/2021 cdetsbtk 	Security-screening-times	2021-10-10 13:21:44.000+0000 	2021-10-12 00:17:50.000+0000 	Mod
+10/11/2021 vasagraw 	Product                 	n7k-infra                    	n9k-standalone-sw            	Mod
+10/11/2021 vasagraw 	Hardware                	all                          	Nexus 9000                   	Mod
+10/11/2021 vasagraw 	MDF-series              	                             	Cisco Nexus 9000 Series Switc	New
+10/11/2021 vasagraw 	MDF-series              	Cisco Nexus 7000 Series Switc	                             	Del
+10/11/2021 vasagraw 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+10/11/2021 vasagraw 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/11/2021 vasagraw 	MDF-edited              	                             	Y                            	Mod
+10/11/2021 vasagraw 	Doc-manager             	girshank                     	anikunna                     	Mod
+10/11/2021 vasagraw 	Document                	None                         	nexus                        	Mod
+10/10/2021 najevoor 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+10/10/2021 najevoor 	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+10/10/2021 divvenka 	Integrated-releases     	                             	9.3(8.25),9.3(9)             	New
+10/09/2021 cdetsbtk 	Security-screening-times	2021-10-10 05:22:28.000+0000 	2021-10-10 13:21:44.000+0000 	Mod
+10/09/2021 vasagraw 	Note Title              	                             	R-comments                   	New
+10/09/2021 vasagraw 	Related-bugs            	                             	Teacat/CSCvz91187            	New
+10/09/2021 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+10/09/2021 vasagraw 	Status                  	A                            	R                            	Mod
+10/09/2021 vasagraw 	Teabugid                	                             	CSCvz91187                   	Mod
+10/09/2021 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+10/09/2021 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+10/09/2021 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+10/09/2021 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+10/09/2021 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+10/09/2021 vasagraw 	Breakage                	                             	No                           	Mod
+10/09/2021 vasagraw 	Regression              	                             	N                            	Mod
+10/09/2021 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+10/09/2021 vasagraw 	Released-code           	                             	Y                            	Mod
+10/09/2021 vasagraw 	Behavior-changed        	                             	N                            	Mod
+10/09/2021 vasagraw 	Original-resolved-on    	                             	2021-10-10 06:21:38.000+0000 	Mod
+10/09/2021 vasagraw 	Documents-changed       	                             	none                         	Mod
+10/09/2021 vasagraw 	More-on                 	                             	2021-10-10 06:21:38.000+0000 	Mod
+10/09/2021 vasagraw 	Opened-on               	                             	2021-10-10 06:21:38.000+0000 	Mod
+10/09/2021 vasagraw 	Resolved-on             	                             	2021-10-10 06:21:38.000+0000 	Mod
+10/09/2021 vasagraw 	Submitted-on            	2021-10-05 16:49:50.114+0000 	2021-10-05 16:49:50.000+0000 	Mod
+10/09/2021 vasagraw 	New-on                  	2021-10-05 16:49:50.114+0000 	2021-10-05 16:49:50.000+0000 	Mod
+10/09/2021 vasagraw 	statusStates            	                             	[status=A, startDate=Wed Oct 	New
+10/09/2021 vasagraw 	statusStates            	[status=A, startDate=Wed Oct 	                             	Del
+10/09/2021 vasagraw 	Age-status              	1                            	5                            	Mod
+10/09/2021 vasagraw 	Mean-time-to-resolved   	                             	4                            	Mod
+10/09/2021 vasagraw 	Upgrade-caveats         	                             	No                           	Mod
+10/09/2021 vasagraw 	Upgrade-remarks         	                             	Code Fix                     	Mod
+10/09/2021 cdetsbtk 	Security-screening-times	2021-10-10 05:22:26.000+0000 	2021-10-10 05:22:28.000+0000 	Mod
+10/09/2021 vasagraw 	File Name               	                             	Diffs-release-irvine         	New
+10/09/2021 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+10/09/2021 cdetsbtk 	Security-screening-times	2021-10-09 19:27:18.000+0000 	2021-10-10 05:22:26.000+0000 	Mod
+10/09/2021 vasagraw 	File Name               	                             	Diffs-commit-irvine          	New
+10/09/2021 cdetsbtk 	Security-screening-times	2021-10-09 19:27:17.000+0000 	2021-10-09 19:27:18.000+0000 	Mod
+10/09/2021 cdetsbtk 	Security-screening-times	2021-10-09 13:03:06.000+0000 	2021-10-09 19:27:17.000+0000 	Mod
+10/09/2021 baas     	File Name               	                             	ccwarnings-irvine            	New
+10/09/2021 baas     	File Name               	                             	static-analysis-irvine       	New
+10/08/2021 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	AutoIgnored-Defect ignored - 	Mod
+10/08/2021 cdetsbtk 	Security-screening-times	2021-10-05 21:06:41.000+0000 	2021-10-09 13:03:06.000+0000 	Mod
+10/08/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/08/2021 vasagraw 	Note                    	L2_ULS                       	L2_ULS                       	Mod
+10/08/2021 root     	File Name               	                             	l2_uls_sanity_report         	New
+10/08/2021 vasagraw 	Note Title              	                             	L2_ULS                       	New
+10/08/2021 vasagraw 	Note Title              	                             	Unit-test                    	New
+10/08/2021 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+10/07/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/07/2021 vasagraw 	Note Title              	                             	SS-evaluation                	New
+10/06/2021 cms      	Est-fix-date            	                             	2021-10-12 07:00:00.000+0000 	Mod
+10/06/2021 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+10/06/2021 cms      	Note Title              	                             	Scrubnote                    	New
+10/06/2021 cms      	Note Title              	                             	cms-log                      	New
+10/06/2021 cms      	Attribute               	fb_msw_cvt fb_msw_cvt_system-	fb_msw_cvt fb_msw_cvt_system-	Mod
+10/05/2021 anikunna 	Note Title              	                             	A-comments                   	New
+10/05/2021 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+10/05/2021 anikunna 	Status                  	N                            	A                            	Mod
+10/05/2021 anikunna 	Engineer                	                             	vasagraw                     	Mod
+10/05/2021 anikunna 	Assigner                	                             	anikunna                     	Mod
+10/05/2021 anikunna 	Test-escape             	N                            	Y                            	Mod
+10/05/2021 anikunna 	Assigned Date           	                             	2021-10-06 04:26:44.000+0000 	Mod
+10/05/2021 anikunna 	statusStates            	                             	[status=N, startDate=Tue Oct 	New
+10/05/2021 anikunna 	statusStates            	[status=N, startDate=Tue Oct 	                             	Del
+10/05/2021 anikunna 	Age-status              	0                            	1                            	Mod
+10/05/2021 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+10/05/2021 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+10/05/2021 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+10/05/2021 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+10/05/2021 cdetsbtk 	Security-screening-times	                             	2021-10-05 21:06:41.000+0000 	Mod
+10/05/2021 anpedro  	Note Title              	                             	Release-note                 	New
+10/05/2021 anpedro  	Version                 	                             	9.3(8.22)                    	New
+10/05/2021 anpedro  	Defect Created          	                             	                             	New

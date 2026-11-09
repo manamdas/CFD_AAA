@@ -1,0 +1,1148 @@
+*******************************************************************************
+
+Bug ID   : CSCvv68826         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: ldap               Severity: 3 (moderate)   
+Headline : LDAP search-filter config breaks in Cisco NX-OS 9.3.x
+PrimaryPV : 
+Version :9.3(5) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: sandeku9           Submitted: 09/11/2020 04:02:58     Last Updtd : 08/09/2026 18:00:01  
+RNE-Type: NONE                New-on : 09/11/2020 04:02:58      
+Root-cause-analysis:                                                  
+Interest : aeguiart nroblesh
+Doc-manager: akudur                                         
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:vivekgup                                            
+Known-affected-releases:9.3(5) 
+
+Known-fixed-releases:9.3(6) 
+
+
+
+Potentially-affected-releases:5.2(1)SV3(1.3) 5.2(1)SV5(1.1) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)N1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)N1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 09/25/2020 00:09:58                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 2                                              
+Mean-time-to-resolved: 13                                             
+Mean-time-to-verified: 25     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 09/11/2020 11:01:10            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name: Automated-jnakkera-CSCvv68826-2                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Configuring 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 09/13/2020 11:13:08 
+Code-reviewer: sarchand       
+Opened-on: 09/25/2020 00:09:58Opener: anok                  
+Engineer : anok               DE-manager  : anikunna        Est Time/Attribute : gnosis dsig_no_icexists imr5-hkatakam  
+Est. completion date: 09/24/2020 00:00:00  
+Script-version:                         
+
+More-by : anok                More-on: 09/25/2020 00:09:58  
+
+Documents Changed: none       Resolved: 09/25/2020 00:09:58 Resolver: anok           
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 10/07/2020 00:14:01      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  Support DC-India-EMEAR-SNTC
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Regression Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   4
+Tickets-count-direct :            3
+Trouble-tickets :              689853387;691380845;691409588
+Trouble-tickets-direct :C3689853387 
+Trouble-tickets-direct :C3691409588 
+Trouble-tickets-direct :C3691380845 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoDeferred-Defect deferred - A non-customer visible bugid has been referenced in the RNE
+Security-screening-timestamp :                 05/07/2025 21:42:08
+Document :    nexus
+
+Summary:
+After upgrade to 9.3.5 from 7.0(3)I4(8), LDAP search-filter config got changed.
+
+Before upgrade  :
+	userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+
+After upgrade :
+	userprofile attribute-name "xxxx" search-filter "63charactersString" base-DN "xxxx"
+
+
+* Problem is : Not able to use all 128 characters in search filter.
+
+N9k(config)#ldap search-map 
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+ERROR: value of property searchFilter is out of range:
+
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter ?
+  WORD  Search Map search-filter  (Max Size 128)
+
+* This search-filter only have 110 characters, still not accepted, where as we have limit of 128.
+* Same behavior re-producible in LAB.
+* Issue is not seen with 9.2.x (hamilton) only seen in Irvine (9.3.x)
+* I have tested with 9.2.4 (hamilton) and 9.3.2 (Irvine)
+
+* Tested in Lab can use only 63 character in search filter :
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "63charactersString" base-DN "xxxx"
+N9k(config-ldap-search-map)#
+
+******************* Related Service Requests (3 of 3)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         689853387       VICTORIA UNIVERSITY                      
+C3         691380845       VICTORIA UNIVERSITY                      
+C3         691409588       VICTORIA UNIVERSITY                      
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-470261                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate              nroblesh      09/28/2020 14:32:29    CSCvv90135      CSC.datacenter  D            
+
+
+********************* Listing of Notes (14 of 14 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 10/21/2020 06:51:55 Added 10/21/2020 06:51:55 by vepabbu)---
+https://gnosis.cisco.com/#!/signature/bug/5f903cecb568711ea49f08aa/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: borg_positive_validation (Created 10/21/2020 06:50:15 Added 10/21/2020 06:50:15 by vepabbu)---
+Positive validation file : https://largefile-prod.cloudapps.cisco.com/web-ui?appId=CSOne&srId=687294611&fileName=CSCvv68826_pos.txt
+Auto run URL : https://scripts.cisco.com/ui/use/BORG_Mechanic_v3_py3_aeguiart?gateway=NXOSSTPpy3&module=BORG_NXOS_CSCvv68826_LDAP_search_filter_config_breaks_Cisco_NXOS_93x&sr=687294611&filename=CSCvv68826_pos.txt&s=csone&url=http://www-tac.cisco.com/Teams/ks/c3/getLargeFile.php%3FsrId%3D687294611%26fileName%3DCSCvv68826_pos.txt&autorun=true
+---End of Note Titled: borg_positive_validation---
+
+
+---Start of Note Titled: V-comments (Created 10/07/2020 00:14:01 Added 10/07/2020 00:14:01 by palshanm)---
+Bug fix is verified using 9.3(5.84). Supported only 127 character and checking with DE.
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  DetectionLogic (Created 10/06/2020 17:14:02 Modified 04/12/2021 02:10:13 by mwilczak)---
+[~vepabbu] could you please do following amendments. 
+Thank you!
+
+============================================================
+
+0. Issue is seen with nexus *3k and 9k* switch
+
+1. Issue is seen for when upgrade to version 9.3(5). Version *9.3(5) is only affected* version.
+
+Check show system reset-reason and make sure switch was upgraded recently to affected version
+
+2) At 520913 usecs after Thu May 7 17:43:33 2020
+Reason: Reset due to upgrade <<<<<<<<<<<<<<<<<<<<<<<
+Service:
+Version: 9.3(3)
+
+
+If please check that difference between upgrade time and "show clock" time is *lower than 30 days*.
+
+2. Check if feature ldap is enabled
+
+Show run | i ldap
+
+<SNIP>
+
+Feature ldap
+
+<SNIP>
+
+3. Check if *LDAP seach filter* is configured: "search-filter"
+
+Show run ldap or show run
+
+Example:
+"userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx""
+
+(this part is correct id Pytho script)
+
+BORG Alert:
+Condition 0 && condition 1 && Condition 2 && Condition 3
+
+
+Positive file:
+https://largefile-prod.cloudapps.cisco.com/web-ui?appId=CSOne&srId=687294611&fileName=CSCvv68826_pos.txt
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: Automation_Note (Created 10/04/2020 04:10:22 Added 10/04/2020 04:10:22 by jnakkera)---
+PRRQ link:
+=======
+https://wwwin-prrqng.cisco.com/prrqui/#/review-details/description?bugId=CSCvv68826-2&type=code&queueName=N9K-QA-TEACAT-Script-Reviews
+
+Script Details:
+==============
+Script            : N9K_CFD_ONE_NODE_Script5.py
+Job file          : n9k_one_node_cfds_joblogical.py
+Testbed Yaml file : Reg33_Seoul_Testbed.yml
+Logical Yaml File : N9K_CFD_ONE_NODE_Logical.yml
+
+
+Failed Log:
+==========
+https://earms-trade.cisco.com/tradeui/logs/details?ats=%2Fauto%2Finsbu-n9k%2Fregression%2FpyATS2_New&client=web&host=insbu-engsvr-3&archive=%2Fauto%2Finsbu-n9k%2Fregression%2FpyATS2_New%2Fusers%2Froot%2Farchive%2F20-09%2Fn9k_one_node_cfds_joblogicall.2020Sep30_03:16:56.zip
+
+
+Passed Log:
+==========
+http://earms-trade.cisco.com/tradeui/resultsviewer.faces?ats=/auto/insbu-n9k/regression/pyATS2_New&client=web&host=insbu-engsvr-3&archive=/auto/insbu-n9k/regression/pyATS2_New/users/root/archive/20-09/n9k_one_node_cfds_joblogical.2020Sep30_03:01:03.zip
+
+
+CVS Details:
+===========
+cvs status: 
+===================================================================
+File: N9K_CFD_ONE_NODE_Script5.py       Status: Up-to-date
+
+   Working revision:    1.34
+   Repository revision: 1.34    /cvsroot/eor/systest/scripts/teacats/N9K_CFD_ONE_NODE_Script5.py,v
+   Sticky Tag:          (none)
+   Sticky Date:         (none)
+   Sticky Options:      (none)
+
+
+cvs status: 
+===================================================================
+File: N9K_CFD_ONE_NODE_Logical.yml     Status: Up-to-date
+
+   Working revision:    1.152
+   Repository revision: 1.152    /cvsroot/eor/systest/scripts/teacats/N9K_CFD_ONE_NODE_Logical.yml,v
+   Sticky Tag:          (none)
+   Sticky Date:         (none)
+   Sticky Options:      (none)
+
+[root@insbu-engsvr-1 teacats]#
+---End of Note Titled: Automation_Note---
+
+
+---Start of Note Titled: R-comments (Created 09/25/2020 00:09:58 Added 09/25/2020 00:09:58 by anok)---
+Committed to irvine
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis (Created 09/24/2020 22:51:42 Added 09/24/2020 22:51:42 by anok)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvv68826).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-3897
+#     View name: UNKNOWN 
+#     Working directory: /nobackup/anok/ldap_imr 
+# Generated at
+#     Fri Sep 25 05:51:40 2020 UTC by anok
+# Enclosure contains contents of the following files:
+#     /nobackup/anok/ldap_imr/build/pctmp/sa_attachments/na_sa_attachment.1601013100
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/anok/ldap_imr/build/pctmp/sa_attachments/na_sa_attachment.1601013100':
+/nobackup/anok/ldap_imr/build/pctmp/sa_attachments/na_sa_attachment.1601013100
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: Eng-notes (Created 09/24/2020 11:57:32 Added 09/24/2020 11:57:32 by anok)---
+The Ldapfilter size and LdanDN size was changed from 127 to 63 in iplus_b due to a sync which happened from UCS release. Due to that in irvine, only 63 characters are supported for ldap filter size. Changing it back to 127 as part of the fix
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled: Unit-test (Created 09/22/2020 10:41:32 Added 09/22/2020 10:41:32 by anok)---
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# sh version internal b
+nxos image file: bootflash:///nxos.9.3.5.64.bin_1 :  S0
+switch(config)# 
+switch(config)# 
+switch(config)# sh feat
+feature       feature-set   
+switch(config)# sh feature | i ldap
+ldap                   1          enabled 
+switch(config)# sh ldap-se
+ldap-search-map   ldap-server       
+switch(config)# sh ldap-server 
+timeout      : 5
+port         : 389
+deadtime     : 0
+total number of servers : 0
+switch(config)# sh ldap-se
+ldap-search-map   ldap-server       
+switch(config)# sh ldap-search-map 
+total number of search maps : 0
+switch(config)# 
+switch(config)# 
+switch(config)# sh run ldap
+
+!Command: show running-config ldap
+!Running configuration last done at: Mon Sep 21 16:31:20 2020
+!Time: Mon Sep 21 16:32:40 2020
+
+version 9.3(6) Bios:version 08.38 
+feature ldap
+
+
+switch(config)# ldap search-map map1
+
+
+switch(config-ldap-search-map)# userprofile attribute-name "extensionAttribute15" search-filter "(&(samaccountname=$userid)(memberof=CN=RadiusMaster,OU=Groups,OU=Service Management,DC=ad,DC=vu,DC=edu,DC=au))" base-DN "DC=ad,DC=vu,DC=edu,DC=au"
+switch(config-ldap-search-map)# 
+switch(config-ldap-search-map)# sh ldap-search-map 
+total number of search maps : 1
+
+following LDAP search maps are configured:
+    SEARCH MAP  map1:
+      User Profile:
+        BaseDN: DC=ad,DC=vu,DC=edu,DC=au
+        Attribute Name: extensionAttribute15
+        Search Filter: (&(samaccountname=$userid)(memberof=CN=RadiusMaster,OU=Gr
+oups,OU=Service Management,DC=ad,DC=vu,DC=edu,DC=au))
+switch(config-ldap-search-map)# sh run ldap
+
+!Command: show running-config ldap
+!Running configuration last done at: Mon Sep 21 16:33:56 2020
+!Time: Mon Sep 21 16:34:31 2020
+
+version 9.3(6) Bios:version 08.38 
+feature ldap
+
+ldap search-map map1
+  userprofile attribute-name "extensionAttribute15" search-filter "(&(samaccount
+name=$userid)(memberof=CN=RadiusMaster,OU=Groups,OU=Service Management,DC=ad,DC=
+vu,DC=edu,DC=au))" base-DN "DC=ad,DC=vu,DC=edu,DC=au"
+
+
+switch(config-ldap-search-map)# exit
+switch# sh system internal dme running-config dn sys/userext/ldapext
+
+{
+  "aaaLdapEp": {
+    "attributes": {
+
+    },
+    "children": [
+      {
+        "aaaLdapSearchMap": {
+          "attributes": {
+            "name": "map1"
+          },
+          "children": [
+            {
+              "aaaLdapSearchMapEntry": {
+                "attributes": {
+                  "attribute": "extensionAttribute15",
+                  "baseDn": "DC=ad,DC=vu,DC=edu,DC=au",
+                  "searchFilter": "(&(samaccountname=$userid)(memberof=CN=Radius
+Master,OU=Groups,OU=Service Management,DC=ad,DC=vu,DC=edu,DC=au))",
+                  "type": "user-profile"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+switch# 
+switch(config)# sh version internal b
+nxos image file: bootflash:///nxos.9.3.5.64.bin_1 :  S0
+switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled: l3-uls (Created 09/22/2020 10:25:30 Added 09/22/2020 10:25:30 by anok)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity06
+Testbed  name       : sanity06-testbed.yml
+TestSuite           : l3_uls.yml
+Total Test cases Run: 39
+Passed test cases   : 35
+Failed test cases   : 3
+Aborted test cases  : 1
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/anok/66169
+Report file         : /auto/nxos-sanity/logs/anok/66169/l3_uls-sanity06.report
+logfile             : /auto/nxos-sanity/logs/anok/66169/l3_uls-sanity06.log
+Test start time     : 2020_09_21_21_05_48
+Test End time       : 2020_09_22_01_59_09
+Test Duration       : 4:53:20.567828
+Arguments passed: ['./basic_sanity.py', '-build', 'tftp://172.31.144.31/sanity-image/anok-66169-nxos.9.3.5.64.bin_1', '-testsuite', 'l3_uls.yml', '-testbed', 'sanity06-testbed.yml', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'anok', '-logfile', '/auto/nxos-sanity/logs/anok/66169/l3_uls-sanity06.log', '-reportfile', '/auto/nxos-sanity/logs/anok/66169/l3_uls-sanity06.report', '-jobid', 'T2'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:07   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:08   
+GleanL3toL3V4V6                                                           pass      0:05:04   
+GleanL3toL3V4V6L3LinkFlap                                                 pass      0:08:09   
+GleanL3toSVIV4V6                                                          pass      0:05:56   
+GleanL3toSVIV4V6L2LinkFlap                                                pass      0:07:43   
+GleanL3toSVIV4V6L2PCLinkFlap                                              pass      0:07:44   
+GleanL3toSVIV4V6SVIFlap                                                   pass      0:08:20   
+GleanL3toL3PCV4V6                                                         pass      0:05:26   
+GleanL3toL3PCV4V6FlapMember                                               pass      0:07:44   
+GleanL3toL3PCV4V6L3PCFlap                                                 pass      0:08:19   
+GleanL3toL3SIV4V6                                                         pass      0:05:03   
+GleanL3toL3SIV4V6FlapSI                                                   pass      0:07:44   
+GleanL3toL3SIV4V6PriIntFlap                                               pass      0:08:06   
+AllRoutesL3toL3V4V6_LPM                                                   pass      0:18:08   
+AllRoutesL3toL3V4V6_Hosts                                                 pass      0:03:46   
+AllRoutesL3toL3V4V6_static_IntfFlap                                       pass      0:08:30   
+AllRoutesL3toL3V4V6_ospf_IntfFlap                                         pass      0:08:30   
+AllRoutesL3toL3V4V6_eigrp_IntfFlap                                        pass      0:08:30   
+AllRoutesL3toL3V4V6_isis_IntfFlap                                         pass      0:08:30   
+AllRoutesL3toL3V4V6_bgp_IntfFlap                                          pass      0:08:30   
+AllRoutesL3toL3V4V6_rip_IntfFlap                                          pass      0:08:30   
+AllRoutesL3toL3V4V6_IntfFlapMember                                        pass      0:08:30   
+AllRoutesL3toL3V4V6_clearIPv6Nbr                                          fail      0:10:28   
+AllRoutesL3toL3V4V6_clearIPArp                                            fail      0:10:29   
+AllRoutesL3toL3V4V6_clearIpRoute                                          pass      0:10:18   
+AllRoutesL3toL3V4V6_clearIpV6Route                                        pass      0:10:17   
+AllRoutesL3toL3V4V6_vrfDeleteCreate                                       pass      0:17:53   
+testSyslogCheck                                                           fail      0:00:20   
+testCopyRunnStart                                                         pass      0:08:59   
+GreConfig                                                                 pass      0:00:26   
+GreStatic                                                                 pass      0:10:12   
+GreOspf                                                                   pass      0:10:29   
+GreBgp                                                                    pass      0:10:53   
+GreCleanup                                                                pass      0:00:33   
+L3ConsistencyCheckers                                                     abort     0:00:00   
+testGoldDiagnostic                                                        pass      0:00:04   
+testCores                                                                 pass      0:00:02   
+
+
+
+Aborted test case logs
+=====================
+Testcase: L3ConsistencyCheckers 
+logs
+	 name 'ipv6_routes' is not defined [>, , ] [FrameInfo(frame=, filename='./basic_sanity.py', lineno=4663, function='', code_context=['                    inspect.stack()))\n'], index=0
+	 
+Failed test case logs
+=====================
+
+Testcase: AllRoutesL3toL3V4V6_clearIPv6Nbr 
+logs                                           
+	PASS: traffic stat validation passed before trigger 
+	PASS: IPV4 CC PASSED on Switch:sanity06-tor1
+	PASS: IPV6 CC PASSED on Switch:sanity06-tor1
+	PASS: WARNING :: Traffic item O601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item E601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item S601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item I601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item R602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item O602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item E602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item S602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item I602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 59, Received : 59
+	PASS: WARNING :: Traffic item R601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item O601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item E601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item B601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item S601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item I601 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item R602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item O602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item E602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item B602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item S602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item I602 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: IPV4 CC PASSED on Switch:sanity06-tor1
+	FAIL: sanity06-tor1: Consistency-checker FAILED: show consistency-checker forwarding ipv6 vrf all
+	FAIL: Consistency checker failed at sanity06-tor1
+	FAIL: IPV6 CC FAILED on Switch:sanity06-tor1
+
+Testcase: AllRoutesL3toL3V4V6_clearIPArp 
+logs                                           
+	PASS: traffic stat validation passed before trigger 
+	PASS: IPV4 CC PASSED on Switch:sanity06-tor1
+	FAIL: sanity06-tor1: Consistency-checker FAILED: show consistency-checker forwarding ipv6 vrf all
+	FAIL: Consistency checker failed at sanity06-tor1
+	FAIL: IPV6 CC FAILED on Switch:sanity06-tor1
+	PASS: WARNING :: Traffic item O401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 61, Received : 61
+	PASS: WARNING :: Traffic item S401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 61, Received : 61
+	PASS: WARNING :: Traffic item I401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 60, Received : 60
+	PASS: WARNING :: Traffic item R402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 60, Received : 60
+	PASS: WARNING :: Traffic item O402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 60, Received : 60
+	PASS: WARNING :: Traffic item S402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 60, Received : 60
+	PASS: WARNING :: Traffic item I402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 60, Received : 60
+	PASS: WARNING :: Traffic item R401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item O401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item E401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item B401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item S401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item I401 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item R402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item O402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item E402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item B402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item S402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: WARNING :: Traffic item I402 partial drop expected in interface eth3, but                                everything received
+	Expected Pkts : 1, Received : 1
+	PASS: IPV4 CC PASSED on Switch:sanity06-tor1
+	PASS: IPV6 CC PASSED on Switch:sanity06-tor1
+
+Testcase: testSyslogCheck 
+logs                                           
+	FAIL: 
+
+===================================================================================================
+                                       Logs on sanity06-tor1 are as follows: 
+ ['\n2020 Sep 22 00:27:42 sanity06-tor1 %UFDM-3-FIB_IPv6_ROUTE_CONSISTENCY_CHECKER_FAIL: FIB IPv6 route consistency checker FAILED on slot ALL', '\n2020 Sep 22 00:31:40 sanity06-tor1 %UFDM-3-FIB_IPv6_ROUTE_CONSISTENCY_CHECKER_FAIL: FIB IPv6 route consistency checker FAILED on slot ALL']
+
+===================================================================================================
+---End of Note Titled: l3-uls---
+
+
+---Start of Note Titled:  Scrubnote (Created 09/14/2020 23:50:07 Modified 09/24/2020 21:29:08 by cms)---
+{200924 anikunna S B} Commit blocked due to model review, getting it done today
+{200921 anikunna S B} PRRQ to be raised today
+{200921 anikunna S B} Debugging a show issue found in UT
+{200920 anikunna S B} Change in PSS, so checking ISSU
+{200917 anikunna S B} Need to test the fix. Plan to submit sanity for today.
+{200915 anikunna S B} Config is truncated by filter-max. Trying to check how the change got in.
+{200914 magesh S B} Work in progress, no RCA yet
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 09/13/2020 11:13:08 Added 09/13/2020 11:13:08 by anikunna)---
+Pls check
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  reproduction-steps (Created 09/11/2020 04:32:07 Modified 11/23/2020 07:13:36 by cdetsadm)---
+TEST 1) 
+------------
+
+++  NXOS: version 7.0(3)I7(6) and 7.0(3)I7(8)  : No issue found
+++  Was able to configure upto 110 characters Search-Filter, same as Cu using.
+
+
+9K-1# sh running-config ldap 
+
+version 7.0(3)I7(6) Bios:version 07.66 
+feature ldap
+
+ldap search-map get_ldap_role
+  userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+
+
+
+9K-1# sh ldap-search-map
+total number of search maps : 1
+
+following LDAP search maps are configured:
+    SEARCH MAP  get_ldap_role:
+      User Profile:
+        BaseDN: DC=xxxx
+        Attribute Name: xxxx
+        Search Filter: 110charactersString
+
+
+TEST 2) 
+------------
+[+]  NXOS: version 9.2(1)  and  9.2(4)  : No issue found.
+[+]  Was able to configure upto 110 characters Search-Filter, same as Cu using.
+
+9K-1# sh running-config ldap
+
+ldap search-map get_ldap_role
+  userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+
+
+9K-1# sh ldap-search-map
+total number of search maps : 1
+
+following LDAP search maps are configured:
+    SEARCH MAP  get_ldap_role:
+      User Profile:
+        BaseDN: DC=xxxx
+        Attribute Name: xxxx
+        Search Filter: 110charactersString
+
+
+++ Able to configure upto 110 characters Search-Filter 
+
+switch(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+switch(config-ldap-search-map)#
+
+
+TEST 3) 
+------------
+
+[+]  NXOS: version 9.3(1) and 9.3(5) : Not able to configure seach-filter length more than 63 characters.
+
+switch(config)#ldap search-map get_ldap_role
+switch(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+ERROR: value of property searchFilter is out of range:
+switch(config-ldap-search-map)#
+switch(config-ldap-search-map)# end
+
+
+[+] Also after upgrade to 9.3.5
+
+Config got changed to:
+--------------------------------
+userprofile attribute-name "xxxx" search-filter "63charactersString" base-DN "xxxx"
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled:  Release-note (Created 09/11/2020 04:02:58 Modified 10/06/2020 16:40:35 by mhadpe)---
+<B>Symptom:</B>
+After upgrading to Cisco NX-OS 9.3(5) from 7.0(3)I4(8), LDAP search-filter config got changed.
+
+Before upgrade  :
+	userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+
+After upgrade :
+	userprofile attribute-name "xxxx" search-filter "63charactersString" base-DN "xxxx"
+
+
+* Problem is : Not able to use all 128 characters in search filter.
+
+N9k(config)#ldap search-map <searchMapName>
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "110charactersString" base-DN "xxxx"
+ERROR: value of property searchFilter is out of range:
+
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter ?
+  WORD  Search Map search-filter  (Max Size 128)
+
+* This search-filter only has 110 characters and it still not accepted. Whereas we have a limit of 128.
+
+
+Update:
+=====
+
+Duplicate Bug CSCvv90135 Corrupted LDAP configuration string on 9.3(5) release
+
+Symptom 2: LDAP config Missing post upgrade to 9.3(5) from 9.3(4)
+
+
+It seems that during the upgrade - the portion of the configuration "dc=com" in the ldap-server host configuration gets changed which breaks the LDAP configuration. 
+
+Before:
+
+ldap-server host 10.1.85.101 rootDN "cn=svcnwldap,ou=UT Service Accounts,dc=americas,dc=unither,dc=com"  password 7 Sh3@k3Bt2QG20190717$ timeout 30
+ldap search-map unithersm1
+  userprofile attribute-name "extensionAttribute15" search-filter "cn=$userid" base-DN "DC=americas,DC=unither,DC=com"
+aaa group server ldap ut-ldap-servers
+  server 10.1.85.101
+  ldap-search-map unithersm1
+
+
+
+
+After:
+ldap-server host 10.1.85.101 rootDN "cn=svcnwldap,ou=UT Service Accounts,dc=americas,dc=unither,dc=coSh3@k3Bt2QG20190717$"  password 7 Sh3@k3Bt2QG20190717$ timeout 30 
+ldap search-map unithersm1
+userprofile attribute-name "extensionAttribute15" search-filter "cn=$userid" base-DN "DC=americas,DC=unither,DC=com"
+aaa group server ldap ut-ldap-servers
+  server 10.1.85.101
+  ldap-search-map unithersm1
+
+<B>Conditions:</B>
+*  Tested in LAB : only seen in 9.3.x release
+*  Issue is not with 9.2.x
+
+<B>Workaround:</B>
+* Tested in lab. Could use only 63 character in search filter :
+N9k(config-ldap-search-map)# userprofile attribute-name "xxxx" search-filter "63charactersString" base-DN "xxxx"
+N9k(config-ldap-search-map)#
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (8 of 8)
+------------------------------------------------------------------------------------------------------------------
+CSCvv68826_9.3_5.84_test_logs.txt                 ascii text     81577          palshanm       10/07/2020 00:14:17      
+N9K-QA-TEACAT-Script-Reviews-code-review-2        ascii text     954            prrqengg       10/04/2020 03:34:04      
+Diffs-release-irvine                              ascii text     3258           anok           09/24/2020 22:51:49      
+Diffs-commit-irvine                               ascii text     2859           anok           09/24/2020 22:51:46      
+ccwarnings-irvine                                 ascii text     432            baas           09/23/2020 03:15:45      
+static-analysis-irvine                            binary         1388           cdetsadm       09/23/2020 03:15:20      
+nxos-pi-common-security-code-review               ascii text     932            prrqengg       09/22/2020 10:24:39      
+Release-note-diff                                 ascii text     6395           mhadpe         10/06/2020 16:40:35      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+08/09/2026 satdr    	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+08/09/2026 satdr    	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+08/09/2026 satdr    	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/07/2025 cdetsbtk 	Software-type-ids       	286278844                    	                             	Del
+05/07/2025 cdetsbtk 	Security-screening-times	2024-01-20 10:57:36.000+0000 	2025-05-08 04:42:08.000+0000 	Mod
+05/07/2025 cdetsadm 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+05/07/2025 cdetsadm 	Software-types          	NX-OS System Software-ACI    	                             	Del
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/07/2025 cdetsadm 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-470261       	New
+04/26/2025 pisces   	VF-patched              	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+04/26/2025 pisces   	VF-unpatched            	                             	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	New
+04/26/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+04/26/2025 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+04/26/2025 pisces   	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/26/2025 pisces   	Potentially-affected-rel	                             	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	New
+02/07/2024 fas      	Integrated-releases     	9.3(13),9.3(13.1),9.3(14)    	                             	Del
+02/07/2024 fas      	Known-fixed-releases    	9.3(13)                      	                             	Del
+01/20/2024 divvenka 	Integrated-releases     	                             	9.3(13.1),9.3(14)            	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 cdetsbtk 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+01/19/2024 cdetsbtk 	Security-screening-times	2022-06-30 15:09:21.000+0000 	2024-01-20 10:57:36.000+0000 	Mod
+01/19/2024 fas      	Integrated-releases     	                             	9.3(13)                      	New
+01/19/2024 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+01/19/2024 fas      	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/19/2024 fas      	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/19/2024 fas      	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/19/2024 fas      	Known-fixed-releases    	                             	9.3(13)                      	New
+08/17/2023 susomasu 	Integrated-releases     	9.3(13)                      	                             	Del
+08/17/2023 susomasu 	Integrated-releases     	9.3(12.1)                    	                             	Del
+07/28/2023 divvenka 	Integrated-releases     	                             	9.3(12.1),9.3(13)            	New
+07/28/2023 divvenka 	Software-type-ids       	                             	282253564,286280105,286321149	New
+07/28/2023 divvenka 	Software-type-ids       	354,2378,2771,2774,1498,312,1	                             	Del
+05/09/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+05/03/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+05/03/2023 candid   	Software-type-ids       	                             	354,2378,2771,2774,1498,312,1	New
+03/24/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+03/14/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+02/17/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+02/17/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+02/16/2023 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+12/12/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+11/17/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+11/08/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+07/25/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+07/22/2022 fas      	Integrated-releases     	9.3(11)                      	                             	Del
+07/22/2022 fas      	Integrated-releases     	9.3(10.1)                    	                             	Del
+07/15/2022 divvenka 	Integrated-releases     	                             	9.3(10.1),9.3(11)            	New
+06/30/2022 cdetsbtk 	Not-customer-visible-rea	AutoDeferred-Defect deferred 	AutoDeferred-Defect deferred 	Mod
+06/30/2022 cdetsbtk 	Security-screening-times	2021-10-26 19:28:50.000+0000 	2022-06-30 15:09:21.000+0000 	Mod
+06/30/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+06/30/2022 candid   	Known-fixed-releases    	9.3(5.77)                    	                             	Del
+04/21/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+04/05/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+02/06/2022 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+12/08/2021 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+12/08/2021 candid   	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+10/26/2021 cdetsbtk 	Not-customer-visible-rea	AutoDeferred-Defect deferred 	AutoDeferred-Defect deferred 	Mod
+10/26/2021 cdetsbtk 	Security-screening-times	2021-10-12 18:46:43.000+0000 	2021-10-26 19:28:50.000+0000 	Mod
+10/26/2021 cdetsadm 	Known-affected-releases 	                             	9.3(5)                       	New
+10/26/2021 cdetsadm 	Known-fixed-releases    	                             	9.3(5.77),9.3(6)             	New
+10/25/2021 cdetsadm 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+10/25/2021 cdetsadm 	MDF-edited              	                             	N                            	Mod
+10/12/2021 cdetsbtk 	Security-screening-times	2021-10-12 12:23:37.000+0000 	2021-10-12 18:46:43.000+0000 	Mod
+10/12/2021 cdetsadm 	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+10/11/2021 armandhe 	serviceRequests/C3/69138	                             	                             	Mod
+10/11/2021 armandhe 	Urgency-desc            	CL4                          	CL3                          	Mod
+10/11/2021 armandhe 	Urgency                 	8                            	6                            	Mod
+10/11/2021 cdetsbtk 	Not-customer-visible-rea	Defect deferred - An non-cust	AutoDeferred-Defect deferred 	Mod
+10/11/2021 cdetsbtk 	Security-screening-times	2020-10-07 04:05:32.000+0000 	2021-10-12 12:23:37.000+0000 	Mod
+10/11/2021 armandhe 	serviceRequests/C3/69138	                             	C3/691380845                 	New
+10/11/2021 armandhe 	Tickets-count           	3                            	4                            	Mod
+10/11/2021 armandhe 	TACSR-count             	2                            	3                            	Mod
+10/11/2021 armandhe 	Tickets-count-direct    	2                            	3                            	Mod
+10/11/2021 armandhe 	Trouble-tickets         	                             	691380845                    	New
+10/11/2021 armandhe 	Trouble-tickets-direct  	                             	C3691380845                  	New
+05/24/2021 armandhe 	serviceRequests/C3/69140	                             	C3/691409588                 	New
+05/24/2021 armandhe 	Urgency-desc            	CL3                          	CL4                          	Mod
+05/24/2021 armandhe 	Urgency                 	6                            	8                            	Mod
+05/24/2021 armandhe 	Tickets-count           	2                            	3                            	Mod
+05/24/2021 armandhe 	TACSR-count             	1                            	2                            	Mod
+05/24/2021 armandhe 	Tickets-count-direct    	1                            	2                            	Mod
+05/24/2021 armandhe 	Trouble-tickets         	                             	691409588                    	New
+05/24/2021 armandhe 	Trouble-tickets-direct  	                             	C3691409588                  	New
+04/28/2021 aeguiart 	Attribute               	gnosis dsig_no_icexists imr5-	gnosis dsig_no_icexists imr5-	Mod
+04/13/2021 aeguiart 	Other-mail              	nroblesh                     	aeguiart nroblesh            	Mod
+04/12/2021 mwilczak 	Note                    	DetectionLogic               	DetectionLogic               	Mod
+11/23/2020 cdetsadm 	Note Title              	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Note Type               	tac-repro                    	reproduction-steps           	Mod
+11/23/2020 cdetsadm 	Is-reproducible         	                             	Cisco Lab Reproducible       	Mod
+10/21/2020 vepabbu  	Note Title              	                             	KnowledgeSignature           	New
+10/21/2020 vepabbu  	Attribute               	imr5-hkatakam                	gnosis dsig_no_icexists imr5-	Mod
+10/21/2020 vepabbu  	Note Title              	                             	borg_positive_validation     	New
+10/20/2020 aeguiart 	Note                    	DetectionLogic               	DetectionLogic               	Mod
+10/07/2020 sandeku9 	serviceRequests/C3/68985	                             	                             	Mod
+10/07/2020 sandeku9 	Urgency-desc            	P3                           	CL3                          	Mod
+10/07/2020 palshanm 	File Name               	                             	CSCvv68826_9.3_5.84_test_logs	New
+10/07/2020 palshanm 	Note Title              	                             	V-comments                   	New
+10/07/2020 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+10/07/2020 palshanm 	Status                  	R                            	V                            	Mod
+10/07/2020 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+10/07/2020 palshanm 	Verified-release        	                             	9.3(5.84)                    	New
+10/07/2020 palshanm 	Verified-confidence     	                             	tested                       	Mod
+10/07/2020 palshanm 	Verified-on             	                             	2020-10-07 07:14:01.000+0000 	Mod
+10/07/2020 palshanm 	statusStates            	                             	[status=R, startDate=Fri Sep 	New
+10/07/2020 palshanm 	statusStates            	[status=R, startDate=Fri Sep 	                             	Del
+10/07/2020 palshanm 	Age-status              	14                           	26                           	Mod
+10/07/2020 palshanm 	Mean-time-to-verified   	                             	25                           	Mod
+10/06/2020 cdetsbtk 	Not-customer-visible-rea	                             	Defect deferred - An non-cust	Mod
+10/06/2020 cdetsbtk 	Is-customer-visible     	Y                            	N                            	Mod
+10/06/2020 cdetsbtk 	Security-screening-times	2020-09-28 10:08:23.000+0000 	2020-10-07 04:05:32.000+0000 	Mod
+10/06/2020 mhadpe   	Note Title              	                             	DetectionLogic               	New
+10/06/2020 mhadpe   	Note                    	Release-note                 	Release-note                 	Mod
+10/06/2020 mhadpe   	contents                	                             	Release-note-diff            	Mod
+10/06/2020 mhadpe   	FileSize                	5089                         	6395                         	Mod
+10/06/2020 mhadpe   	Summary                 	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+10/06/2020 mhadpe   	Symptoms                	After upgrading to Cisco NX-O	After upgrading to Cisco NX-O	Mod
+10/06/2020 mhadpe   	Summary                 	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+10/04/2020 jnakkera 	Automated-test          	N                            	Y                            	Mod
+10/04/2020 jnakkera 	Test-name               	                             	Automated-jnakkera-CSCvv68826	Mod
+10/04/2020 jnakkera 	Note Title              	                             	Automation_Note              	New
+10/04/2020 prrqengg 	File Name               	                             	N9K-QA-TEACAT-Script-Reviews-	New
+09/30/2020 dsaraf   	Attribute               	                             	imr5-hkatakam                	Mod
+09/29/2020 anok     	Related-bugs            	                             	Duplicate/CSCvv90135         	New
+09/29/2020 anok     	Other-mail              	                             	nroblesh                     	Mod
+09/29/2020 anok     	Tickets-count           	1                            	2                            	Mod
+09/29/2020 anok     	Trouble-tickets         	                             	689764011                    	New
+09/29/2020 anok     	Trouble-tickets-indirect	                             	C3/689764011                 	New
+09/28/2020 cdetsbtk 	Security-screening-times	2020-09-16 11:47:33.000+0000 	2020-09-28 10:08:23.000+0000 	Mod
+09/26/2020 darellan 	Note                    	Release-note                 	Release-note                 	Mod
+09/26/2020 darellan 	contents                	                             	Release-note-diff            	Mod
+09/26/2020 darellan 	FileSize                	4845                         	5089                         	Mod
+09/26/2020 darellan 	Workarounds             	* Tested in Lab could use onl	* Tested in lab. Could use on	Mod
+09/26/2020 darellan 	Note                    	Release-note                 	Release-note                 	Mod
+09/26/2020 darellan 	contents                	                             	Release-note-diff            	Mod
+09/26/2020 darellan 	FileSize                	4339                         	4845                         	Mod
+09/26/2020 darellan 	Headline                	LDAP search-filter config bre	LDAP search-filter config bre	Mod
+09/26/2020 darellan 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrading to Cisco NX-O	Mod
+09/25/2020 cdetsadm 	Integrated-releases     	                             	9.3(6)                       	New
+09/25/2020 cdetsadm 	Integrated-releases     	                             	9.3(5.77)                    	New
+09/25/2020 sandeku9 	Note                    	tac-repro                    	tac-repro                    	Mod
+09/25/2020 sandeku9 	Summary                 	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/25/2020 anok     	Note Title              	                             	R-comments                   	New
+09/25/2020 anok     	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+09/25/2020 anok     	Status                  	A                            	R                            	Mod
+09/25/2020 anok     	Dev-escape-resolver-opin	                             	N                            	Mod
+09/25/2020 anok     	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+09/25/2020 anok     	More-by                 	                             	anok                         	Mod
+09/25/2020 anok     	Opener                  	                             	anok                         	Mod
+09/25/2020 anok     	Resolver                	                             	anok                         	Mod
+09/25/2020 anok     	Breakage                	                             	No                           	Mod
+09/25/2020 anok     	Regression              	                             	N                            	Mod
+09/25/2020 anok     	By-previous-commit-value	                             	No                           	Mod
+09/25/2020 anok     	Bug-origin              	                             	Code / Implementation        	Mod
+09/25/2020 anok     	Released-code           	                             	N                            	Mod
+09/25/2020 anok     	Origin                  	                             	base code                    	Mod
+09/25/2020 anok     	Test-escape             	                             	Y                            	Mod
+09/25/2020 anok     	Test-EDP-phase          	                             	Regression Test              	Mod
+09/25/2020 anok     	Test-EDP-activity       	                             	Acceptance Testing           	Mod
+09/25/2020 anok     	TPS_issue               	                             	N                            	Mod
+09/25/2020 anok     	TPS_flag                	                             	N                            	Mod
+09/25/2020 anok     	Behavior-changed        	                             	N                            	Mod
+09/25/2020 anok     	Original-resolved-on    	                             	2020-09-25 07:09:58.000+0000 	Mod
+09/25/2020 anok     	Documents-changed       	                             	none                         	Mod
+09/25/2020 anok     	More-on                 	                             	2020-09-25 07:09:58.000+0000 	Mod
+09/25/2020 anok     	Opened-on               	                             	2020-09-25 07:09:58.000+0000 	Mod
+09/25/2020 anok     	Resolved-on             	                             	2020-09-25 07:09:58.000+0000 	Mod
+09/25/2020 anok     	statusStates            	                             	[status=A, startDate=Sun Sep 	New
+09/25/2020 anok     	statusStates            	[status=A, startDate=Sun Sep 	                             	Del
+09/25/2020 anok     	Age-status              	2                            	14                           	Mod
+09/25/2020 anok     	Mean-time-to-resolved   	                             	13                           	Mod
+09/24/2020 anok     	File Name               	                             	Diffs-release-irvine         	New
+09/24/2020 anok     	Multi-commit-flag       	                             	Y                            	Mod
+09/24/2020 anok     	File Name               	                             	Diffs-commit-irvine          	New
+09/24/2020 anok     	Note Title              	                             	static-analysis              	New
+09/24/2020 prrqengg 	Code-reviewer           	                             	jisundar                     	New
+09/24/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/24/2020 anok     	Note Title              	                             	Eng-notes                    	New
+09/24/2020 cms      	Est-fix-date            	2020-09-18 07:00:00.000+0000 	2020-09-24 07:00:00.000+0000 	Mod
+09/23/2020 baas     	File Name               	                             	ccwarnings-irvine            	New
+09/23/2020 cdetsadm 	File Name               	                             	static-analysis-irvine       	New
+09/22/2020 anok     	Note Title              	                             	Unit-test                    	New
+09/22/2020 anok     	Note Title              	                             	l3-uls                       	New
+09/22/2020 prrqengg 	contents                	                             	nxos-pi-common-security-code-	Mod
+09/22/2020 prrqengg 	FileSize                	930                          	932                          	Mod
+09/22/2020 prrqengg 	Code-reviewer           	                             	sarchand                     	New
+09/22/2020 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+09/21/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/21/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/20/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/17/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/16/2020 cdetsbtk 	Security-screening-times	2020-09-15 13:09:04.000+0000 	2020-09-16 11:47:33.000+0000 	Mod
+09/15/2020 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	contents                	                             	Release-note-diff            	Mod
+09/15/2020 sandeku9 	FileSize                	3810                         	4339                         	Mod
+09/15/2020 sandeku9 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	contents                	                             	Release-note-diff            	Mod
+09/15/2020 sandeku9 	FileSize                	2279                         	3810                         	Mod
+09/15/2020 sandeku9 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/15/2020 sandeku9 	Workarounds             	I could use 63 character  in 	* Tested in Lab could use onl	Mod
+09/15/2020 cdetsbtk 	Security-screening-times	2020-09-14 15:53:39.000+0000 	2020-09-15 13:09:04.000+0000 	Mod
+09/15/2020 cms      	Est-fix-date            	                             	2020-09-18 07:00:00.000+0000 	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	contents                	                             	Release-note-diff            	Mod
+09/15/2020 sandeku9 	FileSize                	1778                         	2279                         	Mod
+09/15/2020 sandeku9 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	contents                	                             	Release-note-diff            	Mod
+09/15/2020 sandeku9 	FileSize                	1382                         	1778                         	Mod
+09/15/2020 sandeku9 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/15/2020 sandeku9 	Workarounds             	I could use 63 character  in 	I could use 63 character  in 	Mod
+09/15/2020 sandeku9 	Note                    	Release-note                 	Release-note                 	Mod
+09/15/2020 sandeku9 	File Name               	                             	Release-note-diff            	New
+09/15/2020 sandeku9 	Symptoms                	After upgrade to 9.3.5 from 7	After upgrade to 9.3.5 from 7	Mod
+09/15/2020 sandeku9 	Workarounds             	I could use 63 character  in 	I could use 63 character  in 	Mod
+09/14/2020 cms      	Note Title              	                             	Scrubnote                    	New
+09/14/2020 sandeku9 	serviceRequests/C3/68985	                             	C3/689853387                 	New
+09/14/2020 sandeku9 	Urgency-desc            	NA                           	P3                           	Mod
+09/14/2020 sandeku9 	Urgency                 	                             	6                            	Mod
+09/14/2020 sandeku9 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+09/14/2020 sandeku9 	Tickets-count           	0                            	1                            	Mod
+09/14/2020 sandeku9 	TACSR-count             	                             	1                            	Mod
+09/14/2020 sandeku9 	Tickets-count-direct    	                             	1                            	Mod
+09/14/2020 sandeku9 	Trouble-tickets         	                             	689853387                    	New
+09/14/2020 sandeku9 	Trouble-tickets-direct  	                             	C3689853387                  	New
+09/14/2020 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+09/14/2020 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+09/14/2020 cdetsbtk 	Security-screening-times	                             	2020-09-14 15:53:39.000+0000 	Mod
+09/13/2020 anikunna 	Note Title              	                             	A-comments                   	New
+09/13/2020 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+09/13/2020 anikunna 	Status                  	N                            	A                            	Mod
+09/13/2020 anikunna 	Engineer                	                             	anok                         	Mod
+09/13/2020 anikunna 	Assigner                	                             	anikunna                     	Mod
+09/13/2020 anikunna 	Assigned Date           	                             	2020-09-13 18:13:08.000+0000 	Mod
+09/13/2020 anikunna 	statusStates            	                             	[status=N, startDate=Fri Sep 	New
+09/13/2020 anikunna 	statusStates            	[status=N, startDate=Fri Sep 	                             	Del
+09/13/2020 anikunna 	Age-status              	0                            	2                            	Mod
+09/13/2020 anikunna 	Mean-time-to-assigned   	                             	2                            	Mod
+09/11/2020 sandeku9 	Note Title              	                             	tac-repro                    	New
+09/11/2020 sandeku9 	Note Title              	                             	Release-note                 	New
+09/11/2020 sandeku9 	Version                 	                             	9.3(5)                       	New
+09/11/2020 sandeku9 	Defect Created          	                             	                             	New

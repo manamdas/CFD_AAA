@@ -1,0 +1,450 @@
+*******************************************************************************
+
+Bug ID   : CSCvq91933         Project  : CSC.datacenter     Status  : D              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 6 (enhancement)
+Headline : TACACS+ IETF draft compliant single-connect support
+PrimaryPV : 
+Version :9.2(3) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround : Y                 
+Software :                    Hardware : Nexus 9000         
+Submitter: dkowalcz           Submitted: 08/15/2019 02:48:47     Last Updtd : 10/25/2022 03:21:26  
+RNE-Type: NONE                New-on : 08/15/2019 02:48:48      
+Root-cause-analysis:                                                  
+Interest : ,avakin
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:                                                    
+Known-affected-releases:9.2(3) 
+
+Known-fixed-releases:
+
+
+
+Potentially-affected-releases:
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 06/24/2020 22:45:08                             
+Multi-commit-flag:                                                    
+Mean-time-to-assigned: 314                                            
+Mean-time-to-resolved: 314                                            
+Mean-time-to-verified:        
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue:                                                            
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape:                                                          
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 08/15/2019 09:47:52            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:not-a-bug 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Duplicate-of : CSCwa96146     Duplicate-on : 04/20/2022 23:41:06 
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  GC_EMEAR_HTTS_SEC_KRK
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       
+Child-type :           
+Regression :                     
+
+Bug-origin :                     
+Failure-type :                   
+By-previous-commit-value :       
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  
+Test-EDP-activity :               
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   6
+Tickets-count-direct :            6
+Trouble-tickets :              687171669;691188815;692026145;692780168;693329778;694031363
+Trouble-tickets-direct :C3691188815 
+Trouble-tickets-direct :C3693329778 
+Trouble-tickets-direct :C3692026145 
+Trouble-tickets-direct :C3687171669 
+Trouble-tickets-direct :C3692780168 
+Trouble-tickets-direct :C3694031363 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 08/16/2019 03:49:34
+Document :    nexus
+
+Summary:
+Nexus 9K does not support TACACS+ IETF draft compliant single-connect.
+
+
+We are not compliant with the original TACACS+ Draft from 1998. It is a Cisco IETF draft: https://tools.ietf.org/html/draft-grant-tacacs-02
+We are not compliant with current TACACS+ Protocol IETF draft: https://tools.ietf.org/html/draft-ietf-opsawg-tacacs-13
+
+Legacy mode is a buggy behavior and it needs to be fixed.
+
+"The legacy mode comes from ACS 4.x will implements single-connect more optimistically to work around some buggy (Cisco) devices. Basically, some Cisco devices did not set the single-connect flag in the header, despite configuring single-connect on the device. Consequently, the T+ server would disconnect the TCP connection after the first response and the device could not do single-connect. Really, it was a bug in the device but its always a bigger issue asking customers to upgrade device firmware than do a workaround in the T+ server. So ACS 4 (and now 5) have this legacy mode which basically ignores the single-connect flag but instead leaves the TCP connection open until it sees the device explicitly close its end. This has the advantage of working in single-connect mode or not automatically, irrespective of the single-connect flag in the header."
+Link whole discussion: https://search-prd.cisco.com/topic/news/cisco/eng/cse-dev-acs5/dsc08610.html
+
+******************* Related Service Requests (6 of 6)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         687171669       SBERBANK ROSSII OAO                      
+C3         691188815       SBERBANK ROSSII OAO                      
+C3         692026145       SBERBANK ROSSII OAO                      
+C3         692780168       SBERBANK ROSSII OAO                      
+C3         693329778       SBERBANK ROSSII OAO                      
+C3         694031363       STANBIC BANK                             
+
+
+******************* Related Foreign Bugs (0 of 0)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Duplicate-of           alegray       02/15/2022 08:24:01    CSCwa96146      CSC.datacenter  M            
+
+
+********************* Listing of Notes (6 of 6 ) ***********************
+
+---Start of Note Titled: DetectionUnsuitable (Created 01/26/2022 16:45:22 Added 01/26/2022 16:45:22 by akyamada)---
+--- Update 2022-01-27 00:45:19.956950 (akyamada via 692868368)
+Unsuitable - Cannot Digitize
+CSCvq91933  explain for implementation of  TACACS+. Cannot detect.
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled: Email-in (Created 12/09/2020 07:00:59 Added 12/09/2020 07:00:59 by kathsmit)---
+From: "Katherine Smith (kathsmit)" <kathsmit@cisco.com>
+Date: Wednesday, December 9, 2020 at 9:51 AM 
+To: "Vasu Agrawal (vasagraw)" <vasagraw@cisco.com>
+Cc: "bug-attach(mailer list)" <bug-attach@cisco.com>
+Subject: CSCvq91933:TACACS+ IETF draft compliant single-connect support
+
+Good evening Vasu, 
+ 
+I hope you?re doing well and the week is a fine one.  My team is working with Bank of America on a large automation project and we?re having some difficulty (failure basically) with this feature (TACACS single-connect) failing with our
+ Nexus devices and Aruba Clearpass.   
+ 
+
+
+Could you please help me/us with a few, hopefully quick and easy, questions about this CDETs?
+
+* It?s marked resolved and the R-Comments state that the feature is already supported. I?ve been looking for where it?s first supported and don?t see it before N9K version 9.2x.  Is there support available earlier than 9.2?
+
+ 
+Thanks very much for your time and assistance! 
+Kat Smith
+NCE Bank of America
+AS/CX
+ 
+ 
+
+
+Note:bug-attach@cisco was added to auto-attach this email to the bug
+
+
+############################ MESSAGE IDS ############################
+# <AE85C617-EC26-498F-9F3F-787070FCF972@contoso.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: R-comments (Created 06/24/2020 22:45:08 Added 06/24/2020 22:45:08 by girshank)---
+Already supported.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Scrubnote (Created 08/18/2019 21:12:11 Added 08/18/2019 21:12:11 by cms)---
+{190818 girshank S B} This is a feature in itself. Marking this as enhancement. Sent a mail to submitter as well.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: SS-Review (Created 08/16/2019 04:24:15 Added 08/16/2019 04:24:15 by dkowalcz)---
+$$OIB
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled:  Release-note (Created 08/15/2019 02:48:49 Modified 06/24/2020 22:45:08 by girshank)---
+<B>Symptom:</B>
+With current legacy Cisco TACACS+ client implementation Nexus do not set the single-connect flag in the header, despite configuring single-connect mode on the device. TACACS+ Protocol IETF draft  compliant server disconnects the TCP connection after the first response and the device could not do single-connect.
+
+<B>Conditions:</B>
+This issue happens only for 3rd party TACACS+ servers. Cisco ISE and ACS has an option to disable the header verification by choosing the Legacy Cisco Device option. This legacy mode basically ignores the single-connect flag, but instead leaves the TCP connection open until it sees the device explicitly close its end.
+
+<B>Workaround:</B>
+Disable single-connect mode, or use Cisco TACACS+ servers.
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+<none>
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+10/25/2022 pidicula 	serviceRequests/C3/69403	                             	                             	Mod
+10/25/2022 pidicula 	Urgency-desc            	P3                           	CL3                          	Mod
+09/29/2022 aobeidal 	serviceRequests/C3/69403	                             	C3/694031363                 	New
+09/29/2022 aobeidal 	Urgency-desc            	CL3                          	P3                           	Mod
+09/29/2022 aobeidal 	Tickets-count           	5                            	6                            	Mod
+09/29/2022 aobeidal 	TACSR-count             	5                            	6                            	Mod
+09/29/2022 aobeidal 	Tickets-count-direct    	5                            	6                            	Mod
+09/29/2022 aobeidal 	Trouble-tickets         	                             	694031363                    	New
+09/29/2022 aobeidal 	Trouble-tickets-direct  	                             	C3694031363                  	New
+04/29/2022 haljadou 	serviceRequests/C3/69332	                             	                             	Mod
+04/29/2022 haljadou 	Urgency-desc            	CL4                          	CL3                          	Mod
+04/29/2022 haljadou 	Urgency                 	8                            	6                            	Mod
+04/20/2022 vasagraw 	Related-bugs            	                             	Duplicate-of/CSCwa96146      	New
+04/20/2022 vasagraw 	Status-desc             	R-Resolved                   	D-Duplicate                  	Mod
+04/20/2022 vasagraw 	Status                  	R                            	D                            	Mod
+04/20/2022 vasagraw 	Duplicate-of            	                             	CSCwa96146                   	Mod
+04/20/2022 vasagraw 	Duplicate-on            	                             	2022-04-21 06:41:06.000+0000 	Mod
+04/20/2022 vasagraw 	statusStates            	                             	[status=R, startDate=Thu Jun 	New
+04/20/2022 vasagraw 	statusStates            	[status=R, startDate=Thu Jun 	                             	Del
+04/20/2022 vasagraw 	Age-status              	315                          	980                          	Mod
+04/04/2022 haljadou 	serviceRequests/C3/69332	                             	                             	Mod
+04/04/2022 haljadou 	serviceRequests/C3/69332	                             	C3/693329778                 	New
+04/04/2022 haljadou 	Tickets-count           	4                            	5                            	Mod
+04/04/2022 haljadou 	TACSR-count             	4                            	5                            	Mod
+04/04/2022 haljadou 	Tickets-count-direct    	4                            	5                            	Mod
+04/04/2022 haljadou 	Trouble-tickets         	                             	693329778                    	New
+04/04/2022 haljadou 	Trouble-tickets-direct  	                             	C3693329778                  	New
+01/26/2022 akyamada 	Note Title              	                             	DetectionUnsuitable          	New
+01/20/2022 avakin   	Other-mail              	                             	,avakin                      	Mod
+01/12/2022 rfurr    	Attribute               	                             	ed_ic_dc_rs                  	Mod
+01/12/2022 cdetsadm 	Known-affected-releases 	                             	9.2(3)                       	New
+01/12/2022 alegray  	serviceRequests/C3/69278	                             	C3/692780168                 	New
+01/12/2022 alegray  	Urgency-desc            	CL3                          	CL4                          	Mod
+01/12/2022 alegray  	Urgency                 	6                            	8                            	Mod
+01/12/2022 alegray  	MDF-series              	                             	Cisco Nexus 9000 Series Switc	New
+01/12/2022 alegray  	MDF-concepts            	                             	Cisco Nexus 9000 Series Switc	New
+01/12/2022 alegray  	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+01/12/2022 alegray  	MDF-edited              	                             	N                            	Mod
+01/12/2022 alegray  	Tickets-count           	3                            	4                            	Mod
+01/12/2022 alegray  	TACSR-count             	3                            	4                            	Mod
+01/12/2022 alegray  	Tickets-count-direct    	3                            	4                            	Mod
+01/12/2022 alegray  	Trouble-tickets         	                             	692780168                    	New
+01/12/2022 alegray  	Trouble-tickets-direct  	                             	C3692780168                  	New
+09/02/2021 snrai    	serviceRequests/C3/69202	                             	                             	Mod
+09/02/2021 snrai    	Urgency-desc            	CL4                          	CL3                          	Mod
+09/02/2021 snrai    	Urgency                 	8                            	6                            	Mod
+09/01/2021 afleck   	serviceRequests/C3/69202	                             	C3/692026145                 	New
+09/01/2021 afleck   	Urgency-desc            	CL3                          	CL4                          	Mod
+09/01/2021 afleck   	Urgency                 	6                            	8                            	Mod
+09/01/2021 afleck   	Tickets-count           	2                            	3                            	Mod
+09/01/2021 afleck   	TACSR-count             	2                            	3                            	Mod
+09/01/2021 afleck   	Tickets-count-direct    	2                            	3                            	Mod
+09/01/2021 afleck   	Trouble-tickets         	                             	692026145                    	New
+09/01/2021 afleck   	Trouble-tickets-direct  	                             	C3692026145                  	New
+05/10/2021 moalzagh 	serviceRequests/C3/69118	                             	                             	Mod
+05/10/2021 moalzagh 	Urgency-desc            	CL4                          	CL3                          	Mod
+05/10/2021 moalzagh 	Urgency                 	8                            	6                            	Mod
+04/19/2021 aeideh   	serviceRequests/C3/69118	                             	C3/691188815                 	New
+04/19/2021 aeideh   	Urgency-desc            	CL2                          	CL4                          	Mod
+04/19/2021 aeideh   	Urgency                 	4                            	8                            	Mod
+04/19/2021 aeideh   	Tickets-count           	1                            	2                            	Mod
+04/19/2021 aeideh   	TACSR-count             	1                            	2                            	Mod
+04/19/2021 aeideh   	Tickets-count-direct    	1                            	2                            	Mod
+04/19/2021 aeideh   	Trouble-tickets         	                             	691188815                    	New
+04/19/2021 aeideh   	Trouble-tickets-direct  	                             	C3691188815                  	New
+12/09/2020 kathsmit 	Note Title              	                             	Email-in                     	New
+06/24/2020 girshank 	Note Title              	                             	R-comments                   	New
+06/24/2020 girshank 	Status-desc             	N-New                        	R-Resolved                   	Mod
+06/24/2020 girshank 	Status                  	N                            	R                            	Mod
+06/24/2020 girshank 	Engineer                	                             	vasagraw                     	Mod
+06/24/2020 girshank 	Assigner                	                             	girshank                     	Mod
+06/24/2020 girshank 	More-by                 	                             	girshank                     	Mod
+06/24/2020 girshank 	Opener                  	                             	girshank                     	Mod
+06/24/2020 girshank 	Resolver                	                             	girshank                     	Mod
+06/24/2020 girshank 	Original-version        	                             	9.2(3)                       	Mod
+06/24/2020 girshank 	Behavior-changed        	                             	N                            	Mod
+06/24/2020 girshank 	Original-resolved-on    	                             	2020-06-25 05:45:08.000+0000 	Mod
+06/24/2020 girshank 	Documents-changed       	                             	none                         	Mod
+06/24/2020 girshank 	Assigned Date           	                             	2020-06-25 05:45:08.000+0000 	Mod
+06/24/2020 girshank 	More-on                 	                             	2020-06-25 05:45:08.000+0000 	Mod
+06/24/2020 girshank 	Opened-on               	                             	2020-06-25 05:45:08.000+0000 	Mod
+06/24/2020 girshank 	Resolved-on             	                             	2020-06-25 05:45:08.000+0000 	Mod
+06/24/2020 girshank 	statusStates            	                             	[status=N, startDate=Thu Aug 	New
+06/24/2020 girshank 	statusStates            	[status=N, startDate=Thu Aug 	                             	Del
+06/24/2020 girshank 	Age-status              	0                            	315                          	Mod
+06/24/2020 girshank 	Mean-time-to-assigned   	                             	314                          	Mod
+06/24/2020 girshank 	Mean-time-to-resolved   	                             	314                          	Mod
+08/19/2019 dkowalcz 	serviceRequests/C3/68717	                             	                             	Mod
+08/19/2019 dkowalcz 	Urgency-desc            	P2                           	CL2                          	Mod
+08/18/2019 cms      	Note Title              	                             	Scrubnote                    	New
+08/18/2019 cms      	RNE-Approval-Flg        	N                            	                             	New
+08/18/2019 girshank 	Activity-when-found     	Customer-Use                 	                             	Mod
+08/18/2019 girshank 	Breakage                	No                           	                             	Mod
+08/18/2019 girshank 	Feature                 	fix                          	feature                      	Mod
+08/18/2019 girshank 	Impact                  	Features/Functionality       	not-a-bug                    	Mod
+08/18/2019 girshank 	Regression              	N                            	                             	Mod
+08/18/2019 girshank 	Severity-desc           	moderate                     	enhancement                  	Mod
+08/16/2019 dkowalcz 	Note Title              	                             	SS-Review                    	New
+08/16/2019 dkowalcz 	RNE-Approval-Flg        	N                            	                             	New
+08/16/2019 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+08/16/2019 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+08/16/2019 cdetsbtk 	Security-screening-times	                             	08/16/2019 03:49:34          	Mod
+08/15/2019 dkowalcz 	serviceRequests/C3/68717	                             	C3/687171669                 	New
+08/15/2019 dkowalcz 	TACSR-count             	                             	1                            	Mod
+08/15/2019 dkowalcz 	Tickets-count           	0                            	1                            	Mod
+08/15/2019 dkowalcz 	Tickets-count-direct    	                             	1                            	Mod
+08/15/2019 dkowalcz 	Trouble-tickets         	                             	687171669                    	New
+08/15/2019 dkowalcz 	Trouble-tickets-direct  	                             	C3687171669                  	New
+08/15/2019 dkowalcz 	Urgency-desc            	NA                           	P2                           	Mod
+08/15/2019 dkowalcz 	Defect Created          	                             	                             	New
+08/15/2019 dkowalcz 	Note Title              	                             	Release-note                 	New
+08/15/2019 dkowalcz 	Version                 	                             	9.2(3)                       	New

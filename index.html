@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AAA Bug Dashboard</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #182230;
+        background: #f4f7fb;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      header { background: #102a43; color: #fff; padding: 24px clamp(20px, 5vw, 64px); }
+      header h1 { margin: 0; font-size: 1.55rem; }
+      header p { margin: 6px 0 0; color: #c8d8e8; }
+      main { max-width: 1280px; margin: 28px auto; padding: 0 20px; }
+      .toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+      .toolbar input { flex: 1; min-width: 180px; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; }
+      button { padding: 10px 14px; border: 0; border-radius: 8px; background: #1769aa; color: white; font: inherit; cursor: pointer; }
+      button:hover { background: #12558b; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 22px; }
+      .card { padding: 18px 20px; background: white; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 2px 6px #102a430c; }
+      .card-label { color: #526477; font-size: .88rem; }
+      .card-value { margin-top: 8px; font-size: 1.9rem; font-weight: 700; }
+      .table-wrap { overflow-x: auto; background: white; border: 1px solid #e2e8f0; border-radius: 12px; }
+      table { width: 100%; border-collapse: collapse; text-align: left; }
+      th, td { padding: 13px 16px; vertical-align: top; border-bottom: 1px solid #edf1f5; }
+      th { background: #f8fafc; color: #526477; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; }
+      tr:last-child td { border-bottom: 0; }
+      a { color: #1769aa; text-decoration: none; font-weight: 650; }
+      a:hover { text-decoration: underline; }
+      .releases { display: flex; flex-wrap: wrap; gap: 6px; }
+      .release { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #eaf3fb; color: #174d75; font: .83rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .empty { color: #718096; }
+      #status { color: #526477; font-size: .88rem; margin-left: auto; }
+      #error { color: #b42318; padding: 16px; }
+      @media (max-width: 560px) { .toolbar { flex-wrap: wrap; } #status { width: 100%; margin-left: 0; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>AAA Bug Dashboard</h1>
+      <p>Bug IDs and integrated releases from dumpcr records</p>
+    </header>
+    <main>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Filter by bug ID or release" aria-label="Filter bugs">
+        <button id="refresh" type="button">Refresh</button>
+        <span id="status" role="status">Loading…</span>
+      </div>
+      <section class="cards" aria-label="Bug counts">
+        <article class="card"><div class="card-label">Total bugs</div><div class="card-value" id="total">—</div></article>
+        <article class="card"><div class="card-label">With integrated releases</div><div class="card-value" id="with-releases">—</div></article>
+        <article class="card"><div class="card-label">Distinct integrated versions</div><div class="card-value" id="release-count">—</div></article>
+      </section>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Bug ID</th><th>Integrated releases</th><th>Testcase</th></tr></thead>
+          <tbody id="bugs"></tbody>
+        </table>
+        <div id="error" hidden></div>
+      </div>
+    </main>
+    <script>
+      let allBugs = [];
+      const search = document.getElementById("search");
+
+      function renderRows() {
+        const query = search.value.trim().toLowerCase();
+        const filtered = allBugs.filter((bug) =>
+          (bug.bugid || "").toLowerCase().includes(query) ||
+          (bug.integrated_releases || []).some((release) => release.toLowerCase().includes(query))
+        );
+        const body = document.getElementById("bugs");
+        body.replaceChildren();
+        for (const bug of filtered) {
+          const row = document.createElement("tr");
+          const idCell = document.createElement("td");
+          const link = document.createElement("a");
+          link.href = "https://wwwin-metrics.cisco.com/protected-cgi-bin/ddtsdisp.cgi?id=" + encodeURIComponent(bug.bugid || "");
+          link.textContent = bug.bugid || "Unknown";
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          idCell.append(link);
+          const releaseCell = document.createElement("td");
+          const releases = bug.integrated_releases || [];
+          if (releases.length) {
+            const chips = document.createElement("div");
+            chips.className = "releases";
+            for (const release of releases) {
+              const chip = document.createElement("span");
+              chip.className = "release";
+              chip.textContent = release;
+              chips.append(chip);
+            }
+            releaseCell.append(chips);
+          } else {
+            releaseCell.innerHTML = '<span class="empty">None listed</span>';
+          }
+          const testcaseCell = document.createElement("td");
+          if (bug.testcase) {
+            const details = document.createElement("details");
+            const summary = document.createElement("summary");
+            summary.textContent = bug.testcase.testcase_id + " · " + bug.testcase.status;
+            details.append(summary);
+            const title = document.createElement("p");
+            title.textContent = bug.testcase.title || "Testcase";
+            details.append(title);
+            const objective = document.createElement("p");
+            objective.textContent = bug.testcase.objective || "";
+            details.append(objective);
+            if (bug.testcase.suite && bug.testcase.suite.integration_note) {
+              const note = document.createElement("p");
+              note.className = "empty";
+              note.textContent = bug.testcase.suite.integration_note;
+              details.append(note);
+            }
+            const steps = document.createElement("ol");
+            for (const testStep of bug.testcase.steps || []) {
+              const item = document.createElement("li");
+              item.textContent = testStep.action + " Expected: " + testStep.expected;
+              steps.append(item);
+            }
+            details.append(steps);
+            testcaseCell.append(details);
+          } else {
+            testcaseCell.innerHTML = '<span class="empty">No testcase spec</span>';
+          }
+          row.append(idCell, releaseCell, testcaseCell);
+          body.append(row);
+        }
+        document.getElementById("status").textContent = "Showing " + filtered.length + " of " + allBugs.length + " bugs";
+      }
+
+      async function loadDashboard() {
+        const error = document.getElementById("error");
+        error.hidden = true;
+        try {
+          const response = await fetch("/dashboard.json", { cache: "no-store" });
+          if (!response.ok) throw new Error("HTTP " + response.status);
+          const data = await response.json();
+          allBugs = Array.isArray(data.bugs) ? data.bugs : [];
+          document.getElementById("total").textContent = data.total_bugs ?? allBugs.length;
+          document.getElementById("with-releases").textContent = allBugs.filter((bug) => (bug.integrated_releases || []).length > 0).length;
+          const versions = new Set(allBugs.flatMap((bug) => bug.integrated_releases || []));
+          document.getElementById("release-count").textContent = versions.size;
+          renderRows();
+        } catch (errorValue) {
+          error.textContent = "Could not load dashboard.json: " + errorValue.message;
+          error.hidden = false;
+          document.getElementById("status").textContent = "Load failed";
+        }
+      }
+
+      search.addEventListener("input", renderRows);
+      document.getElementById("refresh").addEventListener("click", loadDashboard);
+      loadDashboard();
+      setInterval(loadDashboard, 60000);
+    </script>
+  </body>
+</html>

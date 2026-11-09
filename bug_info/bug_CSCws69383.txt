@@ -1,0 +1,3070 @@
+*******************************************************************************
+
+Bug ID   : CSCws69383         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 3 (moderate)   
+Headline : Unable to login to console after numerous failed SSH login attempts
+PrimaryPV : 
+Version :10.5(3e) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: sandhyar           Submitted: 01/08/2026 22:32:58     Last Updtd : 10/16/2026 07:23:10  
+RNE-Type: NONE                New-on : 01/08/2026 22:32:58      
+Root-cause-analysis:                                                  
+Interest : group.asadayan
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:akangle                                             
+Known-affected-releases:
+
+Known-fixed-releases:10.4(8) 10.5(5) 
+
+
+
+Potentially-affected-releases:10.3(1) 10.3(10) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(8) 10.3(9) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 10.4(6) 10.4(7) 10.5(1) 10.5(2) 10.5(3) 10.5(3e) 10.5(3o) 10.5(3p) 10.5(3s) 10.5(3t) 10.5(4) 10.6(1) 10.6(1s) 10.6(2) 10.6(2s) 9.2(3) 9.2(3y) 9.2(4) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 01/14/2026 08:00:26                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 5                                              
+Mean-time-to-verified: 29     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 01/08/2026 22:32:58            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: Y                                                              
+PSIRT-status: disclosed                                               
+SIR: Low                                                              
+Hardening: Y                                                          
+PSIRT-attribute: SN Update:7                                          
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Confidential                               
+Data-classification-reason:                                           
+Back-out-bad-commit: N                                                
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : samekama           Priority : medium        Assigned: 01/08/2026 22:55:18 
+Code-reviewer: sarchand       
+Opened-on: 01/14/2026 08:00:26Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : Tesla-poc or7m-tbp-ok irvine-na pr5m-ve
+Est. completion date: 01/14/2026 00:00:00  
+Script-version:                         
+
+More-by : vasagraw            More-on: 01/14/2026 08:00:26  
+
+Documents Changed: none       Resolved: 01/14/2026 08:00:26 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: sandhyar            Verified Confidence: tested                       
+Verified Date: 02/07/2026 02:13:34      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Preproduction
+Original-activity-when-found :   Customer-Preproduction
+Detailed-activity :              
+Summitter-org :                  DCN - Switching - POC - India
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              PSIRT-0489911919
+Trouble-tickets-direct :PSIRTPSIRT-0489911919 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoReleased-Defect Auto released - PSIRT Evaluation present in RNE of Bug
+Security-screening-timestamp :                 08/26/2026 18:36:47
+Document :    nexus
+
+Summary:
+The issue occurs when a high volume of failed login attempts is directed at the management interface IP within sub-second intervals. Under this condition, Telnet access to the device is unavailable, and execution of any show command results in the message: ?Process did not respond within the expected timeframe, please try again.?
+
+This was seen by customer as well. To recreate the issue, 
+
+We executed a python script which would continuously try to ssh into the device with wrong passwords multiple times ( 10 parallel attempts every 0.2 secs). After sometime unable to telnet to device.
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+PSIRT      PSIRT-048991191 null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-957332                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (2 of 2)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Related-bugs           jerebake      07/03/2025 09:05:11    CSCwq15577      CSC.datacenter  C            
+Related-bugs           amathew       08/17/2025 21:19:17    CSCwq81325      CSC.datacenter  C            
+
+
+********************* Listing of Notes (16 of 16 ) ***********************
+
+---Start of Note Titled: OR8M_Build_17 (Created 07/23/2026 13:26:09 Added 07/23/2026 13:26:09 by ashmurug)---
+GI-REG-TB3-TOR3# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.53
+  NXOS: version 10.4(8) [build 10.4(7.17)] [Maintenance Release]
+  Host NXOS: version 10.4(8) [build 10.4(7.17)]
+  BIOS compile time:  01/22/2025
+  NXOS image file is: bootflash:///nxos64-cs.10.4.7.17.M.bin
+  NXOS compile time:  7/31/2026 12:00:00 [07/23/2026 12:00:12]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93108TC-FX3P Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 24545568 kB of memory.
+  Processor Board ID FDO23420H1V
+  Device name: GI-REG-TB3-TOR3
+  bootflash:  115343360 kB
+
+Kernel uptime is 0 day(s), 0 hour(s), 19 minute(s), 47 second(s)
+
+Last reset at 722622 usecs after Thu Jul 23 20:04:42 2026
+  Reason: Reset Requested by CLI command reload
+  System version: 10.3(10)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+GI-REG-TB3-TOR3# 
+GI-REG-TB3-TOR3# 
+GI-REG-TB3-TOR3# show module
+Mod Ports                  Module-Type                            Model           Status
+--- ----- ------------------------------------------------ --------------------- --------
+1    54   48x10GT + 6x40/100G Ethernet Module              N9K-C93108TC-FX3P     ok        
+27   0    Virtual Supervisor Module                        N9K-C93108TC-FX3P     active *  
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    10.4(7.17)               4.0    NA  
+27   10.4(7.17)               4.0    VSUP
+
+
+Mod  MAC-Address(es)                         Serial-Num
+---  --------------------------------------  ----------
+1    10-b3-d5-42-ae-70 to 10-b3-d5-42-ae-bf  FDO23420H1V
+27   10-b3-d5-42-ae-70 to 10-b3-d5-42-ae-bf  FDO23420H1V
+
+Mod  Online Diag Status
+---  ------------------
+1    Pass
+27   Pass
+
+* this terminal session 
+GI-REG-TB3-TOR3# 
+
+GI-REG-TB3-TOR3# show running-config aaa
+
+!Command: show running-config aaa
+version 10.4(8) Bios:version 05.53
+
+GI-REG-TB3-TOR3# show system login
+
+No Quiet-Mode access list has been configured,default ACL will be applied
+Switch is NOT enabled to watch for login Attacks
+
+GI-REG-TB3-TOR3# show interface mgmt0 brief
+
+Port   VRF   Status  IP Address       Speed  MTU
+mgmt0  --    up      10.127.57.153    1000   1500
+
+Test configuration:
+-------------------
+username cscws_test password <removed> role network-admin
+
+ip access-list CSCWS_PERMIT
+  10 permit ip 64.104.135.23/32 any
+
+aaa authentication login console local
+aaa authentication login error-enable
+system login block-for 120 attempts 2 within 60
+system login quiet-mode access-class CSCWS_PERMIT
+
+Configuration verification:
+---------------------------
+GI-REG-TB3-TOR3# show running-config aaa
+
+version 10.4(8) Bios:version 05.53
+aaa authentication login console local
+aaa authentication login error-enable
+system login block-for 120 attempts 2 within 60
+system login quiet-mode access-class CSCWS_PERMIT
+
+GI-REG-TB3-TOR3# show running-config aclmgr
+
+version 10.4(8) Bios:version 05.53
+ip access-list CSCWS_PERMIT
+  10 permit ip 64.104.135.23/32 any
+
+GI-REG-TB3-TOR3# show system login
+
+Quiet-Mode access list CSCWS_PERMIT is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+Current Watch Window remaining time 59 seconds
+
+Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+SSH failure generation:
+-----------------------
+Three separate SSH connections were attempted from 64.104.135.23 using
+an incorrect password.
+
+2026 Jul 23 20:14:30 GI-REG-TB3-TOR3
+%AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 64.104.135.23
+
+2026 Jul 23 20:14:45 GI-REG-TB3-TOR3
+%AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 64.104.135.23
+
+2026 Jul 23 20:15:00 GI-REG-TB3-TOR3
+%AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 64.104.135.23
+
+Quiet-Mode verification:
+------------------------
+GI-REG-TB3-TOR3# show clock
+20:15:04.740 UTC Thu Jul 23 2026
+
+GI-REG-TB3-TOR3# show system login
+
+Quiet-Mode access list CSCWS_PERMIT is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+Will remain in Quiet-Mode for 99 seconds.
+
+Restricted logins filtered by applied ACL CSCWS_PERMIT.
+Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+Console login validation during Quiet-Mode:
+-------------------------------------------
+The active console CLI session was terminated while the switch was in
+Quiet-Mode.
+
+User Access Verification
+GI-REG-TB3-TOR3 login: cscws_test
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+
+GI-REG-TB3-TOR3# show clock
+20:15:36.127 UTC Thu Jul 23 2026
+
+GI-REG-TB3-TOR3# show system login
+
+Quiet-Mode access list CSCWS_PERMIT is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+Will remain in Quiet-Mode for 68 seconds.
+
+Restricted logins filtered by applied ACL CSCWS_PERMIT.
+Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+GI-REG-TB3-TOR3# show users
+
+NAME         LINE   TIME          IDLE  PID    COMMENT
+cscws_test   pts/0  Jul 23 20:15  .     27176 *
+
+The console login completed successfully while Quiet-Mode still had
+68 seconds remaining.
+
+Permitted SSH control:
+----------------------
+A new SSH connection from the permitted source 64.104.135.23 was also
+successful during Quiet-Mode using the correct local credentials.
+
+Cleanup verification:
+---------------------
+The temporary login-block configuration and ACL were removed.
+
+GI-REG-TB3-TOR3# show running-config aaa
+
+!Command: show running-config aaa
+version 10.4(8) Bios:version 05.53
+
+GI-REG-TB3-TOR3# show running-config aclmgr
+
+!Command: show running-config aclmgr
+version 10.4(8) Bios:version 05.53
+
+GI-REG-TB3-TOR3# show system login
+
+No Quiet-Mode access list has been configured,default ACL will be applied
+Switch is NOT enabled to watch for login Attacks
+
+GI-REG-TB3-TOR3# show consistency-checker dme running-config enhanced
+DME consistency checker is locking the running config till it completes.
+Getting snapshot of ascii config
+Consistency Checking In Progress  ##                           [ 10%] 
+Replaying ascii config....
+Consistency Checking In Progress  #########################    [ 90%] 
+generate consistency check report....
+Consistency Checking In Progress  ##########################   [ 95%] 
+==============================================================
+Extra config Mo(s) in DME database
+==============================================================
+==============================================================
+Extra config Mo(s) from backend (DN with list of config lines)
+==============================================================
+=============================================================================================
+Config Mo(s) with mismatched property values:
+DN                                       Property             Running Config       DME DB           
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+Consistency Checking In Progress  ############################ [100%] 
+CC_DME_RUNNING: Consistency Check: PASSED2026 Jul 23 20:24:29 GI-REG-TB3-TOR3 %$ VDC-1 %$ %VSHD-2-VSHD_CC_DME: CC_DME_RUNNING: Consistency Check: PASSED
+
+GI-REG-TB3-TOR3#
+---End of Note Titled: OR8M_Build_17---
+
+
+---Start of Note Titled: Sanity-Uls (Created 04/28/2026 03:03:13 Added 04/28/2026 03:03:13 by samekama)---
+#################################################################
+####################### CDT Job Report ##########################
+#################################################################
+
+
+NXOS ASIC Testbed   : hw sanity82
+Sanity UI view      : <a href=https://nxtaas.cisco.com/job-history/1508312>1508312</a>
+Total Test cases    : 23
+Passed test cases   : 22
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log Path            : /auto/nxos-sanity/logs/deskumar/1508312
+Code Diff           : /ws/sjap/astro/diffs/sanos-olympia_rel/d38a4bfc-3ef5-11f1-9598-005056a4277a/diff.txt
+CDET ID             : <a href=https://cdetsng.cisco.com/summary/#/defect/CSCws69383>CSCws69383</a>
+CDT Max Coverage    : 0
+Pass Rate           : NA
+
+TestCases Report Summary
+------------------------
+TestSuite                       TestCase                        Result    Baseline Reference
+---------                       --------                        ------    -------------------
+erspan_term_uls                 testErspanTerminationDstSessionDeleteRecreatepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcErspanSourcePortFlappass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcErspanDestPortFlappass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationDestPortChangepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationWithEcmpandDestPortChangepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationwithTerminationIPChangepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationHeaderType3pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationPortTypeChangepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationJumbo      pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanUDFacl                fail      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationConfigReplacepass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationConfigRollbackpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanIPV4acl               pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanIPV6acl               pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationV4V6bothsrcdstpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchContinuousReloadpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadFMpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchSupSwitchoverpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcDstSwitchReloadLCpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanTerminationMulSrcDstProcessRestartpass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanSourceAccess          pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testErspanUDFterm_def           pass      NA in NA erspan_term_uls NA
+erspan_term_uls                 testCores                       pass      NA in NA erspan_term_uls NA
+---End of Note Titled: Sanity-Uls---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 02/13/2026 13:05:17 Added 02/13/2026 13:05:17 by seshea)---
+--- Update 2026-02-13 21:05:16.326271 seshea (via 700403950)
+Unsuitable - Insufficient Data from Device
+looks to be pentest/security test specific scenario where high volume of malicious logins are coming
+
+not likely seen in normal case
+
+additionally, in switch we wont see console login failure or telnet failure, only ssh login fails - no easy way to confirm the problem is present
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Release-note (Created 02/08/2026 19:32:01 Modified 02/18/2026 06:47:25 by psirt.gen)---
+<B>Symptom:</B>
+During LOGIN-BLOCK quiet-period, LOGIN with LOCAL-users is not working even when tried from an allowed IP address.
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan 13 10:49:51 2026
+!Time: Tue Jan 13 12:15:16 2026
+
+version 10.5(3e) Bios:version 05.53 
+system login block-for 120 attempts 2 within 60   <<<<<<<<<
+system login quiet-mode access-class permit1      <<<<<<<<<
+
+switch# show running-config aclmgr 
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Tue Jan 13 10:49:51 2026
+!Time: Tue Jan 13 14:50:38 2026
+
+version 10.5(3e) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 10.8.13.56/32 any <<<<<<<<<<<< REMOTE-IP FROM WHICH TELNET/SSH SHOULD ALWAYS BE ALLOWED
+switch#
+
+******************************************************************
+
+ATTEMPTED A FEW UNSUCCESSFUL LOGIN ATTEMPTS (WRONG CREDENTIALS) TO ENTER LOGIN-BLOCK QUIET-PERIOD
+
+******************************************************************
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 119 seconds.       <<<<<<<<<<< NOW ENTERED QUIET-PERIOD, LOCAL USERS (e.g. 'admin') WOULD NOT WORK FROM ALLOWED IP  10.8.13.56 
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+<B>Conditions:</B>
+A switch has entered LOGIN-BLOCK quiet-period while having LOCAL authentication method configured.
+
+<B>Workaround:</B>
+Configure REMOTE (TACACS/RADIUS/LDAP) authentication method. There is no issue with REMOTE users during LOGIN-BLOCK quiet-period.
+
+<B>Further Problem Description:</B>
+None.
+
+<B>PSIRT Evaluation:</B>
+The Cisco PSIRT has evaluated this issue and determined that it does not have a security impact that requires PSIRT ownership or involvement. This issue will be addressed via normal resolution channels.
+ 
+If you believe that there is new information that would cause a change in the severity of this issue, please contact psirt@cisco.com for another evaluation.
+ 
+Additional information on Cisco's security vulnerability policy can be found at the following URL:
+ 
+https://sec.cloudapps.cisco.com/security/center/resources/security_vulnerability_policy.html
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: V-comments (Created 02/07/2026 02:13:34 Added 02/07/2026 02:13:34 by sandhyar)---
+Verified in 10.5(3e) build 13
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: or7m-tbp-eval (Created 01/23/2026 01:29:35 Added 01/23/2026 01:29:35 by vasagraw)---
+From: Adam Gargulak (agargula) <agargula@cisco.com>
+Date: Wednesday, 21 January 2026 at 3:20?PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: Adam Gargulak (agargula) <agargula@cisco.com>, Krishna Prem (kriprem) <kriprem@cisco.com>, OR7M_rel_leads <OR7M_rel_leads@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Sameer Kamalapurkar (samekama) <samekama@cisco.com>, Sandhya Kerehalli (sandhyar) <sandhyar@cisco.com>, Shalaka Gedam (shgedam) <shgedam@cisco.com>, Mukund Kamath (mukamath) <mukamath@cisco.com>
+Subject: Re: OR7M MERGE - CSCws69383 - TESLA-POC: Unable to login to console after numerous failed SSH login attempts
+
+Vasu,
+
+Understand - even that is a bit annoying as SEC team do not consider this a PISRT and issue is present in all previous releases we can tbp it for OR7M. Risk is really low as those access is almost all the time ACL to servers under  customer management.
+
+Adam
+
+On 20 Jan 2026, at 19:37, Vasu Agrawal (vasagraw) <vasagraw@cisco.com> wrote:
+
+Hi Adam,
+
+In the sample config below: 
+1) If two authentications fail within 60 seconds, ?permit1? ACL gets applied on MGMT and VTY for a quiet-period of 120 seconds; the login from CONSOLE and SSH/TELNET/NXAPI from IP 173.39.51.143 should still be allowed.
+2) Due to CSCws69383, login from CONSOLE and from IP 173.39.51.143 would NOT be possible either.
+3) The new instances of failing authentication (by a cracker or a buggy script), during quiet-period , would renew the quiet-period to 120 seconds each time. In this way, new LOGIN would not be possible at all. If no other active session is available, there would be no recovery.
+
+LOGIN-BLOCK config, which was supposed to prevent from DoS attack on authentication service, would only make the attack more effective due to the presence of CSCws69383 - Even CONSOLE login becomes unavailable.
+
+
+?????*******************************
+switch(config)# 
+switch(config)# show running-config aclmgr 
+!Command: show running-config aclmgr
+!Running configuration last done at: Thu Jan  8 03:16:10 2026
+!Time: Thu Jan  8 03:20:04 2026
+version 10.6(3) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 173.39.51.143/32 any ????????????<<<<<<<< ALLOWING REMOTE IP FOR SSH LOGIN
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+!Command: show running-config aaa
+!Running configuration last done at: Thu Jan  8 03:16:10 2026
+!Time: Thu Jan  8 03:16:11 2026
+
+version 10.6(3) Bios:version 05.53 
+logging level aaa 7
+aaa authentication login default local ????<<<<<<<< LOCAL
+aaa authentication login console local????<<<<<<<< LOCAL?????????
+system login block-for 120 attempts 2 within 60 ??????<<<<<<<<< LOGIN-BLOCK CONFIG
+system login quiet-mode access-class permit1      ????<<<<<<<< THIS ACL TO BE APPLIED WHEN LOGIN-BLOCK KICKS IN
+switch(config)# 
+?????*******************************
+
+
+Regards,
+
+Vasu
+
+From: Adam Gargulak (agargula) <agargula@cisco.com>
+Date: Tuesday, 20 January 2026 at 11:08?PM
+To: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Cc: Adam Gargulak (agargula) <agargula@cisco.com>, Krishna Prem (kriprem) <kriprem@cisco.com>, OR7M_rel_leads <OR7M_rel_leads@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Sameer Kamalapurkar (samekama) <samekama@cisco.com>, Sandhya Kerehalli (sandhyar) <sandhyar@cisco.com>, Shalaka Gedam (shgedam) <shgedam@cisco.com>, Mukund Kamath (mukamath) <mukamath@cisco.com>
+Subject: Re: OR7M MERGE - CSCws69383 - TESLA-POC: Unable to login to console after numerous failed SSH login attempts
+
+Vasu,
+
+If this is baseline issue and login will resume after quiet period this do not need to be taken. Also CU will understand that he is DDoSing himself and if that is some problem device he can easily prevent it.
+
+I'll add tbp-ok
+
+Adam
+
+On 20 Jan 2026, at 18:04, Vasu Agrawal (vasagraw) <vasagraw@cisco.com> wrote:
+
+Hi Adam,
+
+The login would not be possible at all during login-block quiet-period. Once the quiet-period is over, things would recover; but until then, there would be no (LOCAL user based) login without any workaround.
+
+As part of the bug, we have fixed a buggy wherein authentication (for LOCAL users) was always resulting into failure during quiet-mode.
+
+Being a baseline issue, it is not a must-have fix for the release. And we understand that we are past CFD cut-off already. It is our opinion that we should allow it given the possibility of login unavailability during quiet-period. You can take the final call and let us know.
+
+Regards,
+
+Vasu
+
+From: Adam Gargulak (agargula) <agargula@cisco.com>
+Date: Tuesday, 20 January 2026 at 1:52?PM
+To: Krishna Prem (kriprem) <kriprem@cisco.com>
+Cc: Adam Gargulak (agargula) <agargula@cisco.com>, Vasu Agrawal (vasagraw) <vasagraw@cisco.com>, OR7M_rel_leads <OR7M_rel_leads@cisco.com>, Anil Kunnath (anikunna) <anikunna@cisco.com>, Sameer Kamalapurkar (samekama) <samekama@cisco.com>, Sandhya Kerehalli (sandhyar) <sandhyar@cisco.com>, Shalaka Gedam (shgedam) <shgedam@cisco.com>, Mukund Kamath (mukamath) <mukamath@cisco.com>
+Subject: Re: OR7M MERGE - CSCws69383 - TESLA-POC: Unable to login to console after numerous failed SSH login attempts
+
+I do not think this need to be included - there is a clear workaround for this - let me check with team if no objections. Can we please add tbp-eval, proper rel note with workaround and also proper r-comments as it is really not clear how is fix done.
+
+Then what is recovery from that state ? Can system recover by itself after some time or not - in other DDTS there is prevention mentioned but not how to get out that state once it happen.
+
+Regards,
+
+adam
+
+On 20 Jan 2026, at 09:14, Krishna Prem (kriprem) <kriprem@cisco.com> wrote:
+
++ Adam to review
+
+Hi Adam,
+
+Do we need this fix in OR7M at this point of time? We are post CFD cutoff and would like to take issues only if its actively affecting a customer at this point of time as per my understanding.
+
+Thanks,
+Krishna Prem
+From: Vasu Agrawal (vasagraw) <vasagraw@cisco.com>
+Sent: 20 January 2026 13:22
+To: OR7M_rel_leads <OR7M_rel_leads@cisco.com>
+Cc: Anil Kunnath (anikunna) <anikunna@cisco.com>; Sameer Kamalapurkar (samekama) <samekama@cisco.com>; Sandhya Kerehalli (sandhyar) <sandhyar@cisco.com>; Shalaka Gedam (shgedam) <shgedam@cisco.com>
+Subject: OR7M MERGE - CSCws69383 - TESLA-POC: Unable to login to console after numerous failed SSH login attempts
+ 
+Hi OR7M Leads,
+
+Could you please allow the merge of this OR7M PR?
+PR: https://gh-nx.scm.engit.cisco.com/nx/nx/pull/79746
+
+It is an important bug recently detected in a customer deployment. Due to this bug, none of the LOCAL users (default ?admin? user included) would be able to login (neither CONSOLE nor VTY) to a switch when the switch is in login-block quiet-period. During quiet-period, only VTY logins should be blocked only from the remote-IPs which are defined by a particular ACL (the one which is configured for login-block) -
+LOCAL users not being able to login poses a security risk.
+
+Regards,
+
+Vasu
+---End of Note Titled: or7m-tbp-eval---
+
+
+---Start of Note Titled: Unit-test-pamplona (Created 01/19/2026 02:56:53 Added 01/19/2026 02:56:53 by shgedam)---
+LOCAL AUTHENTICATION CONFIG START:?
+******************************************************************??
+
+switch(config)#
+switch(config)# show running-config aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 09:59:56 2026                                                
+!Time: Mon Jan 19 10:01:39 2026
+
+version 10.5(5) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 10.76.80.245/32 any
+  30 permit ip 171.70.188.25/32 any
+
+
+switch(config)# show run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jan 19 09:59:56 2026                                                
+!Time: Mon Jan 19 10:01:49 2026
+
+version 10.5(5) Bios:version 05.53
+aaa authentication login console local
+aaa authentication login error-enable
+system login block-for 120 attempts 2 within 60
+system login quiet-mode access-class permit1
+
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,                                                   
+ logins will be disabled for 120 seconds.
+
+ Current Watch Window remaining time 25 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,                                                   
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 114 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo                             
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#
+??
+******************************************************************?
+LOCAL ?admin? USER LOGIN FROM ACL-ALLOWED REMOTE-IP DURING QUIET-PERIOD:
+******************************************************************?
+[shgedam@sjc-ads-20272 final]$ ssh -l admin 10.77.143.238
+User Access Verification
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|
+     _____                               _
+    |  __ \                             | |
+    | |__) |_ __  ___  ___   ___  _ __  | |_
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|
+    | |    | |  |  __/\__ \|  __/| | | || |_
+    |_|    |_|   \___||___/ \___||_| |_| \__|
+
+
+
+  _______  _               _                      _            _       _  _
+ |__   __|| |             | |                    | |          | |     (_)| |
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/
+                             | |                        __/ |
+                             |_|                       |___/
+       ______                _      _            _
+      |  ____|              | |    | |          | |
+      | |__    _ __    __ _ | |__  | |  ___   __| |
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |
+      | |____ | | | || (_| || |_) || ||  __/| (_| |
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|
+
+switch#??
+
+******************************************************************?
+LOCAL ?admin? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:?
+******************************************************************?
+
+switch(config)# show system login                                                                             
+                                                                                                              
+ Quiet-Mode access list permit1 is applied.                                                                   
+If more than 2 login failures occur in 60 seconds or less,                                                    
+ logins will be disabled for 120 seconds.                                                                     
+                                                                                                              
+ Will remain in Quiet-Mode for 115 seconds.                                                                   
+                                                                                                              
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo                              
+r login Attacks                                                                                               
+Switch presently in Quiet-Mode                                                                                
+                                                                                                              
+switch(config)#                                                                                               
+switch(config)#                                                                                               
+switch(config)# exit
+switch# exit
+
+User Access Verification
+switch login: admin
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are                                               
+owned by other third parties and used and distributed under their own                                        
+licenses, such as open source.  This software is provided "as is," and unless                                
+otherwise stated, there is no warranty, express or implied, including but not                                
+limited to warranties of merchantability and fitness for a particular purpose.                               
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU                                                     
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __                                      
+ |  __ \ | |       | |   / _|                        |_   _|        / _|                                     
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_                                      
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|                                     
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |                                       
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|                                       
+     _____                               _                                                                   
+    |  __ \                             | |                                                                  
+    | |__) |_ __  ___  ___   ___  _ __  | |_                                                                 
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                                                                
+    | |    | |  |  __/\__ \|  __/| | | || |_                                                                 
+    |_|    |_|   \___||___/ \___||_| |_| \__|                                                                
+
+
+
+  _______  _               _                      _            _       _  _                                  
+ |__   __|| |             | |                    | |          | |     (_)| |                                 
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__                               
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \                              
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |                             
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/                              
+                             | |                        __/ |                                                
+                             |_|                       |___/                                                 
+       ______                _      _            _                                                           
+      |  ____|              | |    | |          | |                                                          
+      | |__    _ __    __ _ | |__  | |  ___   __| |                                                          
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                                                          
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                                                          
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                                                          
+                                                                                                             
+switch# show system login                                                                                    
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,                                                   
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 92 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo                             
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch#
+?
+******************************************************************?
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:?
+******************************************************************??
+
+switch(config)# show run aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 10:08:36 2026
+!Time: Mon Jan 19 10:09:06 2026
+
+version 10.5(5) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 10.76.80.245/32 any
+
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 115 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#??
+
+[shgedam@sjc-ads-20272 final]$ ssh -l admin 10.77.143.238
+
+ssh: connect to host 10.77.143.238 port 22: Connection timed out
+[shgedam@sjc-ads-20272 final]$???
+
+REMOTE AUTHENTICATION CONFIG START:?
+******************************************************************?
+switch(config)#
+switch(config)# show run aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 10:14:05 2026
+!Time: Mon Jan 19 10:14:10 2026
+
+version 10.5(5) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 10.76.80.245/32 any
+  30 permit ip 171.70.188.25/32 any
+
+interface mgmt0
+  ip access-group permit1 in
+
+line vty
+  access-class permit1 in
+
+switch(config)#
+switch(config)# show run aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jan 19 10:10:12 2026                                                
+!Time: Mon Jan 19 10:10:34 2026
+
+version 10.5(5) Bios:version 05.53
+aaa authentication login default group tac1
+aaa authentication login console group tac1
+aaa authentication login error-enable
+system login block-for 120 attempts 2 within 60
+system login quiet-mode access-class permit1
+
+
+switch(config)# show run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jan 19 10:10:12 2026
+!Time: Mon Jan 19 10:10:50 2026
+
+version 10.5(5) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" port 50 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ SyslogTacacs 
+    use-vrf management
+    source-interface mgmt0
+aaa group server tacacs+ tac1 
+    server 10.76.80.245 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 49 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)# 
+switch(config)# 
+
+?******************************************************************
+REMOTE ?shtest? USER LOGIN FROM ACL-ALLOWED REMOTE-IP DURING QUIET-PERIOD:?
+******************************************************************?
+
+[shgedam@sjc-ads-20272 final]$ ssh -l shtest 10.77.143.238
+User Access Verification
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|
+     _____                               _
+    |  __ \                             | |
+    | |__) |_ __  ___  ___   ___  _ __  | |_
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|
+    | |    | |  |  __/\__ \|  __/| | | || |_
+    |_|    |_|   \___||___/ \___||_| |_| \__|
+
+
+
+  _______  _               _                      _            _       _  _
+ |__   __|| |             | |                    | |          | |     (_)| |
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/
+                             | |                        __/ |
+                             |_|                       |___/
+       ______                _      _            _
+      |  ____|              | |    | |          | |
+      | |__    _ __    __ _ | |__  | |  ___   __| |
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |
+      | |____ | | | || (_| || |_) || ||  __/| (_| |
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|
+
+switch#?
+
+******************************************************************
+REMOTE ?shtest? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:?
+******************************************************************
+switch(config)#                                                                                               
+switch(config)#                                                                                               
+switch(config)# show system login                                                                             
+                                                                                                              
+ Quiet-Mode access list permit1 is applied.                                                                   
+If more than 2 login failures occur in 60 seconds or less,                                                    
+ logins will be disabled for 120 seconds.                                                                     
+                                                                                                              
+ Will remain in Quiet-Mode for 105 seconds.                                                                   
+                                                                                                              
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo                              
+r login Attacks                                                                                               
+Switch presently in Quiet-Mode                                                                                
+                                                                                                              
+switch(config)# exit
+switch# exit
+
+User Access Verification
+switch login: shtest
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are                                               
+owned by other third parties and used and distributed under their own                                        
+licenses, such as open source.  This software is provided "as is," and unless                                
+otherwise stated, there is no warranty, express or implied, including but not                                
+limited to warranties of merchantability and fitness for a particular purpose.                               
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU                                                     
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __                                      
+ |  __ \ | |       | |   / _|                        |_   _|        / _|                                     
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_                                      
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|                                     
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |                                       
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|                                       
+     _____                               _                                                                   
+    |  __ \                             | |                                                                  
+    | |__) |_ __  ___  ___   ___  _ __  | |_                                                                 
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                                                                
+    | |    | |  |  __/\__ \|  __/| | | || |_                                                                 
+    |_|    |_|   \___||___/ \___||_| |_| \__|                                                                
+
+
+
+  _______  _               _                      _            _       _  _                                  
+ |__   __|| |             | |                    | |          | |     (_)| |                                 
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__                               
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \                              
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |                             
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/                              
+                             | |                        __/ |                                                
+                             |_|                       |___/                                                 
+       ______                _      _            _                                                           
+      |  ____|              | |    | |          | |                                                          
+      | |__    _ __    __ _ | |__  | |  ___   __| |                                                          
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                                                          
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                                                          
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                                                          
+                                                                                                             
+switch# show system login                                                                                    
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,                                                   
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 78 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo                             
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch#
+
+******************************************************************
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:?
+******************************************************************
+?switch(config)# show run aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 10:24:15 2026
+!Time: Mon Jan 19 10:24:25 2026
+
+version 10.5(5) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 10.76.80.245/32 any
+
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 110 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#
+switch(config)#???
+
+[shgedam@sjc-ads-20272 final]$ ssh -l shtest 10.77.143.238
+ssh: connect to host 10.77.143.238 port 22: Connection timed out
+[shgedam@sjc-ads-20272 final]$
+[shgedam@sjc-ads-20272 final]$
+---End of Note Titled: Unit-test-pamplona---
+
+
+---Start of Note Titled:  Unit-test_olympia (Created 01/19/2026 00:46:01 Modified 01/19/2026 00:48:46 by shgedam)---
+switch(config)# show running-config aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 07:58:19 2026                                                        
+!Time: Mon Jan 19 08:06:44 2026
+
+version 10.4(7) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 173.39.51.143/32 any
+  30 permit ip 10.76.80.245/32 any
+  40 permit ip 171.70.188.25/32 any
+
+
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jan 19 07:58:19 2026                                                        
+!Time: Mon Jan 19 08:06:52 2026
+
+version 10.4(7) Bios:version 05.53
+aaa authentication login console local
+aaa authentication login error-enable
+system login block-for 120 attempts 2 within 60
+system login quiet-mode access-class permit1
+
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Current Watch Window remaining time 1 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)# show ver
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 05.53
+  NXOS: version 10.4(7) [build 10.4(6.33)] [Maintenance Release]
+  Host NXOS: version 10.4(7) [build 10.4(6.33)]
+  BIOS compile time:  01/22/2025
+  NXOS image file is: bootflash:///nxos64-cs.1.bin_o
+? NXOS compile time:  1/31/2026 31:00:00 [01/08/2026 07:55:55]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX Chassis
+  Intel(R) Xeon(R) CPU D-1528 @ 1.90GHz with 32802060 kB of memory.
+  Processor Board ID FDO24510X4L
+  Device name: switch
+  bootflash:  115805708 kB
+
+Kernel uptime is 0 day(s), 5 hour(s), 53 minute(s), 28 second(s)
+
+Last reset at 270517 usecs after Mon Jan 19 02:12:41 2026
+  Reason: Reset Requested by CLI command reload
+  System version: 10.6(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+******************************************************************
+
+
+******************************************************************
+
+ATTEMPTED A FEW UNSUCCESSFUL LOGIN ATTEMPTS (WRONG CREDENTIALS) TO ENTER LOGIN-BLOCK QUIET-PERIOD
+
+******************************************************************
+
+switch(config)#?
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 113 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#??
+
+******************************************************************?
+LOCAL ?admin? USER LOGIN FROM ACL-ALLOWED REMOTE-IP DURING QUIET-PERIOD:?******************************************************************?
+
+?[shgedam@sjc-ads-20272 /]$ ssh -l admin 10.77.143.238
+User Access Verification
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|
+     _____                               _
+    |  __ \                             | |
+    | |__) |_ __  ___  ___   ___  _ __  | |_
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|
+    | |    | |  |  __/\__ \|  __/| | | || |_
+    |_|    |_|   \___||___/ \___||_| |_| \__|
+
+
+
+  _______  _               _                      _            _       _  _
+ |__   __|| |             | |                    | |          | |     (_)| |
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/
+                             | |                        __/ |
+                             |_|                       |___/
+       ______                _      _            _
+      |  ____|              | |    | |          | |
+      | |__    _ __    __ _ | |__  | |  ___   __| |
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |
+      | |____ | | | || (_| || |_) || ||  __/| (_| |
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|
+
+switch#????
+
+******************************************************************
+LOCAL ?admin? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:?******************************************************************?
+
+switch(config)#                                                                                                       
+switch(config)#                                                                                                       
+switch(config)# show system login                                                                                     
+                                                                                                                      
+ Quiet-Mode access list permit1 is applied.                                                                           
+If more than 2 login failures occur in 60 seconds or less,                                                            
+ logins will be disabled for 120 seconds.                                                                             
+                                                                                                                      
+ Will remain in Quiet-Mode for 114 seconds.                                                                           
+                                                                                                                      
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks                       
+Switch presently in Quiet-Mode                                                                                        
+                                                                                                                      
+switch(config)# exit                                                                                                  
+switch# exit
+
+User Access Verification
+switch login: admin
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are                                                       
+owned by other third parties and used and distributed under their own                                                
+licenses, such as open source.  This software is provided "as is," and unless                                        
+otherwise stated, there is no warranty, express or implied, including but not                                        
+limited to warranties of merchantability and fitness for a particular purpose.                                       
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __                                              
+ |  __ \ | |       | |   / _|                        |_   _|        / _|                                             
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_                                              
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|                                             
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |                                               
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|                                               
+     _____                               _                                                                           
+    |  __ \                             | |                                                                          
+    | |__) |_ __  ___  ___   ___  _ __  | |_                                                                         
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                                                                        
+    | |    | |  |  __/\__ \|  __/| | | || |_                                                                         
+    |_|    |_|   \___||___/ \___||_| |_| \__|                                                                        
+
+
+
+  _______  _               _                      _            _       _  _                                          
+ |__   __|| |             | |                    | |          | |     (_)| |                                         
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__                                       
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \                                      
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |                                     
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/                                      
+                             | |                        __/ |                                                        
+                             |_|                       |___/                                                         
+       ______                _      _            _                                                                   
+      |  ____|              | |    | |          | |                                                                  
+      | |__    _ __    __ _ | |__  | |  ___   __| |                                                                  
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                                                                  
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                                                                  
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                                                                  
+                                                                                                                     
+switch# conf                                                                                                         
+Enter configuration commands, one per line. End with CNTL/Z.                                                         
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 90 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks                      
+Switch presently in Quiet-Mode
+
+switch(config)#
+
+?******************************************************************?
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:?******************************************************************?
+
+switch(config)# show run aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 07:58:19 2026
+!Time: Mon Jan 19 08:13:42 2026
+
+version 10.4(7) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 173.39.51.143/32 any
+  30 permit ip 10.76.80.245/32 any
+  40 permit ip 171.70.188.25/32 any
+
+
+switch(config)# ip access-list permit1?
+switch(config-acl)# no permit ip 171.70.188.25/32 any
+switch(config-acl)# exit
+switch(config)# show run aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 08:14:22 2026
+!Time: Mon Jan 19 08:14:33 2026
+
+version 10.4(7) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 173.39.51.143/32 any
+  30 permit ip 10.76.80.245/32 any
+
+
+switch(config)#
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Current Watch Window remaining time 28 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)#
+switch(config)#
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 115 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#??
+[shgedam@sjc-ads-20272 /]$ ssh -l admin 10.77.143.238
+
+ssh: connect to host 10.77.143.238 port 22: Connection timed out
+[shgedam@sjc-ads-20272 /]$?
+
+?******************************************************************?
+REMOTE AUTHENTICATION CONFIG START:
+******************************************************************
+
+switch# show running-config aaa                                                
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jan 19 08:23:33 2026
+!Time: Mon Jan 19 08:38:38 2026
+
+version 10.4(7) Bios:version 05.53 
+aaa authentication login default group tac1 
+aaa authentication login console group tac1 
+aaa authentication login error-enable 
+system login block-for 120 attempts 2 within 60 
+system login quiet-mode access-class permit1 
+
+
+switch# show running-config aclmgr 
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 08:23:33 2026
+!Time: Mon Jan 19 08:38:45 2026
+
+version 10.4(7) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any 
+  20 permit ip 173.39.51.143/32 any 
+  30 permit ip 10.76.80.245/32 any 
+  40 permit ip 171.70.188.25/32 any
+
+
+switch# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jan 19 08:23:33 2026
+!Time: Mon Jan 19 08:39:00 2026
+
+version 10.4(7) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" port 50 
+tacacs-server host 255.1.1.1 key 7 "fewhg" 
+aaa group server tacacs+ SyslogTacacs 
+    use-vrf management
+    source-interface mgmt0
+aaa group server tacacs+ tac1 
+    server 10.76.80.245 
+    use-vrf management
+    source-interface mgmt0
+
+
+switch# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Current Watch Window remaining time 36 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch# 
+switch# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 115 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch#??
+
+******************************************************************?
+REMOTE ?shtest? USER LOGIN FROM ACL-ALLOWED REMOTE-IP DURING QUIET-PERIOD:?******************************************************************
+?
+[shgedam@sjc-ads-20272 /]$ ssh -l shtest 10.77.143.238
+User Access Verification
+Password: 
+Password: 
+Received disconnect from 10.77.143.238 port 22:2: Too many authentication failures
+Disconnected from 10.77.143.238 port 22
+[shgedam@sjc-ads-20272 /]$ ssh -l shtest 10.77.143.238
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+  _______  _               _                      _            _       _  _     
+ |__   __|| |             | |                    | |          | |     (_)| |    
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__  
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \ 
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/ 
+                             | |                        __/ |                   
+                             |_|                       |___/                    
+       ______                _      _            _                              
+      |  ____|              | |    | |          | |                             
+      | |__    _ __    __ _ | |__  | |  ___   __| |                             
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                             
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                             
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                             
+                                                                                
+switch#                                                                       
+ 
+?******************************************************************?
+REMOTE ?shtest? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:
+******************************************************************??
+switch(config)# exit
+switch# exit
+
+User Access Verification
+switch login: shtest
+Password:
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are                                               
+owned by other third parties and used and distributed under their own                                        
+licenses, such as open source.  This software is provided "as is," and unless                                
+otherwise stated, there is no warranty, express or implied, including but not                                
+limited to warranties of merchantability and fitness for a particular purpose.                               
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU                                                     
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __                                      
+ |  __ \ | |       | |   / _|                        |_   _|        / _|                                     
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_                                      
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|                                     
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |                                       
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|                                       
+     _____                               _                                                                   
+    |  __ \                             | |                                                                  
+    | |__) |_ __  ___  ___   ___  _ __  | |_                                                                 
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                                                                
+    | |    | |  |  __/\__ \|  __/| | | || |_                                                                 
+    |_|    |_|   \___||___/ \___||_| |_| \__|                                                                
+
+
+
+  _______  _               _                      _            _       _  _                                  
+ |__   __|| |             | |                    | |          | |     (_)| |                                 
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__                               
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \                              
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |                             
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/                              
+                             | |                        __/ |                                                
+                             |_|                       |___/                                                 
+       ______                _      _            _                                                           
+      |  ____|              | |    | |          | |                                                          
+      | |__    _ __    __ _ | |__  | |  ___   __| |                                                          
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                                                          
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                                                          
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                                                          
+                                                                                                             
+switch# show system login                                                                                    
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 114 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch# ?switch# exit
+
+User Access Verification
+switch login: shtest
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+  _______  _               _                      _            _       _  _     
+ |__   __|| |             | |                    | |          | |     (_)| |    
+    | |   | |__   _ __  __| | _ __    __ _  _ __ | |_  _   _  | |      _ | |__  
+    | |   | '_ \ | '__|/ _` || '_ \  / _` || '__|| __|| | | | | |     | || '_ \ 
+    | |   | | | || |  | (_| || |_) || (_| || |   | |_ | |_| | | |____ | || |_) |
+    |_|   |_| |_||_|   \__,_|| .__/  \__,_||_|    \__| \__, | |______||_||_.__/ 
+                             | |                        __/ |                   
+                             |_|                       |___/                    
+       ______                _      _            _                              
+      |  ____|              | |    | |          | |                             
+      | |__    _ __    __ _ | |__  | |  ___   __| |                             
+      |  __|  | '_ \  / _` || '_ \ | | / _ \ / _` |                             
+      | |____ | | | || (_| || |_) || ||  __/| (_| |                             
+      |______||_| |_| \__,_||_.__/ |_| \___| \__,_|                             
+                                                                                
+switch# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 71 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch# 
+
+?*****************************************************************?
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:?******************************************************************?
+
+switch(config)# ip access-list permit1
+switch(config-acl)# no permit ip 171.70.188.25/32 any
+switch(config-acl)# exit
+switch(config)# show running-config aclmgr
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Mon Jan 19 08:55:54 2026
+!Time: Mon Jan 19 08:56:03 2026
+
+version 10.4(7) Bios:version 05.53
+ip access-list permit1
+  10 permit ip 173.39.11.179/32 any
+  20 permit ip 173.39.51.143/32 any
+  30 permit ip 10.76.80.245/32 any
+
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Current Watch Window remaining time 19 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)# show system login
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds.
+
+ Will remain in Quiet-Mode for 116 seconds.
+
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)#??
+
+[shgedam@sjc-ads-20272 /]$ ssh -l shtest 10.77.143.238
+ssh: connect to host 10.77.143.238 port 22: Connection timed out
+[shgedam@sjc-ads-20272 /]$
+---End of Note Titled: Unit-test_olympia---
+
+
+---Start of Note Titled: static-analysis-nx_main.p4 (Created 01/15/2026 19:52:11 Added 01/15/2026 19:52:11 by qddts)---
+(standalone)$> cat /witspace/vasagraw/space_vasagraw_nx_main_COV_10_6_2_IMG9_0_95/.SA.SUMMARY
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+
+Total active warnings: 0
+Total noise warnings: 4
+Total parent warnings: 38
+
+Files not analyzed:
+
+
+Files analyzed:
+standalone/feature/security/aaa/aaa.c
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (0):
+
+Warnings marked parent (0):
+
+
+Parent warnings can be seen at:
+https://sjc-devx-03.cisco.com:8445/query/defects.htm?project=nx_main&cid=964270&cid=2699708&cid=3617962&cid=294527&cid=892014&cid=947846&cid=2699180&cid=889344&cid=294531&cid=954780&cid=917636&cid=968002&cid=809807&cid=944308&cid=765338&cid=965010&cid=867889&cid=689521&cid=945221&cid=1011958&cid=735191&cid=1015441&cid=2810455&cid=2810454&cid=1368023&cid=67305&cid=294530&cid=921674&cid=1552374&cid=2699325&cid=860067&cid=899240&cid=720074&cid=913383&cid=970966&cid=957300&cid=2699689&cid=948686
+
+
+For details on the SA CLI output, see the run_sa FAQ: https://wiki.cisco.com/display/CSTATIC/run_sa+FAQ
+---End of Note Titled: static-analysis-nx_main.p4---
+
+
+---Start of Note Titled: ULS_QR3F (Created 01/15/2026 01:12:29 Added 01/15/2026 01:12:29 by qddts)---
+#################################################################
+################### &quot;Basic_Sanity&quot; Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity82.cisco.com
+Testbed  name       : sanity82-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/1369969/hw_uls.yml
+Total Test cases Run: 41
+Passed test cases   : 41
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/1369969
+Report file         : /auto/nxos-sanity/logs/vasagraw/1369969/uls-sanity82.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/1369969/uls-sanity82.log
+Test start time     : 2026_01_14_20_25_01
+Test End time       : 2026_01_15_01_09_27
+Test Duration       : 4:44:25.793658
+Arguments passed: [&#39;/automation/basic_sanity.py&#39;, &#39;-infra_id&#39;, &#39;1369969&#39;, &#39;-cdet&#39;, &#39;CSCws69383&#39;, &#39;-build&#39;, &#39;/ws/vasagraw-sjc/nxos64-cs.10.6.2.IMG9.0.95.F.bin&#39;, &#39;-testsuite&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1369969/hw_uls.yml&#39;, &#39;-testbed&#39;, &#39;sanity82-testbed.yml&#39;, &#39;-asic&#39;, &#39;hw&#39;, &#39;-logicaldict&#39;, &#39;logical_dict.yml&#39;, &#39;-skip_dependency&#39;, &#39;-email&#39;, &#39;vasagraw&#39;, &#39;-logfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1369969/uls-sanity82.log&#39;, &#39;-reportfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1369969/uls-sanity82.report&#39;, &#39;-jobid&#39;, &#39;HW&#39;] 
+Job Info           : &quot;Basic_Sanity&quot; Report: Job-id:HW Passed:41/41  Failed:0/41  Aborted:0/41  Never-Run:0/41
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:34   
+testBootTime                                                              pass      0:01:03   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:38   
+testStaticRoute                                                           pass      0:00:46   
+testLacpShutNoshut                                                        pass      0:04:29   
+testSubPortChannelShutNoshut                                              pass      0:02:48   
+testL2BridgingTrunk                                                       pass      0:01:55   
+testBgpv4                                                                 pass      0:03:39   
+testCdp                                                                   pass      0:01:43   
+testLLDP                                                                  pass      0:01:03   
+testSviVrf                                                                pass      0:03:52   
+testIpv6Interface                                                         pass      0:01:00   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:17   
+testStpLacpPcTrunkWithTraffic                                             pass      0:13:27   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:47   
+testL2SanityMacLearning                                                   pass      0:11:31   
+testL2SanityPortModeChange                                                pass      0:10:43   
+testL2SanityPortChannelMemberAdd                                          pass      0:09:45   
+testL2SanityPortChannelMemberRemove                                       pass      0:09:37   
+testL2SanityAllowedVlanAdd                                                pass      0:10:17   
+testL2SanityAllowedVlanRemove                                             pass      0:09:42   
+testL2SanityUnconfig                                                      pass      0:00:39   
+testDynamicL2MulticastPC                                                  pass      0:05:04   
+testPimv4                                                                 pass      0:08:48   
+testPimv4SVI                                                              pass      0:25:11   
+testVpcConfig                                                             pass      0:06:52   
+testVpcPeerLink                                                           pass      0:00:34   
+testVpcPeerKeepAlive                                                      pass      0:00:20   
+testVpcPortChannels                                                       pass      0:00:54   
+testVpcStpStates                                                          pass      0:00:22   
+testVpcConsistencies                                                      pass      0:02:35   
+testVpcUnconfig                                                           pass      0:03:35   
+GleanL3toL3V4V6                                                           pass      0:05:03   
+GleanL3toSVIV4V6                                                          pass      0:05:55   
+GleanL3toL3PCV4V6                                                         pass      0:05:32   
+GleanL3toL3SIV4V6                                                         pass      0:05:01   
+testCopp                                                                  pass      0:17:27   
+testCopyRunnStart                                                         pass      0:06:30   
+testGoldDiagnostic                                                        pass      0:00:38   
+testCores                                                                 pass      0:00:07   
+
+
+
+BOOT TIME LOGS:
+================
+
+
++--------+---------------+-------------------+---------------------+---------------------+-----------+--------+
+| node   | switch name   | build             | system uptime       | system reset-reason | ~ <5 mins | result |
++--------+---------------+-------------------+---------------------+---------------------+-----------+--------+
+| node01 | sanity82-tor1 | 10.6(2)IMG9(0.95) | 2026-01-14 20:47:55 | 2026-01-14 20:44:51 |  0:03:04  | PASS   |
++--------+---------------+-------------------+---------------------+---------------------+-----------+--------+
+
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kernel                       3.0  04:46:08.50  04:46:11.50 
+bootscripts                 51.0  20:46:26.00  20:47:17.00 
+sysmgr_bootup                2.7  20:47:17.00  20:47:19.71 
+pfm_init                     3.0  20:47:20.00  20:47:23.00 
+lcm_init                     4.1  20:47:23.00  20:47:27.01 
+module_insert               26.7  20:47:27.01  20:47:53.73 
+sup_online                   1.4  20:47:53.74  20:47:55.22 
+lc_online                   41.8  20:47:58.69  20:48:39.77 
+pss_acfg                     0.7  20:48:39.77  20:48:40.49 
+----------------------------------------------------------
+full_boot                  152.4  20:46:08.00  20:48:40.49 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |              4.6 |            3.0 | PASS   |
+| bootscripts   |            56.35 |           51.0 | PASS   |
+| sysmgr_bootup |             2.99 |            2.7 | PASS   |
+| pfm_init      |              2.3 |            3.0 | SKIP   |
+| sup_online    |             1.61 |            1.4 | PASS   |
+| lcm_init      |            5.405 |            4.1 | PASS   |
+| module_insert |            39.79 |           26.7 | PASS   |
+| lc_online     |           44.965 |           41.8 | PASS   |
+| pss_acfg      |            3.335 |            0.7 | PASS   |
+| full_boot     |           179.17 |          152.4 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: ULS_QR3F---
+
+
+---Start of Note Titled: R-comments (Created 01/14/2026 08:00:26 Added 01/14/2026 08:00:26 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: ULS (Created 01/14/2026 03:09:21 Added 01/14/2026 03:09:21 by qddts)---
+#################################################################
+################### &quot;Basic_Sanity&quot; Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity99.cisco.com
+Testbed  name       : sanity99-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/vasagraw/1367999/hw_uls.yml
+Total Test cases Run: 40
+Passed test cases   : 40
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/vasagraw/1367999
+Report file         : /auto/nxos-sanity/logs/vasagraw/1367999/uls-sanity99.report
+logfile             : /auto/nxos-sanity/logs/vasagraw/1367999/uls-sanity99.log
+Test start time     : 2026_01_13_22_06_09
+Test End time       : 2026_01_14_02_58_45
+Test Duration       : 4:52:35.948386
+Arguments passed: [&#39;/automation/basic_sanity.py&#39;, &#39;-infra_id&#39;, &#39;1367999&#39;, &#39;-cdet&#39;, &#39;CSCws69383&#39;, &#39;-build&#39;, &#39;/ws/vasagraw-sjc/nxos64-cs.10.5.3e.F.bin&#39;, &#39;-testsuite&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1367999/hw_uls.yml&#39;, &#39;-testbed&#39;, &#39;sanity99-testbed.yml&#39;, &#39;-asic&#39;, &#39;hw&#39;, &#39;-logicaldict&#39;, &#39;logical_dict.yml&#39;, &#39;-skip_dependency&#39;, &#39;-email&#39;, &#39;vasagraw&#39;, &#39;-logfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1367999/uls-sanity99.log&#39;, &#39;-reportfile&#39;, &#39;/auto/nxos-sanity/logs/vasagraw/1367999/uls-sanity99.report&#39;, &#39;-jobid&#39;, &#39;HW&#39;] 
+Job Info           : &quot;Basic_Sanity&quot; Report: Job-id:HW Passed:40/40  Failed:0/40  Aborted:0/40  Never-Run:0/40
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:34   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:32   
+testStaticRoute                                                           pass      0:00:44   
+testLacpShutNoshut                                                        pass      0:04:28   
+testSubPortChannelShutNoshut                                              pass      0:02:43   
+testL2BridgingTrunk                                                       pass      0:01:52   
+testBgpv4                                                                 pass      0:03:44   
+testCdp                                                                   pass      0:01:37   
+testLLDP                                                                  pass      0:00:57   
+testSviVrf                                                                pass      0:03:48   
+testIpv6Interface                                                         pass      0:00:54   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:45   
+testStpLacpPcTrunkWithTraffic                                             pass      0:13:56   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:53   
+testL2SanityMacLearning                                                   pass      0:11:29   
+testL2SanityPortModeChange                                                pass      0:10:25   
+testL2SanityPortChannelMemberAdd                                          pass      0:09:33   
+testL2SanityPortChannelMemberRemove                                       pass      0:09:33   
+testL2SanityAllowedVlanAdd                                                pass      0:10:06   
+testL2SanityAllowedVlanRemove                                             pass      0:09:37   
+testL2SanityUnconfig                                                      pass      0:00:33   
+testDynamicL2MulticastPC                                                  pass      0:05:05   
+testPimv4                                                                 pass      0:08:46   
+testPimv4SVI                                                              pass      0:25:03   
+testVpcConfig                                                             pass      0:06:51   
+testVpcPeerLink                                                           pass      0:00:28   
+testVpcPeerKeepAlive                                                      pass      0:00:14   
+testVpcPortChannels                                                       pass      0:00:48   
+testVpcStpStates                                                          pass      0:00:15   
+testVpcConsistencies                                                      pass      0:02:31   
+testVpcUnconfig                                                           pass      0:03:31   
+GleanL3toL3V4V6                                                           pass      0:06:12   
+GleanL3toSVIV4V6                                                          pass      0:06:39   
+GleanL3toL3PCV4V6                                                         pass      0:05:42   
+GleanL3toL3SIV4V6                                                         pass      0:05:17   
+testCopp                                                                  pass      0:18:35   
+testCopyRunnStart                                                         pass      0:07:31   
+testGoldDiagnostic                                                        pass      0:00:16   
+testCores                                                                 pass      0:00:04
+---End of Note Titled: ULS---
+
+
+---Start of Note Titled:  unit-test_qr3f (Created 01/14/2026 00:51:29 Modified 01/14/2026 01:07:33 by vasagraw)---
+******************************************************************
+LOCAL AUTHENTICATION CONFIG START:
+
+switch(config)# 
+switch(config)# show running-config aclmgr 
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Wed Jan 14 08:40:14 2026
+!Time: Wed Jan 14 08:40:57 2026
+
+version 10.6(3) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 173.39.51.143/32 any 		<<<<<<<<<<<< REMOTE-IP FROM WHICH TELNET/SSH IS BEING ATTEMPTED
+  20 permit ip 10.76.80.245/32 any 		<<<<<<<<<<< TACACS SERVER IP
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jan 14 08:40:14 2026
+!Time: Wed Jan 14 08:41:01 2026
+
+version 10.6(3) Bios:version 05.53 
+aaa authentication login console local 
+system login block-for 120 attempts 2 within 60 
+system login quiet-mode access-class permit1 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Current Watch Window remaining time 10 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+
+ATTEMPTED A FEW UNSUCCESSFUL LOGIN ATTEMPTS (WRONG CREDENTIALS) TO ENTER LOGIN-BLOCK QUIET-PERIOD
+
+******************************************************************
+
+
+******************************************************************
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 109 seconds.	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<    ENTERED QUIET-PERIOD
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+LOCAL ?admin? USER LOGIN FROM ACL-ALLOWED REMOTE-IP 173.39.51.143 DURING QUIET-PERIOD:
+
+(Desktop)$> 
+(Desktop)$> ssh -l admin 10.77.143.50			<<<<<<<<<<<< 
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+******************************************************************
+
+
+******************************************************************
+LOCAL ?admin? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:
+
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 70 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch fo
+r login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)# 
+switch(config)# 
+switch(config)# exit
+switch# exit
+
+User Access Verification
+switch login: admin					<<<<<<<<<<<<<<<<<<<<
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 53 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:
+
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % ssh -l admin 10.77.143.50      <<<<<<<<<<<<  IP IS BLOCKED FOR LOGIN
+ssh: connect to host 10.77.143.50 port 22: Operation timed out
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % 
+******************************************************************
+
+
+******************************************************************
+REMOTE AUTHENTICATION CONFIG START:
+
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Wed Jan 14 08:52:35 2026
+!Time: Wed Jan 14 08:52:38 2026
+
+version 10.6(3) Bios:version 05.53 
+aaa authentication login default group tac1 
+aaa authentication login console group tac1 
+system login block-for 120 attempts 2 within 60 
+system login quiet-mode access-class permit1 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aclmgr 
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Wed Jan 14 08:52:35 2026
+!Time: Wed Jan 14 08:53:17 2026
+
+version 10.6(3) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 173.39.51.143/32 any 
+  20 permit ip 10.76.80.245/32 any 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Wed Jan 14 08:52:45 2026
+!Time: Wed Jan 14 08:54:57 2026
+
+version 10.6(3) Bios:version 05.53 
+feature tacacs+
+
+tacacs-server host 10.76.80.245 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+    server 10.76.80.245 
+    use-vrf management
+aaa group server tacacs+ tg1 
+
+switch(config)# 
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Current Watch Window remaining time 57 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+
+ATTEMPTED A FEW UNSUCCESSFUL LOGIN ATTEMPTS (WRONG CREDENTIALS) TO ENTER LOGIN-BLOCK QUIET-PERIOD
+
+******************************************************************
+
+
+******************************************************************
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 114 seconds.						<<<<<<<<<<<<< ENTERED QUIET-PEROD
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+REMOTE ?vasagraw? USER LOGIN FROM ACL-ALLOWED REMOTE-IP 173.39.51.143 DURING QUIET-PERIOD:
+
+(Desktop)$> 
+(Desktop)$> ssh -l vasagraw 10.77.143.50       <<<<<<<<<<<<<
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+******************************************************************
+
+
+******************************************************************
+REMOTE ?vasagraw? USER LOGIN FROM CONSOLE DURING QUIET-PERIOD:
+
+switch# 
+switch# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 98 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch# 
+switch# exit
+
+User Access Verification
+switch login: vasagraw        <<<<<<<<<<<<<<<<
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 79 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)# 
+******************************************************************
+
+
+******************************************************************
+LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD:
+
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % ssh -l vasagraw 10.77.143.50      <<<<<<<<<<<<  IP IS BLOCKED FOR LOGIN
+ssh: connect to host 10.77.143.50 port 22: Operation timed out
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % 
+******************************************************************
+---End of Note Titled: unit-test_qr3f---
+
+
+---Start of Note Titled: Unit-test (Created 01/13/2026 06:58:12 Added 01/13/2026 06:58:12 by qddts)---
+******************************************************************
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Tue Jan 13 10:49:51 2026
+!Time: Tue Jan 13 12:15:16 2026
+
+version 10.5(3e) Bios:version 05.53 
+aaa authentication login console local 
+system login block-for 120 attempts 2 within 60 
+system login quiet-mode access-class permit1 
+
+switch(config)# 
+switch(config)# 
+switch# 
+switch# show running-config aclmgr 
+
+!Command: show running-config aclmgr
+!Running configuration last done at: Tue Jan 13 10:49:51 2026
+!Time: Tue Jan 13 14:50:38 2026
+
+version 10.5(3e) Bios:version 05.53 
+ip access-list permit1
+  10 permit ip 173.39.51.143/32 any <<<<<<<<<<<< REMOTE-IP FROM WHICH TELNET/SSH IS BEING ATTEMPTED
+  20 permit ip 10.76.80.245/32 any           <<<<<<<<<<< TACACS SERVER IP
+
+switch# 
+ ******************************************************************
+
+
+ ******************************************************************
+
+ATTEMPTED A FEW UNSUCCESSFUL LOGIN ATTEMPTS (WRONG CREDENTIALS) TO ENTER LOGIN-BLOCK QUIET-PERIOD
+
+ ******************************************************************
+
+
+ ******************************************************************
+switch(config)# 
+switch(config)# show system login 
+
+ Quiet-Mode access list permit1 is applied.
+If more than 2 login failures occur in 60 seconds or less,
+ logins will be disabled for 120 seconds. 
+
+ Will remain in Quiet-Mode for 119 seconds.
+ 
+ Restricted logins filtered by applied ACL permit1.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+switch(config)# 
+ ******************************************************************
+
+
+ ******************************************************************
+(Desktop)$> 
+(Desktop)$> ssh -l admin 10.77.143.50<<<<<<<<<<<< LOCAL &lsquo;admin&rsquo; USER LOGIN FROM ACL-ALLOWED REMOTE-IP 173.39.51.143 DURING QUIET-PERIOD
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided &quot;as is,&quot; and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+******************************************************************
+
+
+******************************************************************
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % ssh -l admin 10.77.143.50      <<<<<<<<<<<< LOCAL &lsquo;admin&rsquo; USER LOGIN FROM AN ACL-DISALLOWED REMOTE-IP DURING QUIET-PERIOD
+ssh: connect to host 10.77.143.50 port 22: Operation timed out
+vasagraw@VASAGRAW-M-F6HR ~ % 
+vasagraw@VASAGRAW-M-F6HR ~ % 
+******************************************************************
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  Scrubnote (Created 01/08/2026 23:06:09 Modified 04/28/2026 03:40:13 by cms)---
+{260428 samekama S G} Or8m PR - merged
+{260424 samekama S B} Or8m PR - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/88370
+{260423 samekama S B} Or8m - ETA: 04/27. Needs double commit. 
+{260123 agargula S G} or7m-tbp-ok
+{260119 samekama S B} Pr5m - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/79745
+{260119 samekama S B} Or7m PR - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/79746
+{260114 samekama S B} Qr3f PR - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/79582
+{260113 samekama S B} pr3f_epu PR - https://gh-nx.scm.engit.cisco.com/nx/nx/pull/79503 
+{260112 samekama S B} RCA done, fix in UT.
+{260109 samekama S B} Came in today, to be fixed first in pr3f_xai branch & then to Qr3f.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: reproduction-steps (Created 01/08/2026 22:32:59 Added 01/08/2026 22:32:59 by sandhyar)---
+We executed a python script which would continuously try to ssh into the device with wrong passwords multiple times ( 10 parallel attempts every 0.2 secs). After sometime unable to telnet to device.
+---End of Note Titled: reproduction-steps---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (44 of 44)
+------------------------------------------------------------------------------------------------------------------
+Diffs-commit-olympia_rel                          binary         3281           vasagraw       04/28/2026 03:28:23      
+ccwarnings-olympia_rel.p3                         ascii text     174            baas           04/25/2026 04:54:55      
+static-analysis-olympia_rel.p3                    ascii text     1067           baas           04/25/2026 04:54:18      
+Unit_test_olympia_rel.rtf                         ascii text     2967           deskumar       04/24/2026 03:57:27      
+code-review-olympia_rel.p7                        binary         1385           vasagraw       04/23/2026 22:17:30      
+code-review-olympia_rel.p6                        binary         1385           vasagraw       04/23/2026 21:55:25      
+PR-Description-88370                              binary         887            vasagraw       04/23/2026 22:17:31      
+code-review-olympia_rel.p5                        binary         1385           vasagraw       04/23/2026 21:54:21      
+ccwarnings-olympia_rel.p2                         ascii text     174            baas           04/23/2026 05:42:40      
+static-analysis-olympia_rel.p2                    ascii text     1118           baas           04/23/2026 05:42:03      
+Verification_logs_qr3f.docx                       binary         34813          sandhyar       04/05/2026 11:16:11      
+Verification_logs_10.5_4.29.docx.p2               binary         33451          sandhyar       02/18/2026 03:34:51      
+Verification_logs_10.5_4.29.docx                  binary         33451          sandhyar       02/18/2026 03:30:47      
+Release-note-diff                                 ascii text     2701           psirt.gen      02/18/2026 06:47:25      
+Verification_logs_10_5_3e_bld_13.docx             binary         33431          sandhyar       02/07/2026 02:15:38      
+code-review-olympia_rel.p4                        binary         1397           vasagraw       01/19/2026 10:06:10      
+code-review-olympia_rel.p3                        binary         1397           vasagraw       01/19/2026 09:35:08      
+Diffs-commit-pamplona_rel                         binary         3292           vasagraw       01/19/2026 09:02:12      
+code-review-olympia_rel.p2                        binary         1397           vasagraw       01/19/2026 04:32:10      
+code-review-pamplona_rel.p2                       binary         1399           vasagraw       01/19/2026 04:32:09      
+PR-Description-79745                              binary         888            vasagraw       01/19/2026 04:32:10      
+code-review-pamplona_rel                          binary         1399           vasagraw       01/19/2026 03:34:03      
+PR-Description-79746                              binary         888            vasagraw       01/19/2026 10:06:11      
+code-review-olympia_rel                           binary         1397           vasagraw       01/19/2026 03:33:50      
+base_sanity_uls_sanity_baseline_compare           ascii text     7027           root           01/16/2026 01:28:46      
+base_sanity_uls_sanity_report                     ascii text     4787           root           01/16/2026 01:28:46      
+ccwarnings-pamplona_rel                           ascii text     174            baas           01/15/2026 21:55:39      
+static-analysis-pamplona_rel                      ascii text     1030           baas           01/15/2026 21:54:59      
+ccwarnings-olympia_rel                            ascii text     174            baas           01/15/2026 21:46:21      
+static-analysis-olympia_rel                       ascii text     982            baas           01/15/2026 21:45:47      
+Diffs-commit-nx_main                              binary         3471           vasagraw       01/15/2026 20:12:29      
+ccwarnings-nx_main                                ascii text     174            baas           01/14/2026 07:40:39      
+static-analysis-nx_main.p3                        ascii text     1944           baas           01/14/2026 07:39:45      
+static-analysis-nx_main.p2                        ascii text     1944           baas           01/14/2026 07:37:21      
+static-analysis-nx_main                           ascii text     1944           baas           01/14/2026 07:35:27      
+Diffs-commit-pr3f_epu                             ascii text     2774           vasagraw       01/14/2026 06:18:03      
+code-review-nx_main.p2                            binary         1522           vasagraw       01/14/2026 03:24:42      
+PR-Description-79582                              binary         1069           vasagraw       01/14/2026 03:24:43      
+code-review-nx_main                               binary         1522           vasagraw       01/14/2026 01:24:13      
+code-review-pr3f_epu.p2                           binary         1632           vasagraw       01/13/2026 20:40:31      
+PR-Description-79503                              binary         1194           vasagraw       01/13/2026 20:40:32      
+code-review-pr3f_epu                              binary         1632           vasagraw       01/13/2026 20:08:54      
+ccwarnings-pr3f_epu                               ascii text     174            baas           01/13/2026 07:55:59      
+static-analysis-pr3f_epu                          ascii text     1030           baas           01/13/2026 07:55:24      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+10/16/2026 sonjose  	Attribute               	Tesla-poc or7m-tbp-ok irvine-	Tesla-poc or7m-tbp-ok irvine-	Mod
+09/25/2026 pisces   	VF-patched              	                             	NX-OS:10.4(8),NX-OS:10.5(6),N	New
+09/25/2026 pisces   	VF-unpatched            	                             	NX-OS:10.3(10)               	New
+09/25/2026 pisces   	Potentially-affected-rel	                             	10.3(10)                     	New
+08/26/2026 cdetsbtk 	Security-screening-times	2026-07-24 03:26:09.000+0000 	2026-08-27 01:36:47.000+0000 	Mod
+08/26/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+08/26/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+08/26/2026 pisces   	Known-fixed-releases    	                             	10.4(8)                      	New
+08/23/2026 satdr    	Attribute               	Tesla-poc or7m-tbp-ok irvine-	Tesla-poc or7m-tbp-ok irvine-	Mod
+07/23/2026 ashmurug 	Attribute               	Tesla-poc or7m-tbp-ok irvine-	Tesla-poc or7m-tbp-ok irvine-	Mod
+07/23/2026 ashmurug 	Verified-release        	                             	10.4(7.17)                   	New
+07/23/2026 cdetsbtk 	Security-screening-times	2026-04-28 17:40:14.000+0000 	2026-07-24 03:26:09.000+0000 	Mod
+07/23/2026 ashmurug 	Note Title              	                             	OR8M_Build_17                	New
+07/01/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+07/01/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+05/20/2026 pisces   	VF-patched              	                             	NX-OS:10.5(5),NX-OS:10.6(2n),	New
+05/20/2026 pisces   	VF-unpatched            	                             	NX-OS:10.3(9)                	New
+05/20/2026 pisces   	Potentially-affected-rel	                             	10.3(9)                      	New
+05/12/2026 nxbld    	Integrated-releases     	                             	10.4(8)                      	New
+05/12/2026 nxbld    	Integrated-releases     	                             	10.4(7.4)                    	New
+05/12/2026 nxbld    	Apply-to                	                             	10.4(7.4)                    	New
+04/28/2026 cdetsbtk 	Security-screening-times	2026-04-28 17:28:23.000+0000 	2026-04-28 17:40:14.000+0000 	Mod
+04/28/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/28/2026 cdetsbtk 	Security-screening-times	2026-04-28 17:03:14.000+0000 	2026-04-28 17:28:23.000+0000 	Mod
+04/28/2026 vasagraw 	File Name               	                             	Diffs-commit-olympia_rel     	New
+04/28/2026 cdetsbtk 	Security-screening-times	2026-04-25 18:54:55.000+0000 	2026-04-28 17:03:14.000+0000 	Mod
+04/28/2026 samekama 	Note Title              	                             	Sanity-Uls                   	New
+04/25/2026 cdetsbtk 	Security-screening-times	2026-04-25 18:54:19.000+0000 	2026-04-25 18:54:55.000+0000 	Mod
+04/25/2026 baas     	File Name               	                             	ccwarnings-olympia_rel.p3    	New
+04/25/2026 cdetsbtk 	Security-screening-times	2026-04-24 17:57:28.000+0000 	2026-04-25 18:54:19.000+0000 	Mod
+04/25/2026 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+04/24/2026 cdetsbtk 	Security-screening-times	2026-04-24 16:55:04.000+0000 	2026-04-24 17:57:28.000+0000 	Mod
+04/24/2026 deskumar 	File Name               	                             	Unit_test_olympia_rel.rtf    	New
+04/24/2026 cdetsbtk 	Security-screening-times	2026-04-24 12:17:32.000+0000 	2026-04-24 16:55:04.000+0000 	Mod
+04/24/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-24 12:17:31.000+0000 	2026-04-24 12:17:32.000+0000 	Mod
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-24 11:55:27.000+0000 	2026-04-24 12:17:31.000+0000 	Mod
+04/23/2026 vasagraw 	contents                	                             	PR-Description-88370         	Mod
+04/23/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p7   	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-24 11:55:26.000+0000 	2026-04-24 11:55:27.000+0000 	Mod
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-24 11:54:22.000+0000 	2026-04-24 11:55:26.000+0000 	Mod
+04/23/2026 vasagraw 	contents                	                             	PR-Description-88370         	Mod
+04/23/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p6   	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-24 11:54:21.000+0000 	2026-04-24 11:54:22.000+0000 	Mod
+04/23/2026 vasagraw 	File Name               	                             	PR-Description-88370         	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-23 19:42:41.000+0000 	2026-04-24 11:54:21.000+0000 	Mod
+04/23/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p5   	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-23 19:42:04.000+0000 	2026-04-23 19:42:41.000+0000 	Mod
+04/23/2026 baas     	File Name               	                             	ccwarnings-olympia_rel.p2    	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-23 15:22:09.000+0000 	2026-04-23 19:42:04.000+0000 	Mod
+04/23/2026 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+04/23/2026 cdetsbtk 	Security-screening-times	2026-04-06 01:16:12.000+0000 	2026-04-23 15:22:09.000+0000 	Mod
+04/23/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+04/09/2026 nxbld    	Integrated-releases     	                             	10.6(2)IMM9(0)               	New
+04/09/2026 nxbld    	Integrated-releases     	                             	10.6(2)IMM9(0.44)            	New
+04/09/2026 nxbld    	Apply-to                	                             	10.6(2)IMM9(0.44)            	New
+04/05/2026 cdetsbtk 	Security-screening-times	2026-03-20 18:49:20.000+0000 	2026-04-06 01:16:12.000+0000 	Mod
+04/05/2026 sandhyar 	File Name               	                             	Verification_logs_qr3f.docx  	New
+04/05/2026 sandhyar 	Attribute               	Tesla-poc or7m-tbp-ok irvine-	Tesla-poc or7m-tbp-ok irvine-	Mod
+03/20/2026 cdetsbtk 	Security-screening-times	2026-02-18 22:47:26.000+0000 	2026-03-20 18:49:20.000+0000 	Mod
+03/20/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/20/2026 pisces   	Known-fixed-releases    	                             	10.5(5)                      	New
+03/18/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDM9(0)               	New
+03/18/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDM9(0.4)             	New
+03/18/2026 nxbld    	Apply-to                	                             	10.7(0)IDM9(0.4)             	New
+03/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDL9(0)               	New
+03/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDL9(0.3)             	New
+03/14/2026 nxbld    	Apply-to                	                             	10.7(0)IDL9(0.3)             	New
+03/12/2026 pisces   	VF-unpatched            	                             	NX-OS:10.4(7)                	New
+03/12/2026 pisces   	Potentially-affected-rel	                             	10.4(7)                      	New
+03/06/2026 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0)               	New
+03/06/2026 nxbld    	Integrated-releases     	                             	10.5(2)ICX9(0.47)            	New
+03/06/2026 nxbld    	Apply-to                	                             	10.5(2)ICX9(0.47)            	New
+02/24/2026 nxbld    	Integrated-releases     	                             	10.6(2)IUN9(0)               	New
+02/24/2026 nxbld    	Integrated-releases     	                             	10.6(2)IUN9(0.60)            	New
+02/24/2026 nxbld    	Apply-to                	                             	10.6(2)IUN9(0.60)            	New
+02/18/2026 cdetsbtk 	Security-screening-times	2026-02-18 22:29:22.000+0000 	2026-02-18 22:47:26.000+0000 	Mod
+02/18/2026 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/18/2026 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/18/2026 psirt.gen	FileSize                	2107                         	2701                         	Mod
+02/18/2026 psirt.gen	PSIRT-attribute         	SN Update:6                  	SN Update:7                  	Mod
+02/18/2026 psirt.gen	Further-Problem-Descript	None.
+
+<B>PSIRT Evaluation:</	None.
+
+<B>PSIRT Evaluation:</	Mod
+02/18/2026 cdetsbtk 	Security-screening-times	2026-02-18 22:28:22.000+0000 	2026-02-18 22:29:22.000+0000 	Mod
+02/18/2026 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/18/2026 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/18/2026 psirt.gen	FileSize                	1669                         	2107                         	Mod
+02/18/2026 psirt.gen	PSIRT-attribute         	SN Update:5                  	SN Update:6                  	Mod
+02/18/2026 psirt.gen	Symptoms                	During LOGIN-BLOCK quiet-peri	During LOGIN-BLOCK quiet-peri	Mod
+02/18/2026 cdetsbtk 	Security-screening-times	2026-02-18 22:26:22.000+0000 	2026-02-18 22:28:22.000+0000 	Mod
+02/18/2026 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/18/2026 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/18/2026 psirt.gen	FileSize                	1348                         	1669                         	Mod
+02/18/2026 psirt.gen	PSIRT-attribute         	SN Update:4                  	SN Update:5                  	Mod
+02/18/2026 psirt.gen	Symptoms                	During LOGIN-BLOCK quiet-peri	During LOGIN-BLOCK quiet-peri	Mod
+02/18/2026 cdetsbtk 	Not-customer-visible-rea	                             	AutoReleased-Defect Auto rele	Mod
+02/18/2026 cdetsbtk 	Security-screening-times	2026-02-10 13:01:20.000+0000 	2026-02-18 22:26:22.000+0000 	Mod
+02/18/2026 psirt.gen	Note                    	Release-note                 	Release-note                 	Mod
+02/18/2026 psirt.gen	contents                	                             	Release-note-diff            	Mod
+02/18/2026 psirt.gen	FileSize                	335                          	1348                         	Mod
+02/18/2026 psirt.gen	PSIRT-attribute         	SN Update:3                  	SN Update:4                  	Mod
+02/18/2026 psirt.gen	Symptoms                	During LOGIN-BLOCK quiet-peri	During LOGIN-BLOCK quiet-peri	Mod
+02/18/2026 psirt.gen	Further-Problem-Descript	                             	None.
+
+<B>PSIRT Evaluation:</	Mod
+02/18/2026 psirt.gen	Hardening               	N                            	Y                            	Mod
+02/18/2026 psirt.gen	PSIRT-attribute         	SN Update:2                  	SN Update:3                  	Mod
+02/18/2026 psirt.gen	PSIRT-status            	under_investigation          	disclosed                    	Mod
+02/18/2026 psirt.gen	SIR                     	Medium                       	Low                          	Mod
+02/18/2026 sandhyar 	File Name               	                             	Verification_logs_10.5_4.29.d	New
+02/18/2026 sandhyar 	File Name               	                             	Verification_logs_10.5_4.29.d	New
+02/18/2026 sandhyar 	Attribute               	Tesla-poc or7m-tbp-ok irvine-	Tesla-poc or7m-tbp-ok irvine-	Mod
+02/18/2026 sandhyar 	Verified-release        	                             	10.5(4.29)                   	New
+02/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDV9(0)               	New
+02/14/2026 nxbld    	Integrated-releases     	                             	10.7(0)IDV9(0.73)            	New
+02/14/2026 nxbld    	Apply-to                	                             	10.7(0)IDV9(0.73)            	New
+02/13/2026 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+02/11/2026 samekama 	Attribute               	Tesla-poc or7m-tbp-ok        	Tesla-poc or7m-tbp-ok irvine-	Mod
+02/09/2026 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+02/09/2026 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+02/09/2026 cdetsbtk 	Security-screening-times	2026-02-09 11:32:31.000+0000 	2026-02-10 13:01:20.000+0000 	Mod
+02/09/2026 psirt.gen	serviceRequests/PSIRT/PS	                             	PSIRT/PSIRT-0489911919       	New
+02/09/2026 psirt.gen	PSIRT-attribute         	SN Update:1                  	SN Update:2                  	Mod
+02/09/2026 psirt.gen	Urgency                 	                             	9                            	Mod
+02/09/2026 psirt.gen	Tickets-count           	0                            	1                            	Mod
+02/09/2026 psirt.gen	Tickets-count-direct    	                             	1                            	Mod
+02/09/2026 psirt.gen	Trouble-tickets         	                             	PSIRT-0489911919             	New
+02/09/2026 psirt.gen	Trouble-tickets-direct  	                             	PSIRTPSIRT-0489911919        	New
+02/09/2026 psirt.gen	PSIRT-attribute         	                             	SN Update:1                  	Mod
+02/09/2026 psirt.gen	PSIRT-status            	                             	under_investigation          	Mod
+02/09/2026 psirt.gen	SIR                     	                             	Medium                       	Mod
+02/08/2026 sandhyar 	Note                    	Release-note                 	Release-note                 	Mod
+02/08/2026 sandhyar 	contents                	                             	Release-note-diff            	Mod
+02/08/2026 sandhyar 	FileSize                	225                          	335                          	Mod
+02/08/2026 sandhyar 	Symptoms                	During LOGIN-BLOCK quiet-peri	During LOGIN-BLOCK quiet-peri	Mod
+02/08/2026 sandhyar 	Note                    	Release-note                 	Release-note                 	Mod
+02/08/2026 sandhyar 	File Name               	                             	Release-note-diff            	New
+02/08/2026 sandhyar 	Headline                	TESLA-POC: Unable to login to	Unable to login to console af	Mod
+02/08/2026 sandhyar 	Symptoms                	During LOGIN-BLOCK quiet-peri	During LOGIN-BLOCK quiet-peri	Mod
+02/08/2026 cdetsbtk 	Security-screening-times	2026-02-09 11:32:01.000+0000 	2026-02-09 11:32:31.000+0000 	Mod
+02/08/2026 psirt.gen	PSIRT                   	N                            	Y                            	Mod
+02/08/2026 cdetsbtk 	Security-screening-times	2026-02-07 18:15:39.000+0000 	2026-02-09 11:32:01.000+0000 	Mod
+02/08/2026 vasagraw 	Note Title              	                             	Release-note                 	New
+02/08/2026 vasagraw 	RNE-Type                	                             	NONE                         	Mod
+02/08/2026 vasagraw 	Symptoms                	                             	During LOGIN-BLOCK quiet-peri	Mod
+02/08/2026 vasagraw 	Conditions              	                             	A switch has entered LOGIN-BL	Mod
+02/08/2026 vasagraw 	Workarounds             	                             	Configure REMOTE (TACACS/RADI	Mod
+02/07/2026 cdetsbtk 	Security-screening-times	2026-02-07 18:13:35.000+0000 	2026-02-07 18:15:39.000+0000 	Mod
+02/07/2026 sandhyar 	File Name               	                             	Verification_logs_10_5_3e_bld	New
+02/07/2026 cdetsbtk 	Security-screening-times	2026-01-23 17:31:12.000+0000 	2026-02-07 18:13:35.000+0000 	Mod
+02/07/2026 sandhyar 	Note Title              	                             	V-comments                   	New
+02/07/2026 sandhyar 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+02/07/2026 sandhyar 	Status                  	R                            	V                            	Mod
+02/07/2026 sandhyar 	Verified By Employee    	                             	sandhyar                     	Mod
+02/07/2026 sandhyar 	Verified-release        	                             	10.5(3e)                     	New
+02/07/2026 sandhyar 	Breakage                	                             	No                           	Mod
+02/07/2026 sandhyar 	By-previous-commit-value	                             	No                           	Mod
+02/07/2026 sandhyar 	Verified-confidence     	                             	tested                       	Mod
+02/07/2026 sandhyar 	Verified-on             	                             	2026-02-07 10:13:34.000+0000 	Mod
+02/07/2026 sandhyar 	statusStates            	                             	[status=R, startDate=Wed Jan 	New
+02/07/2026 sandhyar 	statusStates            	[status=R, startDate=Wed Jan 	                             	Del
+02/07/2026 sandhyar 	Age-status              	5                            	29                           	Mod
+02/07/2026 sandhyar 	Mean-time-to-verified   	                             	29                           	Mod
+01/28/2026 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0)               	New
+01/28/2026 nxbld    	Integrated-releases     	                             	10.5(2)IMS9(0.214)           	New
+01/28/2026 nxbld    	Apply-to                	                             	10.5(2)IMS9(0.214)           	New
+01/23/2026 cdetsbtk 	Security-screening-times	2026-01-23 17:29:36.000+0000 	2026-01-23 17:31:12.000+0000 	Mod
+01/23/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/23/2026 cdetsbtk 	Security-screening-times	2026-01-20 02:06:12.000+0000 	2026-01-23 17:29:36.000+0000 	Mod
+01/23/2026 vasagraw 	Note Title              	                             	or7m-tbp-eval                	New
+01/23/2026 agargula 	Attribute               	Tesla-poc                    	Tesla-poc or7m-tbp-ok        	Mod
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-20 02:06:11.000+0000 	2026-01-20 02:06:12.000+0000 	Mod
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-20 01:35:10.000+0000 	2026-01-20 02:06:11.000+0000 	Mod
+01/19/2026 vasagraw 	contents                	                             	PR-Description-79746         	Mod
+01/19/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p4   	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-20 01:35:09.000+0000 	2026-01-20 01:35:10.000+0000 	Mod
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-20 01:02:13.000+0000 	2026-01-20 01:35:09.000+0000 	Mod
+01/19/2026 vasagraw 	contents                	                             	PR-Description-79746         	Mod
+01/19/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p3   	New
+01/19/2026 nxbld    	Integrated-releases     	                             	10.5(5)                      	New
+01/19/2026 nxbld    	Integrated-releases     	                             	10.5(4.22)                   	New
+01/19/2026 nxbld    	Apply-to                	                             	10.5(4.22)                   	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 20:32:11.000+0000 	2026-01-20 01:02:13.000+0000 	Mod
+01/19/2026 vasagraw 	File Name               	                             	Diffs-commit-pamplona_rel    	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 20:32:10.000+0000 	2026-01-19 20:32:11.000+0000 	Mod
+01/19/2026 vasagraw 	contents                	                             	PR-Description-79746         	Mod
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 20:32:09.000+0000 	2026-01-19 20:32:10.000+0000 	Mod
+01/19/2026 vasagraw 	File Name               	                             	code-review-olympia_rel.p2   	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 19:34:04.000+0000 	2026-01-19 20:32:09.000+0000 	Mod
+01/19/2026 vasagraw 	contents                	                             	PR-Description-79745         	Mod
+01/19/2026 vasagraw 	File Name               	                             	code-review-pamplona_rel.p2  	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 19:33:52.000+0000 	2026-01-19 19:34:04.000+0000 	Mod
+01/19/2026 vasagraw 	File Name               	                             	PR-Description-79745         	New
+01/19/2026 vasagraw 	File Name               	                             	code-review-pamplona_rel     	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 19:33:51.000+0000 	2026-01-19 19:33:52.000+0000 	Mod
+01/19/2026 vasagraw 	File Name               	                             	PR-Description-79746         	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 18:56:54.000+0000 	2026-01-19 19:33:51.000+0000 	Mod
+01/19/2026 vasagraw 	File Name               	                             	code-review-olympia_rel      	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 16:48:46.000+0000 	2026-01-19 18:56:54.000+0000 	Mod
+01/19/2026 shgedam  	Note Title              	                             	Unit-test-pamplona           	New
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 16:46:01.000+0000 	2026-01-19 16:48:46.000+0000 	Mod
+01/19/2026 shgedam  	Note                    	Unit-test_olympia            	Unit-test_olympia            	Mod
+01/19/2026 cdetsbtk 	Security-screening-times	2026-01-19 14:35:09.000+0000 	2026-01-19 16:46:01.000+0000 	Mod
+01/19/2026 shgedam  	Note Title              	                             	Unit-test_olympia            	New
+01/18/2026 cdetsbtk 	Security-screening-times	2026-01-19 14:34:19.000+0000 	2026-01-19 14:35:09.000+0000 	Mod
+01/18/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/18/2026 cdetsbtk 	Security-screening-times	2026-01-16 17:28:47.000+0000 	2026-01-19 14:34:19.000+0000 	Mod
+01/18/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/16/2026 cdetsbtk 	Security-screening-times	2026-01-16 13:55:39.000+0000 	2026-01-16 17:28:47.000+0000 	Mod
+01/16/2026 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+01/16/2026 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-16 13:55:00.000+0000 	2026-01-16 13:55:39.000+0000 	Mod
+01/15/2026 baas     	File Name               	                             	ccwarnings-pamplona_rel      	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-16 13:46:22.000+0000 	2026-01-16 13:55:00.000+0000 	Mod
+01/15/2026 baas     	File Name               	                             	static-analysis-pamplona_rel 	New
+01/15/2026 nxbld    	Integrated-releases     	                             	10.6(2)IMG9(0)               	New
+01/15/2026 nxbld    	Integrated-releases     	                             	10.6(2)IMG9(0.104)           	New
+01/15/2026 nxbld    	Apply-to                	                             	10.6(2)IMG9(0.104)           	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-16 13:45:47.000+0000 	2026-01-16 13:46:22.000+0000 	Mod
+01/15/2026 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-16 12:12:30.000+0000 	2026-01-16 13:45:47.000+0000 	Mod
+01/15/2026 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-16 11:52:12.000+0000 	2026-01-16 12:12:30.000+0000 	Mod
+01/15/2026 vasagraw 	File Name               	                             	Diffs-commit-nx_main         	New
+01/15/2026 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-15 17:12:30.000+0000 	2026-01-16 11:52:12.000+0000 	Mod
+01/15/2026 qddts    	Note Title              	                             	static-analysis-nx_main.p4   	New
+01/15/2026 cdetsbtk 	Security-screening-times	2026-01-15 00:00:27.000+0000 	2026-01-15 17:12:30.000+0000 	Mod
+01/15/2026 qddts    	Note Title              	                             	ULS_QR3F                     	New
+01/14/2026 pisces   	VF-patched              	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+01/14/2026 pisces   	VF-unpatched            	                             	NX-OS:10.3(1),NX-OS:10.3(2),N	New
+01/14/2026 pisces   	Potentially-affected-rel	                             	10.3(1),10.3(2),10.3(3),10.3(	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 23:40:40.000+0000 	2026-01-15 00:00:27.000+0000 	Mod
+01/14/2026 vasagraw 	Note Title              	                             	R-comments                   	New
+01/14/2026 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+01/14/2026 vasagraw 	Status                  	A                            	R                            	Mod
+01/14/2026 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+01/14/2026 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+01/14/2026 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+01/14/2026 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+01/14/2026 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+01/14/2026 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+01/14/2026 vasagraw 	Released-code           	                             	Y                            	Mod
+01/14/2026 vasagraw 	Origin                  	                             	base code                    	Mod
+01/14/2026 vasagraw 	Test-escape             	N                            	Y                            	Mod
+01/14/2026 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+01/14/2026 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+01/14/2026 vasagraw 	TPS_issue               	                             	N                            	Mod
+01/14/2026 vasagraw 	TPS_flag                	                             	N                            	Mod
+01/14/2026 vasagraw 	Behavior-changed        	                             	N                            	Mod
+01/14/2026 vasagraw 	Original-resolved-on    	                             	2026-01-14 16:00:26.000+0000 	Mod
+01/14/2026 vasagraw 	Documents-changed       	                             	none                         	Mod
+01/14/2026 vasagraw 	More-on                 	                             	2026-01-14 16:00:26.000+0000 	Mod
+01/14/2026 vasagraw 	Opened-on               	                             	2026-01-14 16:00:26.000+0000 	Mod
+01/14/2026 vasagraw 	Resolved-on             	                             	2026-01-14 16:00:26.000+0000 	Mod
+01/14/2026 vasagraw 	statusStates            	                             	[status=A, startDate=Fri Jan 	New
+01/14/2026 vasagraw 	statusStates            	[status=A, startDate=Fri Jan 	                             	Del
+01/14/2026 vasagraw 	Age-status              	0                            	5                            	Mod
+01/14/2026 vasagraw 	Mean-time-to-resolved   	                             	5                            	Mod
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 23:39:46.000+0000 	2026-01-14 23:40:40.000+0000 	Mod
+01/14/2026 baas     	File Name               	                             	ccwarnings-nx_main           	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 23:37:22.000+0000 	2026-01-14 23:39:46.000+0000 	Mod
+01/14/2026 baas     	File Name               	                             	static-analysis-nx_main.p3   	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 23:35:27.000+0000 	2026-01-14 23:37:22.000+0000 	Mod
+01/14/2026 baas     	File Name               	                             	static-analysis-nx_main.p2   	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 22:18:03.000+0000 	2026-01-14 23:35:27.000+0000 	Mod
+01/14/2026 baas     	File Name               	                             	static-analysis-nx_main      	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 19:24:43.000+0000 	2026-01-14 22:18:03.000+0000 	Mod
+01/14/2026 vasagraw 	File Name               	                             	Diffs-commit-pr3f_epu        	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 19:24:42.000+0000 	2026-01-14 19:24:43.000+0000 	Mod
+01/14/2026 vasagraw 	contents                	                             	PR-Description-79582         	Mod
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 19:09:21.000+0000 	2026-01-14 19:24:42.000+0000 	Mod
+01/14/2026 vasagraw 	File Name               	                             	code-review-nx_main.p2       	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 17:24:14.000+0000 	2026-01-14 19:09:21.000+0000 	Mod
+01/14/2026 qddts    	Note Title              	                             	ULS                          	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 17:24:13.000+0000 	2026-01-14 17:24:14.000+0000 	Mod
+01/14/2026 vasagraw 	File Name               	                             	PR-Description-79582         	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 17:18:34.000+0000 	2026-01-14 17:24:13.000+0000 	Mod
+01/14/2026 vasagraw 	File Name               	                             	code-review-nx_main          	New
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 17:07:33.000+0000 	2026-01-14 17:18:34.000+0000 	Mod
+01/14/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 16:51:30.000+0000 	2026-01-14 17:07:33.000+0000 	Mod
+01/14/2026 vasagraw 	Note                    	unit-test_qr3f               	unit-test_qr3f               	Mod
+01/14/2026 cdetsbtk 	Security-screening-times	2026-01-14 12:40:33.000+0000 	2026-01-14 16:51:30.000+0000 	Mod
+01/14/2026 qddts    	Note Title              	                             	unit-test_qr3f               	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-14 12:40:32.000+0000 	2026-01-14 12:40:33.000+0000 	Mod
+01/13/2026 vasagraw 	contents                	                             	PR-Description-79503         	Mod
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-14 12:08:56.000+0000 	2026-01-14 12:40:32.000+0000 	Mod
+01/13/2026 vasagraw 	File Name               	                             	code-review-pr3f_epu.p2      	New
+01/13/2026 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-14 12:08:55.000+0000 	2026-01-14 12:08:56.000+0000 	Mod
+01/13/2026 vasagraw 	File Name               	                             	PR-Description-79503         	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-13 23:55:59.000+0000 	2026-01-14 12:08:55.000+0000 	Mod
+01/13/2026 vasagraw 	File Name               	                             	code-review-pr3f_epu         	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-13 23:55:25.000+0000 	2026-01-13 23:55:59.000+0000 	Mod
+01/13/2026 baas     	File Name               	                             	ccwarnings-pr3f_epu          	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-13 23:11:12.000+0000 	2026-01-13 23:55:25.000+0000 	Mod
+01/13/2026 baas     	File Name               	                             	static-analysis-pr3f_epu     	New
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-13 22:58:13.000+0000 	2026-01-13 23:11:12.000+0000 	Mod
+01/13/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/13/2026 cdetsbtk 	Security-screening-times	2026-01-12 13:25:33.000+0000 	2026-01-13 22:58:13.000+0000 	Mod
+01/13/2026 qddts    	Note Title              	                             	Unit-test                    	New
+01/11/2026 cdetsbtk 	Security-screening-times	2026-01-09 15:06:09.000+0000 	2026-01-12 13:25:33.000+0000 	Mod
+01/11/2026 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+01/11/2026 cms      	Est-fix-date            	2026-01-16 08:00:00.000+0000 	2026-01-14 08:00:00.000+0000 	Mod
+01/08/2026 cdetsbtk 	Security-screening-times	2026-01-09 14:55:18.000+0000 	2026-01-09 15:06:09.000+0000 	Mod
+01/08/2026 cms      	Note Title              	                             	Scrubnote                    	New
+01/08/2026 cdetsbtk 	Security-screening-times	2026-01-09 14:39:34.000+0000 	2026-01-09 14:55:18.000+0000 	Mod
+01/08/2026 samekama 	Status-desc             	N-New                        	A-Assigned                   	Mod
+01/08/2026 samekama 	Status                  	N                            	A                            	Mod
+01/08/2026 samekama 	Engineer                	                             	vasagraw                     	Mod
+01/08/2026 samekama 	Assigner                	                             	samekama                     	Mod
+01/08/2026 samekama 	Assigned Date           	                             	2026-01-09 06:55:18.000+0000 	Mod
+01/08/2026 samekama 	statusStates            	                             	[status=N, startDate=Fri Jan 	New
+01/08/2026 samekama 	statusStates            	[status=N, startDate=Fri Jan 	                             	Del
+01/08/2026 samekama 	Mean-time-to-assigned   	                             	0                            	Mod
+01/08/2026 cms      	Est-fix-date            	                             	2026-01-16 08:00:00.000+0000 	Mod
+01/08/2026 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-957332       	New
+01/08/2026 cdetsbtk 	Security-screening-times	2026-01-09 14:37:13.000+0000 	2026-01-09 14:39:34.000+0000 	Mod
+01/08/2026 sandhyar 	Feature                 	feature                      	fix                          	Mod
+01/08/2026 sandhyar 	Severity-desc           	enhancement                  	moderate                     	Mod
+01/08/2026 sandhyar 	Severity                	6                            	3                            	Mod
+01/08/2026 sandhyar 	Impact                  	                             	Features/Functionality       	New
+01/08/2026 sandhyar 	Impact                  	not-a-bug                    	                             	Del
+01/08/2026 sandhyar 	Activity-when-found     	                             	Customer-Preproduction       	Mod
+01/08/2026 sandhyar 	Test-escape             	                             	N                            	Mod
+01/08/2026 sandhyar 	Original-activity-when-f	                             	Customer-Preproduction       	Mod
+01/08/2026 cdetsbtk 	Security-screening-times	2026-01-09 14:32:59.000+0000 	2026-01-09 14:37:13.000+0000 	Mod
+01/08/2026 sandhyar 	Summary                 	The issue occurs when a high 	The issue occurs when a high 	Mod
+01/08/2026 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+01/08/2026 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+01/08/2026 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+01/08/2026 cdetsbtk 	Security-screening-times	                             	2026-01-09 14:32:59.000+0000 	Mod
+01/08/2026 sandhyar 	Note Title              	                             	reproduction-steps           	New
+01/08/2026 sandhyar 	Related-bugs            	                             	Related-bugs/CSCwq15577      	New
+01/08/2026 sandhyar 	Related-bugs            	                             	Related-bugs/CSCwq81325      	New
+01/08/2026 sandhyar 	Headline                	                             	TESLA-POC: Unable to login to	Mod
+01/08/2026 sandhyar 	Summary                 	                             	The issue occurs when a high 	Mod
+01/08/2026 sandhyar 	Project                 	                             	CSC.datacenter               	Mod
+01/08/2026 sandhyar 	Product                 	                             	n9k-standalone-sw            	Mod
+01/08/2026 sandhyar 	Component               	                             	aaa                          	Mod
+01/08/2026 sandhyar 	Status-desc             	                             	N-New                        	Mod
+01/08/2026 sandhyar 	Status                  	                             	N                            	Mod
+01/08/2026 sandhyar 	Found                   	                             	customer-use                 	Mod
+01/08/2026 sandhyar 	Hardening               	                             	N                            	Mod
+01/08/2026 sandhyar 	Original-found          	                             	customer-use                 	Mod
+01/08/2026 sandhyar 	Hardware                	                             	Nexus 9000                   	New
+01/08/2026 sandhyar 	Feature                 	                             	feature                      	Mod
+01/08/2026 sandhyar 	Attribute               	                             	Tesla-poc                    	Mod
+01/08/2026 sandhyar 	Urgency-desc            	                             	NA                           	Mod
+01/08/2026 sandhyar 	Severity-desc           	                             	enhancement                  	Mod
+01/08/2026 sandhyar 	Severity                	                             	6                            	Mod
+01/08/2026 sandhyar 	DE Priority Desc        	                             	medium                       	Mod
+01/08/2026 sandhyar 	DE-priority             	                             	3                            	Mod
+01/08/2026 sandhyar 	Impact                  	                             	not-a-bug                    	New
+01/08/2026 sandhyar 	Is-reproducible         	                             	Cisco Lab Reproduced         	Mod
+01/08/2026 sandhyar 	Submitter               	                             	sandhyar                     	Mod
+01/08/2026 sandhyar 	Submitter-manager       	                             	akangle                      	Mod
+01/08/2026 sandhyar 	DE-manager              	                             	anikunna                     	Mod
+01/08/2026 sandhyar 	Other-mail              	                             	group.asadayan               	Mod
+01/08/2026 sandhyar 	DTPT-manager            	                             	mukamath                     	Mod
+01/08/2026 sandhyar 	Version                 	                             	10.5(3e)                     	New
+01/08/2026 sandhyar 	Original-version        	                             	10.5(3e)                     	Mod
+01/08/2026 sandhyar 	Found-during            	                             	Customer                     	Mod
+01/08/2026 sandhyar 	Regression              	                             	N                            	Mod
+01/08/2026 sandhyar 	PSIRT                   	                             	N                            	Mod
+01/08/2026 sandhyar 	Data-classification     	                             	Cisco Confidential           	Mod
+01/08/2026 sandhyar 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+01/08/2026 sandhyar 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+01/08/2026 sandhyar 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+01/08/2026 sandhyar 	Software-type-ids       	                             	282253564,286280105,286321149	New
+01/08/2026 sandhyar 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+01/08/2026 sandhyar 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+01/08/2026 sandhyar 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+01/08/2026 sandhyar 	MDF-edited              	                             	N                            	Mod
+01/08/2026 sandhyar 	Attribute2              	                             	n/a                          	Mod
+01/08/2026 sandhyar 	Care-Update             	                             	Y                            	Mod
+01/08/2026 sandhyar 	Doc-manager             	                             	anikunna                     	Mod
+01/08/2026 sandhyar 	Document                	                             	nexus                        	Mod
+01/08/2026 sandhyar 	Documentation-resolution	                             	Undefined                    	Mod
+01/08/2026 sandhyar 	Original-found-during   	                             	Customer                     	Mod
+01/08/2026 sandhyar 	Submitter-org-bug       	                             	DCN - Switching - POC - India	Mod
+01/08/2026 sandhyar 	Component-scenarios     	                             	N                            	Mod
+01/08/2026 sandhyar 	Back-out-bad-commit     	                             	N                            	Mod
+01/08/2026 sandhyar 	Submitted-on            	                             	2026-01-09 06:32:58.855+0000 	Mod
+01/08/2026 sandhyar 	IFD-CFD-Conv-date       	                             	2026-01-09 06:32:58.855+0000 	Mod
+01/08/2026 sandhyar 	New-on                  	                             	2026-01-09 06:32:58.855+0000 	Mod
+01/08/2026 sandhyar 	statusStates            	                             	[status=S, startDate=Fri Jan 	New
+01/08/2026 sandhyar 	Transition-day          	0                            	2461050                      	Mod
+01/08/2026 sandhyar 	Release-note-status     	                             	none                         	Mod
+01/08/2026 sandhyar 	Reported By             	                             	sandhyar                     	Mod
+01/08/2026 sandhyar 	Tickets-count           	                             	0                            	Mod
+01/08/2026 sandhyar 	Class                   	                             	CSC.datacenter               	Mod
+01/08/2026 sandhyar 	Reti-bug                	                             	Y                            	Mod
+01/08/2026 sandhyar 	Defect Created          	                             	                             	New

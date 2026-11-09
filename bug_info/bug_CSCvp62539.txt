@@ -1,0 +1,1265 @@
+*******************************************************************************
+
+Bug ID   : CSCvp62539         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: aaa                Severity: 2 (severe)     
+Headline : local auth with switch ip mgmt failed as system login quiet-mode is config with ACL for certain host
+PrimaryPV : 
+Version :9.3(0.177) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: balkanna           Submitted: 05/07/2019 21:53:57     Last Updtd : 02/25/2026 01:37:02  
+RNE-Type: $$IGNORE            New-on : 05/07/2019 21:53:58      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: girshank                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:                                                    
+Known-affected-releases:
+
+Known-fixed-releases:9.3(1) 
+
+
+
+Potentially-affected-releases:10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(5) 10.3(6) 10.3(7) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 10.4(4) 10.4(4g) 10.4(5) 10.5(1) 10.5(2) 10.5(3) 10.5(3t) 9.2(3) 9.2(3y) 9.2(4) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 05/20/2019 21:05:48                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 12                                             
+Mean-time-to-verified: 2485   
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: N                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 01/26/2026 17:06:56            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner:                                                        
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Features/Functionality 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : girshank           Priority : medium        Assigned: 05/07/2019 22:28:09 
+Code-reviewer: sarchand       
+Opened-on: 05/20/2019 21:05:48Opener: asmurali              
+Engineer : asmurali           DE-manager  : girshank        Est Time/Attribute : hmr3 PI-REG-NXOS irivine udb irvine-ss 
+Est. completion date: 05/18/2019 00:00:00  
+Script-version:                         
+
+More-by : asmurali            More-on: 05/20/2019 21:05:48  
+
+Documents Changed: none       Resolved: 05/20/2019 21:05:48 Resolver: asmurali       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: sivrg               Verified Confidence: tested                       
+Verified Date: 02/25/2026 01:35:04      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Regression Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Regression Testing
+Detailed-activity :              
+Summitter-org :                  Partner Engineering - HCL
+Automated-test :                 Y
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Development
+Test-EDP-activity :               Unit Test
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   1
+Tickets-count-direct :            1
+Trouble-tickets :              700163635
+Trouble-tickets-direct :C3700163635 
+
+Is-customer-visible :                 N
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 AutoIgnored-Defect ignored - The $$IGNORE flag is in the RNE
+Security-screening-timestamp :                 02/25/2026 09:37:02
+Document :    nexus
+
+Summary:
+System login quiet-mode is config with acl  for certain host .
+But local authentication with switch mgmt ip failed with correct password from acl is configured host.
+
+Please find the manual log below,
+
+Step 1 : configure the acl for host 
+
+ip access-list permit2
+  10 permit ip 223.255.253.124 0.0.0.255 126.168.1.2 0.0.0.255    #nxosreg-vlinux11
+  20 permit ip 126.168.1.50 0.0.0.255 126.168.1.2 0.0.0.255    # acs ip
+  30 permit ip 223.255.253.140 0.0.0.255 126.168.1.2 0.0.0.255  #nxosreg-earms4
+
+
+Setp 2 : configure the local username and password 
+
+username trial1 password Trial123*
+
+step 3 : configure the block-for feature
+
+system login block-for 100 attempts 3 within 60
+
+step 4 : configure the quite mode for acl
+
+system login quiet-mode access-class permit2
+
+step 5 : telnet to mgmt ip of the device with wrong local password for 3 times from permitted host as mentioned in acl.
+
+62 [balkanna@nxosreg-earms4] /users/balkanna>telnet 126.168.1.2
+Trying 126.168.1.2...
+Connected to 126.168.1.2.
+Escape character is '^]'.
+User Access Verification
+login: trial1 
+Password:     << password used is Trial321*
+Login incorrect
+
+User Access Verification
+login: trial1 
+Password:     << password used is Trial321*
+Login incorrect
+
+User Access Verification
+login: trial1  
+Password:    << password used is Trial321*
+Connection closed by foreign host.
+63 [balkanna@nxosreg-earms4] /users
+
+On fourth time login with correct local password from the permitted host as mentioned in acl. Which should accept it . but in Irivine it failed.
+
+User Access Verification
+login: trial1 
+Password:     << password used is Trial123*
+Login incorrect
+
+logs : https://earms-trade.cisco.com/tradeui/earms2trade.faces?&ats=/auto/nxreg/nx9kregats1&reqseq=11876673-5
+
+******************* Related Service Requests (1 of 1)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         700163635       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-598516                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (1 of 1)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+Teacat                 fubaydul      01/26/2026 17:06:56    CSCws97383      CSC.tea         R            
+
+
+********************* Listing of Notes (13 of 13 ) ***********************
+
+---Start of Note Titled: Manual-verification-qr3f (Created 02/25/2026 01:37:01 Added 02/25/2026 01:37:01 by sivrg)---
+N9K6-FX3-Siva(config)# show running-config | sec system
+system login block-for 100 attempts 3 within 60 
+system login quiet-mode access-class permit2 
+N9K6-FX3-Siva(config)# show ip access-lists permit2 
+
+IP access list permit2
+        10 permit ip any any 
+        20 permit tcp any any 
+        30 permit udp any any 
+N9K6-FX3-Siva(config)# show running-config int mgmt 0
+
+!Command: show running-config interface mgmt0
+!Running configuration last done at: Wed Feb 25 09:24:54 2026
+!Time: Wed Feb 25 09:26:19 2026
+
+version 10.6(3) Bios:version 01.12 
+
+interface mgmt0
+  vrf member management
+  ip address 10.105.194.197/25
+  ipv6 address 2001:420:5445:2021::216:100/64
+  ipv6 link-local fe80::fa7a:41ff:fe55:19f0
+
+N9K6-FX3-Siva(config)# show running-config | sec vty
+line vty
+  exec-timeout 0
+N9K6-FX3-Siva(config)# show running-config | sec line
+line console
+  exec-timeout 0
+line vty
+  exec-timeout 0
+N9K6-FX3-Siva(config)# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Current Watch Window remaining time 12 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+N9K6-FX3-Siva(config)# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Current Watch Window remaining time 41 seconds
+
+ Present login failure count 2.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+N9K6-FX3-Siva(config)# 
+N9K6-FX3-Siva(config)# 
+N9K6-FX3-Siva(config)# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Current Watch Window remaining time 33 seconds
+
+ Present login failure count 2.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+N9K6-FX3-Siva(config)# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Will remain in Quiet-Mode for 95 seconds.
+ 
+ Restricted logins filtered by applied ACL permit2.Switch is enabled to watch fo
+r login Attacks
+Switch presently in Quiet-Mode
+
+N9K6-FX3-Siva(config)# 
+N9K6-FX3-Siva(config)# 
+N9K6-FX3-Siva(config)# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Current Watch Window remaining time 48 seconds
+
+ Present login failure count 0.
+Switch is enabled to watch for login Attacks
+Switch presently in Normal-Mode
+
+N9K6-FX3-Siva(config)# show version 
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 01.12
+  NXOS: version 10.6(3) [build 10.6(2)IMG9(0.152)] [Feature Release]
+  Host NXOS: version 10.6(3) [build 10.6(2)IMG9(0.152)]
+  BIOS compile time:  12/03/2025
+  NXOS image file is: bootflash:///nxos64-cs.10.6.2.IMG9.0.152.F.bin
+  NXOS compile time:  3/31/2026 31:00:00 [02/10/2026 11:29:52]
+  NXOS boot mode: LXC
+
+Hardware
+  cisco Nexus9000 C93180YC-FX3 Chassis 
+  Intel(R) Xeon(R) CPU D-1526 @ 1.80GHz with 32787844 kB of memory.
+  Processor Board ID FDO25110HUL
+  Device name: N9K6-FX3-Siva
+  bootflash:  115805708 kB
+
+Kernel uptime is 12 day(s), 3 hour(s), 50 minute(s), 9 second(s)
+
+Last reset at 119097 usecs after Fri Feb 13 05:39:44 2026
+  Reason: Reset due to upgrade
+  System version: 10.4(5)
+  Service: 
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+        
+N9K6-FX3-Siva(config)# 
+
+
+Client side :
+
+bash-4.4$ ssh trial1@10.105.194.197
+The authenticity of host '10.105.194.197 (10.105.194.197)' can't be established.
+ECDSA key fingerprint is SHA256:zdQDdWtzMcwfioeWND3bPbXBvsjTI2PdSM+Js+J2FxM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yres
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added '10.105.194.197' (ECDSA) to the list of known hosts.
+User Access Verification
+Password: 
+Received disconnect from 10.105.194.197 port 22:2: Too many authentication failures
+Disconnected from 10.105.194.197 port 22
+bash-4.4$ ssh trial1@10.105.194.197
+User Access Verification
+Password: 
+Received disconnect from 10.105.194.197 port 22:2: Too many authentication failures
+Disconnected from 10.105.194.197 port 22
+bash-4.4$ ssh trial1@10.105.194.197
+User Access Verification
+Password: 
+Received disconnect from 10.105.194.197 port 22:2: Too many authentication failures
+Disconnected from 10.105.194.197 port 22
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ ssh trial1@10.105.194.197
+User Access Verification
+Password: 
+Received disconnect from 10.105.194.197 port 22:2: Too many authentication failures
+Disconnected from 10.105.194.197 port 22
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ 
+bash-4.4$ ssh trial1@10.105.194.197
+User Access Verification
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2026, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+  _____   _         _     __                          _____          __ 
+ |  __ \ | |       | |   / _|                        |_   _|        / _|
+ | |__) || |  __ _ | |_ | |_  ___   _ __  _ __ ___     | |   _ __  | |_ 
+ |  ___/ | | / _` || __||  _|/ _ \ | '__|| '_ ` _ \    | |  | '_ \ |  _|
+ | |     | || (_| || |_ | | | (_) || |   | | | | | |  _| |_ | | | || |  
+ |_|     |_| \__,_| \__||_|  \___/ |_|   |_| |_| |_| |_____||_| |_||_|  
+     _____                               _                              
+    |  __ \                             | |                             
+    | |__) |_ __  ___  ___   ___  _ __  | |_                            
+    |  ___/| '__|/ _ \/ __| / _ \| '_ \ | __|                           
+    | |    | |  |  __/\__ \|  __/| | | || |_                            
+    |_|    |_|   \___||___/ \___||_| |_| \__|                           
+                                                
+
+
+N9K6-FX3-Siva# 
+N9K6-FX3-Siva# 
+N9K6-FX3-Siva# show system login 
+
+ Quiet-Mode access list permit2 is applied.
+If more than 3 login failures occur in 60 seconds or less,
+ logins will be disabled for 100 seconds. 
+
+ Will remain in Quiet-Mode for 67 seconds.
+ 
+ Restricted logins filtered by applied ACL permit2.Switch is enabled to watch for login Attacks
+Switch presently in Quiet-Mode
+
+N9K6-FX3-Siva#
+---End of Note Titled: Manual-verification-qr3f---
+
+
+---Start of Note Titled: V-comments (Created 02/25/2026 01:35:04 Added 02/25/2026 01:35:04 by sivrg)---
+1. S/W Version : Should mentioned where this fix is verified.
+nxos image file: bootflash:///nxos64-cs.10.6.2.IMG9.0.152.F.bin :  S152
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+This is PI feature no platform dependent 
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+    automated
+    Logs: https://earms-trade.cisco.com/tradeui/logs/details?archive=%2Fusers%2Fvednaidu%2F.pyats%2Farchive%2F26-01%2Faaa_secure_login_job.2026Jan14_11:53:10.468425.zip&atstype=ATS
+              Test case - 21
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+    Automation Log attached and manual too.
+      
+ 5.Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+ 1 nodes
+   
+6.Configs: Exact Configs for the issue (including peers)
+
+Traffic Pattern: Exact traffic scenario needed for the bug
+NA
+
+7.Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+NA
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: DetectionUnsuitable (Created 02/14/2026 08:24:29 Added 02/14/2026 08:24:29 by seshea)---
+--- Update 2026-02-14 16:24:27.593702 seshea (via 700340302)
+Unsuitable - Low ROI
+bug fix introduced 9.3.1
+9.3.x code is only one active and very few cu will be using pre 9.3.1 at this point
+specific issue with bursty ssh connections and login block and quiet-mode config
+this bug got linked to a customer sr but the customer has 10.4.5 and the bug should not apply
+hence, not digitizing
+---End of Note Titled: DetectionUnsuitable---
+
+
+---Start of Note Titled:  Email-in (Created 12/23/2025 22:00:06 Modified 01/04/2026 22:15:17 by asmurali)---
+From: "Ashwini Muralidhar (asmurali)" <asmurali@cisco.com>
+Date: Monday, January 5, 2026 at 6:12 AM 
+To: "Feruz Ubaydullaev -X (fubaydul)" <fubaydul@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>
+Cc: "email-in(mailer list)" <email-in@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "rep-kr-dcsw(mailer list)" <rep-kr-dcsw@cisco.com>, "Sameer Kamalapurkar (samekama)" <samekama@cisco.com>
+Subject: Re: CSCvp62539 / SR 700163635
+
+Hi Feroz,
+
+As discussed, will be double committing this bug CSCvp62539 fix to or7m(10.4.5 release  train) branch which is open for commits.
+
+Thanks,
+Ashwini
+
+From: Feruz Ubaydullaev -X (fubaydul) <fubaydul@cisco.com>
+Date: Monday, 5 January 2026 at 11:04?AM
+To: Ashwini Muralidhar (asmurali) <asmurali@cisco.com>, Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>
+Cc: email-in(mailer list) <email-in@cisco.com>, bug-attach(mailer list) <bug-attach@cisco.com>, rep-kr-dcsw(mailer list) <rep-kr-dcsw@cisco.com>
+Subject: Re: CSCvp62539 / SR 700163635
+
+Hi, Team.
+Happy New Year.
+
+Hope you had a great vacation.
+
+Can I please get an update on the below matter?
+
+Thank you.
+Best Regards,
+Feruz
+
+________________________________
+From: Feruz Ubaydullaev -X (fubaydul) <fubaydul@cisco.com>
+Sent: Wednesday, December 24, 2025 2:53 PM
+To: Ashwini Muralidhar (asmurali) <asmurali@cisco.com>; Sarath Chandran Sasikumar (sarchand) <sarchand@cisco.com>
+Cc: email-in(mailer list) <email-in@cisco.com>; bug-attach(mailer list) <bug-attach@cisco.com>; rep-kr-dcsw(mailer list) <rep-kr-dcsw@cisco.com>
+Subject: CSCvp62539 / SR 700163635
+
+Hi Ashwini,
+Hope you are doing well.
+
+I am Feruz from TAC DCRS team.
+I have a customer running the NX OS 10.4.5 on N9K-C9336C-FX2 and hitting the bug CSCvp62539 which you worked on.
+It seems like the fix was committed to 9.3.1 by removing the code but in 10.4.5 the code still remains. - Pisces - Code View - NX-OS 10.4(5) - aaa.c<https://wwwin-pisces.cisco.com/source?rp=standalone%2Ffeature%2Fsecurity%2Faaa%2Faaa.c&pv=10.4(5)&pn=NX-OS&type=standalone#line=1035>
+
+Can you please check on that and guide us with the WA?
+
+Thank you in advance.
+Best Regards,
+Feruz
+
+
+
+############################ MESSAGE IDS ############################
+# <BN8PR11MB36361D82358FE0BDB811B683D4B2A@BN8PR11MB3636.namprd11.prod.outlook.com>
+# <BN8PR11MB3636ADA317752244F0C1EDD8D486A@BN8PR11MB3636.namprd11.prod.outlook.com>
+# <MN6PR11MB82170D39C283D168E0196241DC86A@MN6PR11MB8217.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: HMR3-TBP-Eval (Created 08/06/2019 23:52:38 Added 08/06/2019 23:52:38 by girshank)---
+The main login-block functionality is working as expected. There is a sub-case where certain ip addresses are allowed
+when the login-block quiet mode is on. That sub-case is not working as of now. Logins are restored after the quiet time.
+
+A simple alternative to the login block feature is to configure vty acl with the allowed ip addresses.
+
+Pls note: this hasn't been working ever since HMR1 - when the login-block feature got introduced. So, this is not a regression for HMR3.
+
+So, proposing for a TBP of this issue.
+---End of Note Titled: HMR3-TBP-Eval---
+
+
+---Start of Note Titled: R-comments (Created 05/20/2019 21:05:48 Added 05/20/2019 21:05:48 by asmurali)---
+committed to irvine
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: static-analysis (Created 05/20/2019 21:03:45 Added 05/20/2019 21:03:45 by asmurali)---
+# Enclosure (static-analysis) was generated by
+#     '/auto/ses/bin/devphc-enclosure' (Version 1.22)
+#
+# Note that we generate a unique extension to a
+# enclosure name above, if that name already
+# exists for a bug-id (e.g. CSCvp62539).
+#
+# Generated in the following environment:
+#     View server: sjc-ads-1313
+#     View name: ** NONE ** 
+#     Working directory: /nobackup/asmurali/irvine_acl 
+# Generated at
+#     Tue May 21 04:03:42 2019 UTC by asmurali
+# Enclosure contains contents of the following files:
+#     /nobackup/asmurali/irvine_acl/build/pctmp/sa_attachments/Static-Analysis.4cc421158721c90619f9c7f4bd4fcb30
+#
+# Send questions to ses-support.
+
+# This is the contents of file
+# '/nobackup/asmurali/irvine_acl/build/pctmp/sa_attachments/Static-Analysis.4cc421158721c90619f9c7f4bd4fcb30':
+@@Start processing of /nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c
+**Active warnings for /nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c
+**Noise warnings for /nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c
+**Parent warnings for /nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2293:none:ARRAY_VS_SINGLETON:Passing "&protocol_daemon_req_ref" to function "mts_send" which uses it as an array. This might corrupt or misinterpret adjacent memory locations. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2514:none:ARRAY_VS_SINGLETON:Passing "&msg_ref_reply" to function "mts_send" which uses it as an array. This might corrupt or misinterpret adjacent memory locations. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2564:none:ARRAY_VS_SINGLETON:Passing "&msg_ref_reply" to function "mts_send" which uses it as an array. This might corrupt or misinterpret adjacent memory locations. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:783:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 128 bytes on destination array "session->directed_username" of size 128 bytes might leave the destination string unterminated. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:112:no_null_terminator:BUFFER_SIZE_WARNING:Calling strncpy with a maximum size argument of 128 bytes on destination array "config_data.username" of size 128 bytes might leave the destination string unterminated. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:1286:none:CHECKED_RETURN:Calling "aaa_local_accounting_msg" without checking return value (as is done elsewhere 4 out of 5 times). [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2564:none:FORWARD_NULL:Dereferencing null pointer "aaa_resp". [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2560:none:FORWARD_NULL:Dereferencing null pointer "session". [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2499:none:RESOURCE_LEAK:Variable "list_handle" going out of scope leaks the storage it points to. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2246:none:UNUSED_VALUE:Assigning value "AAA_METHOD_INVALID_SG_PROTOCOL" to "retval" here, but that stored value is overwritten before it can be used. [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2093:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:2168:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:783:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:1003:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:1004:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:112:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:155:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+/nobackup/asmurali/irvine_acl/feature/security/aaa/aaa.c:1744:none:safec:migrate from strncpy to strncpy_s by carefully reviewing the manpage and standard (http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1548.pdf).  Be sure to check the return codes for safeC as DEST is set to NULL on error [coverity]
+
+Total active warnings: 0
+Total noise  warnings: 0
+Total parent warnings: 18
+
+STATIC-004-008I+Static analysis warnings can be viewed at: http://wwwin-ses.cisco.com/staticAnalysis/blank.html
+Analysis archive: /auto/sa-html1/cov8/archive/irvine/asmurali/irvine-asmurali_20190521_034013/sa_summary.tar.gz
+---End of Note Titled: static-analysis---
+
+
+---Start of Note Titled: Netpune_sanity (Created 05/20/2019 02:00:41 Added 05/20/2019 02:00:41 by asmurali)---
+tar -xzvf /auto/nxos-golden/runlog/0225058.tgz
+---End of Note Titled: Netpune_sanity---
+
+
+---Start of Note Titled: ULS_sanity (Created 05/20/2019 01:59:25 Added 05/20/2019 01:59:25 by asmurali)---
+#################################################################
+################### T2 TOR uls Report ###########################
+#################################################################
+
+
+Test server name    : ins-eorsanity-06
+Testbed  name       : /vol/eor-qa/sanity/logs/asmurali/1557939462/sanity06-testbed.yml
+Total Test cases Run: 26
+Passed test cases   : 25
+Failed test cases   : 1
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /vol/eor-qa/sanity/logs/asmurali/1557939462
+Report file         : /vol/eor-qa/sanity/logs/asmurali/1557939462/uls-sanity06.report
+logfile             : /vol/eor-qa/sanity/logs/asmurali/1557939462/uls-sanity06.log
+Test start time     : 2019_05_15_21_12_40
+Test End time       : 2019_05_15_22_46_52
+Test Duration       : 1:34:11.741686
+Comments: %%% /nobackup/asmurali/irvine_acl/build/images/final 
+Arguments passed: ['/vol/eor-qa/sanity/golden/basic_sanity.py', '-build', 'tftp://172.31.146.95/sanity-image/asmurali-1557939462-nxos.9.3.0.274.bin', '-testsuite', '/vol/eor-qa/sanity/logs/asmurali/1557939462/uls.yml', '-logicaldict', '/vol/eor-qa/sanity/logs/asmurali/1557939462/logical_dict.yml', '-testbed', '/vol/eor-qa/sanity/logs/asmurali/1557939462/sanity06-testbed.yml', '-logfile', '/vol/eor-qa/sanity/logs/asmurali/1557939462/uls-sanity06.log', '-reportfile', '/vol/eor-qa/sanity/logs/asmurali/1557939462/uls-sanity06.report', '-email', 'asmurali@cisco.com', '-jobid', 'ASMURALI-1557939462', '-stoponfail', 'False', '-pauseonfail', 'False', '-basemode', 'False', '-collectlogs', 'False', '-containermode', 'False', '-dockermode', 'False', '-oc', 'False', '-yang', 'False', '-INTTransitDefault', 'False', '-INTTransitL3Heavy', 'False', '-issu_build', 'skip', '-ctrl_plugin_image', 'skip', '-issu_cases', 'testReloadSwitch', '-patch', 'skip', '-cflow', 'skip', '-reportsubject', 'T2
+ ', 'TOR', 'uls', '-comments', ' %%% /nobackup/asmurali/irvine_acl/build/images/final'] 
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:10   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:01:03   
+testStaticRoute                                                           pass      0:00:33   
+testLacpShutNoshut                                                        pass      0:04:13   
+testSubPortChannelShutNoshut                                              pass      0:02:50   
+testL2BridgingTrunk                                                       pass      0:02:01   
+testBgpv4                                                                 pass      0:03:58   
+testCdp                                                                   pass      0:01:15   
+testLLDP                                                                  pass      0:00:48   
+testSviVrf                                                                pass      0:03:41   
+testDynamicL2MulticastPC                                                  pass      0:03:25   
+testPimv4SVI                                                              pass      0:08:28   
+testL2SanityMacLearning                                                   pass      0:03:20   
+testL2SanityUnconfig                                                      pass      0:00:34   
+testVpcConfig                                                             pass      0:08:51   
+testVpcPeerLink                                                           pass      0:00:19   
+testVpcPeerKeepAlive                                                      pass      0:00:14   
+testVpcPortChannels                                                       pass      0:00:19   
+testVpcStpStates                                                          pass      0:00:17   
+testVpcConsistencies                                                      pass      0:01:51   
+testVpcUnconfig                                                           pass      0:04:16   
+testCopp                                                                  pass      0:18:51   
+testCopyRunnStart                                                         fail      0:05:34   
+testTahDiagnostic                                                         pass      0:00:04   
+testCores                                                                 pass      0:00:03   
+
+
+Failed test case logs
+=====================
+
+Testcase: testCopyRunnStart 
+logs                                           
+	FAIL: Running config before and after reload are different for sanity06-tor2
+---End of Note Titled: ULS_sanity---
+
+
+---Start of Note Titled:  Unit-test (Created 05/17/2019 01:28:42 Modified 05/17/2019 02:12:33 by asmurali)---
+xosreg-earms4.cisco.com:130> telnet 126.168.1.2
+Trying 126.168.1.2...
+Connected to 126.168.1.2.
+Escape character is '^]'.
+User Access Verification
+login: trial1
+Password: 
+Login incorrect
+
+User Access Verification
+login: trial1
+Password: 
+Login incorrect
+
+User Access Verification
+login: trial1
+Password: 
+Connection closed by foreign host.
+nxosreg-earms4.cisco.com:131> telnet 126.168.1.2
+Trying 126.168.1.2...
+Connected to 126.168.1.2.
+Escape character is '^]'.
+User Access Verification
+login: trial1
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2019, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+n9kn3-1#
+
+regression logs from submitter for this fix:
+
+http://wwwin-earmstools.cisco.com/logs/readlog.html?filename=/auto/earmsdata-4a/Earms-4/ksuruliv-117527/ksuruliv/runinfo/11884190-1-927436-aaa_secure-login-balkanna.2019May17_01:24:42/TaskLog.aaa_secure-login.tcl.__taskid1
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  F-comments (Created 05/08/2019 22:24:54 Modified 05/08/2019 23:38:51 by asmurali)---
+ACL is not getting hit . Need to be seen by npacl team
+
+Gentle reminder!
+Can anyone please take a look at this bug?
+
+Thanks,
+Ashwini
+
+From: Ashwini Muralidhar <asmurali@cisco.com>
+Date: Wednesday, 8 May 2019 at 2:30 PM
+To: "nxos-rpm-dev(mailer list)" <nxos-rpm-dev@cisco.com>
+Cc: "Girisha Shankar (girshank)" <girshank@cisco.com>, "Sarath Chandran Sasikumar (sarchand)" <sarchand@cisco.com>
+Subject: Re: local auth with switch ip mgmt failed as system login quiet-mode is config with user defined ACL
+
+Hi Rpm Team,
+
+Wanted to check on the npacl part for bug CSCvp62539.
+This is for login-block feature test case.
+
+Below are the details of the issue:
+Login block is configured as "system login block-for 100 attempts 3 within 60".
+ACL is configured and quiet mode is also configured(system login quiet-mode access-class permit2).
+With this, the expectation is that, for 100 seconds, system login will be blocked after 3 unsuccessful login attempts(for 60 seconds).
+Since ACL is configured with quiet mode, even after 3 unsuccessful login attempts, the configured ACLs should take effect and allow logins from them only.
+This will be when switch is in quiet mode.
+Configured ACL:
+ip access-list permit2
+  10 permit ip 223.255.253.124 0.0.0.255 126.168.1.2 0.0.0.255    #nxosreg-vlinux11
+  20 permit ip 126.168.1.50 0.0.0.255 126.168.1.2 0.0.0.255    # acs ip
+  30 permit ip 223.255.253.140 0.0.0.255 126.168.1.2 0.0.0.255  #nxosreg-earms4
+
+But output of ?show system internal npacl acs all? is:
+n9kn3-1(config)# show system  internal  npacl acl all
+
+
+ Policy id:0x0440025c 
+    Interfaces/application applied:1
+
+    (STATS, if reported, are from the last PPF query/clear interval) 
+    (NOTE: object-group level stats are not supported in current ver.) 
+
+    ip access-list permit2
+    permit    ip    223.255.253.124 255.255.0.0 126.168.1.2 255.255.0.0 (fl:0x800)
+
+    permit    ip    126.168.1.50 255.255.0.0 126.168.1.2 255.255.0.0 (fl:0x800)
+
+    permit    ip    223.255.253.140 255.255.0.0 126.168.1.2 255.255.0.0 (fl:0x800)
+
+
+I see there is a difference in mask.
+Please check from npacl side and let me know if its an issue.
+
+Thanks,
+Ashwini
+
+From: "Balaje Pitta Kannan -X (balkanna - HCL TECHNOLOGIES LIMITED at Cisco)" <balkanna@cisco.com>
+Date: Wednesday, 8 May 2019 at 10:34 AM
+To: Ashwini Muralidhar <asmurali@cisco.com>, "nxos-sec-dev(mailer list)" <nxos-sec-dev@cisco.com>
+Cc: "Hari Katakam (hkatakam)" <hkatakam@cisco.com>
+Subject: RE: local auth with switch ip mgmt failed as system login quiet-mode is config with user defined ACL
+
+Hi Ashwini,
+ 
+As discussed in jabber today , I have filed the DDTS ,
+Please bug ID below ,
+ 
+CSCvp62539 : local auth with switch ip mgmt failed as system login quiet-mode is config with ACL for certain host
+ 
+Regards,
+Balaje K
+ 
+ 
+https://www.cisco.com/c/dam/m/en_us/signaturetool/images/logo/Cisco_Logo_no_TM_Cisco_Blue-RGB_43px.png
+Balaje Pitta Kannan
+Engineer - Test/QA
+balkanna@cisco.com
+Tel: +91 44 4052 1058
+ 
+ 
+ 
+ 
+Cisco Systems, Inc.
+SEZ-Unit4, SDB-7, GF,1F-4F ELCOT SEZ Campus, Sholinganallur
+CHENNAI
+600119
+India
+cisco.com
+http://www.cisco.com/assets/swa/img/thinkbeforeyouprint.gif
+Think before you print.
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+Please click here for Company Registration Information.
+ 
+ 
+From: Ashwini Muralidhar (asmurali) <asmurali@cisco.com> 
+Sent: Wednesday, May 8, 2019 9:39 AM
+To: Balaje Pitta Kannan -X (balkanna - HCL TECHNOLOGIES LIMITED at Cisco) <balkanna@cisco.com>; nxos-sec-dev(mailer list) <nxos-sec-dev@cisco.com>
+Cc: Hari Katakam (hkatakam) <hkatakam@cisco.com>
+Subject: Re: local auth with switch ip mgmt failed as system login quiet-mode is config with user defined ACL
+ 
+Hi Balaje,
+ 
+Looks like a valid issue .
+Will check with ACL team as well.
+ 
+You can raise a bug.
+We will investigate further  on this.
+ 
+Thanks,
+Ashwini
+ 
+From: "Balaje Pitta Kannan -X (balkanna - HCL TECHNOLOGIES LIMITED at Cisco)" <balkanna@cisco.com>
+Date: Tuesday, 7 May 2019 at 4:53 PM
+To: Ashwini Muralidhar <asmurali@cisco.com>, "nxos-sec-dev(mailer list)" <nxos-sec-dev@cisco.com>
+Cc: "Hari Katakam (hkatakam)" <hkatakam@cisco.com>
+Subject: local auth with switch ip mgmt failed as system login quiet-mode is config with user defined ACL
+ 
+Hi Ashwini,
+ 
+System login quiet-mode is config with acl  for certain host .
+But local authentication with switch mgmt ip failed with correct password from acl is configured host.
+ 
+Please find the manual log below,
+ 
+Step 1 : configure the acl for host
+ 
+ip access-list permit2
+  10 permit ip 223.255.253.124 0.0.0.255 126.168.1.2 0.0.0.255    #nxosreg-vlinux11
+  20 permit ip 126.168.1.50 0.0.0.255 126.168.1.2 0.0.0.255    # acs ip
+  30 permit ip 223.255.253.140 0.0.0.255 126.168.1.2 0.0.0.255  #nxosreg-earms4
+ 
+ 
+Setp 2 : configure the local username and password
+ 
+username trial1 password Trial123*
+ 
+step 3 : configure the block-for feature
+ 
+system login block-for 100 attempts 3 within 60
+ 
+step 4 : configure the quite mode for acl
+ 
+system login quiet-mode access-class permit2
+ 
+step 5 : telnet to mgmt ip of the device with wrong local password for 3 times from permitted host as mentioned in acl.
+ 
+62 [balkanna@nxosreg-earms4] /users/balkanna>telnet 126.168.1.2
+Trying 126.168.1.2...
+Connected to 126.168.1.2.
+Escape character is '^]'.
+User Access Verification
+login: trial1
+Password:     << password used is Trial321*
+Login incorrect
+ 
+User Access Verification
+login: trial1
+Password:     << password used is Trial321*
+Login incorrect
+ 
+User Access Verification
+login: trial1 
+Password:    << password used is Trial321*
+Connection closed by foreign host.
+63 [balkanna@nxosreg-earms4] /users
+On fourth time login with correct local password from the permitted host as mentioned in acl. Which should accept it . but in Irivine it failed.
+ 
+User Access Verification
+login: trial1
+Password:     << password used is Trial123*
+Login incorrect
+ 
+Debug logs :
+====== ====
+ 
+2019 May  7 03:44:59 n9kn3-1 last message repeated 1 time
+2019 May  7 03:45:24 n9kn3-1 last message repeated 8 times
+2019 May  7 03:45:24 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 223.255.253.140 - login
+2019 May  7 03:45:30 n9kn3-1 last message repeated 2 times
+2019 May  7 03:45:30 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed as quiet timer is running  - aaad
+2019 May  7 03:45:30 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 223.255.253.140 - login
+2019 May  7 03:45:30 n9kn3-1 %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by admin on console0
+2019 May  7 03:49:04 n9kn3-1 last message repeated 1 time
+2019 May  7 03:49:04 n9kn3-1 %VSHD-5-VSHD_SYSLOG_CONFIG_I: Configured from vty by admin on 223.255.253.140@pts/2
+2019 May  7 03:51:02 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 223.255.253.140 - login
+2019 May  7 03:51:43 n9kn3-1 last message repeated 3 times
+2019 May  7 03:51:55 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed as quiet timer is running  - aaad
+2019 May  7 03:51:55 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 223.255.253.140 - login
+2019 May  7 03:52:08 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed as quiet timer is running  - aaad
+2019 May  7 03:52:08 n9kn3-1 %AUTHPRIV-3-SYSTEM_MSG: pam_aaa:Authentication failed from 223.255.253.140 ? login
+ 
+Regards,
+Balaje K
+ 
+https://www.cisco.com/c/dam/m/en_us/signaturetool/images/logo/Cisco_Logo_no_TM_Cisco_Blue-RGB_43px.png
+Balaje Pitta Kannan
+Engineer - Test/QA
+balkanna@cisco.com
+Tel: +91 44 4052 1058
+ 
+ 
+ 
+ 
+Cisco Systems, Inc.
+SEZ-Unit4, SDB-7, GF,1F-4F ELCOT SEZ Campus, Sholinganallur
+CHENNAI
+600119
+India
+cisco.com
+http://www.cisco.com/assets/swa/img/thinkbeforeyouprint.gif
+Think before you print.
+This email may contain confidential and privileged material for the sole use of the intended recipient. Any review, use, distribution or disclosure by others is strictly prohibited. If you are not the intended recipient (or authorized to receive for the recipient), please contact the sender by reply email and delete all copies of this message.
+Please click here for Company Registration Information.
+---End of Note Titled: F-comments---
+
+
+---Start of Note Titled:  Scrubnote (Created 05/08/2019 01:47:37 Modified 08/06/2019 23:51:44 by cms)---
+{190806 girshank S B} Marking it as TBP for HMR3.
+{190806 girshank S B} This is not an issue with login-block feature either. The main functionality is working as it should. Only a sub case for quiet mode to allow certain IPs doesn't work for a brief period. 
+{190806 girshank S B} This is not a regression in HMR3. The issue has been there since HMR1 where the login block feature was introduced. 
+{190806 navekris S B} Must fix for HMR3 
+{190806 nachen S B} requested for hmr3 commit by kiranr & hkatakam
+{190520 girshank S G} RL requested.
+{190515 girshank S B} Found a fix. Shared an image with submitter to verify.
+{190514 girshank S B} No RCA yet on this.
+{190513 asmurali S B} debugging in progress. 
+{190509 arradhak S B} Boobesh will be looking into this.
+{190508 girshank S B} In discussion with NPACL team.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: Release-note (Created 05/07/2019 22:27:49 Added 05/07/2019 22:27:49 by divvenka)---
+$$IGNORE
+
+<B>Symptom:</B>
+
+<B>Conditions:</B>
+
+<B>Workaround:</B>
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (9 of 9)
+------------------------------------------------------------------------------------------------------------------
+base_sanity_uls_sanity_report                     ascii text     7181           root           01/06/2026 00:51:16      
+ccwarnings-olympia_rel.p2                         ascii text     174            baas           01/05/2026 21:51:55      
+static-analysis-olympia_rel.p2                    ascii text     982            baas           01/05/2026 21:51:21      
+ccwarnings-olympia_rel                            ascii text     174            baas           01/05/2026 02:27:03      
+static-analysis-olympia_rel                       ascii text     982            baas           01/05/2026 02:26:29      
+Diffs-release-irvine                              ascii text     2722           asmurali       05/20/2019 21:03:52      
+Diffs-commit-irvine                               ascii text     2321           asmurali       05/20/2019 21:03:44      
+nxos-pi-common-security-code-review               ascii text     406            prrqengg       05/17/2019 01:13:22      
+NPACL-EVAL                                        ascii text     34001          mboobesh       05/10/2019 06:08:42      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+02/25/2026 cdetsbtk 	Security-screening-times	2026-02-25 17:35:05.000+0000 	2026-02-25 17:37:02.000+0000 	Mod
+02/25/2026 sivrg    	Note Title              	                             	Manual-verification-qr3f     	New
+02/25/2026 sivrg    	Attribute               	hmr3 PI-REG-NXOS irivine udb 	hmr3 PI-REG-NXOS irivine udb 	Mod
+02/25/2026 cdetsbtk 	Security-screening-times	2026-02-23 08:39:25.000+0000 	2026-02-25 17:35:05.000+0000 	Mod
+02/25/2026 sivrg    	Note Title              	                             	V-comments                   	New
+02/25/2026 sivrg    	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+02/25/2026 sivrg    	Status                  	R                            	V                            	Mod
+02/25/2026 sivrg    	Verified By Employee    	                             	sivrg                        	Mod
+02/25/2026 sivrg    	Verified-release        	                             	10.6(2)IMG9(0.152)           	New
+02/25/2026 sivrg    	Verified-confidence     	                             	tested                       	Mod
+02/25/2026 sivrg    	Verified-on             	                             	2026-02-25 09:35:04.000+0000 	Mod
+02/25/2026 sivrg    	statusStates            	                             	[status=R, startDate=Tue May 	New
+02/25/2026 sivrg    	statusStates            	[status=R, startDate=Tue May 	                             	Del
+02/25/2026 sivrg    	Age-status              	0                            	2485                         	Mod
+02/25/2026 sivrg    	Mean-time-to-verified   	                             	2485                         	Mod
+02/22/2026 cdetsbtk 	Security-screening-times	2026-02-15 00:24:29.000+0000 	2026-02-23 08:39:25.000+0000 	Mod
+02/22/2026 fubaydul 	serviceRequests/C3/70016	                             	                             	Mod
+02/22/2026 fubaydul 	Urgency-desc            	NA                           	CL3                          	Mod
+02/22/2026 fubaydul 	Urgency                 	9                            	6                            	Mod
+02/14/2026 cdetsbtk 	Security-screening-times	2026-01-27 09:06:58.000+0000 	2026-02-15 00:24:29.000+0000 	Mod
+02/14/2026 seshea   	Note Title              	                             	DetectionUnsuitable          	New
+01/26/2026 cdetsbtk 	Security-screening-times	2026-01-06 16:51:17.000+0000 	2026-01-27 09:06:58.000+0000 	Mod
+01/26/2026 fubaydul 	Related-bugs            	                             	Teacat/CSCws97383            	New
+01/26/2026 fubaydul 	serviceRequests/C3/70016	                             	C3/700163635                 	New
+01/26/2026 fubaydul 	Found                   	regression                   	customer-use                 	Mod
+01/26/2026 fubaydul 	Teabugid                	                             	CSCws97383                   	Mod
+01/26/2026 fubaydul 	Found-during            	Regression Test              	Customer                     	Mod
+01/26/2026 fubaydul 	Activity-when-found     	Regression Testing           	Customer-Use                 	Mod
+01/26/2026 fubaydul 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+01/26/2026 fubaydul 	Data-classification-reas	n/a                          	Default value of Data-classif	Mod
+01/26/2026 fubaydul 	Care-Update             	                             	Y                            	Mod
+01/26/2026 fubaydul 	IFD-CFD-Conv-date       	                             	2026-01-27 01:06:56.000+0000 	Mod
+01/26/2026 fubaydul 	Tickets-count           	0                            	1                            	Mod
+01/26/2026 fubaydul 	TACSR-count             	                             	1                            	Mod
+01/26/2026 fubaydul 	Tickets-count-direct    	                             	1                            	Mod
+01/26/2026 fubaydul 	Trouble-tickets         	                             	700163635                    	New
+01/26/2026 fubaydul 	Trouble-tickets-direct  	                             	C3700163635                  	New
+01/26/2026 fubaydul 	Trouble-ticket-CFD      	                             	Y                            	Mod
+01/06/2026 cdetsbtk 	Security-screening-times	2026-01-06 13:51:56.000+0000 	2026-01-06 16:51:17.000+0000 	Mod
+01/06/2026 root     	File Name               	                             	base_sanity_uls_sanity_report	New
+01/05/2026 cdetsbtk 	Security-screening-times	2026-01-06 13:51:22.000+0000 	2026-01-06 13:51:56.000+0000 	Mod
+01/05/2026 baas     	File Name               	                             	ccwarnings-olympia_rel.p2    	New
+01/05/2026 cdetsbtk 	Security-screening-times	2026-01-05 18:27:04.000+0000 	2026-01-06 13:51:22.000+0000 	Mod
+01/05/2026 baas     	File Name               	                             	static-analysis-olympia_rel.p	New
+01/05/2026 cdetsbtk 	Security-screening-times	2026-01-05 18:26:29.000+0000 	2026-01-05 18:27:04.000+0000 	Mod
+01/05/2026 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+01/05/2026 cdetsbtk 	Security-screening-times	2026-01-05 14:15:17.000+0000 	2026-01-05 18:26:29.000+0000 	Mod
+01/05/2026 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+01/04/2026 cdetsbtk 	Security-screening-times	2026-01-05 13:45:26.000+0000 	2026-01-05 14:15:17.000+0000 	Mod
+01/04/2026 asmurali 	Note                    	Email-in                     	Email-in                     	Mod
+01/04/2026 cdetsbtk 	Security-screening-times	2025-12-24 14:00:07.000+0000 	2026-01-05 13:45:26.000+0000 	Mod
+01/04/2026 fubaydul 	Note                    	Email-in                     	Email-in                     	Mod
+12/23/2025 cdetsbtk 	Security-screening-times	2025-06-18 19:17:54.000+0000 	2025-12-24 14:00:07.000+0000 	Mod
+12/23/2025 fubaydul 	Note Title              	                             	Email-in                     	New
+12/23/2025 fubaydul 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+12/23/2025 fubaydul 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/18/2025 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-598516       	New
+06/18/2025 pisces   	VF-patched              	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+06/18/2025 pisces   	VF-unpatched            	                             	NX-OS:10.3(1),NX-OS:10.3(2),N	New
+06/18/2025 pisces   	Potentially-affected-rel	                             	10.3(1),10.3(2),10.3(3),10.3(	New
+06/18/2025 cdetsbtk 	Not-customer-visible-rea	Defect ignored - The IGNORE/P	AutoIgnored-Defect ignored - 	Mod
+06/18/2025 cdetsbtk 	Security-screening-times	2019-05-08 09:25:59.000+0000 	2025-06-18 19:17:54.000+0000 	Mod
+06/18/2025 pisces   	Original-version        	                             	9.3(0.177)                   	Mod
+06/18/2025 pisces   	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+06/18/2025 pisces   	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+06/18/2025 pisces   	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+06/18/2025 pisces   	Software-type-ids       	                             	282253564,286280105,286321149	New
+06/18/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+06/18/2025 pisces   	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+06/18/2025 pisces   	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+06/18/2025 pisces   	Report-product-used     	                             	n9k-standalone-sw            	Mod
+06/18/2025 pisces   	MDF-edited              	                             	N                            	Mod
+03/21/2024 cdetsadm 	Component-hops-count    	0                            	2                            	Mod
+08/07/2019 nachen   	Attribute               	hmr3 PI-REG-NXOS irivine udb 	hmr3 PI-REG-NXOS irivine udb 	Mod
+08/06/2019 girshank 	Note Title              	                             	HMR3-TBP-Eval                	New
+08/06/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/06/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/06/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/06/2019 cdetsadm 	Integrated-releases     	                             	9.3(1)ILF9(0)                	New
+08/06/2019 cdetsadm 	Integrated-releases     	                             	9.3(1)ILF9(0.14)             	New
+08/06/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/06/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+08/06/2019 hkatakam 	Attribute               	PI-REG-NXOS irivine udb irvin	hmr3 PI-REG-NXOS irivine udb 	Mod
+07/29/2019 cdetsadm 	Known-fixed-releases    	                             	9.3(1)                       	New
+06/20/2019 cdetsadm 	Integrated-releases     	                             	9.3(1)                       	New
+06/20/2019 cdetsadm 	Integrated-releases     	9.3(0)                       	                             	Del
+05/28/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/21/2019 cdetsadm 	Integrated-releases     	                             	9.3(0)                       	New
+05/21/2019 cdetsadm 	Integrated-releases     	                             	9.3(0.316)                   	New
+05/20/2019 asmurali 	Behavior-changed        	                             	N                            	Mod
+05/20/2019 asmurali 	Bug-origin              	                             	Code / Implementation        	Mod
+05/20/2019 asmurali 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+05/20/2019 asmurali 	Documents-changed       	                             	none                         	Mod
+05/20/2019 asmurali 	Mean-time-to-resolved   	                             	12                           	Mod
+05/20/2019 asmurali 	Note Title              	                             	R-comments                   	New
+05/20/2019 asmurali 	Opened-on               	                             	05/20/2019 21:05:48          	Mod
+05/20/2019 asmurali 	Opener                  	                             	asmurali                     	Mod
+05/20/2019 asmurali 	Origin                  	                             	base code                    	Mod
+05/20/2019 asmurali 	Original-resolved-on    	                             	05/20/2019 21:05:48          	Mod
+05/20/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/20/2019 asmurali 	Released-code           	                             	N                            	Mod
+05/20/2019 asmurali 	Resolved-on             	                             	05/20/2019 21:05:48          	Mod
+05/20/2019 asmurali 	Status                  	A                            	R                            	Mod
+05/20/2019 asmurali 	Age-status              	0                            	13                           	Mod
+05/20/2019 asmurali 	statusStates            	                             	[status=A, startDate=Wed May 	New
+05/20/2019 asmurali 	statusStates            	[status=A, startDate=Wed May 	                             	Del
+05/20/2019 asmurali 	Test-EDP-activity       	                             	Unit Test                    	Mod
+05/20/2019 asmurali 	Test-EDP-phase          	                             	Development                  	Mod
+05/20/2019 asmurali 	TPS_flag                	                             	N                            	Mod
+05/20/2019 asmurali 	File Name               	                             	Diffs-release-irvine         	New
+05/20/2019 asmurali 	Multi-commit-flag       	                             	Y                            	Mod
+05/20/2019 asmurali 	Note Title              	                             	static-analysis              	New
+05/20/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/20/2019 asmurali 	File Name               	                             	Diffs-commit-irvine          	New
+05/20/2019 asmurali 	Note Title              	                             	Netpune_sanity               	New
+05/20/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/20/2019 asmurali 	Note Title              	                             	ULS_sanity                   	New
+05/20/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/20/2019 prrqengg 	Code-reviewer           	                             	sarchand                     	New
+05/17/2019 asmurali 	Note                    	Unit-test                    	Unit-test                    	Mod
+05/17/2019 asmurali 	Note Title              	                             	Unit-test                    	New
+05/17/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/17/2019 prrqengg 	File Name               	                             	nxos-pi-common-security-code-	New
+05/17/2019 cms      	Est-fix-date            	                             	05/18/2019 00:00:00          	Mod
+05/15/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/14/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/13/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/10/2019 mboobesh 	File Name               	                             	NPACL-EVAL                   	New
+05/10/2019 mboobesh 	Component               	rtg-rpm                      	aaa                          	Mod
+05/10/2019 mboobesh 	DE-manager              	kiranr                       	girshank                     	Mod
+05/10/2019 mboobesh 	Doc-manager             	nexus7kdocs                  	girshank                     	Mod
+05/10/2019 mboobesh 	DTPT-manager            	gsrimani                     	tthiruma                     	Mod
+05/10/2019 mboobesh 	Engineer                	mboobesh                     	asmurali                     	Mod
+05/09/2019 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+05/09/2019 mboobesh 	Engineer                	asmurali                     	mboobesh                     	Mod
+05/08/2019 asmurali 	Note                    	F-comments                   	F-comments                   	Mod
+05/08/2019 asmurali 	Note Title              	                             	F-comments                   	New
+05/08/2019 asmurali 	RNE-Approval-Flg        	N                            	                             	New
+05/08/2019 asmurali 	Component               	aaa                          	rtg-rpm                      	Mod
+05/08/2019 asmurali 	DE-manager              	girshank                     	kiranr                       	Mod
+05/08/2019 asmurali 	Doc-manager             	girshank                     	nexus7kdocs                  	Mod
+05/08/2019 asmurali 	DTPT-manager            	tthiruma                     	gsrimani                     	Mod
+05/08/2019 cms      	Note Title              	                             	Scrubnote                    	New
+05/08/2019 cms      	RNE-Approval-Flg        	N                            	                             	New
+05/08/2019 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+05/08/2019 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+05/08/2019 cdetsbtk 	Not-customer-visible-rea	                             	Defect ignored - The IGNORE/P	Mod
+05/08/2019 cdetsbtk 	Security-screening-times	                             	05/08/2019 02:25:59          	Mod
+05/07/2019 girshank 	Assigned Date           	                             	05/07/2019 22:28:08          	Mod
+05/07/2019 girshank 	Assigner                	                             	girshank                     	Mod
+05/07/2019 girshank 	Engineer                	                             	asmurali                     	Mod
+05/07/2019 girshank 	Mean-time-to-assigned   	                             	0                            	Mod
+05/07/2019 girshank 	Status                  	N                            	A                            	Mod
+05/07/2019 girshank 	statusStates            	                             	[status=N, startDate=Wed May 	New
+05/07/2019 girshank 	statusStates            	[status=N, startDate=Wed May 	                             	Del
+05/07/2019 divvenka 	Note Title              	                             	Release-note                 	New
+05/07/2019 divvenka 	RNE-Approval-Flg        	                             	false                        	Mod
+05/07/2019 divvenka 	RNE-Type                	                             	$$IGNORE                     	Mod
+05/07/2019 balkanna 	Attribute               	PI-REG-NXOS irivine udb      	PI-REG-NXOS irivine udb irvin	Mod
+05/07/2019 balkanna 	Defect Created          	                             	                             	New
+05/07/2019 balkanna 	Version                 	                             	9.3(0.177)                   	New

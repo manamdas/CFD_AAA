@@ -1,0 +1,2295 @@
+*******************************************************************************
+
+Bug ID   : CSCwj45146         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : SSH login triggers TACACS "temporary failure in name resolution" after reload/upgrade
+PrimaryPV : 
+Version :10.2(6) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: jorandre           Submitted: 03/22/2024 10:24:01     Last Updtd : 10/04/2026 21:40:34  
+RNE-Type: NONE                New-on : 03/22/2024 10:24:01      
+Root-cause-analysis:                                                  
+Interest : 
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:riwhitin                                            
+Known-affected-releases:10.2(6) 10.4(3) 
+
+Known-fixed-releases:10.3(5) 10.4(4) 10.5(1) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.2(6) 10.2(7) 10.2(8) 10.3(1) 10.3(2) 10.3(3) 10.3(3o) 10.3(3p) 10.3(3q) 10.3(3r) 10.3(3w) 10.3(3x) 10.3(4) 10.3(4a) 10.3(4g) 10.3(4h) 10.3(99w) 10.3(99x) 10.4(1) 10.4(2) 10.4(3) 9.3(10) 9.3(11) 9.3(12) 9.3(13) 9.3(14) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 03/30/2024 03:16:40                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 3                                              
+Mean-time-to-resolved: 7                                              
+Mean-time-to-verified: 23     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 03/22/2024 10:22:50            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason:                                           
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Ease-of-Diagnosis 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 03/26/2024 02:11:15 
+Code-reviewer: sarchand       
+Opened-on: 03/30/2024 03:16:40Opener: vasagraw              
+Engineer : vasagraw           DE-manager  : anikunna        Est Time/Attribute : gnosis nr5m-mukamath nr5m-verified cfd-
+Est. completion date:                      
+Script-version:                         
+
+More-by : vasagraw            More-on: 03/30/2024 03:16:40  
+
+Documents Changed: none       Resolved: 03/30/2024 03:16:40 Resolver: vasagraw       
+
+Origin  :                     Category :                    Reason :                                
+Verifier: palshanm            Verified Confidence: tested                       
+Verified Date: 04/15/2024 06:57:32      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          Customer
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Customer-Use
+Detailed-activity :              
+Summitter-org :                  CX-GC-AMER-DC-DCApps-US
+Automated-test :                 N
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   API /Internal/ External interface mismatch, misuse
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  Y
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Feature/ Functionality Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              696978679;698070804
+Trouble-tickets-direct :C3696978679 
+Trouble-tickets-direct :C3698070804 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 05/02/2024 18:11:14
+Document :    nexus
+
+Summary:
+After upgrading the switch with TACACS configured from 9.3.4 to 10.2.6, the following error will be seen when you log into the switch via SSH:
+
+2024 Mar 22 11:17:43.195 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)
+
+All subsequent reloads result in the same behavior
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         696978679       null                                     
+C3         698070804       VETERANS AFFAIRS MEDICAL CENTE           
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-162562                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (24 of 24 ) ***********************
+
+---Start of Note Titled: RR1F V-Comments (Created 10/04/2026 21:39:51 Added 10/04/2026 21:39:51 by palshanm)---
+1. S/W Version : 10.7(0)IMG9(0.416)
+
+2. Platform :  N9K-C9348GC-FXP
+N9K-C9336C-FX2
+
+3. Automation Suite: No
+
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: RR1F V-Comments---
+
+
+---Start of Note Titled: KnowledgeSignature.p5 (Created 12/09/2025 04:00:38 Added 12/09/2025 04:00:38 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/660ba26e5eaa0b770b477d60/finish?summary
+---End of Note Titled: KnowledgeSignature.p5---
+
+
+---Start of Note Titled: KnowledgeSignature.p4 (Created 12/09/2025 01:23:22 Added 12/09/2025 01:23:22 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/660ba26e5eaa0b770b477d60/finish?summary
+---End of Note Titled: KnowledgeSignature.p4---
+
+
+---Start of Note Titled:  ULS_OR4M (Created 07/01/2024 23:32:46 Modified 12/09/2025 01:25:32 by synchub.gen)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name : nxosv-sanity604
+Testbed name : n9kv604-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/vasagraw/803865/n9kv_vxlan_sanity.yml
+Total Test cases Run: 79
+Passed test cases : 79
+Failed test cases : 0
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/vasagraw/803865
+Report file : /auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.report
+logfile : /auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.log
+Test start time : 2024_07_01_21_09_52
+Test End time : 2024_07_01_23_29_07
+Test Duration : 2:19:15.166180
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '803865', '-cdet', 'CSCwj45146', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.4.3.13.M.bin', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/803865/n9kv_vxlan_sanity.yml', '-testbed', 'n9kv604-testbed.yml', '-asic', 'n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/803865/vxlan_sanity-n9kv604.report', '-jobid', 'N9KV'] 
+Job Info : "Basic_Sanity" Report: Job-id:N9KV Passed:79/79 Failed:0/79 Aborted:0/79 Never-Run:0/79
+
+
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:12 
+testBoxOnline pass 0:00:00 
+testModuleStatus pass 0:00:28 
+testInterfaceInconsistencies pass 0:00:10 
+configVxLANFnL40G pass 0:07:35 
+testVxLANPeerLearnAccessFnL40G pass 0:01:36 
+testVxLANBCAccessFnL40G pass 0:00:18 
+testVxLANL2MCAccessFnL40G pass 0:00:18 
+testVxLANUUCAccessFnL40G pass 0:00:18 
+testVxLANUCAccessFnL40G pass 0:00:32 
+testVxLANUCIPv6AccessFnL40G pass 0:00:32 
+testVxLANPeerLearnTrunkFnL40G pass 0:01:36 
+testVxLANBCTrunkFnL40G pass 0:00:18 
+testVxLANL2MCTrunkFnL40G pass 0:00:18 
+testVxLANUUCTrunkFnL40G pass 0:00:17 
+testVxLANUCTrunkFnL40G pass 0:00:32 
+testVxLANL3IPv4AccessNRAVtepFnL40G pass 0:01:26 
+testVxLANL3IPv4AccessNRAFnL40G pass 0:01:26 
+testVxLANL3IPv6AccessNRAVtepFnL40G pass 0:01:26 
+testVxLANL3IPv6AccessNRAFnL40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRAVtepFnL40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRAFnL40G pass 0:01:26 
+testVxLANL3IPv6TrunkNRAVtepFnL40G pass 0:01:26 
+testVxLANL3IPv6TrunkNRAFnL40G pass 0:01:26 
+testVxLANL3IPv4TrunkARNVtepFnL40G pass 0:01:26 
+testVxLANL3IPv4TrunkARNFnL40G pass 0:01:26 
+testVxLANL3IPv6TrunkARNVtepFnL40G pass 0:01:26 
+testVxLANL3IPv6TrunkARNFnL40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRNFnL40G pass 0:01:27 
+testVxLANL3IPv6TrunkNRNFnL40G pass 0:01:27 
+unconfigVxLANFnL40G pass 0:05:12 
+configVxLANsIR40G pass 0:07:13 
+testVxLANPeerLearnAccesssIR40G pass 0:01:36 
+testVxLANBCAccesssIR40G pass 0:00:18 
+testVxLANL2MCAccesssIR40G pass 0:00:17 
+testVxLANUUCAccesssIR40G pass 0:00:17 
+testVxLANUCAccesssIR40G pass 0:00:32 
+testVxLANUCIPv6AccesssIR40G pass 0:00:32 
+testVxLANPeerLearnTrunksIR40G pass 0:01:36 
+testVxLANBCTrunksIR40G pass 0:00:18 
+testVxLANL2MCTrunksIR40G pass 0:00:18 
+testVxLANUUCTrunksIR40G pass 0:00:18 
+testVxLANUCTrunksIR40G pass 0:00:32 
+testVxLANUCIPv6TrunksIR40G pass 0:00:32 
+testVxLANL3IPv4AccessNRAVtepsIR40G pass 0:01:26 
+testVxLANL3IPv4AccessNRAsIR40G pass 0:01:26 
+testVxLANL3IPv6AccessNRAVtepsIR40G pass 0:01:26 
+testVxLANL3IPv6AccessNRAsIR40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRAVtepsIR40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRAsIR40G pass 0:01:26 
+testVxLANL3IPv6TrunkNRAVtepsIR40G pass 0:01:26 
+testVxLANL3IPv6TrunkNRAsIR40G pass 0:01:26 
+testVxLANL3IPv4TrunkARNVtepsIR40G pass 0:01:26 
+testVxLANL3IPv4TrunkARNsIR40G pass 0:01:26 
+testVxLANL3IPv6TrunkARNVtepsIR40G pass 0:01:26 
+testVxLANL3IPv6TrunkARNsIR40G pass 0:01:26 
+testVxLANL3IPv4TrunkNRNsIR40G pass 0:01:27 
+testVxLANL3IPv6TrunkNRNsIR40G pass 0:01:27 
+unconfigVxLANsIR40G pass 0:06:52 
+configVxLANEvpn40GHost pass 0:11:16 
+testVxLANPeerLearnAccessEvpn40GHost pass 0:01:06 
+testVxLANBCAccessEvpn40GHost pass 0:00:18 
+testVxLANL2MCAccessEvpn40GHost pass 0:00:18 
+testVxLANUUCAccessEvpn40GHost pass 0:00:18 
+testVxLANUCAccessEvpn40GHost pass 0:00:33 
+testVxLANUCIPv6AccessEvpn40GHost pass 0:00:33 
+testVxLANPeerLearnTrunkEvpn40GHost pass 0:01:06 
+testVxLANBCTrunkEvpn40GHost pass 0:00:18 
+testVxLANL2MCTrunkEvpn40GHost pass 0:00:18 
+testVxLANUUCTrunkEvpn40GHost pass 0:00:18 
+testVxLANUCTrunkEvpn40GHost pass 0:00:33 
+testVxLANUCIPv6TrunkEvpn40GHost pass 0:00:32 
+testVxLANL3IPv4L3VnidOrphanEvpn40GHost pass 0:01:26 
+testVxLANL3IPv6L3VnidOrphanEvpn40GHost pass 0:01:26 
+testVxLANL3IPv4L3VnidEvpn40GHost pass 0:01:26 
+testVxLANL3IPv6L3VnidEvpn40GHost pass 0:01:26 
+unconfigVxLANEvpn40GHost pass 0:07:55 
+testGoldDiagnostic pass 0:00:07 
+testCores pass 0:00:03
+---End of Note Titled: ULS_OR4M---
+
+
+---Start of Note Titled:  unit-test_OR4M (Created 07/01/2024 04:32:22 Modified 12/09/2025 01:25:32 by synchub.gen)---
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Jul 1 11:12:30 2024
+!Time: Mon Jul 1 11:12:34 2024
+
+version 10.4(4) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Mon Jul 1 11:13:14 2024
+!Time: Mon Jul 1 11:13:17 2024
+
+version 10.4(4) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+
+switch(config)# 
+switch(config)# test aaa group tac1 bob bob
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 vasagraw Cisc0123
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | i i "Problem during name-lookup"
+switch(config)# 
+switch(config)# 
+switch(config)# copy r s
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+switch(config)# 
+switch(config)# 
+switch(config)# show startup-config tacacs+ 
+
+!Command: show startup-config tacacs+
+!Time: Mon Jul 1 11:17:34 2024
+!Startup config saved at: Mon Jul 1 11:16:24 2024
+
+version 10.4(4) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show startup-config aaa
+
+!Command: show startup-config aaa
+!Time: Mon Jul 1 11:17:37 2024
+!Startup config saved at: Mon Jul 1 11:16:24 2024
+
+version 10.4(4) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# reload 
+This command will reboot the system. (y/n)? [n] y
+2024 Jul 1 11:18:06 switch %$ VDC-1 %$ %VMAN-2-ACTIVATION_STATE: Successfully deactivated virtual service 'guestshell+' 
+2024 Jul 1 11:18:09 switch %$ VDC-1 %$ %PLATFORM-2-PFM_SYSTEM_RESET: Manual system restart from Command Line Interface
+
+CISCO MODULE 
+BIOS Ver: 5.51
+Switch G5
+RC Revision: 02.03.00
+
+Memory Information:
+???.
+????
+User Access Verification
+switch login: admin
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+ _____ _ _ __ _____ __ 
+ | __ \" | | | | / _| |_ _| / _|
+ | |__) || | __ _ | |_ | |_ ___ _ __ _ __ ___ | | _ __ | |_ 
+ | ___/ | | / _` || __|| _|/ _ \" | '__|| '_ ` _ \" | | | '_ \" | _|
+ | | | || (_| || |_ | | | (_) || | | | | | | | _| |_ | | | || | 
+ |_| |_| \__,_| \__||_| \___/ |_| |_| |_| |_| |_____||_| |_||_| 
+ _____ _ 
+ | __ \" | | 
+ | |__) |_ __ ___ ___ ___ _ __ | |_ 
+ | ___/| '__|/ _ \"/ __| / _ \"| '_ \" | __| 
+ | | | | | __/\__ \"| __/| | | || |_ 
+ |_| |_| \___||___/ \___||_| |_| \__| 
+ 
+
+
+switch# 
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Jul 1 11:25:42 2024
+
+version 10.4(4) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7 "fewhg" 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!No configuration change since last restart
+!Time: Mon Jul 1 11:25:45 2024
+
+version 10.4(4) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | i i "Problem during name-lookup"
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 vasagraw Cisc0123
+user has been authenticated
+switch(config)# 
+switch(config)# 
+switch(config)# test aaa group tac1 bob bob
+user has failed authentication
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | i i "Problem during name-lookup"
+switch(config)# 
+switch(config)#
+---End of Note Titled: unit-test_OR4M---
+
+
+---Start of Note Titled: V-comments.p2 (Created 06/15/2024 02:23:52 Added 06/15/2024 02:23:52 by palshanm)---
+1. S/W Version : Should mentioned where this fix is verified.
+
+10.5(0)IMG9(0.56)
+
+2. Platform : Should specify the platform where the issue was seen and what additional platform it could be applicable?
+
+N9K-C9336C-FX2
+
+3. Automation Suite: If found by automation, copy the automation testcase result summary.  Otherwise evaluate further as below:
+
+Not automated
+
+4. Steps to reproduce and Verify: Verify description and needed enclosures  are present in DDTS or add the details as described below:.
+Topology: Logical topology file (PPT) or automatically generated (pyats, clickche)
+Configs: Exact Configs for the issue (including peers)
+Traffic Pattern: Exact traffic scenario needed for the bug
+Pseudo code (R->V Digitization): should capture details like what triggers, pattern to look for problem or verification. This will be used in automation.
+Suggested script to automate this and effort estimation.
+
+Refer attached file for test logs (CSCwj45146_PR1F_Test_Logs.txt)
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: Code-review (Created 04/29/2024 22:07:05 Added 04/29/2024 22:07:05 by synchub.gen)---
+Code Review Enclosure: Added [dd-mmm-yyyy] by [userid]
+
+*** Start of CDETS attachment for CR Information ***
+++Status: [Open, Closed]
+++Review type: [Formal Review, Basic Review]
+Code review requestor / Point of contact: [Name] ([userid])
+
+To access all feedback for this code review:
+[link or text for code review comments, e.g., link to search of newsgroup for this CDETS# OR link to Meeting Minutes in EDCS OR text for actual comments]
+
+To see summary data for this review:
+[link or text for code review summary (setup info such as date, reviewers, etc.), e.g. link to Meeting Minutes in EDCS or text showing date, reviewers, etc.]
+*** End of CDETS attachment for CR Information ***
+
+*** Start of CDETS attachment for CR Measures ***
+Code Review Results (leave blank till review is closed) 
+Measures available for metrics Dashboard:
+++High/Medium Issues: 
+++Low Issues: 
+++Issues: [total of High, Medium, & Low]
+++Person Hours: [estimate of total person-hours spent for CR prep and meeting]
+++Participants: 
+*** End of CDETS attachment for CR Measures ***
+---End of Note Titled: Code-review---
+
+
+---Start of Note Titled: V-comments (Created 04/15/2024 06:57:32 Added 04/15/2024 06:57:32 by palshanm)---
+1. S/W Version : 10.3(4.95)
+2. Platform : N9K-C93180YC-EX
+3. Automation Suite: No
+4. Steps to reproduce and Verify: Attached
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled:  uls_niles_rel (Created 04/11/2024 20:36:24 Modified 04/29/2024 22:07:05 by synchub.gen)---
+#################################################################
+###################(\[^\"])"+Basic_Sanit([^\"\])"+ Report ###########################
+#################################################################
+
+
+Test server name : nxosv-sanity09
+Testbed name : n9kv09-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/vasagraw/733466/eor_n9kv_uls.yml
+Total Test cases Run: 28
+Passed test cases : 28
+Failed test cases : 0
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/vasagraw/733466
+Report file : /auto/nxos-sanity/logs/vasagraw/733466/uls-n9kv09.report
+logfile : /auto/nxos-sanity/logs/vasagraw/733466/uls-n9kv09.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time : 2024_04_11_17_26_30
+Test End time : 2024_04_11_19_16_43
+Test Duration : 1:50:13.121429
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '733466', '-cdet', 'CSCwj45146', '-build', '/ws/vasagraw-sjc/nxos64-cs.10.3.4.93.M.bin', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/733466/eor_n9kv_uls.yml', '-testbed', 'n9kv09-testbed.yml', '-asic', 'eor_n9kv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/733466/uls-n9kv09.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/733466/uls-n9kv09.report', '-jobid', 'EOR_N9KV'] 
+Job Info :(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:EOR_N9KV Passed:28/28 Failed:0/28 Aborted:0/28 Never-Run:0/28
+
+
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:40 
+testBoxOnline pass 0:00:01 
+testModuleStatus pass 0:00:29 
+testStaticRoute pass 0:00:34 
+testLacpShutNoshut pass 0:04:47 
+testToggleSwitchport pass 0:01:53 
+testL2BridgingAccess pass 0:01:35 
+testHierarchicalRouting pass 0:04:37 
+testIpv6Interface pass 0:00:58 
+testOspfv3 pass 0:03:53 
+testBgpv4 pass 0:03:49 
+testBgpv6 pass 0:03:23 
+testEigrpv4 pass 0:02:16 
+testRip pass 0:01:50 
+testCdp pass 0:01:20 
+testLLDP pass 0:00:51 
+testSvi pass 0:03:37 
+testSviVrf pass 0:03:32 
+testVrfRouteLeak pass 0:04:31 
+testL2SanityMacLearning pass 0:05:56 
+testL2SanityUnconfig pass 0:00:30 
+testSpanningTreeAccess pass 0:02:17 
+testSpanningTreeTrunk pass 0:01:33 
+testL3DhcpRelayv4 pass 0:03:35 
+testL3DhcpRelayv6 pass 0:02:43 
+testCopyRunnStart pass 0:09:14 
+testGoldDiagnostic pass 0:00:01 
+testCores pass 0:00:04
+---End of Note Titled: uls_niles_rel---
+
+
+---Start of Note Titled:  unit-test_niles_rel (Created 04/11/2024 00:31:02 Modified 04/29/2024 22:07:05 by synchub.gen)---
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Apr 11 07:20:32 2024
+!Time: Thu Apr 11 07:20:39 2024
+
+version 10.3(5) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7(\[^\"])"+fewh([^\"\])"+ 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Apr 11 07:20:49 2024
+!Time: Thu Apr 11 07:20:53 2024
+
+version 10.3(5) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show ver | inc image
+ NXOS image file is: bootflash:///nxos64-cs.10.3.4.93.M.bin_PVT
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | grep ignore-case(\[^\"\])"+Problem during name-looku(\[^\"\])"+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# copy r s
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show startup-config tacacs+ 
+
+!Command: show startup-config tacacs+
+!Time: Thu Apr 11 07:21:30 2024
+!Startup config saved at: Thu Apr 11 07:21:23 2024
+
+version 10.3(5) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7(\[^\"])"+fewh([^\"\])"+ 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# show startup-config aaa
+
+!Command: show startup-config aaa
+!Time: Thu Apr 11 07:21:33 2024
+!Startup config saved at: Thu Apr 11 07:21:23 2024
+
+version 10.3(5) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# reload 
+This command will reboot the system. (y/n)? [n] y
+
+CISCO MODULE 
+BIOS Ver: 5.51
+Switch G5
+
+..
+.
+User Access Verification
+switch login: admin
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2024, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+switch# 
+switch# 
+switch# 
+switch# conf
+Enter configuration commands, one per line. End with CNTL/Z.
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config aaa
+
+!Command: show running-config aaa
+!Running configuration last done at: Thu Apr 11 07:26:36 2024
+!Time: Thu Apr 11 07:26:41 2024
+
+version 10.3(5) Bios:version 05.51 
+logging level aaa 5
+aaa accounting default group tac1 
+
+
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show running-config tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Apr 11 07:26:36 2024
+!Time: Thu Apr 11 07:26:55 2024
+
+version 10.3(5) Bios:version 05.51 
+feature tacacs+
+
+logging level tacacs 5
+tacacs-server host 10.76.80.245 key 7(\[^\"])"+fewh([^\"\])"+ 
+aaa group server tacacs+ tac1 
+ server 10.76.80.245 
+ use-vrf management
+
+
+switch(config)# 
+switch(config)# show ver | inc image
+ NXOS image file is: bootflash:///nxos64-cs.10.3.4.93.M.bin_PVT
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | grep ignore-case(\[^\"\])"+Problem during name-looku(\[^\"\])"+
+switch(config)# 
+switch(config)# 
+switch(config)# debug logfile tac1
+switch(config)# debug tacacs+ all
+switch(config)# 
+
+<<<<<<<<<< did SSH login via MGMT port at this stage.
+
+
+switch(config)# 
+switch(config)# no debug all
+switch(config)# 
+switch(config)# 
+switch(config)# 
+switch(config)# show logging logfile | grep ignore-case(\[^\"\])"+Problem during name-looku(\[^\"\])"+
+switch(config)# 
+switch(config)# 
+switch(config)# show debug logfile tac1 | grep(\[^\"\])"+proc job in progress during reverse looku(\[^\"\])"+
+2024 Apr 11 07:27:43.912703 tacacsd: proc job in progress during reverse lookup
+switch(config)# 
+switch(config)#
+---End of Note Titled: unit-test_niles_rel---
+
+
+---Start of Note Titled: KnowledgeSignature.p3 (Created 04/04/2024 01:01:14 Added 04/04/2024 01:01:14 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/660ba26e5eaa0b770b477d60/finish?summary
+---End of Note Titled: KnowledgeSignature.p3---
+
+
+---Start of Note Titled: KnowledgeSignature.p2 (Created 04/02/2024 02:17:16 Added 04/02/2024 02:17:16 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/660ba26e5eaa0b770b477d60/finish?summary
+---End of Note Titled: KnowledgeSignature.p2---
+
+
+---Start of Note Titled: KnowledgeSignature (Created 04/02/2024 00:36:31 Added 04/02/2024 00:36:31 by ksnehala)---
+https://gnosis.cisco.com/signature/bug/660ba26e5eaa0b770b477d60/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled:  DetectionLogic (Created 04/01/2024 09:05:19 Modified 04/29/2024 22:07:05 by synchub.gen)---
+--- Update 2024-04-03 19:53:53.087214 seshea (via 697126627)
+0. nexus 9000 or 3000 switch
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+ BIOS: version 07.69
+ NXOS: version 10.2(6) [Maintenance Release]
+ BIOS compile time: 04/07/2021
+ NXOS image file is: bootflash:///nxos64-cs.10.2.6.M.bin
+ NXOS compile time: 8/31/2023 12:00:00 [08/29/2023 16:07:36]
+
+Hardware
+ cisco Nexus9000 C93180YC-EX chassis 
+ Intel(R) Xeon(R) CPU @ 1.80GHz with 24617872 kB of memory.
+ Processor Board ID FDO23210NP5
+ Device name: ARVDCOLNcen01
+ bootflash: 53298520 kB
+
+Kernel uptime is 0 day(s), 7 hour(s), 30 minute(s), 15 second(s)
+
+Last reset at 252100 usecs after Thu Feb 29 01:35:43 2024
+ Reason: Reset due to upgrade
+ System version: 9.3(4)
+ Service: 
+
+plugin
+ Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+
+
+
+
+1. code before 10.5.1
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+ BIOS: version 07.69
+ NXOS: version 10.2(6) [Maintenance Release]
+ BIOS compile time: 04/07/2021
+ NXOS image file is: bootflash:///nxos64-cs.10.2.6.M.bin
+ NXOS compile time: 8/31/2023 12:00:00 [08/29/2023 16:07:36]
+
+Hardware
+ cisco Nexus9000 C93180YC-EX chassis 
+ Intel(R) Xeon(R) CPU @ 1.80GHz with 24617872 kB of memory.
+ Processor Board ID FDO23210NP5
+ Device name: ARVDCOLNcen01
+ bootflash: 53298520 kB
+
+Kernel uptime is 0 day(s), 7 hour(s), 30 minute(s), 15 second(s)
+
+Last reset at 252100 usecs after Thu Feb 29 01:35:43 2024
+ Reason: Reset due to upgrade
+ System version: 9.3(4)
+ Service: 
+
+plugin
+ Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+
+
+
+
+
+2. feature tacacs enabled + tacacs aaa config present
+
+
+`show running`
+
+!Command: show running-config
+!Running configuration last done at: Thu Feb 29 08:48:49 2024
+!Time: Thu Feb 29 09:06:57 2024
+
+version 10.2(6) Bios:version 07.69 
+hostname ARVDCOLNcen01
+install feature-set fex
+vdc ARVDCOLNcen01 id 1
+ allow feature-set fex
+ limit-resource vlan minimum 16 maximum 4094
+ limit-resource vrf minimum 2 maximum 4096
+ limit-resource port-channel minimum 0 maximum 511
+ limit-resource m4route-mem minimum 58 maximum 58
+ limit-resource m6route-mem minimum 8 maximum 8
+feature-set fex
+
+feature bash-shell
+feature scp-server
+feature tacacs+ <<<< match this
+
+tacacs-server timeout 10 
+tacacs-server host 204.246.2.170 <<< at least one of this line with IP being any value
+tacacs-server host 204.246.2.175 
+aaa group server tacacs+ admin_login <<< look for this, string admin_login can be random/regex
+ server 204.246.2.170 <<< server + random ip
+ server 204.246.2.175 
+
+
+
+
+
+3. following error found in show logging log - note the timestamp of any copies of the error found
+
+`show logging log`
+2024 Feb 29 02:09:28.051 ARVDCOLNcen01 %ETHPORT-3-IF_ERROR_VLANS_REMOVED: VLANs 1,7,11,21-22,41-44,82-83,92,343,400,402,500-501,503,505-506,508,510-512,515,518-520,525,530,535,549,
+560,991,993-994,997-999,1122-1123,1522-1523,1822-1823,2071,2087,2100,2126,2200,2300,2305,2310,2315,2375 on Interface port-channel99 are remove
+2024 Feb 29 02:44:06.614 ARVDCOLNcen01 %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution) <<< match this
+2024 Feb 29 08:31:23.670 ARVDCOLNcen01 %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution) (message repeated 1 time) <<< also match this (same error with repeated string added) 
+
+
+4. check accounting log for any ssh connection start at the identified timestamps. can be within 60 seconds of the timestamp from syslog.
+
+`show accounting log`
+Thu Feb 29 02:22:37 2024:type=stop:id=console0:user=usrtds:cmd=shell terminated because of session timeout
+Thu Feb 29 02:33:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:33:10 2024
+Thu Feb 29 02:44:08 2024:type=start:id=10.144.245.221@pts/2:user=usrogd:cmd= <<< start new SSH session. The IP address and username are unique. within the timeframe
+Thu Feb 29 02:44:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:44:10 2024
+Thu Feb 29 02:55:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:55:10 2024
+Thu Feb 29 03:06:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:06:10 2024
+Thu Feb 29 03:17:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:17:10 2024
+
+
+
+
+LOGIC TYPE : Conditional
+
+Print a note to user:(\[^\"\])"+This logic checks for impacted hardware and software, as well as the presence of the name resolution error at the same time of an SSH connection start. Please confirm from logging, accounting log and uptime if this issue is an exact match for your problem(\[^\"\])"+
+
+LOGIC : 0 & 1 & 2 & 3 & 4
+
+Severity - notification
+
+Positive File : ARVDCOLNcen01-10.216.187.10-2024.02.29-08.21.17.txt on customer SR 696978679
+
+--- Update 2024-04-01 16:05:17.047830 flfuchs (via 697126627)
+Logic in notes below
+
+0. Nexus 9000 or Nexus 3000
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+ BIOS: version 07.69
+ NXOS: version 10.2(6) [Maintenance Release]
+ BIOS compile time: 04/07/2021
+ NXOS image file is: bootflash:///nxos64-cs.10.2.6.M.bin
+ NXOS compile time: 8/31/2023 12:00:00 [08/29/2023 16:07:36]
+
+Hardware
+ cisco Nexus9000 C93180YC-EX chassis <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< N9k
+ Intel(R) Xeon(R) CPU @ 1.80GHz with 24617872 kB of memory.
+ Processor Board ID FDO23210NP5
+ Device name: ARVDCOLNcen01
+ bootflash: 53298520 kB
+
+Kernel uptime is 0 day(s), 7 hour(s), 30 minute(s), 15 second(s)
+
+Last reset at 252100 usecs after Thu Feb 29 01:35:43 2024
+ Reason: Reset due to upgrade
+ System version: 9.3(4)
+ Service: 
+
+plugin
+ Core Plugin, Ethernet Plugin
+
+Active Package(s):
+ 
+
+1. Show version
+
+Any version under 10.5.1
+
+`show version`
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source. This software is provided(\[^\"\])"+as is(\[^\"\])"+ and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0 or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+ BIOS: version 07.69
+ NXOS: version 10.2(6) [Maintenance Release] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< version
+ BIOS compile time: 04/07/2021
+ NXOS image file is: bootflash:///nxos64-cs.10.2.6.M.bin
+ NXOS compile time: 8/31/2023 12:00:00 [08/29/2023 16:07:36]
+
+Hardware
+ cisco Nexus9000 C93180YC-EX chassis 
+ Intel(R) Xeon(R) CPU @ 1.80GHz with 24617872 kB of memory.
+ Processor Board ID FDO23210NP5
+ Device name: ARVDCOLNcen01
+ bootflash: 53298520 kB
+
+Kernel uptime is 0 day(s), 7 hour(s), 30 minute(s), 15 second(s)
+
+Last reset at 252100 usecs after Thu Feb 29 01:35:43 2024
+ Reason: Reset due to upgrade
+ System version: 9.3(4)
+ Service: 
+
+plugin
+ Core Plugin, Ethernet Plugin
+
+Active Package(s):
+ 
+
+2.Show run
+
+Logging level of 4+ TACACS
+
+
+`show running`
+
+!Command: show running-config
+!Running configuration last done at: Thu Feb 29 08:48:49 2024
+!Time: Thu Feb 29 09:06:57 2024
+
+version 10.2(6) Bios:version 07.69 
+hostname ARVDCOLNcen01
+install feature-set fex
+vdc ARVDCOLNcen01 id 1
+ allow feature-set fex
+ limit-resource vlan minimum 16 maximum 4094
+ limit-resource vrf minimum 2 maximum 4096
+ limit-resource port-channel minimum 0 maximum 511
+ limit-resource m4route-mem minimum 58 maximum 58
+ limit-resource m6route-mem minimum 8 maximum 8
+feature-set fex
+
+feature bash-shell
+feature scp-server
+feature tacacs+
+cfs eth distribute
+feature interface-vlan
+feature lacp
+feature vpc
+feature lldp
+clock timezone CST -6 0
+clock summer-time CDT 2 SUN MAR 00:00 1 SUN NOV 00:00 60
+
+logging level aaa 5
+logging level cdp 6
+logging level feature-mgr 0
+logging level monitor 6
+logging level otm 6
+logging level radius 5
+logging level spanning-tree 6
+logging level tacacs 5<<<<<<<<<<<<<<<<<<<< 4 or great TACAC's logging level
+
+
+
+3. Show logging log
+
+Look for the following log(\[^\"\])"+%TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution(\[^\"\])"+
+
+2024 Feb 29 01:44:03.341 ARVDCOLNcen01 %ETHPORT-3-IF_DOWN_NONE: Interface port-channel101 is down (None)
+2024 Feb 29 01:44:03.362 ARVDCOLNcen01 %ETH_PORT_CHANNEL-5-PORT_DOWN: port-channel101: Ethernet1/2 is down
+2024 Feb 29 01:44:03.380 ARVDCOLNcen01 %ETHPORT-5-IF_BANDWIDTH_CHANGE: Interface port-channel101,bandwidth changed to 100000 Kbit
+2024 Feb 29 01:44:03.380 ARVDCOLNcen01 %ETHPORT-3-IF_DOWN_LINK_FAILURE: Interface Ethernet1/2 is down (Link failure)
+2024 Feb 29 01:44:03.383 ARVDCOLNcen01 %ETHPORT-3-IF_DOWN_PORT_CHANNEL_MEMBERS_DOWN: Interface port-channel101 is down (No operational members)
+2024 Feb 29 01:44:04.462 ARVDCOLNcen01 %FEX-5-FEX_PORT_STATUS_NOTI: Uplink-ID 1 of Fex 101 that is connected with Ethernet1/1 changed its status from Disconnected to Configured
+2024 Feb 29 01:44:04.463 ARVDCOLNcen01 %FEX-5-FEX_PORT_STATUS_NOTI: Uplink-ID 2 of Fex 101 that is connected with Ethernet1/2 changed its status from Disconnected to Configured
+2024 Feb 29 01:44:09.984 ARVDCOLNcen01 %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< this log
+2024 Feb 29 01:45:20.649 ARVDCOLNcen01 %ETHPORT-5-SPEED: Interface Ethernet1/2, operational speed changed to 10 Gbps
+2024 Feb 29 01:45:20.649 ARVDCOLNcen01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/2, operational duplex mode changed to Full
+2024 Feb 29 01:45:20.649 ARVDCOLNcen01 %ETHPORT-5-IF_RX_FLOW_CONTROL: Interface Ethernet1/2, operational Receive Flow Control state changed to off
+2024 Feb 29 01:45:20.649 ARVDCOLNcen01 %ETHPORT-5-IF_TX_FLOW_CONTROL: Interface Ethernet1/2, operational Transmit Flow Control state changed to off
+2024 Feb 29 01:45:20.652 ARVDCOLNcen01 %FEX-5-FEX_PORT_STATUS_NOTI: Uplink-ID 0 of Fex 101 that is connected with Ethernet1/2 changed its status from Configured to Fabric Up
+2024 Feb 29 01:45:22.275 ARVDCOLNcen01 %ETHPORT-5-SPEED: Interface Ethernet1/1, operational speed changed to 10 Gbps
+2024 Feb 29 01:45:22.275 ARVDCOLNcen01 %ETHPORT-5-IF_DUPLEX: Interface Ethernet1/1, operational duplex mode changed to Full
+2024 Feb 29 01:45:22.275 ARVDCOLNcen01 %ETHPORT-5-IF_RX_FLOW_CONTROL: Interface Ethernet1/1, operational Receive Flow Control state changed to off
+
+4. show accounting log
+
+Look for SSH login around that time.
+
+Thu Feb 29 02:22:37 2024:type=stop:id=console0:user=usrtds:cmd=shell terminated because of session timeout
+Thu Feb 29 02:33:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:33:10 2024
+Thu Feb 29 02:44:08 2024:type=start:id=10.144.245.221@pts/2:user=usrogd:cmd= <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< start new SSH session. The IP address and username are unique
+Thu Feb 29 02:44:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:44:10 2024
+Thu Feb 29 02:55:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 02:55:10 2024
+Thu Feb 29 03:06:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:06:10 2024
+Thu Feb 29 03:17:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:17:10 2024
+Thu Feb 29 03:28:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:28:10 2024
+Thu Feb 29 03:39:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:39:10 2024
+Thu Feb 29 03:50:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 03:50:10 2024
+Thu Feb 29 04:01:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:01:10 2024
+Thu Feb 29 04:12:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:12:10 2024
+Thu Feb 29 04:23:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:23:10 2024
+Thu Feb 29 04:34:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:34:10 2024
+Thu Feb 29 04:45:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:45:10 2024
+Thu Feb 29 04:56:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 04:56:10 2024
+Thu Feb 29 05:07:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 05:07:10 2024
+Thu Feb 29 05:18:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 05:18:10 2024
+Thu Feb 29 05:26:27 2024:type=stop:id=10.144.243.199@pts/1:user=usrtds:cmd=shell terminated because of session timeout
+Thu Feb 29 05:29:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 05:29:10 2024
+Thu Feb 29 05:40:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 05:40:10 2024
+Thu Feb 29 05:51:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 05:51:10 2024
+Thu Feb 29 05:58:31 2024:type=stop:id=10.144.245.221@pts/2:user=usrogd:cmd=shell terminated because of session timeout
+Thu Feb 29 06:02:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:02:10 2024
+Thu Feb 29 06:13:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:13:10 2024
+Thu Feb 29 06:24:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:24:10 2024
+Thu Feb 29 06:35:10 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:35:10 2024
+Thu Feb 29 06:46:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:46:11 2024
+Thu Feb 29 06:57:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 06:57:11 2024
+Thu Feb 29 07:08:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 07:08:11 2024
+Thu Feb 29 07:19:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 07:19:11 2024
+Thu Feb 29 07:30:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 07:30:11 2024
+Thu Feb 29 07:41:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 07:41:11 2024
+Thu Feb 29 07:52:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 07:52:11 2024
+Thu Feb 29 08:03:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:03:11 2024
+Thu Feb 29 08:14:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:14:11 2024
+Thu Feb 29 08:21:18 2024:type=start:id=10.144.243.199@pts/1:user=usrtds:cmd=
+Thu Feb 29 08:25:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:25:11 2024
+Thu Feb 29 08:31:06 2024:type=start:id=console0:user=usrtds:cmd=
+Thu Feb 29 08:31:25 2024:type=start:id=10.144.245.72@pts/2:user=usrpnf:cmd=
+Thu Feb 29 08:36:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:36:11 2024
+Thu Feb 29 08:44:24 2024:type=stop:id=10.144.245.72@pts/2:user=usrpnf:cmd=shell terminated because the ssh session closed
+Thu Feb 29 08:47:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:47:11 2024
+Thu Feb 29 08:48:49 2024:type=update:id=10.144.243.199@pts/1:user=usrtds:cmd=configure terminal ; no tacacs-server deadtime 0 (SUCCESS)
+Thu Feb 29 08:58:11 2024:type=update:id=process:user=NTP:cmd=New time: Thu Feb 29 08:58:11 2024
+Thu Feb 29 09:01:06 2024:type=stop:id=console0:user=usrtds:cmd=shell terminated because of session timeout
+Thu Feb 29 09:06:51 2024:type=update:id=vsh.bin.21295:user=usrtds:cmd=test license platformInfo (SUCCESS)
+
+
+If 0,1,2,3,4 match, then give warning that the customer may be hitting the issue may need to investigate further if DNS issue.
+
+Positive file ARVDCOLNcen01-10.216.187.10-2024.02.29-08.21.17.txt on SR 696978679
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: R-comments (Created 03/30/2024 03:16:40 Added 03/30/2024 03:16:40 by vasagraw)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached.
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing?
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases.
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? 
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately.
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled:  ULS (Created 03/28/2024 01:32:27 Modified 04/29/2024 22:07:05 by synchub.gen)---
+From: Balakrishnan Ramaswamy Nadar (balakrir) 
+Date: Friday, 29 March 2024 at 12:07?AM
+To: Arun Kumar Thudi (athudi) , Vasu Agrawal (vasagraw) , n9k-sanity-team(mailer list) 
+Cc: Shravan Pandey (shrpande) , Anil Kunnath (anikunna) 
+Subject: RE:(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:HV Passed:62/63 Failed:1/63 Aborted:0/63 Never-Run:0/63
+Hi,
+ 
+I have gone through the logs and analyzed it, the result is expected as the PTP interface state is ?disabled? because the interface is down.
+It may be a testbed issue.
+ 
+Relevant logs
+----------------------- 
+ctc02-tor1# show interface Eth1/36/2
+show interface Eth1/36/2
+ 
+Ethernet1/36/2 is down (Link not connected)
+admin state is up, Dedicated Interface
+ Hardware: 10000 Ethernet, address: dc0b.0909.51b9 (bia dc0b.0909.51b9)
+ MTU 1500 bytes, BW 10000000 Kbit , DLY 10 usec
+ reliability 255/255, txload 1/255, rxload 1/255
+ Encapsulation ARPA, medium is broadcast
+ Port mode is access
+ auto-duplex, auto-speed, media type is 40G
+ Beacon is turned off
+ Auto-Negotiation is turned on FEC mode is Auto
+ Input flow-control is off, output flow-control is off
+ Auto-mdix is turned off
+ Rate mode is dedicated
+ Switchport monitor is off 
+ EtherType is 0x8100 
+ EEE (efficient-ethernet) : n/a
+ admin fec state is auto, oper fec state is auto
+ Last link flapped 00:00:52
+ Last clearing of(\[^\"\])"+show interfac(\[^\"\])"+ counters never
+ 4 interface resets
+ Load-Interval #1: 30 seconds
+ 30 seconds input rate 0 bits/sec, 0 packets/sec
+ 30 seconds output rate 0 bits/sec, 0 packets/sec
+ input rate 0 bps, 0 pps; output rate 0 bps, 0 pps
+ Load-Interval #2: 5 minute (300 seconds)
+ 300 seconds input rate 4424 bits/sec, 7 packets/sec
+ 300 seconds output rate 224 bits/sec, 0 packets/sec
+ input rate 4.42 Kbps, 7 pps; output rate 224 bps, 0 pps
+ RX
+ 0 unicast packets 13331 multicast packets 4 broadcast packets
+ 13335 input packets 1221887 bytes
+ 0 jumbo packets 0 storm suppression bytes
+ 0 runts 0 giants 0 CRC 0 no buffer
+ 0 input error 0 short frame 0 overrun 0 underrun 0 ignored
+ 0 watchdog 0 bad etype drop 0 bad proto drop 0 if down drop
+ 0 input with dribble 0 input discard
+ 0 Rx pause
+ 0 Stomped CRC
+ TX
+ 0 unicast packets 890 multicast packets 4 broadcast packets
+ 894 output packets 86491 bytes
+ 0 jumbo packets
+ 0 output error 0 collision 0 deferred 0 late collision
+ 0 lost carrier 0 no carrier 0 babble 0 output discard
+ 0 Tx pause
+ 
+ 
+ctc02-tor2# show interface Vlan200
+show interface Vlan200
+ 
+Vlan200 is down (VLAN/BD is down), line protocol is down, autostate enabled
+ Hardware is EtherSVI, address is dc0b.0909.512b
+ Internet Address is 10.10.30.3/24
+ MTU 1500 bytes, BW 1000000 Kbit, DLY 10 usec,
+ 
+ reliability 255/255, txload 1/255, rxload 1/255
+ Encapsulation ARPA, loopback not set
+ Keepalive not supported
+ ARP type: ARPA
+ Last clearing of(\[^\"\])"+show interfac(\[^\"\])"+ counters never
+ L3 in Switched:
+ ucast: 0 pkts, 0 bytes
+ L3 out Switched:
+ ucast: 0 pkts, 0 bytes
+--------------------------------------------------------------------------
+ctc02-tor1(config)# interface Eth1/36/2
+interface Eth1/36/2
+ 
+ 
+ctc02-tor1(config-if)# no shutdown
+no shutdown
+ 
+ 
+ctc02-tor1(config-if)# ptp
+ptp
+ 
+ 
+ctc02-tor1(config-if)# ptp sync interval -2
+ptp sync interval -2
+ 
+ 
+ctc02-tor1(config-if)# ptp vlan 200
+ptp vlan 200
+------------------------------------ 
+tc02-tor1# show ptp brief
+show ptp brief
+ 
+ 
+PTP port status
+--------------------------------------------
+Port State 
+------------------------------- ------------
+Eth1/13/1 Slave 
+Eth1/18/2 Master 
+Eth1/36/2 Disabled 
+------------------------------------------------------------ 
+ 
+ 
+Regards
+Bala
+ 
+ 
+From: Arun Kumar Thudi (athudi)  
+Sent: Wednesday, March 27, 2024 10:50 PM
+To: Vasu Agrawal (vasagraw) ; n9k-sanity-team(mailer list) ; Balakrishnan Ramaswamy Nadar (balakrir) 
+Cc: Shravan Pandey (shrpande) ; Anil Kunnath (anikunna) 
+Subject: RE:(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:HV Passed:62/63 Failed:1/63 Aborted:0/63 Never-Run:0/63
+ 
++ @Balakrishnan Ramaswamy Nadar (balakrir)
+ 
+From: Vasu Agrawal (vasagraw)  
+Sent: Wednesday, March 27, 2024 9:20 PM
+To: n9k-sanity-team(mailer list) 
+Cc: Shravan Pandey (shrpande) ; Anil Kunnath (anikunna) 
+Subject: Re:(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:HV Passed:62/63 Failed:1/63 Aborted:0/63 Never-Run:0/63
+ 
+Hi Sanity Team,
+ 
+Could you please check the error? Is it seen sporadically? Can you please share the baseline result on build-57 of this sanity?
+
+It does not appear to be related to my code.
+
+Testcase: testPTPMulticastSVIAccess 
+logs 
+ PASS: State -enabled verified for features ['interface-vlan']
+ PASS: Feature interface-vlan is enabled successfully 
+ PASS: State -enabled verified for features ['interface-vlan']
+ PASS: Feature interface-vlan is enabled successfully 
+ PASS: State -enabled verified for features ['interface-vlan']
+ PASS: All vlans are in expected state
+ PASS: State -enabled verified for features ['interface-vlan']
+ PASS: All vlans are in expected state
+ PASS: State -enabled verified for features ['ptp']
+ PASS: Feature ptp is enabled successfully 
+ PASS: State -enabled verified for features ['ptp']
+ PASS: Feature ptp is enabled successfully 
+ PASS: State -enabled verified for features ['ptp']
+ PASS: Feature ptp is enabled successfully 
+ FAIL: Master:Delay Response tx packets 0, Delay Request rx packets 0 on interface Eth1/36/2
+ FAIL: Master:Delay Response tx packets 0, Delay Request rx packets 0 on interface Eth1/36/2
+ FAIL: Slave:Sync rx Packets and Follow up rx Packets are 0 on interface Eth1/36/2
+ PASS: PTP clock resync is done after clock change
+ PASS: State -disabled verified for features ['ptp']
+ PASS: Feature ptp is disabled successfully 
+ PASS: State -disabled verified for features ['ptp']
+ PASS: Feature ptp is disabled successfully 
+ PASS: State -disabled verified for features ['ptp']
+ PASS: Feature ptp is disabled successfully 
+
+
+Regards,
+ 
+Vasu
+
+#################################################################
+###################(\[^\"])"+Basic_Sanit([^\"\])"+ Report ###########################
+#################################################################
+
+
+Test server name : ctc-non-hal-01
+Testbed name : ctc02-testbed.yml
+TestSuite : /auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases : 62
+Failed test cases : 1
+Aborted test cases : 0
+Skipped test cases : 0
+Log dir: : /auto/nxos-sanity/logs/vasagraw/721526
+Report file : /auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls-ctc02.report
+logfile : /auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls-ctc02.log
+Logger 2.0 and TS files location: /home/cores/latest
+Test start time : 2024_03_27_11_48_21
+Test End time : 2024_03_27_17_22_35
+Test Duration : 5:34:13.259288
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '721526', '-cdet', 'CSCwj45146', '-build', '/auto/paw-sjc-scratch/paw-logs/15cea4a8-ec2e-11ee-8331-005056a47cfb/images/nxos64-cs', '-testsuite', '/auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls.yml', '-testbed', 'ctc02-testbed.yml', '-asic', 'hv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'vasagraw', '-logfile', '/auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls-ctc02.log', '-reportfile', '/auto/nxos-sanity/logs/vasagraw/721526/base_sanity_uls-ctc02.report', '-jobid', 'HV'] 
+Job Info :(\[^\"])"+Basic_Sanit([^\"\])"+ Report: Job-id:HV Passed:62/63 Failed:1/63 Aborted:0/63 Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase Result Duration 
+######## ###### ######## 
+testReloadSwitch pass 0:00:23 
+testBootTime pass 0:01:09 
+testBoxOnline pass 0:00:01 
+testModuleStatus pass 0:00:42 
+testL3DhcpRelayv4 pass 0:03:31 
+testL3DhcpRelayv6 pass 0:02:41 
+testSviDhcpRelayv4 pass 0:03:55 
+testSviDhcpRelayv6 pass 0:03:03 
+testPTPMulticast pass 0:07:34 
+testPTPChangeL3ToL2AccessNonDefaultVlan pass 0:15:38 
+testPTPMulticastSVIAccess fail 0:09:01 
+testStaticRoute pass 0:00:51 
+testLacpShutNoshut pass 0:04:50 
+testSubPortChannelShutNoshut pass 0:03:04 
+testL2BridgingTrunk pass 0:02:01 
+testBgpv4 pass 0:04:00 
+testCdp pass 0:01:48 
+testLLDP pass 0:01:07 
+testSviVrf pass 0:03:57 
+testIpv6Interface pass 0:01:03 
+testStpLacpPcAccessWithTraffic pass 0:13:34 
+testMStpSingleInstLacpPcTrunkWithTraffic pass 0:13:19 
+testL2SanityMacLearning pass 0:11:32 
+testL2SanityPortModeChange pass 0:10:19 
+testL2SanityUnconfig pass 0:00:35 
+testDynamicL2MulticastPC pass 0:05:19 
+testPimv4 pass 0:08:59 
+GleanL3toL3V4V6 pass 0:04:53 
+testCopp pass 0:15:48 
+testRaclIPv4 pass 0:05:50 
+testSpan pass 0:02:47 
+configVxLANVPCEvpn40G pass 0:17:20 
+testVxLANPeerLearnAccessVPCEvpn40G pass 0:01:08 
+testVxLANBCAccessVPCEvpn40G pass 0:00:20 
+testVxLANL2MCAccessVPCEvpn40G pass 0:00:21 
+testVxLANUUCAccessVPCEvpn40G pass 0:00:21 
+testVxLANUCAccessVPCEvpn40G pass 0:01:05 
+testVxLANUCIPv6AccessVPCEvpn40G pass 0:00:35 
+testVxLANUCNonIPAccessVPCEvpn40G pass 0:00:36 
+testVxLANPeerLearnTrunkVPCEvpn40G pass 0:01:08 
+testVxLANBCTrunkVPCEvpn40G pass 0:00:21 
+testVxLANL2MCTrunkVPCEvpn40G pass 0:00:21 
+testVxLANUUCTrunkVPCEvpn40G pass 0:00:21 
+testVxLANUCTrunkVPCEvpn40G pass 0:01:05 
+testVxLANUCIPv6TrunkVPCEvpn40G pass 0:00:35 
+testVxLANUCNonIPTrunkVPCEvpn40G pass 0:00:35 
+testNestedVxLANBCTrunkVPCEvpnL240G_1 pass 0:00:21 
+testNestedVxLANMCTrunkVPCEvpnL240G_1 pass 0:00:21 
+testNestedVxLANUCBCVPCEvpnL240G_1 pass 0:00:21 
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G pass 0:01:28 
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G pass 0:01:28 
+testVxLANL3IPv4L3VnidVPCEvpn40G pass 0:01:28 
+testVxLANL3IPv6L3VnidVPCEvpn40G pass 0:01:28 
+testNestedVxLANVPCEvpnL3IPv440G_1 pass 0:01:28 
+testNestedVxLANVPCEvpnL3IPv640G_1 pass 0:01:29 
+testVxLANSnoopMCTrunkVPCsEvpn40G pass 0:03:43 
+testVxLANChangeNveVniTrunkVPCEvpn40G pass 0:13:47 
+testVxLANFlapNveVPCEvpn40G pass 0:16:59 
+testVxLANPeerLinkFlapStimuliVPCEvpn40G pass 0:07:43 
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G pass 0:17:02 
+unconfigVxLANVPCEvpn40G pass 0:11:59 
+testGoldDiagnostic pass 0:00:33 
+testCores pass 0:00:07 
+
+
+
+BOOT TIME LOGS:
+================
+Step Time(s) Start End 
+-------------------- ----------- ----------- -----------
+bootscripts 46.0 11:39:52.00 11:40:38.00 
+sysmgr_bootup 4.5 11:40:38.00 11:40:42.57 
+pfm_init 3.0 11:40:43.00 11:40:46.00 
+lcm_init 4.9 11:40:46.00 11:40:50.90 
+module_insert 36.4 11:40:50.90 11:41:27.33 
+sup_online 1.5 11:41:27.34 11:41:28.90 
+lc_online 84.9 11:41:32.82 11:42:57.78 
+pss_acfg 0.2 11:42:57.78 11:42:58.02 
+kernel 4.0 18:39:34.50 18:39:38.50 
+----------------------------------------------------------
+full_boot 204.2 11:39:34.00 11:42:58.02 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel | 14.95 | 4.0 | PASS |
+| bootscripts | 42.55 | 46.0 | SKIP |
+| sysmgr_bootup | 4.14 | 4.5 | SKIP |
+| pfm_init | 3.45 | 3.0 | PASS |
+| sup_online | 0.115 | 1.5 | SKIP |
+| lcm_init | 6.21 | 4.9 | PASS |
+| module_insert | 30.59 | 36.4 | SKIP |
+| lc_online | 103.27 | 84.9 | PASS |
+| pss_acfg | 0.575 | 0.2 | PASS |
+| full_boot | 216.775 | 204.2 | PASS |
++---------------+------------------+----------------+--------+
+
+Failed test case logs
+=====================
+
+Testcase: testPTPMulticastSVIAccess 
+logs 
+PASS: State -enabled verified for features ['interface-vlan']
+PASS: Feature interface-vlan is enabled successfully 
+PASS: State -enabled verified for features ['interface-vlan']
+PASS: Feature interface-vlan is enabled successfully 
+PASS: State -enabled verified for features ['interface-vlan']
+PASS: All vlans are in expected state
+PASS: State -enabled verified for features ['interface-vlan']
+PASS: All vlans are in expected state
+PASS: State -enabled verified for features ['ptp']
+PASS: Feature ptp is enabled successfully 
+PASS: State -enabled verified for features ['ptp']
+PASS: Feature ptp is enabled successfully 
+PASS: State -enabled verified for features ['ptp']
+PASS: Feature ptp is enabled successfully 
+FAIL: Master:Delay Response tx packets 0, Delay Request rx packets 0 on interface Eth1/36/2
+FAIL: Master:Delay Response tx packets 0, Delay Request rx packets 0 on interface Eth1/36/2
+FAIL: Slave:Sync rx Packets and Follow up rx Packets are 0 on interface Eth1/36/2
+PASS: PTP clock resync is done after clock change
+PASS: State -disabled verified for features ['ptp']
+PASS: Feature ptp is disabled successfully 
+PASS: State -disabled verified for features ['ptp']
+PASS: Feature ptp is disabled successfully 
+PASS: State -disabled verified for features ['ptp']
+PASS: Feature ptp is disabled successfully
+---End of Note Titled: ULS---
+
+
+---Start of Note Titled:  Unit-test (Created 03/28/2024 01:31:21 Modified 04/29/2024 22:07:05 by synchub.gen)---
+switch(config)# switch(config)# switch(config)# show running-config tacacs+ !Command: show running-config tacacs+ !Running configuration last done at: Wed Mar 27 16:40:22 2024 !Time: Wed Mar 27 16:40:57 2024 version 10.5(1) Bios:version 05.51 feature tacacs+ logging level tacacs 5 tacacs-server host 10.76.80.245 key 7 "fewhg" aaa group server tacacs+ tac1 server 10.76.80.245 use-vrf management switch(config)# switch(config)# switch(config)# show running-config aaa !Command: show running-config aaa !Running configuration last done at: Wed Mar 27 16:40:22 2024 !Time: Wed Mar 27 16:41:05 2024 version 10.5(1) Bios:version 05.51 logging level aaa 5 aaa accounting default group tac1 switch(config)# switch(config)# switch(config)# switch(config)# show ver | inc image NXOS image file is: bootflash:///nxos64-cs.10.5.0.IPR9.0.57.F.bin_PVT switch(config)# switch(config)# switch(config)# switch(config)# switch(config)# show logging logfile | grep ignore-case "Problem during name-lookup" switch(config)# switch(config)# switch(config)# switch(config)# copy r s [########################################] 100% Copy complete, now saving to disk (please wait)... Copy complete. switch(config)# switch(config)# switch(config)# switch(config)# show startup-config tacacs+ !Command: show startup-config tacacs+ !Time: Wed Mar 27 16:41:56 2024 !Startup config saved at: Wed Mar 27 16:41:48 2024 version 10.5(1) Bios:version 05.51 feature tacacs+ logging level tacacs 5 tacacs-server host 10.76.80.245 key 7 "fewhg" aaa group server tacacs+ tac1 server 10.76.80.245 use-vrf management switch(config)# switch(config)# switch(config)# show startup-config aaa !Command: show startup-config aaa !Time: Wed Mar 27 16:42:01 2024 !Startup config saved at: Wed Mar 27 16:41:48 2024 version 10.5(1) Bios:version 05.51 logging level aaa 5 aaa accounting default group tac1 switch(config)# switch(config)# switch(config)# switch(config)# reload This command will reboot the system. (y/n)? [n] y CISCO MODULE BIOS Ver: 5.51 Switch G5 RC Revision: 02.03.00 ...... ....... User Access Verification switch login: admin Password: Cisco Nexus Operating System (NX-OS) Software TAC support: http://www.cisco.com/tac Copyright (C) 2002-2024, Cisco and/or its affiliates. All rights reserved. The copyrights to certain works contained in this software are owned by other third parties and used and distributed under their own licenses, such as open source. This software is provided "as is," and unless otherwise stated, there is no warranty, express or implied, including but not limited to warranties of merchantability and fitness for a particular purpose. Certain components of this software are licensed under the GNU General Public License (GPL) version 2.0 or GNU General Public License (GPL) version 3.0 or the GNU Lesser General Public License (LGPL) Version 2.1 or Lesser General Public License (LGPL) Version 2.0. A copy of each such license is available at http://www.opensource.org/licenses/gpl-2.0.php and http://opensource.org/licenses/gpl-3.0.html and http://www.opensource.org/licenses/lgpl-2.1.php and http://www.gnu.org/licenses/old-licenses/library.txt. _____ _ _ __ _____ __ | __ \ | | | | / _| |_ _| / _| | |__) || | __ _ | |_ | |_ ___ _ __ _ __ ___ | | _ __ | |_ | ___/ | | / _` || __|| _|/ _ \ | '__|| '_ ` _ \ | | | '_ \ | _| | | | || (_| || |_ | | | (_) || | | | | | | | _| |_ | | | || | |_| |_| \__,_| \__||_| \___/ |_| |_| |_| |_| |_____||_| |_||_| _____ _ | __ \ | | | |__) |_ __ ___ ___ ___ _ __ | |_ | ___/| '__|/ _ \/ __| / _ \| '_ \ | __| | | | | | __/\__ \| __/| | | || |_ |_| |_| \___||___/ \___||_| |_| \__| switch# switch# switch# switch# switch# conf Enter configuration commands, one per line. End with CNTL/Z. switch(config)# switch(config)# switch(config)# switch(config)# switch(config)# terminal width 200 switch(config)# switch(config)# switch(config)# switch(config)# show running-config tacacs+ !Command: show running-config tacacs+ !No configuration change since last restart !Time: Wed Mar 27 16:48:57 2024 version 10.5(1) Bios:version 05.51 feature tacacs+ logging level tacacs 5 tacacs-server host 10.76.80.245 key 7 "fewhg" aaa group server tacacs+ tac1 server 10.76.80.245 use-vrf management switch(config)# switch(config)# show running-config aaa !Command: show running-config aaa !No configuration change since last restart !Time: Wed Mar 27 16:48:59 2024 version 10.5(1) Bios:version 05.51 logging level aaa 5 aaa accounting default group tac1 switch(config)# switch(config)# switch(config)# show ver | inc image NXOS image file is: bootflash:///nxos64-cs.10.5.0.IPR9.0.57.F.bin_PVT switch(config)# switch(config)# switch(config)# show logging logfile | grep ignore-case "Problem during name-lookup" switch(config)# switch(config)# switch(config)# switch(config)# debug logfile tac1 switch(config)# switch(config)# switch(config)# debug tacacs+ all <<<<<<<<<< did SSH login via MGMT port at this stage. switch(config)# switch(config)# no debug all switch(config)# switch(config)# switch(config)# show logging logfile | grep ignore-case "Problem during name-lookup" switch(config)# switch(config)# switch(config)# switch(config)# show debug logfile tac1 | grep "proc job in progress during reverse lookup" 2024 Mar 27 16:49:48.905529 tacacsd: proc job in progress during reverse lookup switch(config)#
+---End of Note Titled: Unit-test---
+
+
+---Start of Note Titled:  static-analysis-runinfo-n9k (Created 03/27/2024 08:36:16 Modified 04/29/2024 22:07:05 by synchub.gen)---
+Active Warning: No
+All files analyzed: Yes
+SA_CLEAN: Yes
+GIT HEAD SHA: Not Computed
+
+Total active warnings: 0
+Total noise warnings: 3
+Total parent warnings: 16
+
+Files not analyzed:
+ 
+
+Files analyzed:
+ standalone/feature/security/dnscache/dns_cache.c
+
+Warning triage information:
+
+Active warnings (0):
+
+Warnings fixed (0):
+
+Warnings marked noise (0):
+
+Warnings marked parent (0):
+
+
+Parent warnings can be seen at:
+ https://sjc-bm-cov7.cisco.com:8443/query/defects.htm?stream=nx_main-vasagraw&cid=767408&cid=851849&cid=865586&cid=773855&cid=769901&cid=822115&cid=822009&cid=751881&cid=866644&cid=865374&cid=829940&cid=865310&cid=73625&cid=779106&cid=774311&cid=858393
+---End of Note Titled: static-analysis-runinfo-n9k---
+
+
+---Start of Note Titled:  Scrubnote (Created 03/26/2024 02:13:11 Modified 07/22/2024 22:16:04 by cms)---
+{240723 palshanm S B} Unable to get required logs. Script review is pending
+{240626 anikunna S B} OR4M applicable
+{240514 palshanm S B} Assigned to Palani for automation
+{240409 siramego S R} Need niles_rel analysis
+{240326 anikunna S B} DNS cache is not populated in time due to delayed coming up of mport
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 03/26/2024 02:11:15 Added 03/26/2024 02:11:15 by anikunna)---
+Pls address
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled:  Other (Created 03/22/2024 13:05:10 Modified 04/29/2024 22:07:05 by synchub.gen)---
+Confirmed that no DNS traffic was seen over inband or mgmt when the error was triggered. Not certain what this error means as I expected some kind of DNS query:
+
+1. Reloaded the switch:
+
+F340.08.21-N9K-C93180YC-EX-60AA# reload
+This command will reboot the system. (y/n)? [n] y
+
+2. Captured inband traffic via ethanalyzer:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show clock ; ethanalyzer local interface inband limit-captured-frames 0 write tacacs_inband.pcap ; show clock
+Warning: No NTP peer/server configured. Time may be out of sync.
+09:09:57.195 CDT Fri Mar 22 2024
+Time source is NTP
+Capturing on 'ps-inb'
+586 
+
+Warning: No NTP peer/server configured. Time may be out of sync.
+09:11:19.304 CDT Fri Mar 22 2024
+Time source is NTP
+
+3. Confirmed that the TACACS error was generated when ethanalyzer was running:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show logging log | i i tacacs
+2024 Mar 22 09:09:39.921 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 09:09:44.213 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 09:09:47.125 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 1 time)
+2024 Mar 22 09:09:47.890 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 09:09:50.149 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 3 times)
+2024 Mar 22 09:09:50.716 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 09:09:54.423 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 09:09:55.996 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 2 times)
+2024 Mar 22 09:10:34.938 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-5-TACACS_NOTIFICATION: mgmt0 port is found up
+2024 Mar 22 09:10:34.959 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)
+
+4. No DNS traffic seen:
+
+F340.08.21-N9K-C93180YC-EX-60AA(config)# ethanalyzer local read tacacs_inband.pcap limit-captured-frames 0 | i(\[^\"\])"+2024-03-22 09:10:3(\[^\"\])"+
+ 299 2024-03-22 09:10:34.234000725 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 300 2024-03-22 09:10:34.234024281 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 301 2024-03-22 09:10:34.234176145 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 302 2024-03-22 09:10:34.234202210 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 303 2024-03-22 09:10:34.234262385 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 304 2024-03-22 09:10:34.234299068 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 305 2024-03-22 09:10:34.234345134 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+ 306 2024-03-22 09:10:34.234398228 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+ 307 2024-03-22 09:10:34.512254013 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 308 2024-03-22 09:10:34.512274427 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 309 2024-03-22 09:10:34.512396142 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 310 2024-03-22 09:10:34.512422675 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 311 2024-03-22 09:10:34.512461089 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 312 2024-03-22 09:10:34.512496527 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 313 2024-03-22 09:10:34.512538158 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+ 314 2024-03-22 09:10:34.512592220 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+ 315 2024-03-22 09:10:34.783132385 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 316 2024-03-22 09:10:34.783155685 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 64 PRI: 7 DEI: 0 ID: 4032
+ 317 2024-03-22 09:10:34.783311999 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 318 2024-03-22 09:10:34.783342301 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 196 PRI: 7 DEI: 0 ID: 4032
+ 319 2024-03-22 09:10:34.783403021 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 320 2024-03-22 09:10:34.783442070 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 772 PRI: 7 DEI: 0 ID: 4032
+ 321 2024-03-22 09:10:34.783489970 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+ 322 2024-03-22 09:10:34.783547192 00:22:bd:cf:b9:01 ? 00:22:bd:cf:b9:00 0x3737 1404 PRI: 7 DEI: 0 ID: 4032
+
+5. Confirmed an SSH login triggered the name resolution failure:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show accounting log | i(\[^\"\])"+Mar 22 09:10:(\[^\"\])"+
+Fri Mar 22 09:10:34 2024:type=start:id=10.82.206.254@pts/0:user=admin:cmd=
+
+6. Reloaded the switch:
+
+F340.08.21-N9K-C93180YC-EX-60AA# reload
+This command will reboot the system. (y/n)? [n] y
+
+Connection was reset.
+
+7. Captured mgmt traffic via ethanalyzer:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show clock ; ethanalyzer local interface mgmt limit-captured-frames 0 write tacacs_mgmt.pcap ; show clock
+Warning: No NTP peer/server configured. Time may be out of sync.
+11:15:39.211 CDT Fri Mar 22 2024
+Time source is NTP
+Capturing on 'eth1'
+563 
+564 
+Warning: No NTP peer/server configured. Time may be out of sync.
+11:18:06.910 CDT Fri Mar 22 2024
+Time source is NTP
+
+8. Confirmed that the TACACS error was generated when ethanalyzer was running:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show logging log | i i tacacs
+2024 Mar 22 11:15:19.927 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:22.562 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:25.898 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 1 time)
+2024 Mar 22 11:15:26.037 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:26.467 F340 %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:26.751 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:28.487 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 2 times)
+2024 Mar 22 11:15:32.966 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up.
+2024 Mar 22 11:15:34.506 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: tacacs traffic is not being processed as management port isnt up. (message repeated 1 time)
+2024 Mar 22 11:15:36.706 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-5-TACACS_NOTIFICATION: mgmt0 port is found up
+2024 Mar 22 11:15:41.732 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+2024 Mar 22 11:17:43.195 F340.08.21-N9K-C93180YC-EX-60AA %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)
+
+9. No DNS traffic seen:
+
+F340.08.21-N9K-C93180YC-EX-60AA(config)# ethanalyzer local read tacacs_mgmt.pcap limit-captured-frames 0 | i(\[^\"\])"+2024-03-22 11:17:4(\[^\"\])"+
+ 392 2024-03-22 11:17:43.196019214 10.122.163.239 ? 10.122.171.5 TCP 74 58413 ? 49 [SYN] Seq=0 Win=16384 Len=0 MSS=536 WS=1 TSval=1672 TSecr=0
+ 393 2024-03-22 11:17:43.196450563 10.122.171.5 ? 10.122.163.239 TCP 74 49 ? 58413 [SYN, ACK] Seq=0 Ack=1 Win=28960 Len=0 MSS=1460 TSval=752843122 TSecr=1672 WS=128
+ 394 2024-03-22 11:17:43.197871689 10.122.163.239 ? 10.122.171.5 TCP 66 58413 ? 49 [ACK] Seq=1 Ack=1 Win=16768 Len=0 TSval=1672 TSecr=752843122
+ 395 2024-03-22 11:17:43.198226334 10.122.163.239 ? 10.122.171.5 TACACS+ 182 Q: Accounting
+ 396 2024-03-22 11:17:43.198510951 10.122.171.5 ? 10.122.163.239 TCP 66 49 ? 58413 [ACK] Seq=1 Ack=117 Win=29056 Len=0 TSval=752843124 TSecr=1672
+ 397 2024-03-22 11:17:43.200880206 10.122.171.5 ? 10.122.163.239 TACACS+ 83 R: Accounting
+ 398 2024-03-22 11:17:43.201122371 10.122.171.5 ? 10.122.163.239 TCP 66 49 ? 58413 [FIN, ACK] Seq=18 Ack=117 Win=29056 Len=0 TSval=752843127 TSecr=1672
+ 399 2024-03-22 11:17:43.201480860 10.122.163.239 ? 10.122.171.5 TCP 66 58413 ? 49 [ACK] Seq=117 Ack=19 Win=16763 Len=0 TSval=1672 TSecr=752843127
+ 400 2024-03-22 11:17:43.201806524 10.122.163.239 ? 10.122.171.5 TCP 66 58413 ? 49 [FIN, ACK] Seq=117 Ack=19 Win=16768 Len=0 TSval=1672 TSecr=752843127
+ 401 2024-03-22 11:17:43.202061480 10.122.171.5 ? 10.122.163.239 TCP 66 49 ? 58413 [ACK] Seq=19 Ack=118 Win=29056 Len=0 TSval=752843128 TSecr=1672
+ 402 2024-03-22 11:17:43.241982118 10.122.163.239 ? 10.82.206.254 SSHv2 590 Server: Encrypted packet (len=536)
+ 403 2024-03-22 11:17:43.242069178 10.122.163.239 ? 10.82.206.254 SSHv2 590 Server: Encrypted packet (len=536)
+ 404 2024-03-22 11:17:43.242142919 10.122.163.239 ? 10.82.206.254 SSHv2 82 Server: Encrypted packet (len=28)
+ 405 2024-03-22 11:17:43.259129330 10.82.206.254 ? 10.122.163.239 TCP 60 36111 ? 22 [ACK] Seq=1959 Ack=3387 Win=65392 Len=0
+ 406 2024-03-22 11:17:43.268322001 10.122.163.239 ? 10.82.206.254 SSHv2 122 Server: Encrypted packet (len=68)
+ 407 2024-03-22 11:17:43.285075964 10.82.206.254 ? 10.122.163.239 TCP 60 36111 ? 22 [ACK] Seq=1959 Ack=3455 Win=65324 Len=0
+ 408 2024-03-22 11:17:43.408540399 192.168.120.1 ? 192.168.120.2 UDP 78 3200 ? 3200 Len=36
+ 409 2024-03-22 11:17:43.641577336 10.122.163.130 ? 224.0.0.2 HSRP 60 Advertise (state Passive)
+
+10. Note, TACACS server failed to respond once but seems to be unrelated to the TACACS name resolution issue. TACACS only failed the one time:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show tacacs-server statistics 10.122.171.5
+Server is not monitored
+
+Authentication Statistics
+ failed transactions: 0
+ successful transactions: 0
+ requests sent: 0
+ requests timed out: 0
+ responses with no matching requests: 0
+ responses not processed: 0
+ responses containing errors: 0
+
+Authorization Statistics
+ failed transactions: 0
+ successful transactions: 0
+ requests sent: 0
+ requests timed out: 0
+ responses with no matching requests: 0
+ responses not processed: 0
+ responses containing errors: 0
+
+Accounting Statistics
+ failed transactions: 1
+ successful transactions: 6
+ requests sent: 6
+ requests timed out: 1
+ responses with no matching requests: 0
+ responses not processed: 0
+ responses containing errors: 0
+
+11. Confirmed an SSH login triggered the name resolution failure:
+
+F340.08.21-N9K-C93180YC-EX-60AA# show accounting log | i(\[^\"\])"+Mar 22 11:17:(\[^\"\])"+
+Fri Mar 22 11:17:43 2024:type=start:id=10.82.206.254@pts/2:user=admin:cmd=
+---End of Note Titled: Other---
+
+
+---Start of Note Titled:  reproduction-steps (Created 03/22/2024 12:56:50 Modified 04/29/2024 22:07:05 by synchub.gen)---
+Setup:
+> Switch is configured with at least TACACS logging level 4:
+
+logging level tacacs 4
+
+> TACACS is configured and used by AAA:
+
+tacacs-server key 7(\[^\"])"+XXXXXXX([^\"\])"+
+ip tacacs source-interface mgmt0
+tacacs-server host 192.168.0.1
+aaa group server tacacs+ test_group
+ server 192.168.0.1
+ use-vrf management
+aaa accounting default group test_group
+
+Repro:
+> Upgrade switch from 9.3.4 to 10.2.6.
+> After the upgrade, log into the switch via SSH.
+> The issue can be reproduced again by reloading and logging into SSH again.
+
+Expected Result:
+> No error should be generated.
+
+Current Result:
+> The following error is generated:
+
+2024 Mar 22 14:42:08.601 switch %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)
+---End of Note Titled: reproduction-steps---
+
+
+---Start of Note Titled: SS-Review (Created 03/22/2024 10:32:16 Added 03/22/2024 10:32:16 by jorandre)---
+$$NOOIB (No impact on business)
+
+It doesn't appear that TACACS is impacted by this error and it only happens once after a reload.
+---End of Note Titled: SS-Review---
+
+
+---Start of Note Titled:  Release-note (Created 03/22/2024 10:24:01 Modified 04/29/2024 22:07:05 by synchub.gen)---
+<B>Symptom:</B>
+After performing an upgrade or a reload on impacted code, when the first user tries to ssh into the switch and the device is configured to use TACACS for authentication and authorization, the following error may be seen:
+
+2024 Mar 22 11:17:43.195 switch %TACACS-4-TACACS_WARNING: Problem during name-lookup. Error:-3(temporary failure in name resolution)
+
+This error is only seen for the first login after upgrade or reload and does not apply to this error being seen for subsequent logins.
+
+<B>Conditions:</B>
+- Switch is configured with TACACS logging level 4 or lower (4-7):
+
+`show running-config`
+logging level tacacs 4
+
+- TACACS is configured and used by AAA:
+
+`show running-config`
+tacacs-server key 7 "XXXXXXXX"
+ip tacacs source-interface mgmt0
+tacacs-server host 192.168.0.1
+aaa group server tacacs+ test_group
+ server 192.168.0.1
+ use-vrf management
+aaa accounting default group test_group
+
+- This is a day 1 issue.
+- The first user logged into the switch via SSH. Not printed for the second login from the same user or for other users.
+- All subsequent reloads or upgrades on impacted code will cause the error to be generated once more for the first user after boot.
+
+<B>Workaround:</B>
+None. The error is cosmetic and can be ignored.
+
+<B>Further Problem Description:</B>
+This error will only trigger once on boot up.
+
+
+---End of Note Titled: Release-note---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (25 of 25)
+------------------------------------------------------------------------------------------------------------------
+CSCwj45146_RR1F_Test_Logs                         ascii text     51368          palshanm       10/04/2026 21:40:34      
+Diffs-commit-olympia_rel                          ascii text     1557           vasagraw       07/02/2024 04:48:14      
+code-review-olympia_rel.p2                        binary         534            vasagraw       07/01/2024 18:41:40      
+PR-Description-39649                              ascii text     58             vasagraw       07/01/2024 18:41:42      
+code-review-olympia_rel                           binary         534            vasagraw       07/01/2024 18:27:14      
+ccwarnings-olympia_rel                            ascii text     185            baas           07/01/2024 05:17:01      
+static-analysis-olympia_rel                       ascii text     25362          baas           07/01/2024 05:16:25      
+CSCwj45146_PR1F_Test_Logs.txt                     ascii text     19254          palshanm       06/15/2024 02:24:44      
+CSCwj45146_NR5M_Test_Logs.txt                     ascii text     76736          palshanm       04/15/2024 06:57:45      
+Diffs-commit-niles_rel                            binary         2404           vasagraw       04/11/2024 10:09:07      
+code-review-niles_rel.p2                          binary         1299           vasagraw       04/11/2024 04:38:33      
+PR-Description-34553                              binary         847            vasagraw       04/11/2024 04:38:34      
+code-review-niles_rel                             binary         1299           vasagraw       04/11/2024 04:13:17      
+ccwarnings-niles_rel                              ascii text     185            baas           04/11/2024 03:37:52      
+static-analysis-niles_rel                         ascii text     22319          baas           04/11/2024 03:37:17      
+gnosis_neg_CSCWj54146_negative.txt                ascii text     6106           ksnehala       04/04/2024 01:01:15      
+Diffs-commit-pr1f_dev                             binary         2403           vasagraw       03/30/2024 02:40:00      
+code-review-pr1f_dev.p2                           binary         1302           vasagraw       03/28/2024 02:09:17      
+PR-Description-33628                              binary         844            vasagraw       03/28/2024 02:09:18      
+code-review-pr1f_dev                              binary         1302           vasagraw       03/28/2024 01:29:19      
+ccwarnings-pr1f_dev                               ascii text     185            baas           03/27/2024 05:11:17      
+static-analysis-pr1f_dev.p3                       ascii text     22548          baas           03/27/2024 05:10:43      
+static-analysis-pr1f_dev.p2                       ascii text     22548          baas           03/27/2024 05:09:07      
+static-analysis-pr1f_dev                          ascii text     22550          baas           03/27/2024 05:07:29      
+Release-note-diff                                 ascii text     1834           synchub.gen    04/29/2024 22:07:05      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+10/04/2026 palshanm 	File Name               	                             	CSCwj45146_RR1F_Test_Logs    	New
+10/04/2026 palshanm 	Note Title              	                             	RR1F V-Comments              	New
+10/04/2026 palshanm 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+07/30/2026 satdr    	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+04/21/2026 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/21/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+03/16/2026 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+12/09/2025 ksnehala 	Note Title              	                             	KnowledgeSignature.p5        	New
+12/09/2025 synchub.g	Note                    	ULS_OR4M                     	ULS_OR4M                     	Mod
+12/09/2025 synchub.g	Note                    	unit-test_OR4M               	unit-test_OR4M               	Mod
+12/09/2025 ksnehala 	Note Title              	                             	KnowledgeSignature.p4        	New
+10/27/2025 fas      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/27/2025 fas      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/27/2025 fas      	Known-affected-releases 	                             	10.4(3)                      	New
+10/27/2025 fas      	Known-affected-releases-	                             	10.4(3)                      	New
+10/26/2025 fas      	Report-mdf-concept-relea	[mdfConcept=|null, releaseCon	                             	Del
+10/26/2025 fas      	Known-affected-releases 	"10.4(3)"                    	                             	Del
+10/26/2025 fas      	Known-affected-releases-	                             	"10.4(3)"                    	New
+10/24/2025 fas      	Report-mdf-concept-relea	                             	[mdfConcept=|null, releaseCon	New
+10/24/2025 fas      	Known-affected-releases 	                             	"10.4(3)"                    	New
+10/24/2025 fas      	Known-affected-releases-	                             	"10.4(3)"                    	New
+09/04/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+07/22/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+06/05/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+05/20/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+05/08/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+04/23/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+04/08/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+04/08/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+04/08/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+04/08/2025 buildins 	Known-fixed-releases    	10.3(6),10.5(2)              	                             	Del
+04/01/2025 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/26/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+03/26/2025 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+03/26/2025 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+02/27/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+02/13/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+01/30/2025 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+12/20/2024 divvenka 	Integrated-releases     	                             	10.5(1)                      	New
+12/12/2024 pisces   	VF-patched              	                             	NX-OS:10.4(4),NX-OS:10.5(2)  	New
+12/12/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+12/12/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+12/12/2024 pisces   	Known-fixed-releases    	                             	10.5(2)                      	New
+12/10/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+11/19/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/28/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/28/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/28/2024 divvenka 	Known-fixed-releases    	                             	10.4(4)                      	New
+10/16/2024 pisces   	VF-unpatched            	                             	NX-OS:10.3(4h),NX-OS:9.3(14) 	New
+10/16/2024 pisces   	Potentially-affected-rel	                             	10.3(4h),9.3(14)             	New
+10/14/2024 vandiver 	serviceRequests/C3/69807	                             	                             	Mod
+10/14/2024 vandiver 	Urgency-desc            	P3                           	CL3                          	Mod
+10/10/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/10/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/10/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/09/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/09/2024 mansicha 	serviceRequests/C3/69807	                             	C3/698070804                 	New
+10/09/2024 mansicha 	Urgency-desc            	CL3                          	P3                           	Mod
+10/09/2024 mansicha 	Tickets-count           	1                            	2                            	Mod
+10/09/2024 mansicha 	TACSR-count             	1                            	2                            	Mod
+10/09/2024 mansicha 	Tickets-count-direct    	1                            	2                            	Mod
+10/09/2024 mansicha 	Trouble-tickets         	                             	698070804                    	New
+10/09/2024 mansicha 	Trouble-tickets-direct  	                             	C3698070804                  	New
+10/09/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/04/2024 buildins 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+10/04/2024 buildins 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+10/04/2024 buildins 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+09/06/2024 palshanm 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+09/06/2024 palshanm 	Verified-release        	                             	10.4(3.40)                   	New
+09/04/2024 pisces   	VF-patched              	                             	NX-OS:10.3(5),NX-OS:10.3(6),N	New
+09/04/2024 pisces   	VF-unpatched            	                             	NX-OS:10.2(7),NX-OS:10.2(8),N	New
+09/04/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/04/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/04/2024 pisces   	Potentially-affected-rel	                             	10.2(7),10.2(8),10.3(3r),10.3	New
+09/04/2024 pisces   	Known-fixed-releases    	                             	10.3(6),10.5(1)              	New
+08/22/2024 palshanm 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+08/15/2024 cspgre   	Apply-to                	                             	UCSM-6.0.100.240076.A        	New
+07/22/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+07/04/2024 divvenka 	Integrated-releases     	                             	10.4(4)                      	New
+07/04/2024 divvenka 	Integrated-releases     	                             	10.4(3.16)                   	New
+07/04/2024 divvenka 	Apply-to                	                             	10.4(3.16)                   	New
+07/02/2024 vasagraw 	File Name               	                             	Diffs-commit-olympia_rel     	New
+07/01/2024 qddts    	Note Title              	                             	ULS_OR4M                     	New
+07/01/2024 vasagraw 	contents                	                             	PR-Description-39649         	Mod
+07/01/2024 vasagraw 	File Name               	                             	code-review-olympia_rel.p2   	New
+07/01/2024 vasagraw 	File Name               	                             	PR-Description-39649         	New
+07/01/2024 vasagraw 	File Name               	                             	code-review-olympia_rel      	New
+07/01/2024 baas     	File Name               	                             	ccwarnings-olympia_rel       	New
+07/01/2024 baas     	File Name               	                             	static-analysis-olympia_rel  	New
+07/01/2024 qddts    	Note Title              	                             	unit-test_OR4M               	New
+06/26/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/16/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/15/2024 palshanm 	File Name               	                             	CSCwj45146_PR1F_Test_Logs.txt	New
+06/15/2024 palshanm 	File Name               	CSCwj45146_OR3F_Test_Logs.txt	                             	Del
+06/15/2024 palshanm 	Note Title              	                             	V-comments.p2                	New
+06/15/2024 palshanm 	File Name               	                             	CSCwj45146_OR3F_Test_Logs.txt	New
+06/15/2024 palshanm 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+06/15/2024 palshanm 	Verified-release        	                             	10.5(0)IMG9(0.56)            	New
+06/11/2024 cms      	Note                    	Scrubnote                    	Scrubnote                    	Mod
+06/11/2024 cms      	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 9000 	New
+06/11/2024 cms      	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 9000 	                             	Del
+06/04/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+06/04/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+05/21/2024 sivrg    	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+05/13/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0)               	New
+05/13/2024 divvenka 	Integrated-releases     	                             	10.4(2)IEH9(0.25)            	New
+05/13/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+05/13/2024 divvenka 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+05/13/2024 divvenka 	Apply-to                	                             	10.4(2)IEH9(0.25)            	New
+05/13/2024 divvenka 	Known-fixed-releases    	                             	10.3(5)                      	New
+05/05/2024 sivadura 	Attribute               	gnosis nr5m-mukamath nr5m-ver	gnosis nr5m-mukamath nr5m-ver	Mod
+05/02/2024 cdetsbtk 	Security-screening-times	2024-04-04 21:43:38.000+0000 	2024-05-03 01:11:14.000+0000 	Mod
+04/29/2024 synchub.g	Note                    	Unit-test                    	Unit-test                    	Mod
+04/29/2024 synchub.g	Note                    	uls_niles_rel                	uls_niles_rel                	Mod
+04/29/2024 synchub.g	Note                    	ULS                          	ULS                          	Mod
+04/29/2024 synchub.g	Note Type               	reproduction-steps           	Other                        	Mod
+04/29/2024 synchub.g	Note                    	reproduction-steps           	reproduction-steps           	Mod
+04/29/2024 synchub.g	Note                    	DetectionLogic               	DetectionLogic               	Mod
+04/29/2024 synchub.g	Note                    	Release-note                 	Release-note                 	Mod
+04/29/2024 synchub.g	Note Title              	                             	Code-review                  	New
+04/29/2024 synchub.g	Note                    	Other                        	Other                        	Mod
+04/29/2024 synchub.g	Note                    	static-analysis-runinfo-n9k  	static-analysis-runinfo-n9k  	Mod
+04/29/2024 synchub.g	Note                    	unit-test_niles_rel          	unit-test_niles_rel          	Mod
+04/29/2024 synchub.g	contents                	                             	Release-note-diff            	Mod
+04/29/2024 synchub.g	FileSize                	1618                         	1834                         	Mod
+04/29/2024 synchub.g	Conditions              	- Switch is configured with T	- Switch is configured with T	Mod
+04/29/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-162562       	New
+04/29/2024 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0)               	New
+04/29/2024 divvenka 	Integrated-releases     	                             	10.4(2)IOD9(0.162)           	New
+04/29/2024 divvenka 	Apply-to                	                             	10.4(2)IOD9(0.162)           	New
+04/19/2024 jorandre 	serviceRequests/C3/69697	                             	                             	Mod
+04/19/2024 jorandre 	Urgency-desc            	NA                           	CL3                          	Mod
+04/19/2024 jorandre 	Urgency                 	9                            	6                            	Mod
+04/15/2024 palshanm 	Attribute               	gnosis nr5m-mukamath         	gnosis nr5m-mukamath nr5m-ver	Mod
+04/15/2024 palshanm 	File Name               	                             	CSCwj45146_NR5M_Test_Logs.txt	New
+04/15/2024 palshanm 	Note Title              	                             	V-comments                   	New
+04/15/2024 palshanm 	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+04/15/2024 palshanm 	Status                  	R                            	V                            	Mod
+04/15/2024 palshanm 	Verified By Employee    	                             	palshanm                     	Mod
+04/15/2024 palshanm 	Verified-release        	                             	10.3(4.95)                   	New
+04/15/2024 palshanm 	Verified-confidence     	                             	tested                       	Mod
+04/15/2024 palshanm 	Verified-on             	                             	2024-04-15 13:57:32.000+0000 	Mod
+04/15/2024 palshanm 	statusStates            	                             	[status=R, startDate=Sat Mar 	New
+04/15/2024 palshanm 	statusStates            	[status=R, startDate=Sat Mar 	                             	Del
+04/15/2024 palshanm 	Age-status              	8                            	24                           	Mod
+04/15/2024 palshanm 	Mean-time-to-verified   	                             	23                           	Mod
+04/11/2024 kopidiki 	Attribute               	gnosis                       	gnosis nr5m-mukamath         	Mod
+04/11/2024 vasagraw 	Note Title              	                             	uls_niles_rel                	New
+04/11/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0)               	New
+04/11/2024 divvenka 	Integrated-releases     	                             	10.5(0)IMG9(0.2)             	New
+04/11/2024 divvenka 	Apply-to                	                             	10.5(0)IMG9(0.2)             	New
+04/11/2024 divvenka 	Integrated-releases     	                             	10.3(5)                      	New
+04/11/2024 divvenka 	Integrated-releases     	                             	10.3(4.95)                   	New
+04/11/2024 divvenka 	Apply-to                	                             	10.3(4.95)                   	New
+04/11/2024 vasagraw 	File Name               	                             	Diffs-commit-niles_rel       	New
+04/11/2024 vasagraw 	Multi-commit-flag       	                             	Y                            	Mod
+04/11/2024 vasagraw 	contents                	                             	PR-Description-34553         	Mod
+04/11/2024 vasagraw 	File Name               	                             	code-review-niles_rel.p2     	New
+04/11/2024 vasagraw 	File Name               	                             	PR-Description-34553         	New
+04/11/2024 vasagraw 	File Name               	                             	code-review-niles_rel        	New
+04/11/2024 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+04/11/2024 baas     	File Name               	                             	static-analysis-niles_rel    	New
+04/11/2024 vasagraw 	Note Title              	                             	unit-test_niles_rel          	New
+04/04/2024 cdetsbtk 	Security-screening-times	2024-03-26 17:42:56.000+0000 	2024-04-04 21:43:38.000+0000 	Mod
+04/04/2024 ksnehala 	contents                	                             	gnosis_neg_CSCWj54146_negativ	Mod
+04/04/2024 ksnehala 	FileSize                	6026                         	6106                         	Mod
+04/04/2024 ksnehala 	Note Title              	                             	KnowledgeSignature.p3        	New
+04/03/2024 seshea   	Note                    	DetectionLogic               	DetectionLogic               	Mod
+04/03/2024 seshea   	Note                    	Release-note                 	Release-note                 	Mod
+04/03/2024 seshea   	contents                	                             	Release-note-diff            	Mod
+04/03/2024 seshea   	FileSize                	382                          	1618                         	Mod
+04/03/2024 seshea   	Headline                	SSH login triggers TACACS "te	SSH login triggers TACACS "te	Mod
+04/03/2024 seshea   	Symptoms                	The following error is seen:
+	After performing an upgrade o	Mod
+04/03/2024 seshea   	Conditions              	- Switch is configured with a	- Switch is configured with T	Mod
+04/03/2024 seshea   	Workarounds             	None.                        	None. The error is cosmetic a	Mod
+04/02/2024 ksnehala 	Note Title              	                             	KnowledgeSignature.p2        	New
+04/02/2024 ksnehala 	File Name               	                             	gnosis_neg_CSCWj54146_negativ	New
+04/02/2024 ksnehala 	Note Title              	                             	KnowledgeSignature           	New
+04/01/2024 ksnehala 	Attribute               	                             	gnosis                       	Mod
+04/01/2024 flfuchs  	Note Title              	                             	DetectionLogic               	New
+03/31/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPR9(0)               	New
+03/31/2024 divvenka 	Integrated-releases     	                             	10.5(0)IPR9(0.66)            	New
+03/31/2024 divvenka 	Apply-to                	                             	10.5(0)IPR9(0.66)            	New
+03/30/2024 vasagraw 	Note Title              	                             	R-comments                   	New
+03/30/2024 vasagraw 	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+03/30/2024 vasagraw 	Status                  	A                            	R                            	Mod
+03/30/2024 vasagraw 	Dev-escape-resolver-opin	                             	N                            	Mod
+03/30/2024 vasagraw 	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+03/30/2024 vasagraw 	More-by                 	                             	vasagraw                     	Mod
+03/30/2024 vasagraw 	Opener                  	                             	vasagraw                     	Mod
+03/30/2024 vasagraw 	Resolver                	                             	vasagraw                     	Mod
+03/30/2024 vasagraw 	Breakage                	                             	No                           	Mod
+03/30/2024 vasagraw 	Regression              	                             	N                            	Mod
+03/30/2024 vasagraw 	By-previous-commit-value	                             	No                           	Mod
+03/30/2024 vasagraw 	Bug-origin              	                             	Code / Implementation        	Mod
+03/30/2024 vasagraw 	Failure-type            	                             	API /Internal/ External inter	Mod
+03/30/2024 vasagraw 	Released-code           	                             	Y                            	Mod
+03/30/2024 vasagraw 	Origin                  	                             	base code                    	Mod
+03/30/2024 vasagraw 	Test-escape             	N                            	Y                            	Mod
+03/30/2024 vasagraw 	Test-EDP-phase          	                             	Feature Test                 	Mod
+03/30/2024 vasagraw 	Test-EDP-activity       	                             	Feature/ Functionality Testin	Mod
+03/30/2024 vasagraw 	TPS_issue               	                             	N                            	Mod
+03/30/2024 vasagraw 	TPS_flag                	                             	N                            	Mod
+03/30/2024 vasagraw 	Behavior-changed        	                             	N                            	Mod
+03/30/2024 vasagraw 	Original-resolved-on    	                             	2024-03-30 10:16:40.000+0000 	Mod
+03/30/2024 vasagraw 	Documents-changed       	                             	none                         	Mod
+03/30/2024 vasagraw 	More-on                 	                             	2024-03-30 10:16:40.000+0000 	Mod
+03/30/2024 vasagraw 	Opened-on               	                             	2024-03-30 10:16:40.000+0000 	Mod
+03/30/2024 vasagraw 	Resolved-on             	                             	2024-03-30 10:16:40.000+0000 	Mod
+03/30/2024 vasagraw 	statusStates            	                             	[status=A, startDate=Tue Mar 	New
+03/30/2024 vasagraw 	statusStates            	[status=A, startDate=Tue Mar 	                             	Del
+03/30/2024 vasagraw 	Age-status              	4                            	8                            	Mod
+03/30/2024 vasagraw 	Mean-time-to-resolved   	                             	7                            	Mod
+03/30/2024 vasagraw 	File Name               	                             	Diffs-commit-pr1f_dev        	New
+03/29/2024 vasagraw 	Note                    	ULS                          	ULS                          	Mod
+03/28/2024 vasagraw 	contents                	                             	PR-Description-33628         	Mod
+03/28/2024 vasagraw 	File Name               	                             	code-review-pr1f_dev.p2      	New
+03/28/2024 vasagraw 	Note Title              	                             	ULS                          	New
+03/28/2024 vasagraw 	Note Title              	                             	Unit-test                    	New
+03/28/2024 vasagraw 	Code-reviewer           	                             	sarchand                     	New
+03/28/2024 vasagraw 	File Name               	                             	PR-Description-33628         	New
+03/28/2024 vasagraw 	File Name               	                             	code-review-pr1f_dev         	New
+03/27/2024 vasagraw 	Note                    	static-analysis-runinfo-n9k  	static-analysis-runinfo-n9k  	Mod
+03/27/2024 vasagraw 	Note Title              	                             	static-analysis-runinfo-n9k  	New
+03/27/2024 baas     	File Name               	                             	ccwarnings-pr1f_dev          	New
+03/27/2024 baas     	File Name               	                             	static-analysis-pr1f_dev.p3  	New
+03/27/2024 baas     	File Name               	                             	static-analysis-pr1f_dev.p2  	New
+03/27/2024 baas     	File Name               	                             	static-analysis-pr1f_dev     	New
+03/26/2024 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+03/26/2024 cdetsbtk 	Is-customer-visible     	                             	Y                            	Mod
+03/26/2024 cdetsbtk 	Security-screening-times	                             	2024-03-26 17:42:56.000+0000 	Mod
+03/26/2024 cms      	Note Title              	                             	Scrubnote                    	New
+03/26/2024 anikunna 	Note Title              	                             	A-comments                   	New
+03/26/2024 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+03/26/2024 anikunna 	Status                  	N                            	A                            	Mod
+03/26/2024 anikunna 	Engineer                	                             	vasagraw                     	Mod
+03/26/2024 anikunna 	Assigner                	                             	anikunna                     	Mod
+03/26/2024 anikunna 	Assigned Date           	                             	2024-03-26 09:11:15.000+0000 	Mod
+03/26/2024 anikunna 	statusStates            	                             	[status=N, startDate=Fri Mar 	New
+03/26/2024 anikunna 	statusStates            	[status=N, startDate=Fri Mar 	                             	Del
+03/26/2024 anikunna 	Age-status              	0                            	4                            	Mod
+03/26/2024 anikunna 	Mean-time-to-assigned   	                             	3                            	Mod
+03/22/2024 jorandre 	serviceRequests/C3/69697	                             	C3/696978679                 	New
+03/22/2024 jorandre 	Urgency                 	                             	9                            	Mod
+03/22/2024 jorandre 	Tickets-count           	0                            	1                            	Mod
+03/22/2024 jorandre 	TACSR-count             	                             	1                            	Mod
+03/22/2024 jorandre 	Tickets-count-direct    	                             	1                            	Mod
+03/22/2024 jorandre 	Trouble-tickets         	                             	696978679                    	New
+03/22/2024 jorandre 	Trouble-tickets-direct  	                             	C3696978679                  	New
+03/22/2024 jorandre 	Note Title              	                             	Other                        	New
+03/22/2024 jorandre 	Note Title              	                             	reproduction-steps           	New
+03/22/2024 jorandre 	Note                    	Release-note                 	Release-note                 	Mod
+03/22/2024 jorandre 	File Name               	                             	Release-note-diff            	New
+03/22/2024 jorandre 	Headline                	SSH login triggers TACACS "te	SSH login triggers TACACS "te	Mod
+03/22/2024 jorandre 	Summary                 	After a reload of a switch wi	After upgrading the switch wi	Mod
+03/22/2024 jorandre 	Conditions              	- Switch is configured with a	- Switch is configured with a	Mod
+03/22/2024 jorandre 	Further-Problem-Descript	                             	This error will only trigger 	Mod
+03/22/2024 jorandre 	Note Title              	                             	SS-Review                    	New
+03/22/2024 jorandre 	Note Title              	                             	Release-note                 	New
+03/22/2024 jorandre 	Headline                	                             	SSH login triggers TACACS "te	Mod
+03/22/2024 jorandre 	Summary                 	                             	After a reload of a switch wi	Mod
+03/22/2024 jorandre 	Project                 	                             	CSC.datacenter               	Mod
+03/22/2024 jorandre 	Product                 	                             	n9k-standalone-sw            	Mod
+03/22/2024 jorandre 	Component               	                             	tacacs                       	Mod
+03/22/2024 jorandre 	Status-desc             	                             	N-New                        	Mod
+03/22/2024 jorandre 	Status                  	                             	N                            	Mod
+03/22/2024 jorandre 	Found                   	                             	customer-use                 	Mod
+03/22/2024 jorandre 	Hardening               	                             	N                            	Mod
+03/22/2024 jorandre 	Product-owner           	                             	gsheehan                     	Mod
+03/22/2024 jorandre 	Original-found          	                             	customer-use                 	Mod
+03/22/2024 jorandre 	Hardware                	                             	Nexus 9000                   	New
+03/22/2024 jorandre 	Feature                 	                             	fix                          	Mod
+03/22/2024 jorandre 	Urgency-desc            	                             	NA                           	Mod
+03/22/2024 jorandre 	Severity-desc           	                             	moderate                     	Mod
+03/22/2024 jorandre 	Severity                	                             	3                            	Mod
+03/22/2024 jorandre 	DE Priority Desc        	                             	medium                       	Mod
+03/22/2024 jorandre 	DE-priority             	                             	3                            	Mod
+03/22/2024 jorandre 	Impact                  	                             	Ease-of-Diagnosis            	New
+03/22/2024 jorandre 	Submitter               	                             	jorandre                     	Mod
+03/22/2024 jorandre 	Submitter-manager       	                             	riwhitin                     	Mod
+03/22/2024 jorandre 	DE-manager              	                             	anikunna                     	Mod
+03/22/2024 jorandre 	DTPT-manager            	                             	mukamath                     	Mod
+03/22/2024 jorandre 	Version                 	                             	10.2(6)                      	New
+03/22/2024 jorandre 	Original-version        	                             	10.2(6)                      	Mod
+03/22/2024 jorandre 	Found-during            	                             	Customer                     	Mod
+03/22/2024 jorandre 	Activity-when-found     	                             	Customer-Use                 	Mod
+03/22/2024 jorandre 	Automated-test          	                             	N                            	Mod
+03/22/2024 jorandre 	Test-escape             	                             	N                            	Mod
+03/22/2024 jorandre 	PSIRT                   	                             	N                            	Mod
+03/22/2024 jorandre 	Data-classification     	                             	Cisco Highly Confidential    	Mod
+03/22/2024 jorandre 	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+03/22/2024 jorandre 	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+03/22/2024 jorandre 	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+03/22/2024 jorandre 	Software-type-ids       	                             	282253564,286280105,286321149	New
+03/22/2024 jorandre 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/22/2024 jorandre 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+03/22/2024 jorandre 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+03/22/2024 jorandre 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+03/22/2024 jorandre 	MDF-edited              	                             	N                            	Mod
+03/22/2024 jorandre 	Attribute2              	                             	n/a                          	Mod
+03/22/2024 jorandre 	Care-Update             	                             	Y                            	Mod
+03/22/2024 jorandre 	Doc-manager             	                             	anikunna                     	Mod
+03/22/2024 jorandre 	Document                	                             	nexus                        	Mod
+03/22/2024 jorandre 	Documentation-resolution	                             	Undefined                    	Mod
+03/22/2024 jorandre 	Original-activity-when-f	                             	Customer-Use                 	Mod
+03/22/2024 jorandre 	Original-found-during   	                             	Customer                     	Mod
+03/22/2024 jorandre 	Submitter-org-bug       	                             	CX-GC-AMER-DC-DCApps-US      	Mod
+03/22/2024 jorandre 	Component-scenarios     	                             	N                            	Mod
+03/22/2024 jorandre 	Submitted-on            	                             	2024-03-22 17:24:01.694+0000 	Mod
+03/22/2024 jorandre 	IFD-CFD-Conv-date       	                             	2024-03-22 17:22:50.000+0000 	Mod
+03/22/2024 jorandre 	New-on                  	                             	2024-03-22 17:24:01.694+0000 	Mod
+03/22/2024 jorandre 	statusStates            	                             	[status=S, startDate=Fri Mar 	New
+03/22/2024 jorandre 	Transition-day          	0                            	2460392                      	Mod
+03/22/2024 jorandre 	Release-note-status     	                             	have                         	Mod
+03/22/2024 jorandre 	Reported By             	                             	jorandre                     	Mod
+03/22/2024 jorandre 	Known-affected-releases 	                             	10.2(6)                      	New
+03/22/2024 jorandre 	RNE-Type                	                             	NONE                         	Mod
+03/22/2024 jorandre 	Symptoms                	                             	The following error is seen:
+	Mod
+03/22/2024 jorandre 	Conditions              	                             	- Switch is configured with a	Mod
+03/22/2024 jorandre 	Workarounds             	                             	None.                        	Mod
+03/22/2024 jorandre 	Tickets-count           	                             	0                            	Mod
+03/22/2024 jorandre 	Class                   	                             	CSC.datacenter               	Mod
+03/22/2024 jorandre 	Reti-bug                	                             	Y                            	Mod
+03/22/2024 jorandre 	Defect Created          	                             	                             	New

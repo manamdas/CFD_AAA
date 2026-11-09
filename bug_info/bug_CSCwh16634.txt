@@ -1,0 +1,2004 @@
+*******************************************************************************
+
+Bug ID   : CSCwh16634         Project  : CSC.datacenter     Status  : V              
+Product  : n9k-standalone-sw  Component: tacacs             Severity: 3 (moderate)   
+Headline : tacacs-server key or radius-server key missing in startup config after ND ISSU 
+PrimaryPV : 
+Version :10.4(0)IMG9(0.362) 
+Build-number : 
+Platform :                OS Version :            S1S2-w/o-workaround :                   
+Software :                    Hardware : Nexus 9000         
+Submitter: ssavian            Submitted: 08/03/2023 21:35:27     Last Updtd : 11/06/2026 19:28:26  
+RNE-Type: NONE                New-on : 08/03/2023 21:35:27      
+Root-cause-analysis:                                                  
+Interest : dpuscasu
+Doc-manager: anikunna                                       
+Technical-writer:                                           
+Behavior-changed : N          
+Behaviour-change-resolution: Undefined                                
+Rally-id:                                                             
+Customer-severity:                                                    
+Sync-to-customer:                                                     
+Scenario:                                                             
+Regression-analytics:                                                                               
+Regression-probability:                                                                             
+Source-submitted-on:                                                  
+Submitter-manager:kratnam                                             
+Known-affected-releases:
+
+Known-fixed-releases:10.3(4a) 10.4(2) 
+
+
+
+Potentially-affected-releases:10.1(1) 10.1(2) 10.1(2t) 10.2(1) 10.2(1q) 10.2(2) 10.2(2a) 10.2(3) 10.2(3t) 10.2(3v) 10.2(4) 10.2(5) 10.3(1) 10.3(2) 10.3(3) 10.3(99w) 5.2(1)SV5(1.2) 5.2(1)SV5(1.3) 5.2(1)SV5(1.3a) 5.2(1)SV5(1.3b) 5.2(1)SV5(1.3c) 6.0(2)A8(1) 6.0(2)A8(10) 6.0(2)A8(10a) 6.0(2)A8(11) 6.0(2)A8(11a) 6.0(2)A8(11b) 6.0(2)A8(2) 6.0(2)A8(3) 6.0(2)A8(4) 6.0(2)A8(4a) 6.0(2)A8(5) 6.0(2)A8(6) 6.0(2)A8(7) 6.0(2)A8(7a) 6.0(2)A8(7b) 6.0(2)A8(8) 6.0(2)A8(9) 7.0(3)F3(1) 7.0(3)F3(2) 7.0(3)F3(3) 7.0(3)F3(3a) 7.0(3)F3(3c) 7.0(3)F3(4) 7.0(3)F3(5) 7.0(3)I4(1) 7.0(3)I4(1t) 7.0(3)I4(2) 7.0(3)I4(3) 7.0(3)I4(4) 7.0(3)I4(5) 7.0(3)I4(6) 7.0(3)I4(6t) 7.0(3)I4(7) 7.0(3)I4(8) 7.0(3)I4(8a) 7.0(3)I4(8b) 7.0(3)I4(8z) 7.0(3)I4(9) 7.0(3)I5(1) 7.0(3)I5(2) 7.0(3)I5(3) 7.0(3)I5(3a) 7.0(3)I5(3b) 7.0(3)I6(1) 7.0(3)I6(2) 7.0(3)I7(1) 7.0(3)I7(10) 7.0(3)I7(2) 7.0(3)I7(3) 7.0(3)I7(3z) 7.0(3)I7(4) 7.0(3)I7(5) 7.0(3)I7(5a) 7.0(3)I7(6) 7.0(3)I7(6z) 7.0(3)I7(7) 7.0(3)I7(8) 7.0(3)I7(9) 7.0(3)I7(9w) 7.0(3)IA7(1) 7.0(3)IA7(2) 7.0(3)IC4(4) 7.0(3)IM7(2) 7.3(0)D1(1) 7.3(0)D1(1C) 7.3(0)DX(1) 7.3(0)DY(1) 7.3(0)N1(1) 7.3(0)N1(1a) 7.3(0)N1(1b) 7.3(1)D1(1) 7.3(1)D1(1B) 7.3(1)DY(1) 7.3(1)N1(1) 7.3(10)N1(1) 7.3(11)N1(1) 7.3(11)N1(1a) 7.3(12)N1(1) 7.3(13)N1(1) 7.3(14)N1(1) 7.3(2)D1(1) 7.3(2)D1(1A) 7.3(2)D1(1B) 7.3(2)D1(1C) 7.3(2)D1(1D) 7.3(2)D1(2) 7.3(2)D1(3) 7.3(2)D1(3a) 7.3(2)N1(1) 7.3(2)N1(1b) 7.3(2)N1(1c) 7.3(3)D1(1) 7.3(3)N1(1) 7.3(4)D1(1) 7.3(4)N1(1) 7.3(4)N1(1a) 7.3(5)D1(1) 7.3(5)N1(1) 7.3(6)D1(1) 7.3(6)N1(1) 7.3(6)N1(1a) 7.3(7)D1(1) 7.3(7)N1(1) 7.3(7)N1(1a) 7.3(7)N1(1b) 7.3(8)D1(1) 7.3(8)N1(1) 7.3(8)N1(1a) 7.3(8)N1(1b) 7.3(9)D1(1) 7.3(9)N1(1) 8.1(1) 8.1(2) 8.1(2a) 8.2(1) 8.2(10) 8.2(2) 8.2(3) 8.2(4) 8.2(5) 8.2(6) 8.2(7) 8.2(7a) 8.2(8) 8.2(9) 8.3(1) 8.3(2) 8.4(1) 8.4(2) 8.4(3) 8.4(4) 8.4(4a) 8.4(5) 8.4(6) 8.4(6a) 8.4(7) 8.4(8) 9.2(1) 9.2(2) 9.2(2t) 9.2(2v) 9.2(3) 9.2(3y) 9.2(4) 9.3(1) 9.3(10) 9.3(11) 9.3(12) 9.3(1z) 9.3(2) 9.3(3) 9.3(4) 9.3(5) 9.3(5w) 9.3(6) 9.3(7) 9.3(7a) 9.3(7k) 9.3(8) 9.3(9) 
+
+Patch-releases:
+
+Build-platform:
+
+MDF-edited:            N
+MDF-series: Cisco Nexus 3000 Series Switches,
+          Cisco Nexus 9000 Series Switches,
+         
+
+MDF-concepts:Cisco Nexus 3000 Series Switches,
+         Cisco Nexus 9000 Series Switches,
+         
+
+MDF-software-families:
+
+MDF-software-types:
+
+MDF-interface-and-modules:
+
+MDF-nodes:
+
+Affected-platforms:
+
+Tags:
+
+ImpactedProjects:
+
+ImpactedPlatforms:
+
+Serviceability-improvement:                                           
+Submitter-education:                                                  
+Troubleshooting-documentation:                                        
+mc_learning:                                                          
+Original-resolved-on: 08/16/2023 08:41:04                             
+Multi-commit-flag: Y                                                  
+Mean-time-to-assigned: 0                                              
+Mean-time-to-resolved: 19                                             
+Mean-time-to-verified: 28     
+TPS_comp_id:                                                          
+TPS_comp_name:                                                        
+TPS_comp_type:                                                        
+TPS_issue: N                                                          
+TPS_release:                                                          
+Supplier_ticket_number:                                               
+TPS_supplier:                                                         
+TPS_version:                                                          
+TPS-fixed:                                                            
+TPS-fixed-version:                                                                                                                                                                                      
+TPS-distro:                                                           
+TPS-upstream:                                                         
+TPS_vendor_escalation_requested:                                      
+TPS_type:                                                                                                                                                                                               
+Firmware:                                                             
+Documentation-link:                                                   
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-Priority:                                                      
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+Parent-State:                                                         
+Parent-DE-manager:                                                    
+Cisco_pid:                                                                                                                                                                                                                  
+Hardware_cisco_part_num:                                                                                                                                                                                                    
+Hardware_manufacturing_part_num:                                                                                                                                                                                            
+Serviceability-reason:                                                
+I-reason:                     
+Jira-id:                                                              
+Upgrade-caveats:                                                      
+Upgrade-remarks:                                                      
+Escape-type:                                                          
+Escape-of:                                                            
+Escape-manager:                                                       
+Escape-from:                                                          
+Parent-Dev-Escape-Activity:                                           
+Parent-Test-EDP-Phase:                                                
+Dev-escape-resolution-code:                                           
+Test-escape-resolution-code:                                          
+Test-escape: Y                                                        
+Parent State:                                                         
+Parent-Class:                                                         
+Parent-Component:                                                     
+Parent-DTPT-manager:                                                  
+Parent-Product:                                                       
+Parent-Project:                                                       
+Parent-Severity:                                                      
+IFD-CFD-Conv-date: 10/13/2024 21:25:24            
+Single-select1:                                                       
+Single-select2:                                                       
+Single-select3:                                                       
+Single-select4:                                                       
+Single-select5:                                                       
+Single-select6:                                                       
+Single-select7:                                                       
+PSIRT: N                                                              
+PSIRT-status:                                                         
+SIR:                                                                  
+Hardening: N                                                          
+PSIRT-attribute:                                                      
+Product-owner: gsheehan                                               
+Child-defects:                                                        
+Parent-defects:                                                       
+Impact-regression:                                                    
+Data-classification: Cisco Highly Confidential                        
+Data-classification-reason: Default value of Data-classification set t
+Back-out-bad-commit:                                                  
+Test-name:                                                            
+Attribute3:                                                           
+To-be-fixed:
+
+Solution-impacted:
+
+Solution-use-case:
+
+Solution-version:
+
+Impact:Reliability 
+Trigger  :                    
+Keyword :
+Files Impacted : 
+
+Assigner : anikunna           Priority : medium        Assigned: 08/04/2023 06:12:58 
+Code-reviewer: vasagraw       
+Opened-on: 08/16/2023 08:41:04Opener: anok                  
+Engineer : anok               DE-manager  : anikunna        Est Time/Attribute : gnosis or1f or1f-issu or2f-verified nr4
+Est. completion date:                      
+Script-version:                         
+
+More-by : anok                More-on: 08/17/2023 08:57:59  
+
+Documents Changed: none       Resolved: 08/22/2023 22:27:43 Resolver: anok           
+
+Origin  :                     Category :                    Reason :                                
+Verifier: ssavian             Verified Confidence: tested                       
+Verified Date: 08/31/2023 22:06:54      
+
+Bug Analysis :
+Found-during :                   Customer
+Original-found-during :          System Test
+Activity-when-found :            Customer-Use
+Original-activity-when-found :   Feature Interaction Testing
+Detailed-activity :              
+Summitter-org :                  DCN-Switching-US
+Automated-test :                 
+Automated-test-id :              
+Regression-submitter :           
+Breakage :                       No
+Child-type :           
+Regression :                     N
+
+Bug-origin :                     Code / Implementation
+Failure-type :                   
+By-previous-commit-value :       No
+By-previous-commit :             
+Previous-commit-id:              
+Released-code :                  N
+Dev-escape-activity :            
+Dev-escape-resolver-opinion :    N
+Prevention :                     
+
+
+
+Change-db-id :                   
+Customer-name :                  
+Customer-track-number :          
+Test-EDP-phase :                  Feature Test
+Test-EDP-activity :               Acceptance Testing
+Test-group-type :                 
+Release-stage :                   
+Test-complexity-required :        
+
+Regression :			N
+Technical-writer :		
+Behavior-changed :		N
+Behaviour-change-resolution :  Undefined
+
+
+Tickets-count :                   2
+Tickets-count-direct :            2
+Trouble-tickets :              697729289;701673700
+Trouble-tickets-direct :C3697729289 
+Trouble-tickets-direct :C3701673700 
+
+Is-customer-visible :                 Y
+DE-Priority: medium (3)  
+BTK-security-complete :                 Y
+Not-customer-visible-reason :                 
+Security-screening-timestamp :                 10/17/2024 06:57:15
+Document :    nexus
+
+Summary:
+After upgrade from a code where LXC boot mode is not the default mode, to one where it is, using ND ISSU, radius or tacacs global keys can go missing in the startup config"show run diff" output:
+
+STE-1# show run diff
+13:07:20.719 PDT Thu Aug 03 2023
+Time source is NTP
+*** Startup-config
+--- Running-config
+***************
+*** 49,58 ****
+--- 49,59 ----
+  ip domain-lookup
+  ip domain-name cisco.com
+  ip name-server 64.104.128.236 72.163.128.140 64.104.76.247
+  ip name-server 64.102.6.247 use-vrf management
+  ip host t22 172.26.237.22
++ tacacs-server key 7 "(jyqd)"
+  tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+  tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+  aaa group server tacacs+ AAA-Servers 
+      server 172.26.237.154 
+      use-vrf management
+
+******************* Related Service Requests (2 of 2)*******************
+Type       Trouble Ticket  Customer/Vendor                Created By
+--------------------------------------------------------------------------------
+C3         697729289       null                                     
+C3         701673700       null                                     
+
+
+******************* Related Foreign Bugs (1 of 1)*******************
+Bug Type     Bug Id                    Link
+--------------------------------------------------------------------------------
+Foreign-bug  BUG-226103                https://miggbo.atlassian.net/b 
+
+
+******************* Related Defects (0 of 0)*******************
+Relationship Type     Submitter       Date                 Identifier       Project      Status   
+------------------------------------------------------------------------------------------------
+
+
+********************* Listing of Notes (15 of 15 ) ***********************
+
+---Start of Note Titled: KnowledgeSignature (Created 10/16/2024 01:16:29 Added 10/16/2024 01:16:29 by pjhade)---
+https://gnosis.cisco.com/signature/bug/670e7bd2808d16cb27c8479c/finish?summary
+---End of Note Titled: KnowledgeSignature---
+
+
+---Start of Note Titled: DetectionLogic (Created 10/15/2024 03:40:44 Added 10/15/2024 03:40:44 by mmaziark)---
+--- Update 2024-10-15 10:40:42.896497 mmaziark (via 698130559)
+0. Nexus 9000 switch
+
+'show module'
+
+show module
+Mod Ports                  Module-Type                            Model           Status
+--- ----- ------------------------------------------------ --------------------- --------
+1    54   48x10/25G + 6x40/100G Ethernet Module            N9K-C93180YC-FX3      ok        
+27   0    Virtual Supervisor Module                        N9K-C93180YC-FX3      active *  
+
+Mod  Sw                       Hw    Slot
+---  ----------------------- ------ ----
+1    10.3(3)                  1.0    NA  
+27   10.3(3)                  1.0    VSUP
+
+<snip>
+
+	1. Issue affects version 10.3(3) and 10.4(1) with NXOS boot mode: LXC
+  
+`show version`
+<snip>
+
+Software
+ BIOS: version 05.47
+ NXOS: version 10.3(3) [Feature Release]
+ Host NXOS: version 10.3(3)                         <<<<<<
+ BIOS compile time: 04/28/2022
+ NXOS image file is: bootflash:///nxos64-cs.10.3.3.F.bin
+ NXOS compile time: 4/30/2023 12:00:00 [05/03/2023 12:18:42]
+ NXOS boot mode: LXC                                 <<<<<<
+
+<snip>
+
+If NXOS boot mode line is missing, stop checking further steps.
+
+	2. Last reset was due to upgrade and from version before 10.3(3) or 10.4(1)
+
+Check reset number 1) and match Reason: Reset due to upgrade and Version: before 10.3(3) or 10.4(1)
+'show system reset-reason'
+
+----- reset reason for module 1 (from Supervisor in slot 1) ---
+1) At 988178 usecs after Sun Oct  6 04:07:38 2024
+    Reason: Reset due to upgrade
+    Service: 
+    Version: 9.3(9)
+<snip>
+
+
+	3.  tacacs-server key or radius-server key configured
+
+`show running-config`
+
+tacacs-server key 7 "xxxxxxx"
+
+or
+
+radius-server key 7 "xxxxxxx"
+
+
+
+	4. Missing configuration of radius-server key or tacacs-server key in startup configuration
+
+
+Check in 'show startup-config' if tacacs-server key or radius-server key is present (depending what was found in previous step)
+
+Detection Logic : 0 & 1 & 2 & 3 & 4
+
+BORG severity - warning - missing config in startup-config
+
+Positive File - https://cxfiles-v2-ui.cxapps.cisco.com/v2/files/download?appId=CSOne&forceText=-1&id=687294611&fileName=CSCwh16634-positive.txt.zip
+---End of Note Titled: DetectionLogic---
+
+
+---Start of Note Titled: Email-in (Created 12/11/2023 18:50:00 Added 12/11/2023 18:50:00 by shivkum5)---
+From: "Shiva Kumar -X (shivkum5 - TATA CONSULTANCY SERVICES LIMITED at Cisco)" <shivkum5@cisco.com>
+Date: Thursday, November 30, 2023 at 7:10 AM 
+To: "agilis-new-ic-team-ios(mailer list)" <agilis-new-ic-team-ios@cisco.com>
+Cc: "ca-defect-feedback(mailer list)" <ca-defect-feedback@cisco.com>, "bug-attach(mailer list)" <bug-attach@cisco.com>, "maildediscussion(mailer list)" <maildediscussion@cisco.com>
+Subject: CSCwh16634
+
+You 11/30/2023 11:18 AM ? Hi Anoop K
+Sorry to bother you
+Its regarding--CSCwh16634--OR1F(362)/ALL/TACACS/ISSU: tacacs-server key 7 "(jyqd)" edited post ISSU from KR6M(88) in LXC mode
+
+Could you please confirm is this issue impacts 10.4.x ?
+
+You 11/30/2023 11:19 AM ?
+
+
+As per R-comments-- Applicable only to or1f
+
+
+Anoop K 11/30/2023 11:20 AM ? this 10.4.x is which release? I think it is some o release only
+
+You 11/30/2023 11:21 AM ? ok as we are not sure about or1f
+
+
+Anoop K 11/30/2023 11:25 AM ? The fix will be also there in 10.4.x release
+
+you can check the integrated releases tab
+
+You 11/30/2023 11:27 AM ? ok so can i ignore 10.4 for this issue right?
+
+You 11/30/2023 11:55 AM ? Please confirm can we ignore it for 10.4
+
+Anoop K 11/30/2023 12:02 PM ? yes, it is fixed
+
+You 11/30/2023 12:03 PM ? Ok thanks
+Thanks & Regards,
+Shivakumar
+Email:shivkum5@cisco.com
+
+
+############################ MESSAGE IDS ############################
+# <CH3PR11MB7939BD00F5A52312E0A9EFF78282A@CH3PR11MB7939.namprd11.prod.outlook.com>
+#####################################################################
+---End of Note Titled: Email-in---
+
+
+---Start of Note Titled: V-comments.p2 (Created 10/23/2023 22:58:14 Added 10/23/2023 22:58:14 by ssavian)---
+STE-1# vera
+22:40:09.325 PDT Mon Oct 23 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.2.6.M.bin.110.tmp :  S12
+Current mode is LXC.
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/5/1(P)  Eth1/5/2(P)  
+2     Po2(SU)     Eth      LACP      Eth1/5/3(P)  Eth1/5/4(P)  
+3     Po3(SU)     Eth      LACP      Eth1/6/1(P)  Eth1/6/2(P)  
+4     Po4(SU)     Eth      LACP      Eth1/6/3(P)  Eth1/6/4(P)  
+5     Po5(SU)     Eth      LACP      Eth1/7/1(P)  Eth1/7/2(P)  
+100   Po100(SU)   Eth      LACP      Eth1/1(P)    Eth1/2(P)    
+101   Po101(RU)   Eth      LACP      Eth1/3(P)    
+1001  Po1001(SU)  Eth      LACP      Eth1/32/1(P)  Eth1/32/2(P)  
+1002  Po1002(SU)  Eth      LACP      Eth1/32/3(P)  Eth1/32/4(P)  
+1003  Po1003(SU)  Eth      LACP      Eth1/33/1(P)  Eth1/33/2(P)  
+1004  Po1004(SU)  Eth      LACP      Eth1/33/3(P)  Eth1/33/4(P)  
+1005  Po1005(SU)  Eth      LACP      Eth1/24/2(P)  Eth1/24/3(P)  
+1050  Po1050(SD)  Eth      NONE      --
+2001  Po2001(RU)  Eth      LACP      Eth1/35(P)   Eth1/36(P)   
+2002  Po2002(RU)  Eth      LACP      Eth1/27(P)   Eth1/28(P)   
+3001  Po3001(RU)  Eth      LACP      Eth1/25(P)   
+4000  Po4000(SU)  Eth      LACP      Eth1/8/1(P)  Eth1/8/2(P)  Eth1/8/3(P)
+                                     Eth1/8/4(P)  
+STE-1# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Mon Oct 23 22:35:31 2023
+!Time: Mon Oct 23 22:40:49 2023
+
+version 10.2(6) Bios:version 01.06 
+feature tacacs+
+
+tacacs-server key 7 "(jyqd)"
+tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+aaa group server tacacs+ AAA-Servers 
+    server 172.26.237.154 
+    use-vrf management
+
+
+STE-1# dir | i i bin | i i oct | i 2023
+ 1978203648    Oct 19 11:57:42 2023  nxos.9.3.11.bin.71.tmp
+ 1975274496    Oct 19 11:40:58 2023  nxos.9.3.12.13.bin
+ 1976277504    Oct 19 11:42:52 2023  nxos.9.3.12.13.bin.upg
+ 1981878272    Oct 23 22:21:48 2023  nxos64-cs.10.2.6.M.bin.110.tmp
+ 2679491072    Oct 02 19:50:02 2023  nxos64-cs.10.4.1.IMG9.0.149.F.bin
+ 2680232960    Oct 02 19:53:06 2023  nxos64-cs.10.4.1.IMG9.0.149.F.bin.upg
+ 2675815424    Oct 11 14:59:01 2023  nxos64-cs.10.4.1.IMG9.0.166.F.bin
+ 2676539392    Oct 11 15:01:40 2023  nxos64-cs.10.4.1.IMG9.0.166.F.bin.upg
+ 2675865600    Oct 14 13:14:36 2023  nxos64-cs.10.4.1.IMG9.0.172.F.bin
+ 2676490752    Oct 14 13:16:30 2023  nxos64-cs.10.4.1.IMG9.0.172.F.bin.upg
+ 2673920512    Oct 16 16:40:18 2023  nxos64-cs.10.4.1.IMG9.0.178.F.bin
+ 2674656256    Oct 16 16:44:55 2023  nxos64-cs.10.4.1.IMG9.0.178.F.bin.upg
+STE-1# show clock ; install all nxos bootflash:nxos64-cs.10.4.1.IMG9.0.178.F.bin non-disruptive non-interruptive 
+22:44:12.668 PDT Mon Oct 23 2023
+Time source is NTP
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.4.1.IMG9.0.178.F.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos64-cs.10.4.1.IMG9.0.178.F.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos64-cs.10.4.1.IMG9.0.178.F.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes  non-disruptive       rolling  Host kernel is not compatible with target image
+    27       yes  non-disruptive         reset  Host kernel is not compatible with target image
+
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1       lcn9k                                   10.2(6)               10.4(2)           yes
+    27        nxos                                   10.2(6)               10.4(2)           yes
+    27        bios     v01.06(05/04/2022):v01.02(11/16/2020)    v01.06(05/04/2022)            no
+
+
+Additional info for this installation:
+--------------------------------------
+
+"Host kernel is not compatible with target image.
+Full ISSU will be performed and control plane will be impacted."
+Service "vpc" in vdc 1: Vpc is enabled, Please make sure both Vpc peer switches have same boot mode using 'show boot mode' and proceed 
+
+
+Service "ptp" in vdc 1: During ISSU PTP protocol state and time synchronization will be disturbed. Time synchronization will resume after ISSU
+
+
+
+
+Install is in progress, please wait.
+
+Notifying services about the upgrade. 
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Module 27: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Upgrade can no longer be aborted, any failure will result in a disruptive upgrade.
+
+Freeing memory in the file system.
+[####################] 100% -- SUCCESS
+
+Loading images into memory.
+[####################] 100% -- SUCCESS
+
+Saving linecard runtime state.
+[####################] 100% -- SUCCESS
+
+Saving supervisor runtime state.
+[####################] 100% -- SUCCESS
+
+Saving mts state.
+[####################] 100% -- SUCCESS
+
+
+Rebooting the switch to proceed with the upgrade.
+All telnet and ssh connections will now be temporarily terminated.
+STE-1# incrond[16401]: stopping service
+mount: overlay mounted on /newroot/usr.
+Installing klm_card_index
+done
+Increase FPGA PCI timeout to 900ms
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+Replacing inittab for node - host
+INIT: version 2.88 booting
+Setting up sysV scripts for host node
+Installing ata_piix module ... done.
+Installing kheaders module ... done.
+Unsquashing rootfs ...
+is_lxc:1 is_titan_eor: is_stby: suffix: klm_ftrace: /isanboot/lib/modules/klm_ftrace.o
+Installing ftrace in lxc 0 mode done
+Executing /etc/rc.d/rcS.d//S06exablaze start
+Executing /etc/rc.d/rcS.d//S06exablaze start 
+Not Micron SSD...
+
+Checking all filesystems.cgroups initialized
+Generating ssh keys...Done ssh keys
+INIT: Entering runlevel: 3ell server: sshd ... d
+Starting crond: OK
+Stopping crond: OK
+Starting crond: OK
+
+
+mount: overlay mounted on /usr.
+Increase FPGA PCI timeout to 900ms
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+Replacing inittab for node - vsup
+INIT: version 2.88 booting
+Unsquashing rootfs ...
+Total size needed in bootflash is 160216
+Executing /etc/rc.d/rcS.d//S06exablaze start
+Executing /etc/rc.d/rcS.d//S06exablaze start 
+check bootflash : OK
+Total size needed in bootflash is 58332
+check bootflash : OK
+No TOR virtual chassis
+skip untra_klms
+Enabling 8250 serial driver spurious INTs workaround
+Installing isan procfs isan_proc_name=isan26... done.
+Installing SSE module with card index 21198 and vslot ID 26 ... done.
+Creating SSE device node 243 ... done.
+cg controllers already mounted at /var/cgroup
+Inserting kernel_services module ... done.
+Making kernel_services character devices
+is_lxc:1 is_titan_eor: is_stby:0 suffix: klm_ftrace: /isanboot/lib/modules/klm_ftrace.o
+klm_ftrace already loaded. skip.
+Loading I2C driver ... done.
+Installing CCTRL driver for card_type 125 in vslot ID 26 without NEED_GEM ... done.
+Loading IGB driver ... 
+Checking all filesystems.done.
+
+Installing SPROM driver ... 21198 Quick rpm extraction...
+Segment 6 already extracted! Continuing...
+IS_N9K done.
+Installing pfmsvcs module ...done.
+Installing nvram module ... done.
+Installing if_index module with port mode 6 ... done.
+Calling install_tor for TOR
+copying common rpm to ftp
+Installing fcfwd
+Installing RNI lcnd ... done
+Running mode is N9K-ToR ...done
+Installing LC netdev container_id=0 is_standby=0 ... done
+Installing psdev module ... done.
+Installing veobc module ... done.
+Clean up previous pcap files present in tmp directory
+Checking SR card
+Card Index is 21198
+SR Card detected.
+Inserting eMMC module ... 
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+COPY the image to ORIG_LC_FS_PATH 
+
+
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+Inserting OBFL module ... 27.92: eMMC Device found.
+27.93: card has mmc
+done.
+27.93: Making OBFL character devices for mmc
+27.99: SR_START (2099200), size 3
+mounting plog for N9k!
+28.00: mounting plog for N9k!
+28.05: Done..mounting plog for N9k!
+Mounting OBFL for eMMC
+Attach blkoops
+29.76: Before mounting blkoops
+30.26: After mounting blkoops
+30.57: recreate_mmcftrace_rr_device
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+ KEXEC LXC ISSU bypass
+Loading system software
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Starting rpcbind daemon...done.
+Generating ssh keys...creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+exit code: 1
+Saving image for img-sync ...
+Stopping crond: OK
+Installing local RPMS
+Not Micron SSD...
+Not Micron SSD...
+Not Micron SSD...
+Done ssh keys
+Starting OpenBSD Secure Shell server: sshd ... done sshd.
+Starting crond: OK
+Patch Repository Setup completed successfully
+TOR ISSU is TRUE. Touching /isan-upgrade/isan.bin at Mon Oct 23 22:54:10 PDT 2023
+TOR ISSU is TRUE. /mnt/pss/upgrade/ present at Mon Oct 23 22:54:10 PDT 2023
+touched /share/vmm/lxc_fallback at Mon Oct 23 22:54:10 PDT 2023
+Creating /dev/mcelog
+Starting mcelog daemon
+fastboot or torissu
+N9K CPA setup done
+N9K TOR LC CPA setup done
+INIT: Entering runlevel: 3
+Running S93thirdparty-script...
+vlc_card_index 0
+S26: sw_id 21198 vp 0
+S26 B: sw_id 21198, Moving libcrdcfgdata_tah_tor.so to libcrdcfgdata.so
+
+
+Starting lem_drv driver
+done
+Netbroker support IS present in the kernel.
+done
+Disabling cisco netbroker hooks ... done
+Skipping EMON in TOR ...
+Executing Prune clis.
+Removing exusd cli files if it is not exbl_card in prune_clis
+ethernet switching mode Mon Oct 23 22:54:18 PDT 2023
+prepare span CLI
+
+
+Continuing with installation process, please wait.
+The login will be disabled until the installation is completed.
+
+Status for linecard upgrade. 
+[####################] 100% -- SUCCESS
+
+Performing supervisor state verification. 
+[####################] 100% -- SUCCESS
+
+Supervisor non-disruptive upgrade successful.
+
+
+Install has been successful.
+
+User Access Verification
+STE-1 login: admin
+Password: 
+
+verCisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+MDP database restore in progress.
+STE-1# vera
+22:55:59.048 PDT Mon Oct 23 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.4.1.IMG9.0.178.F.bin :  S178
+Current mode is LXC.
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/5/1(P)  Eth1/5/2(P)  
+2     Po2(SU)     Eth      LACP      Eth1/5/3(P)  Eth1/5/4(P)  
+3     Po3(SU)     Eth      LACP      Eth1/6/1(P)  Eth1/6/2(P)  
+4     Po4(SU)     Eth      LACP      Eth1/6/3(P)  Eth1/6/4(P)  
+5     Po5(SU)     Eth      LACP      Eth1/7/1(P)  Eth1/7/2(P)  
+100   Po100(SU)   Eth      LACP      Eth1/1(P)    Eth1/2(P)    
+101   Po101(RU)   Eth      LACP      Eth1/3(P)    
+1001  Po1001(SU)  Eth      LACP      Eth1/32/1(P)  Eth1/32/2(P)  
+1002  Po1002(SU)  Eth      LACP      Eth1/32/3(P)  Eth1/32/4(P)  
+1003  Po1003(SU)  Eth      LACP      Eth1/33/1(P)  Eth1/33/2(P)  
+1004  Po1004(SU)  Eth      LACP      Eth1/33/3(P)  Eth1/33/4(P)  
+1005  Po1005(SU)  Eth      LACP      Eth1/24/2(P)  Eth1/24/3(P)  
+1050  Po1050(SD)  Eth      NONE      --
+2001  Po2001(RU)  Eth      LACP      Eth1/35(P)   Eth1/36(P)   
+2002  Po2002(RU)  Eth      LACP      Eth1/27(P)   Eth1/28(P)   
+3001  Po3001(RU)  Eth      LACP      Eth1/25(P)   
+4000  Po4000(SU)  Eth      LACP      Eth1/8/1(P)  Eth1/8/2(P)  Eth1/8/3(P)
+                                     Eth1/8/4(P)  
+STE-1# cpdown2
+LXC Fallback ND ISSU was performed.
+Total time taken between control plane being down and box online: 101 seconds
+1st LACP downtime: 49 seconds
+2nd LACP downtime: 48 seconds
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kexec                       10.0  05:53:28.00  05:53:38.00 
+bootscripts                 27.9  22:53:51.00  22:54:18.99 
+sysmgr_bootup                7.4  22:54:19.02  22:54:26.52 
+rtdbctrl                     2.5  22:54:26.53  22:54:29.03 
+sup_online                  34.9  22:54:29.03  22:55:03.04 
+sysmgr_scope_done            5.1  22:55:03.04  22:55:08.22 
+lc_online                    0.1  22:55:08.22  22:55:08.36 
+STE-1# diffo
+22:56:15.243 PDT Mon Oct 23 2023
+Time source is NTP
+STE-1# gsemmo
+22:56:19.617 PDT Mon Oct 23 2023
+Time source is NTP
+2023 Oct 23 22:37:55 STE-1 %ETHPORT-3-IF_ERROR_VLANS_REMOVED: VLANs 10-19,980-989 on Interface port-channel100 are removed from suspended state.
+2023 Oct 23 22:55:57 STE-1 %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+STE-1# gsemmo2
+22:56:22.038 PDT Mon Oct 23 2023
+Time source is NTP
+2023 Oct 23 22:49:42  %VMAN-2-ACTIVATION_STATE: Successfully deactivated virtual service 'guestshell+'
+STE-1# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!No configuration change since last restart
+!Time: Mon Oct 23 22:56:27 2023
+
+version 10.4(2) Bios:version 01.06 
+feature tacacs+
+
+tacacs-server key 7 "(jyqd)"
+tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+aaa group server tacacs+ AAA-Servers 
+    server 172.26.237.154 
+    use-vrf management
+
+
+STE-1# wr
+22:56:32.740 PDT Mon Oct 23 2023
+Time source is NTP
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+22:56:46.151 PDT Mon Oct 23 2023
+Time source is NTP
+STE-1#
+---End of Note Titled: V-comments.p2---
+
+
+---Start of Note Titled: V-comments (Created 08/31/2023 22:06:54 Added 08/31/2023 22:06:54 by ssavian)---
+STE-1# vera
+21:51:35.915 PDT Thu Aug 31 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.2.6.M.bin.110 :  S12
+Current mode is LXC.
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/5/1(P)  Eth1/5/2(P)  
+2     Po2(SU)     Eth      LACP      Eth1/5/3(P)  Eth1/5/4(P)  
+3     Po3(SU)     Eth      LACP      Eth1/6/1(P)  Eth1/6/2(P)  
+4     Po4(SU)     Eth      LACP      Eth1/6/3(P)  Eth1/6/4(P)  
+5     Po5(SU)     Eth      LACP      Eth1/7/1(P)  Eth1/7/2(P)  
+100   Po100(SU)   Eth      LACP      Eth1/1(P)    Eth1/2(P)    
+101   Po101(RU)   Eth      LACP      Eth1/3(P)    
+1001  Po1001(SU)  Eth      LACP      Eth1/32/1(P)  Eth1/32/2(P)  
+1002  Po1002(SU)  Eth      LACP      Eth1/32/3(P)  Eth1/32/4(P)  
+1003  Po1003(SU)  Eth      LACP      Eth1/33/1(P)  Eth1/33/2(P)  
+1004  Po1004(SU)  Eth      LACP      Eth1/33/3(P)  Eth1/33/4(P)  
+1005  Po1005(SU)  Eth      LACP      Eth1/24/2(P)  Eth1/24/3(P)  
+1050  Po1050(SD)  Eth      NONE      --
+2001  Po2001(RU)  Eth      LACP      Eth1/35(P)   Eth1/36(P)   
+2002  Po2002(RU)  Eth      LACP      Eth1/27(P)   Eth1/28(P)   
+3001  Po3001(RU)  Eth      LACP      Eth1/25(P)   
+4000  Po4000(SU)  Eth      LACP      Eth1/8/1(P)  Eth1/8/2(P)  Eth1/8/3(P)
+                                     Eth1/8/4(P)  
+STE-1# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Aug 31 21:27:56 2023
+!Time: Thu Aug 31 21:51:42 2023
+
+version 10.2(6) Bios:version 01.06 
+feature tacacs+
+
+tacacs-server key 7 "(jyqd)"
+tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+aaa group server tacacs+ AAA-Servers 
+    server 172.26.237.154 
+    use-vrf management
+
+
+STE-1# dir | i i bin | i i aug | i 2023
+ 1981878272    Aug 31 20:02:38 2023  nxos64-cs.10.2.6.M.bin.110
+ 2426035712    Aug 24 21:17:25 2023  nxos64-cs.10.3.3.67_HB.M.bin
+ 2397487616    Aug 30 22:59:03 2023  nxos64-cs.10.3.3.79.M.bin
+ 2398729728    Aug 30 23:00:39 2023  nxos64-cs.10.3.3.79.M.bin.upg
+ 2633755648    Aug 07 17:40:37 2023  nxos64-cs.10.4.0.IMG9.0.362_HB2.F.bin
+ 2632445952    Aug 17 13:44:31 2023  nxos64-cs.10.4.1.F.bin
+ 2683393024    Aug 07 11:16:24 2023  nxos64-cs.10.4.1.IMG9.0.53.F.bin
+ 2632445952    Aug 27 17:39:09 2023  or1f.cco.bin
+ 2633228800    Aug 27 17:43:38 2023  or1f.cco.bin.upg
+STE-1# show clock ; install all nxos bootflash:nxos64-cs.10.3.3.79.M.bin non-disruptive non-interruptive 
+21:53:22.537 PDT Thu Aug 31 2023
+Time source is NTP
+Installer will perform compatibility check first. Please wait. 
+
+Verifying image bootflash:/nxos64-cs.10.3.3.79.M.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos64-cs.10.3.3.79.M.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos64-cs.10.3.3.79.M.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes  non-disruptive       rolling  Host kernel is not compatible with target image
+    27       yes  non-disruptive         reset  Host kernel is not compatible with target image
+
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1       lcn9k                                   10.2(6)               10.3(4)           yes
+    27        nxos                                   10.2(6)               10.3(4)           yes
+    27        bios     v01.06(05/04/2022):v01.02(11/16/2020)    v01.06(05/04/2022)            no
+
+
+Additional info for this installation:
+--------------------------------------
+
+"Host kernel is not compatible with target image.
+Full ISSU will be performed and control plane will be impacted."
+Service "vpc" in vdc 1: Vpc is enabled, Please make sure both Vpc peer switches have same boot mode using 'show boot mode' and proceed 
+
+
+Service "ptp" in vdc 1: During ISSU PTP protocol state and time synchronization will be disturbed. Time synchronization will resume after ISSU
+
+
+
+
+Install is in progress, please wait.
+
+Notifying services about the upgrade. 
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Module 27: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Upgrade can no longer be aborted, any failure will result in a disruptive upgrade.
+
+Freeing memory in the file system.
+[####################] 100% -- SUCCESS
+
+Loading images into memory.
+[####################] 100% -- SUCCESS
+
+Saving linecard runtime state.
+[####################] 100% -- SUCCESS
+
+Saving supervisor runtime state.
+[####################] 100% -- SUCCESS
+
+Saving mts state.
+[####################] 100% -- SUCCESS
+
+
+Rebooting the switch to proceed with the upgrade.
+All telnet and ssh connections will now be temporarily terminated.
+STE-1# incrond[16334]: stopping service
+mount: overlay mounted on /newroot/usr.
+Installing klm_card_index
+done
+Increase FPGA PCI timeout to 900ms
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+Replacing inittab for node - host
+INIT: version 2.88 booting
+Setting up sysV scripts for host node
+Installing ata_piix module ... done.
+Installing kheaders module ... done.
+Unsquashing rootfs ...
+is_lxc:1 is_titan_eor: is_stby: suffix: klm_ftrace: /isanboot/lib/modules/klm_ftrace.o
+Installing ftrace in lxc 0 mode done
+Executing /etc/rc.d/rcS.d//S06exablaze start
+Executing /etc/rc.d/rcS.d//S06exablaze start 
+Not Micron SSD...
+
+Checking all filesystems.cgroups initialized
+Generating ssh keys...Done ssh keys
+INIT: Entering runlevel: 3ell server: sshd ... d
+Starting crond: OK
+Stopping crond: OK
+Starting crond: OK
+
+
+mount: overlay mounted on /usr.
+Increase FPGA PCI timeout to 900ms
+Linking n9k flash devices
+creating flash devices BOOT_DEV= sda
+Replacing inittab for node - vsup
+INIT: version 2.88 booting
+Unsquashing rootfs ...
+Total size needed in bootflash is 156144
+Executing /etc/rc.d/rcS.d//S06exablaze start
+Executing /etc/rc.d/rcS.d//S06exablaze start 
+check bootflash : OK
+Total size needed in bootflash is 55528
+check bootflash : OK
+No TOR virtual chassis
+skip untra_klms
+Enabling 8250 serial driver spurious INTs workaround
+Installing isan procfs isan_proc_name=isan26... done.
+Installing SSE module with card index 21198 and vslot ID 26 ... done.
+Creating SSE device node 243 ... done.
+cg controllers already mounted at /var/cgroup
+Inserting kernel_services module ... done.
+Making kernel_services character devices
+is_lxc:1 is_titan_eor: is_stby:0 suffix: klm_ftrace: /isanboot/lib/modules/klm_ftrace.o
+klm_ftrace already loaded. skip.
+Loading I2C driver ... done.
+Installing CCTRL driver for card_type 125 in vslot ID 26 without NEED_GEM ... done.
+Loading IGB driver ... 
+Checking all filesystems.done.
+
+Installing SPROM driver ... 21198 Quick rpm extraction...
+Segment 6 already extracted! Continuing...
+IS_N9K done.
+Installing pfmsvcs module ...done.
+Installing nvram module ... done.
+Installing if_index module with port mode 6 ... done.
+Installing fcfwd
+Installing RNI lcnd ... done
+Running mode is N9K-ToR ...done
+Installing LC netdev container_id=0 is_standby=0 ... done
+Installing psdev module ... done.
+Installing veobc module ... done.
+Clean up previous pcap files present in tmp directory
+Checking SR card
+Card Index is 21198
+SR Card detected.
+Inserting eMMC module ... 
+Inserting OBFL module ... 27.79: eMMC Device found.
+27.79: card has mmc
+done.
+27.80: Making OBFL character devices for mmc
+27.85: SR_START (2099200), size 3
+mounting plog for N9k!
+27.86: mounting plog for N9k!
+27.89: Done..mounting plog for N9k!
+Mounting OBFL for eMMC
+Extracting 32 bit python
+Cannot extract python
+Calling install_tor for TOR
+copying common rpm to ftp
+update-alternatives: Linking /usr/bin/unshare to /usr/bin/unshare.util-linux
+ Removing any system startup links for cgroups-init ...
+ Adding system startup for /etc/init.d/cgroups-init.
+COPY the image to ORIG_LC_FS_PATH 
+
+
+Attach blkoops
+Running groupadd commands...
+NOTE: docker-ce: Performing groupadd with [ -r docker]
+29.71: Before mounting blkoops
+update-alternatives: Linking /bin/vi to /usr/bin/vim.tiny
+update-alternatives: Linking /usr/bin/vim to /usr/bin/vim.tiny
+30.21: After mounting blkoops
+30.53: recreate_mmcftrace_rr_device
+tune2fs 1.45.6 (20-Mar-2020)
+Setting reserved blocks percentage to 0% (0 blocks)
+ KEXEC LXC ISSU bypass
+Loading system software
+/mnt/pstore/stats_ssd/.ssd_overall_data file exist !!
+moving /mnt/pstore/stats_ssd/.ssd_overall_data to /mnt/pstore/stats_ssd/.ssd_lastboot_data
+Starting crond: OK
+Starting rpcbind daemon...Generating ssh keys...done.
+creating NFS state directory: done
+starting 8 nfsd kernel threads: done
+starting mountd: done
+starting statd: done
+exit code: 1
+Saving image for img-sync ...
+Installing local RPMS
+Stopping crond: OK
+Not Micron SSD...
+Not Micron SSD...
+Not Micron SSD...
+Done ssh keys
+Starting OpenBSD Secure Shell server: sshd ... done sshd.
+Starting crond: OK
+Patch Repository Setup completed successfully
+TOR ISSU is TRUE. Touching /isan-upgrade/isan.bin at Thu Aug 31 22:02:29 PDT 2023
+TOR ISSU is TRUE. /mnt/pss/upgrade/ present at Thu Aug 31 22:02:30 PDT 2023
+touched /share/vmm/lxc_fallback at Thu Aug 31 22:02:30 PDT 2023
+Creating /dev/mcelog
+Starting mcelog daemon
+fastboot or torissu
+N9K CPA setup done
+N9K TOR LC CPA setup done
+INIT: Entering runlevel: 3
+Running S93thirdparty-script...
+vlc_card_index 0
+S26: sw_id 21198 vp 0
+S26 B: sw_id 21198, Moving libcrdcfgdata_tah_tor.so to libcrdcfgdata.so
+
+
+Starting lem_drv driver
+done
+Netbroker support IS present in the kernel.
+done
+Disabling cisco netbroker hooks ... done
+Skipping EMON in TOR ...
+Executing Prune clis.
+Removing exusd cli files if it is not exbl_card in prune_clis
+ethernet switching mode Thu Aug 31 22:02:38 PDT 2023
+prepare span CLI
+
+
+Continuing with installation process, please wait.
+The login will be disabled until the installation is completed.
+
+Status for linecard upgrade. 
+[####################] 100% -- SUCCESS
+
+Performing supervisor state verification. 
+[####################] 100% -- SUCCESS
+
+Supervisor non-disruptive upgrade successful.
+
+
+Install has been successful.
+
+User Access Verification
+STE-1 login: admin
+Password: 
+
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or 
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or 
+Lesser General Public License (LGPL) Version 2.0. 
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+MDP database restore in progress.
+STE-1# vera
+22:04:19.944 PDT Thu Aug 31 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.3.3.79.M.bin :  S79
+Current mode is LXC.
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/5/1(P)  Eth1/5/2(P)  
+2     Po2(SU)     Eth      LACP      Eth1/5/3(P)  Eth1/5/4(P)  
+3     Po3(SU)     Eth      LACP      Eth1/6/1(P)  Eth1/6/2(P)  
+4     Po4(SU)     Eth      LACP      Eth1/6/3(P)  Eth1/6/4(P)  
+5     Po5(SU)     Eth      LACP      Eth1/7/1(P)  Eth1/7/2(P)  
+100   Po100(SU)   Eth      LACP      Eth1/1(P)    Eth1/2(P)    
+101   Po101(RU)   Eth      LACP      Eth1/3(P)    
+1001  Po1001(SU)  Eth      LACP      Eth1/32/1(P)  Eth1/32/2(P)  
+1002  Po1002(SU)  Eth      LACP      Eth1/32/3(P)  Eth1/32/4(P)  
+1003  Po1003(SU)  Eth      LACP      Eth1/33/1(P)  Eth1/33/2(P)  
+1004  Po1004(SU)  Eth      LACP      Eth1/33/3(P)  Eth1/33/4(P)  
+1005  Po1005(SU)  Eth      LACP      Eth1/24/2(P)  Eth1/24/3(P)  
+1050  Po1050(SD)  Eth      NONE      --
+2001  Po2001(RU)  Eth      LACP      Eth1/35(P)   Eth1/36(P)   
+2002  Po2002(RU)  Eth      LACP      Eth1/27(P)   Eth1/28(P)   
+3001  Po3001(RU)  Eth      LACP      Eth1/25(P)   
+4000  Po4000(SU)  Eth      LACP      Eth1/8/1(P)  Eth1/8/2(P)  Eth1/8/3(P)
+                                     Eth1/8/4(P)  
+STE-1# cpdown2
+Total time taken between control plane being down and box online: 100 seconds
+1st LACP downtime: 50 seconds
+2nd LACP downtime: 45 seconds
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+kexec                       10.0  05:01:47.00  05:01:57.00 
+bootscripts                 27.6  22:02:11.00  22:02:38.65 
+sysmgr_bootup                7.3  22:02:38.68  22:02:46.00 
+rtdbctrl                     2.3  22:02:46.01  22:02:48.34 
+sup_online                  31.6  22:02:48.34  22:03:20.04 
+sysmgr_scope_done            7.5  22:03:20.04  22:03:27.63 
+lc_online                    0.7  22:03:27.63  22:03:27.71 
+STE-1# diffo
+22:04:53.473 PDT Thu Aug 31 2023
+Time source is NTP
+STE-1# gsemmo
+22:05:10.664 PDT Thu Aug 31 2023
+Time source is NTP
+2023 Aug 31 21:27:07 STE-1 %ETHPORT-3-IF_ERROR_VLANS_SUSPENDED: VLANs 10-19,980-989 on Interface port-channel100 are being suspended. (Reason: peer-keepalive not operational, peer never alive)
+2023 Aug 31 21:27:48 STE-1 %ETHPORT-3-IF_ERROR_VLANS_REMOVED: VLANs 10-19,980-989 on Interface port-channel100 are removed from suspended state.
+2023 Aug 31 21:35:31 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519056 to neighbor 2002:2:17:1::102 on interface Po101 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:31 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519041 to neighbor 2.17.1.102 on interface Po101 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:31 STE-1 %ETHPORT-5-IF_DOWN_LINK_FAILURE: Interface Ethernet1/1 is down (Link failure)
+2023 Aug 31 21:35:31 STE-1 %ETHPORT-5-IF_DOWN_LINK_FAILURE: Interface Ethernet1/3 is down (Link failure)
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519066 to neighbor 128.0.17.102 on interface Vlan17 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519065 to neighbor 128.0.19.102 on interface Vlan19 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519064 to neighbor 128.0.12.102 on interface Vlan12 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519063 to neighbor 128.0.10.102 on interface Vlan10 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519062 to neighbor 128.0.18.102 on interface Vlan18 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519060 to neighbor 128.0.11.102 on interface Vlan11 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519061 to neighbor 128.0.13.102 on interface Vlan13 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519046 to neighbor 128.0.14.102 on interface Vlan14 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519051 to neighbor 128.0.15.102 on interface Vlan15 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:32 STE-1 %BFD-5-SESSION_STATE_DOWN: BFD session 1090519052 to neighbor 128.0.16.102 on interface Vlan16 has gone down. Reason: Echo Function Failed.
+2023 Aug 31 21:35:36 STE-1 %VPC-2-PEER_KEEP_ALIVE_RECV_FAIL: In domain 1, VPC peer keep-alive receive has failed
+2023 Aug 31 21:35:36 STE-1 %ETHPORT-5-IF_DOWN_LINK_FAILURE: Interface Ethernet1/2 is down (Link failure)
+2023 Aug 31 21:41:32 STE-1 %ETHPORT-3-IF_ERROR_VLANS_SUSPENDED: VLANs 10-19,980-989 on Interface port-channel100 are being suspended. (Reason: peer-keepalive not operational, peer never alive)
+2023 Aug 31 21:42:19 STE-1 %ETHPORT-3-IF_ERROR_VLANS_REMOVED: VLANs 10-19,980-989 on Interface port-channel100 are removed from suspended state.
+2023 Aug 31 22:04:15 STE-1 %TACACS-3-TACACS_ERROR_MESSAGE: All servers failed to respond
+STE-1# sh run tacacs+ 
+
+!Command: show running-config tacacs+
+!Running configuration last done at: Thu Aug 31 21:59:23 2023
+!Time: Thu Aug 31 22:05:25 2023
+
+version 10.3(4) Bios:version 01.06 
+feature tacacs+
+
+tacacs-server key 7 "(jyqd)"
+tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+aaa group server tacacs+ AAA-Servers 
+    server 172.26.237.154 
+    use-vrf management
+
+
+STE-1# sh vpc ro
+
+vPC Role status
+----------------------------------------------------
+vPC role                        : primary                       
+Dual Active Detection Status    : 0
+vPC system-mac                  : 00:23:04:ee:be:01             
+vPC system-priority             : 32667
+vPC local system-mac            : 8c:94:1f:aa:a0:73             
+vPC local role-priority         : 32667
+vPC local config role-priority  : 32667
+vPC peer system-mac             : 8c:94:1f:b4:a1:a3             
+vPC peer role-priority          : 32667
+vPC peer config role-priority   : 32667
+STE-1# wr
+22:05:34.989 PDT Thu Aug 31 2023
+Time source is NTP
+[########################################] 100%
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+22:05:46.958 PDT Thu Aug 31 2023
+Time source is NTP
+STE-1#
+---End of Note Titled: V-comments---
+
+
+---Start of Note Titled: R-comments.p2 (Created 08/22/2023 22:27:44 Added 08/22/2023 22:27:44 by anok)---
+double committed to niles_rel
+---End of Note Titled: R-comments.p2---
+
+
+---Start of Note Titled: M-comments (Created 08/17/2023 08:57:59 Added 08/17/2023 08:57:59 by anok)---
+Need to commit to niles_rel
+---End of Note Titled: M-comments---
+
+
+---Start of Note Titled: R-comments (Created 08/16/2023 08:41:04 Added 08/16/2023 08:41:04 by anok)---
+1. RCA: Root cause of the problem. It should be detailed enough so other engineers (dev or QA) can understand the fix and associated code review and verification. Make sure PRRQ link is attached. - In the fix for CSCwf54392, as tam was disabled for LXC platforms and ISSU to LXC default platforms would lose the keys stored in tam which couldn't be retrieved, the global key for radius and tacacs was copied to PSS from dme objstore since the keys would be stored in dme also . But the keys were stored only in the running PSS and were n't updated in the startup PSS which lead to this issue
+2.  Proposed Fix and testing consideration: Proposed fix for the issue. Is it complete fix or partial fix? What scenarios need to be covered in testing? - As a fix here, when copying the keys from dme to running PSS , startup PSS is also updated.
+3. Platform and Applicable releases: Should specify the platform/ASIC families where this problem is applicable and what other releases are impacted  and whether this needs to be backported to previous long-lived releases. - Applicable only to or1f , niles releases where LXC mode is enabled by default
+ 4. Digitization?: Yes/No. Does it have proper signature (like steps, config, patterns in show/debug commands to digitize it)? - Yes
+After performing an ND-ISSU from non LXC mode with radius / tacacs global key configs to default LXC mode release, the following line results as edited after checking "show run diff" output:
+STE-1# show run diff
+13:07:20.719 PDT Thu Aug 03 2023
+Time source is NTP
+*** Startup-config
+--- Running-config
+***************
+*** 49,58 ****
+--- 49,59 ----
+  ip domain-lookup
+  ip domain-name cisco.com
+  ip name-server 64.104.128.236 72.163.128.140 64.104.76.247
+  ip name-server 64.102.6.247 use-vrf management
+  ip host t22 172.26.237.22
++ tacacs-server key 7 "(jyqd)"
++ radius-server key 7 "(jyqd)"
+  tacacs-server host 172.28.92.17 key 7 "fewhg123" 
+  tacacs-server host 172.26.237.154 key 7 "fewhg123" 
+  aaa group server tacacs+ AAA-Servers 
+      server 172.26.237.154 
+      use-vrf management
+5.Debuggability: What show/debug commands were used to RCA this issue? This will help to close automation or improvement in day2Ops offering. If there is any area of improvement in show/debug command, it should be identified and fixed as part of this or planned separately. - debug cert-enroll all
+---End of Note Titled: R-comments---
+
+
+---Start of Note Titled: Eng-notes (Created 08/07/2023 10:03:54 Added 08/07/2023 10:03:54 by anok)---
+In the fix for CSCwf54392, as tam was disabled for LXC platforms and ISSU to LXC default platforms would lose the keys stored in tam which couldn't be retrieved, the global key for radius and tacacs was copied to PSS from dme objstore since the keys would be stored in dme also . But the keys were stored only in the running PSS and were n't updated in the startup PSS which lead to this issue. As a fix here, when copying the keys from dme to running PSS , startup PSS is also updated.
+---End of Note Titled: Eng-notes---
+
+
+---Start of Note Titled: ULS_sanity (Created 08/07/2023 09:44:45 Added 08/07/2023 09:44:45 by anok)---
+#################################################################
+################### "Basic_Sanity" Report ###########################
+#################################################################
+
+
+Test server name    : nxos-sanity64
+Testbed  name       : sanity64-testbed.yml
+TestSuite           : /auto/nxos-sanity/logs/anok/531714/base_sanity_uls.yml
+Total Test cases Run: 63
+Passed test cases   : 63
+Failed test cases   : 0
+Aborted test cases  : 0
+Skipped test cases  : 0
+Log dir:            : /auto/nxos-sanity/logs/anok/531714
+Report file         : /auto/nxos-sanity/logs/anok/531714/base_sanity_uls-sanity64.report
+logfile             : /auto/nxos-sanity/logs/anok/531714/base_sanity_uls-sanity64.log
+Test start time     : 2023_08_07_03_16_38
+Test End time       : 2023_08_07_08_32_33
+Test Duration       : 5:15:55.282051
+Arguments passed: ['/automation/basic_sanity.py', '-infra_id', '531714', '-cdet', 'CSCwh16634', '-build', '/ws/anok-sjc/images/nxos64-cs.10.4.0.IMG9.0.369.F.bin_sysfin', '-testsuite', '/auto/nxos-sanity/logs/anok/531714/base_sanity_uls.yml', '-testbed', 'sanity64-testbed.yml', '-asic', 'hv', '-logicaldict', 'logical_dict.yml', '-skip_dependency', '-email', 'anok', '-logfile', '/auto/nxos-sanity/logs/anok/531714/base_sanity_uls-sanity64.log', '-reportfile', '/auto/nxos-sanity/logs/anok/531714/base_sanity_uls-sanity64.report', '-jobid', 'HV'] 
+Job Info           : "Basic_Sanity" Report: Job-id:HV Passed:63/63  Failed:0/63  Aborted:0/63  Never-Run:0/63
+
+
+Summary Report
+##############
+TestCase                                                                  Result    Duration  
+########                                                                  ######    ########  
+testReloadSwitch                                                          pass      0:00:23   
+testBootTime                                                              pass      0:00:21   
+testBoxOnline                                                             pass      0:00:01   
+testModuleStatus                                                          pass      0:00:24   
+testL3DhcpRelayv4                                                         pass      0:03:25   
+testL3DhcpRelayv6                                                         pass      0:02:35   
+testSviDhcpRelayv4                                                        pass      0:03:48   
+testSviDhcpRelayv6                                                        pass      0:02:55   
+testPTPMulticast                                                          pass      0:09:48   
+testPTPChangeL3ToL2AccessNonDefaultVlan                                   pass      0:19:04   
+testPTPMulticastSVIAccess                                                 pass      0:10:01   
+testStaticRoute                                                           pass      0:00:45   
+testLacpShutNoshut                                                        pass      0:04:50   
+testSubPortChannelShutNoshut                                              pass      0:02:55   
+testL2BridgingTrunk                                                       pass      0:01:52   
+testBgpv4                                                                 pass      0:04:03   
+testCdp                                                                   pass      0:01:44   
+testLLDP                                                                  pass      0:01:02   
+testSviVrf                                                                pass      0:03:52   
+testIpv6Interface                                                         pass      0:00:58   
+testStpLacpPcAccessWithTraffic                                            pass      0:13:20   
+testMStpSingleInstLacpPcTrunkWithTraffic                                  pass      0:12:56   
+testL2SanityMacLearning                                                   pass      0:11:32   
+testL2SanityPortModeChange                                                pass      0:10:20   
+testL2SanityUnconfig                                                      pass      0:00:56   
+testDynamicL2MulticastPC                                                  pass      0:05:10   
+testPimv4                                                                 pass      0:08:48   
+GleanL3toL3V4V6                                                           pass      0:05:03   
+testCopp                                                                  pass      0:17:04   
+testRaclIPv4                                                              pass      0:05:38   
+testSpan                                                                  pass      0:02:40   
+configVxLANVPCEvpn40G                                                     pass      0:18:10   
+testVxLANPeerLearnAccessVPCEvpn40G                                        pass      0:01:17   
+testVxLANBCAccessVPCEvpn40G                                               pass      0:00:29   
+testVxLANL2MCAccessVPCEvpn40G                                             pass      0:00:29   
+testVxLANUUCAccessVPCEvpn40G                                              pass      0:00:29   
+testVxLANUCAccessVPCEvpn40G                                               pass      0:01:13   
+testVxLANUCIPv6AccessVPCEvpn40G                                           pass      0:00:44   
+testVxLANUCNonIPAccessVPCEvpn40G                                          pass      0:00:44   
+testVxLANPeerLearnTrunkVPCEvpn40G                                         pass      0:01:16   
+testVxLANBCTrunkVPCEvpn40G                                                pass      0:00:29   
+testVxLANL2MCTrunkVPCEvpn40G                                              pass      0:00:29   
+testVxLANUUCTrunkVPCEvpn40G                                               pass      0:00:29   
+testVxLANUCTrunkVPCEvpn40G                                                pass      0:01:13   
+testVxLANUCIPv6TrunkVPCEvpn40G                                            pass      0:00:44   
+testVxLANUCNonIPTrunkVPCEvpn40G                                           pass      0:00:44   
+testNestedVxLANBCTrunkVPCEvpnL240G_1                                      pass      0:00:29   
+testNestedVxLANMCTrunkVPCEvpnL240G_1                                      pass      0:00:29   
+testNestedVxLANUCBCVPCEvpnL240G_1                                         pass      0:00:29   
+testVxLANL3IPv4L3VnidOrphanVPCEvpn40G                                     pass      0:01:36   
+testVxLANL3IPv6L3VnidOrphanVPCEvpn40G                                     pass      0:01:36   
+testVxLANL3IPv4L3VnidVPCEvpn40G                                           pass      0:01:36   
+testVxLANL3IPv6L3VnidVPCEvpn40G                                           pass      0:01:36   
+testNestedVxLANVPCEvpnL3IPv440G_1                                         pass      0:01:36   
+testNestedVxLANVPCEvpnL3IPv640G_1                                         pass      0:01:37   
+testVxLANSnoopMCTrunkVPCsEvpn40G                                          pass      0:03:49   
+testVxLANChangeNveVniTrunkVPCEvpn40G                                      pass      0:13:51   
+testVxLANFlapNveVPCEvpn40G                                                pass      0:17:04   
+testVxLANPeerLinkFlapStimuliVPCEvpn40G                                    pass      0:07:51   
+testVxLANL3UplinkFlapPrimaryTriggerVPCEvpn40G                             pass      0:17:04   
+unconfigVxLANVPCEvpn40G                                                   pass      0:12:00   
+testGoldDiagnostic                                                        pass      0:00:07   
+testCores                                                                 pass      0:00:04   
+
+
+
+BOOT TIME LOGS:
+================
+Step                     Time(s)  Start        End        
+-------------------- -----------  -----------  -----------
+bootscripts                 48.0  03:27:56.00  03:28:44.00 
+sysmgr_bootup                4.1  03:28:44.00  03:28:48.12 
+pfm_init                     3.0  03:28:48.00  03:28:51.00 
+lcm_init                     6.5  03:28:51.00  03:28:57.54 
+module_insert               28.4  03:28:57.54  03:29:25.94 
+sup_online                   1.5  03:29:25.94  03:29:27.45 
+lc_online                   99.8  03:29:30.49  03:31:10.33 
+pss_acfg                     0.3  03:31:10.33  03:31:10.68 
+kernel                       4.0  10:27:38.50  10:27:42.50 
+----------------------------------------------------------
+full_boot                  211.6  03:27:39.00  03:31:10.68 
+----------------------------------------------------------
+
++---------------+------------------+----------------+--------+
+| Step          | Expected Time(s) | Actual Time(s) | Result |
++---------------+------------------+----------------+--------+
+| kernel        |            14.95 |            4.0 | PASS   |
+| bootscripts   |             41.4 |           48.0 | SKIP   |
+| sysmgr_bootup |            4.715 |            4.1 | PASS   |
+| pfm_init      |              4.6 |            3.0 | PASS   |
+| sup_online    |            0.115 |            1.5 | SKIP   |
+| lcm_init      |             5.98 |            6.5 | SKIP   |
+| module_insert |           30.475 |           28.4 | PASS   |
+| lc_online     |           124.89 |           99.8 | PASS   |
+| pss_acfg      |            0.805 |            0.3 | PASS   |
+| full_boot     |           234.83 |          211.6 | PASS   |
++---------------+------------------+----------------+--------+
+---End of Note Titled: ULS_sanity---
+
+
+---Start of Note Titled: Scrubnote (Created 08/04/2023 06:15:03 Added 08/04/2023 06:15:03 by cms)---
+{230804 anikunna S B} Under analysis to characterise the issue further.
+---End of Note Titled: Scrubnote---
+
+
+---Start of Note Titled: A-comments (Created 08/04/2023 06:12:58 Added 08/04/2023 06:12:58 by anikunna)---
+Pls characterise the issue further to decide the course of action for OR1F
+---End of Note Titled: A-comments---
+
+
+---Start of Note Titled: Additional-info (Created 08/03/2023 21:35:27 Added 08/03/2023 21:35:27 by ssavian)---
+Relevant info have been saved on jio3 (SSH or SCP to jio3 with interop3/interop) at:
+
+[interop3@jio3 TACACS_ISSU-N-2_362]$ pwd
+/home/interop3/Stefano/OR1F/TACACS_ISSU-N-2_362
+[interop3@jio3 TACACS_ISSU-N-2_362]$ ls -lrt
+total 142704
+-rw-rw-r-- 1 interop3 interop3    511129 Aug  3 21:29 STE-1_sh-account-log_taca.txt
+-rw-rw-r-- 1 interop3 interop3       499 Aug  3 21:29 STE-1_sh-diff_taca.txt
+-rw-rw-r-- 1 interop3 interop3     64848 Aug  3 21:29 STE-1_sh-run_taca.txt
+-rw-rw-r-- 1 interop3 interop3     64808 Aug  3 21:29 STE-1_sh-start_taca.txt
+-rw-rw-r-- 1 interop3 interop3 142582480 Aug  3 21:30 STE-1_st-dme_taca.txt
+-rw-rw-r-- 1 interop3 interop3    194112 Aug  3 21:30 STE-1_st-logg-log_taca.txt
+-rw-rw-r-- 1 interop3 interop3   2647182 Aug  3 21:30 STE-1_st-pss_taca.txt
+-rw-rw-r-- 1 interop3 interop3     47624 Aug  3 21:30 STE-1_st-tacacs_taca.txt
+
+If needed logging2.0 can be provided as well.
+---End of Note Titled: Additional-info---
+
+
+---Start of Note Titled:  Release-note (Created 08/03/2023 21:35:27 Modified 08/31/2023 22:06:54 by ssavian)---
+<B>Symptom:</B>
+When upgrading a Nexus 9000 switch from a code where LXC boot mode is not the default mode, to one where it is, using non-disruptive ISSU, radius or tacacs global keys can go missing in the startup config, whereas it will be present in the running-config. This is because in running-config the keys are updated from dme which is not done for startup-config.
+
+<B>Conditions:</B>
+Upgrade from earlier N9K release on applicable platforms to later code (10.3.3+ or 10.4.1+) where LXC boot mode is the default. To confirm the boot mode, run "show boot mode", or check for VSUP for TOR switch in the "show module" output.
+
+<B>Workaround:</B>
+After upgrade , 'copy r s ' can be done to sync the startup config with the running config
+
+<B>Further Problem Description:</B>
+
+
+---End of Note Titled: Release-note---
+
+
+---Start of Note Titled: email3d (Created 08/03/2023 21:35:27 Added 08/03/2023 21:35:27 by ssavian)---
+Hi Pranjal and Anil,
+ 
+Karu actually pointed out the DDTS mentioned in the subject and I saw a very similar issue
+after performing ND-ISSU from KR6M(88) to OR1F(362) on a Stellar TOR (in LXC mode).
+ 
+Basically there are 2 issues here:
+Both tacacs+ and radius keys are modified
+Radius key is added even though radius is not even enabled in the system
+ 
+I?m pretty sure this is reproducible and I don?t know if there is already a bug(s) for it.
+ 
+Please let me know.
+ 
+TIA,
+Stefano
+ 
+From: Stefano Savian (ssavian) <ssavian@cisco.com>
+Date: Wednesday, August 2, 2023 at 3:21 PM
+To: Karu Ratnam (kratnam) <kratnam@cisco.com>
+Subject: + radius-server key 7 "(jyqd)" after ND-ISSU from KR6M(88) to OR1F(362) in LXC mode
+
+Hey Karu,
+ 
+As we discussed, I bumped into this very recently after performing ND-ISSU from KR6M(88) to OR1F(362)
+On the Stellar vPC primary peer:
+ 
+STE-1# vera
+14:17:25.079 PDT Sun Jul 30 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.2.5.88.M.bin.88 :  S88
+<snip>
+14:17:36.655 PDT Sun Jul 30 2023
+Time source is NTP
+STE-1# Jul 31 01:58:36 %CARDCLIENT-3-CARDCL_INFO cardcl_on_exit: graceful_shutdown 2 <<<< here script is doing trigger
+incrond[17302]: stopping service
+mount: overlay mounted on /newroot/usr.
+Installing klm_card_index
+done
+<snip>
+Status for linecard upgrade.
+[####################] 100% -- SUCCESS
+ 
+Performing supervisor state verification.
+[####################] 100% -- SUCCESS
+ 
+Supervisor non-disruptive upgrade successful.
+ 
+ 
+Install has been successful.
+ 
+User Access Verification
+STE-1 login: admin
+Password:
+ 
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2023, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+STE-1# vera
+15:18:08.346 PDT Mon Jul 31 2023
+Time source is NTP
+nxos image file: bootflash:///nxos64-cs.10.4.0.IMG9.0.362.F.bin :  S0
+Current mode is LXC.
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/5/1(P)  Eth1/5/2(P) 
+2     Po2(SU)     Eth      LACP      Eth1/5/3(P)  Eth1/5/4(P) 
+3     Po3(SU)     Eth      LACP      Eth1/6/1(P)  Eth1/6/2(P) 
+4     Po4(SU)     Eth      LACP      Eth1/6/3(P)  Eth1/6/4(P) 
+5     Po5(SU)     Eth      LACP      Eth1/7/1(P)  Eth1/7/2(P) 
+100   Po100(SU)   Eth      LACP      Eth1/1(P)    Eth1/2(P)   
+101   Po101(RU)   Eth      LACP      Eth1/3(P)    
+1001  Po1001(SU)  Eth      LACP      Eth1/32/1(P)  Eth1/32/2(P) 
+1002  Po1002(SU)  Eth      LACP      Eth1/32/3(P)  Eth1/32/4(P) 
+1003  Po1003(SU)  Eth      LACP      Eth1/33/1(P)  Eth1/33/2(P) 
+1004  Po1004(SU)  Eth      LACP      Eth1/33/3(P)  Eth1/33/4(P) 
+1005  Po1005(SU)  Eth      LACP      Eth1/24/2(P)  Eth1/24/3(P) 
+1050  Po1050(SD)  Eth      NONE      --
+2001  Po2001(RU)  Eth      LACP      Eth1/35(P)   Eth1/36(P)  
+2002  Po2002(RU)  Eth      LACP      Eth1/27(P)   Eth1/28(P)  
+3001  Po3001(RU)  Eth      LACP      Eth1/25(P)  
+4000  Po4000(SU)  Eth      LACP      Eth1/8/1(P)  Eth1/8/2(P)  Eth1/8/3(P)
+                                     Eth1/8/4(P) 
+STE-1# cpdown2
+LXC Fallback ND ISSU was performed.
+Total time taken between control plane being down and box online: 108 seconds
+1st LACP downtime: 57 seconds
+2nd LACP downtime: 43 seconds
+Step                     Time(s)  Start        End       
+-------------------- -----------  -----------  -----------
+bootscripts                 32.7  01:59:05.00  01:59:37.75
+sysmgr_bootup                7.2  01:59:37.77  01:59:45.02
+rtdbctrl                     3.2  01:59:45.03  01:59:48.30
+sup_online                  31.7  01:59:48.30  02:00:20.06
+sysmgr_scope_done            8.5  02:00:20.06  02:00:28.58
+lc_online                    0.9  02:00:28.58  02:00:28.67
+kexec                       10.0  08:58:40.00  08:58:50.00
+STE-1# sh run diff
+15:18:20.270 PDT Mon Jul 31 2023
+Time source is NTP
+*** Startup-config
+--- Running-config
+***************
+*** 49,63 ****
+--- 49,65 ----
+  ip domain-lookup
+  ip domain-name cisco.com
+  ip name-server 64.104.128.236 72.163.128.140 64.104.76.247
+  ip name-server 64.102.6.247 use-vrf management
+  ip host t22 172.26.237.22
++ tacacs-server key 7 "(jyqd)"
+  tacacs-server host 172.28.92.17 key 7 "fewhg123"
+  tacacs-server host 172.26.237.154 key 7 "fewhg123"
+  aaa group server tacacs+ AAA-Servers
+      server 172.26.237.154
+      use-vrf management
++ radius-server key 7 "(jyqd)"
+  interface breakout module 1 port 4,8 map 10g-4x
+  interface breakout module 1 port 5-7,24,32-34 map 25g-4x
+  multicast service-reflect dest-prefix 118.4.9.1/32 map interface Ethernet1/9
+  multicast service-reflect dest-prefix 118.4.9.3/32 map interface Ethernet1/9
+  multicast service-reflect dest-prefix 118.4.9.5/32 map interface Ethernet1/9
+STE-1#
+ 
+Please let me know if I need to follow up somehow.
+ 
+TIA,
+Stefano
+---End of Note Titled: email3d---
+
+
+******************* Cloud Deployments(0 of 0)*******************
+Cloud Provider    Cloud Region     Cloud Deploy State          Deploy Date  Publish to Customer
+        
+----------------------------------------------------------------------------------------------
+        
+
+
+********************* List of Fix Entries (0 of 0 ) ***********************
+
+
+**************************************** File Attachment Summary **************************************************
+Title                              		  File Type      File Size      Created By     Date-Time (26 of 26)
+------------------------------------------------------------------------------------------------------------------
+gnosis_neg_CSCwh16634_neg.txt                     ascii text     3829           pjhade         10/16/2024 01:16:32      
+Diffs-commit-niles_rel                            ascii text     6143           anok           08/21/2023 07:34:17      
+code-review-niles_rel.p8                          ascii text     461            anok           08/21/2023 06:08:37      
+code-review-niles_rel.p7                          ascii text     461            anok           08/21/2023 05:49:32      
+ccwarnings-niles_rel.p2                           ascii text     234            baas           08/21/2023 05:12:06      
+static-analysis-niles_rel.p2                      ascii text     8823           baas           08/21/2023 05:11:52      
+code-review-niles_rel.p6                          ascii text     457            anok           08/21/2023 04:24:17      
+code-review-niles_rel.p5                          ascii text     504            anok           08/21/2023 02:47:07      
+code-review-niles_rel.p4                          ascii text     460            anok           08/21/2023 02:43:43      
+code-review-niles_rel.p3                          ascii text     460            anok           08/21/2023 02:43:41      
+code-review-niles_rel.p2                          ascii text     461            anok           08/18/2023 02:38:47      
+code-review-niles_rel                             ascii text     461            anok           08/18/2023 02:09:37      
+ccwarnings-niles_rel                              ascii text     234            baas           08/17/2023 23:09:57      
+static-analysis-niles_rel                         ascii text     8822           baas           08/17/2023 23:09:43      
+unit-test-niles                                   ascii text     20778          anok           08/17/2023 01:53:40      
+Diffs-commit-nx_main                              ascii text     6509           anok           08/14/2023 12:10:39      
+code-review-nx_main.p2                            binary         957            anok           08/14/2023 07:10:01      
+code-review-nx_main                               binary         957            anok           08/14/2023 04:30:26      
+ccwarnings-nx_main                                ascii text     234            baas           08/13/2023 22:15:46      
+static-analysis-nx_main                           ascii text     8803           baas           08/13/2023 22:15:32      
+unit-test                                         ascii text     20741          anok           08/10/2023 03:10:00      
+Release-note-diff                                 ascii text     824            anok           08/08/2023 02:08:51      
+ccwarnings-main                                   ascii text     234            baas           08/07/2023 10:43:41      
+static-analysis-main                              ascii text     8684           baas           08/07/2023 10:43:27      
+base_sanity_uls_sanity_baseline_compare           ascii text     219            root           08/07/2023 08:32:54      
+Re_CSCwh16634__ _ tacacs-server key 7 __jyqd__  afbinary         7783           ssavian        08/03/2023 21:37:48      
+
+*********************************************** History *****************************************************
+Date       Login        Field                           From                            To                               Op
+------------------------------------------------------------------------------------------------------------------------
+11/06/2026 veselvam 	serviceRequests/C3/70167	                             	C3/701673700                 	New
+11/06/2026 veselvam 	Urgency-desc            	CL3                          	NA                           	Mod
+11/06/2026 veselvam 	Urgency                 	6                            	9                            	Mod
+11/06/2026 veselvam 	Tickets-count           	1                            	2                            	Mod
+11/06/2026 veselvam 	TACSR-count             	1                            	2                            	Mod
+11/06/2026 veselvam 	Tickets-count-direct    	1                            	2                            	Mod
+11/06/2026 veselvam 	Trouble-tickets         	                             	701673700                    	New
+11/06/2026 veselvam 	Trouble-tickets-direct  	                             	C3701673700                  	New
+08/24/2026 satdr    	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+06/08/2026 pisces   	VF-unpatched            	NX-OS:5.2(1)SV3(1.3),NX-OS:5.	                             	Del
+06/08/2026 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+06/08/2026 pisces   	Potentially-affected-rel	5.2(1)SV3(1.3),5.2(1)SV5(1.1)	                             	Del
+03/16/2026 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+09/04/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+07/23/2025 pisces   	VF-unpatched            	                             	NX-OS:7.0(3)I7(9w)           	New
+07/23/2025 pisces   	VF-unpatched            	NX-OS:4.2(1)SV1(4),NX-OS:4.2(	                             	Del
+07/23/2025 pisces   	Potentially-affected-rel	                             	7.0(3)I7(9w)                 	New
+07/23/2025 pisces   	Potentially-affected-rel	4.2(1)SV1(4),4.2(1)SV1(4a),4.	                             	Del
+07/22/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+06/05/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+06/01/2025 samekama 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+05/20/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+05/08/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+04/23/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+04/08/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+04/08/2025 buildins 	Report-input-workflows  	KFR - VF Patched             	                             	Del
+03/26/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+02/27/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+02/13/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+01/30/2025 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+12/10/2024 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+11/19/2024 buildins 	Attribute               	gnosis or1f or1f-issu or2f-ve	gnosis or1f or1f-issu or2f-ve	Mod
+10/16/2024 cdetsbtk 	Security-screening-times	2023-08-10 12:05:16.000+0000 	2024-10-17 13:57:15.000+0000 	Mod
+10/16/2024 pjhade   	File Name               	                             	gnosis_neg_CSCwh16634_neg.txt	New
+10/16/2024 pjhade   	Note Title              	                             	KnowledgeSignature           	New
+10/15/2024 pjhade   	Attribute               	or1f or1f-issu or2f-verified 	gnosis or1f or1f-issu or2f-ve	Mod
+10/15/2024 mmaziark 	Headline                	OR1F(362)/ALL/TACACS/ISSU: ta	tacacs-server key or radius-s	Mod
+10/15/2024 mmaziark 	Summary                 	After performing an ND-ISSU f	After upgrade from a code whe	Mod
+10/15/2024 mmaziark 	Note Title              	                             	DetectionLogic               	New
+10/13/2024 armandhe 	serviceRequests/C3/69772	                             	                             	Mod
+10/13/2024 armandhe 	Urgency-desc            	NA                           	CL3                          	Mod
+10/13/2024 armandhe 	Urgency                 	9                            	6                            	Mod
+10/13/2024 armandhe 	serviceRequests/C3/69772	                             	C3/697729289                 	New
+10/13/2024 armandhe 	Found                   	sys-test                     	customer-use                 	Mod
+10/13/2024 armandhe 	Urgency                 	                             	9                            	Mod
+10/13/2024 armandhe 	Found-during            	System Test                  	Customer                     	Mod
+10/13/2024 armandhe 	Activity-when-found     	Feature Interaction Testing  	Customer-Use                 	Mod
+10/13/2024 armandhe 	Data-classification     	Cisco Confidential           	Cisco Highly Confidential    	Mod
+10/13/2024 armandhe 	Data-classification-reas	                             	Default value of Data-classif	Mod
+10/13/2024 armandhe 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+10/13/2024 armandhe 	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+10/13/2024 armandhe 	Care-Update             	                             	Y                            	Mod
+10/13/2024 armandhe 	IFD-CFD-Conv-date       	                             	2024-10-14 04:25:24.000+0000 	Mod
+10/13/2024 armandhe 	Tickets-count           	0                            	1                            	Mod
+10/13/2024 armandhe 	TACSR-count             	                             	1                            	Mod
+10/13/2024 armandhe 	Tickets-count-direct    	                             	1                            	Mod
+10/13/2024 armandhe 	Trouble-tickets         	                             	697729289                    	New
+10/13/2024 armandhe 	Trouble-tickets-direct  	                             	C3697729289                  	New
+10/13/2024 armandhe 	Trouble-ticket-CFD      	                             	Y                            	Mod
+09/20/2024 synchub.g	Foreign-bugs            	                             	Foreign-bug/BUG-226103       	New
+09/20/2024 pisces   	VF-unpatched            	                             	NX-OS:10.1(1),NX-OS:10.1(2),N	New
+09/20/2024 pisces   	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+09/20/2024 pisces   	Report-mdf-concept-relea	[mdfConcept=Cisco Nexus 3000 	                             	Del
+09/20/2024 pisces   	Potentially-affected-rel	                             	10.1(1),10.1(2),10.1(2t),10.2	New
+03/18/2024 divvenka 	Integrated-releases     	                             	10.4(2)                      	New
+03/18/2024 divvenka 	Report-mdf-concept-relea	                             	[mdfConcept=Cisco Nexus 3000 	New
+03/18/2024 divvenka 	Known-fixed-releases    	                             	10.4(2)                      	New
+02/29/2024 fas      	Integrated-releases     	                             	10.3(4a)                     	New
+02/29/2024 fas      	Known-fixed-releases    	                             	10.3(4a)                     	New
+12/11/2023 shivkum5 	Note Title              	                             	Email-in                     	New
+10/23/2023 ssavian  	Note Title              	                             	V-comments.p2                	New
+10/23/2023 ssavian  	Attribute               	or1f or1f-issu nr4m-verified 	or1f or1f-issu or2f-verified 	Mod
+10/23/2023 ssavian  	Verified-release        	                             	10.4(1)IMG9(0.178)           	New
+08/31/2023 ssavian  	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu nr4m-verified 	Mod
+08/31/2023 ssavian  	Note Title              	                             	V-comments                   	New
+08/31/2023 ssavian  	Status-desc             	R-Resolved                   	V-Verified                   	Mod
+08/31/2023 ssavian  	Status                  	R                            	V                            	Mod
+08/31/2023 ssavian  	Verified By Employee    	                             	ssavian                      	Mod
+08/31/2023 ssavian  	Verified-release        	                             	10.3(3.79)                   	New
+08/31/2023 ssavian  	Verified-confidence     	                             	tested                       	Mod
+08/31/2023 ssavian  	Verified-on             	                             	2023-09-01 05:06:54.000+0000 	Mod
+08/31/2023 ssavian  	statusStates            	                             	[status=R, startDate=Wed Aug 	New
+08/31/2023 ssavian  	statusStates            	[status=R, startDate=Wed Aug 	                             	Del
+08/31/2023 ssavian  	Age-status              	19                           	28                           	Mod
+08/31/2023 ssavian  	Mean-time-to-verified   	                             	28                           	Mod
+08/30/2023 dpuscasu 	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu scaled-mcast-s	Mod
+08/30/2023 dpuscasu 	Other-mail              	                             	dpuscasu                     	Mod
+08/30/2023 dpuscasu 	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/30/2023 dpuscasu 	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/30/2023 dpuscasu 	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/22/2023 anok     	Note Title              	                             	R-comments.p2                	New
+08/22/2023 anok     	Status-desc             	M-More                       	R-Resolved                   	Mod
+08/22/2023 anok     	Status                  	M                            	R                            	Mod
+08/22/2023 anok     	Resolved-on             	2023-08-16 15:41:04.000+0000 	2023-08-23 05:27:43.000+0000 	Mod
+08/22/2023 anok     	statusStates            	                             	[status=M, startDate=Thu Aug 	New
+08/22/2023 anok     	statusStates            	[status=M, startDate=Thu Aug 	                             	Del
+08/22/2023 anok     	Age-status              	13                           	19                           	Mod
+08/22/2023 anok     	Mean-time-to-resolved   	12                           	19                           	Mod
+08/21/2023 divvenka 	Integrated-releases     	                             	10.3(4)                      	New
+08/21/2023 divvenka 	Integrated-releases     	                             	10.3(3.69)                   	New
+08/21/2023 divvenka 	Apply-to                	                             	10.3(3.69)                   	New
+08/21/2023 anok     	File Name               	                             	Diffs-commit-niles_rel       	New
+08/21/2023 anok     	Multi-commit-flag       	                             	Y                            	Mod
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p8     	New
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p7     	New
+08/21/2023 baas     	File Name               	                             	ccwarnings-niles_rel.p2      	New
+08/21/2023 baas     	File Name               	                             	static-analysis-niles_rel.p2 	New
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p6     	New
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p5     	New
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p4     	New
+08/21/2023 anok     	File Name               	                             	code-review-niles_rel.p3     	New
+08/21/2023 anok     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+08/21/2023 anok     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+08/21/2023 anok     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+08/21/2023 dgokarn  	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu scaled-mcast-s	Mod
+08/21/2023 dgokarn  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/21/2023 dgokarn  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/21/2023 dgokarn  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/18/2023 anok     	File Name               	                             	code-review-niles_rel.p2     	New
+08/18/2023 anok     	File Name               	                             	code-review-niles_rel        	New
+08/18/2023 anok     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+08/18/2023 anok     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+08/18/2023 anok     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+08/17/2023 anok     	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu scaled-mcast-s	Mod
+08/17/2023 anok     	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/17/2023 anok     	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/17/2023 anok     	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/17/2023 baas     	File Name               	                             	ccwarnings-niles_rel         	New
+08/17/2023 baas     	File Name               	                             	static-analysis-niles_rel    	New
+08/17/2023 anok     	Note Title              	                             	M-comments                   	New
+08/17/2023 anok     	Status-desc             	R-Resolved                   	M-More                       	Mod
+08/17/2023 anok     	Status                  	R                            	M                            	Mod
+08/17/2023 anok     	More-on                 	2023-08-16 15:41:04.000+0000 	2023-08-17 15:57:59.000+0000 	Mod
+08/17/2023 anok     	statusStates            	                             	[status=R, startDate=Wed Aug 	New
+08/17/2023 anok     	statusStates            	[status=R, startDate=Wed Aug 	                             	Del
+08/17/2023 anok     	Age-status              	12                           	13                           	Mod
+08/17/2023 anok     	File Name               	                             	unit-test-niles              	New
+08/16/2023 kratnam  	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu scaled-mcast-s	Mod
+08/16/2023 anok     	Note Title              	                             	R-comments                   	New
+08/16/2023 anok     	Status-desc             	A-Assigned                   	R-Resolved                   	Mod
+08/16/2023 anok     	Status                  	A                            	R                            	Mod
+08/16/2023 anok     	Dev-escape-resolver-opin	                             	N                            	Mod
+08/16/2023 anok     	Dev-escape-activity     	                             	Not-A-Dev-Escape             	Mod
+08/16/2023 anok     	More-by                 	                             	anok                         	Mod
+08/16/2023 anok     	Opener                  	                             	anok                         	Mod
+08/16/2023 anok     	Resolver                	                             	anok                         	Mod
+08/16/2023 anok     	Breakage                	                             	No                           	Mod
+08/16/2023 anok     	Regression              	                             	N                            	Mod
+08/16/2023 anok     	By-previous-commit-value	                             	No                           	Mod
+08/16/2023 anok     	Bug-origin              	                             	Code / Implementation        	Mod
+08/16/2023 anok     	Released-code           	                             	N                            	Mod
+08/16/2023 anok     	Origin                  	                             	base code                    	Mod
+08/16/2023 anok     	Test-escape             	N                            	Y                            	Mod
+08/16/2023 anok     	Test-EDP-phase          	                             	Feature Test                 	Mod
+08/16/2023 anok     	Test-EDP-activity       	                             	Acceptance Testing           	Mod
+08/16/2023 anok     	TPS_issue               	                             	N                            	Mod
+08/16/2023 anok     	TPS_flag                	                             	N                            	Mod
+08/16/2023 anok     	Behavior-changed        	                             	N                            	Mod
+08/16/2023 anok     	Original-resolved-on    	                             	2023-08-16 15:41:04.000+0000 	Mod
+08/16/2023 anok     	Documents-changed       	                             	none                         	Mod
+08/16/2023 anok     	More-on                 	                             	2023-08-16 15:41:04.000+0000 	Mod
+08/16/2023 anok     	Opened-on               	                             	2023-08-16 15:41:04.000+0000 	Mod
+08/16/2023 anok     	Resolved-on             	                             	2023-08-16 15:41:04.000+0000 	Mod
+08/16/2023 anok     	statusStates            	                             	[status=A, startDate=Fri Aug 	New
+08/16/2023 anok     	statusStates            	[status=A, startDate=Fri Aug 	                             	Del
+08/16/2023 anok     	Age-status              	0                            	12                           	Mod
+08/16/2023 anok     	Mean-time-to-resolved   	                             	12                           	Mod
+08/14/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0)               	New
+08/14/2023 divvenka 	Integrated-releases     	                             	10.4(1)IMG9(0.67)            	New
+08/14/2023 divvenka 	Apply-to                	                             	10.4(1)IMG9(0.67)            	New
+08/14/2023 anok     	File Name               	                             	Diffs-commit-nx_main         	New
+08/14/2023 anok     	File Name               	                             	code-review-nx_main.p2       	New
+08/14/2023 anok     	Code-reviewer           	                             	vasagraw                     	New
+08/14/2023 anok     	File Name               	                             	code-review-nx_main          	New
+08/13/2023 baas     	File Name               	                             	ccwarnings-nx_main           	New
+08/13/2023 baas     	File Name               	                             	static-analysis-nx_main      	New
+08/13/2023 baas     	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+08/13/2023 baas     	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+08/13/2023 baas     	Report-product-used     	n9k-standalone-sw            	                             	Mod
+08/10/2023 anok     	File Name               	                             	unit-test                    	New
+08/10/2023 anok     	File Name               	unit-test                    	                             	Del
+08/09/2023 cdetsbtk 	Not-customer-visible-rea	AutoIgnored-Defect ignored - 	                             	Mod
+08/09/2023 cdetsbtk 	Is-customer-visible     	N                            	Y                            	Mod
+08/09/2023 cdetsbtk 	Security-screening-times	2023-08-08 00:43:42.000+0000 	2023-08-10 12:05:16.000+0000 	Mod
+08/08/2023 anok     	Note                    	Release-note                 	Release-note                 	Mod
+08/08/2023 anok     	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+08/08/2023 anok     	File Name               	                             	Release-note-diff            	New
+08/08/2023 anok     	Attribute               	or1f or1f-issu scaled-mcast-s	or1f or1f-issu scaled-mcast-s	Mod
+08/08/2023 anok     	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/08/2023 anok     	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/08/2023 anok     	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/08/2023 anok     	RNE-Type                	$$IGNORE                     	NONE                         	Mod
+08/08/2023 anok     	Symptoms                	                             	When upgrading a Nexus 9000 s	Mod
+08/08/2023 anok     	Conditions              	                             	Upgrade from earlier N9K rele	Mod
+08/08/2023 anok     	Workarounds             	                             	After upgrade , 'copy r s ' c	Mod
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-08 00:43:28.000+0000 	2023-08-08 00:43:42.000+0000 	Mod
+08/07/2023 baas     	File Name               	                             	ccwarnings-main              	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-08 00:03:55.000+0000 	2023-08-08 00:43:28.000+0000 	Mod
+08/07/2023 baas     	File Name               	                             	static-analysis-main         	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-07 23:44:46.000+0000 	2023-08-08 00:03:55.000+0000 	Mod
+08/07/2023 anok     	Note Title              	                             	Eng-notes                    	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-07 22:32:55.000+0000 	2023-08-07 23:44:46.000+0000 	Mod
+08/07/2023 anok     	Note Title              	                             	ULS_sanity                   	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-07 22:30:36.000+0000 	2023-08-07 22:32:55.000+0000 	Mod
+08/07/2023 root     	contents                	                             	base_sanity_uls_sanity_baseli	Mod
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-07 17:18:39.000+0000 	2023-08-07 22:30:36.000+0000 	Mod
+08/07/2023 root     	File Name               	                             	base_sanity_uls_sanity_baseli	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-07 17:18:17.000+0000 	2023-08-07 17:18:39.000+0000 	Mod
+08/07/2023 anok     	File Name               	                             	unit-test                    	New
+08/07/2023 cdetsbtk 	Security-screening-times	2023-08-06 00:03:30.000+0000 	2023-08-07 17:18:17.000+0000 	Mod
+08/07/2023 anok     	Note Title              	Unit-test                    	                             	Del
+08/05/2023 cdetsbtk 	Security-screening-times	2023-08-04 20:15:04.000+0000 	2023-08-06 00:03:30.000+0000 	Mod
+08/05/2023 anok     	Note Title              	                             	Unit-test                    	New
+08/04/2023 cdetsbtk 	Security-screening-times	2023-08-04 20:12:58.000+0000 	2023-08-04 20:15:04.000+0000 	Mod
+08/04/2023 cms      	Note Title              	                             	Scrubnote                    	New
+08/04/2023 cdetsbtk 	Security-screening-times	2023-08-04 11:37:49.000+0000 	2023-08-04 20:12:58.000+0000 	Mod
+08/04/2023 anikunna 	Note Title              	                             	A-comments                   	New
+08/04/2023 anikunna 	Status-desc             	N-New                        	A-Assigned                   	Mod
+08/04/2023 anikunna 	Status                  	N                            	A                            	Mod
+08/04/2023 anikunna 	Engineer                	                             	anok                         	Mod
+08/04/2023 anikunna 	Assigner                	                             	anikunna                     	Mod
+08/04/2023 anikunna 	Assigned Date           	                             	2023-08-04 13:12:58.000+0000 	Mod
+08/04/2023 anikunna 	statusStates            	                             	[status=N, startDate=Fri Aug 	New
+08/04/2023 anikunna 	statusStates            	[status=N, startDate=Fri Aug 	                             	Del
+08/04/2023 anikunna 	Mean-time-to-assigned   	                             	0                            	Mod
+08/03/2023 cdetsbtk 	Security-screening-times	2023-08-04 11:35:28.000+0000 	2023-08-04 11:37:49.000+0000 	Mod
+08/03/2023 ssavian  	File Name               	                             	Re_CSCwh16634__ _ tacacs-serv	New
+08/03/2023 ssavian  	Report-input-workflows  	KFR - Integrated Releases,KAR	                             	Del
+08/03/2023 ssavian  	Report-filter-workflows 	CCO Filter Known Releases    	                             	Del
+08/03/2023 ssavian  	Report-product-used     	n9k-standalone-sw            	                             	Mod
+08/03/2023 cdetsbtk 	BTK-security-complete   	                             	Y                            	Mod
+08/03/2023 cdetsbtk 	Not-customer-visible-rea	                             	AutoIgnored-Defect ignored - 	Mod
+08/03/2023 cdetsbtk 	Is-customer-visible     	                             	N                            	Mod
+08/03/2023 cdetsbtk 	Security-screening-times	                             	2023-08-04 11:35:28.000+0000 	Mod
+08/03/2023 ssavian  	Note Title              	                             	Release-note                 	New
+08/03/2023 ssavian  	Note Title              	                             	Additional-info              	New
+08/03/2023 ssavian  	Note Title              	                             	email3d                      	New
+08/03/2023 ssavian  	Headline                	                             	OR1F(362)/ALL/TACACS/ISSU: ta	Mod
+08/03/2023 ssavian  	Summary                 	                             	After performing an ND-ISSU f	Mod
+08/03/2023 ssavian  	Project                 	                             	CSC.datacenter               	Mod
+08/03/2023 ssavian  	Product                 	                             	n9k-standalone-sw            	Mod
+08/03/2023 ssavian  	Component               	                             	tacacs                       	Mod
+08/03/2023 ssavian  	Status-desc             	                             	N-New                        	Mod
+08/03/2023 ssavian  	Status                  	                             	N                            	Mod
+08/03/2023 ssavian  	Found                   	                             	sys-test                     	Mod
+08/03/2023 ssavian  	Hardening               	                             	N                            	Mod
+08/03/2023 ssavian  	Product-owner           	                             	gsheehan                     	Mod
+08/03/2023 ssavian  	Original-found          	                             	sys-test                     	Mod
+08/03/2023 ssavian  	Hardware                	                             	Nexus 9000                   	Mod
+08/03/2023 ssavian  	Feature                 	                             	fix                          	Mod
+08/03/2023 ssavian  	Attribute               	                             	or1f or1f-issu scaled-mcast-s	Mod
+08/03/2023 ssavian  	Urgency-desc            	                             	NA                           	Mod
+08/03/2023 ssavian  	Severity-desc           	                             	moderate                     	Mod
+08/03/2023 ssavian  	Severity                	                             	3                            	Mod
+08/03/2023 ssavian  	DE Priority Desc        	                             	medium                       	Mod
+08/03/2023 ssavian  	DE-priority             	                             	3                            	Mod
+08/03/2023 ssavian  	Impact                  	                             	Reliability                  	New
+08/03/2023 ssavian  	Submitter               	                             	ssavian                      	Mod
+08/03/2023 ssavian  	Submitter-manager       	                             	kratnam                      	Mod
+08/03/2023 ssavian  	DE-manager              	                             	anikunna                     	Mod
+08/03/2023 ssavian  	DTPT-manager            	                             	mukamath                     	Mod
+08/03/2023 ssavian  	Version                 	                             	10.4(0)IMG9(0.362)           	New
+08/03/2023 ssavian  	Original-version        	                             	10.4(0)IMG9(0.362)           	Mod
+08/03/2023 ssavian  	Found-during            	                             	System Test                  	Mod
+08/03/2023 ssavian  	Activity-when-found     	                             	Feature Interaction Testing  	Mod
+08/03/2023 ssavian  	Test-escape             	                             	N                            	Mod
+08/03/2023 ssavian  	PSIRT                   	                             	N                            	Mod
+08/03/2023 ssavian  	Data-classification     	                             	Cisco Confidential           	Mod
+08/03/2023 ssavian  	MDF-series              	                             	Cisco Nexus 3000 Series Switc	New
+08/03/2023 ssavian  	MDF-concepts            	                             	Cisco Nexus 3000 Series Switc	New
+08/03/2023 ssavian  	Software-types          	                             	NX-OS EPLD Updates,NX-OS Firm	New
+08/03/2023 ssavian  	Software-type-ids       	                             	282253564,286280105,286321149	New
+08/03/2023 ssavian  	Report-input-workflows  	                             	KFR - Integrated Releases,KAR	New
+08/03/2023 ssavian  	Report-filter-workflows 	                             	CCO Filter Known Releases    	New
+08/03/2023 ssavian  	Report-product-used     	                             	n9k-standalone-sw            	Mod
+08/03/2023 ssavian  	MDF-edited              	                             	N                            	Mod
+08/03/2023 ssavian  	Attribute2              	                             	n/a                          	Mod
+08/03/2023 ssavian  	Doc-manager             	                             	anikunna                     	Mod
+08/03/2023 ssavian  	Document                	                             	nexus                        	Mod
+08/03/2023 ssavian  	Documentation-resolution	                             	Undefined                    	Mod
+08/03/2023 ssavian  	Original-activity-when-f	                             	Feature Interaction Testing  	Mod
+08/03/2023 ssavian  	Original-found-during   	                             	System Test                  	Mod
+08/03/2023 ssavian  	Submitter-org-bug       	                             	DCN-Switching-US             	Mod
+08/03/2023 ssavian  	Component-scenarios     	                             	N                            	Mod
+08/03/2023 ssavian  	Submitted-on            	                             	2023-08-04 04:35:27.609+0000 	Mod
+08/03/2023 ssavian  	New-on                  	                             	2023-08-04 04:35:27.609+0000 	Mod
+08/03/2023 ssavian  	statusStates            	                             	[status=S, startDate=Fri Aug 	New
+08/03/2023 ssavian  	Transition-day          	0                            	2460161                      	Mod
+08/03/2023 ssavian  	Release-note-status     	                             	ignore                       	Mod
+08/03/2023 ssavian  	Reported By             	                             	ssavian                      	Mod
+08/03/2023 ssavian  	RNE-Type                	                             	$$IGNORE                     	Mod
+08/03/2023 ssavian  	Tickets-count           	                             	0                            	Mod
+08/03/2023 ssavian  	Class                   	                             	CSC.datacenter               	Mod
+08/03/2023 ssavian  	Reti-bug                	                             	Y                            	Mod
+08/03/2023 ssavian  	Defect Created          	                             	                             	New
