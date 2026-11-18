@@ -1,0 +1,1271 @@
+{
+  "coverage_unverified_count": 0,
+  "coverage_fail_count": 0,
+  "coverage_percentage": 20.0,
+  "run_evidence": {
+    "archive_url": "https://onedevx.cisco.com/test-services/results/details/archive/aaa_suite_job.2026Nov09_18:04:42.291781.zip/",
+    "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+    "source": "TaskLog.Task-1",
+    "interpretation": "TaskLog supplies primary execution and surrounding-behavior evidence. The supplied suite job/config/implementation files were reviewed as secondary corroboration."
+  },
+  "suite": {
+    "source_type": "archived_suite_log",
+    "archive_url": "https://onedevx.cisco.com/test-services/results/details/archive/aaa_suite_job.2026Nov09_18:04:42.291781.zip/",
+    "coverage_method": "TaskLog-first review of testcase central behavior against surrounding setup, action, assertion, cleanup and result; suite code is secondary corroboration. The pipeline validates cited ranges and UID/result markers, not semantic equivalence.",
+    "source_file": "TaskLog.Task-1",
+    "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+    "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+    "inventory_file": "/ws/manamdas-bgl/CFD-AAA/suite_log_inventory.json",
+    "inventory_testcase_count": 46
+  },
+  "bugs": [
+    {
+      "reviewed_coverage_rationale": "Coverage is NOT_EXERCISED: the logged candidate creates/modifies/deletes an OpenConfig TACACS server-group and checks NETCONF/config state; it never sends the XML-agent TACACS-state query from this bug. The later generic core check is not tied to that query.",
+      "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+      "assessment_status": "CODEX_REVIEWED_LOG_ASSESSMENT",
+      "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+      "covered_criteria": [],
+      "log_matched_criteria": [],
+      "coverage_basis": "Log-first comparison of the validated testcase behavior with TaskLog evidence; suite code was reviewed as secondary context.",
+      "log_exercise_status": "NOT_EXERCISED",
+      "missing_criteria": [
+        "no_non_sysmgr_crash",
+        "xml_tacacs_state_read"
+      ],
+      "suite_code_evidence": {
+        "lines": [
+          4104,
+          4245
+        ],
+        "finding": "OpenConfig/NETCONF server-group CRUD and config verification; no XML-agent TACACS state query.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+      },
+      "testcase_status": "SOURCE_REVIEWED",
+      "testcase_file": "testcases/CSCvt64662.json",
+      "required_criteria": [
+        {
+          "id": "xml_tacacs_state_read",
+          "description": "The run sends an XML-agent request for TACACS server state and validates the reply."
+        },
+        {
+          "id": "no_non_sysmgr_crash",
+          "description": "The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core."
+        }
+      ],
+      "reasons": [
+        "Coverage is NOT_EXERCISED: the logged candidate creates/modifies/deletes an OpenConfig TACACS server-group and checks NETCONF/config state; it never sends the XML-agent TACACS-state query from this bug. The later generic core check is not tied to that query.",
+        "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      ],
+      "bugid": "CSCvt64662",
+      "testcase_reviewed": true,
+      "status": "NOT_EXERCISED",
+      "latest_run": {
+        "source": "TaskLog.Task-1",
+        "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+        "execution_result": "PASS",
+        "generated_testcase_execution": "NOT_RUN",
+        "bug_behavior_in_log": "NOT_EXERCISED",
+        "note": "Coverage is NOT_EXERCISED: the logged candidate creates/modifies/deletes an OpenConfig TACACS server-group and checks NETCONF/config state; it never sends the XML-agent TACACS-state query from this bug. The later generic core check is not tied to that query.",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN."
+      },
+      "suite_mappings": [
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "NETCONF/OpenConfig server-group CRUD, DME/running-config assertions, cleanup and generic core check.",
+          "suite_source_evidence": {
+            "lines": [
+              4104,
+              4245
+            ],
+            "finding": "OpenConfig/NETCONF server-group CRUD and config verification; no XML-agent TACACS state query.",
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+          },
+          "log_lines": [
+            11119,
+            11751
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No XML-agent TACACS-state request; the generic core check follows CRUD, not the reported XML trigger.",
+          "covers_criteria": [],
+          "uid": "TriggerOcAaaTacacsServerGroupIpv4CreateModifyDelete",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "xml_tacacs_state_read",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                11119,
+                11751
+              ],
+              "observation": "This UID performs NETCONF/OpenConfig server-group lifecycle/config checks; no XML-agent TACACS-state read appears in this run span.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "no_non_sysmgr_crash",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                11119,
+                11751
+              ],
+              "observation": "The generic core check is present after the unrelated CRUD sequence, so it does not establish stability after the bug-specific XML query.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        }
+      ],
+      "coverage_assessment": {
+        "status": "NOT_EXERCISED",
+        "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+        "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+        "rationale": "Coverage is NOT_EXERCISED: the logged candidate creates/modifies/deletes an OpenConfig TACACS server-group and checks NETCONF/config state; it never sends the XML-agent TACACS-state query from this bug. The later generic core check is not tied to that query.",
+        "log_exercise_status": "NOT_EXERCISED",
+        "matched_criteria": [],
+        "unmatched_criteria": [
+          "no_non_sysmgr_crash",
+          "xml_tacacs_state_read"
+        ],
+        "candidate_tests": [
+          {
+            "uid": "TriggerOcAaaTacacsServerGroupIpv4CreateModifyDelete",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              11119,
+              11751
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "xml_tacacs_state_read",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  11119,
+                  11751
+                ],
+                "observation": "This UID performs NETCONF/OpenConfig server-group lifecycle/config checks; no XML-agent TACACS-state read appears in this run span.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "no_non_sysmgr_crash",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  11119,
+                  11751
+                ],
+                "observation": "The generic core check is present after the unrelated CRUD sequence, so it does not establish stability after the bug-specific XML query.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          }
+        ],
+        "candidate_execution_result": "PASS",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "generated_testcase_execution_result": "NOT_RUN",
+        "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      },
+      "coverage_review": {
+        "status": "CODEX_REVIEWED",
+        "reviewer": "Codex",
+        "basis": "Bug-specific testcase behavior and each mapped TaskLog span were reviewed; TaskLog is primary, suite source is secondary."
+      }
+    },
+    {
+      "reviewed_coverage_rationale": "Coverage is PASS: TaskLog shows the quiet-mode ACL active in the immediately preceding flow and then records successful valid local SSH login from the permitted node. The post-login output is Normal-Mode, so persistence after login is not claimed.",
+      "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+      "assessment_status": "CODEX_REVIEWED_LOG_ASSESSMENT",
+      "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+      "covered_criteria": [
+        "quiet_mode_and_permitted_source_confirmed_before_login",
+        "valid_local_login_succeeds"
+      ],
+      "log_matched_criteria": [
+        "quiet_mode_and_permitted_source_confirmed_before_login",
+        "valid_local_login_succeeds"
+      ],
+      "coverage_basis": "Log-first comparison of the validated testcase behavior with TaskLog evidence; suite code was reviewed as secondary context.",
+      "log_exercise_status": "MATCHES_CENTRAL_BEHAVIOR",
+      "missing_criteria": [],
+      "suite_code_evidence": {
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+        "lines": [
+          3792,
+          3849
+        ],
+        "finding": "The code checks quiet-mode before denying the non-permitted source, checks its state after denial, then attempts the valid permitted login and asserts login success; the post-login state is a separate check."
+      },
+      "testcase_status": "SOURCE_REVIEWED",
+      "testcase_file": "testcases/CSCvp62539.json",
+      "required_criteria": [
+        {
+          "id": "quiet_mode_and_permitted_source_confirmed_before_login",
+          "description": "Before the valid login, the DUT reports quiet-mode active and the client source is permitted by the applied quiet-mode ACL."
+        },
+        {
+          "id": "valid_local_login_succeeds",
+          "description": "The same permitted client presents valid local credentials and the log shows successful authentication during that active state."
+        }
+      ],
+      "reasons": [
+        "Coverage is PASS: TaskLog shows the quiet-mode ACL active in the immediately preceding flow and then records successful valid local SSH login from the permitted node. The post-login output is Normal-Mode, so persistence after login is not claimed.",
+        "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      ],
+      "bugid": "CSCvp62539",
+      "testcase_reviewed": true,
+      "status": "PASS",
+      "latest_run": {
+        "source": "TaskLog.Task-1",
+        "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+        "execution_result": "PASS",
+        "generated_testcase_execution": "NOT_RUN",
+        "bug_behavior_in_log": "MATCHES_CENTRAL_BEHAVIOR",
+        "note": "Coverage is PASS: TaskLog shows the quiet-mode ACL active in the immediately preceding flow and then records successful valid local SSH login from the permitted node. The post-login output is Normal-Mode, so persistence after login is not claimed.",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN."
+      },
+      "suite_mappings": [
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Configures local login and quiet-mode ACL, confirms quiet-mode, blocks a non-permitted source, then accepts valid local SSH login from permitted node02; post-login state reads Normal-Mode.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              3792,
+              3849
+            ],
+            "finding": "The code checks quiet-mode before denying the non-permitted source, checks its state after denial, then attempts the valid permitted login and asserts login success; the post-login state is a separate check."
+          },
+          "log_lines": [
+            27668,
+            28356
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "The log proves active quiet-mode in the flow immediately preceding the permitted login and shows login success; the post-login command reports Normal-Mode, so persistence after login is not established.",
+          "covers_criteria": [
+            "quiet_mode_and_permitted_source_confirmed_before_login",
+            "valid_local_login_succeeds"
+          ],
+          "uid": "TriggerSystemLoginBlockQuietModeAccessClass",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "quiet_mode_and_permitted_source_confirmed_before_login",
+              "status": "OBSERVED",
+              "log_lines": [
+                28094,
+                28108
+              ],
+              "evidence_quotes": [
+                "Quiet-Mode access list aaa_quiet_permit is applied.",
+                "Switch presently in Quiet-Mode"
+              ],
+              "observation": "DUT reports the configured ACL active and quiet-mode immediately before the permitted-client login step begins.",
+              "quote_validation": "PASS"
+            },
+            {
+              "criterion_id": "valid_local_login_succeeds",
+              "status": "OBSERVED",
+              "log_lines": [
+                28109,
+                28173
+              ],
+              "evidence_quotes": [
+                "Starting STEP 9: test1 valid SSH from permitted node02",
+                "PASS | Device: node01 | permitted node02 logged in during quiet-mode as expected"
+              ],
+              "observation": "The permitted node02 local-user login is attempted and the log explicitly records success.",
+              "quote_validation": "PASS"
+            }
+          ],
+          "limitation_evidence": {
+            "log_lines": [
+              28177,
+              28190
+            ],
+            "observation": "The after-login check reports Normal-Mode; the test does not assert quiet-mode remains active after login."
+          },
+          "result": "PASS"
+        }
+      ],
+      "coverage_assessment": {
+        "status": "PASS",
+        "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+        "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+        "rationale": "Coverage is PASS: TaskLog shows the quiet-mode ACL active in the immediately preceding flow and then records successful valid local SSH login from the permitted node. The post-login output is Normal-Mode, so persistence after login is not claimed.",
+        "log_exercise_status": "MATCHES_CENTRAL_BEHAVIOR",
+        "matched_criteria": [
+          "quiet_mode_and_permitted_source_confirmed_before_login",
+          "valid_local_login_succeeds"
+        ],
+        "unmatched_criteria": [],
+        "candidate_tests": [
+          {
+            "uid": "TriggerSystemLoginBlockQuietModeAccessClass",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              27668,
+              28356
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "quiet_mode_and_permitted_source_confirmed_before_login",
+                "status": "OBSERVED",
+                "log_lines": [
+                  28094,
+                  28108
+                ],
+                "evidence_quotes": [
+                  "Quiet-Mode access list aaa_quiet_permit is applied.",
+                  "Switch presently in Quiet-Mode"
+                ],
+                "observation": "DUT reports the configured ACL active and quiet-mode immediately before the permitted-client login step begins.",
+                "quote_validation": "PASS"
+              },
+              {
+                "criterion_id": "valid_local_login_succeeds",
+                "status": "OBSERVED",
+                "log_lines": [
+                  28109,
+                  28173
+                ],
+                "evidence_quotes": [
+                  "Starting STEP 9: test1 valid SSH from permitted node02",
+                  "PASS | Device: node01 | permitted node02 logged in during quiet-mode as expected"
+                ],
+                "observation": "The permitted node02 local-user login is attempted and the log explicitly records success.",
+                "quote_validation": "PASS"
+              }
+            ]
+          }
+        ],
+        "candidate_execution_result": "PASS",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "generated_testcase_execution_result": "NOT_RUN",
+        "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      },
+      "coverage_review": {
+        "status": "CODEX_REVIEWED",
+        "reviewer": "Codex",
+        "basis": "Bug-specific testcase behavior and each mapped TaskLog span were reviewed; TaskLog is primary, suite source is secondary."
+      }
+    },
+    {
+      "reviewed_coverage_rationale": "Coverage is NOT_EXERCISED: the logged Flexi SSH flow does not prove mgmt0 was down, that this login’s authorization request reached ISE, or that ISE-returned roles were applied.",
+      "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+      "assessment_status": "CODEX_REVIEWED_LOG_ASSESSMENT",
+      "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+      "covered_criteria": [],
+      "log_matched_criteria": [],
+      "coverage_basis": "Log-first comparison of the validated testcase behavior with TaskLog evidence; suite code was reviewed as secondary context.",
+      "log_exercise_status": "NOT_EXERCISED",
+      "missing_criteria": [
+        "authorization_request_received",
+        "inband_mgmt0_down_condition",
+        "returned_roles_applied"
+      ],
+      "suite_code_evidence": {
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+        "lines": [
+          5266,
+          5808
+        ],
+        "finding": "The code configures TACACS command/config authorization and exercises remote SSH authentication; the log/code does not prove mgmt0-down, ISE receipt for this login, or returned-role application."
+      },
+      "testcase_status": "SOURCE_REVIEWED",
+      "testcase_file": "testcases/CSCvz55570.json",
+      "required_criteria": [
+        {
+          "id": "inband_mgmt0_down_condition",
+          "description": "The relevant TACACS login uses the inband path while mgmt0 is down."
+        },
+        {
+          "id": "authorization_request_received",
+          "description": "ISE logs or an approved capture proves the authorization request for this login reached the server."
+        },
+        {
+          "id": "returned_roles_applied",
+          "description": "DUT account evidence matches the roles returned by the ISE policy."
+        }
+      ],
+      "reasons": [
+        "Coverage is NOT_EXERCISED: the logged Flexi SSH flow does not prove mgmt0 was down, that this login’s authorization request reached ISE, or that ISE-returned roles were applied.",
+        "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      ],
+      "bugid": "CSCvz55570",
+      "testcase_reviewed": true,
+      "status": "NOT_EXERCISED",
+      "latest_run": {
+        "source": "TaskLog.Task-1",
+        "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+        "execution_result": "PASS",
+        "generated_testcase_execution": "NOT_RUN",
+        "bug_behavior_in_log": "NOT_EXERCISED",
+        "note": "Coverage is NOT_EXERCISED: the logged Flexi SSH flow does not prove mgmt0 was down, that this login’s authorization request reached ISE, or that ISE-returned roles were applied.",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN."
+      },
+      "suite_mappings": [
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Exercises general remote TACACS/RADIUS SSH authentication and related AAA checks.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              5266,
+              5808
+            ],
+            "finding": "The code configures TACACS command/config authorization and exercises remote SSH authentication; the log/code does not prove mgmt0-down, ISE receipt for this login, or returned-role application."
+          },
+          "log_lines": [
+            24465,
+            25370
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No demonstrated inband/mgmt0-down setup, ISE authorization receipt evidence, or role assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerFlexiAaaSsh",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "inband_mgmt0_down_condition",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "The log exercises general Flexi SSH authentication; it does not establish mgmt0-down for this login.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "authorization_request_received",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "No ISE live-log or packet-capture evidence ties receipt of the authorization request to this login.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "returned_roles_applied",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "No assertion compares the DUT account roles with roles returned by ISE.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        }
+      ],
+      "coverage_assessment": {
+        "status": "NOT_EXERCISED",
+        "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+        "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+        "rationale": "Coverage is NOT_EXERCISED: the logged Flexi SSH flow does not prove mgmt0 was down, that this login’s authorization request reached ISE, or that ISE-returned roles were applied.",
+        "log_exercise_status": "NOT_EXERCISED",
+        "matched_criteria": [],
+        "unmatched_criteria": [
+          "authorization_request_received",
+          "inband_mgmt0_down_condition",
+          "returned_roles_applied"
+        ],
+        "candidate_tests": [
+          {
+            "uid": "TriggerFlexiAaaSsh",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "inband_mgmt0_down_condition",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "The log exercises general Flexi SSH authentication; it does not establish mgmt0-down for this login.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "authorization_request_received",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "No ISE live-log or packet-capture evidence ties receipt of the authorization request to this login.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "returned_roles_applied",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "No assertion compares the DUT account roles with roles returned by ISE.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          }
+        ],
+        "candidate_execution_result": "PASS",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "generated_testcase_execution_result": "NOT_RUN",
+        "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      },
+      "coverage_review": {
+        "status": "CODEX_REVIEWED",
+        "reviewer": "Codex",
+        "basis": "Bug-specific testcase behavior and each mapped TaskLog span were reviewed; TaskLog is primary, suite source is secondary."
+      }
+    },
+    {
+      "reviewed_coverage_rationale": "Coverage is NOT_EXERCISED: the logged RADIUS SSH/Telnet cases do not include active-supervisor OIR and do not observe post-event RADIUS request egress/server receipt followed by successful authentication.",
+      "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+      "assessment_status": "CODEX_REVIEWED_LOG_ASSESSMENT",
+      "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+      "covered_criteria": [],
+      "log_matched_criteria": [],
+      "coverage_basis": "Log-first comparison of the validated testcase behavior with TaskLog evidence; suite code was reviewed as secondary context.",
+      "log_exercise_status": "NOT_EXERCISED",
+      "missing_criteria": [
+        "active_supervisor_oir",
+        "post_event_radius_traffic_and_auth",
+        "working_radius_before_event"
+      ],
+      "suite_code_evidence": {
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+        "lines": [
+          2769,
+          2935
+        ],
+        "finding": "The remote login-block path configures RADIUS, tests server reachability/authentication, then asserts SSH/Telnet login; no active-supervisor OIR workflow is present."
+      },
+      "testcase_status": "SOURCE_REVIEWED",
+      "testcase_file": "testcases/CSCwa16832.json",
+      "required_criteria": [
+        {
+          "id": "working_radius_before_event",
+          "description": "The same RADIUS identity succeeds and its request is observed before the active supervisor event."
+        },
+        {
+          "id": "active_supervisor_oir",
+          "description": "The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed."
+        },
+        {
+          "id": "post_event_radius_traffic_and_auth",
+          "description": "After the event, the run proves request egress/server receipt and successful RADIUS authentication."
+        }
+      ],
+      "reasons": [
+        "Coverage is NOT_EXERCISED: the logged RADIUS SSH/Telnet cases do not include active-supervisor OIR and do not observe post-event RADIUS request egress/server receipt followed by successful authentication.",
+        "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      ],
+      "bugid": "CSCwa16832",
+      "testcase_reviewed": true,
+      "status": "NOT_EXERCISED",
+      "latest_run": {
+        "source": "TaskLog.Task-1",
+        "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+        "execution_result": "PASS",
+        "generated_testcase_execution": "NOT_RUN",
+        "bug_behavior_in_log": "NOT_EXERCISED",
+        "note": "Coverage is NOT_EXERCISED: the logged RADIUS SSH/Telnet cases do not include active-supervisor OIR and do not observe post-event RADIUS request egress/server receipt followed by successful authentication.",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN."
+      },
+      "suite_mappings": [
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Configures RADIUS, verifies reachability with test aaa and a remote SSH login; performs login-block checks and cleanup.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              2769,
+              2935
+            ],
+            "finding": "The remote login-block path configures RADIUS, tests server reachability/authentication, then asserts SSH/Telnet login; no active-supervisor OIR workflow is present."
+          },
+          "log_lines": [
+            2022,
+            2666
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No supervisor event or post-event packet-capture/authentication assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerLoginBlockSshRadiusLogin",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "working_radius_before_event",
+              "status": "PARTIAL_CONTEXT",
+              "log_lines": [
+                2022,
+                2666
+              ],
+              "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "active_supervisor_oir",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                2022,
+                2666
+              ],
+              "observation": "No active-supervisor OIR is recorded in this candidate span.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "post_event_radius_traffic_and_auth",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                2022,
+                2666
+              ],
+              "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        },
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Configures RADIUS, verifies test aaa and a Telnet login; performs login-block checks and cleanup.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              2769,
+              2935
+            ],
+            "finding": "The remote login-block path configures RADIUS, tests server reachability/authentication, then asserts SSH/Telnet login; no active-supervisor OIR workflow is present."
+          },
+          "log_lines": [
+            6776,
+            7431
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No supervisor event or post-event packet-capture/authentication assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerLoginBlockTelnetRadiusLogin",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "working_radius_before_event",
+              "status": "PARTIAL_CONTEXT",
+              "log_lines": [
+                6776,
+                7431
+              ],
+              "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "active_supervisor_oir",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                6776,
+                7431
+              ],
+              "observation": "No active-supervisor OIR is recorded in this candidate span.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "post_event_radius_traffic_and_auth",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                6776,
+                7431
+              ],
+              "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        }
+      ],
+      "coverage_assessment": {
+        "status": "NOT_EXERCISED",
+        "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+        "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+        "rationale": "Coverage is NOT_EXERCISED: the logged RADIUS SSH/Telnet cases do not include active-supervisor OIR and do not observe post-event RADIUS request egress/server receipt followed by successful authentication.",
+        "log_exercise_status": "NOT_EXERCISED",
+        "matched_criteria": [],
+        "unmatched_criteria": [
+          "active_supervisor_oir",
+          "post_event_radius_traffic_and_auth",
+          "working_radius_before_event"
+        ],
+        "candidate_tests": [
+          {
+            "uid": "TriggerLoginBlockSshRadiusLogin",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              2022,
+              2666
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "working_radius_before_event",
+                "status": "PARTIAL_CONTEXT",
+                "log_lines": [
+                  2022,
+                  2666
+                ],
+                "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "active_supervisor_oir",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  2022,
+                  2666
+                ],
+                "observation": "No active-supervisor OIR is recorded in this candidate span.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "post_event_radius_traffic_and_auth",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  2022,
+                  2666
+                ],
+                "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          },
+          {
+            "uid": "TriggerLoginBlockTelnetRadiusLogin",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              6776,
+              7431
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "working_radius_before_event",
+                "status": "PARTIAL_CONTEXT",
+                "log_lines": [
+                  6776,
+                  7431
+                ],
+                "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "active_supervisor_oir",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  6776,
+                  7431
+                ],
+                "observation": "No active-supervisor OIR is recorded in this candidate span.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "post_event_radius_traffic_and_auth",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  6776,
+                  7431
+                ],
+                "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          }
+        ],
+        "candidate_execution_result": "PASS",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "generated_testcase_execution_result": "NOT_RUN",
+        "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      },
+      "coverage_review": {
+        "status": "CODEX_REVIEWED",
+        "reviewer": "Codex",
+        "basis": "Bug-specific testcase behavior and each mapped TaskLog span were reviewed; TaskLog is primary, suite source is secondary."
+      }
+    },
+    {
+      "reviewed_coverage_rationale": "Coverage is NOT_EXERCISED: the logged AAA cases do not submit the report-derived overlength directed-request login input or assert safe rejection and device stability. Provider updateVrfName output is configuration activity, not malformed-login evidence.",
+      "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG",
+      "assessment_status": "CODEX_REVIEWED_LOG_ASSESSMENT",
+      "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+      "covered_criteria": [],
+      "log_matched_criteria": [],
+      "coverage_basis": "Log-first comparison of the validated testcase behavior with TaskLog evidence; suite code was reviewed as secondary context.",
+      "log_exercise_status": "NOT_EXERCISED",
+      "missing_criteria": [
+        "directed_request_overlength_vrf_input",
+        "safe_rejection_and_device_stability",
+        "valid_authentication_regression"
+      ],
+      "suite_code_evidence": {
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+        "lines": [
+          1502,
+          1810
+        ],
+        "finding": "This mapped class checks AAA sensitive-key disclosure and cleanup; it does not submit the malformed directed-request VRF login input or assert crash-free recovery."
+      },
+      "testcase_status": "SOURCE_REVIEWED",
+      "testcase_file": "testcases/CSCwe72648.json",
+      "required_criteria": [
+        {
+          "id": "directed_request_overlength_vrf_input",
+          "description": "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled."
+        },
+        {
+          "id": "safe_rejection_and_device_stability",
+          "description": "The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core."
+        },
+        {
+          "id": "valid_authentication_regression",
+          "description": "A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately."
+        }
+      ],
+      "reasons": [
+        "Coverage is NOT_EXERCISED: the logged AAA cases do not submit the report-derived overlength directed-request login input or assert safe rejection and device stability. Provider updateVrfName output is configuration activity, not malformed-login evidence.",
+        "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      ],
+      "bugid": "CSCwe72648",
+      "testcase_reviewed": true,
+      "status": "NOT_EXERCISED",
+      "latest_run": {
+        "source": "TaskLog.Task-1",
+        "run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+        "execution_result": "PASS",
+        "generated_testcase_execution": "NOT_RUN",
+        "bug_behavior_in_log": "NOT_EXERCISED",
+        "note": "Coverage is NOT_EXERCISED: the logged AAA cases do not submit the report-derived overlength directed-request login input or assert safe rejection and device stability. Provider updateVrfName output is configuration activity, not malformed-login evidence.",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN."
+      },
+      "suite_mappings": [
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Ordinary Flexi AAA SSH authentication flows.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              1502,
+              1810
+            ],
+            "finding": "This mapped class checks AAA sensitive-key disclosure and cleanup; it does not submit the malformed directed-request VRF login input or assert crash-free recovery."
+          },
+          "log_lines": [
+            24465,
+            25370
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No malformed directed-request username or crash/reload stability assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerFlexiAaaSsh",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "directed_request_overlength_vrf_input",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "safe_rejection_and_device_stability",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "valid_authentication_regression",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                24465,
+                25370
+              ],
+              "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        },
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Checks diagnostic disclosure of RADIUS key forms; provider updateVrfName output follows configuration changes.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              1502,
+              1810
+            ],
+            "finding": "This mapped class checks AAA sensitive-key disclosure and cleanup; it does not submit the malformed directed-request VRF login input or assert crash-free recovery."
+          },
+          "log_lines": [
+            28358,
+            29602
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No malformed login input or device-stability assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerAaaRadiusSensitiveLogDisclosure",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "directed_request_overlength_vrf_input",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                28358,
+                29602
+              ],
+              "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "safe_rejection_and_device_stability",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                28358,
+                29602
+              ],
+              "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "valid_authentication_regression",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                28358,
+                29602
+              ],
+              "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        },
+        {
+          "execution_reason": "Candidate passed; no runtime failure is recorded.",
+          "behavior_evidence": "Checks diagnostic disclosure of TACACS key forms; provider updateVrfName output follows configuration changes.",
+          "suite_source_evidence": {
+            "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py",
+            "lines": [
+              1502,
+              1810
+            ],
+            "finding": "This mapped class checks AAA sensitive-key disclosure and cleanup; it does not submit the malformed directed-request VRF login input or assert crash-free recovery."
+          },
+          "log_lines": [
+            29604,
+            34237
+          ],
+          "source_priority": "PRIMARY_LOG",
+          "coverage_gap": "No malformed login input or device-stability assertion.",
+          "covers_criteria": [],
+          "uid": "TriggerAaaTacacsSensitiveLogDisclosure",
+          "source": "TaskLog.Task-1",
+          "run_result": "PASS",
+          "criterion_evidence": [
+            {
+              "criterion_id": "directed_request_overlength_vrf_input",
+              "status": "NOT_SHOWN",
+              "log_lines": [
+                29604,
+                34237
+              ],
+              "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "safe_rejection_and_device_stability",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                29604,
+                34237
+              ],
+              "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+              "quote_validation": "NOT_CLAIMED"
+            },
+            {
+              "criterion_id": "valid_authentication_regression",
+              "status": "NOT_PROVEN",
+              "log_lines": [
+                29604,
+                34237
+              ],
+              "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+              "quote_validation": "NOT_CLAIMED"
+            }
+          ],
+          "result": "PASS"
+        }
+      ],
+      "coverage_assessment": {
+        "status": "NOT_EXERCISED",
+        "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+        "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+        "rationale": "Coverage is NOT_EXERCISED: the logged AAA cases do not submit the report-derived overlength directed-request login input or assert safe rejection and device stability. Provider updateVrfName output is configuration activity, not malformed-login evidence.",
+        "log_exercise_status": "NOT_EXERCISED",
+        "matched_criteria": [],
+        "unmatched_criteria": [
+          "directed_request_overlength_vrf_input",
+          "safe_rejection_and_device_stability",
+          "valid_authentication_regression"
+        ],
+        "candidate_tests": [
+          {
+            "uid": "TriggerFlexiAaaSsh",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "directed_request_overlength_vrf_input",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "safe_rejection_and_device_stability",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "valid_authentication_regression",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  24465,
+                  25370
+                ],
+                "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          },
+          {
+            "uid": "TriggerAaaRadiusSensitiveLogDisclosure",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              28358,
+              29602
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "directed_request_overlength_vrf_input",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  28358,
+                  29602
+                ],
+                "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "safe_rejection_and_device_stability",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  28358,
+                  29602
+                ],
+                "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "valid_authentication_regression",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  28358,
+                  29602
+                ],
+                "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          },
+          {
+            "uid": "TriggerAaaTacacsSensitiveLogDisclosure",
+            "result": "PASS",
+            "source": "TaskLog.Task-1",
+            "log_lines": [
+              29604,
+              34237
+            ],
+            "criterion_evidence": [
+              {
+                "criterion_id": "directed_request_overlength_vrf_input",
+                "status": "NOT_SHOWN",
+                "log_lines": [
+                  29604,
+                  34237
+                ],
+                "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "safe_rejection_and_device_stability",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  29604,
+                  34237
+                ],
+                "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+                "quote_validation": "NOT_CLAIMED"
+              },
+              {
+                "criterion_id": "valid_authentication_regression",
+                "status": "NOT_PROVEN",
+                "log_lines": [
+                  29604,
+                  34237
+                ],
+                "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+                "quote_validation": "NOT_CLAIMED"
+              }
+            ]
+          }
+        ],
+        "candidate_execution_result": "PASS",
+        "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+        "generated_testcase_execution_result": "NOT_RUN",
+        "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+      },
+      "coverage_review": {
+        "status": "CODEX_REVIEWED",
+        "reviewer": "Codex",
+        "basis": "Bug-specific testcase behavior and each mapped TaskLog span were reviewed; TaskLog is primary, suite source is secondary."
+      }
+    }
+  ],
+  "scope": [
+    "CSCvt64662",
+    "CSCvp62539",
+    "CSCvz55570",
+    "CSCwa16832",
+    "CSCwe72648"
+  ],
+  "coverage_not_exercised_count": 4,
+  "coverage_method": "TaskLog-first behavior assessment; supplied suite source is secondary corroboration. Generated testcase run status is separate.",
+  "coverage_pass_count": 1,
+  "score_note": "Log-backed coverage score = behavior-matching PASS / all in-scope bugs. NOT_EXERCISED and UNVERIFIED remain separate; generated testcase run status is NOT_RUN unless run evidence is added.",
+  "scope_count": 5,
+  "suite_code_review": {
+    "sources": [
+      {
+        "lines": [
+          38,
+          90
+        ],
+        "finding": "The archived run UIDs are included in the active aggregator job.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/src/services/nxpi/security/AAA/aaa_suite/aaa_suite_job.py"
+      },
+      {
+        "lines": [
+          45,
+          63
+        ],
+        "finding": "Quiet-mode and sensitive-log UIDs map to the shared trigger module.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/src/services/nxpi/security/AAA/aaa_suite/aaa_suite_grun.yml"
+      },
+      {
+        "lines": [
+          3555,
+          3850
+        ],
+        "finding": "Quiet-mode trigger activates/verifies quiet mode, checks non-permitted denial, then checks permitted login success; after-login state is a separate observation.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+      },
+      {
+        "lines": [
+          3409,
+          3455
+        ],
+        "finding": "LoginBlockTest is parameterized for SSH/Telnet and local/remote AAA; it does not implement supervisor OIR or directed-request malformed input.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+      },
+      {
+        "lines": [
+          4104,
+          4245
+        ],
+        "finding": "OpenConfig case creates and validates server-group configuration via NETCONF; it is not an XML-agent show/tacacs-server state-read test.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+      },
+      {
+        "lines": [
+          5685,
+          5738
+        ],
+        "finding": "Flexi SSH uses inband target addresses and tests authentication variants; this section does not assert mgmt0-down, ISE authorization receipt, or returned roles.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/lib/triggers/security/aaa/aaa_trigger.py"
+      },
+      {
+        "lines": [
+          1,
+          32
+        ],
+        "finding": "Standalone Flexi job runs the SSH/SCP/SFTP/reload variants; no bug-specific CSCvz55570 claim is inferred from its name.",
+        "path": "/auto/Nexus-n39K/new_github_repo/praveec3/nexus-test-pyats/src/services/nxpi/security/Flexi_AAA/flexi_aaa_job.py"
+      },
+      {
+        "lines": [
+          1,
+          33
+        ],
+        "finding": "Legacy job launches the login_block script with TC_dot1x selectors, so it is not primary evidence for the archived AAA UID run.",
+        "path": "/ws/ssiripir-bgl/ssiripir-v3-nongolden/nexus-test-automation/eor/regression/nxpi/security/login_block/login_block_job.py"
+      },
+      {
+        "lines": [
+          1,
+          75
+        ],
+        "finding": "Legacy OC job launches OC_System_TEST; it is secondary context, not the archived UID result.",
+        "path": "/ws/ssiripir-bgl/ssiripir-v3-nongolden/nexus-test-automation/eor/regression/nxpi/oc/OC_SYSTEM_AAA/oc_system_aaa_tor_job.py"
+      }
+    ],
+    "status": "REVIEWED_AS_SECONDARY_EVIDENCE",
+    "priority": "TaskLog.Task-1 is primary; suite source confirms UID wiring and implemented assertions only."
+  },
+  "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+  "review_policy": "Coverage is assessed primarily from the archived TaskLog, with supplied suite source used to confirm test wiring and assertion intent. Generated testcase execution is tracked separately and remains NOT_RUN unless run evidence is added.",
+  "suite_code_status": "REVIEWED_SECONDARY_TO_TASKLOG"
+}

@@ -1,74 +1,311 @@
 {
-  "bugid": "CSCvp62539",
-  "testcase_id": "TC_CSCvp62539_QUIET_MODE_PERMITTED_LOCAL_LOGIN",
-  "title": "Permit local Telnet login from the quiet-mode ACL source",
-  "status": "proposed",
-  "source": {
-    "dumpcr_file": "bug_info/bug_CSCvp62539.txt",
-    "bug_summary": "A correct local login to the switch management IP fails from an ACL-permitted host after login quiet-mode is triggered.",
-    "reproduction_transport": "Telnet",
-    "block_parameters": {
-      "block_for_seconds": 100,
-      "failed_attempts": 3,
-      "within_seconds": 60
+  "title": "ACL-permitted local user can authenticate during quiet-mode",
+  "source_facts": [
+    {
+      "source": "bug_info/bug_CSCvp62539.txt",
+      "claim": "The report says the valid local login from an ACL-permitted host is rejected during quiet-mode after failed attempts.",
+      "lines": [
+        779,
+        1046
+      ],
+      "kind": "dumpcr fact",
+      "note": "Unit-test / F-comments"
+    },
+    {
+      "source": "bug_info/bug_CSCvp62539.txt",
+      "claim": "The original report describes Telnet and three failed attempts; the later manual verification uses SSH and a 3-attempt/60-second configuration.",
+      "lines": [
+        301,
+        536
+      ],
+      "kind": "dumpcr fact",
+      "note": "Unit-test and Manual-verification-qr3f"
+    },
+    {
+      "source": "bug_info/bug_CSCvp62539.txt",
+      "claim": "The bug record includes historical fix verification on NX-OS 10.6(3) build 10.6(2)IMG9(0.152), and it also notes the original fix had been in 9.3.1.",
+      "lines": [
+        301,
+        575
+      ],
+      "kind": "dumpcr fact",
+      "note": "V-comments, Manual-verification-qr3f, DetectionUnsuitable"
     }
-  },
-  "suite": {
-    "job": "src/services/nxpi/security/AAA/aaa_suite/aaa_suite_job.py",
-    "related_trigger_uid": "TriggerSystemLoginBlockQuietModeAccessClass",
-    "related_pyats_class": "SystemLoginBlockQuietModeTest",
-    "integration_note": "The suite already checks quiet-mode ACL behavior over SSH. This testcase captures the bug's specific Telnet-to-management-IP repro and requires the trigger to support that transport and permitted-source sequence."
-  },
-  "objective": "After three failed local authentication attempts trigger quiet-mode, confirm that the same source permitted by the quiet-mode ACL can still authenticate with the correct local password to the DUT management IP.",
-  "preconditions": [
-    "Use an isolated AAA test DUT with Telnet enabled for the test, and restore its configuration after the case.",
-    "The testbed provides a client with a stable source IP that can reach the DUT management IP.",
-    "The client source is included in the quiet-mode ACL; keep the ACL rule scoped to the DUT management address.",
-    "Create or use a dedicated local test user. Obtain its password from the suite secret mechanism, not from this JSON file."
   ],
-  "configuration_template": [
-    "ip access-list <QUIET_ACL>",
-    "  10 permit ip <PERMITTED_SOURCE_IP> <SOURCE_WILDCARD> <DUT_MGMT_IP> <DUT_MGMT_WILDCARD>",
-    "username <TEST_USER> password <SECRET> role <TEST_ROLE>",
-    "system login block-for 100 attempts 3 within 60",
-    "system login quiet-mode access-class <QUIET_ACL>"
+  "uncertainties": [
+    "The dump’s exact threshold wording varies; verify the DUT-reported quiet-mode state rather than assuming an attempt count.",
+    "TaskLog records Normal-Mode after successful login; it does not establish quiet-mode persistence after login."
   ],
+  "testcase_status": "SOURCE_REVIEWED",
+  "status": "source_reviewed",
+  "behavior_validation": {
+    "status": "VALIDATED_FROM_DUMPCR",
+    "central_behavior": "A client permitted by the quiet-mode ACL can authenticate with valid local credentials while quiet-mode is active.",
+    "review_notes": "The post-login Normal-Mode state is recorded separately; no persistence claim is made.",
+    "intended_behavior": "Valid local login from an ACL-permitted source succeeds during active quiet-mode.",
+    "excluded_incidental_details": [
+      "Exact failure threshold unless needed to reach active quiet-mode.",
+      "Telnet as a required transport when another transport exercises the same behavior."
+    ],
+    "reported_failure": "The report records a permitted source receiving Login incorrect for correct local credentials.",
+    "source_refs": [
+      "bug_info/bug_CSCvp62539.txt lines 779-1046",
+      "bug_info/bug_CSCvp62539.txt lines 301-575"
+    ],
+    "observable_assertion": "The same permitted source obtains an authenticated session using valid local credentials; explicit login rejection is failure.",
+    "essential_conditions": [
+      "Local authentication is configured.",
+      "The source is permitted by the quiet-mode ACL.",
+      "The DUT reports quiet-mode active before the valid login."
+    ]
+  },
+  "expected_after_fix": "Core expected behavior: the ACL-permitted source can successfully use valid local credentials during active quiet-mode.",
+  "prerequisites": [
+    "Use an isolated DUT, a dedicated local test account, and a test client whose source is explicitly permitted by the quiet-mode ACL.",
+    "Save login-block, ACL and account state; ensure the configured quiet-mode is confirmed active before the valid attempt."
+  ],
+  "failure_condition": "A client source permitted by the quiet-mode ACL is rejected when it submits correct local credentials during active quiet-mode; the original report records `Login incorrect`.",
   "steps": [
     {
+      "action": "Configure a dedicated local user and a narrow quiet-mode ACL permit for the test client; configure login blocking and save prior state.",
+      "expected": "The client source is demonstrably permitted and the test account uses local authentication.",
       "step": 1,
-      "action": "Save the DUT's existing AAA, login-block, ACL, and test-user state so cleanup can restore it.",
-      "expected": "The test can remove only the configuration it added and restore prior settings."
+      "phase": "setup"
     },
     {
+      "action": "Use controlled failed attempts or another report-supported method to enter quiet-mode, then inspect the DUT state.",
+      "expected": "Quiet-mode is explicitly active before the valid attempt; do not infer activation from an attempt count alone.",
       "step": 2,
-      "action": "Apply the scoped ACL, dedicated local test user, block-for threshold (100 seconds, 3 failures within 60 seconds), and quiet-mode access-class.",
-      "expected": "The DUT accepts the configuration and show running-config contains the intended settings."
+      "phase": "trigger state"
     },
     {
+      "action": "From the ACL-permitted client, submit valid local credentials over a supported management login transport.",
+      "expected": "The user reaches an authenticated session/prompt. A rejection of valid local credentials is the reported failure.",
       "step": 3,
-      "action": "From the ACL-permitted client, make three Telnet login attempts to the DUT management IP using the test username and an incorrect password, completing each prompt exchange within 60 seconds.",
-      "expected": "All three attempts are rejected and the DUT enters quiet-mode."
+      "phase": "bug-specific action"
     },
     {
+      "action": "Restore saved login-block/ACL configuration and remove the dedicated test account.",
+      "expected": "The DUT returns to its original AAA state; record post-login quiet-mode state separately.",
       "step": 4,
-      "action": "Verify quiet-mode with show system login; record the mode and failure count or show system login failures output.",
-      "expected": "Quiet-mode is active and the failed-attempt threshold was reached."
-    },
-    {
-      "step": 5,
-      "action": "From that same ACL-permitted client, Telnet to the DUT management IP and enter the correct local test-user password.",
-      "expected": "Authentication succeeds and the user reaches the expected NX-OS prompt while quiet-mode remains active. A 'Login incorrect' response is a failure for CSCvp62539."
-    },
-    {
-      "step": 6,
-      "action": "Remove test configuration and restore the saved DUT state, including login-block settings, ACL entries, and test user.",
-      "expected": "The DUT is returned to its pre-test state even if an earlier step failed."
+      "phase": "cleanup"
     }
   ],
-  "pass_criteria": [
-    "The three invalid attempts trigger quiet-mode.",
-    "The correct local credentials from the ACL-permitted source authenticate to the DUT management IP during quiet-mode.",
-    "Cleanup completes and restores the pre-test configuration."
+  "reproduction_context": {
+    "report_context": "The original report uses three failed Telnet attempts from an ACL-permitted client, followed by valid local credentials from that permitted host. This exact threshold and transport are reproduction context; coverage requires the source to be permitted, quiet-mode active immediately before valid login, and successful local authentication.",
+    "coverage_note": "Context only; required conditions are listed in coverage_requirements.",
+    "source_references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          779,
+          830
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          833,
+          1046
+        ],
+        "note": "F-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          301,
+          536
+        ],
+        "note": "Manual-verification-qr3f"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          539,
+          564
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          567,
+          575
+        ],
+        "note": "DetectionUnsuitable"
+      }
+    ]
+  },
+  "cleanup": [
+    "Restore saved login-block/ACL configuration and remove the dedicated test account."
   ],
-  "safety": "Run only on an isolated test DUT. The scenario intentionally generates failed logins and changes login-block/ACL configuration."
+  "coverage_requirements": [
+    {
+      "id": "quiet_mode_and_permitted_source_confirmed_before_login",
+      "description": "Before the valid login, the DUT reports quiet-mode active and the client source is permitted by the applied quiet-mode ACL."
+    },
+    {
+      "id": "valid_local_login_succeeds",
+      "description": "The same permitted client presents valid local credentials and the log shows successful authentication during that active state."
+    }
+  ],
+  "testcase_id": "TC_CSCvp62539",
+  "objective": "Verify that a client permitted by the quiet-mode ACL can authenticate with valid local credentials while quiet-mode is active.",
+  "preconditions_and_setup": [
+    "Use an isolated DUT, a dedicated local test account, and a test client whose source is explicitly permitted by the quiet-mode ACL.",
+    "Save login-block, ACL and account state; ensure the configured quiet-mode is confirmed active before the valid attempt."
+  ],
+  "trigger_context": [
+    "The original report uses three failed Telnet attempts from an ACL-permitted client, followed by valid local credentials from that permitted host. This exact threshold and transport are reproduction context; coverage requires the source to be permitted, quiet-mode active immediately before valid login, and successful local authentication.",
+    "Coverage is based on the central behavior and observable assertion, not every reproduction detail unless the dump establishes that detail as necessary."
+  ],
+  "review": {
+    "reviewer": "Codex",
+    "basis": "Dumpcr behavior was validated in Codex review; TaskLog is primary for suite evidence and supplied source code is secondary context. The generated testcase itself has not run.",
+    "result": "source_reviewed"
+  },
+  "bugid": "CSCvp62539",
+  "source": {
+    "dumpcr_file": "bug_info/bug_CSCvp62539.txt",
+    "references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          779,
+          830
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          833,
+          1046
+        ],
+        "note": "F-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          301,
+          536
+        ],
+        "note": "Manual-verification-qr3f"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          539,
+          564
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          567,
+          575
+        ],
+        "note": "DetectionUnsuitable"
+      }
+    ]
+  },
+  "preconditions": [
+    "Use an isolated DUT, a dedicated local test account, and a test client whose source is explicitly permitted by the quiet-mode ACL.",
+    "Save login-block, ACL and account state; ensure the configured quiet-mode is confirmed active before the valid attempt."
+  ],
+  "limitations": [],
+  "requirements": [
+    {
+      "id": "quiet_mode_and_permitted_source_confirmed_before_login",
+      "description": "Before the valid login, the DUT reports quiet-mode active and the client source is permitted by the applied quiet-mode ACL."
+    },
+    {
+      "id": "valid_local_login_succeeds",
+      "description": "The same permitted client presents valid local credentials and the log shows successful authentication during that active state."
+    }
+  ],
+  "reviewed": true,
+  "evidence_to_collect": [
+    "The log proves the client source is permitted and quiet-mode is active immediately before the valid login.",
+    "The same permitted client presents valid local credentials and the log shows successful authentication during that active state.",
+    "Record testcase setup, output, cleanup and the cited dumpcr/TaskLog line ranges. Protect credentials and redact secrets."
+  ],
+  "interpretations": [
+    {
+      "claim": "Core expected behavior: the ACL-permitted source can successfully use valid local credentials during active quiet-mode.",
+      "certainty": "high-confidence interpretation; keep post-login mode separate.",
+      "basis": "Directly follows the reported failure and the intended ACL exception; transport and exact failure threshold are not central when active quiet-mode and the permitted-source login are demonstrated."
+    }
+  ],
+  "bug_specific_action": "From the ACL-permitted client, submit valid local credentials over a supported management login transport.",
+  "suite_log_assessment": {
+    "status": "PASS",
+    "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+    "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+    "rationale": "Coverage is PASS: TaskLog shows the quiet-mode ACL active in the immediately preceding flow and then records successful valid local SSH login from the permitted node. The post-login output is Normal-Mode, so persistence after login is not claimed.",
+    "log_exercise_status": "MATCHES_CENTRAL_BEHAVIOR",
+    "matched_criteria": [
+      "quiet_mode_and_permitted_source_confirmed_before_login",
+      "valid_local_login_succeeds"
+    ],
+    "unmatched_criteria": [],
+    "candidate_tests": [
+      {
+        "uid": "TriggerSystemLoginBlockQuietModeAccessClass",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          27668,
+          28356
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "quiet_mode_and_permitted_source_confirmed_before_login",
+            "status": "OBSERVED",
+            "log_lines": [
+              28094,
+              28108
+            ],
+            "evidence_quotes": [
+              "Quiet-Mode access list aaa_quiet_permit is applied.",
+              "Switch presently in Quiet-Mode"
+            ],
+            "observation": "DUT reports the configured ACL active and quiet-mode immediately before the permitted-client login step begins.",
+            "quote_validation": "PASS"
+          },
+          {
+            "criterion_id": "valid_local_login_succeeds",
+            "status": "OBSERVED",
+            "log_lines": [
+              28109,
+              28173
+            ],
+            "evidence_quotes": [
+              "Starting STEP 9: test1 valid SSH from permitted node02",
+              "PASS | Device: node01 | permitted node02 logged in during quiet-mode as expected"
+            ],
+            "observation": "The permitted node02 local-user login is attempted and the log explicitly records success.",
+            "quote_validation": "PASS"
+          }
+        ]
+      }
+    ],
+    "candidate_execution_result": "PASS",
+    "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+    "generated_testcase_execution_result": "NOT_RUN",
+    "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+  },
+  "suite": {
+    "integration_note": "TaskLog confirms the ACL and active quiet-mode before the permitted local login and records that login succeeding. SSH is functionally equivalent for the central behavior; the dump’s exact Telnet/attempt-count details are reproduction context. The later Normal-Mode output does not prove quiet-mode persisted after login.",
+    "source_availability": "The supplied suite source was reviewed as secondary evidence; TaskLog remains primary for this coverage assessment. The generated testcase itself remains NOT_RUN."
+  },
+  "reported_behavior": {
+    "intended_behavior": "Core expected behavior: the ACL-permitted source can successfully use valid local credentials during active quiet-mode.",
+    "expected_behavior_kind": "interpretation grounded in cited symptom and fix/verification evidence",
+    "conditions_from_report": "Local authentication and `system login block-for` plus `system login quiet-mode access-class` are configured; the client is ACL-permitted and quiet-mode is confirmed active before its valid login.",
+    "source_facts_are_cited": true,
+    "observed_incorrect_behavior": "A client source permitted by the quiet-mode ACL is rejected when it submits correct local credentials during active quiet-mode; the original report records `Login incorrect`."
+  }
 }

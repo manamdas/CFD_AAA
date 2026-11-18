@@ -1,0 +1,420 @@
+{
+  "title": "Directed-request rejects overlength VRF input without device denial of service",
+  "source_facts": [
+    {
+      "source": "bug_info/bug_CSCwe72648.txt",
+      "claim": "The security release note says crafted login input with directed-request enabled can cause an unexpected device reload due to incorrect input validation.",
+      "lines": [
+        1473,
+        1505
+      ],
+      "kind": "dumpcr fact",
+      "note": "Release-note"
+    },
+    {
+      "source": "bug_info/bug_CSCwe72648.txt",
+      "claim": "The RCA says the VRF-name in the directed-request username format can exceed the maximum length of 32 characters, causing stack corruption; fix adds validation and a syslog.",
+      "lines": [
+        1026,
+        1036
+      ],
+      "kind": "dumpcr fact",
+      "note": "R-comments.p2"
+    },
+    {
+      "source": "bug_info/bug_CSCwe72648.txt",
+      "claim": "The unit-test notes configure directed-request and show failed malformed login attempts and AAA_VRF_LENGTH_EXCEED messages; the terminal capture obscures the exact input string.",
+      "lines": [
+        536,
+        828
+      ],
+      "kind": "dumpcr fact",
+      "note": "unit-test-Kerry and unit-test-IMR11"
+    },
+    {
+      "source": "bug_info/bug_CSCwe72648.txt",
+      "claim": "The RCA reports unit coverage for valid/invalid credentials with directed and non-directed modes; protocol scope includes TACACS+ and RADIUS.",
+      "lines": [
+        1026,
+        1036
+      ],
+      "kind": "dumpcr fact",
+      "note": "R-comments.p2"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "directed_request_overlength_vrf_input",
+      "description": "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled."
+    },
+    {
+      "id": "safe_rejection_and_device_stability",
+      "description": "The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core."
+    },
+    {
+      "id": "valid_authentication_regression",
+      "description": "A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately."
+    }
+  ],
+  "testcase_status": "SOURCE_REVIEWED",
+  "generation": {
+    "source": "dumpcr full report notes and TaskLog.Task-1; reproduction mechanics retained only where required for the behavior.",
+    "method": "codex_source_review"
+  },
+  "behavior_validation": {
+    "status": "VALIDATED_FROM_DUMPCR",
+    "central_behavior": "With TACACS+ or RADIUS directed-request enabled, verify that a login containing a report-derived overlength VRF-name is safely rejected and the device remains operational.",
+    "intended_behavior": "The central fixed behavior is safe validation/rejection of an overlength directed-request VRF field, no reload/crash/core, and continued availability for a subsequent valid login.",
+    "review_notes": "The testcase defines required behavior and observable evidence; incidental reproduction details remain context unless required by the report.",
+    "reported_failure": "With directed-request enabled, a crafted login string containing an overlength VRF-name can corrupt the stack and cause an unexpected device reload (DoS).",
+    "source_refs": [
+      "bug_info/bug_CSCwe72648.txt"
+    ],
+    "observable_assertion": "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled.; The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core.; A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately.",
+    "essential_conditions": [
+      "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled.",
+      "The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core.",
+      "A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately."
+    ]
+  },
+  "expected_after_fix": "The central fixed behavior is safe validation/rejection of an overlength directed-request VRF field, no reload/crash/core, and continued availability for a subsequent valid login.",
+  "steps": [
+    {
+      "action": "Enable directed-request for one remote AAA protocol and establish a valid authentication baseline. Prepare the approved overlength VRF-name input fixture; record device health and core baseline.",
+      "expected": "The protocol and directed-request state are confirmed, the fixture is validated, and recovery evidence is available.",
+      "step": 1,
+      "phase": "setup"
+    },
+    {
+      "action": "Submit the approved malformed directed-request login input at the login prompt. Run TACACS+ and RADIUS as separate protocol variants when both are in scope.",
+      "expected": "The invalid input is rejected and validation logging may identify the overlength VRF; no reload or crash occurs.",
+      "step": 2,
+      "phase": "bug-specific action"
+    },
+    {
+      "action": "Check device reachability, uptime/reload reason, core inventory and a subsequent valid remote login.",
+      "expected": "The device remains responsive without a related reload/core and the valid follow-up login succeeds.",
+      "step": 3,
+      "phase": "assertion"
+    },
+    {
+      "action": "Restore the saved AAA/directed-request configuration and remove only test-owned identities and fixture data.",
+      "expected": "The DUT and AAA service return to baseline.",
+      "step": 4,
+      "phase": "cleanup"
+    }
+  ],
+  "prerequisites": [
+    "Use an isolated lab DUT with console recovery, a lab AAA server, and an authorized test fixture for a VRF-name longer than the documented 32-character limit.",
+    "Record uptime, core inventory, supervisor state and baseline valid remote login; use only synthetic credentials."
+  ],
+  "suite_log_scope": {
+    "archive_run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+    "scope_note": "TaskLog.Task-1 is primary evidence; supplied suite source was checked secondarily. The generated testcase itself was not run.",
+    "source_file": "TaskLog.Task-1",
+    "archive_url": "https://onedevx.cisco.com/test-services/results/details/archive/aaa_suite_job.2026Nov09_18:04:42.291781.zip/"
+  },
+  "failure_condition": "With directed-request enabled, a crafted login string containing an overlength VRF-name can corrupt the stack and cause an unexpected device reload (DoS).",
+  "status": "source_reviewed",
+  "suite_log_assessment": {
+    "status": "NOT_EXERCISED",
+    "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+    "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+    "rationale": "Coverage is NOT_EXERCISED: the logged AAA cases do not submit the report-derived overlength directed-request login input or assert safe rejection and device stability. Provider updateVrfName output is configuration activity, not malformed-login evidence.",
+    "log_exercise_status": "NOT_EXERCISED",
+    "matched_criteria": [],
+    "unmatched_criteria": [
+      "directed_request_overlength_vrf_input",
+      "safe_rejection_and_device_stability",
+      "valid_authentication_regression"
+    ],
+    "candidate_tests": [
+      {
+        "uid": "TriggerFlexiAaaSsh",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          24465,
+          25370
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "directed_request_overlength_vrf_input",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "safe_rejection_and_device_stability",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "valid_authentication_regression",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      },
+      {
+        "uid": "TriggerAaaRadiusSensitiveLogDisclosure",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          28358,
+          29602
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "directed_request_overlength_vrf_input",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              28358,
+              29602
+            ],
+            "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "safe_rejection_and_device_stability",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              28358,
+              29602
+            ],
+            "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "valid_authentication_regression",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              28358,
+              29602
+            ],
+            "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      },
+      {
+        "uid": "TriggerAaaTacacsSensitiveLogDisclosure",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          29604,
+          34237
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "directed_request_overlength_vrf_input",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              29604,
+              34237
+            ],
+            "observation": "This mapped AAA flow does not submit malformed directed-request login input.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "safe_rejection_and_device_stability",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              29604,
+              34237
+            ],
+            "observation": "No assertion connects rejection of malformed input with no crash/reload/core.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "valid_authentication_regression",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              29604,
+              34237
+            ],
+            "observation": "Ordinary valid AAA authentication, where present, is not a regression after the malformed input.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      }
+    ],
+    "candidate_execution_result": "PASS",
+    "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+    "generated_testcase_execution_result": "NOT_RUN",
+    "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+  },
+  "cleanup": [
+    "Restore the saved AAA/directed-request configuration and remove only test-owned identities and fixture data."
+  ],
+  "coverage_requirements": [
+    {
+      "id": "directed_request_overlength_vrf_input",
+      "description": "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled."
+    },
+    {
+      "id": "safe_rejection_and_device_stability",
+      "description": "The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core."
+    },
+    {
+      "id": "valid_authentication_regression",
+      "description": "A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately."
+    }
+  ],
+  "testcase_id": "TC_CSCwe72648_CENTRAL_BEHAVIOR",
+  "objective": "With TACACS+ or RADIUS directed-request enabled, verify that a login containing a report-derived overlength VRF-name is safely rejected and the device remains operational.",
+  "preconditions_and_setup": [
+    "Use an isolated lab DUT with console recovery, a lab AAA server, and an authorized test fixture for a VRF-name longer than the documented 32-character limit.",
+    "Record uptime, core inventory, supervisor state and baseline valid remote login; use only synthetic credentials."
+  ],
+  "trigger_context": [
+    "The report describes a crafted directed-request username using `username@vrfname:hostname`, with a VRF-name over 32 characters. The transcript’s exact payload is corrupted; use a validated test fixture rather than reconstructing it from the damaged terminal text.",
+    "Coverage is based on the central behavior and observable assertion, not every reproduction detail unless the dump establishes that detail as necessary."
+  ],
+  "review": {
+    "reviewer": "Codex",
+    "basis": "Dumpcr behavior was validated in Codex review; TaskLog is primary for suite evidence and supplied source code is secondary context. The generated testcase itself has not run.",
+    "result": "source_reviewed"
+  },
+  "bugid": "CSCwe72648",
+  "source": {
+    "references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          536,
+          828
+        ],
+        "note": "unit-test-Kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1026,
+          1036
+        ],
+        "note": "R-comments.p2"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1217,
+          1372
+        ],
+        "note": "unit-test-IMR11"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          491,
+          495
+        ],
+        "note": "V-comments.p2"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1473,
+          1505
+        ],
+        "note": "Release-note"
+      }
+    ],
+    "dumpcr_file": "bug_info/bug_CSCwe72648.txt"
+  },
+  "preconditions": [
+    "Use an isolated lab DUT with console recovery, a lab AAA server, and an authorized test fixture for a VRF-name longer than the documented 32-character limit.",
+    "Record uptime, core inventory, supervisor state and baseline valid remote login; use only synthetic credentials."
+  ],
+  "uncertainties": [
+    "The exact crafted username is obscured/mangled in the dumpcr transcript. Do not synthesize a payload from the damaged terminal text; use a protected fixture validated against the source test.",
+    "TACACS+ and RADIUS are separate coverage claims and should be tested separately if both are reported covered."
+  ],
+  "interpretations": [
+    {
+      "claim": "The central fixed behavior is safe validation/rejection of an overlength directed-request VRF field, no reload/crash/core, and continued availability for a subsequent valid login.",
+      "certainty": "high confidence for behavior; exact payload must come from a verified test fixture.",
+      "basis": "Inferred from the vulnerability symptom, RCA fix description and historical unit-test logs."
+    }
+  ],
+  "bug_specific_action": "Submit the approved malformed directed-request login input at the login prompt. Run TACACS+ and RADIUS as separate protocol variants when both are in scope.",
+  "evidence_to_collect": [
+    "Evidence proves an approved VRF-name exceeding the report’s 32-character limit was submitted while directed-request was enabled.",
+    "The invalid attempt is rejected and the DUT remains responsive with no reload/crash or related new core.",
+    "A subsequent valid remote authentication succeeds; claim TACACS+ and RADIUS separately.",
+    "Record testcase setup, output, cleanup and the cited dumpcr/TaskLog line ranges. Protect credentials and redact secrets."
+  ],
+  "suite": {
+    "integration_note": "TaskLog has ordinary AAA SSH authentication and diagnostic secret-disclosure tests. `updateVrfName` messages are configuration/provider activity, not malformed login input.",
+    "source_availability": "The supplied suite source was reviewed as secondary evidence; TaskLog remains primary for this coverage assessment. The generated testcase itself remains NOT_RUN."
+  },
+  "intended_behavior": "When directed remote authentication receives an invalid or overlength VRF-name input, NX-OS rejects that attempt safely and remains operational; ordinary valid remote authentication continues to work.",
+  "reproduction_context": {
+    "report_context": "The report describes a crafted directed-request username using `username@vrfname:hostname`, with a VRF-name over 32 characters. The transcript’s exact payload is corrupted; use a validated test fixture rather than reconstructing it from the damaged terminal text.",
+    "coverage_note": "Context only; required conditions are listed in coverage_requirements.",
+    "source_references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          536,
+          828
+        ],
+        "note": "unit-test-Kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1026,
+          1036
+        ],
+        "note": "R-comments.p2"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1217,
+          1372
+        ],
+        "note": "unit-test-IMR11"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          491,
+          495
+        ],
+        "note": "V-comments.p2"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1473,
+          1505
+        ],
+        "note": "Release-note"
+      }
+    ]
+  },
+  "reported_failure": "With TACACS+ or RADIUS directed-request enabled, crafted login input containing an invalid VRF-name value can trigger input-validation/stack-corruption behavior and unexpectedly reload the device (DoS).",
+  "reported_behavior": {
+    "intended_behavior": "The central fixed behavior is safe validation/rejection of an overlength directed-request VRF field, no reload/crash/core, and continued availability for a subsequent valid login.",
+    "expected_behavior_kind": "interpretation grounded in cited symptom and fix/verification evidence",
+    "conditions_from_report": "Remote authentication uses TACACS+ or RADIUS with directed-request enabled; the username carries a VRF-name longer than the documented 32-character limit.",
+    "source_facts_are_cited": true,
+    "observed_incorrect_behavior": "With directed-request enabled, a crafted login string containing an overlength VRF-name can corrupt the stack and cause an unexpected device reload (DoS)."
+  }
+}

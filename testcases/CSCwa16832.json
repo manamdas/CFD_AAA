@@ -1,0 +1,427 @@
+{
+  "title": "RADIUS requests and authentication must recover after active-supervisor OIR",
+  "source_facts": [
+    {
+      "source": "bug_info/bug_CSCwa16832.txt",
+      "claim": "The reproduction starts with working RADIUS, removes the active supervisor, then observes authentication failure and no RADIUS packet at egress/next-hop.",
+      "lines": [
+        557,
+        592
+      ],
+      "kind": "dumpcr fact",
+      "note": "reproduction-steps"
+    },
+    {
+      "source": "bug_info/bug_CSCwa16832.txt",
+      "claim": "The release note lists active supervisor OIR or supervisor switchover as a condition; an automation note says a switchover was used because OIR could not be automated.",
+      "lines": [
+        254,
+        259
+      ],
+      "kind": "dumpcr fact",
+      "note": "Release-note and Automation Log"
+    },
+    {
+      "source": "bug_info/bug_CSCwa16832.txt",
+      "claim": "A scrubnote says the issue was seen with physical OIR, not soft switchover.",
+      "lines": [
+        542,
+        549
+      ],
+      "kind": "dumpcr fact",
+      "note": "Scrubnote"
+    },
+    {
+      "source": "bug_info/bug_CSCwa16832.txt",
+      "claim": "Historical fix verification records a RADIUS test after supervisor switchover, but says Automation Suite: No.",
+      "lines": [
+        319,
+        324
+      ],
+      "kind": "dumpcr fact",
+      "note": "V-comments and Unit-test"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "working_radius_before_event",
+      "description": "The same RADIUS identity succeeds and its request is observed before the active supervisor event."
+    },
+    {
+      "id": "active_supervisor_oir",
+      "description": "The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed."
+    },
+    {
+      "id": "post_event_radius_traffic_and_auth",
+      "description": "After the event, the run proves request egress/server receipt and successful RADIUS authentication."
+    }
+  ],
+  "testcase_status": "SOURCE_REVIEWED",
+  "generation": {
+    "source": "dumpcr full report notes and TaskLog.Task-1; reproduction mechanics retained only where required for the behavior.",
+    "method": "codex_source_review"
+  },
+  "behavior_validation": {
+    "status": "VALIDATED_FROM_DUMPCR",
+    "central_behavior": "After an active supervisor OIR, verify that configured RADIUS requests leave the DUT and valid RADIUS authentication succeeds.",
+    "intended_behavior": "Physical active-supervisor OIR is the firm central trigger; a software/ISSU switchover-only test should not be treated as equivalent without validation.",
+    "review_notes": "The testcase defines required behavior and observable evidence; incidental reproduction details remain context unless required by the report.",
+    "reported_failure": "After active supervisor OIR, RADIUS authentication fails with server lookup/retry errors and packet capture/next-hop sees no RADIUS request leaving the DUT.",
+    "source_refs": [
+      "bug_info/bug_CSCwa16832.txt"
+    ],
+    "observable_assertion": "The same RADIUS identity succeeds and its request is observed before the active supervisor event.; The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed.; After the event, the run proves request egress/server receipt and successful RADIUS authentication.",
+    "essential_conditions": [
+      "The same RADIUS identity succeeds and its request is observed before the active supervisor event.",
+      "The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed.",
+      "After the event, the run proves request egress/server receipt and successful RADIUS authentication."
+    ]
+  },
+  "expected_after_fix": "Physical active-supervisor OIR is the firm central trigger; a software/ISSU switchover-only test should not be treated as equivalent without validation.",
+  "steps": [
+    {
+      "action": "Configure RADIUS and prove the same test identity authenticates; record a baseline RADIUS request at the server or egress capture.",
+      "expected": "Baseline authentication and packet path are confirmed.",
+      "step": 1,
+      "phase": "baseline"
+    },
+    {
+      "action": "Perform the report’s active-supervisor physical OIR under the approved lab procedure. A software switchover may be considered only as a separately labeled, unproven variant.",
+      "expected": "The active-supervisor event is evidenced and the RADIUS configuration remains present.",
+      "step": 2,
+      "phase": "trigger"
+    },
+    {
+      "action": "Repeat the same RADIUS authentication and inspect egress/server capture and RADIUS error logs.",
+      "expected": "A RADIUS request is emitted/reaches the server and valid authentication succeeds; absence of packets with the reported lookup/retry errors is failure.",
+      "step": 3,
+      "phase": "assertion"
+    },
+    {
+      "action": "Restore supervisor/device state and saved RADIUS configuration, then recheck management and authentication.",
+      "expected": "The system is stable and normal RADIUS access works.",
+      "step": 4,
+      "phase": "cleanup"
+    }
+  ],
+  "prerequisites": [
+    "Redundant Nexus lab system and approved active-supervisor OIR procedure with console/recovery access.",
+    "Configure a reachable RADIUS server and test identity; save configuration and prove authentication plus packet visibility before the event."
+  ],
+  "suite_log_scope": {
+    "archive_run_id": "aaa_suite_job.2026Nov09_18:04:42.291781",
+    "scope_note": "TaskLog.Task-1 is primary evidence; supplied suite source was checked secondarily. The generated testcase itself was not run.",
+    "source_file": "TaskLog.Task-1",
+    "archive_url": "https://onedevx.cisco.com/test-services/results/details/archive/aaa_suite_job.2026Nov09_18:04:42.291781.zip/"
+  },
+  "failure_condition": "After active supervisor OIR, RADIUS authentication fails with server lookup/retry errors and packet capture/next-hop sees no RADIUS request leaving the DUT.",
+  "status": "source_reviewed",
+  "suite_log_assessment": {
+    "status": "NOT_EXERCISED",
+    "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+    "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+    "rationale": "Coverage is NOT_EXERCISED: the logged RADIUS SSH/Telnet cases do not include active-supervisor OIR and do not observe post-event RADIUS request egress/server receipt followed by successful authentication.",
+    "log_exercise_status": "NOT_EXERCISED",
+    "matched_criteria": [],
+    "unmatched_criteria": [
+      "active_supervisor_oir",
+      "post_event_radius_traffic_and_auth",
+      "working_radius_before_event"
+    ],
+    "candidate_tests": [
+      {
+        "uid": "TriggerLoginBlockSshRadiusLogin",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          2022,
+          2666
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "working_radius_before_event",
+            "status": "PARTIAL_CONTEXT",
+            "log_lines": [
+              2022,
+              2666
+            ],
+            "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "active_supervisor_oir",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              2022,
+              2666
+            ],
+            "observation": "No active-supervisor OIR is recorded in this candidate span.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "post_event_radius_traffic_and_auth",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              2022,
+              2666
+            ],
+            "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      },
+      {
+        "uid": "TriggerLoginBlockTelnetRadiusLogin",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          6776,
+          7431
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "working_radius_before_event",
+            "status": "PARTIAL_CONTEXT",
+            "log_lines": [
+              6776,
+              7431
+            ],
+            "observation": "This candidate contains ordinary RADIUS login setup/checks but is not a before/after OIR comparison.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "active_supervisor_oir",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              6776,
+              7431
+            ],
+            "observation": "No active-supervisor OIR is recorded in this candidate span.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "post_event_radius_traffic_and_auth",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              6776,
+              7431
+            ],
+            "observation": "No post-OIR packet egress/server receipt evidence or authentication check exists.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      }
+    ],
+    "candidate_execution_result": "PASS",
+    "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+    "generated_testcase_execution_result": "NOT_RUN",
+    "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+  },
+  "cleanup": [
+    "Restore supervisor/device state and saved RADIUS configuration, then recheck management and authentication."
+  ],
+  "coverage_requirements": [
+    {
+      "id": "working_radius_before_event",
+      "description": "The same RADIUS identity succeeds and its request is observed before the active supervisor event."
+    },
+    {
+      "id": "active_supervisor_oir",
+      "description": "The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed."
+    },
+    {
+      "id": "post_event_radius_traffic_and_auth",
+      "description": "After the event, the run proves request egress/server receipt and successful RADIUS authentication."
+    }
+  ],
+  "testcase_id": "TC_CSCwa16832_CENTRAL_BEHAVIOR",
+  "objective": "After an active supervisor OIR, verify that configured RADIUS requests leave the DUT and valid RADIUS authentication succeeds.",
+  "preconditions_and_setup": [
+    "Redundant Nexus lab system and approved active-supervisor OIR procedure with console/recovery access.",
+    "Configure a reachable RADIUS server and test identity; save configuration and prove authentication plus packet visibility before the event."
+  ],
+  "trigger_context": [
+    "The reproduction proves RADIUS works, physically removes the active supervisor, then observes failed authentication and no packet at egress/next-hop. Dump comments conflict on whether software switchover is equivalent; do not treat it as equivalent without evidence.",
+    "Coverage is based on the central behavior and observable assertion, not every reproduction detail unless the dump establishes that detail as necessary."
+  ],
+  "review": {
+    "reviewer": "Codex",
+    "basis": "Dumpcr behavior was validated in Codex review; TaskLog is primary for suite evidence and supplied source code is secondary context. The generated testcase itself has not run.",
+    "result": "source_reviewed"
+  },
+  "bugid": "CSCwa16832",
+  "source": {
+    "references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          254,
+          259
+        ],
+        "note": "Automation Log"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          262,
+          316
+        ],
+        "note": "DetectionLogic"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          319,
+          324
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          390,
+          416
+        ],
+        "note": "unit-test_kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          482,
+          539
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          542,
+          549
+        ],
+        "note": "Scrubnote"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          557,
+          592
+        ],
+        "note": "reproduction-steps"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          595,
+          617
+        ],
+        "note": "Release-note"
+      }
+    ],
+    "dumpcr_file": "bug_info/bug_CSCwa16832.txt"
+  },
+  "preconditions": [
+    "Redundant Nexus lab system and approved active-supervisor OIR procedure with console/recovery access.",
+    "Configure a reachable RADIUS server and test identity; save configuration and prove authentication plus packet visibility before the event."
+  ],
+  "uncertainties": [
+    "Source notes conflict on physical OIR versus software/ISSU switchover equivalence.",
+    "A physical OIR is destructive hardware activity; only perform through an approved lab procedure with recovery access."
+  ],
+  "interpretations": [
+    {
+      "claim": "Physical active-supervisor OIR is the firm central trigger; a software/ISSU switchover-only test should not be treated as equivalent without validation.",
+      "certainty": "uncertain for switchover equivalence; preserve OIR where safe and supported.",
+      "basis": "The reproduction is OIR-specific and scrubnote conflicts with release/automation notes that mention switchover."
+    }
+  ],
+  "bug_specific_action": "Perform the report’s active-supervisor physical OIR under the approved lab procedure. A software switchover may be considered only as a separately labeled, unproven variant.",
+  "evidence_to_collect": [
+    "The same RADIUS identity succeeds and its request is observed before the active supervisor event.",
+    "The run proves an active-supervisor OIR occurred; switchover equivalence is not assumed.",
+    "After the event, the run proves request egress/server receipt and successful RADIUS authentication.",
+    "Record testcase setup, output, cleanup and the cited dumpcr/TaskLog line ranges. Protect credentials and redact secrets."
+  ],
+  "suite": {
+    "integration_note": "The archived SSH/Telnet RADIUS cases pass ordinary login-block and authentication checks; neither contains a supervisor OIR/switchover followed by post-event packet and authentication checks.",
+    "source_availability": "The supplied suite source was reviewed as secondary evidence; TaskLog remains primary for this coverage assessment. The generated testcase itself remains NOT_RUN."
+  },
+  "intended_behavior": "After the active supervisor changes, the configured RADIUS service continues to send requests and valid RADIUS authentication still succeeds.",
+  "reproduction_context": {
+    "report_context": "The reproduction proves RADIUS works, physically removes the active supervisor, then observes failed authentication and no packet at egress/next-hop. Dump comments conflict on whether software switchover is equivalent; do not treat it as equivalent without evidence.",
+    "coverage_note": "Context only; required conditions are listed in coverage_requirements.",
+    "source_references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          254,
+          259
+        ],
+        "note": "Automation Log"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          262,
+          316
+        ],
+        "note": "DetectionLogic"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          319,
+          324
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          390,
+          416
+        ],
+        "note": "unit-test_kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          482,
+          539
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          542,
+          549
+        ],
+        "note": "Scrubnote"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          557,
+          592
+        ],
+        "note": "reproduction-steps"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          595,
+          617
+        ],
+        "note": "Release-note"
+      }
+    ]
+  },
+  "reported_failure": "After active supervisor OIR, RADIUS authentication fails with server lookup/retry errors and packet capture/next-hop sees no RADIUS request leaving the switch.",
+  "reported_behavior": {
+    "intended_behavior": "Physical active-supervisor OIR is the firm central trigger; a software/ISSU switchover-only test should not be treated as equivalent without validation.",
+    "expected_behavior_kind": "interpretation grounded in cited symptom and fix/verification evidence",
+    "conditions_from_report": "RADIUS is configured and proven working before the active supervisor event; then repeat authentication and inspect packet egress/server capture.",
+    "source_facts_are_cited": true,
+    "observed_incorrect_behavior": "After active supervisor OIR, RADIUS authentication fails with server lookup/retry errors and packet capture/next-hop sees no RADIUS request leaving the DUT."
+  }
+}

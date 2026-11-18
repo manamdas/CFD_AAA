@@ -10,14 +10,48 @@ from typing import Any
 
 
 BUG_ID_RE = re.compile(r"^\s*Bug ID\s*:\s*(CSC[A-Za-z0-9]+)", re.IGNORECASE)
+HEADER_FIELD_RE = re.compile(
+    r"\b(Headline|Status|Component|Product)\s*:\s*(.*?)"
+    r"(?=\s{2,}(?:Bug ID|Project|Status|Product|Component|Severity|Headline|Version)\s*:|$)",
+    re.IGNORECASE,
+)
+
+
+def summarize_coverage(coverage: dict[str, Any]) -> dict[str, Any]:
+    """Recalculate dashboard totals from per-bug assessments, never stale counters."""
+    scope = coverage.get("scope") or [item.get("bugid") for item in coverage.get("bugs", [])]
+    records = {item.get("bugid"): item for item in coverage.get("bugs", [])}
+    statuses = [records.get(bug_id, {}).get("status", "UNVERIFIED") for bug_id in scope]
+    pass_count = sum(status == "PASS" for status in statuses)
+    fail_count = sum(status == "FAIL" for status in statuses)
+    unverified_count = sum(status == "UNVERIFIED" for status in statuses)
+    not_exercised_count = sum(
+        status == "NOT_EXERCISED"
+        or records.get(bug_id, {}).get("log_exercise_status") == "NOT_EXERCISED"
+        for bug_id, status in zip(scope, statuses)
+    )
+    denominator = len(scope)
+    coverage.update({
+        "scope_count": denominator,
+        "coverage_pass_count": pass_count,
+        "coverage_fail_count": fail_count,
+        "coverage_unverified_count": unverified_count,
+        "coverage_not_exercised_count": not_exercised_count,
+        "coverage_percentage": round(100.0 * pass_count / denominator, 2) if denominator else 0.0,
+    })
+    return coverage
 
 
 def extract_bug_data(path: Path) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8", errors="replace")
     bug_id = None
+    fields: dict[str, str] = {}
     release_changes: list[tuple[str, str, str]] = []
 
     for line in text.splitlines():
+        if len(fields) < 4:
+            for field_match in HEADER_FIELD_RE.finditer(line):
+                fields.setdefault(field_match.group(1).lower(), field_match.group(2).strip())
         bug_match = BUG_ID_RE.match(line)
         if bug_match and bug_id is None:
             bug_id = bug_match.group(1)
@@ -46,7 +80,14 @@ def extract_bug_data(path: Path) -> dict[str, Any]:
             if new_value not in integrated_releases:
                 integrated_releases.append(new_value)
 
-    return {"bugid": bug_id, "integrated_releases": integrated_releases}
+    return {
+        "bugid": bug_id,
+        "headline": fields.get("headline", ""),
+        "status": fields.get("status", ""),
+        "component": fields.get("component", ""),
+        "product": fields.get("product", ""),
+        "integrated_releases": integrated_releases,
+    }
 
 
 def main() -> int:
@@ -62,6 +103,11 @@ def main() -> int:
         "--output",
         default="dashboard.json",
         help="dashboard JSON output path (default: dashboard.json)",
+    )
+    parser.add_argument(
+        "--coverage",
+        default="coverage_results.json",
+        help="reviewed suite coverage and run evidence JSON (default: coverage_results.json)",
     )
     args = parser.parse_args()
 
@@ -84,6 +130,21 @@ def main() -> int:
                     )
                 bug["testcase"] = testcase
         dashboard = {"total_bugs": len(bugs), "bugs": bugs}
+        coverage_path = Path(args.coverage)
+        if coverage_path.is_file():
+            with coverage_path.open(encoding="utf-8") as coverage_file:
+                coverage = json.load(coverage_file)
+            coverage = summarize_coverage(coverage)
+            coverage_by_bug = {
+                item["bugid"]: item for item in coverage.get("bugs", [])
+            }
+            for bug in bugs:
+                result = coverage_by_bug.get(bug["bugid"])
+                if result:
+                    bug["coverage"] = result
+            dashboard["coverage"] = {
+                key: value for key, value in coverage.items() if key != "bugs"
+            }
         output_path = Path(args.output)
         output_path.write_text(
             json.dumps(dashboard, indent=2, ensure_ascii=False) + "\n",

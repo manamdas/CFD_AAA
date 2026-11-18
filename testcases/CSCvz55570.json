@@ -1,0 +1,349 @@
+{
+  "title": "Inband TACACS login must reach authorization and apply the returned roles",
+  "source_facts": [
+    {
+      "source": "bug_info/bug_CSCvz55570.txt",
+      "claim": "The release note describes authentication/accounting reaching ISE while an authorization request does not; conditions include mgmt0 down and an inband route/server source interface.",
+      "lines": [
+        959,
+        998
+      ],
+      "kind": "dumpcr fact",
+      "note": "Release-note"
+    },
+    {
+      "source": "bug_info/bug_CSCvz55570.txt",
+      "claim": "The Unit-test notes show mgmt0 down, Vlan150 up, inband Telnet login and `show user-account` roles; the comments label the role result as evidence the authorization packet was sent successfully.",
+      "lines": [
+        505,
+        824
+      ],
+      "kind": "dumpcr fact",
+      "note": "Unit-test"
+    },
+    {
+      "source": "bug_info/bug_CSCvz55570.txt",
+      "claim": "The record says Cisco lab reproduction was not consistent, while the later verification comments identify a fix verification build and link a historical automation archive.",
+      "lines": [
+        437,
+        439
+      ],
+      "kind": "dumpcr fact",
+      "note": "DetectionUnsuitable and V-comments"
+    }
+  ],
+  "uncertainties": [
+    "The customer report says lab reproduction was not consistent. The test must capture ISE live logs or an approved packet trace; successful authentication by itself cannot prove authorization receipt.",
+    "The exact transport is Telnet in the historical transcript; equivalent remote login transport may be used if it causes the same authorization flow."
+  ],
+  "testcase_status": "SOURCE_REVIEWED",
+  "behavior_validation": {
+    "status": "VALIDATED_FROM_DUMPCR",
+    "central_behavior": "With the management interface unavailable and TACACS using the inband path, verify that a remote login reaches ISE authorization and the DUT applies the returned roles.",
+    "intended_behavior": "The bug-specific pass assertion should prove authorization request receipt at ISE and the expected roles on the remote account, in the inband/mgmt0-down condition.",
+    "review_notes": "The testcase defines required behavior and observable evidence; incidental reproduction details remain context unless required by the report.",
+    "reported_failure": "For the reported inband TACACS scenario, authentication/accounting traffic reaches ISE but its authorization request is reported not to reach ISE.",
+    "source_refs": [
+      "bug_info/bug_CSCvz55570.txt"
+    ],
+    "observable_assertion": "The relevant TACACS login uses the inband path while mgmt0 is down.; ISE logs or an approved capture proves the authorization request for this login reached the server.; DUT account evidence matches the roles returned by the ISE policy.",
+    "essential_conditions": [
+      "The relevant TACACS login uses the inband path while mgmt0 is down.",
+      "ISE logs or an approved capture proves the authorization request for this login reached the server.",
+      "DUT account evidence matches the roles returned by the ISE policy."
+    ]
+  },
+  "expected_after_fix": "The bug-specific pass assertion should prove authorization request receipt at ISE and the expected roles on the remote account, in the inband/mgmt0-down condition.",
+  "prerequisites": [
+    "Isolated DUT with a reachable lab ISE/TACACS server over an inband VLAN and independent console/recovery access.",
+    "Save AAA, source-interface, VLAN, routing and mgmt0 state; use a dedicated ISE identity/policy with known expected roles."
+  ],
+  "failure_condition": "For the reported inband TACACS scenario, authentication/accounting traffic reaches ISE but its authorization request is reported not to reach ISE.",
+  "suite_log_assessment": {
+    "status": "NOT_EXERCISED",
+    "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+    "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+    "rationale": "Coverage is NOT_EXERCISED: the logged Flexi SSH flow does not prove mgmt0 was down, that this login’s authorization request reached ISE, or that ISE-returned roles were applied.",
+    "log_exercise_status": "NOT_EXERCISED",
+    "matched_criteria": [],
+    "unmatched_criteria": [
+      "authorization_request_received",
+      "inband_mgmt0_down_condition",
+      "returned_roles_applied"
+    ],
+    "candidate_tests": [
+      {
+        "uid": "TriggerFlexiAaaSsh",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          24465,
+          25370
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "inband_mgmt0_down_condition",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "The log exercises general Flexi SSH authentication; it does not establish mgmt0-down for this login.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "authorization_request_received",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "No ISE live-log or packet-capture evidence ties receipt of the authorization request to this login.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "returned_roles_applied",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              24465,
+              25370
+            ],
+            "observation": "No assertion compares the DUT account roles with roles returned by ISE.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      }
+    ],
+    "candidate_execution_result": "PASS",
+    "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+    "generated_testcase_execution_result": "NOT_RUN",
+    "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+  },
+  "reproduction_context": {
+    "report_context": "The report uses remote TACACS authentication over the inband path with mgmt0 down; it records ISE authorization not arriving. The unit note uses Telnet and shows returned user roles in the historical verification transcript.",
+    "coverage_note": "Context only; required conditions are listed in coverage_requirements.",
+    "source_references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          505,
+          824
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          272,
+          308
+        ],
+        "note": "unit-test_kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          959,
+          998
+        ],
+        "note": "Release-note"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          437,
+          439
+        ],
+        "note": "DetectionUnsuitable"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          248,
+          254
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          427,
+          429
+        ],
+        "note": "Scrubnote"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          827,
+          951
+        ],
+        "note": "U-comments"
+      }
+    ]
+  },
+  "bugid": "CSCvz55570",
+  "coverage_requirements": [
+    {
+      "id": "inband_mgmt0_down_condition",
+      "description": "The relevant TACACS login uses the inband path while mgmt0 is down."
+    },
+    {
+      "id": "authorization_request_received",
+      "description": "ISE logs or an approved capture proves the authorization request for this login reached the server."
+    },
+    {
+      "id": "returned_roles_applied",
+      "description": "DUT account evidence matches the roles returned by the ISE policy."
+    }
+  ],
+  "testcase_id": "TC_CSCvz55570_CENTRAL_BEHAVIOR",
+  "objective": "With the management interface unavailable and TACACS using the inband path, verify that a remote login reaches ISE authorization and the DUT applies the returned roles.",
+  "preconditions_and_setup": [
+    "Isolated DUT with a reachable lab ISE/TACACS server over an inband VLAN and independent console/recovery access.",
+    "Save AAA, source-interface, VLAN, routing and mgmt0 state; use a dedicated ISE identity/policy with known expected roles."
+  ],
+  "trigger_context": [
+    "The report uses remote TACACS authentication over the inband path with mgmt0 down; it records ISE authorization not arriving. The unit note uses Telnet and shows returned user roles in the historical verification transcript.",
+    "Coverage is based on the central behavior and observable assertion, not every reproduction detail unless the dump establishes that detail as necessary."
+  ],
+  "review": {
+    "reviewer": "Codex",
+    "basis": "Dumpcr behavior was validated in Codex review; TaskLog is primary for suite evidence and supplied source code is secondary context. The generated testcase itself has not run.",
+    "result": "source_reviewed"
+  },
+  "status": "source_reviewed",
+  "source": {
+    "references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          505,
+          824
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          272,
+          308
+        ],
+        "note": "unit-test_kerry"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          959,
+          998
+        ],
+        "note": "Release-note"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          437,
+          439
+        ],
+        "note": "DetectionUnsuitable"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          248,
+          254
+        ],
+        "note": "V-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          427,
+          429
+        ],
+        "note": "Scrubnote"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          827,
+          951
+        ],
+        "note": "U-comments"
+      }
+    ],
+    "dumpcr_file": "bug_info/bug_CSCvz55570.txt"
+  },
+  "preconditions": [
+    "Isolated DUT with a reachable lab ISE/TACACS server over an inband VLAN and independent console/recovery access.",
+    "Save AAA, source-interface, VLAN, routing and mgmt0 state; use a dedicated ISE identity/policy with known expected roles."
+  ],
+  "requirements": [
+    {
+      "id": "inband_mgmt0_down_condition",
+      "description": "The relevant TACACS login uses the inband path while mgmt0 is down."
+    },
+    {
+      "id": "authorization_request_received",
+      "description": "ISE logs or an approved capture proves the authorization request for this login reached the server."
+    },
+    {
+      "id": "returned_roles_applied",
+      "description": "DUT account evidence matches the roles returned by the ISE policy."
+    }
+  ],
+  "reviewed": true,
+  "evidence_to_collect": [
+    "The relevant TACACS login uses the inband path while mgmt0 is down.",
+    "ISE logs or an approved capture proves the authorization request for this login reached the server.",
+    "DUT account evidence matches the roles returned by the ISE policy.",
+    "Record testcase setup, output, cleanup and the cited dumpcr/TaskLog line ranges. Protect credentials and redact secrets."
+  ],
+  "interpretations": [
+    {
+      "claim": "The bug-specific pass assertion should prove authorization request receipt at ISE and the expected roles on the remote account, in the inband/mgmt0-down condition.",
+      "certainty": "inferred from report and fix-verification transcript; correlate server-side evidence for the current run.",
+      "basis": "The reported defect is missing authorization; the unit-test transcript treats returned roles as evidence of successful authorization."
+    }
+  ],
+  "bug_specific_action": "Perform a remote login with the dedicated TACACS identity using a supported access transport.",
+  "steps": [
+    {
+      "action": "Configure the report-derived TACACS group/source-interface and inband route. Keep mgmt0 down for the scenario; verify the inband path and ISE policy/identity.",
+      "expected": "The login uses the intended inband route while mgmt0 is unavailable.",
+      "step": 1,
+      "phase": "setup"
+    },
+    {
+      "action": "Perform a remote login with the dedicated TACACS identity using a supported access transport.",
+      "expected": "The identity authenticates and an authorization request correlated to this login reaches ISE.",
+      "step": 2,
+      "phase": "bug-specific action"
+    },
+    {
+      "action": "Inspect ISE receipt/response and the DUT remote user account/roles.",
+      "expected": "ISE records the authorization exchange and the DUT account has the expected returned roles.",
+      "step": 3,
+      "phase": "assertion"
+    },
+    {
+      "action": "Restore mgmt0, routing, VLAN and AAA configuration; remove only test-created policy/account resources.",
+      "expected": "Original management reachability and AAA state are restored.",
+      "step": 4,
+      "phase": "cleanup"
+    }
+  ],
+  "suite": {
+    "integration_note": "TaskLog Flexi AAA SSH passes general remote AAA authentication, but does not establish mgmt0-down/inband conditions, ISE authorization receipt or returned roles.",
+    "source_availability": "The supplied suite source was reviewed as secondary evidence; TaskLog remains primary for this coverage assessment. The generated testcase itself remains NOT_RUN."
+  },
+  "reported_behavior": {
+    "intended_behavior": "The bug-specific pass assertion should prove authorization request receipt at ISE and the expected roles on the remote account, in the inband/mgmt0-down condition.",
+    "expected_behavior_kind": "interpretation grounded in cited symptom and fix/verification evidence",
+    "conditions_from_report": "Nexus 9k TACACS/ISE login over inband with mgmt0 down; release note specifies inband source-interface configuration. Exact customer reproduction was reported as not consistently reproducible in Cisco lab.",
+    "source_facts_are_cited": true,
+    "observed_incorrect_behavior": "For the reported inband TACACS scenario, authentication/accounting traffic reaches ISE but its authorization request is reported not to reach ISE."
+  },
+  "cleanup": [
+    "Restore mgmt0, routing, VLAN and AAA configuration; remove only test-created policy/account resources."
+  ]
+}

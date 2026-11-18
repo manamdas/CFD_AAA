@@ -19,12 +19,14 @@
       main { max-width: 1280px; margin: 28px auto; padding: 0 20px; }
       .toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
       .toolbar input { flex: 1; min-width: 180px; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; }
+      .toolbar select { padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; font: inherit; }
       button { padding: 10px 14px; border: 0; border-radius: 8px; background: #1769aa; color: white; font: inherit; cursor: pointer; }
       button:hover { background: #12558b; }
       .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-bottom: 22px; }
       .card { padding: 18px 20px; background: white; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 2px 6px #102a430c; }
       .card-label { color: #526477; font-size: .88rem; }
       .card-value { margin-top: 8px; font-size: 1.9rem; font-weight: 700; }
+      .coverage-help { color: #526477; margin: -8px 0 18px; font-size: .9rem; }
       .table-wrap { overflow-x: auto; background: white; border: 1px solid #e2e8f0; border-radius: 12px; }
       table { width: 100%; border-collapse: collapse; text-align: left; }
       th, td { padding: 13px 16px; vertical-align: top; border-bottom: 1px solid #edf1f5; }
@@ -35,6 +37,10 @@
       .releases { display: flex; flex-wrap: wrap; gap: 6px; }
       .release { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #eaf3fb; color: #174d75; font: .83rem ui-monospace, SFMono-Regular, Menlo, monospace; }
       .empty { color: #718096; }
+      .verdict { display: inline-block; padding: 4px 9px; border-radius: 999px; font-size: .82rem; font-weight: 700; white-space: nowrap; }
+      .verdict.pass { background: #dcfce7; color: #166534; }
+      .verdict.fail { background: #fee2e2; color: #991b1b; }
+      .verdict.neutral { background: #e2e8f0; color: #334155; }
       #status { color: #526477; font-size: .88rem; margin-left: auto; }
       #error { color: #b42318; padding: 16px; }
       @media (max-width: 560px) { .toolbar { flex-wrap: wrap; } #status { width: 100%; margin-left: 0; } }
@@ -43,22 +49,26 @@
   <body>
     <header>
       <h1>AAA Bug Dashboard</h1>
-      <p>Bug IDs and integrated releases from dumpcr records</p>
+      <p>Bug details, reviewed suite coverage, and archived run evidence</p>
     </header>
     <main>
       <div class="toolbar">
-        <input id="search" type="search" placeholder="Filter by bug ID or release" aria-label="Filter bugs">
+        <input id="search" type="search" placeholder="Search bug ID, headline, component, or release" aria-label="Search bugs">
+        <select id="coverage-filter" aria-label="Filter by testcase coverage"><option value="all">All coverage states</option><option value="PASS">Draft coverage PASS</option><option value="NOT_EXERCISED">NOT_EXERCISED</option><option value="FAIL">Coverage FAIL</option><option value="UNVERIFIED">Unverified</option><option value="none">Not scored</option></select>
+        <select id="sort-by" aria-label="Sort bugs"><option value="bugid">Sort: Bug ID</option><option value="coverage">Sort: Coverage</option><option value="release">Sort: Integrated release</option></select>
         <button id="refresh" type="button">Refresh</button>
         <span id="status" role="status">Loading…</span>
       </div>
-      <section class="cards" aria-label="Bug counts">
+      <section class="cards" aria-label="Bug counts and coverage score">
         <article class="card"><div class="card-label">Total bugs</div><div class="card-value" id="total">—</div></article>
         <article class="card"><div class="card-label">With integrated releases</div><div class="card-value" id="with-releases">—</div></article>
         <article class="card"><div class="card-label">Distinct integrated versions</div><div class="card-value" id="release-count">—</div></article>
+        <article class="card"><div class="card-label">Codex-reviewed draft coverage</div><div class="card-value" id="coverage-score">—</div><div class="card-label" id="coverage-detail"></div></article>
       </section>
+      <p class="coverage-help">Draft coverage compares the testcase’s central behavior with the archived log context. PASS means the log demonstrates that behavior; NOT_EXERCISED means the log does not. The suite candidate’s execution result and the generated testcase’s run status are shown separately. These are Codex-reviewed log assessments; generated testcases are not executed by this pipeline.</p>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Bug ID</th><th>Integrated releases</th><th>Testcase</th></tr></thead>
+          <thead><tr><th>Bug ID</th><th>Headline / component</th><th>Coverage result / evidence</th><th>Suite execution</th><th>Integrated releases</th><th>Testcase status / spec</th></tr></thead>
           <tbody id="bugs"></tbody>
         </table>
         <div id="error" hidden></div>
@@ -67,13 +77,23 @@
     <script>
       let allBugs = [];
       const search = document.getElementById("search");
+      const coverageFilter = document.getElementById("coverage-filter");
+      const sortBy = document.getElementById("sort-by");
 
       function renderRows() {
         const query = search.value.trim().toLowerCase();
-        const filtered = allBugs.filter((bug) =>
-          (bug.bugid || "").toLowerCase().includes(query) ||
-          (bug.integrated_releases || []).some((release) => release.toLowerCase().includes(query))
-        );
+        const filtered = allBugs.filter((bug) => {
+          const searchMatch = [bug.bugid, bug.headline, bug.component, bug.product, ...(bug.integrated_releases || [])]
+            .some((value) => (value || "").toLowerCase().includes(query));
+          const coverageStatus = bug.coverage && bug.coverage.status;
+          const stateMatch = coverageFilter.value === "all" ||
+            (coverageFilter.value === "none" ? !coverageStatus : coverageStatus === coverageFilter.value);
+          return searchMatch && stateMatch;
+        }).sort((a, b) => {
+          if (sortBy.value === "coverage") return (a.coverage?.status || "ZZZ").localeCompare(b.coverage?.status || "ZZZ") || a.bugid.localeCompare(b.bugid);
+          if (sortBy.value === "release") return (a.integrated_releases?.[0] || "").localeCompare(b.integrated_releases?.[0] || "") || a.bugid.localeCompare(b.bugid);
+          return (a.bugid || "").localeCompare(b.bugid || "");
+        });
         const body = document.getElementById("bugs");
         body.replaceChildren();
         for (const bug of filtered) {
@@ -85,6 +105,61 @@
           link.target = "_blank";
           link.rel = "noopener noreferrer";
           idCell.append(link);
+          const headlineCell = document.createElement("td");
+          const headline = document.createElement("strong");
+          headline.textContent = bug.headline || "Headline unavailable";
+          headlineCell.append(headline);
+          const component = document.createElement("p");
+          component.className = "empty";
+          component.textContent = [bug.component, bug.status ? "Status " + bug.status : ""].filter(Boolean).join(" · ");
+          headlineCell.append(component);
+          const coverageCell = document.createElement("td");
+          const coverage = bug.coverage;
+          if (coverage) {
+            const badge = document.createElement("span");
+            badge.className = "verdict " + (coverage.status === "PASS" ? "pass" : coverage.status === "UNVERIFIED" || coverage.status === "NOT_EXERCISED" ? "neutral" : "fail");
+            badge.textContent = coverage.status === "PASS" ? "DRAFT PASS" : coverage.status === "NOT_EXERCISED" ? "DRAFT NOT_EXERCISED" : coverage.status || "UNKNOWN";
+            coverageCell.append(badge);
+            const reasons = document.createElement("p");
+            reasons.className = "empty";
+            reasons.textContent = (coverage.reasons || []).join(" ");
+            coverageCell.append(reasons);
+            for (const mapping of coverage.suite_mappings || []) {
+              const evidence = document.createElement("p");
+              evidence.className = "empty";
+              evidence.textContent = mapping.uid + " · " + mapping.source + " lines " + mapping.log_lines.join("–") + ": " + (mapping.coverage_gap || mapping.behavior_evidence || "");
+              coverageCell.append(evidence);
+            }
+          } else {
+            coverageCell.innerHTML = '<span class="empty">Outside scored scope</span>';
+          }
+          const runCell = document.createElement("td");
+          if (coverage && coverage.latest_run) {
+            const badge = document.createElement("span");
+            const executionResult = coverage.latest_run.execution_result || "UNKNOWN";
+            badge.className = "verdict " + (executionResult === "PASS" ? "pass" : executionResult === "FAIL" ? "fail" : "neutral");
+            badge.textContent = executionResult;
+            runCell.append(badge);
+            const generatedRun = document.createElement("p");
+            generatedRun.className = "empty";
+            generatedRun.textContent = "Generated testcase: " + (coverage.latest_run.generated_testcase_execution || "UNKNOWN");
+            runCell.append(generatedRun);
+            const exercise = document.createElement("p");
+            exercise.className = "empty";
+            exercise.textContent = "Bug behavior in log: " + (coverage.latest_run.bug_behavior_in_log || "UNKNOWN");
+            runCell.append(exercise);
+            const note = document.createElement("p");
+            note.className = "empty";
+            note.textContent = coverage.latest_run.note || "";
+            runCell.append(note);
+            if (coverage.latest_run.run_id) {
+              const runId = document.createElement("small");
+              runId.textContent = coverage.latest_run.run_id;
+              runCell.append(runId);
+            }
+          } else {
+            runCell.innerHTML = '<span class="empty">No run record</span>';
+          }
           const releaseCell = document.createElement("td");
           const releases = bug.integrated_releases || [];
           if (releases.length) {
@@ -106,12 +181,52 @@
             const summary = document.createElement("summary");
             summary.textContent = bug.testcase.testcase_id + " · " + bug.testcase.status;
             details.append(summary);
+            if (bug.testcase.testcase_status) {
+              const status = document.createElement("p");
+              status.textContent = "Testcase status: " + bug.testcase.testcase_status;
+              details.append(status);
+            }
             const title = document.createElement("p");
             title.textContent = bug.testcase.title || "Testcase";
             details.append(title);
             const objective = document.createElement("p");
             objective.textContent = bug.testcase.objective || "";
             details.append(objective);
+            if (bug.testcase.source_facts?.length) {
+              const factsTitle = document.createElement("strong"); factsTitle.textContent = "Dumpcr source facts"; details.append(factsTitle);
+              const facts = document.createElement("ul");
+              for (const fact of bug.testcase.source_facts) {
+                const item = document.createElement("li");
+                const lines = fact.lines || [fact.source_lines?.start, fact.source_lines?.end].filter((line) => line !== undefined);
+                item.textContent = (fact.claim || fact.evidence_excerpt || "Source evidence") + " (" + fact.note + ", dumpcr lines " + lines.join("–") + ")";
+                facts.append(item);
+              }
+              details.append(facts);
+            }
+            if (bug.testcase.interpretations?.length) {
+              const title = document.createElement("strong"); title.textContent = "Interpretations"; details.append(title);
+              const interpretations = document.createElement("ul");
+              for (const interpretation of bug.testcase.interpretations) {
+                const item = document.createElement("li");
+                item.textContent = interpretation.claim + " Basis: " + interpretation.basis + " Certainty: " + interpretation.certainty;
+                interpretations.append(item);
+              }
+              details.append(interpretations);
+            }
+            for (const [label, value] of [["Expected after fix", bug.testcase.expected_after_fix], ["Failure condition", bug.testcase.failure_condition], ["Bug-specific action", bug.testcase.bug_specific_action]]) {
+              if (value) { const paragraph = document.createElement("p"); const strong = document.createElement("strong"); strong.textContent = label + ": "; paragraph.append(strong, document.createTextNode(value)); details.append(paragraph); }
+            }
+            if (bug.testcase.evidence_to_collect?.length) {
+              const evidenceTitle = document.createElement("strong"); evidenceTitle.textContent = "Evidence to collect"; details.append(evidenceTitle);
+              const evidenceList = document.createElement("ul");
+              for (const evidence of bug.testcase.evidence_to_collect) { const item = document.createElement("li"); item.textContent = evidence; evidenceList.append(item); }
+              details.append(evidenceList);
+            }
+            if (bug.testcase.coverage_requirements?.length) {
+              const criteria = document.createElement("ul");
+              for (const criterion of bug.testcase.coverage_requirements) { const item = document.createElement("li"); item.textContent = criterion.description; criteria.append(item); }
+              details.append(criteria);
+            }
             if (bug.testcase.suite && bug.testcase.suite.integration_note) {
               const note = document.createElement("p");
               note.className = "empty";
@@ -129,7 +244,7 @@
           } else {
             testcaseCell.innerHTML = '<span class="empty">No testcase spec</span>';
           }
-          row.append(idCell, releaseCell, testcaseCell);
+          row.append(idCell, headlineCell, coverageCell, runCell, releaseCell, testcaseCell);
           body.append(row);
         }
         document.getElementById("status").textContent = "Showing " + filtered.length + " of " + allBugs.length + " bugs";
@@ -147,6 +262,14 @@
           document.getElementById("with-releases").textContent = allBugs.filter((bug) => (bug.integrated_releases || []).length > 0).length;
           const versions = new Set(allBugs.flatMap((bug) => bug.integrated_releases || []));
           document.getElementById("release-count").textContent = versions.size;
+          const coverage = data.coverage || {};
+          if (coverage.scope_count) {
+            document.getElementById("coverage-score").textContent = Number(coverage.coverage_percentage ?? 0).toFixed(0) + "%";
+            document.getElementById("coverage-detail").textContent = (coverage.coverage_pass_count ?? 0) + " draft PASS · " + (coverage.coverage_fail_count ?? 0) + " FAIL · " + (coverage.coverage_not_exercised_count ?? 0) + " NOT_EXERCISED · " + (coverage.coverage_unverified_count ?? 0) + " UNVERIFIED (of " + coverage.scope_count + ")";
+          } else {
+            document.getElementById("coverage-score").textContent = "—";
+            document.getElementById("coverage-detail").textContent = "No scored bugs";
+          }
           renderRows();
         } catch (errorValue) {
           error.textContent = "Could not load dashboard.json: " + errorValue.message;
@@ -156,6 +279,8 @@
       }
 
       search.addEventListener("input", renderRows);
+      coverageFilter.addEventListener("change", renderRows);
+      sortBy.addEventListener("change", renderRows);
       document.getElementById("refresh").addEventListener("click", loadDashboard);
       loadDashboard();
       setInterval(loadDashboard, 60000);

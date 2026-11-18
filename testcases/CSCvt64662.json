@@ -1,0 +1,296 @@
+{
+  "title": "XML retrieval of TACACS server state must not crash non-sysmgr",
+  "source_facts": [
+    {
+      "source": "bug_info/bug_CSCvt64662.txt",
+      "claim": "The report says non-sysmgr crashes when `show tacacs-server` is requested through an XML client; it records a non-sysmgr core.",
+      "lines": [
+        1036,
+        1116
+      ],
+      "kind": "dumpcr fact",
+      "note": "reproduction-steps and Release-note"
+    },
+    {
+      "source": "bug_info/bug_CSCvt64662.txt",
+      "claim": "The Unit-test transcript sends a NETCONF get with a tacacs_dynamic_tree `show/tacacs-server` subtree and records replies for zero, one and two configured servers.",
+      "lines": [
+        739,
+        944
+      ],
+      "kind": "dumpcr fact",
+      "note": "Unit-test"
+    },
+    {
+      "source": "bug_info/bug_CSCvt64662.txt",
+      "claim": "The report records a fix verification in release 7.0(3)I7(8.63); the test transcript itself displays an 7.0(3)I7(8.8) build / I7(9) version output.",
+      "lines": [
+        639,
+        641
+      ],
+      "kind": "dumpcr fact",
+      "note": "V-comments and Unit-test"
+    }
+  ],
+  "uncertainties": [
+    "XML namespace is release-specific; use the target release schema.",
+    "The 0/1/2 server states are in the historical unit transcript; the central coverage requirement is the XML TACACS-state query plus a crash/stability assertion, not necessarily all three states unless required for the target fix."
+  ],
+  "testcase_status": "SOURCE_REVIEWED",
+  "behavior_validation": {
+    "status": "VALIDATED_FROM_DUMPCR",
+    "central_behavior": "Verify that an NX-OS XML-agent request for TACACS server state returns a usable reply and does not crash or restart non-sysmgr.",
+    "intended_behavior": "Expected fixed behavior is a valid XML response and no non-sysmgr crash for the queried TACACS state.",
+    "review_notes": "The testcase defines required behavior and observable evidence; incidental reproduction details remain context unless required by the report.",
+    "reported_failure": "The XML-agent `show/tacacs-server` request is reported to produce an invalid free / `show_tacacs_server` signal-6 failure followed by a non-sysmgr core.",
+    "source_refs": [
+      "bug_info/bug_CSCvt64662.txt"
+    ],
+    "observable_assertion": "The run sends an XML-agent request for TACACS server state and validates the reply.; The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core.",
+    "essential_conditions": [
+      "The run sends an XML-agent request for TACACS server state and validates the reply.",
+      "The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core."
+    ]
+  },
+  "expected_after_fix": "Expected fixed behavior is a valid XML response and no non-sysmgr crash for the queried TACACS state.",
+  "prerequisites": [
+    "Isolated NX-OS DUT with XML-agent access, console recovery, process/core monitoring, and saved TACACS configuration.",
+    "Use test-owned server entries or an approved empty-server state; protect credentials and restore the baseline."
+  ],
+  "failure_condition": "The XML-agent `show/tacacs-server` request is reported to produce an invalid free / `show_tacacs_server` signal-6 failure followed by a non-sysmgr core.",
+  "suite_log_assessment": {
+    "status": "NOT_EXERCISED",
+    "assessment_stage": "CODEX_REVIEWED_LOG_ASSESSMENT",
+    "review_method": "Dumpcr-derived behavior fields validated, then the central behavior was compared with surrounding TaskLog context; UID/result and cited ranges validated by script. Suite code was used only as secondary context.",
+    "rationale": "Coverage is NOT_EXERCISED: the logged candidate creates/modifies/deletes an OpenConfig TACACS server-group and checks NETCONF/config state; it never sends the XML-agent TACACS-state query from this bug. The later generic core check is not tied to that query.",
+    "log_exercise_status": "NOT_EXERCISED",
+    "matched_criteria": [],
+    "unmatched_criteria": [
+      "no_non_sysmgr_crash",
+      "xml_tacacs_state_read"
+    ],
+    "candidate_tests": [
+      {
+        "uid": "TriggerOcAaaTacacsServerGroupIpv4CreateModifyDelete",
+        "result": "PASS",
+        "source": "TaskLog.Task-1",
+        "log_lines": [
+          11119,
+          11751
+        ],
+        "criterion_evidence": [
+          {
+            "criterion_id": "xml_tacacs_state_read",
+            "status": "NOT_SHOWN",
+            "log_lines": [
+              11119,
+              11751
+            ],
+            "observation": "This UID performs NETCONF/OpenConfig server-group lifecycle/config checks; no XML-agent TACACS-state read appears in this run span.",
+            "quote_validation": "NOT_CLAIMED"
+          },
+          {
+            "criterion_id": "no_non_sysmgr_crash",
+            "status": "NOT_PROVEN",
+            "log_lines": [
+              11119,
+              11751
+            ],
+            "observation": "The generic core check is present after the unrelated CRUD sequence, so it does not establish stability after the bug-specific XML query.",
+            "quote_validation": "NOT_CLAIMED"
+          }
+        ]
+      }
+    ],
+    "candidate_execution_result": "PASS",
+    "execution_reason": "All mapped candidate testcases passed in the archived TaskLog; the generated bug testcase remains NOT_RUN.",
+    "generated_testcase_execution_result": "NOT_RUN",
+    "limitation": "Coverage is based primarily on the archived TaskLog. The generated testcase itself was not executed; the candidate suite run is separate execution evidence."
+  },
+  "reproduction_context": {
+    "report_context": "The report requests `show tacacs-server` through the NX-OS XML agent. The historical unit test queries the TACACS dynamic-tree subtree and captures results for zero, one and two configured servers; use the supported release namespace.",
+    "coverage_note": "Context only; required conditions are listed in coverage_requirements.",
+    "source_references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          739,
+          944
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1036,
+          1093
+        ],
+        "note": "reproduction-steps"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1026,
+          1033
+        ],
+        "note": "F-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1096,
+          1116
+        ],
+        "note": "Release-note"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          639,
+          641
+        ],
+        "note": "V-comments"
+      }
+    ]
+  },
+  "bugid": "CSCvt64662",
+  "coverage_requirements": [
+    {
+      "id": "xml_tacacs_state_read",
+      "description": "The run sends an XML-agent request for TACACS server state and validates the reply."
+    },
+    {
+      "id": "no_non_sysmgr_crash",
+      "description": "The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core."
+    }
+  ],
+  "testcase_id": "TC_CSCvt64662_CENTRAL_BEHAVIOR",
+  "objective": "Verify that an NX-OS XML-agent request for TACACS server state returns a usable reply and does not crash or restart non-sysmgr.",
+  "preconditions_and_setup": [
+    "Isolated NX-OS DUT with XML-agent access, console recovery, process/core monitoring, and saved TACACS configuration.",
+    "Use test-owned server entries or an approved empty-server state; protect credentials and restore the baseline."
+  ],
+  "trigger_context": [
+    "The report requests `show tacacs-server` through the NX-OS XML agent. The historical unit test queries the TACACS dynamic-tree subtree and captures results for zero, one and two configured servers; use the supported release namespace.",
+    "Coverage is based on the central behavior and observable assertion, not every reproduction detail unless the dump establishes that detail as necessary."
+  ],
+  "review": {
+    "reviewer": "Codex",
+    "basis": "Dumpcr behavior was validated in Codex review; TaskLog is primary for suite evidence and supplied source code is secondary context. The generated testcase itself has not run.",
+    "result": "source_reviewed"
+  },
+  "status": "source_reviewed",
+  "source": {
+    "references": [
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          739,
+          944
+        ],
+        "note": "Unit-test"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1036,
+          1093
+        ],
+        "note": "reproduction-steps"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1026,
+          1033
+        ],
+        "note": "F-comments"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          1096,
+          1116
+        ],
+        "note": "Release-note"
+      },
+      {
+        "use": "Source evidence reviewed for testcase facts/interpretation.",
+        "lines": [
+          639,
+          641
+        ],
+        "note": "V-comments"
+      }
+    ],
+    "dumpcr_file": "bug_info/bug_CSCvt64662.txt"
+  },
+  "preconditions": [
+    "Isolated NX-OS DUT with XML-agent access, console recovery, process/core monitoring, and saved TACACS configuration.",
+    "Use test-owned server entries or an approved empty-server state; protect credentials and restore the baseline."
+  ],
+  "requirements": [
+    {
+      "id": "xml_tacacs_state_read",
+      "description": "The run sends an XML-agent request for TACACS server state and validates the reply."
+    },
+    {
+      "id": "no_non_sysmgr_crash",
+      "description": "The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core."
+    }
+  ],
+  "reviewed": true,
+  "evidence_to_collect": [
+    "The run sends an XML-agent request for TACACS server state and validates the reply.",
+    "The run checks that the query does not crash/restart non-sysmgr or produce a corresponding new core.",
+    "Record testcase setup, output, cleanup and the cited dumpcr/TaskLog line ranges. Protect credentials and redact secrets."
+  ],
+  "interpretations": [
+    {
+      "claim": "Expected fixed behavior is a valid XML response and no non-sysmgr crash for the queried TACACS state.",
+      "certainty": "inferred; test against the target release and exact namespace.",
+      "basis": "Inferred from the reported crash symptom, post-fix query transcript, and V verification record."
+    }
+  ],
+  "bug_specific_action": "Send the supported NX-OS XML-agent/NETCONF request that reads `show/tacacs-server` state. Use a documented empty or test-owned server configuration; optionally extend to the report’s 0/1/2-server matrix.",
+  "steps": [
+    {
+      "action": "Record the target image, current TACACS state, non-sysmgr health, uptime/restart data and core inventory; save configuration for cleanup.",
+      "expected": "Baseline and recovery state are available.",
+      "step": 1,
+      "phase": "setup"
+    },
+    {
+      "action": "Send the supported NX-OS XML-agent/NETCONF request that reads `show/tacacs-server` state. Use a documented empty or test-owned server configuration; optionally extend to the report’s 0/1/2-server matrix.",
+      "expected": "The XML session returns a well-formed reply with TACACS state matching the configured state.",
+      "step": 2,
+      "phase": "trigger"
+    },
+    {
+      "action": "Check XML session health, non-sysmgr process/restart state and new core inventory after the request.",
+      "expected": "The query completes without a non-sysmgr crash/restart or corresponding new core.",
+      "step": 3,
+      "phase": "assertion"
+    },
+    {
+      "action": "Remove only test-created AAA entries and restore the saved configuration.",
+      "expected": "Baseline configuration and normal process health are restored.",
+      "step": 4,
+      "phase": "cleanup"
+    }
+  ],
+  "suite": {
+    "integration_note": "TaskLog candidate is OpenConfig/NETCONF server-group CRUD. It does not send the XML TACACS-state query; its generic core check is not tied to that trigger.",
+    "source_availability": "The supplied suite source was reviewed as secondary evidence; TaskLog remains primary for this coverage assessment. The generated testcase itself remains NOT_RUN."
+  },
+  "reported_behavior": {
+    "intended_behavior": "Expected fixed behavior is a valid XML response and no non-sysmgr crash for the queried TACACS state.",
+    "expected_behavior_kind": "interpretation grounded in cited symptom and fix/verification evidence",
+    "conditions_from_report": "An XML client invokes the NX-OS TACACS server-state query; the historical unit transcript exercises empty, one-server and two-server configurations.",
+    "source_facts_are_cited": true,
+    "observed_incorrect_behavior": "The XML-agent `show/tacacs-server` request is reported to produce an invalid free / `show_tacacs_server` signal-6 failure followed by a non-sysmgr core."
+  },
+  "cleanup": [
+    "Remove only test-created AAA entries and restore the saved configuration."
+  ]
+}
